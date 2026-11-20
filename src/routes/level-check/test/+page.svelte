@@ -54,16 +54,14 @@
 	import type { PageData } from './$types';
 	import { t } from '$lib/i18n/t';
 	import { lang } from '$lib/i18n/lang.svelte';
-	import { levelTranslated } from '$lib/i18n/available';
 	import { inLang } from '$lib/i18n/content.svelte';
 
 	let { data }: { data: PageData } = $props();
 	const courseHref = $derived(page.data.site?.courseHref ?? `/course/${data.courseId}`);
-	// In Turkish the test only places within A1–A2, and its sentences and
-	// questions come through each level's Turkish overlay.
-	const inTr = (l: string) => !lang.limited || levelTranslated(l);
-	const levels = $derived(data.bank.levels.filter(inTr));
-	const wordLevels = $derived(bankLevels(data.words).filter(inTr));
+	// In a second language the test still places from A1 to C2: A1–A2 items
+	// come through each level's overlay, B1–C2 items as they are.
+	const levels = $derived(data.bank.levels);
+	const wordLevels = $derived(bankLevels(data.words));
 	const perLevel = <T,>(rec: Record<string, T>) =>
 		Object.fromEntries(Object.entries(rec).map(([l, v]) => [l, inLang(v, l)])) as Record<string, T>;
 	const bank = $derived(

@@ -11,7 +11,7 @@
 	import { t } from '$lib/i18n/t';
 	import { lang } from '$lib/i18n/lang.svelte';
 	import { inLangBookFront, inLangChapter } from '$lib/i18n/content.svelte';
-	import { BOOKS, bookPdf, hasLocalPdf } from '$lib/content/books';
+	import { BOOKS, bookPdf, pdfOffered } from '$lib/content/books';
 
 	import { onMount, tick } from 'svelte';
 	let { data }: { data: PageData } = $props();
@@ -368,7 +368,7 @@
 				<Icon name="printer" size="1em" /> <span class="lbl">{t('Print')}</span>
 			</button>
 			<!-- Turkish: the Turkish edition's PDF once it is printed; until then printing the page is the way. -->
-			{#if !lang.limited || (entry && hasLocalPdf(entry, lang.current))}
+			{#if !entry || pdfOffered(entry, lang.current)}
 				<a
 					class="btn"
 					title={t('Download the PDF')}

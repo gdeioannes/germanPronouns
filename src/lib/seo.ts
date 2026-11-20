@@ -20,7 +20,8 @@ export const LOCALES: Record<string, { ogLocale: string }> = {
 	en: { ogLocale: 'en_GB' },
 	tr: { ogLocale: 'tr_TR' },
 	ar: { ogLocale: 'ar_AR' },
-	uk: { ogLocale: 'uk_UA' }
+	uk: { ogLocale: 'uk_UA' },
+	fr: { ogLocale: 'fr_FR' }
 };
 
 /** One translated twin of a page, for its hreflang link. */
@@ -158,17 +159,40 @@ const LOCAL_SEO: Record<
 		free: 'З поясненнями українською, правилами, прикладами й аудіо, безкоштовно.',
 		level: 'німецька мова: пояснення і вправи',
 		levelLine: (level, n) => `${n} безкоштовних вправ з німецької ${level} з поясненнями українською, кожне речення з аудіо.`
+	},
+	fr: {
+		kind: {
+			fillBlank: 'grammaire allemande : cours et exercices',
+			reading: 'exercice de lecture en allemand',
+			listening: 'exercice de compréhension orale en allemand',
+			dictation: 'dictée en allemand',
+			speakRepeat: 'exercice de prononciation allemande',
+			speaking: "exercice d'expression orale en allemand",
+			writing: "exercice d'expression écrite en allemand",
+			vocabulary: 'fiches de vocabulaire allemand',
+			suchbild: 'jeu de vocabulaire allemand en images'
+		},
+		german: 'allemand',
+		free: 'Expliqué en français, avec règles, exemples et audio, gratuit.',
+		level: 'allemand : cours et exercices',
+		levelLine: (level, n) => `${n} exercices d'allemand ${level} gratuits, expliqués en français, chaque phrase avec audio.`
 	}
 };
+
+/** "A1: " — French puts a narrow no-break space (U+202F) before the colon and semicolon, as fr.ts does. */
+function levelLead(level: string, l: LocalLang | null): string {
+	return l === 'fr' ? `${level} : ` : `${level}: `;
+}
 
 /** The level page's title and description in a second language, or null in English. */
 export function localLevelSeo(title: string, level: string, canDo: string[] | undefined, n: number) {
 	const l = lang.local;
 	if (!l) return null;
 	const words = LOCAL_SEO[l];
+	const sep = l === 'ar' ? '؛ ' : l === 'fr' ? ' ; ' : '; ';
 	return {
 		title: titleWithSite(`${title} (${level}) – ${words.level}`),
-		description: clip(`${canDo?.length ? `${level}: ${canDo.slice(0, 2).join(l === 'ar' ? '؛ ' : '; ')}. ` : ''}${words.levelLine(level, n)}`)
+		description: clip(`${canDo?.length ? `${levelLead(level, l)}${canDo.slice(0, 2).join(sep)}. ` : ''}${words.levelLine(level, n)}`)
 	};
 }
 
@@ -222,7 +246,9 @@ export function quizDescription(quiz: Quiz): string {
 	const cefr = cefrOf(quiz.level);
 	const local = lang.local;
 	if (local) {
-		const opening = intro ? `${cefr}: ${lead(intro, 150)}` : `${LOCAL_SEO[local].kind[quiz.type]} ${cefr}: ${topicOf(quiz.title)}.`;
+		const opening = intro
+			? `${levelLead(cefr, local)}${lead(intro, 150)}`
+			: `${LOCAL_SEO[local].kind[quiz.type]} ${levelLead(cefr, local)}${topicOf(quiz.title)}.`;
 		if (opening.length >= 100) return clip(opening);
 		const padded = `${opening} ${LOCAL_SEO[local].free}`.replace(/\s+/g, ' ');
 		return padded.length <= 155 ? padded : clip(opening);

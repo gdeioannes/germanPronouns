@@ -58,10 +58,7 @@ export const TR: Record<string, string> = {
 	café: 'kafe',
 	friends: 'arkadaşlar',
 	'Blue beach chairs on the Baltic beach at Rostock': 'Rostock’ta Baltık kıyısında mavi plaj koltukları',
-	'Four levels in your language, all open': 'Türkçe dört seviye, hepsi açık',
 	'Start at your level.': 'Kendi seviyenden başla.',
-	'From your first Hallo to A2. A short check tells you where to begin, and you can move up or back whenever you like.':
-		'İlk Hallo’ndan A2’ye kadar. Kısa bir test nereden başlayacağını söyler; istediğin zaman ileri ya da geri gidebilirsin.',
 	'Find my level': 'Seviyemi bul',
 	'Fruit and vegetables piled high at the Viktualienmarkt in Munich': 'Münih’teki Viktualienmarkt’ta yığın yığın meyve ve sebze',
 	'Learn the rule, then use it': 'Kuralı öğren, sonra kullan',
@@ -72,8 +69,6 @@ export const TR: Record<string, string> = {
 	'The old registry office in Bad Honnef, a half-timbered house': 'Bad Honnef’teki eski nikâh dairesi, yarı ahşap bir ev',
 	'On paper too': 'Kâğıt üzerinde de',
 	'A book for every level.': 'Her seviye için bir kitap.',
-	'Four books, each chapter a real place in Germany. Do a page with a pencil, scan its code, and the app checks it.':
-		'Dört kitap, her bölüm Almanya’da gerçek bir yer. Bir sayfayı kalemle çöz, kodunu tara, uygulama kontrol etsin.',
 	'See the books': 'Kitapları gör',
 	'Women and men in traditional dress at the Oktoberfest parade in Munich':
 		'Münih’te Oktoberfest geçidinde geleneksel kıyafetli kadınlar ve erkekler',
@@ -89,7 +84,6 @@ export const TR: Record<string, string> = {
 	'Life in Germany': 'Almanya’da hayat',
 	'{i} of {n}': '{i} / {n}',
 	'Keep learning': 'Öğrenmeye devam et',
-	'The four levels': 'Dört seviye',
 	'your level': 'seviyen',
 	'Why:': 'Neden:',
 	'where you go → accusative.': 'gidilen yer → Akkusativ (-e hâli gibi).',
@@ -106,7 +100,6 @@ export const TR: Record<string, string> = {
 	'Start learning German': 'Almanca öğrenmeye başla',
 	'Continue learning': 'Öğrenmeye devam et',
 	'repeat aloud': 'sesli tekrar',
-	'The books, A1 to A2': 'Kitaplar, A1’den A2’ye',
 	'free PDFs': 'ücretsiz PDF’ler',
 	'Swipe until something catches you': 'İlgini çeken bir şey bulana kadar kaydır',
 	'pick a mission': 'bir görev seç',
@@ -128,7 +121,6 @@ export const TR: Record<string, string> = {
 		'On iki bölüm, her biri Almanya’da gerçek bir yer: önce kelimeler, bir fotoğraf, bir hikâye, iki kural, gerçek bir belge ve alıştırmalar. Her sayfadaki kod o bölümü uygulamada açar: cevaplarını kontrol et, kelimeleri kartlarla öğren, metinleri dinle. 131 sayfa.',
 	'Download the PDF · {mb} MB': 'PDF’yi indir · {mb} MB',
 	'Look inside first': 'Önce içine göz at',
-	'The four books, A1.1 to A2.2': 'Dört kitap, A1.1’den A2.2’ye',
 	'Each one has twelve new places, twelve stories and real German documents. All free, 131 pages each.':
 		'Her birinde on iki yeni yer, on iki hikâye ve gerçek Almanca belgeler var. Hepsi ücretsiz, her biri 131 sayfa.',
 	'Look inside': 'İçine göz at',
@@ -145,14 +137,10 @@ export const TR: Record<string, string> = {
 	'No. If you want your progress on more than one device, sign in with just your email address — no password, nothing else asked.':
 		'Hayır. İlerlemeni birden fazla cihazda istiyorsan yalnızca e-posta adresinle giriş yap: şifre yok, başka bir şey sorulmaz.',
 	'I already speak some German — must I start at A1?': 'Biraz Almanca biliyorum, A1’den mi başlamalıyım?',
-	'No. Nothing is locked: pick the level that matches you from the four sub-levels in your language (A1.1 to A2.2) and start there.':
-		'Hayır. Hiçbir şey kilitli değil: Türkçedeki dört alt seviyeden (A1.1–A2.2) sana uyanı seç ve oradan başla.',
 	'Does it work on my phone?': 'Telefonumda çalışır mı?',
 	'Yes. It is a website, so it runs in any browser on a phone, tablet or computer, with nothing to install.':
 		'Evet. Bir web sitesi olduğu için telefonda, tablette ya da bilgisayarda her tarayıcıda çalışır, bir şey kurman gerekmez.',
 	'Does it prepare me for an exam?': 'Beni bir sınava hazırlar mı?',
-	'In your language the course covers A1 and A2 of the CEFR scale and the skills exams test: reading, listening, writing and speaking. Language Quiz is an independent study aid and is not affiliated with any examination body.':
-		'Türkçe kurs, Avrupa Dilleri Ortak Çerçevesi’nin (CEFR) A1 ve A2 seviyelerini ve sınavların ölçtüğü becerileri kapsar: okuma, dinleme, yazma ve konuşma. Language Quiz bağımsız bir çalışma aracıdır ve hiçbir sınav kurumuyla bağlantısı yoktur.',
 	'How is AI used?': 'Yapay zekâ nasıl kullanılıyor?',
 	'Illustrations and the audio voices are generated; the lessons and exercises are written and checked by a person. Nothing you do is sent to an AI. More on the About page.':
 		'Resimler ve ses kayıtlarındaki sesler yapay zekâyla üretilir; dersleri ve alıştırmaları bir insan yazar ve kontrol eder. Türkçe açıklamalar yapay zekâyla çevrildi. Yaptığın hiçbir şey bir yapay zekâya gönderilmez. Ayrıntılar Hakkında sayfasında.',
@@ -160,15 +148,12 @@ export const TR: Record<string, string> = {
 	// ── Start ────────────────────────────────────────────────
 	'Before your first card': 'İlk kartından önce',
 	'Where do you start?': 'Nereden başlıyorsun?',
-	'In your language the course runs from your first Hallo to A2. Start where you are, not at the beginning by default.':
-		'Türkçe kurs ilk Hallo’ndan A2’ye kadar gider. Bulunduğun yerden başla, illa en baştan değil.',
 	'I’m new to German': 'Almancada yeniyim',
 	'Start with the very first lesson: numbers, hello, your name.': 'En baştaki dersle başla: sayılar, merhaba, adın.',
 	'I know some German: find my level': 'Biraz Almanca biliyorum: seviyemi bul',
 	'A ten-minute placement test: words, grammar, reading and listening. You start where it puts you, and you can skip out and pick a level at any point.':
 		'On dakikalık bir seviye testi: kelimeler, dilbilgisi, okuma ve dinleme. Testin seni yerleştirdiği yerden başlarsın; istediğin an çıkıp kendin bir seviye seçebilirsin.',
 	'I know my level': 'Seviyemi biliyorum',
-	'Pick it from the four sub-levels, A1.1 to A2.2.': 'Dört alt seviyeden seç: A1.1’den A2.2’ye.',
 	'Nothing is locked, whatever you choose. You can change the level any time from your deck, or retake the test under':
 		'Ne seçersen seç, hiçbir şey kilitli değil. Seviyeyi istediğin zaman destenden değiştirebilir ya da testi yeniden yapabilirsin:',
 	// LEVEL_MEANING (domain/wordCheck), A levels only
@@ -1824,8 +1809,6 @@ export const TR: Record<string, string> = {
 		"A1’den C2’ye Almanca ders kitapları, ücretsiz PDF",
 	"Books":
 		"Kitaplar",
-	"One book per level, four in your language (A1.1 to A2.2). Each has twelve chapters, each chapter a real place in Germany: words first, a photo, a story, two rules, a real document, and the practice. The audio is a QR code away. All free, {pages} pages each.":
-		"Her seviye için bir kitap, Türkçe dört tane (A1.1’den A2.2’ye). Her birinde on iki bölüm var, her bölüm Almanya’da gerçek bir yer: önce kelimeler, bir fotoğraf, bir hikâye, iki kural, gerçek bir belge ve alıştırmalar. Sesler bir QR kod uzağında. Hepsi ücretsiz, her biri {pages} sayfa.",
 	"Contact Language Quiz: questions, mistakes and ideas":
 		"Language Quiz ile iletişim: sorular, hatalar ve fikirler",
 	"Contact Language Quiz":
@@ -2447,4 +2430,46 @@ export const TR: Record<string, string> = {
 		"Wortblöcke oyna",
 	"No sign-up":
 		"Üyelik gerekmez",
+	"Twelve levels, all open: four in your language":
+		"On iki seviye, hepsi açık: dördü Türkçe",
+	"From your first Hallo to C2: up to A2 explained in your language, then German explained in German. A short check tells you where to begin, and you can move up or back whenever you like.":
+		"İlk Hallo’ndan C2’ye kadar: A2’ye kadar Türkçe açıklamalı, sonrası Almanca açıklamalı. Kısa bir test nereden başlayacağını söyler; istediğin zaman ileri ya da geri gidebilirsin.",
+	"The twelve levels":
+		"On iki seviye",
+	"Twelve books, the first four in your language. Each chapter is a real place in Germany. Do a page with a pencil, scan its code, and the app checks it.":
+		"On iki kitap, ilk dördü Türkçe. Her bölüm Almanya’da gerçek bir yer. Bir sayfayı kalemle çöz, kodunu tara, uygulama kontrol etsin.",
+	"The books, A1 to C2":
+		"Kitaplar, A1’den C2’ye",
+	"The twelve books, A1.1 to C2.2":
+		"On iki kitap, A1.1’den C2.2’ye",
+	"Explained in German":
+		"Almanca açıklamalı",
+	"One book per level, twelve in all: A1.1 to A2.2 in your language, then in German, the way the course goes on. Each has twelve chapters, each chapter a real place in Germany: words first, a photo, a story, two rules, a real document, and the practice. The audio is a QR code away. All free, {pages} pages each.":
+		"Her seviye için bir kitap, toplam on iki: A1.1’den A2.2’ye Türkçe, sonrası kursun devamı gibi Almanca. Her birinde on iki bölüm var, her bölüm Almanya’da gerçek bir yer: önce kelimeler, bir fotoğraf, bir hikâye, iki kural, gerçek bir belge ve alıştırmalar. Sesler bir QR kod uzağında. Hepsi ücretsiz, her biri {pages} sayfa.",
+	"The course runs from your first Hallo to C2: up to A2 explained in your language, then in German. Start where you are, not at the beginning by default.":
+		"Kurs ilk Hallo’ndan C2’ye kadar gider: A2’ye kadar Türkçe açıklamalı, sonrası Almanca. Bulunduğun yerden başla, illa en baştan değil.",
+	"Pick it from the twelve sub-levels, A1.1 to C2.2.":
+		"On iki alt seviyeden seç: A1.1’den C2.2’ye.",
+	"No. Nothing is locked: pick the level that matches you from the twelve sub-levels (A1.1 to A2.2 in your language, then in German) and start there.":
+		"Hayır. Hiçbir şey kilitli değil: on iki alt seviyeden (A1.1–A2.2 Türkçe, sonrası Almanca) sana uyanı seç ve oradan başla.",
+	"The course covers A1 to C2 of the CEFR scale, A1 and A2 explained in your language, and the skills exams test: reading, listening, writing and speaking. Language Quiz is an independent study aid and is not affiliated with any examination body.":
+		"Kurs, Avrupa Dilleri Ortak Çerçevesi’nin (CEFR) A1’den C2’ye kadar tüm seviyelerini (A1 ve A2 Türkçe açıklamalı) ve sınavların ölçtüğü becerileri kapsar: okuma, dinleme, yazma ve konuşma. Language Quiz bağımsız bir çalışma aracıdır ve hiçbir sınav kurumuyla bağlantısı yoktur.",
+	"Exercise":
+		"Alıştırma",
+	"Grammar & words":
+		"Dilbilgisi ve kelimeler",
+	"Speaking · conversation":
+		"Konuşma · sohbet",
+	"Speaking · repeat":
+		"Konuşma · tekrar",
+	"Text work":
+		"Metin çalışması",
+	"Vocabulary":
+		"Kelimeler",
+	"Play all":
+		"Hepsini çal",
+	"Open the exercise":
+		"Alıştırmayı aç",
+	"Play {n}":
+		"{n} numarayı çal",
 };

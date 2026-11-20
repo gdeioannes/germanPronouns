@@ -39,9 +39,47 @@ export const LOCAL_ROUTES = new Set<string>([
 	// A book page's quiz list (the App side of a page code).
 	'/course/[courseId]/book2/[levelId]/[chapterId]/app/[part]',
 	'/books',
-	'/b/[code]'
+	'/b/[code]',
+	// The audio player a book's QR code opens: the translated books print these codes too.
+	'/play/[quizId]'
 ]);
 
 export function routeTranslated(routeId: string | null | undefined): boolean {
 	return !!routeId && LOCAL_ROUTES.has(routeId);
+}
+
+/**
+ * Pages that are not translated but still open in a second language, as they
+ * are (English): someone who arrives by a link (a search, a chat, a shared
+ * address) gets the page, not a dead end. They stay out of that language's
+ * menus, which list only what is translated. Sign-in, the forum and the
+ * owner's tools stay hidden: they need an account, and that flow is English-only.
+ */
+export const OPEN_ROUTES = new Set<string>([
+	'/changelog',
+	'/level-check/words',
+	'/words',
+	'/words/dictionary',
+	'/words/nouns',
+	'/words/nouns/[slug]',
+	'/words/verbs',
+	'/words/verbs/[slug]',
+	'/literature',
+	'/literature/die-verwandlung',
+	'/literature/die-verwandlung/[stage]',
+	'/stories',
+	'/story/ep0-lost-in-berlin',
+	'/story/ep1-empty-room',
+	'/story/ep2-secret-room',
+	'/play/wortbloecke',
+	'/play/ja-nein',
+	'/play/ja-nein/personas',
+	'/play/schreib-mir',
+	'/play/schreib-mir/[id]',
+	'/play/schreib-mir/kontakte'
+]);
+
+/** Open, untranslated: shown in English inside a second language. */
+export function routeOpenAsIs(routeId: string | null | undefined): boolean {
+	return !!routeId && OPEN_ROUTES.has(routeId);
 }

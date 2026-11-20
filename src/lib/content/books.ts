@@ -3,9 +3,10 @@
 // `mb` is the PDF's size on disk, rounded; update it when a book is reprinted
 // (`node tool/gen-book2.mjs <Level> --web`). `local` holds the second-language
 // editions (A1–A2) by language, each its PDF's size:
-// `node tool/gen-book2.mjs <Level> --web --lang <tr|ar>`, cover via tool/turkish/covers.mjs.
+// `node tool/gen-book2.mjs <Level> --web --lang <tr|ar|uk|fr>`, cover via tool/turkish/covers.mjs.
 
 import type { UiLang, LocalLang } from '$lib/i18n/lang.svelte';
+import { levelTranslated } from '$lib/i18n/available';
 
 export interface BookEntry {
 	/** The level as printed on the cover, e.g. "B1.1". */
@@ -23,10 +24,10 @@ export interface BookEntry {
 }
 
 export const BOOKS: BookEntry[] = [
-	{ level: 'A1.1', file: 'a1_1', cover: 'a1-1', sub: 'Erste Schritte', mb: 39, local: { tr: 40, ar: 42, uk: 40 } },
-	{ level: 'A1.2', file: 'a1_2', cover: 'a1-2', sub: 'Im Alltag', mb: 37, local: { tr: 37, ar: 39, uk: 38 } },
-	{ level: 'A2.1', file: 'a2_1', cover: 'a2-1', sub: 'Erlebnisse', mb: 33, local: { tr: 33, ar: 36, uk: 34 } },
-	{ level: 'A2.2', file: 'a2_2', cover: 'a2-2', sub: 'Beschreiben & Planen', mb: 35, local: { tr: 36, ar: 38, uk: 37 } },
+	{ level: 'A1.1', file: 'a1_1', cover: 'a1-1', sub: 'Erste Schritte', mb: 39, local: { tr: 40, ar: 42, uk: 40, fr: 40 } },
+	{ level: 'A1.2', file: 'a1_2', cover: 'a1-2', sub: 'Im Alltag', mb: 37, local: { tr: 37, ar: 39, uk: 38, fr: 37 } },
+	{ level: 'A2.1', file: 'a2_1', cover: 'a2-1', sub: 'Erlebnisse', mb: 33, local: { tr: 33, ar: 36, uk: 34, fr: 33 } },
+	{ level: 'A2.2', file: 'a2_2', cover: 'a2-2', sub: 'Beschreiben & Planen', mb: 35, local: { tr: 36, ar: 38, uk: 37, fr: 36 } },
 	{ level: 'B1.1', file: 'b1_1', cover: 'b1-1', sub: 'Meinungen & Wünsche', mb: 32 },
 	{ level: 'B1.2', file: 'b1_2', cover: 'b1-2', sub: 'Erzählen & Begründen', mb: 34 },
 	{ level: 'B2.1', file: 'b2_1', cover: 'b2-1', sub: 'Berichten & Argumentieren', mb: 30 },
@@ -60,6 +61,12 @@ export const bookCover = (book: BookEntry, l: UiLang = 'en') => {
 };
 /** Has this book an edition in `l` to download? */
 export const hasLocalPdf = (book: BookEntry, l: UiLang) => edition(book, l) !== null;
+/**
+ * Is there a PDF to offer in `l`? English always; a second language its own
+ * edition for A1–A2, and for B1–C2 (never translated) the book as it is.
+ */
+export const pdfOffered = (book: BookEntry, l: UiLang) =>
+	l === 'en' || hasLocalPdf(book, l) || !levelTranslated(book.level);
 /** The reader; `from` tells its back link where to return (the books list). */
 export const bookReadHref = (courseHref: string, book: BookEntry, from?: 'books') =>
 	`${courseHref}/book2/${book.level}${from ? `?from=${from}` : ''}`;

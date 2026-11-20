@@ -134,6 +134,9 @@ export function quizStrings(quiz) {
 	const out = {};
 	const { title, ...rest } = quiz;
 	for (const [p, s, k] of leaves(rest)) if (wanted(k, s)) out[p] = s;
+	// An English template is always the learner's language, even when none of
+	// its words gives it away ("{subject} should sleep more (advice).").
+	for (const [p, s] of leaves(rest.englishTemplates ?? {}, 'englishTemplates')) if (s.trim()) out[p] = s;
 	completeChoices(rest, out);
 	completeTables(rest, out);
 	// A rule's title is short and often has no word that gives its English

@@ -5,11 +5,12 @@
 	// ship without them.
 	//
 	// Pages pass their bare path; the language comes from the address. A
-	// page with Turkish and Arabic twins (/tr/…, /ar/…) links all three.
+	// page with translated twins (/tr/…, /ar/…, /uk/…) links them all; a
+	// language still being translated (not in INDEXED_LANGS) is noindex.
 	import { page } from '$app/state';
 	import { levelTranslated } from '$lib/i18n/available';
 	import { stripBidi } from '$lib/i18n/bidi';
-	import { PREFIX_LANGS, PREFIX_ROUTES, pathLang, withLang } from '$lib/i18n/paths';
+	import { INDEXED_LANGS, PREFIX_ROUTES, langIndexed, pathLang, withLang } from '$lib/i18n/paths';
 	import {
 		DEFAULT_IMAGE,
 		DEFAULT_IMAGE_ALT,
@@ -58,6 +59,10 @@
 	const pre = $derived(pathLang(page.url.pathname));
 	const lang = $derived(langProp ?? pre ?? DEFAULT_LANG);
 	const here = $derived(withLang(pre, path));
+	// A language still being translated builds its pages but keeps them out
+	// of search: they would show English under a French (or other) label.
+	const unready = $derived(!!pre && !langIndexed(pre));
+	const hidden = $derived(noindex || unready);
 	// A level-bound page (a level, an exercise) has twins only for A1–A2.
 	const pageLevel = $derived(page.params.levelId ?? (page.data as { quiz?: { level?: string } }).quiz?.level ?? null);
 	const twinned = $derived(
@@ -65,8 +70,8 @@
 	);
 	const alternates = $derived<Alternate[]>(
 		alternatesProp ??
-			(twinned
-				? [{ lang: DEFAULT_LANG, path }, ...PREFIX_LANGS.map((l) => ({ lang: l, path: withLang(l, path) }))].filter(
+			(twinned && !unready
+				? [{ lang: DEFAULT_LANG, path }, ...INDEXED_LANGS.map((l) => ({ lang: l, path: withLang(l, path) }))].filter(
 						(a) => a.lang !== lang
 					)
 				: [])
@@ -98,7 +103,7 @@
 <svelte:head>
 	<title>{shownTitle}</title>
 	<meta name="description" content={desc} />
-	{#if noindex}
+	{#if hidden}
 		<meta name="robots" content="noindex" />
 	{:else}
 		<!-- Lets a result and Discover show the share image large, and a snippet

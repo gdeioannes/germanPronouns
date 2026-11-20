@@ -12,12 +12,27 @@
 
 import { LOCAL_LEVELS } from './available';
 
-export const PREFIX_LANGS = ['tr', 'ar', 'uk'] as const;
+export const PREFIX_LANGS = ['tr', 'ar', 'uk', 'fr'] as const;
 export type PrefixLang = (typeof PREFIX_LANGS)[number];
+
+/**
+ * The prefix languages search engines are told about: the sitemap, hreflang
+ * and og:locale:alternate list only these. A language joins once its
+ * overlays cover every LOCAL_LEVEL and its interface strings are written;
+ * until then its /xx/ pages still build (the language picker leads there)
+ * but carry noindex, so English text never goes out labelled as that
+ * language. i18n.test.ts fails both ways: indexed but unfinished, and
+ * finished but still left out.
+ */
+export const INDEXED_LANGS: readonly PrefixLang[] = ['tr', 'ar', 'uk', 'fr'];
+
+export function langIndexed(l: string | null | undefined): boolean {
+	return !!l && (INDEXED_LANGS as readonly string[]).includes(l);
+}
 
 /** "/tr/about" → "tr"; a path with no language prefix → null. */
 export function pathLang(pathname: string): PrefixLang | null {
-	const m = pathname.match(/^\/(tr|ar|uk)(?=\/|$)/);
+	const m = pathname.match(/^\/(tr|ar|uk|fr)(?=\/|$)/);
 	return m ? (m[1] as PrefixLang) : null;
 }
 

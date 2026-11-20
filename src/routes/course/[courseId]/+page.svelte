@@ -40,10 +40,11 @@
 	const levelBook = (level: string) => BOOKS.find((b) => b.level === level) ?? null;
 
 	let { data }: { data: PageData } = $props();
-	// Turkish mode deals and lists only the levels that exist in Turkish (A1–A2).
-	const course = $derived(
-		lang.limited ? { ...data.course, quizzes: data.course.quizzes.filter((q) => levelTranslated(q.level)) } : data.course
-	);
+	// Every level is dealt in every language: A1–A2 come translated, B1–C2 as
+	// they are (German explanations, English button).
+	const course = $derived(data.course);
+	// What a search result promises in a second language: the translated part.
+	const localCount = $derived(data.course.quizzes.filter((q) => levelTranslated(q.level)).length);
 
 	// Loading runs on mount, not in an $effect: hydrateStats both reads and
 	// writes the per-quiz stats state, so inside an effect each quiz it loaded
@@ -113,10 +114,10 @@
 
 <Seo
 	title={lang.limited
-		? t('German A1–A2: {n} free exercises with audio | Language Quiz', { n: course.quizzes.length })
+		? t('German A1–A2: {n} free exercises with audio | Language Quiz', { n: localCount })
 		: `${course.name}: ${course.quizzes.length} free exercises with audio | Language Quiz`}
 	description={lang.limited
-		? t('Free German exercises A1 to A2 with audio: grammar, reading, listening, dictation and speaking, {n} in all. No sign-up.', { n: course.quizzes.length })
+		? t('Free German exercises A1 to A2 with audio: grammar, reading, listening, dictation and speaking, {n} in all. No sign-up.', { n: localCount })
 		: clip(`${course.tagline}. ${course.quizzes.length} free interactive German exercises — grammar, reading, listening, dictation and speaking, with audio. No sign-up.`)}
 	path="/course/{course.id}"
 	jsonLd={[

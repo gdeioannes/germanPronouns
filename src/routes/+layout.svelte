@@ -20,7 +20,7 @@
 	import { feedback } from '$lib/state/feedback.svelte';
 	import { onMount } from 'svelte';
 	import { lang, startLang } from '$lib/i18n/lang.svelte';
-	import { levelTranslated, routeTranslated } from '$lib/i18n/available';
+	import { routeOpenAsIs, routeTranslated } from '$lib/i18n/available';
 	import { t } from '$lib/i18n/t';
 	import { loadOverlay } from '$lib/i18n/content.svelte';
 	import { autoBidi } from '$lib/i18n/bidi';
@@ -71,17 +71,20 @@
 		return autoBidi(document.body);
 	});
 
-	// A second language shows only what exists in it: any other page gives way
-	// to a short note with the way back.
-	// A level-bound page (a level, an exercise, a book) also needs its level.
+	// A second language shows only the pages that exist in it: any other page
+	// gives way to a short note with the way back. Every level is open on those
+	// pages: A1–A2 in the language, B1–C2 as they are (German explanations with
+	// the English button), so a learner past A2 is never locked out.
+	// (loadOverlay does nothing for a level with no overlay.)
 	const pageLevel = $derived(
 		page.params.levelId ?? (page.data as { quiz?: { level?: string } }).quiz?.level ?? null
 	);
 	const hiddenInLanguage = $derived(
-		lang.limited &&
-			page.status < 400 &&
-			(!routeTranslated(page.route.id) || (pageLevel !== null && !levelTranslated(pageLevel)))
+		lang.limited && page.status < 400 && !routeTranslated(page.route.id) && !routeOpenAsIs(page.route.id)
 	);
+	// An untranslated page in a second language is English: marked so, so a
+	// screen reader reads it in an English voice and Arabic keeps it left to right.
+	const asIs = $derived(lang.limited && routeOpenAsIs(page.route.id));
 
 	// Each page renders its own <main>; the skip link finds whichever one is
 	// showing and hands it focus, so the next Tab starts inside the content.
@@ -210,6 +213,8 @@
 	<div id="main" in:fade={{ duration: viewTransitions ? 0 : 220, easing: cubicOut }}>
 		{#if hiddenInLanguage}
 			<NotInLanguage courseHref={data.site.courseHref} />
+		{:else if asIs}
+			<div lang="en" dir="ltr" style="display: contents">{@render children()}</div>
 		{:else}
 			{@render children()}
 		{/if}

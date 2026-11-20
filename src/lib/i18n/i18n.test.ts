@@ -6,7 +6,8 @@ import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { pickLang } from './lang.svelte';
 import { applyPairs, localize, parsePath, translateDeep } from './content.svelte';
 import { STRINGS } from './t';
-import { levelTranslated, routeTranslated } from './available';
+import { LOCAL_LEVEL_IDS, levelTranslated, routeTranslated } from './available';
+import { INDEXED_LANGS, PREFIX_LANGS } from './paths';
 
 describe('pickLang', () => {
 	it('takes ?lang= over everything', () => {
@@ -83,7 +84,7 @@ describe('interface strings', () => {
 // changed shows English in that language. Re-translate it in
 // tool/turkish/<lang>/ and run `node tool/turkish/build.mjs <level> --lang <lang>`.
 describe('built overlays', () => {
-	const files = ['tr', 'ar', 'uk'].flatMap((l) => {
+	const files = ['tr', 'ar', 'uk', 'fr'].flatMap((l) => {
 		const dir = `assets/content/${l}/de_cert_a1`;
 		return existsSync(dir) ? readdirSync(dir).filter((f) => f.endsWith('.json')).map((f) => `${l}/de_cert_a1/${f}`) : [];
 	});
@@ -175,4 +176,20 @@ describe('Turkish noun templates', () => {
 			lang.current = 'en';
 		}
 	});
+});
+
+// A language is shown to search engines (sitemap, hreflang) only when its
+// /xx/ pages are really in that language: every level's overlay is built and
+// the interface strings are written. Mid-translation it stays out; once
+// finished, add it to INDEXED_LANGS in paths.ts or its pages stay noindex.
+describe('indexed languages', () => {
+	const ready = (l: string) =>
+		LOCAL_LEVEL_IDS.every((id) => existsSync(`assets/content/${l}/de_cert_a1/${id}.json`)) &&
+		existsSync(`assets/content/${l}/dictionary.de.json`) &&
+		Object.keys(STRINGS[l as keyof typeof STRINGS] ?? {}).length >= Object.keys(STRINGS.tr).length * 0.95;
+	for (const l of PREFIX_LANGS) {
+		it(`${l} is indexed exactly when it is finished`, () => {
+			expect({ lang: l, indexed: INDEXED_LANGS.includes(l) }).toEqual({ lang: l, indexed: ready(l) });
+		});
+	}
 });

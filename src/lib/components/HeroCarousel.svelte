@@ -64,10 +64,10 @@
 			alt: t('Blue beach chairs on the Baltic beach at Rostock'),
 			focus: '50% 60%',
 			place: 'Warnemünde, Ostsee',
-			kicker: lang.limited ? t('Four levels in your language, all open') : 'Twelve levels, all open',
+			kicker: lang.limited ? t('Twelve levels, all open: four in your language') : 'Twelve levels, all open',
 			title: t('Start at your level.'),
 			text: lang.limited
-				? t('From your first Hallo to A2. A short check tells you where to begin, and you can move up or back whenever you like.')
+				? t('From your first Hallo to C2: up to A2 explained in your language, then German explained in German. A short check tells you where to begin, and you can move up or back whenever you like.')
 				: 'From your first Hallo to C2. A short check tells you where to begin, and you can move up or back whenever you like.',
 			card: 'levels',
 			cta: { label: t('Find my level'), href: '/level-check/test' },
@@ -95,7 +95,7 @@
 			kicker: t('On paper too'),
 			title: t('A book for every level.'),
 			text: lang.limited
-				? t('Four books, each chapter a real place in Germany. Do a page with a pencil, scan its code, and the app checks it.')
+				? t('Twelve books, the first four in your language. Each chapter is a real place in Germany. Do a page with a pencil, scan its code, and the app checks it.')
 				: 'Twelve books, each chapter a real place in Germany. Do a page with a pencil, scan its code, and the app checks it.',
 			card: 'books',
 			cta: { label: t('See the books'), href: '/books' },
@@ -129,7 +129,7 @@
 	]);
 
 	const ALL_LEVELS = ['A1.1', 'A1.2', 'A2.1', 'A2.2', 'B1.1', 'B1.2', 'B2.1', 'B2.2', 'C1.1', 'C1.2', 'C2.1', 'C2.2'];
-	const LEVELS = $derived(lang.limited ? ALL_LEVELS.slice(0, 4) : ALL_LEVELS);
+	const LEVELS = ALL_LEVELS;
 	/** The level the example card marks as "your level". */
 	const YOU = $derived(lang.limited ? 'A2.1' : 'B1.1');
 	const COVERS = $derived(lang.limited ? ['a1-1', 'a1-2', 'a2-2'] : ['a1-1', 'b1-1', 'c2-2']);
@@ -251,7 +251,7 @@
 						</div>
 						<p class="lede">{s.text}</p>
 						{#if s.card === 'levels'}
-							<ul class="card levels" aria-label={lang.limited ? t('The four levels') : 'The twelve levels'}>
+							<ul class="card levels" aria-label={t('The twelve levels')}>
 								{#each LEVELS as l (l)}<li class:you={l === YOU}>{l}{#if l === YOU}<small>{t('your level')}</small>{/if}</li>{/each}
 							</ul>
 						{:else if s.card === 'fix'}

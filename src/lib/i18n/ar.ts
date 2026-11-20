@@ -404,12 +404,8 @@ export const AR: Record<string, string> = {
 		"أصدقاء",
 	"Blue beach chairs on the Baltic beach at Rostock":
 		"كراسي شاطئ زرقاء على شاطئ بحر البلطيق في Rostock",
-	"Four levels in your language, all open":
-		"أربعة مستويات بالعربية، كلها مفتوحة",
 	"Start at your level.":
 		"ابدأ من مستواك.",
-	"From your first Hallo to A2. A short check tells you where to begin, and you can move up or back whenever you like.":
-		"من أول Hallo إلى A2. اختبار قصير يخبرك من أين تبدأ، وتستطيع أن تصعد أو ترجع متى شئت.",
 	"Find my level":
 		"اعرف مستواي",
 	"Fruit and vegetables piled high at the Viktualienmarkt in Munich":
@@ -428,8 +424,6 @@ export const AR: Record<string, string> = {
 		"على الورق أيضًا",
 	"A book for every level.":
 		"كتاب لكل مستوى.",
-	"Four books, each chapter a real place in Germany. Do a page with a pencil, scan its code, and the app checks it.":
-		"أربعة كتب، كل فصل فيها مكان حقيقي في ألمانيا. أنجز صفحة بقلم رصاص، وامسح رمزها، فيصححها التطبيق.",
 	"See the books":
 		"شاهد الكتب",
 	"Women and men in traditional dress at the Oktoberfest parade in Munich":
@@ -460,8 +454,6 @@ export const AR: Record<string, string> = {
 		"تتعلم على جهاز آخر؟",
 	"Sign in":
 		"تسجيل الدخول",
-	"The four levels":
-		"المستويات الأربعة",
 	"your level":
 		"مستواك",
 	"Why:":
@@ -1822,8 +1814,6 @@ export const AR: Record<string, string> = {
 		"العودة إلى البداية",
 	"Skip to content":
 		"انتقل إلى المحتوى",
-	"The books, A1 to A2":
-		"الكتب، من A1 إلى A2",
 	"free PDFs":
 		"ملفات PDF مجانية",
 	"Swipe until something catches you":
@@ -1856,8 +1846,6 @@ export const AR: Record<string, string> = {
 		"نزّل ملف PDF · {mb} MB",
 	"Look inside first":
 		"ألقِ نظرة في الداخل أولًا",
-	"The four books, A1.1 to A2.2":
-		"الكتب الأربعة، من A1.1 إلى A2.2",
 	"Each one has twelve new places, twelve stories and real German documents. All free, 131 pages each.":
 		"في كل منها اثنا عشر مكانًا جديدًا، واثنتا عشرة قصة، ووثائق ألمانية حقيقية. كلها مجانية، 131 صفحة لكل كتاب.",
 	"Look inside":
@@ -1896,8 +1884,6 @@ export const AR: Record<string, string> = {
 		"كتب لتعلّم الألمانية من A1 إلى C2، PDF مجاني",
 	"Books":
 		"الكتب",
-	"One book per level, four in your language (A1.1 to A2.2). Each has twelve chapters, each chapter a real place in Germany: words first, a photo, a story, two rules, a real document, and the practice. The audio is a QR code away. All free, {pages} pages each.":
-		"كتاب لكل مستوى، أربعة منها بالعربية (من A1.1 إلى A2.2). في كل كتاب اثنا عشر فصلًا، كل فصل مكان حقيقي في ألمانيا: الكلمات أولًا، وصورة، وقصة، وقاعدتان، ووثيقة حقيقية، والتمرين. والصوت على بعد رمز QR. كلها مجانية، {pages} صفحة لكل كتاب.",
 	"Read online":
 		"اقرأ على الإنترنت",
 	"Contact Language Quiz: questions, mistakes and ideas":
@@ -2232,8 +2218,6 @@ export const AR: Record<string, string> = {
 		"ماشٍ وكلب Dackel مع حقيبة سفر ينطلقان على حجارة مكتوب عليها من A1 إلى C2، صعودًا على تلة لطيفة نحو الشمس.",
 	"Before your first card":
 		"قبل بطاقتك الأولى",
-	"In your language the course runs from your first Hallo to A2. Start where you are, not at the beginning by default.":
-		"بالعربية تمتد الدورة من أول Hallo إلى A2. ابدأ من حيث أنت، لا من البداية تلقائيًا.",
 	"I’m new to German":
 		"أنا جديد في الألمانية",
 	"Start with the very first lesson: numbers, hello, your name.":
@@ -2244,8 +2228,6 @@ export const AR: Record<string, string> = {
 		"اختبار تحديد مستوى في عشر دقائق: كلمات، وقواعد، وقراءة، واستماع. تبدأ حيث يضعك، وتستطيع الخروج واختيار مستوى في أي لحظة.",
 	"I know my level":
 		"أعرف مستواي",
-	"Pick it from the four sub-levels, A1.1 to A2.2.":
-		"اختره من المستويات الفرعية الأربعة، من A1.1 إلى A2.2.",
 	"Nothing is locked, whatever you choose. You can change the level any time from your deck, or retake the test under":
 		"لا شيء مقفل، مهما اخترت. تستطيع تغيير المستوى متى شئت من بطاقاتك، أو إعادة الاختبار من",
 	"How the deck works":
@@ -2377,16 +2359,12 @@ export const AR: Record<string, string> = {
 		"لا. إن أردت تقدمك على أكثر من جهاز، فسجّل الدخول بعنوان بريدك الإلكتروني فقط: بلا كلمة سر، ولا يُطلب منك شيء آخر.",
 	"I already speak some German — must I start at A1?":
 		"أتكلم بعض الألمانية أصلًا، فهل يجب أن أبدأ من A1؟",
-	"No. Nothing is locked: pick the level that matches you from the four sub-levels in your language (A1.1 to A2.2) and start there.":
-		"لا. لا شيء مقفل: اختر المستوى الذي يناسبك من المستويات الفرعية الأربعة المتاحة بالعربية (A1.1 إلى A2.2) وابدأ من هناك.",
 	"Does it work on my phone?":
 		"هل يعمل على هاتفي؟",
 	"Yes. It is a website, so it runs in any browser on a phone, tablet or computer, with nothing to install.":
 		"نعم. إنه موقع إلكتروني، فيعمل في أي متصفح على الهاتف أو الجهاز اللوحي أو الحاسوب، دون أي تثبيت.",
 	"Does it prepare me for an exam?":
 		"هل يحضّرني لامتحان؟",
-	"In your language the course covers A1 and A2 of the CEFR scale and the skills exams test: reading, listening, writing and speaking. Language Quiz is an independent study aid and is not affiliated with any examination body.":
-		"بالعربية تغطي الدورة المستويين A1 وA2 من الإطار الأوروبي المرجعي والمهارات التي تختبرها الامتحانات: القراءة، والاستماع، والكتابة، والمحادثة. وLanguage Quiz أداة تعلّم مستقلة لا ترتبط بأي جهة امتحانات.",
 	"How is AI used?":
 		"كيف يُستعمل الذكاء الاصطناعي؟",
 	"Illustrations and the audio voices are generated; the lessons and exercises are written and checked by a person. Nothing you do is sent to an AI. More on the About page.":
@@ -2732,4 +2710,46 @@ export const AR: Record<string, string> = {
 		"العب Wortblöcke",
 	"No sign-up":
 		"بدون تسجيل",
+	"Twelve levels, all open: four in your language":
+		"اثنا عشر مستوى، كلها مفتوحة: أربعة منها بالعربية",
+	"From your first Hallo to C2: up to A2 explained in your language, then German explained in German. A short check tells you where to begin, and you can move up or back whenever you like.":
+		"من أول Hallo إلى C2: حتى A2 بشرح عربي، وبعده الألمانية بشرح ألماني. اختبار قصير يخبرك من أين تبدأ، وتستطيع أن تصعد أو ترجع متى شئت.",
+	"The twelve levels":
+		"المستويات الاثنا عشر",
+	"Twelve books, the first four in your language. Each chapter is a real place in Germany. Do a page with a pencil, scan its code, and the app checks it.":
+		"اثنا عشر كتابًا، الأربعة الأولى منها بالعربية. كل فصل مكان حقيقي في ألمانيا. أنجز صفحة بقلم رصاص، وامسح رمزها، فيصححها التطبيق.",
+	"The books, A1 to C2":
+		"الكتب، من A1 إلى C2",
+	"The twelve books, A1.1 to C2.2":
+		"الكتب الاثنا عشر، من A1.1 إلى C2.2",
+	"Explained in German":
+		"بشرح ألماني",
+	"One book per level, twelve in all: A1.1 to A2.2 in your language, then in German, the way the course goes on. Each has twelve chapters, each chapter a real place in Germany: words first, a photo, a story, two rules, a real document, and the practice. The audio is a QR code away. All free, {pages} pages each.":
+		"كتاب لكل مستوى، اثنا عشر كتابًا: من A1.1 إلى A2.2 بالعربية، وبعدها بالألمانية كما تستمر الدورة. في كل كتاب اثنا عشر فصلًا، كل فصل مكان حقيقي في ألمانيا: الكلمات أولًا، وصورة، وقصة، وقاعدتان، ووثيقة حقيقية، والتمرين. والصوت على بعد رمز QR. كلها مجانية، {pages} صفحة لكل كتاب.",
+	"The course runs from your first Hallo to C2: up to A2 explained in your language, then in German. Start where you are, not at the beginning by default.":
+		"تمتد الدورة من أول Hallo إلى C2: حتى A2 بشرح عربي، وبعده بالألمانية. ابدأ من حيث أنت، لا من البداية تلقائيًا.",
+	"Pick it from the twelve sub-levels, A1.1 to C2.2.":
+		"اختره من المستويات الفرعية الاثني عشر، من A1.1 إلى C2.2.",
+	"No. Nothing is locked: pick the level that matches you from the twelve sub-levels (A1.1 to A2.2 in your language, then in German) and start there.":
+		"لا. لا شيء مقفل: اختر المستوى الذي يناسبك من المستويات الفرعية الاثني عشر (من A1.1 إلى A2.2 بالعربية، وبعدها بالألمانية) وابدأ من هناك.",
+	"The course covers A1 to C2 of the CEFR scale, A1 and A2 explained in your language, and the skills exams test: reading, listening, writing and speaking. Language Quiz is an independent study aid and is not affiliated with any examination body.":
+		"تغطي الدورة المستويات من A1 إلى C2 من الإطار الأوروبي المرجعي، وA1 وA2 بشرح عربي، والمهارات التي تختبرها الامتحانات: القراءة، والاستماع، والكتابة، والمحادثة. وLanguage Quiz أداة تعلّم مستقلة لا ترتبط بأي جهة امتحانات.",
+	"Exercise":
+		"تمرين",
+	"Grammar & words":
+		"القواعد والمفردات",
+	"Speaking · conversation":
+		"المحادثة · حوار",
+	"Speaking · repeat":
+		"المحادثة · ترديد",
+	"Text work":
+		"العمل على النص",
+	"Vocabulary":
+		"المفردات",
+	"Play all":
+		"تشغيل الكل",
+	"Open the exercise":
+		"افتح التمرين",
+	"Play {n}":
+		"تشغيل {n}",
 };

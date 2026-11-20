@@ -17,7 +17,7 @@ import { COURSE, LANG, LEVELS, plainArgs, readJson } from './lib.mjs';
 // English words in a Turkish line (a sign of an untranslated string). Letter-
 // aware, so "ağrıyor" is not the English "a", and Turkish "on" (ten) is left out.
 const EN_WORD = /(?<!\p{L})(the|a|an|is|are|was|were|be|you|your|with|and|or|of|to|this|that|these|for|not|it|its|when|means?|from|by|at|in|as|but|if|then|after|before|here|has|have|can|one|two|word|verb|noun)(?!\p{L})/giu;
-const englishWords = (s) => (s.replace(/\*[^*]*\*/g, ' ').match(EN_WORD) ?? []).filter((w) => !['in', 'an', 'was'].includes(w.toLowerCase())).length;
+const englishWords = (s) => (s.replace(/\*[^*]*\*/g, ' ').match(EN_WORD) ?? []).filter((w) => !['in', 'an', 'was', ...(LANG === 'fr' ? ['a', 'as', 'on', 'or', 'est'] : [])].includes(w.toLowerCase())).length;
 
 const args = process.argv.slice(2);
 const check = args.includes('--check');

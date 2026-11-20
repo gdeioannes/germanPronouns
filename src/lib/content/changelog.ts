@@ -17,6 +17,26 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-11-20",
+    title: "Every level open in your language",
+    items: [
+      "In Turkish, Arabic, Ukrainian and French you can now go all the way to C2. A1–A2 is in your language; from B1 on the explanations are in German, with the English button beside them, as for everyone at that level.",
+      "All twelve books are on the shelf, and the level check, the start page and Settings offer every level from A1.1 to C2.2.",
+      "The word library, the stories, Kafka's Die Verwandlung, Wortblöcke, Ja oder Nein? and Schreib mir! open in every language too, in English for now.",
+      "Scanning the audio code in a book now plays the recordings in every language, with the player's buttons in your language.",
+    ],
+  },
+  {
+    date: "2026-11-20",
+    title: "German explained in French, A1 to A2",
+    highlight: true,
+    items: [
+      "Choose Français on the home page or in Settings and the whole site speaks French: menus, help, and every A1–A2 lesson and exercise, rewritten for French speakers (der/die/das next to le/la, the cases next to le/lui, the Perfekt next to the passé composé).",
+      "The four A1–A2 books come in French too, as free PDFs, and tapping a German word shows its meaning in French.",
+      "Every A1–A2 page has its own French address under /fr/. The French was written with AI and has not been fully checked by a native speaker yet: please tell us when something sounds off.",
+    ],
+  },
+  {
+    date: "2026-11-20",
     title: "Wortblöcke: a tidier ring",
     items: [
       "The meanings in the ring no longer overlap. They sit on fixed points like a compass: labels on the right grow to the right, labels on the left grow to the left, the star stays at the bottom.",

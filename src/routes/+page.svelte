@@ -18,7 +18,7 @@
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import { LITERATURE, bookRequestHref } from '$lib/content/literature';
-	import { BOOKS, bookCover, bookMb, bookPdf, hasLocalPdf } from '$lib/content/books';
+	import { BOOKS, bookCover, bookMb, bookPdf, pdfOffered } from '$lib/content/books';
 	import { t } from '$lib/i18n/t';
 	import { lang } from '$lib/i18n/lang.svelte';
 	import { levelTranslated } from '$lib/i18n/available';
@@ -35,12 +35,13 @@
 	// for good in this browser once it is clicked, and only then: scrolling
 	// past the offer does not count.
 	// The whole shelf, A1.1 included: one free PDF per level (Book v2).
-	// In Turkish only the A1–A2 books, and Kafka (English notes) not at all.
-	const SHELF = $derived(lang.limited ? BOOKS.filter((b) => levelTranslated(b.level)) : BOOKS);
+	// Every book in every language: A1–A2 in the language's edition, B1–C2 as
+	// they are (German explanations). Kafka (English notes) only in English.
+	const SHELF = BOOKS;
 	const firstBook = BOOKS[0];
 
 	const OFFERS = $derived([
-		{ id: 'book', title: lang.limited ? t('The books, A1 to A2') : 'The books, A1 to C2', note: t('free PDFs') },
+		{ id: 'book', title: t('The books, A1 to C2'), note: t('free PDFs') },
 		...(kafka && !lang.limited ? [{ id: 'literature', title: 'Kafka in German', note: 'free PDF' }] : [])
 	]);
 	let seen = $state<string[] | null>(null);
@@ -169,9 +170,9 @@
 	const FAQ_TR_SWAP: Record<string, string> = {
 		'Do I need an account?': 'No. Your progress is saved in your own browser, with nothing to sign up for.',
 		'I already speak some German — must I start at A1?':
-			'No. Nothing is locked: pick the level that matches you from the four sub-levels in your language (A1.1 to A2.2) and start there.',
+			'No. Nothing is locked: pick the level that matches you from the twelve sub-levels (A1.1 to A2.2 in your language, then in German) and start there.',
 		'Does it prepare me for an exam?':
-			'In your language the course covers A1 and A2 of the CEFR scale and the skills exams test: reading, listening, writing and speaking. Language Quiz is an independent study aid and is not affiliated with any examination body.'
+			'The course covers A1 to C2 of the CEFR scale, A1 and A2 explained in your language, and the skills exams test: reading, listening, writing and speaking. Language Quiz is an independent study aid and is not affiliated with any examination body.'
 	};
 	const FAQ = $derived(
 		FAQ_EN.map((item) => ({
@@ -270,7 +271,7 @@
 				{t('Twelve chapters, each one a real place in Germany: words first, a photo, a story, two rules, a real document, and the practice. A code on every page opens that chapter in the app: check your answers, learn the words as flashcards, hear the texts. 131 pages.')}
 			</p>
 			<!-- Turkish: the Turkish edition once it is printed; until then no download. -->
-			{#if !lang.limited || hasLocalPdf(firstBook, lang.current)}
+			{#if pdfOffered(firstBook, lang.current)}
 				<a class="primary" href={bookPdf(firstBook, lang.current)} download onclick={(e) => { trackBookDownload('A1.1', 'home'); feedback.beforeDownload(e, { href: bookPdf(firstBook, lang.current), book: 'A1.1' }); }}>
 					<Icon name="download" size="1.05em" /> {t('Download the PDF · {mb} MB', { mb: bookMb(firstBook, lang.current) })}
 				</a>
@@ -279,7 +280,7 @@
 		</div>
 	</section>
 	<section class="book-shelf" aria-labelledby="book-shelf-title">
-		<h2 id="book-shelf-title">{lang.limited ? t('The four books, A1.1 to A2.2') : 'All twelve books, A1.1 to C2.2'}</h2>
+		<h2 id="book-shelf-title">{lang.limited ? t('The twelve books, A1.1 to C2.2') : 'All twelve books, A1.1 to C2.2'}</h2>
 		<p>{t('Each one has twelve new places, twelve stories and real German documents. All free, 131 pages each.')}</p>
 		<ul>
 			{#each SHELF as book (book.level)}
@@ -289,7 +290,8 @@
 					</a>
 					<strong lang="de">Deutsch {book.level}</strong>
 					<span class="shelf-sub" lang="de">{book.sub}</span>
-					{#if !lang.limited || hasLocalPdf(book, lang.current)}
+					{#if lang.limited && !levelTranslated(book.level)}<span class="shelf-sub">{t('Explained in German')}</span>{/if}
+					{#if pdfOffered(book, lang.current)}
 						<a class="shelf-link" href={bookPdf(book, lang.current)} download onclick={(e) => { trackBookDownload(book.level, 'home'); feedback.beforeDownload(e, { href: bookPdf(book, lang.current), book: book.level }); }}>
 							<Icon name="download" size="1em" /> PDF · {bookMb(book, lang.current)} MB
 						</a>

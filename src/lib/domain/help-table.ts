@@ -51,7 +51,8 @@ export function helpTableFor(quiz: Quiz): HelpTable | null {
 		rows: subjects.map((subject, row) => ({
 			subject: subject.display,
 			article: articleFor(subject.display, subject.gender),
-			english: subject.english,
+			// French nouns may carry their plural after a bar (spoken.ts frenchLine).
+			english: subject.english?.split('|')[0].trim(),
 			gender: subject.gender,
 			// A category whose values run short leaves a blank rather than
 			// `undefined`: a gap in the data must not become a gap in the markup.

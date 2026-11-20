@@ -60,6 +60,7 @@ function englishLine(template: string | undefined, english: string): string | un
 			.replace('{pl}', english)
 			.replace('{subject}', english);
 	}
+	if (lang.fr) return frenchLine(template, english);
 	if (lang.tr) {
 		// Turkish: the template and the noun come Turkish from the overlay.
 		// Turkish has "bir" for a/an and no plural after a number or "çok", so
@@ -78,6 +79,50 @@ function englishLine(template: string | undefined, english: string): string | un
 		.replace('{a}', /^[aeiou]/i.test(english) ? 'an' : 'a')
 		.replace('{pl}', plural)
 		.replace('{subject}', english);
+}
+
+/**
+ * French: the template and the noun come French from the overlay. A noun is
+ * written with its indefinite article, which carries its French gender, and
+ * may add its plural after a bar: "une nouvelle table|nouvelles tables".
+ *   {a}          un / une
+ *   {subject}    the noun without its article: "nouvelle table"
+ *   {pl}         its plural: "nouvelles tables" (given, or -s / -x / -aux)
+ *   {le/la}      any "{masculine/feminine}" pair, picked by the noun's gender;
+ *                le/la become l' and ma/ta/sa mon/ton/son before a vowel.
+ * A word that is not a noun ("je", "la France") has no article and is used as is.
+ */
+export function frenchLine(template: string, english: string): string {
+	const [written, givenPlural] = english.split('|').map((s) => s.trim());
+	const m = /^(une|un)\s+(.+)$/i.exec(written);
+	const feminine = m ? m[1].toLowerCase() === 'une' : false;
+	const noun = m ? m[2] : written;
+	const plural = givenPlural ?? noun.replace(/(\S+)$/, frenchPlural);
+	const vowel = (s: string) => /^[aeiouyàâéèêëîïôûœh]/i.test(s.trim());
+	let out = template
+		.replace(/\{a\}/g, feminine ? 'une' : 'un')
+		.replace(/\{pl\}/g, plural)
+		.replace(/\{subject\}/g, noun);
+	// "{le/la} table" → "la table"; "{Le/La} ami" → "L'ami".
+	out = out.replace(/\{([^{}/]+)\/([^{}/]+)\}(\s*)(\S?)/g, (_, masc: string, fem: string, space: string, next: string) => {
+		const word = feminine ? fem : masc;
+		if (next && vowel(next)) {
+			if (/^l[ea]$/i.test(word)) return `${word[0]}'${next}`;
+			if (/^[mts]a$/i.test(word)) return `${word[0]}on${space}${next}`;
+		}
+		return `${word}${space}${next}`;
+	});
+	return out;
+}
+
+const FRENCH_PLURAL: Record<string, string> = { œil: 'yeux', ciel: 'cieux', monsieur: 'messieurs', madame: 'mesdames', travail: 'travaux' };
+function frenchPlural(word: string): string {
+	const lower = word.toLowerCase();
+	if (FRENCH_PLURAL[lower]) return FRENCH_PLURAL[lower];
+	if (/[sxz]$/i.test(word)) return word;
+	if (/(eau|eu|au)$/i.test(word) && !/^(pneu|bleu)$/i.test(word)) return `${word}x`;
+	if (/al$/i.test(word) && !/^(bal|festival|carnaval|récital)$/i.test(word)) return word.replace(/al$/i, 'aux');
+	return `${word}s`;
 }
 
 /** The first usable answer for each gap — what a reveal writes in. */

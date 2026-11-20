@@ -9,7 +9,7 @@
 	import SiteFooter from '$lib/components/SiteFooter.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
 	import { returnTo, returnLabel } from '$lib/state/returnTo.svelte';
-	import { BOOKS, BOOK_PAGES, bookCover, bookMb, bookPdf, bookReadHref, hasLocalPdf } from '$lib/content/books';
+	import { BOOKS, BOOK_PAGES, bookCover, bookMb, bookPdf, bookReadHref, pdfOffered } from '$lib/content/books';
 	import { lang } from '$lib/i18n/lang.svelte';
 	import { levelTranslated } from '$lib/i18n/available';
 	import { trackBookDownload } from '$lib/services/analytics';
@@ -19,8 +19,8 @@
 	import { listBookQuotes, type BookQuote } from '$lib/services/feedback';
 
 	const courseHref = $derived(page.data.site?.courseHref ?? '/');
-	// Turkish mode: the four A-level books, in their Turkish edition.
-	const shelf = $derived(lang.limited ? BOOKS.filter((b) => levelTranslated(b.level)) : BOOKS);
+	// Every book in every language: A1–A2 in the language's edition, B1–C2 as they are.
+	const shelf = BOOKS;
 
 	// What readers say: quotes they allowed and the owner published from
 	// /backoffice. Loaded in the browser; with none, the section is not there.
@@ -49,7 +49,7 @@
 		<h1>{t('The books')}</h1>
 		<p class="lede">
 			{#if lang.limited}
-				{t('One book per level, four in your language (A1.1 to A2.2). Each has twelve chapters, each chapter a real place in Germany: words first, a photo, a story, two rules, a real document, and the practice. The audio is a QR code away. All free, {pages} pages each.', { pages: BOOK_PAGES })}
+				{t('One book per level, twelve in all: A1.1 to A2.2 in your language, then in German, the way the course goes on. Each has twelve chapters, each chapter a real place in Germany: words first, a photo, a story, two rules, a real document, and the practice. The audio is a QR code away. All free, {pages} pages each.', { pages: BOOK_PAGES })}
 			{:else}
 			One book per level, twelve in all. Each has twelve chapters, each chapter a real place in
 			Germany: words first, a photo, a story, two rules, a real document, and the practice. The
@@ -65,11 +65,11 @@
 					<img class="cover" src={bookCover(book, lang.current)} alt="" width="640" height="905" loading="lazy" />
 				</a>
 				<div class="text">
-					<p class="where">{book.level}</p>
+					<p class="where">{book.level}{#if lang.limited && !levelTranslated(book.level)} · {t('Explained in German')}{/if}</p>
 					<h2 lang="de">Deutsch {book.level} · {book.sub}</h2>
 					<div class="actions">
 						<a class="primary" href={bookReadHref(courseHref, book, 'books')}><Icon name="book" size="1.05em" /> {t('Read online')}</a>
-						{#if !lang.limited || hasLocalPdf(book, lang.current)}
+						{#if pdfOffered(book, lang.current)}
 							<a
 								class="secondary"
 								href={bookPdf(book, lang.current)}

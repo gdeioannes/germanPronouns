@@ -26,7 +26,6 @@
 	import { lang, setLang, type UiLang } from '$lib/i18n/lang.svelte';
 	import { t } from '$lib/i18n/t';
 	import { LANG_OPTIONS, LANGUAGE_LABEL } from '$lib/i18n/languages';
-	import { levelTranslated } from '$lib/i18n/available';
 	import { addressIn, pathLang } from '$lib/i18n/paths';
 	import { page } from '$app/state';
 	import { goto } from '$app/navigation';
@@ -108,7 +107,7 @@
 	<!-- Both names are shown in their own language, so whoever is lost in the
 	     other one can still find theirs. -->
 	<section class="card">
-		<h2><bdi lang="en">Language</bdi> <span class="alt">· <bdi lang="tr">Dil</bdi> · <bdi lang="ar">اللغة</bdi> · <bdi lang="uk">Мова</bdi></span></h2>
+		<h2><bdi lang="en">Language</bdi> <span class="alt">· <bdi lang="fr">Langue</bdi> · <bdi lang="tr">Dil</bdi> · <bdi lang="uk">Мова</bdi> · <bdi lang="ar">اللغة</bdi></span></h2>
 		<p class="lede">
 			{t('The language the site explains German in. In Turkish, Arabic and Ukrainian, levels A1 and A2 are available.')}
 		</p>
@@ -340,7 +339,7 @@
 		</p>
 		<ul class="levels">
 			{#each ladder as level (level.id)}
-				{#if level.quizzes.length > 0 && (!lang.limited || levelTranslated(level.level))}
+				{#if level.quizzes.length > 0}
 					<li>
 						<span>{level.title}</span>
 						<a href="/course/{course?.id}/quiz/{level.quizzes[0].id}">{t('Start here')}</a>
@@ -581,6 +580,15 @@
 		.segmented button {
 			padding: 0.35rem 0.7rem;
 			white-space: nowrap;
+		}
+	}
+
+	/* Five languages don't fit one row on a phone: three a row. */
+	@media (max-width: 30rem) {
+		.segmented:has(> :nth-child(5)) {
+			display: grid;
+			grid-template-columns: repeat(3, auto);
+			border-radius: var(--radius-sm);
 		}
 	}
 

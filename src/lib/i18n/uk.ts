@@ -90,12 +90,8 @@ export const UK: Record<string, string> = {
 		"друзі",
 	"Blue beach chairs on the Baltic beach at Rostock":
 		"Сині пляжні крісла-кошики на пляжі Балтійського моря в Ростоку",
-	"Four levels in your language, all open":
-		"Чотири рівні твоєю мовою, усі відкриті",
 	"Start at your level.":
 		"Почни зі свого рівня.",
-	"From your first Hallo to A2. A short check tells you where to begin, and you can move up or back whenever you like.":
-		"Від першого Hallo до A2. Коротка перевірка покаже, з чого почати, а рухатися вперед чи назад можна будь-коли.",
 	"Find my level":
 		"Визначити мій рівень",
 	"Fruit and vegetables piled high at the Viktualienmarkt in Munich":
@@ -114,8 +110,6 @@ export const UK: Record<string, string> = {
 		"І на папері",
 	"A book for every level.":
 		"Книжка для кожного рівня.",
-	"Four books, each chapter a real place in Germany. Do a page with a pencil, scan its code, and the app checks it.":
-		"Чотири книжки, кожен розділ є справжнім місцем у Німеччині. Зроби сторінку олівцем, відскануй її код, і застосунок перевірить відповіді.",
 	"See the books":
 		"Переглянути книжки",
 	"Women and men in traditional dress at the Oktoberfest parade in Munich":
@@ -140,8 +134,6 @@ export const UK: Record<string, string> = {
 		"{i} з {n}",
 	"Keep learning":
 		"Вчитися далі",
-	"The four levels":
-		"Чотири рівні",
 	"your level":
 		"твій рівень",
 	"Why:":
@@ -174,8 +166,6 @@ export const UK: Record<string, string> = {
 		"Продовжити навчання",
 	"repeat aloud":
 		"повтори вголос",
-	"The books, A1 to A2":
-		"Книжки, від A1 до A2",
 	"free PDFs":
 		"безкоштовні PDF",
 	"Swipe until something catches you":
@@ -210,8 +200,6 @@ export const UK: Record<string, string> = {
 		"Завантажити PDF · {mb} МБ",
 	"Look inside first":
 		"Спершу зазирнути всередину",
-	"The four books, A1.1 to A2.2":
-		"Чотири книжки, від A1.1 до A2.2",
 	"Each one has twelve new places, twelve stories and real German documents. All free, 131 pages each.":
 		"У кожній дванадцять нових місць, дванадцять історій і справжні німецькі документи. Усі безкоштовні, по 131 сторінці.",
 	"Look inside":
@@ -236,16 +224,12 @@ export const UK: Record<string, string> = {
 		"Ні. Якщо хочеш бачити свій прогрес на кількох пристроях, увійди лише з адресою електронної пошти: без пароля, більше нічого не питаємо.",
 	"I already speak some German — must I start at A1?":
 		"Я вже трохи знаю німецьку. Мені обов’язково починати з A1?",
-	"No. Nothing is locked: pick the level that matches you from the four sub-levels in your language (A1.1 to A2.2) and start there.":
-		"Ні. Нічого не заблоковано: вибери рівень, який тобі підходить, із чотирьох підрівнів твоєю мовою (від A1.1 до A2.2) і починай з нього.",
 	"Does it work on my phone?":
 		"Це працює на телефоні?",
 	"Yes. It is a website, so it runs in any browser on a phone, tablet or computer, with nothing to install.":
 		"Так. Це вебсайт, тож він працює в будь-якому браузері на телефоні, планшеті чи комп’ютері, нічого встановлювати не треба.",
 	"Does it prepare me for an exam?":
 		"Чи готує це до іспиту?",
-	"In your language the course covers A1 and A2 of the CEFR scale and the skills exams test: reading, listening, writing and speaking. Language Quiz is an independent study aid and is not affiliated with any examination body.":
-		"Твоєю мовою курс охоплює рівні A1 і A2 шкали CEFR і навички, які перевіряють на іспитах: читання, слухання, письмо і говоріння. Language Quiz є незалежним навчальним посібником і не пов’язаний з жодною екзаменаційною установою.",
 	"How is AI used?":
 		"Як використовується ШІ?",
 	"Illustrations and the audio voices are generated; the lessons and exercises are written and checked by a person. Nothing you do is sent to an AI. More on the About page.":
@@ -254,8 +238,6 @@ export const UK: Record<string, string> = {
 		"Перед першою карткою",
 	"Where do you start?":
 		"З чого почнеш?",
-	"In your language the course runs from your first Hallo to A2. Start where you are, not at the beginning by default.":
-		"Твоєю мовою курс веде від першого Hallo до A2. Починай там, де ти є, а не за замовчуванням із самого початку.",
 	"I’m new to German":
 		"Я починаю вчити німецьку з нуля",
 	"Start with the very first lesson: numbers, hello, your name.":
@@ -266,8 +248,6 @@ export const UK: Record<string, string> = {
 		"Десятихвилинний тест на рівень: слова, граматика, читання і слухання. Ти почнеш там, куди він тебе поставить, і будь-коли можеш вийти й вибрати рівень самостійно.",
 	"I know my level":
 		"Я знаю свій рівень",
-	"Pick it from the four sub-levels, A1.1 to A2.2.":
-		"Вибери його з чотирьох підрівнів, від A1.1 до A2.2.",
 	"Nothing is locked, whatever you choose. You can change the level any time from your deck, or retake the test under":
 		"Хоч що ти вибереш, нічого не заблоковано. Рівень можна змінити будь-коли у своїй колоді або пройти тест ще раз у розділі",
 	"You are at the very start: greetings, numbers, family and the words around the house. Every new word counts double here.":
@@ -2120,8 +2100,6 @@ export const UK: Record<string, string> = {
 		"Підручники німецької від A1 до C2, безкоштовні PDF",
 	"Books":
 		"Книжки",
-	"One book per level, four in your language (A1.1 to A2.2). Each has twelve chapters, each chapter a real place in Germany: words first, a photo, a story, two rules, a real document, and the practice. The audio is a QR code away. All free, {pages} pages each.":
-		"Одна книжка на рівень, чотири твоєю мовою (від A1.1 до A2.2). У кожній дванадцять розділів, кожен розділ є справжнім місцем у Німеччині: спершу слова, фото, історія, два правила, справжній документ і практика. Аудіо за один QR-код. Усі безкоштовні, по {pages} сторінок.",
 	"Contact Language Quiz: questions, mistakes and ideas":
 		"Зв’язатися з Language Quiz: запитання, помилки та ідеї",
 	"Contact Language Quiz":
@@ -2734,4 +2712,46 @@ export const UK: Record<string, string> = {
 		"Грати у Wortblöcke",
 	"No sign-up":
 		"Без реєстрації",
+	"Twelve levels, all open: four in your language":
+		"Дванадцять рівнів, усі відкриті: чотири українською",
+	"From your first Hallo to C2: up to A2 explained in your language, then German explained in German. A short check tells you where to begin, and you can move up or back whenever you like.":
+		"Від першого Hallo до C2: до A2 з поясненнями українською, далі німецька з поясненнями німецькою. Коротка перевірка покаже, з чого почати, а рухатися вперед чи назад можна будь-коли.",
+	"The twelve levels":
+		"Дванадцять рівнів",
+	"Twelve books, the first four in your language. Each chapter is a real place in Germany. Do a page with a pencil, scan its code, and the app checks it.":
+		"Дванадцять книжок, перші чотири українською. Кожен розділ є справжнім місцем у Німеччині. Зроби сторінку олівцем, відскануй її код, і застосунок перевірить відповіді.",
+	"The books, A1 to C2":
+		"Книжки, від A1 до C2",
+	"The twelve books, A1.1 to C2.2":
+		"Дванадцять книжок, від A1.1 до C2.2",
+	"Explained in German":
+		"З поясненнями німецькою",
+	"One book per level, twelve in all: A1.1 to A2.2 in your language, then in German, the way the course goes on. Each has twelve chapters, each chapter a real place in Germany: words first, a photo, a story, two rules, a real document, and the practice. The audio is a QR code away. All free, {pages} pages each.":
+		"Одна книжка на рівень, дванадцять загалом: від A1.1 до A2.2 українською, далі німецькою, як і сам курс. У кожній дванадцять розділів, кожен розділ є справжнім місцем у Німеччині: спершу слова, фото, історія, два правила, справжній документ і практика. Аудіо за один QR-код. Усі безкоштовні, по {pages} сторінок.",
+	"The course runs from your first Hallo to C2: up to A2 explained in your language, then in German. Start where you are, not at the beginning by default.":
+		"Курс веде від першого Hallo до C2: до A2 з поясненнями українською, далі німецькою. Починай там, де ти є, а не за замовчуванням із самого початку.",
+	"Pick it from the twelve sub-levels, A1.1 to C2.2.":
+		"Вибери його з дванадцяти підрівнів, від A1.1 до C2.2.",
+	"No. Nothing is locked: pick the level that matches you from the twelve sub-levels (A1.1 to A2.2 in your language, then in German) and start there.":
+		"Ні. Нічого не заблоковано: вибери рівень, який тобі підходить, із дванадцяти підрівнів (від A1.1 до A2.2 українською, далі німецькою) і починай з нього.",
+	"The course covers A1 to C2 of the CEFR scale, A1 and A2 explained in your language, and the skills exams test: reading, listening, writing and speaking. Language Quiz is an independent study aid and is not affiliated with any examination body.":
+		"Курс охоплює рівні від A1 до C2 шкали CEFR, A1 і A2 з поясненнями українською, і навички, які перевіряють на іспитах: читання, слухання, письмо і говоріння. Language Quiz є незалежним навчальним посібником і не пов’язаний з жодною екзаменаційною установою.",
+	"Exercise":
+		"Вправа",
+	"Grammar & words":
+		"Граматика і слова",
+	"Speaking · conversation":
+		"Говоріння · розмова",
+	"Speaking · repeat":
+		"Говоріння · повторення",
+	"Text work":
+		"Робота з текстом",
+	"Vocabulary":
+		"Лексика",
+	"Play all":
+		"Відтворити все",
+	"Open the exercise":
+		"Відкрити вправу",
+	"Play {n}":
+		"Відтворити {n}",
 };

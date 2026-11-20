@@ -5,8 +5,16 @@
 	// never recorded falls back to the app's voice.
 	import Icon from '$lib/icons/Icon.svelte';
 	import { tts } from '$lib/services/speech';
+	import { t, tk } from '$lib/i18n/t';
+	import { inLang } from '$lib/i18n/content.svelte';
 
 	let { data } = $props();
+	// A second language: the title and each line's meaning through the level's
+	// overlay (A1–A2); the kind label from the interface strings.
+	const title = $derived(inLang(data.title, data.level));
+	const meaning = (en: string | undefined) => (en ? inLang(en, data.level) : en);
+	// The workbook's kind labels (workbook.ts KIND_LABEL), listed so the key tool sees them.
+	void [tk('Dictation'), tk('Exercise'), tk('Grammar & words'), tk('Listening'), tk('Picture hunt'), tk('Reading'), tk('Speaking · conversation'), tk('Speaking · repeat'), tk('Text work'), tk('Vocabulary'), tk('Writing')];
 	let playing = $state<number | null>(null);
 	let audio: HTMLAudioElement | null = null;
 
@@ -52,27 +60,27 @@
 </script>
 
 <svelte:head>
-	<title>{data.title} · audio</title>
+	<title>{title} · audio</title>
 	<meta name="robots" content="noindex" />
 </svelte:head>
 
 <main class="player">
-	<p class="eyebrow">{data.level} · {data.kind}</p>
-	<h1>{data.title}</h1>
+	<p class="eyebrow">{data.level} · {t(data.kind)}</p>
+	<h1>{title}</h1>
 	<div class="actions">
-		<button type="button" class="btn" onclick={playAll}><Icon name="volume" size="1.1em" /> Play all</button>
-		<a class="btn-quiet" href={data.quizHref}>Open the exercise</a>
+		<button type="button" class="btn" onclick={playAll}><Icon name="volume" size="1.1em" /> {t('Play all')}</button>
+		<a class="btn-quiet" href={data.quizHref}>{t('Open the exercise')}</a>
 	</div>
 	<ol class="clips">
 		{#each data.clips as clip, i (i)}
 			<li class:on={playing === i}>
-				<button type="button" onclick={() => (playing === i ? stop() : play(i))} aria-label="Play {clip.n}">
+				<button type="button" onclick={() => (playing === i ? stop() : play(i))} aria-label={t('Play {n}', { n: clip.n })}>
 					<span class="n">{clip.n}</span>
 					<Icon name={playing === i ? 'close' : 'volume'} size="1.2em" />
 				</button>
 				<div>
 					<p class="de" lang="de">{clip.text}</p>
-					{#if clip.en}<p class="en">{clip.en}</p>{/if}
+					{#if clip.en}<p class="en">{meaning(clip.en)}</p>{/if}
 				</div>
 			</li>
 		{/each}

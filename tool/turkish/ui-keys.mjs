@@ -15,7 +15,7 @@ const files = [];
 	for (const f of readdirSync(d)) {
 		const p = join(d, f);
 		if (statSync(p).isDirectory()) walk(p);
-		else if (/\.(svelte|ts)$/.test(f) && !/\.test\.ts$/.test(f) && !/i18n[\\/](tr|ar|uk)\.ts$/.test(p)) files.push(p);
+		else if (/\.(svelte|ts)$/.test(f) && !/\.test\.ts$/.test(f) && !/i18n[\\/](tr|ar|uk|fr)\.ts$/.test(p)) files.push(p);
 	}
 })('src');
 
@@ -41,7 +41,11 @@ for (const f of files) {
 // Page help (content/pageHelp.ts) is shown through t() field by field: its
 // strings count for the routes that exist in Turkish (i18n/available.ts).
 {
-	const routes = [...readFileSync('src/lib/i18n/available.ts', 'utf8').matchAll(/^\t'(\/[^']*)',?$/gm)].map((m) => m[1]);
+	// Only LOCAL_ROUTES: OPEN_ROUTES pages are shown as they are (English), without page help.
+	const available = readFileSync('src/lib/i18n/available.ts', 'utf8');
+	const start = available.indexOf('LOCAL_ROUTES');
+	const localBlock = available.slice(start, available.indexOf(']);', start));
+	const routes = [...localBlock.matchAll(/^\t'(\/[^']*)',?$/gm)].map((m) => m[1]);
 	const help = readFileSync('src/lib/content/pageHelp.ts', 'utf8');
 	const blocks = [...help.matchAll(/^\t'(\/[^']*)': \{$/gm)];
 	blocks.forEach((b, i) => {

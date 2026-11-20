@@ -1,7 +1,7 @@
 import { MATCH_CHATS } from '$lib/domain/matchChat';
 import { courses, loadCourse } from '$lib/content';
 import { SITE_URL } from '$lib/seo';
-import { localPages, PREFIX_LANGS, withLang } from '$lib/i18n/paths';
+import { INDEXED_LANGS, localPages, withLang } from '$lib/i18n/paths';
 import { coursePaths, DICTIONARY_PATH, lastModified, SHARED_WORD_PATHS } from '$lib/server/lastmod';
 import { nouns, verbs } from '$lib/server/words';
 import { wordSlug } from '$lib/domain/words';
@@ -85,17 +85,18 @@ export const GET: RequestHandler = async () => {
 		urls.push({ loc: `/words/verbs/${wordSlug(v.verb)}`, lastmod: wordsDate, priority: '0.5' });
 	}
 
-	// The Turkish and Arabic twins (/tr/…, /ar/…) of the A1–A2 pages. Each of
-	// the three lists all three, so a search engine shows each reader theirs.
+	// The translated twins (/tr/…, /ar/…, /uk/…) of the A1–A2 pages. Each one
+	// lists all the others, so a search engine shows each reader theirs. Only
+	// finished languages (INDEXED_LANGS): one mid-translation stays out.
 	const course = await loadCourse(courses[0].id);
 	const twinned = new Set(localPages(course.id, course.quizzes).filter((p) => p !== '/settings'));
 	const langLinks = (bare: string) =>
-		[['en', bare], ...PREFIX_LANGS.map((l) => [l, withLang(l, bare)]), ['x-default', bare]]
+		[['en', bare], ...INDEXED_LANGS.map((l) => [l, withLang(l, bare)]), ['x-default', bare]]
 			.map(([l, path]) => `\n    <xhtml:link rel="alternate" hreflang="${l}" href="${SITE_URL}${path}"/>`)
 			.join('');
 	const all = urls.flatMap((u) =>
 		twinned.has(u.loc)
-			? [u, ...PREFIX_LANGS.map((l) => ({ ...u, loc: withLang(l, u.loc) }))].map((v) => ({ ...v, bare: u.loc as string | null }))
+			? [u, ...INDEXED_LANGS.map((l) => ({ ...u, loc: withLang(l, u.loc) }))].map((v) => ({ ...v, bare: u.loc as string | null }))
 			: [{ ...u, bare: null as string | null }]
 	);
 
