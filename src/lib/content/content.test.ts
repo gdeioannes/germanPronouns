@@ -496,3 +496,21 @@ describe('catalog levels', () => {
 		expect(card?.levels).toEqual(fromBundle);
 	});
 });
+
+// A vocabulary deck's intro states its size. The decks are rebuilt from the
+// exercises, so the sentence goes stale: `node tool/deck-counts.mjs de_cert_a1`
+// puts the real numbers back (bundle, authoring and the translations).
+describe('vocabulary deck intros', () => {
+	const decks = quizzes.filter((q) => q.type === 'vocabulary') as unknown as {
+		id: string;
+		cards: { kind: string }[];
+		help?: { intro?: string; introEn?: string };
+	}[];
+	it.each(decks.map((d) => [d.id, d] as const))('%s states its real card and noun counts', (_id, deck) => {
+		for (const text of [deck.help?.intro, deck.help?.introEn]) {
+			const m = text?.match(/(\d+) Karten, davon (\d+) Nomen/) ?? text?.match(/(\d+) cards, (\d+) of them nouns/);
+			if (!m) continue;
+			expect([Number(m[1]), Number(m[2])]).toEqual([deck.cards.length, deck.cards.filter((c) => c.kind === 'noun').length]);
+		}
+	});
+});

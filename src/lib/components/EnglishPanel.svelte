@@ -1,9 +1,14 @@
 <script lang="ts">
 	// The English of a German explanation, once it has been asked for.
+	import { explainedInLang } from '$lib/i18n/content.svelte';
+	import { lang } from '$lib/i18n/lang.svelte';
+	import { pageLevel } from '$lib/i18n/pageLevel';
 	let { lines }: { lines: string[] } = $props();
+	// In French from B1, the lines are the French overlay (content.svelte.ts).
+	const own = $derived(explainedInLang(pageLevel()));
 </script>
 
-<div class="panel" lang="en">
+<div class="panel" lang={own ? lang.current : 'en'}>
 	{#each lines as line, i (i)}<p>{line}</p>{/each}
 </div>
 

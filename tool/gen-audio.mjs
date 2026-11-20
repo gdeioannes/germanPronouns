@@ -8,6 +8,8 @@
 //   npm run audio -- --all            the whole app: every level, plus the
 //                                     Word Library and the landing demo
 //   npm run audio -- --dry            only list what would be recorded
+//   npm run audio -- --dry --missing  only what has no recording yet
+//   npm run audio -- --level B2.1 --match "vor Kälte"   only texts containing that (repeatable)
 //   npm run audio -- --force          re-record files that already exist
 //   npm run audio -- --engine gemini  record with Gemini TTS instead of Chirp 3 HD
 //
@@ -129,11 +131,25 @@ if (!key && !serviceAccount && !dry) {
 }
 
 const { spoken, audioShard } = await collect();
-const texts = spoken.filter((t) => all || sources.includes(t.source) || (t.level && levels.includes(t.level)));
+/** --match "vor Kälte": within the chosen levels, only texts that contain it (repeatable). */
+const matches = args.flatMap((a, i) => (args[i - 1] === '--match' ? [a] : []));
+const texts = spoken
+	.filter((t) => all || sources.includes(t.source) || (t.level && levels.includes(t.level)))
+	.filter((t) => !matches.length || matches.some((m) => t.text.includes(m)));
 const chars = texts.reduce((n, t) => n + t.text.length, 0);
 console.log(`${texts.length} distinct strings (${chars} characters) in ${all ? 'the whole app' : [...levels, ...sources].join(', ')}`);
 if (dry) {
-	for (const t of texts) {
+	// --dry --missing: only the texts with no recording yet.
+	const missingOnly = args.includes('--missing');
+	const recorded = (t) => {
+		const cast = t.dialogue ? castVoices(t.dialogue) : null;
+		const casting = cast ? `|${[...cast].map(([who, v]) => `${who}=${v}`).join(',')}` : '';
+		const file = `${createHash('sha1').update(`${engine.id}|${VOICE}|${t.locale}|${t.text}${casting}`).digest('hex').slice(0, 16)}.mp3`;
+		return existsSync(join(OUT_DIR, file));
+	};
+	const list = missingOnly ? texts.filter((t) => !recorded(t)) : texts;
+	if (missingOnly) console.log(`${list.length} not recorded yet (${list.reduce((n, t) => n + t.text.length, 0)} characters)`);
+	for (const t of list) {
 		const voices = t.dialogue ? `, ${new Set(t.dialogue.map((l) => l.speaker)).size} voices` : '';
 		console.log(`  [${t.level ?? 'app'} ${t.source}${voices}] ${t.text.length > 70 ? t.text.slice(0, 70) + '…' : t.text}`);
 	}

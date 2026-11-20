@@ -114,7 +114,8 @@ export async function spokenTexts(): Promise<SpokenText[]> {
 		dialogue?: DialogueLine[]
 	) => {
 		const t = text?.trim();
-		if (t) out.push({ text: t, locale, source, level, ...(dialogue?.length ? { dialogue } : {}) });
+		// A line with no letter or digit (a muted speaker's „…“) has nothing to say.
+		if (t && /[\p{L}\p{N}]/u.test(t)) out.push({ text: t, locale, source, level, ...(dialogue?.length ? { dialogue } : {}) });
 	};
 
 	// "Ja oder Nein?": every question's speak button, and the word each

@@ -178,3 +178,26 @@ one check (`…check.q`, `…check.options[n]`, `…check.answer`), the answer m
 
 When unsure (a joke that does not travel, a rule that changes for French speakers), choose the
 clearest version and add file + key + your doubt to `docs/french_review.md`.
+
+## B1–C2: the English button in French
+
+From B1 the site explains German **in German**; a button under each explanation opens the
+English. In French mode that button opens French instead. You translate only that layer (and the
+word meanings), never the German explanations above it.
+
+- Source: `tool/turkish/en/<level>/app/<quiz id>.json` for `b1_1 … c2_2` (only button-layer
+  paths). You write `tool/turkish/fr/<level>/app/<quiz id>.json`, same name, same keys.
+- Model file: `tool/turkish/fr/b1_1/app/quest_b1_1_adj_komparativ.json`.
+- What the fields are:
+  - `help.introEn`, `help.hookEn`, `help.tips[i].en.title/.text/.trap`, `help.rememberEn[i]`,
+    `help.examEn`, `help.recallEn.*`: the explanation itself. Same content as the German above it.
+  - `…check.whyEn`, `sentences[i].whyEn`, `help.mistakes[i].whyEn`: why an answer is right or wrong.
+  - `…examples[i].en`, `help.context.en`: the translation of a German example or text. Translate
+    **from the German** (`node tool/turkish/de-context.mjs <quiz id>` prints it), naturally.
+  - `help.vocab[i].en`, `cards[i].en`, `spots[i].en`, `visual.*.en`: a word's meaning, short, like a
+    dictionary gloss (`chaud`, `bon marché, avantageux`). de-context.mjs shows the German word.
+- B1–C2 readers are advanced: full, precise French is fine, but keep it clear and short.
+- Where the English compares German with English, compare with French when that helps more
+  (« plus grand » vs größer, the subjonctif vs Konjunktiv I/II, the passé simple vs Präteritum).
+- Everything in "What to keep exactly" and the typography rules above applies.
+- Check: `node tool/turkish/build.mjs <level> --lang fr --check` (0 errors), then without `--check`.

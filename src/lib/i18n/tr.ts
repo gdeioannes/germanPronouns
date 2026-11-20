@@ -662,6 +662,8 @@ export const TR: Record<string, string> = {
 		"Yine de çalış",
 	"Done":
 		"Bitti",
+	"In your language": "Türkçe",
+	"Hide the translation": "Çeviriyi gizle",
 	"Hide English":
 		"Türkçeyi gizle",
 	"Listen to {word}":

@@ -1,14 +1,18 @@
 <script lang="ts">
 	import { t } from '$lib/i18n/t';
+	import { explainedInLang } from '$lib/i18n/content.svelte';
+	import { pageLevel } from '$lib/i18n/pageLevel';
 	// Asks for the English of a German explanation. Separate from what it opens
 	// (EnglishPanel), because the button sits beside the rule's heading and the
 	// English belongs under the rule's text.
 	// No fallback: it binds to a key of a record, which starts out undefined.
 	let { open = $bindable() }: { open?: boolean } = $props();
+	// From B1 in French the button opens French (the English-button layer is translated).
+	const own = $derived(explainedInLang(pageLevel()));
 </script>
 
 <button type="button" class="toggle" aria-expanded={!!open} onclick={() => (open = !open)}>
-	{open ? t('Hide English') : t('English')}
+	{#if own}{open ? t('Hide the translation') : t('In your language')}{:else}{open ? t('Hide English') : t('English')}{/if}
 </button>
 
 <style>

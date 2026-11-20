@@ -234,6 +234,8 @@ export const AR: Record<string, string> = {
 		"لا",
 	"Done":
 		"تم",
+	"In your language": "بالعربية",
+	"Hide the translation": "إخفاء الترجمة",
 	"Hide English":
 		"أخفِ العربية",
 	"Listen to {word}":

@@ -815,7 +815,7 @@
             ]
           },
           "en": {
-            "text": "Der Minister sagte (indicative) , die Lage sei (K I) ernst. Two verbs, two moods. The reporter speaks in the indicative; the reported person speaks in the Konjunktiv.",
+            "text": "Der Minister sagte (indicative), die Lage sei (K I) ernst. Two verbs, two moods. The reporter speaks in the indicative; the reported person speaks in the Konjunktiv.",
             "title": "Introducing verb in the indicative, reported verb in the Konjunktiv"
           }
         },
@@ -1621,7 +1621,7 @@
         "today": "Die Vergangenheit wiedergeben (habe / sei + Partizip), dazu Fragen und Bitten."
       },
       "hookEn": "Report what someone said, asked or requested in the past, the way police reports and news stories do.",
-      "introEn": "Reported speech beyond the present: the past, the future, questions and requests. Any past tense of direct speech — Perfekt, Präteritum or Plusquamperfekt — becomes one form in reported speech: habe / sei + Partizip II. „Ich habe geschickt“ / „Ich schickte“ / „Ich hatte geschickt“ → er habe geschickt. „Ich bin angekommen“ → sie sei angekommen. With a modal: „Ich konnte nicht kommen“ → er habe nicht kommen können (double infinitive). The future keeps werde: er werde anrufen. Questions become ob- or W-clauses with the verb at the end and, in writing, the Konjunktiv (sie fragte, ob ich mitkomme / mitkäme; wann der Zug fahre). Requests and orders use solle (instruction) or möge (polite): sie bat, ich möge warten; er forderte, ich solle die Tür schließen. And whenever the Konjunktiv I form equals the indicative — sie haben, wir sind — switch to Konjunktiv II: sie hätten gewusst, wir seien (seien is fine, distinct) umgezogen.",
+      "introEn": "Reported speech beyond the present: the past, the future, questions and requests. Any past tense of direct speech — Perfekt, Präteritum or Plusquamperfekt — becomes one form in reported speech: habe / sei + Partizip II. „Ich habe geschickt“ / „Ich schickte“ / „Ich hatte geschickt“ → er habe geschickt. „Ich bin angekommen“ → sie sei angekommen. With a modal: „Ich konnte nicht kommen“ → er habe nicht kommen können (double infinitive). The future keeps werde: er werde anrufen. Questions become ob- or W-clauses with the verb at the end and, in writing, the Konjunktiv (sie fragte, ob ich mitkomme / mitkäme; wann der Zug fahre). Requests and orders use solle (instruction) or möge (polite): sie bat, ich möge warten; er forderte, ich solle die Tür schließen. Whenever the Konjunktiv I form equals the indicative, as with sie haben, switch to Konjunktiv II: sie hätten gewusst. With wir sind that is not needed, because seien is distinct: wir seien umgezogen.",
       "rememberEn": [
         "Past = habe/sei + participle, whatever the direct tense; modal → double infinitive.",
         "Questions: ob / W-word + Konjunktiv; requests: solle (order) / möge (please)."
@@ -2538,7 +2538,7 @@
           "en": {
             "text": "auf + Akk: stolz, neugierig, böse, gespannt (excited about), angewiesen (reliant) · mit + Dat: zufrieden, einverstanden, fertig, verheiratet, beschäftigt · an + Dat: interessiert, reich, arm, schuld · von + Dat: abhängig, begeistert, überzeugt, müde, enttäuscht · für + Akk: verantwortlich, bekannt, typisch, wichtig, dankbar · über + Akk: ärgerlich, froh, glücklich, erstaunt, traurig · zu + Dat: freundlich, nett, bereit, fähig · in + Akk: verliebt; in + Dat: gut, schlecht, erfahren.",
             "title": "The core set, by preposition",
-            "trap": "never translate: 'interested in' is interessiert an, 'proud of' is stolz auf, 'responsible for' is verantwortlich für, 'good at' is gut in. The English preposition is a false friend every time."
+            "trap": "Never translate word for word: 'interested in' is interessiert an, 'proud of' is stolz auf, 'responsible for' is verantwortlich für, 'good at' is gut in. The English preposition is a false friend every time."
           }
         },
         {
@@ -4730,8 +4730,12 @@
           "en": "out of fear / curiosity"
         },
         {
-          "de": "vor Freude / Kälte",
-          "en": "for joy / with cold"
+          "de": "vor Freude",
+          "en": "for joy"
+        },
+        {
+          "de": "vor Kälte",
+          "en": "with cold"
         },
         {
           "de": "da",
@@ -9493,7 +9497,7 @@
       "hookEn": "Link two changes in one sentence (the longer you wait, the harder it gets) and get both word orders right.",
       "introEn": "je … desto (or je … umso) links two comparatives: the more one thing grows, the more the other does. Each half has its own word order. The je-half is a subordinate clause: je + comparative + subject + … + verb at the end (Je länger ich hier wohne). The desto-half is a main clause whose first position is desto + comparative, so the verb follows immediately and the subject comes after it (desto besser gefällt mir die Stadt). umso means exactly the same as desto and is slightly more formal. The comparative can be an adverb (besser, lieber, öfter) or can carry a noun with it (desto mehr Steuern, desto weniger Probleme). Short versions without verbs are common in headlines and sayings: Je höher der Preis, desto höher die Erwartungen. The halves can also be swapped: Die Aufgabe wird umso schwieriger, je länger man wartet — then the main clause comes first and je introduces the subordinate clause at the end.",
       "rememberEn": [
-        "Je + Komparativ … Verb am Ende, desto/umso + Komparativ + Verb + Subjekt.",
+        "Je + comparative … verb at the end, desto/umso + comparative + verb + subject.",
         "umso = desto; main clause first: umso …, je …"
       ],
       "german": true
@@ -9506,7 +9510,7 @@
     ],
     "title": "Wortschatz",
     "help": {
-      "intro": "Jedes Wort aus den Übungen dieses Abschnitts in einem Kartenstapel: 369 Karten, davon 153 Nomen. Die Wörter dieses Abschnitts sind die Sprache von Gesellschaft, Arbeit, Umwelt und Wissenschaft. Viele davon sind abstrakte Nomen auf -ung, -heit, -keit und -ion, aus den Themen Gesellschaft & Politik, Arbeit & Wirtschaft, Medien & Kommunikation, Konsum. Schreib das deutsche Wort, wähl es aus vier Möglichkeiten oder dreh die Karte um und bewerte dich selbst. Ein Wort, das du nicht weißt, kommt im selben Durchgang wieder. Es bleibt bei deinen schwachen Wörtern, bis du es dreimal hintereinander richtig hast.",
+      "intro": "Jedes Wort aus den Übungen dieses Abschnitts in einem Kartenstapel: 513 Karten, davon 234 Nomen. Die Wörter dieses Abschnitts sind die Sprache von Gesellschaft, Arbeit, Umwelt und Wissenschaft. Viele davon sind abstrakte Nomen auf -ung, -heit, -keit und -ion, aus den Themen Gesellschaft & Politik, Arbeit & Wirtschaft, Medien & Kommunikation, Konsum. Schreib das deutsche Wort, wähl es aus vier Möglichkeiten oder dreh die Karte um und bewerte dich selbst. Ein Wort, das du nicht weißt, kommt im selben Durchgang wieder. Es bleibt bei deinen schwachen Wörtern, bis du es dreimal hintereinander richtig hast.",
       "tips": [
         {
           "kind": "rule",
@@ -9669,7 +9673,7 @@
       ],
       "hook": "Lern die Wörter aus Nachrichten, Arbeit und Gesellschaft mit ihren Artikeln. Dann sind abstrakte Nomen kein Ratespiel mehr.",
       "hookEn": "Learn the words of news, work and society with their articles, so abstract nouns stop being a guessing game.",
-      "introEn": "Every word this module’s exercises use, on one deck of flashcards: 369 cards, 153 of them nouns. The vocabulary of this module is the language of society, work, environment and science, much of it abstract nouns in -ung, -heit, -keit and -ion, from the themes Gesellschaft & Politik, Arbeit & Wirtschaft, Medien & Kommunikation, Konsum. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
+      "introEn": "Every word this module’s exercises use, on one deck of flashcards: 513 cards, 234 of them nouns. The vocabulary of this module is the language of society, work, environment and science, much of it abstract nouns in -ung, -heit, -keit and -ion, from the themes Gesellschaft & Politik, Arbeit & Wirtschaft, Medien & Kommunikation, Konsum. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
       "rememberEn": [
         "Never say a noun without its article, not even in your head.",
         "Miss a word? It comes back in the same run. Three correct answers in a row take it off the weak list.",

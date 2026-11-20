@@ -136,3 +136,30 @@ different places (du → «ما اسمك؟», Sie → «ما اسم حضرتك؟
 
 When unsure (a joke that does not travel, a rule that changes for Arabic speakers), choose the
 clearest version and add file + key + your doubt to `docs/arabic_review.md`.
+
+## B1–C2: the English button in Arabic
+
+From B1 the site explains German **in German**; a button under each explanation opens the
+English. In Arabic mode that button opens Arabic instead. You translate only that layer (and the
+word meanings), never the German explanations above it.
+
+- Source: `tool/turkish/en/<level>/app/<quiz id>.json` for `b1_1 … c2_2` (only button-layer
+  paths). You write `tool/turkish/ar/<level>/app/<quiz id>.json`, same name, same keys.
+- Reference for what the layer is and the quality bar: the finished French files,
+  `tool/turkish/fr/b1_1/app/quest_b1_1_adj_komparativ.json` and `…/quest_b1_1_genitiv.json`
+  (read them for how the English was adapted, not for wording).
+- What the fields are:
+  - `help.introEn`, `help.hookEn`, `help.tips[i].en.title/.text/.trap`, `help.rememberEn[i]`,
+    `help.examEn`, `help.recallEn.*`: the explanation itself. Same content as the German above it.
+  - `…check.whyEn`, `sentences[i].whyEn`, `help.mistakes[i].whyEn`: why an answer is right or wrong.
+    A check's why may explain the check question itself (German, not in your file): translate as written.
+  - `…examples[i].en`, `help.context.en`: the translation of a German example or text. Translate
+    **from the German** (`node tool/turkish/de-context.mjs <quiz id>` prints it), naturally.
+  - `help.vocab[i].en`, `cards[i].en`, `spots[i].en`, `visual.*.en`: a word's meaning, short, like a
+    dictionary gloss. de-context.mjs shows the German word. For a vocabulary deck (`wortschatz`),
+    reuse the glosses already written for the same German word in that level's other quizzes.
+- B1–C2 readers are advanced: full, precise Arabic is fine, but keep it clear and short.
+- Where the English compares German with English, compare with Arabic when that helps more
+  (Arabic also has grammatical gender and cases (رفع / نصب / جرّ), but only two genders; the definite article ال versus der/die/das; the verb-first sentence versus German verb-second; كان وأخواتها and the Konjunktiv; Arabic punctuation ، ؛ ؟ in Arabic text, German keeps its own).
+- Everything in "What to keep exactly" above applies. No long dashes in prose.
+- Check: `node tool/turkish/build.mjs <level> --lang ar --check` (0 errors), then without `--check`.

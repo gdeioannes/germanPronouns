@@ -122,6 +122,13 @@ const DROP_PAIRS = new Set([
 	'deren Hilfe|with whose help'
 ]);
 
+/**
+ * Grids whose row label is only a cue (a base adjective: "angestellt") while
+ * the gloss is the meaning of the answer (the noun: "employee"). As cards they
+ * teach a meaning the label does not have; the real words are in the vocab.
+ */
+const CUE_GRIDS = new Set(['quest_b1_1_adjektive_als_nomen']);
+
 const levelQuizzes = bundle.quizzes.filter((q) => q.level === level && q.type !== 'vocabulary');
 const cards = new Map();
 
@@ -332,6 +339,7 @@ for (const q of levelQuizzes) {
 		// ("to deny outright", "home"). Those displays are not German words.
 		if (/^to\s+\w/.test(display) || english.startsWith(display)) continue;
 		if (englishPrompted.has(q.id)) continue;
+		if (CUE_GRIDS.has(q.id)) continue;
 		add({ de: display, en: s.english, gender: s.gender }, q.id);
 	}
 }

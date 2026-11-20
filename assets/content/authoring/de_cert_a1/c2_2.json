@@ -3113,7 +3113,7 @@
           "wrong": "Im Hinblick auf die Kosten ist der Plan kritisch.",
           "right": "Im Hinblick auf die Kosten ist der Plan kritisch zu bewerten / zu sehen.",
           "why": "Ein Plan ist im Deutschen nicht in diesem Sinn „kritisch“; er ist kritisch zu bewerten.",
-          "whyEn": "A plan is not „kritisch“ (critical) in German; it is to be assessed critically."
+          "whyEn": "In German a plan is not „kritisch“ in this sense; it is kritisch zu bewerten (to be assessed critically)."
         },
         {
           "wrong": "Ich glaube, dass die Zahlen steigen. (academic text)",
@@ -4496,8 +4496,8 @@
         {
           "wrong": "Das Urteil ist bestandskräftig.",
           "right": "Das Urteil ist rechtskräftig.",
-          "why": "Gerichtsurteile werden rechtskräftig, Verwaltungsentscheidungen bestandskräftig.",
-          "whyEn": "Court judgments become rechtskräftig; administrative decisions become bestandskräftig."
+          "why": "Gerichtsurteile werden rechtskräftig, Verwaltungsentscheidungen bestandskräftig. Ausnahme: Der Bußgeldbescheid wird wie ein Urteil rechtskräftig.",
+          "whyEn": "Court judgments become rechtskräftig; administrative decisions become bestandskräftig. The exception: a Bußgeldbescheid becomes rechtskräftig, like a judgment."
         }
       ],
       "hook": "Entschlüssle deutsche Amtsbriefe: Welche Geldzahlung ist welche, wie widersprichst du rechtzeitig, und was verlangt „ist zu entrichten“ wirklich von dir?",
@@ -7658,8 +7658,8 @@
               "auf den Zug"
             ],
             "answer": "auf einen Grund zu bleiben",
-            "why": "Erst … begriff markiert die Erkenntnis, und ihr Inhalt steht in der sondern-Hälfte; sie wird ausdrücklich ausgeschlossen.",
-            "whyEn": "Erst … begriff marks the realisation, and its content stands in the sondern-half; sie is explicitly ruled out."
+            "why": "Erst … begriff markiert die Erkenntnis, und ihr Inhalt steht in der sondern-Hälfte; „auf sie“ wird ausdrücklich ausgeschlossen.",
+            "whyEn": "Erst … begriff marks the realisation, and its content stands in the sondern-half; „auf sie“ is explicitly ruled out."
           },
           "en": {
             "text": "„Erst in diesem Augenblick begriff sie …“ marks the turning point. The content of the realisation follows in a „nicht …, sondern …“ chain – and here the text also says what it is NOT about, including the answer most readers would guess.",
@@ -9756,7 +9756,7 @@
     ],
     "title": "Wortschatz",
     "help": {
-      "intro": "Jedes Wort aus den Übungen dieses Abschnitts in einem Kartenstapel: 365 Karten, davon 184 Nomen. Der Wortschatz dieses Abschnitts ist präzise und stilistisch markiert: Registerpaare, juristische und philosophische Begriffe und feste Wendungen, aus den Themen Philosophie & Gesellschaft, Wissenschaftssprache, Recht & Verwaltung: Amtsdeutsch, Literatur: Lyrik & Deutung. Schreib das deutsche Wort, wähl es aus vier Möglichkeiten oder dreh die Karte um und bewerte dich selbst. Ein Wort, das du nicht weißt, kommt im selben Durchgang wieder und bleibt bei deinen schwachen Wörtern, bis du es dreimal hintereinander richtig hast.",
+      "intro": "Jedes Wort aus den Übungen dieses Abschnitts in einem Kartenstapel: 423 Karten, davon 242 Nomen. Der Wortschatz dieses Abschnitts ist präzise und stilistisch markiert: Registerpaare, juristische und philosophische Begriffe und feste Wendungen, aus den Themen Philosophie & Gesellschaft, Wissenschaftssprache, Recht & Verwaltung: Amtsdeutsch, Literatur: Lyrik & Deutung. Schreib das deutsche Wort, wähl es aus vier Möglichkeiten oder dreh die Karte um und bewerte dich selbst. Ein Wort, das du nicht weißt, kommt im selben Durchgang wieder und bleibt bei deinen schwachen Wörtern, bis du es dreimal hintereinander richtig hast.",
       "tips": [
         {
           "kind": "rule",
@@ -9894,7 +9894,7 @@
       ],
       "hook": "Sammle die präzisen Wörter aus Philosophie, Wissenschaft, Recht und Literatur, jedes mit seinem Artikel und seinem Register.",
       "hookEn": "Gather the precise words of philosophy, science, law and literature, each with its article and its register.",
-      "introEn": "Every word this module’s exercises use, on one deck of flashcards: 365 cards, 184 of them nouns. The vocabulary of this module is precise, stylistically marked vocabulary: register pairs, legal and philosophical terms, and fixed expressions, from the themes Philosophie & Gesellschaft, Wissenschaftssprache, Recht & Verwaltung: Amtsdeutsch, Literatur: Lyrik & Deutung. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
+      "introEn": "Every word this module’s exercises use, on one deck of flashcards: 423 cards, 242 of them nouns. The vocabulary of this module is precise, stylistically marked vocabulary: register pairs, legal and philosophical terms, and fixed expressions, from the themes Philosophie & Gesellschaft, Wissenschaftssprache, Recht & Verwaltung: Amtsdeutsch, Literatur: Lyrik & Deutung. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
       "rememberEn": [
         "Never say a noun without its article, not even in your head.",
         "Miss a word? It comes back in the same run. Three correct answers in a row take it off the weak list.",
@@ -12335,7 +12335,7 @@
       "level": "C2.2",
       "help": {
         "intro": "Ein Essay von etwa 710 Wörtern über eine Frage, die einfacher klingt, als sie ist: Wem gehört das Deutsche? Als Österreich 1995 der Europäischen Union beitrat, ließ es sich in einem eigenen Protokoll zusichern, dass 23 österreichische Wörter in den EU-Rechtstexten denselben Rang haben wie die deutschen: Marille neben Aprikose, Erdäpfel neben Kartoffeln, Topfen neben Quark, Paradeiser neben Tomaten. Es war die erste völkerrechtliche Anerkennung, dass Deutsch mehr als eine Standardform hat. Der Text erzählt, wie es dazu kam, was die Schweiz anders macht, warum sie das ß abgeschafft hat und Velo statt Fahrrad sagt, was Sprachwissenschaftler mit dem Wort plurizentrisch meinen und warum die Deutschen das Ganze so schwer verstehen. Du hast die Varianten zuletzt geübt; hier liest du, woher sie kommen. Dazu kommt die Paraphrase, die zweite Fertigkeit dieses Textes: dasselbe anders sagen, ohne die Bedeutung zu verschieben. Mehrere Fragen bieten dir vier Umformulierungen eines Satzes an, von denen nur eine den Sinn trifft.",
-        "introEn": "An essay of about 710 words on a question that sounds simpler than it is: who owns German? When Austria joined the European Union in 1995 it had a protocol of its own guarantee that 23 Austrian words have the same rank in EU legal texts as the German ones: Marille beside Aprikose, Erdäpfel beside Kartoffeln, Topfen beside Quark, Paradeiser beside Tomaten. It was the first recognition in international law that German has more than one standard form. The text tells how it came about, what Switzerland does differently, why it abolished the ß and says Velo instead of Fahrrad, what linguists mean by the word pluricentric and why Germans find the whole thing so hard to grasp. You practised the variants last; here you read where they come from. Added to this is paraphrase, the second skill of this text: saying the same thing differently without shifting the meaning. Several questions offer you four rewordings of a sentence, only one of which hits the sense.",
+        "introEn": "An essay of about 710 words on a question that sounds simpler than it is: who owns German? When Austria joined the European Union in 1995 it had it guaranteed in a protocol of its own that 23 Austrian words have the same rank in EU legal texts as the German ones: Marille beside Aprikose, Erdäpfel beside Kartoffeln, Topfen beside Quark, Paradeiser beside Tomaten. It was the first recognition in international law that German has more than one standard form. The text tells how it came about, what Switzerland does differently, why it abolished the ß and says Velo instead of Fahrrad, what linguists mean by the word pluricentric and why Germans find the whole thing so hard to grasp. You practised the variants last; here you read where they come from. Added to this is paraphrase, the second skill of this text: saying the same thing differently without shifting the meaning. Several questions offer you four rewordings of a sentence, only one of which hits the sense.",
         "tips": [
           {
             "kind": "rule",
@@ -12343,8 +12343,8 @@
             "text": "Plurizentrisch heißt: Eine Sprache hat mehrere gleichberechtigte Standardvarietäten, keine ist die richtige. Österreichisch: Jänner, Marille, Erdapfel, Topfen, Paradeiser, Obers, Sessel (= Stuhl), Matura, Spital, heuer, das Cola, der Polster; ich bin gesessen (Perfekt mit sein). Schweizerisch: kein ß (Strasse, Masse), Velo, Billett, Trottoir, Coiffeur, parkieren, grillieren, Spital, Matura, das Tram, allfällig (eventuell), Natel (Handy); Perfekt statt Präteritum in der Schrift. Deutschländisch: Aprikose, Kartoffel, Quark, Tomate, Abitur, Krankenhaus. Wer in Wien Kartoffel sagt, wird verstanden; wer Erdapfel für Dialekt hält, hat die Sprache missverstanden.",
             "examples": [
               {
-                "de": "Im Jänner kostet die Marille das Dreifache, sagt die Standlerin am Naschmarkt, und der Berliner Tourist versteht kein Wort und beides.",
-                "en": "In January the apricot costs three times as much, says the stallholder at the Naschmarkt, and the Berlin tourist understands not a word and both.",
+                "de": "Im Jänner kostet die Marille das Dreifache, sagt die Standlerin am Naschmarkt, und der Berliner Tourist versteht weder Jänner noch Marille.",
+                "en": "In January the apricot costs three times as much, says the stallholder at the Naschmarkt, and the Berlin tourist understands neither Jänner nor Marille.",
                 "focus": [
                   "Jänner",
                   "Marille",

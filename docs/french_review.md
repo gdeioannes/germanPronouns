@@ -164,3 +164,113 @@ Written by the translator agent: file + key + doubt. Checked by a native speaker
 - dictionary part-03 · doch|particle · English example softener 'do come in, won't you' rendered as the French « entrez donc » (not a German example): check it reads well in the popup.
 - dictionary part-05/06 · Zett, Jot, Vau, We, Be, Ka · English pronunciation hints re-spelled for French readers (« tsètt », « yott », « faou », « vé », « bé », « ka »).
 - dictionary part-06 · modal|adjective · rendered « de manière » (the connector sense: temporal/kausal/modal/lokal); French « modal » alone would suggest modal verbs.
+
+## B1.1 English button (2026-11-20)
+
+Source issues found while translating (the English, not the French):
+- `quest_b1_1_wortschatz` cards 86–94 (angestellt, erwachsen, deutsch, verwandt, bekannt, jugendlich, verletzt,
+  auszubildend, fremd) are adjectives but the English glosses them as person nouns ("employee", "relative"…).
+  French glosses them as adjectives.
+- `quest_b1_1_wortschatz` intro says "266 cards, 122 of them nouns"; the deck has 346.
+- `visual.rows` in `quest_b1_1_futur` / `quest_b1_1_relativ` hold German inside the English file; rendered in French.
+- `Nachzahlung` = "back pay" (hoeren_fachkraft, wortschatz 279): beside Steuerberater it may mean a tax back-payment.
+- `quest_b1_1_bigtext_wohnung` "next-but-one quiz" → « deux exercices plus loin »: right only if the order holds.
+Deliberate: English-only traps (that/when/if/could/will) rewritten as French comparisons; formal letters use
+French conventions; relativ contexts follow the German die Chefin (« la cheffe »).
+
+## B1.2 English button (2026-11-20)
+
+- `quest_b1_2_lesen_koch` rememberEn[0]: English reads "nachdem (before …), bevor (after)", backwards. French correct.
+- `quest_b1_2_wortschatz` intro says 304 cards; the deck has 380. cards[60] wendete glossed "to turn to"; French
+  « tourner, faire demi-tour » (the regular form is the car-turning one).
+- German inside English glosses (partizip_adj_intro, zustandspassiv visual items; praet_misch rows = bare infinitives)
+  rendered in French / with French meanings.
+- lesen_anekdote / lesen_technik check whys name things not in the shown example (zwanzig/zwölf, Lisa, war abgefahren).
+- technik trap "aktuell ≠ actual" turned round for French: aktuell = « actuel ».
+
+## B2.1 English button (2026-11-20)
+
+- `quest_b2_1_mittelfeld` sentences[0–3].whyEn: the same generic text four times; needs per-sentence whys (source).
+- `quest_b2_1_konj1_vergangenheit` introEn ending muddled ("wir seien (seien is fine, distinct)"); French clarified.
+- `quest_b2_1_je_desto` rememberEn[0] is German in the English file; translated.
+- adjektive_praep trap lowercase start, bigtext_presse stray " ," (source typos).
+- wortschatz cards[239] "with cold" (Kälte); duplicate German pairs Wahlberechtigte (m/f split) and Freiwillige.
+- bestreiten glossed "to dispute, deny"; in the budget listening it may mean "to cover (costs)".
+
+## B2.2 English button (2026-11-20)
+
+- `quest_b2_2_irreal` vocab[7] / wortschatz cards[24]: German "führen" glossed "would go, would drive"; should be
+  führe/führen as Konjunktiv II of fahren, bare "führen" reads "to lead" (source).
+- `quest_b2_2_lesen_woelfe` tips[1].en.text typo "här" → "here".
+- nominalisierung_intro visual rows: German in the English file; translated.
+- wortschatz intro says 289 cards; 438 in the deck.
+- hoeren_schulbeginn: intro says Switzerland, example says Singapur (as in the German).
+- English examples only half-matching the German: genitiv_praep, konsekutiv_modal_nominal, partizip_attribut,
+  sprechen_kurzcheck; French made from the German.
+
+## C1.1 English button (2026-11-20)
+
+- `quest_c1_1_hoeren_vortrag_detail` tips[0].check.whyEn (sieben/neun Stunden, 2005) and
+  `quest_c1_1_lesen_saetze_einordnen` tips[1].check.whyEn (Sparplan, solche Preise) seem to belong to other questions.
+- `quest_c1_1_lesen_sprachbausteine` introEn repeats itself (left over from a removed exam name?).
+- konnektoren_zweiteilig / attribute: German Stellvertreterin(nen), English "his deputy/deputies"; French follows German.
+- bar_lich: verstehbar "rare" (intro) vs "not used in standard German" (check).
+- wortschatz intro says 257 cards; 407 in the deck.
+
+## C1.2 English button (2026-11-20)
+
+- `quest_c1_2_relativ_advanced` vocab[6]: de/en swapped (en "Bezugswort", de "Antecedent"); French « antécédent ».
+- `quest_c1_2_hoeren_hoerspiel` tips[2].check.whyEn says "she" where the tip is about the old man.
+- `quest_c1_2_lesen_kolumne` tips[2].check.whyEn mentions abolishing cars; the column is about phones.
+- `quest_c1_2_lesen_anglizismen` tips[1].en.text: stylen example does not show -ieren.
+- `quest_c1_2_hoeren_traeume` nachsenden glossed "to rebroadcast" (usually "to forward"); French follows the English.
+- wortschatz intro says 252 cards; 417 in the deck. Card 146 Umschlag = « chiffre d'affaires ; enveloppe ».
+
+## C2.1 English button (2026-11-20)
+
+- `quest_c2_1_stilmittel` sentences[7].whyEn "double negation = litotes" contradicts the quiz's own trap/remember.
+- `quest_c2_1_adjektivbildung` sentences[18].whyEn: zustimmungsfähig glossed as "cannot be approved" (only true with nicht).
+- lesen_champions: hook "1,500 in Germany" vs intro "almost half of roughly 3,400".
+- wortschatz intro says 283 cards; 362 in the deck.
+- Several check.whyEn lines (lesen_kurzgeschichte, hoeren_feature, and earlier levels) name words not in the tip's
+  examples: they explain the check question itself (German, not in the translator's file), so probably fine.
+
+## C2.2 English button (2026-11-20)
+
+- `quest_c2_2_lesen_dach` introEn garbled ("a protocol of its own guarantee that"); German example tips[0].examples[0]
+  "versteht kein Wort und beides" odd.
+- `quest_c2_2_paraphrase` sentences[4].whyEn calls ums Leben kommen a softening formula; the quiz says neutral register.
+- `quest_c2_2_behoerdensprache`: rechtskräftig (context, example) vs bestandskräftig (mistakes, intro).
+- `quest_c2_2_lesen_capstone` tips[1].check.whyEn "sie is explicitly ruled out": unclear referent.
+- `quest_c2_2_wissenschaftssprache` mistakes[1].whyEn wording odd.
+- wortschatz intro says 365 cards; 423 in the deck.
+
+## Source fixes applied (2026-11-20)
+
+Fixed in German + English (authoring / whys / bundle) and in the French files, overlays rebuilt:
+- Deck builder: `CUE_GRIDS` in tool/build-vocabulary.mjs (B1.1 adjective cue rows no longer become cards: 9 cards gone).
+- Vocab: wenden (wandte / wendete as a note), vor Freude + vor Kälte (two entries), wir führen, Bezugswort = antecedent.
+- Deck intro counts on all 11 decks: `node tool/deck-counts.mjs de_cert_a1` (also patches tr/ar/uk/fr); a content test
+  now fails when they go stale.
+- Explanations: B1.1 wohnung (next quiz), B1.2 koch (nachdem/bevor), B2.1 mittelfeld why, konj1 intro (EN), je_desto
+  rememberEn, adjektive_praep + presse typos, B2.2 woelfe typo, C1.1 verstehbar, C1.2 -ieren example, C2.1 litotes
+  why, zustimmungsfähig why, C2.2 ums Leben kommen why, Bußgeldbescheid exception, capstone „auf sie“, dach intro (EN)
+  and example, wissenschaftssprache (EN).
+- French typography: runs of several U+202F inside « » (1,132 places in b1_2, b2_1, b2_2, c1_1, c2_1) collapsed to one.
+
+Checked and left as they are (not errors): check whys that explain their own check question; bestreiten; Nachzahlung
+= back pay; Umschlag; Elternzeit two/three months; Schweiz/Singapur; 1,500 of 3,400; der/die pairs
+(Wahlberechtigte, Freiwillige); German labels in visual rows.
+
+Second pass, same day:
+- `quest_c1_2_hoeren_traeume`: „überall im Land nachgesendet“ → „von Sendern im ganzen Land übernommen“; vocab
+  nachsenden → übernehmen; the passage re-recorded (gen-audio `--match`), the old clip removed.
+- `quest_c1_1_lesen_sprachbausteine` intro no longer repeats itself.
+- `quest_b2_1_mittelfeld`: one why per answer. apply-whys takes an optional `"answer"` on a why for drills that pose
+  the same sentence with different answers.
+- Audio for the changed texts recorded (vor Kälte, wir führen, the Marille example, the Träume passage).
+
+Still open:
+- 5,221 short texts app-wide have no recording yet (`node tool/gen-audio.mjs --all --dry --missing`), mostly words of
+  the newer reading/listening exercises; they play in the device voice. Not caused by these fixes.
+- tool/german-first/{en,de} still hold the old wording (history only; do not re-apply over these fixes).

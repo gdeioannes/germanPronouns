@@ -16,7 +16,8 @@
 //   { "id": "quest_a1_1_pronomen",
 //     "whys": [ { "sentence": "<the existing sentence, verbatim>",
 //                 "why": "one sentence: the rule, applied to this gap",
-//                 "whyEn": "<the English, for quizzes whose help is German>" } ] }
+//                 "whyEn": "<the English, for quizzes whose help is German>",
+//                 "answer": "<optional: only the sentence with this first answer>" } ] }
 //
 // Rules the check enforces: every listed sentence exists in the quiz; no
 // sentence is listed twice; a why is one short line (< 180 chars), never
@@ -82,14 +83,20 @@ for (const file of files) {
 			const where = `${file} ${entry.id}: "${(w.sentence ?? '').slice(0, 40)}…"`;
 			// A drill may pose the same sentence twice ("Heute ____." with two
 			// answers): one entry explains them all, since the rule is the same.
-			const targets = quiz.sentences?.filter((s) => s.sentence === w.sentence) ?? [];
+			// When the answers follow different rules ("Ich gebe ____." four
+			// times), each entry names its `answer` and explains only that one.
+			const targets =
+				quiz.sentences?.filter(
+					(s) => s.sentence === w.sentence && (w.answer === undefined || s.acceptedAnswers?.[0] === w.answer)
+				) ?? [];
 			const target = targets[0];
 			if (!target) {
 				problems.push(`${where} — no such sentence (must match verbatim)`);
 				continue;
 			}
-			if (seen.has(w.sentence)) problems.push(`${where} — listed twice`);
-			seen.add(w.sentence);
+			const seenKey = `${w.sentence}|${w.answer ?? ''}`;
+			if (seen.has(seenKey)) problems.push(`${where} — listed twice`);
+			seen.add(seenKey);
 			for (const [field, text] of [
 				['why', w.why],
 				['whyEn', w.whyEn]

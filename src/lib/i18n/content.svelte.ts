@@ -29,6 +29,26 @@ interface Overlay {
 
 const files = import.meta.glob<{ default: Overlay }>(['$content/tr/de_cert_a1/*.json', '$content/ar/de_cert_a1/*.json', '$content/uk/de_cert_a1/*.json', '$content/fr/de_cert_a1/*.json']);
 
+/** "<lang>/<level id>" of every overlay that exists ("fr/b1_1"). */
+const available = new Set(
+	Object.keys(files).map((p) => p.match(/\/(\w\w)\/de_cert_a1\/(\w+)\.json$/)?.slice(1, 3).join('/') ?? '')
+);
+
+/**
+ * The learner's language has content for this level: every A1–A2 level, and
+ * from B1 a language that translated the English-button layer (French): the
+ * explanations stay German, the button shows French instead of English.
+ */
+function overlaid(level: string | null | undefined): level is string {
+	const l = lang.local;
+	return !!l && !!level && available.has(key(l, level));
+}
+
+/** From B1: the English button opens the learner's language, not English. */
+export function explainedInLang(level: string | null | undefined): boolean {
+	return lang.limited && !levelTranslated(level) && overlaid(level);
+}
+
 /** Loaded overlays by "<lang>/<level id>" ("ar/a1_1"); absent until fetched. */
 const maps = $state<Record<string, Overlay>>({});
 const pending = new Set<string>();
@@ -66,14 +86,14 @@ function isolated(o: Overlay): Overlay {
 /** Fetches a level's overlay ahead of time (await it before rendering where a flash matters). */
 export function loadOverlay(level: string | null | undefined): Promise<void> {
 	const l = lang.local;
-	if (!l || !level || !levelTranslated(level)) return Promise.resolve();
+	if (!l || !overlaid(level)) return Promise.resolve();
 	return load(l, level);
 }
 
 /** True while a second language is on and this level's overlay is still on its way. */
 export function overlayPending(level: string | null | undefined): boolean {
 	const l = lang.local;
-	return !!l && !!level && levelTranslated(level) && !maps[key(l, level)];
+	return !!l && overlaid(level) && !maps[key(l, level)];
 }
 
 /**
@@ -115,7 +135,7 @@ export function translateDeep<T>(value: T, map: Record<string, string>, only?: S
  * Turkish, it is returned as is. Reactive: call it inside $derived.
  */
 export function inLang<T>(value: T, level: string | null | undefined): T {
-	if (!lang.limited || !level || !levelTranslated(level)) return value;
+	if (!lang.limited || !overlaid(level)) return value;
 	const overlay = overlayFor(level);
 	return overlay ? translateDeep(value, overlay.text) : value;
 }
@@ -164,7 +184,7 @@ export function localize<T>(value: T, pairs: Pairs | undefined, text: Record<str
 /** One exercise in the learner's language: exact by path, then the level's text map. */
 export function inLangQuiz<T extends { id: string; level?: string | null }>(quiz: T): T {
 	const level = quiz.level;
-	if (!lang.limited || !level || !levelTranslated(level)) return quiz;
+	if (!lang.limited || !overlaid(level)) return quiz;
 	const overlay = overlayFor(level);
 	if (!overlay) return quiz;
 	return localize(quiz, overlay.quizzes[quiz.id], overlay.text);
@@ -172,7 +192,7 @@ export function inLangQuiz<T extends { id: string; level?: string | null }>(quiz
 
 /** One book chapter (Book v2) in the learner's language. */
 export function inLangChapter<T extends { id: string }>(chapter: T, level: string): T {
-	if (!lang.limited || !levelTranslated(level)) return chapter;
+	if (!lang.limited || !overlaid(level)) return chapter;
 	const overlay = overlayFor(level);
 	if (!overlay) return chapter;
 	return localize(chapter, overlay.chapters[chapter.id], overlay.text);
@@ -180,7 +200,7 @@ export function inLangChapter<T extends { id: string }>(chapter: T, level: strin
 
 /** A book's own lines outside its chapters (title page, front matter). */
 export function inLangBookFront<T>(book: T, level: string): T {
-	if (!lang.limited || !levelTranslated(level)) return book;
+	if (!lang.limited || !overlaid(level)) return book;
 	const overlay = overlayFor(level);
 	return overlay ? applyPairs(book, overlay.front) : book;
 }

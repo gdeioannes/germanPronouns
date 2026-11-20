@@ -202,7 +202,10 @@
 	{
 		"id": "quest_b2_1_mittelfeld",
 		"whys": [
-			{ "sentence": "Ich gebe ____.", "why": "Nomen + Nomen: Dativ vor Akkusativ; Pronomen springen davor, es vor ihm. Hier je nach Form: meinem Bruder das Buch / es ihm.", "whyEn": "Noun + noun: dative before accusative; pronouns jump ahead, es before ihm — here whichever form the answer takes." },
+			{ "sentence": "Ich gebe ____.", "answer": "meinem Bruder das Buch", "why": "Zwei Nomen: Dativ vor Akkusativ, also meinem Bruder das Buch.", "whyEn": "Two nouns: dative before accusative, so meinem Bruder das Buch." },
+			{ "sentence": "Ich gebe ____.", "answer": "es meinem Bruder", "why": "Ein Pronomen steht vor dem Nomen, egal in welchem Kasus: es meinem Bruder.", "whyEn": "A pronoun goes before the noun, whatever its case: es meinem Bruder." },
+			{ "sentence": "Ich gebe ____.", "answer": "ihm das Buch", "why": "Ein Pronomen steht vor dem Nomen: ihm (Dativ) vor das Buch.", "whyEn": "A pronoun goes before the noun: ihm (dative) before das Buch." },
+			{ "sentence": "Ich gebe ____.", "answer": "es ihm", "why": "Zwei Pronomen: Akkusativ vor Dativ, also es ihm. Die Regel der Nomen dreht sich um.", "whyEn": "Two pronouns: accusative before dative, so es ihm. The noun rule is reversed." },
 			{ "sentence": "Sie fährt ____.", "why": "Mittelfeld-Ordnung: Zeit (morgen) vor Grund, Art (mit dem Zug), Ort zuletzt (nach Rom).", "whyEn": "Midfield order: time (morgen) before cause, manner (mit dem Zug), place last (nach Rom)." },
 			{ "sentence": "Er fährt ____.", "why": "Te-Ka-Mo-Lo: jeden Tag, mit dem Rad, zur Arbeit.", "whyEn": "Te-Ka-Mo-Lo: jeden Tag, mit dem Rad, zur Arbeit." },
 			{ "sentence": "Wir haben ____.", "why": "nicht vor dem, was verneint wird: das Museum nicht besucht (alles) oder nicht das Museum, sondern … (Kontrast).", "whyEn": "nicht goes before what it negates: … nicht besucht (the whole thing) or nicht das Museum, sondern … (a contrast)." },

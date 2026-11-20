@@ -950,6 +950,8 @@ export const UK: Record<string, string> = {
 		"Все одно потренуватися",
 	"Done":
 		"Готово",
+	"In your language": "Українською",
+	"Hide the translation": "Сховати переклад",
 	"Hide English":
 		"Сховати переклад",
 	"Listen to {word}":

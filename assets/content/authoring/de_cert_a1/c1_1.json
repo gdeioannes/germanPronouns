@@ -2267,8 +2267,8 @@
               "verstandbar"
             ],
             "answer": "verständlich",
-            "why": "verständlich gehört zur festen -lich-Gruppe; verstehbar ist im Standarddeutschen nicht gebräuchlich.",
-            "whyEn": "verständlich belongs to the fixed -lich set; verstehbar is not used in standard German."
+            "why": "verständlich gehört zur festen -lich-Gruppe; verstehbar ist selten und passt hier nicht.",
+            "whyEn": "verständlich belongs to the fixed -lich set; verstehbar is rare and does not fit here."
           },
           "en": {
             "text": "verständlich, erklärlich, verträglich, verzeihlich, unglaublich, unvermeidlich, erschwinglich, begreiflich, unsäglich (unspeakable), unentbehrlich (indispensable). Learn them as words; don't build new ones with -lich.",
@@ -6410,7 +6410,7 @@
     "title": "Lesen: Sprachbausteine-Cloze",
     "help": {
       "hook": "Füll Lücken in anspruchsvollem Wissenschaftsdeutsch, indem du zuerst die Form und dann die Bedeutung prüfst: eine Methode, die dich selten im Stich lässt.",
-      "intro": "Ein Lückentext zu einem kurzen wissenschaftlichen Text, und die Lücken sitzen dort, wo formelles Deutsch am schwersten ist: Verben (Bedeutung, Zeit, Modus), Modalverben, Konnektoren, Angaben der Zeit, des Grundes, der Art und Weise und des Ortes, Pronomen. Diese Übung ist genau diese Aufgabe an einem Text in voller Länge: acht Lücken mit je vier Möglichkeiten. Jede Lücke löst du in zwei Schritten: zuerst die Grammatik (welche Wortart und Form verlangt die Stelle: ein Verb im Präteritum passend zu seinen Nachbarn? eine Konjunktion, weil das Verb am Ende steht? ein Gradadverb in einem Relativsatz?), dann die Bedeutung (welche der übrig gebliebenen Möglichkeiten passt zur Argumentation: ein Zugeständnis, weil der nächste Satz „bleibt offen“ sagt?). Funktionsverbgefüge, also feste Verbindungen aus Nomen und einem bedeutungsarmen Verb, sind besonders beliebt (legen … nahe, stellen … in Frage, ziehen … in Betracht): Lern das Funktionsverb. Auch die Einheit der Zeit wird oft geprüft: Eine Erzählung im Präteritum will Präteritum, das Plusquamperfekt nur für den früheren Schritt. Und der Konjunktiv markiert wiedergegebene Behauptungen (man vermutet, dass … sei / werde): Achte darauf.",
+      "intro": "Ein Lückentext zu einem wissenschaftlichen Text in voller Länge: acht Lücken mit je vier Möglichkeiten. Die Lücken sitzen dort, wo formelles Deutsch am schwersten ist: Verben (Bedeutung, Zeit, Modus), Modalverben, Konnektoren, Angaben der Zeit, des Grundes, der Art und Weise und des Ortes, Pronomen. Jede Lücke löst du in zwei Schritten: zuerst die Grammatik (welche Wortart und Form verlangt die Stelle: ein Verb im Präteritum passend zu seinen Nachbarn? eine Konjunktion, weil das Verb am Ende steht? ein Gradadverb in einem Relativsatz?), dann die Bedeutung (welche der übrig gebliebenen Möglichkeiten passt zur Argumentation: ein Zugeständnis, weil der nächste Satz „bleibt offen“ sagt?). Funktionsverbgefüge, also feste Verbindungen aus Nomen und einem bedeutungsarmen Verb, sind besonders beliebt (legen … nahe, stellen … in Frage, ziehen … in Betracht): Lern das Funktionsverb. Auch die Einheit der Zeit wird oft geprüft: Eine Erzählung im Präteritum will Präteritum, das Plusquamperfekt nur für den früheren Schritt. Und der Konjunktiv markiert wiedergegebene Behauptungen (man vermutet, dass … sei / werde): Achte darauf.",
       "tips": [
         {
           "kind": "rule",
@@ -6595,7 +6595,7 @@
       ],
       "exam": "Ein wissenschaftlicher Lückentext zu Verben, Konnektoren und festen Wendungen ist eine übliche Leseaufgabe in der C1-Prüfung.",
       "hookEn": "Fill gaps in demanding academic German by checking the form first and the meaning second, a method that rarely lets you down.",
-      "introEn": "This is a cloze on a short academic text, and its gaps sit where formal German is hardest: verbs (meaning, tense, mood), modal verbs, connectors, temporal/causal/modal/local phrases, pronouns. This quiz is that task on a full-length text: eight gaps, four options each. Each gap is solved in two steps: grammar first (what word class and form does the slot demand — a verb in the Präteritum to match its neighbours? a subordinating conjunction because the verb is at the end? an adverb of degree inside a relative clause?), then meaning (which of the survivors fits the argument — concession because the next clause says 'bleibt offen'?). Funktionsverbgefüge are a favourite (legen … nahe, stellen … in Frage, ziehen … in Betracht): learn the light verb. Tense consistency is another: a Präteritum narrative wants Präteritum, with the Plusquamperfekt only for the earlier step. And the Konjunktiv marks reported claims (man vermutet, dass … sei / werde) — watch for it.",
+      "introEn": "A cloze on a full-length academic text: eight gaps, four options each. The gaps sit where formal German is hardest: verbs (meaning, tense, mood), modal verbs, connectors, temporal/causal/modal/local phrases, pronouns. Each gap is solved in two steps: grammar first (what word class and form does the slot demand — a verb in the Präteritum to match its neighbours? a subordinating conjunction because the verb is at the end? an adverb of degree inside a relative clause?), then meaning (which of the survivors fits the argument — concession because the next clause says 'bleibt offen'?). Funktionsverbgefüge are a favourite (legen … nahe, stellen … in Frage, ziehen … in Betracht): learn the light verb. Tense consistency is another: a Präteritum narrative wants Präteritum, with the Plusquamperfekt only for the earlier step. And the Konjunktiv marks reported claims (man vermutet, dass … sei / werde) — watch for it.",
       "rememberEn": [
         "Form first (verb position, tense, word class), then sense.",
         "nahelegen = legen … nahe; the cloze loves light verbs."
@@ -8257,7 +8257,7 @@
     ],
     "title": "Wortschatz",
     "help": {
-      "intro": "Jedes Wort aus den Übungen dieses Abschnitts in einem Kartenstapel: 257 Karten, davon 142 Nomen. Der Wortschatz dieses Abschnitts gehört zum wissenschaftlichen und formellen Stil: Nominalstil, Forschungswortschatz und feste Verbindungen aus Nomen und Verb, aus den Themen Bildung & Wissenschaft, Forschung & Technik, Sprache & Denken, Arbeitswelt akademisch. Schreib das deutsche Wort, wähl es aus vier Möglichkeiten oder dreh die Karte um und bewerte dich selbst. Ein Wort, das du nicht weißt, kommt im selben Durchgang wieder und bleibt bei deinen schwachen Wörtern, bis du es dreimal hintereinander richtig hast.",
+      "intro": "Jedes Wort aus den Übungen dieses Abschnitts in einem Kartenstapel: 407 Karten, davon 226 Nomen. Der Wortschatz dieses Abschnitts gehört zum wissenschaftlichen und formellen Stil: Nominalstil, Forschungswortschatz und feste Verbindungen aus Nomen und Verb, aus den Themen Bildung & Wissenschaft, Forschung & Technik, Sprache & Denken, Arbeitswelt akademisch. Schreib das deutsche Wort, wähl es aus vier Möglichkeiten oder dreh die Karte um und bewerte dich selbst. Ein Wort, das du nicht weißt, kommt im selben Durchgang wieder und bleibt bei deinen schwachen Wörtern, bis du es dreimal hintereinander richtig hast.",
       "tips": [
         {
           "kind": "rule",
@@ -8394,7 +8394,7 @@
       ],
       "hook": "Lern die Sprache der Forschung und des formellen Schreibens, mit Artikeln, Pluralformen und den Verben, die zu jedem Nomen gehören.",
       "hookEn": "Learn the language of research and formal writing with articles, plurals and the verbs each noun goes with.",
-      "introEn": "Every word this module's exercises use, on one deck of flashcards: 257 cards, 142 of them nouns. The vocabulary of this module is academic and formal register: nominal style, research vocabulary and fixed noun-verb pairs, from the themes Bildung & Wissenschaft, Forschung & Technik, Sprache & Denken, Arbeitswelt akademisch. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
+      "introEn": "Every word this module's exercises use, on one deck of flashcards: 407 cards, 226 of them nouns. The vocabulary of this module is academic and formal register: nominal style, research vocabulary and fixed noun-verb pairs, from the themes Bildung & Wissenschaft, Forschung & Technik, Sprache & Denken, Arbeitswelt akademisch. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
       "rememberEn": [
         "Never say a noun without its article, not even in your head.",
         "Miss a word? It comes back in the same run. Three correct answers in a row take it off the weak list.",

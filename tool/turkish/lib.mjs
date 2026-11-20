@@ -18,6 +18,13 @@ if (!/^[a-z]{2}$/.test(LANG)) throw new Error(`--lang needs a two-letter code, g
 export const plainArgs = () =>
 	process.argv.slice(2).filter((a, i, all) => !a.startsWith('--') && all[i - 1] !== '--lang');
 export const LEVELS = ['a1_1', 'a1_2', 'a2_1', 'a2_2'];
+/**
+ * From B1 the explanations are German (tool/german-first) and only the
+ * English-button layer is translated: introEn, tips[].en, whyEn … and the
+ * word meanings (cards[].en, vocab[].en). French only, for now.
+ */
+export const BUTTON_LEVELS = ['b1_1', 'b1_2', 'b2_1', 'b2_2', 'c1_1', 'c1_2', 'c2_1', 'c2_2'];
+export const isButtonLevel = (id) => BUTTON_LEVELS.includes(id);
 export const levelName = (id) => id.toUpperCase().replace('_', '.');
 export const readJson = (p) => JSON.parse(readFileSync(p, 'utf8'));
 
@@ -146,6 +153,17 @@ export function quizStrings(quiz) {
 		if (typeof tip?.title === 'string' && tip.title.trim()) out[`help.tips[${i}].title`] = tip.title;
 	});
 	if (title && englishWords(title) >= 1) out.title = title;
+	return out;
+}
+
+/** A path inside the English-button layer: a key ending in En (introEn, whyEn) or an `en` key. */
+const BUTTON_PATH = /(^|\.)(\w*En|en)(\[|\.|$)/;
+
+/** { path: English } of one B1–C2 quiz: only what the English button and the meanings show. */
+export function buttonStrings(quiz) {
+	const out = {};
+	const { title: _t, ...rest } = quiz;
+	for (const [p, s] of leaves(rest)) if (BUTTON_PATH.test(p) && s.trim() && !/^[\d\s.,:;·–—\-+=/()%€?!]*$/.test(s)) out[p] = s;
 	return out;
 }
 

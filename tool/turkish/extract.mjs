@@ -7,7 +7,7 @@
 // keys. Prints what has no translation yet (resumable).
 //   node tool/turkish/extract.mjs [a1_1 ...] [--lang ar]
 import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
-import { COURSE, LANG, LEVELS, bookFrontStrings, chapterStrings, levelName, plainArgs, quizStrings, readJson, words } from './lib.mjs';
+import { COURSE, LANG, LEVELS, bookFrontStrings, buttonStrings, chapterStrings, isButtonLevel, levelName, plainArgs, quizStrings, readJson, words } from './lib.mjs';
 
 const levels = plainArgs().length ? plainArgs() : LEVELS;
 const dir = 'tool/turkish';
@@ -25,6 +25,12 @@ for (const level of levels) {
 			size[kind] += Object.values(strings).reduce((n, s) => n + words(s), 0);
 		}
 	};
+	if (isButtonLevel(level)) {
+		// B1–C2: the English-button layer only (the books there are German).
+		for (const q of bundle.quizzes.filter((q) => q.level === levelName(level))) save('app', q.id, buttonStrings(q));
+		console.log(`${LANG} ${level}: app ${pending.app.length} left, ${size.app} words`);
+		continue;
+	}
 	for (const q of bundle.quizzes.filter((q) => q.level === levelName(level))) save('app', q.id, quizStrings(q));
 	// The level page's syllabus card (what you can do after it, its themes).
 	const syllabus = readJson(`assets/content/syllabus/${COURSE}.json`).modules.find((m) => m.level === levelName(level));

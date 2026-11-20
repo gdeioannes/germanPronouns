@@ -950,6 +950,8 @@ export const FR: Record<string, string> = {
 		"S'entraîner quand même",
 	"Done":
 		"Terminé",
+	"In your language": "En français",
+	"Hide the translation": "Masquer le français",
 	"Hide English":
 		"Masquer la traduction",
 	"Listen to {word}":

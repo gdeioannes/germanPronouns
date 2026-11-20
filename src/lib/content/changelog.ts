@@ -17,6 +17,25 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-11-20",
+    title: "Corrections, B1 to C2",
+    items: [
+      "Flashcards: nine B1.1 cards that showed an adjective with a noun's meaning are gone, and a few meanings are fixed (wir führen, sich wenden an, vor Kälte, das Bezugswort).",
+      "Each flashcard deck now states its real number of cards.",
+      "About twenty explanations were corrected or made clearer, among them nachdem and bevor, the order of es and ihm, the litotes, ums Leben kommen and when a Bescheid becomes rechtskräftig.",
+      "More German is spoken in the recorded voice: the B2.1 word lists, the grammar words in the A2.2 flashcards, and every verb form in the Word Library's verb tables.",
+    ],
+  },
+  {
+    date: "2026-11-20",
+    title: "B1 to C2 explained in French on request",
+    items: [
+      "From B1 the explanations are in German. In French, the button under them now says « En français » and opens the explanation in French, not in English: every rule, example, check and why, up to C2.",
+      "The word meanings from B1 on (flashcards, word lists, picture hunts) are in French too.",
+      "Written with AI and not yet fully checked by a native speaker: please tell us when something sounds off.",
+    ],
+  },
+  {
+    date: "2026-11-20",
     title: "Every level open in your language",
     items: [
       "In Turkish, Arabic, Ukrainian and French you can now go all the way to C2. A1–A2 is in your language; from B1 on the explanations are in German, with the English button beside them, as for everyone at that level.",
