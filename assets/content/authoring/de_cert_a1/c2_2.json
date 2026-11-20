@@ -692,7 +692,7 @@
           "en": "only, merely"
         },
         {
-          "de": "allein / schon der Gedanke",
+          "de": "allein der Gedanke (oder: schon der Gedanke)",
           "en": "the mere thought"
         },
         {
@@ -3022,7 +3022,7 @@
           "en": "to suggest"
         },
         {
-          "de": "zu dem Ergebnis / Schluss kommen",
+          "de": "zu dem Ergebnis kommen (oder: zu dem Schluss kommen)",
           "en": "to come to the conclusion"
         },
         {
@@ -4116,7 +4116,7 @@
         {
           "kind": "rule",
           "title": "Rechtsbehelfe und Endgültigkeit: Einspruch, Widerspruch, bestandskräftig, rechtskräftig",
-          "text": "Einspruch einlegen gegen einen Bußgeldbescheid (zwei Wochen ab Zustellung), einen Steuerbescheid (ein Monat) oder einen Strafbefehl. Widerspruch einlegen / erheben gegen die meisten anderen Bescheide einer Behörde (ein Monat ab Bekanntgabe). Wie und bis wann, steht in der Rechtsbehelfsbelehrung. Wenn niemand rechtzeitig Einwände erhebt, wird eine Verwaltungsentscheidung bestandskräftig (unanfechtbar); ein Gerichtsurteil wird rechtskräftig.",
+          "text": "Einspruch einlegen gegen einen Bußgeldbescheid (zwei Wochen ab Zustellung), einen Steuerbescheid (ein Monat) oder einen Strafbefehl. Widerspruch einlegen / erheben gegen die meisten anderen Bescheide einer Behörde (ein Monat ab Bekanntgabe). Wie und bis wann, steht in der Rechtsbehelfsbelehrung. Wenn niemand rechtzeitig Einwände erhebt, wird eine Verwaltungsentscheidung bestandskräftig (unanfechtbar); ein Gerichtsurteil wird rechtskräftig. Ausnahme: Der Bußgeldbescheid wird wie ein Urteil rechtskräftig.",
           "trap": "Berufung und Revision richten sich gegen Gerichtsurteile, nie gegen den Brief einer Behörde. bestandskräftig bedeutet „endgültig“, nicht „stark“.",
           "examples": [
             {
@@ -4148,7 +4148,7 @@
             "whyEn": "A tax assessment is challenged by Einspruch; Widerspruch is for most other administrative decisions, and Berufung only for court judgments."
           },
           "en": {
-            "text": "Einspruch einlegen gegen einen Bußgeldbescheid (two weeks from Zustellung), einen Steuerbescheid (one month) or a Strafbefehl. Widerspruch einlegen / erheben gegen most other Bescheide of an authority (one month from Bekanntgabe). How and by when is set out in the Rechtsbehelfsbelehrung. If nobody objects in time, an administrative decision becomes bestandskräftig (unanfechtbar); a court judgment becomes rechtskräftig.",
+            "text": "Einspruch einlegen gegen einen Bußgeldbescheid (two weeks from Zustellung), einen Steuerbescheid (one month) or a Strafbefehl. Widerspruch einlegen / erheben gegen most other Bescheide of an authority (one month from Bekanntgabe). How and by when is set out in the Rechtsbehelfsbelehrung. If nobody objects in time, an administrative decision becomes bestandskräftig (unanfechtbar); a court judgment becomes rechtskräftig. The exception: a Bußgeldbescheid becomes rechtskräftig, like a judgment.",
             "title": "Remedies and finality: Einspruch, Widerspruch, bestandskräftig, rechtskräftig",
             "trap": "Berufung and Revision are appeals against court judgments, never against a letter from an authority. bestandskräftig means ‘final’, not ‘strong’."
           }
@@ -4459,7 +4459,7 @@
       ],
       "remember": [
         "Ordnungswidrigkeit → Verwarnungsgeld oder Geldbuße (Bußgeld); Straftat → Geldstrafe vom Gericht; Zwangsgeld erzwingt eine Anordnung.",
-        "Einspruch gegen Bußgeld- und Steuerbescheid; Widerspruch gegen die meisten anderen Bescheide. Bescheid → bestandskräftig, Urteil → rechtskräftig.",
+        "Einspruch gegen Bußgeld- und Steuerbescheid; Widerspruch gegen die meisten anderen Bescheide. Bescheid → bestandskräftig (Bußgeldbescheid: rechtskräftig), Urteil → rechtskräftig.",
         "Drei Fragen: Was wirft man mir vor, was muss ich bis wann tun, was passiert sonst?"
       ],
       "context": {
@@ -4505,7 +4505,7 @@
       "introEn": "Amtsdeutsch — the German of authorities — is a register of its own, and reading it is a life skill for anyone who lives in a German-speaking country. This quiz has two kinds of sentence. In thirteen you complete an official sentence with the one term that is legally right: Einspruch or Widerspruch, Geldbuße, Verwarnungsgeld or Geldstrafe, bestandskräftig or rechtskräftig, Anhörung, Zustellung, Rechtsbehelfsbelehrung, Säumniszuschlag, Zwangsgeld, unbeschadet. In six, an official sentence is quoted and you complete its plain-German version (Klartext) with the everyday word. The distinctions are not pedantry: an Ordnungswidrigkeit (administrative offence) is punished with a Geldbuße, colloquially Bußgeld — a Geldstrafe is imposed only by a criminal court; a Bescheid of an authority becomes bestandskräftig, a court judgment rechtskräftig; you lodge Einspruch against a Bußgeldbescheid or a tax assessment, and Widerspruch against most other administrative decisions. The grammar is the Nominalstil and passive substitutes of the previous quizzes taken to the limit; the vocabulary is fixed and, once known, translatable.",
       "rememberEn": [
         "Ordnungswidrigkeit → Verwarnungsgeld or Geldbuße (Bußgeld); Straftat → Geldstrafe from a court; Zwangsgeld enforces an order.",
-        "Einspruch against Bußgeld- and Steuerbescheid; Widerspruch against most other Bescheide. Bescheid → bestandskräftig, Urteil → rechtskräftig.",
+        "Einspruch against Bußgeld- and Steuerbescheid; Widerspruch against most other Bescheide. Bescheid → bestandskräftig (Bußgeldbescheid: rechtskräftig), Urteil → rechtskräftig.",
         "Three questions: what am I accused of, what must I do by when, what happens otherwise."
       ],
       "german": true
@@ -4879,7 +4879,7 @@
           "examples": [
             {
               "de": "Mit einem Glas rotem Wein – oder, gehobener, roten Weins – in der Hand hielt sie ihre Rede.",
-              "en": "She gave her speech with a glass of red wine in her hand.",
+              "en": "She gave her speech with a glass of red wine (rotem Wein, or, more elevated, roten Weins) in her hand.",
               "focus": [
                 "rotem",
                 "roten",
@@ -4912,7 +4912,7 @@
         },
         {
           "kind": "rule",
-          "title": "als und wie: Übereinstimmung mit dem Bezugswort",
+          "title": "als: Übereinstimmung mit dem Bezugswort",
           "text": "Eine als-Gruppe, die ein Nomen oder Pronomen beschreibt, übernimmt dessen Kasus: Sie eröffnete als Vorsitzende die Sitzung (Nom). Man begegnete ihm als Experten (Dat). Man betrachtete ihn als ihren Chef (Akk). Nach sich erweisen als, gelten als, sich fühlen als steht die Gruppe im Nominativ: Er erwies sich als ein Glücksfall. Bei einem Possessivartikel steht die als-Gruppe meist im Nominativ: ihre Rolle als Vorsitzende.",
           "trap": "„Man begegnete ihm als Experte“ hört man, aber in sorgfältigem Schreiben stimmt das n-Nomen überein: als Experten.",
           "examples": [
@@ -4945,7 +4945,7 @@
           },
           "en": {
             "text": "An als-phrase that describes a noun or pronoun takes its case: Sie eröffnete als Vorsitzende die Sitzung (Nom). Man begegnete ihm als Experten (Dat). Man betrachtete ihn als ihren Chef (Akk). After sich erweisen als, gelten als, sich fühlen als the phrase is nominative: Er erwies sich als ein Glücksfall. With a possessive, the als-phrase is usually nominative: ihre Rolle als Vorsitzende.",
-            "title": "als and wie: agree with the reference word",
+            "title": "als: agree with the reference word",
             "trap": "‘Man begegnete ihm als Experte’ is heard, but in careful writing the n-noun agrees: als Experten."
           }
         },
@@ -9756,7 +9756,7 @@
     ],
     "title": "Wortschatz",
     "help": {
-      "intro": "Jedes Wort aus den Übungen dieses Abschnitts in einem Kartenstapel: 423 Karten, davon 242 Nomen. Der Wortschatz dieses Abschnitts ist präzise und stilistisch markiert: Registerpaare, juristische und philosophische Begriffe und feste Wendungen, aus den Themen Philosophie & Gesellschaft, Wissenschaftssprache, Recht & Verwaltung: Amtsdeutsch, Literatur: Lyrik & Deutung. Schreib das deutsche Wort, wähl es aus vier Möglichkeiten oder dreh die Karte um und bewerte dich selbst. Ein Wort, das du nicht weißt, kommt im selben Durchgang wieder und bleibt bei deinen schwachen Wörtern, bis du es dreimal hintereinander richtig hast.",
+      "intro": "Jedes Wort aus den Übungen dieses Abschnitts in einem Kartenstapel: 368 Karten, davon 237 Nomen. Der Wortschatz dieses Abschnitts ist präzise und stilistisch markiert: Registerpaare, juristische und philosophische Begriffe und feste Wendungen, aus den Themen Philosophie & Gesellschaft, Wissenschaftssprache, Recht & Verwaltung: Amtsdeutsch, Literatur: Lyrik & Deutung. Schreib das deutsche Wort, wähl es aus vier Möglichkeiten oder dreh die Karte um und bewerte dich selbst. Ein Wort, das du nicht weißt, kommt im selben Durchgang wieder und bleibt bei deinen schwachen Wörtern, bis du es dreimal hintereinander richtig hast.",
       "tips": [
         {
           "kind": "rule",
@@ -9894,7 +9894,7 @@
       ],
       "hook": "Sammle die präzisen Wörter aus Philosophie, Wissenschaft, Recht und Literatur, jedes mit seinem Artikel und seinem Register.",
       "hookEn": "Gather the precise words of philosophy, science, law and literature, each with its article and its register.",
-      "introEn": "Every word this module’s exercises use, on one deck of flashcards: 423 cards, 242 of them nouns. The vocabulary of this module is precise, stylistically marked vocabulary: register pairs, legal and philosophical terms, and fixed expressions, from the themes Philosophie & Gesellschaft, Wissenschaftssprache, Recht & Verwaltung: Amtsdeutsch, Literatur: Lyrik & Deutung. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
+      "introEn": "Every word this module’s exercises use, on one deck of flashcards: 368 cards, 237 of them nouns. The vocabulary of this module is precise, stylistically marked vocabulary: register pairs, legal and philosophical terms, and fixed expressions, from the themes Philosophie & Gesellschaft, Wissenschaftssprache, Recht & Verwaltung: Amtsdeutsch, Literatur: Lyrik & Deutung. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
       "rememberEn": [
         "Never say a noun without its article, not even in your head.",
         "Miss a word? It comes back in the same run. Three correct answers in a row take it off the weak list.",

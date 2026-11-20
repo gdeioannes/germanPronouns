@@ -88,7 +88,7 @@
 			{ "sentence": "Er rächte sich ____ für die Demütigung. (sein Rivale)", "why": "sich rächen AN + Dativ: an seinem Rivalen — Rivale ist schwach.", "whyEn": "sich rächen AN + dative: an seinem Rivalen — Rivale is weak." },
 			{ "sentence": "Nichts konnte sie ____ abhalten. (die Reise)", "why": "abhalten VON + Dativ: von der Reise.", "whyEn": "abhalten VON + dative: von der Reise." },
 			{ "sentence": "Die Firma verdächtigt ____ der Industriespionage. (ein Mitarbeiter)", "why": "verdächtigen: Akkusativ-Person + Genitiv-Tat — einen Mitarbeiter.", "whyEn": "verdächtigen: accusative person + genitive deed — einen Mitarbeiter." },
-			{ "sentence": "Sie beraubten ____ seiner Freiheit. (der Gefangene)", "why": "berauben: Akkusativ + Genitiv — den Gefangenen (schwaches Nomen).", "whyEn": "berauben: accusative + genitive — den Gefangenen (a weak noun)." },
+			{ "sentence": "Sie beraubten ____ seiner Freiheit. (der Gefangene)", "why": "berauben: Akkusativ + Genitiv — den Gefangenen (substantiviertes Adjektiv: der Gefangene, den Gefangenen).", "whyEn": "berauben: accusative + genitive — den Gefangenen (an adjectival noun: der Gefangene, den Gefangenen)." },
 			{ "sentence": "Er besteht ____. (seine Rechte)", "why": "bestehen AUF + Dativ: auf seinen Rechten.", "whyEn": "bestehen AUF + dative: auf seinen Rechten." },
 			{ "sentence": "Man nannte ihn ____. (ein Verräter)", "why": "nennen + doppelter Akkusativ: einen Verräter.", "whyEn": "nennen + double accusative: einen Verräter." },
 			{ "sentence": "Die Regierung enthielt sich ____. (eine Stellungnahme)", "why": "sich enthalten + Genitiv: einer Stellungnahme.", "whyEn": "sich enthalten + genitive: einer Stellungnahme." },
@@ -211,7 +211,7 @@
 			{ "sentence": "Die Forscherinnen betonen, ihre Ergebnisse ____ vorläufig. Weitere Messungen ____ nötig, bevor man belastbare Schlüsse ziehen ____. (sein · sein · können)", "why": "Plural seien, seien; man könne.", "whyEn": "Plural seien, seien; man könne." },
 			{ "sentence": "Die Anwohner beklagen, sie ____ seit Monaten kaum noch schlafen. Der Baulärm ____ täglich um sechs Uhr, und die Stadt ____ auf keine einzige Beschwerde reagiert. (können · beginnen · haben)", "why": "Plural können → könnten; dann beginne, habe.", "whyEn": "Plural können → könnten; then beginne, habe." },
 			{ "sentence": "Der Sprecher betonte, die Firma ____ keine Kenntnis von den Vorgängen gehabt. Man ____ die Vorwürfe sehr ernst und ____ intern alles aufklären. (haben · nehmen · wollen)", "why": "habe … nehme … wolle.", "whyEn": "habe … nehme … wolle." },
-			{ "sentence": "Die Ärzte warnten, viele Patienten ____ zu lange auf einen Termin. Sie ____ deshalb oft gleich in die Notaufnahme. (warten · kommen)", "why": "Plural: warteten … kämen — die Konjunktiv-II-Ausweichformen.", "whyEn": "Plural: warteten … kämen — the Konjunktiv II fallbacks." }
+			{ "sentence": "Die Ärzte warnten, viele Patienten ____ zu lange auf einen Termin. Sie ____ deshalb oft gleich in die Notaufnahme. (warten · kommen)", "why": "Plural: Konjunktiv I (warten, kommen) gleicht dem Indikativ, also Konjunktiv II. kämen ist eindeutig; warteten gleicht dem Präteritum (deutlicher: würden … warten).", "whyEn": "Plural: Konjunktiv I (warten, kommen) looks like the indicative, so Konjunktiv II. kämen is clear; warteten looks like the Präteritum (clearer: würden … warten)." }
 		]
 	},
 	{
@@ -241,7 +241,7 @@
 	{
 		"id": "quest_c2_1_konnotation",
 		"whys": [
-			{ "sentence": "Er gönnt seinen Kindern nicht einmal ein Eis und rechnet jede Tasse Kaffee nach – ein ausgesprochen ____ Mensch. (negative counterpart of sparsam)", "why": "sparsam (neutral) → geizig (abwertend).", "whyEn": "sparsam (neutral) → geizig (pejorative: stingy)." },
+			{ "sentence": "Er gönnt seinen Kindern nicht einmal ein Eis und rechnet jede Tasse Kaffee nach – ein ausgesprochen ____ Mensch. (negative counterpart of sparsam)", "why": "sparsam (positiv) → geizig (abwertend).", "whyEn": "sparsam (positive) → geizig (pejorative: stingy)." },
 			{ "sentence": "Sie tritt ____ auf, ohne je überheblich zu wirken – deshalb schickt man sie in die schwierigsten Verhandlungen. (positive; the negative would be arrogant)", "why": "selbstbewusst (positiv) vs. arrogant (negativ) — dieselbe Eigenschaft, zwei Wertungen.", "whyEn": "selbstbewusst (positive) vs. arrogant (negative) — one trait, two judgements." },
 			{ "sentence": "In der Schlagzeile des Boulevardblatts wurden aus den friedlichen Demonstranten ____, die angeblich die Innenstadt verwüsteten. (pejorative word for protesters)", "why": "Demonstranten → Randalierer/Chaoten — die Abwertung der Schlagzeile.", "whyEn": "Demonstranten → Randalierer/Chaoten — the headline's smear." },
 			{ "sentence": "Die Regale waren ____: Schon nach einem Jahr lösten sich die Bretter aus den Halterungen. (negative: low price, low quality)", "why": "billig — abwertend; preiswert wäre das Lob.", "whyEn": "billig — pejorative; preiswert would be the praise." },

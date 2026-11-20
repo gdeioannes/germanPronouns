@@ -127,7 +127,20 @@ const DROP_PAIRS = new Set([
  * the gloss is the meaning of the answer (the noun: "employee"). As cards they
  * teach a meaning the label does not have; the real words are in the vocab.
  */
-const CUE_GRIDS = new Set(['quest_b1_1_adjektive_als_nomen']);
+const CUE_GRIDS = new Set([
+	'quest_b1_1_adjektive_als_nomen',
+	// Row labels that name a prefix reading ("über- inseparable"), a pun's two
+	// worlds ("Schach und Bahn"), a function ("Möglichkeit als Wendung", "Werk
+	// einführen"), a plain-word cue to rephrase ("helfen") or an English task
+	// ("empty formula"): hints for the exercise, never the word it asks for.
+	'quest_c2_1_praefixe_semantik',
+	'quest_c2_2_anspielung',
+	'quest_c2_2_paraphrase',
+	'quest_c2_2_wortspiel',
+	'quest_c2_2_modalverben_system',
+	'quest_c2_2_passiv_meisterschaft',
+	'quest_c2_2_rezension_redemittel'
+]);
 
 const levelQuizzes = bundle.quizzes.filter((q) => q.level === level && q.type !== 'vocabulary');
 const cards = new Map();
@@ -241,8 +254,11 @@ function add(raw, sourceQuizId) {
 	// card asks for the first and accepts any of them.
 	let also;
 	const parts = de.split(/,\s*/);
+	// A short sentence ("Wo gehobelt wird, fallen Späne.") has a comma too, but
+	// its halves are clauses, not synonyms.
 	if (
 		parts.length > 1 &&
+		!/[.!?]$/.test(de) &&
 		parts.every((p) => p && p.length >= 4 && p.split(/\s+/).length <= 3)
 	) {
 		de = parts[0];

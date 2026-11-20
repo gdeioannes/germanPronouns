@@ -126,3 +126,75 @@ als ob / als wenn + Konjunktiv II, damit, um … zu / dazu), so the deck no long
 now explains the verbs of its own examples (lasen … kannten / lesen gelernt hatten). Recorded the 5 new texts.
 Left: „historische Präsens“ with article das reads „das historische Präsens“ (correct); der/die Gesandte = two
 cards by design, like Wahlberechtigte.
+
+## C1.2 (button layer)
+
+Done 2026-11-20: 42 files, 2214/2214, 0 errors. Source notes (not fixed):
+- `quest_c1_2_wortschatz` cards[84] (from `quest_c1_2_modal_hoerensagen` vocab[2] „will … haben / sein“): the deck card's German is just „sein“ with "claims to have"; the slash entry is split by the deck builder. Rendered «стверджує, що зробив / був».
+- `quest_c1_2_wortschatz` cards[224] (from `quest_c1_2_redemittel_vortrag` vocab[3] „stammen aus / von“): card German is just „von“ = "to come from"; same split. Also cards[203]/[204] „dies“ / „das“ and cards[46]–[48] from slash entries (harmless, but the „von“ and „sein“ cards are broken).
+- `quest_c1_2_relativ_advanced` help.vocab[7] (and deck cards[52]): „weiterführende Nebensatz“ lacks its article/strong ending: „der weiterführende Nebensatz“ or „weiterführender Nebensatz“.
+- `quest_c1_2_modal_vermutung` help.tips[3].examples[0]/[1] German contains English labels: „(ability)“, „(possibility)“, „(obligation)“, „(inference)“.
+- `quest_c1_2_praefixe` help.tips[3].examples[0]/[1] German contains English: „(through the window)“, „(the plan)“, „(the post)“, „(the city)“.
+- `quest_c1_2_wortbildung_vor` help.tips[3].examples[0]/[1] German contains English: „(not: geerreicht)“, „(separable: ge- in the middle)“.
+- `quest_c1_2_hoeren_traeume` help.tips[0].en.text: "Always inseparable: wiederholen, unterhalten" contradicts `quest_c1_2_praefixe` (wíederholen = fetch back, únterhalten = hold underneath, both separable). Translated as written.
+- `quest_c1_2_lesen_tatort` help.tips[1].examples[0]: „Die Reihe hat über 1.300 Folgen, aber keine Serie“ reads oddly ("has … but no series"); probably „ist aber keine Serie“. Ukrainian follows the meaning («але це не серіал»).
+- `quest_c1_2_modal_vermutung` help.tips[1].examples[1]: „Jemand muss sie vergessen haben abzuschließen“ is awkward; more natural „Jemand muss vergessen haben, sie abzuschließen“.
+- `quest_c1_2_konj2_kritik` help.tips[0].examples[0]: English "The customers ought to have been informed" is passive; the German „Man hätte die Kunden … informieren müssen“ is active with man (Ukrainian follows the German).
+- `quest_c1_2_hoeren_uebersetzerin` help.hookEn: "She wrote a quarter of all novels" (a quarter of novels are translations, not hers). Translated as written.
+- Minor English gaps, Ukrainian made from the German: `lesen_experten` tips[0].examples[1] and tips[2].examples[1] (English cut short), `hoeren_hoerspiel` tips[2].examples[0] (threshold missing), `modal_hoerensagen` tips[3].examples (English gives one side of „A = B“), `umformung_1` help.context.en (the „(= …)“ glosses dropped).
+
+Ukrainian renderings to check:
+- Idiom equivalents chosen in `quest_c1_2_redewendungen` (auf die lange Bank schieben = «відкладати в довгий ящик», ins Fettnäpfchen treten = «сісти в калюжу», die Flinte ins Korn werfen = «опустити руки», aus allen Wolken fallen = «остовпіти»); unter die Haut gehen = «пробирати до кісток» in `hoeren_traeume`.
+- Konjunktiv I / soll / will rendered with «нібито», «мовляв», «стверджує, що» throughout; a short note on this was added to the intros of `konjunktiv1_indirekte_rede` and `modal_hoerensagen`.
+- Names in translated example sentences are transliterated (Анна, Айх, Броєр, пан Браун), as in earlier levels; Anna Petrova in the e-mail signatures kept in Latin letters.
+
+## C2.1 (button layer)
+
+Done 2026-11-20: 38 files, 2094/2094, 0 errors, 0 flags. Source notes (not fixed):
+- `quest_c2_1_konj1_lit` sentences[16].whyEn: "warteten … kämen — the Konjunktiv II fallbacks": warteten is identical to the Präteritum, which `quest_c2_1_lesen_artikel` (tips[0].en.text, rememberEn[1]) says marks nothing; würden … warten would be the clear fallback. Translated as written.
+- `quest_c2_1_valenz` sentences[13].whyEn: "den Gefangenen (a weak noun)": der Gefangene is an adjectival noun, not a weak (n-declension) noun. Ukrainian says «субстантивований прикметник».
+- `quest_c2_1_konnotation` sentences[0].whyEn: "sparsam (neutral)" contradicts the tips and intro, which give sparsam as the positive word (+). Translated as written.
+- `quest_c2_1_suchbild_tischlerei` help.tips[2].en.text: "A device named … with -er is masculine: der Akkuschrauber, der Hobel, der Klüpfel": Hobel and Klüpfel end in -el, not -er (title says "Tools in -er are der").
+- `quest_c2_1_komposita` help.tips[1].en.text: "No -s- after most feminine nouns not ending in those suffixes (Buchhandlung? no: Buch is neuter and takes none)" is muddled (Buch is the first part, not a feminine noun; Liebesbrief in the same tip has -s- after a feminine). Translated as written.
+- Sentence counts in intros don't match the items: `abtoenung` "fifteen" (17 whys), `konnotation` "eighteen" (20), `stilmittel` "seventeen" (19), `konj2_nuancen` "17" (19), `konj1_lit` "fifteen" (17), `konnektoren_nuancen` "16" (18), `praefixe_semantik` "18" (20), `sprichwoerter` "sixteen" (18), `umformung_2` "seventeen" (19). Kept as written.
+- `quest_c2_1_register` help.tips[3].examples[0]/[1] German contains English labels „(up)“, „(down)“.
+- `quest_c2_1_wortschatz`: deck builder splits slash entries: cards[74]–[76] (widersprechen / ausweichen / begegnen + Dat: only begegnen keeps „+ Dat“), cards[77]–[79] (kosten / lehren / nennen + Akk + Akk: only nennen keeps the case note), cards[239] German is the fragment „Wo gehobelt wird“ (proverb cut at the comma), cards[292]–[297] German is an English label („über- inseparable“, „unter- separable“ …) instead of the verb. Ukrainian glosses follow the intended word.
+- `quest_c2_1_wirtschaft` help.tips[0].en.trap (Vergleich / Berufung / Einspruch) sits in the economy tip, not the law tip, and ends with "not 'a speech'", which explains nothing; the Ukrainian drops that last bit.
+- English shorter than the German, Ukrainian made from the German: `komposita` tips[0].examples[0], tips[3].examples[0]/[1]; `stilmittel` tips[0].examples[0], tips[3].examples[0]; `wirtschaft` tips[3].examples[0]; `stilmittel` help.context.en ("not exactly a success" vs „nicht unbedingt gelungen“).
+
+Ukrainian renderings to check:
+- Proverb equivalents in `quest_c2_1_sprichwoerter` (and deck): Krug/Brunnen = «Доти глек воду носить, доки йому вухо не відірветься», Die Katze lässt das Mausen nicht = «Вовк линяє, але норову не міняє», Tag/Abend = «Не кажи «гоп», поки не перескочиш», Hänschen/Hans = «Чого Івась не навчився, того Іван не знатиме», Viele Köche = literal + «у семи няньок дитя без ока».
+- Colloquial register words in `quest_c2_1_register`: Kohle = «бабло», kapieren = «допетрати», Typ = «чувак», klauen = «поцупити».
+- Craft words in the two picture hunts: Klüpfel = «столярна киянка», Streichmaß = «рейсмус», Senklot = «висок», Lochwand = «перфорована панель для інструментів», Raufe = «ясла для сіна», Kummet = «хомут», Dreschflegel = «ціп», Gatter = «ворітця, загорожа».
+- Konjunktiv I in example translations rendered with «мовляв» (as in C1.2); names transliterated (Вендт, Ортман, Кесслер, Брандт, Їлмаз, Бреннер, Рут).
+
+## C2.2 (button layer)
+
+Done 2026-11-20: 42 files, 2352/2352, 0 errors, 0 flags. Source notes (not fixed):
+- `quest_c2_2_wortschatz` cards[57]: the "German" of the card is the English fragment „empty formula“ (deck builder split "set phrase, empty formula" from `anspielung` vocab[5] Floskel). Ukrainian gloss «порожня формула, стала фраза».
+- `quest_c2_2_wortschatz` other builder artefacts: cards[124]/[125] split „zu dem Ergebnis“ / „Schluss kommen“ from „zu dem Ergebnis / Schluss kommen“; cards[39] „allein“ alone glossed "the mere thought"; cards[103]–[106], [208]–[212], [231]–[238], [258]–[276], [312]–[314], [330]–[332] carry cue labels („Schach und Bahn“, „Möglichkeit als Wendung“, „Werk einführen“ …) instead of the target word; cards[74] helfen glossed as noun "help". Ukrainian glosses follow the intended word (verbs in the infinitive).
+- `quest_c2_2_behoerdensprache`: rememberEn[1] and tips[1].en.text say Bescheid → bestandskräftig, while help.context.en and tips[4].examples[0] have a Bußgeldbescheid becoming rechtskräftig; only mistakes[3] explains the exception. Worth one line in tips[1].
+- `quest_c2_2_anspielung` sentences[6].whyEn "The understatement (litotes) shrinks the danger" reads against tips[1].en.trap (nicht ganz ungefährlich after a rescue = life-threatening). Ukrainian: «зменшує небезпеку на словах».
+- `quest_c2_2_hoeren_capstone` help.tips[1].check.whyEn: "her support only holds if residents take part": no residents in this panel (AI and jobs); the check seems to come from another text. Translated as written.
+- `quest_c2_2_lesen_capstone` help.tips[1].check.whyEn: „auf sie“ is explicitly ruled out, but the text rules out the grandfather („auch nicht auf den Großvater“), not „sie“. Translated as written.
+- `quest_c2_2_appositionen` help.tips[3].en.title "als and wie" but the tip covers only als; tips[2].examples[0] English lacks the German parenthesis „oder, gehobener, roten Weins“.
+- `quest_c2_2_streitgespraech`, `analyse`, `dialog`, `diktat_wissenschaft` and others: long dashes (—) in the English prose; the Ukrainian uses colons/full stops. German lines keep their „–“.
+- `quest_c2_2_lesen_reform`, `lesen_unwort`, `lesen_dach` etc.: "you practised last" in intros; Ukrainian «ти щойно тренуєш».
+- `quest_c2_2_praepositionen_schriftsprache` sentences[17].whyEn: "zuzüglich — the opposite of 'including'" (rather: "plus, added on top"). Kept.
+
+Ukrainian renderings to check:
+- Idioms in `quest_c2_2_redewendungen` (and deck): Kind mit dem Bade = «виплеснути дитину разом із водою», Bärendienst = «ведмежа послуга», Flinte ins Korn = «опустити руки», lange Bank = «відкласти в довгу шухляду», das Wasser reichen = «зрівнятися», reinen Wein einschenken = «сказати чисту правду»; mistakes[0] now refers to the Ukrainian «вода» instead of English bathwater.
+- Philosophy terms in `quest_c2_2_philosophie`: Vernunft = «розум», Verstand = «розсудок», Unmündigkeit = «неповноліття», Gesinnungsethik = «етика переконань»; Kant's definition rendered «вихід людини зі стану неповноліття, у якому вона перебуває з власної вини».
+- `quest_c2_2_fremdwoerter` tips[3] keeps the English false friends (eventually, sensible, pregnant) as "if you know English"; intro adds that many Latinisms are familiar to Ukrainians (очевидний, де-факто, статус-кво).
+- `quest_c2_2_fokus`: added that Ukrainian «ще» before a comparative matches noch, and one line on Ukrainian free word order in tips[3]; `appositionen` tips[0].en.trap and hookEn now say Ukrainian appositions agree in case too.
+- `quest_c2_2_amtsdeutsch` officialese examples rendered as deliberately stiff Ukrainian («буде приведена до утримання», «набуває застосування») to mirror the German.
+- Harbour/antique words: Duckdalben = «швартовна палева група (дукдальб)», Poller = «швартовна тумба», Fender = «кранець», Butterfass = «маслоробка», Ohrensessel = «крісло з «вухами»», Balkenwaage = «терези з коромислом».
+- Puns in `quest_c2_2_wortspiel` cannot survive translation: examples keep the German word in brackets (die Steuer / am Steuer, vor Gericht / sein Gericht).
+
+## C1.2–C2.2 source notes: what was done (2026-11-20)
+
+Fixed in German, English, French and Ukrainian:
+- Decks: `tool/build-vocabulary.mjs` now skips the hint-label rows of `c2_1_praefixe_semantik`, `c2_2_anspielung`, `paraphrase`, `wortspiel`, `modalverben_system`, `passiv_meisterschaft`, `rezension_redemittel` (CUE_GRIDS), and no longer cuts a short sentence at its comma („Wo gehobelt wird, fallen Späne.“). Slash entries split or rewritten at the source: will … haben (oder sein), stammen aus (oder von), widersprechen / ausweichen / begegnen (+ Dat), kosten / lehren / nennen (+ Akk + Akk), allein der Gedanke, zu dem Ergebnis kommen. Decks rebuilt (C1.2 416, C2.1 355, C2.2 368 cards), fr/uk card meanings re-pointed.
+- English labels in German examples (modal_vermutung, praefixe, wortbildung_vor, register); „Jemand muss vergessen haben, sie abzuschließen“; „ist aber keine Serie“; hoeren_traeume „in ihrer üblichen Bedeutung untrennbar“; the translator hook; konj2_kritik English; konj1_lit, valenz, konnotation, anspielung, zuzüglich whys; Hobel/Klüpfel (-el); komposita joint tip; nine C2.1 intro counts; the law trap moved to the law tip in wirtschaft; Bußgeldbescheid exception in behoerdensprache; appositionen tip title and wine example.
+
+Checked and left as they are (not errors): `relativ_advanced` „weiterführende Nebensatz“ (shown with its article der); the C2.2 capstone check whys (the German check question does mention die Anwohner and „auf sie“); redewendungen / fremdwoerter paraphrase cards (correct German with correct meanings). Minor English-shorter-than-German examples not changed.

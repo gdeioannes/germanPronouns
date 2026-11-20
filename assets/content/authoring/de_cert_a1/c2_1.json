@@ -32,7 +32,6 @@
               ]
             }
           ],
-          "trap": "der Vergleich ist im Recht eine Einigung, kein Vergleichen; die Berufung ist der Gang zum höheren Gericht, kein Beruf im Sinn von innerem Ruf (auch wenn sie das ebenfalls heißen kann); der Einspruch ist ein Protest gegen einen Verwaltungsbescheid, keine Rede.",
           "check": {
             "q": "Die Firma erzielte einen ____ von zwei Milliarden Euro, doch nach Abzug aller Kosten blieb kaum etwas übrig.",
             "options": [
@@ -46,8 +45,7 @@
           },
           "en": {
             "text": "der Umsatz (turnover, all revenue) · der Gewinn (profit) · die Rendite (return on capital, in %) · der Ertrag (yield, earnings) · der Zinssatz (interest rate) · die Konjunktur (cycle: sich erholen, sich abschwächen) · die Nachfrage (demand: steigen, sinken) · die Insolvenz (anmelden).",
-            "title": "Economy: the money words that look alike",
-            "trap": "der Vergleich in law is a settlement, not a comparison; die Berufung is an appeal, not a vocation (though it is also that); der Einspruch is an objection to an administrative decision, not 'a speech'."
+            "title": "Economy: the money words that look alike"
           }
         },
         {
@@ -113,9 +111,11 @@
             ]
           },
           "en": {
+            "title": "Law: act, regulation, rule; objection, appeal, settlement",
             "text": "das Gesetz (parliament: verabschieden, erlassen) · die Verordnung (the executive: erlassen) · die Vorschrift (a rule) · Einspruch / Widerspruch einlegen gegen (object to an administrative decision) · in Berufung gehen, Berufung einlegen (appeal a judgment; Revision = appeal on points of law) · einen Vergleich schließen (settle) · Klage einreichen / erheben (sue) · ein Urteil fällen (rule); das Urteil wird rechtskräftig (becomes final).",
-            "title": "Law: act, regulation, rule; objection, appeal, settlement"
-          }
+            "trap": "der Vergleich in law is a settlement, not a comparison; die Berufung is an appeal, not a vocation (though it is also that); der Einspruch is an objection to an administrative decision or a penalty order."
+          },
+          "trap": "der Vergleich ist im Recht eine Einigung, kein Vergleichen; die Berufung ist der Gang zum höheren Gericht, kein Beruf im Sinn von innerem Ruf (auch wenn sie das ebenfalls heißen kann); der Einspruch ist ein Protest gegen einen Verwaltungsbescheid oder Strafbefehl."
         },
         {
           "kind": "rule",
@@ -515,7 +515,7 @@
           "text": "erhalten / benötigen / überprüfen / zahlreiche gegenüber kriegen / brauchen / checken / 'ne Menge. Bist du dir bei der Ebene eines Wortes unsicher, verraten sie dir meist seine Länge und sein Präfix.",
           "examples": [
             {
-              "de": "bewerkstelligen (up) — hinkriegen (down)",
+              "de": "bewerkstelligen (gehoben) — hinkriegen (umgangssprachlich)",
               "en": "to accomplish — to manage",
               "focus": [
                 "bewerkstelligen",
@@ -523,7 +523,7 @@
               ]
             },
             {
-              "de": "benötigen, überprüfen, entwenden (up) — brauchen, checken, klauen (down)",
+              "de": "benötigen, überprüfen, entwenden (gehoben) — brauchen, checken, klauen (umgangssprachlich)",
               "en": "require, verify, purloin (up) — need, check, nick (down)",
               "focus": [
                 "benötigen",
@@ -1513,12 +1513,28 @@
           "en": "to accuse / suspect sb of, rob sb of, relieve sb of"
         },
         {
-          "de": "widersprechen / ausweichen / begegnen + Dat",
-          "en": "to contradict / evade / encounter"
+          "de": "widersprechen (+ Dat)",
+          "en": "to contradict"
         },
         {
-          "de": "kosten / lehren / nennen + Akk + Akk",
-          "en": "to cost / teach / call"
+          "de": "ausweichen (+ Dat)",
+          "en": "to evade"
+        },
+        {
+          "de": "begegnen (+ Dat)",
+          "en": "to encounter"
+        },
+        {
+          "de": "kosten (+ Akk + Akk)",
+          "en": "to cost"
+        },
+        {
+          "de": "lehren (+ Akk + Akk)",
+          "en": "to teach"
+        },
+        {
+          "de": "nennen (+ Akk + Akk)",
+          "en": "to call"
         },
         {
           "de": "sich rächen an + Dat für + Akk",
@@ -1593,7 +1609,7 @@
         {
           "kind": "rule",
           "title": "Fugen-s: nach -ung, -heit, -keit, -schaft, -ion, -tät und bei vielen anderen",
-          "text": "Prüfungsordnung, Freiheitsstatue, Möglichkeitsform, Wissenschaftsfreiheit, Informationsfluss, Universitätsstadt · auch Arbeitsmarkt, Liebesbrief, Geburtstag, Verkehrsamt, Jahreszeit, Bundestag. Kein -s- nach den meisten femininen Nomen ohne diese Endungen (Buchhandlung? Nein: Buch ist neutral und nimmt gar keine Fuge).",
+          "text": "Prüfungsordnung, Freiheitsstatue, Möglichkeitsform, Wissenschaftsfreiheit, Informationsfluss, Universitätsstadt · auch Arbeitsmarkt, Liebesbrief, Geburtstag, Verkehrsamt, Jahreszeit, Bundestag. Aber nicht überall: Viele Komposita haben gar keine Fuge (Buchhandlung, Haustür), und nach femininen Nomen auf -e steht meist -n- (Sonnenschein, Straßenbahn); Liebesbrief ist eine Ausnahme.",
           "examples": [
             {
               "de": "Die Geschwindigkeitsbegrenzung auf der Bundesstraße gilt laut Verkehrsamt ganzjährig.",
@@ -1681,7 +1697,7 @@
             ]
           },
           "en": {
-            "text": "Prüfungsordnung, Freiheitsstatue, Möglichkeitsform, Wissenschaftsfreiheit, Informationsfluss, Universitätsstadt · also Arbeitsmarkt, Liebesbrief, Geburtstag, Verkehrsamt, Jahreszeit, Bundestag. No -s- after most feminine nouns not ending in those suffixes (Buchhandlung? no: Buch is neuter and takes none).",
+            "text": "Prüfungsordnung, Freiheitsstatue, Möglichkeitsform, Wissenschaftsfreiheit, Informationsfluss, Universitätsstadt · also Arbeitsmarkt, Liebesbrief, Geburtstag, Verkehrsamt, Jahreszeit, Bundestag. But not everywhere: many compounds have no joint at all (Buchhandlung, Haustür), and feminine nouns in -e usually take -n- (Sonnenschein, Straßenbahn); Liebesbrief is an exception.",
             "title": "Fugen-s: after -ung, -heit, -keit, -schaft, -ion, -tät, and many others",
             "trap": "the Fugen-s is not a genitive, though it looks like one: Arbeitsmarkt (not 'the market of work' grammatically), Liebesbrief (Liebe is feminine and has no genitive -s). It's a joint, not a case."
           }
@@ -2961,7 +2977,7 @@
     ],
     "title": "Stilmittel & Rhetorik",
     "help": {
-      "intro": "Genau lesen heißt, in einem echten Text ein rhetorisches Stilmittel zu benennen und zu sagen, was es leistet: wie ein Leitartikel, eine Rede oder eine Erzählung ihre Wirkung erzielt, und, wenn du öffentlich sprichst, diese Mittel gezielt zu nutzen. Diese Übung gibt dir siebzehn kurze Zitate im Stil von Leitartikeln, Reden, Rezensionen, Kolumnen und Chroniken; jeder Hinweis sagt dir, was das Stilmittel tut, nie seinen Namen, und du tippst den deutschen Fachbegriff. Wo das Deutsche zwei feste Namen hat, gelten beide: Übertreibung / Hyperbel, Untertreibung / Litotes, Personifikation / Personifizierung, Klimax / Steigerung, Alliteration / Stabreim, Euphemismus / Beschönigung, Chiasmus / Kreuzstellung, Pars pro toto / Synekdoche, Ellipse / Auslassung; du darfst den Begriff mit oder ohne Artikel tippen. Die Stilmittel: Bildlichkeit (Metapher, Vergleich, Personifikation), Aufbau (Anapher, Antithese, Klimax, Alliteration, Chiasmus, Zeugma, Ellipse), Haltung (Ironie, Hyperbel, Litotes, Euphemismus, Oxymoron), Appell (rhetorische Frage) und Ersetzung (Pars pro toto).",
+      "intro": "Genau lesen heißt, in einem echten Text ein rhetorisches Stilmittel zu benennen und zu sagen, was es leistet: wie ein Leitartikel, eine Rede oder eine Erzählung ihre Wirkung erzielt, und, wenn du öffentlich sprichst, diese Mittel gezielt zu nutzen. Diese Übung gibt dir neunzehn kurze Zitate im Stil von Leitartikeln, Reden, Rezensionen, Kolumnen und Chroniken; jeder Hinweis sagt dir, was das Stilmittel tut, nie seinen Namen, und du tippst den deutschen Fachbegriff. Wo das Deutsche zwei feste Namen hat, gelten beide: Übertreibung / Hyperbel, Untertreibung / Litotes, Personifikation / Personifizierung, Klimax / Steigerung, Alliteration / Stabreim, Euphemismus / Beschönigung, Chiasmus / Kreuzstellung, Pars pro toto / Synekdoche, Ellipse / Auslassung; du darfst den Begriff mit oder ohne Artikel tippen. Die Stilmittel: Bildlichkeit (Metapher, Vergleich, Personifikation), Aufbau (Anapher, Antithese, Klimax, Alliteration, Chiasmus, Zeugma, Ellipse), Haltung (Ironie, Hyperbel, Litotes, Euphemismus, Oxymoron), Appell (rhetorische Frage) und Ersetzung (Pars pro toto).",
       "tips": [
         {
           "kind": "rule",
@@ -3267,7 +3283,7 @@
       ],
       "hook": "Entdeck die Metapher, die Anapher oder die Litotes in einer Rede oder einem Leitartikel, und sag in einem deutschen Satz, was sie leistet.",
       "hookEn": "Spot the metaphor, the anaphora or the litotes in a speech or editorial, and say in one German sentence what it does.",
-      "introEn": "Reading closely means naming a rhetorical device in a real text and saying what it does: how an editorial, a speech or a story achieves its effect — and, when you speak in public, using those devices on purpose. This quiz gives you seventeen short quotations in the style of editorials, speeches, reviews, columns and chronicles; each cue tells you what the device does, never its name, and you type the German term. Where German has two established names both are accepted: Übertreibung / Hyperbel, Untertreibung / Litotes, Personifikation / Personifizierung, Klimax / Steigerung, Alliteration / Stabreim, Euphemismus / Beschönigung, Chiasmus / Kreuzstellung, Pars pro toto / Synekdoche, Ellipse / Auslassung; you may type the term with or without its article. The devices: imagery (Metapher, Vergleich, Personifikation), structure (Anapher, Antithese, Klimax, Alliteration, Chiasmus, Zeugma, Ellipse), attitude (Ironie, Hyperbel, Litotes, Euphemismus, Oxymoron), appeal (rhetorische Frage) and substitution (Pars pro toto).",
+      "introEn": "Reading closely means naming a rhetorical device in a real text and saying what it does: how an editorial, a speech or a story achieves its effect — and, when you speak in public, using those devices on purpose. This quiz gives you nineteen short quotations in the style of editorials, speeches, reviews, columns and chronicles; each cue tells you what the device does, never its name, and you type the German term. Where German has two established names both are accepted: Übertreibung / Hyperbel, Untertreibung / Litotes, Personifikation / Personifizierung, Klimax / Steigerung, Alliteration / Stabreim, Euphemismus / Beschönigung, Chiasmus / Kreuzstellung, Pars pro toto / Synekdoche, Ellipse / Auslassung; you may type the term with or without its article. The devices: imagery (Metapher, Vergleich, Personifikation), structure (Anapher, Antithese, Klimax, Alliteration, Chiasmus, Zeugma, Ellipse), attitude (Ironie, Hyperbel, Litotes, Euphemismus, Oxymoron), appeal (rhetorische Frage) and substitution (Pars pro toto).",
       "rememberEn": [
         "Imagery (Metapher, Vergleich, Personifikation, Pars pro toto) · structure (Anapher, Antithese, Klimax, Chiasmus, Zeugma, Ellipse) · attitude (Ironie, Hyperbel, Litotes, Euphemismus, Oxymoron).",
         "Litotes = negating the opposite (nicht unerheblich, alles andere als klug) – not necessarily a double negative.",
@@ -3453,7 +3469,7 @@
     ],
     "title": "Konjunktiv I (Journalismus)",
     "help": {
-      "intro": "Im deutschen Journalismus wird eine wiedergegebene Behauptung im Konjunktiv I (der Verbform der indirekten Rede) getragen, und zwar nicht nur für einen Satz: Nach einem einzigen einleitenden Verb (erklärte, räumte ein, wies zurück, teilte mit, beteuerte, kündigte an, beklagen) oder einer Quellenangabe (nach Angaben der Polizei, einer Studie zufolge, wie die Staatsanwaltschaft mitteilte) bleibt jedes folgende Verb des Berichts im Konjunktiv, bis der Schreibende wieder mit eigener Stimme spricht. Genau das übst du hier: die Fähigkeit, eine Zeitung zu lesen und zu wissen, wer spricht. Jede der fünfzehn Aufgaben ist ein kurzer Presse- oder Literaturbericht von zwei oder drei Sätzen mit zwei oder drei Lücken; die Infinitive stehen in Klammern, und du tippst die finiten Formen der Reihe nach (sei, habe, werde, könne, müsse, gebe …). Wo der Konjunktiv I genau wie der Indikativ aussähe, meist im Plural (sie haben, sie werden, sie können), nimmst du stattdessen den Konjunktiv II (hätten, würden, könnten); nur dort wird eine Form des Konjunktivs II akzeptiert. Umlaute zählen in dieser Übung: hätten, würden und könnten sind die Antwort, hatten, wurden und konnten sind falsch.",
+      "intro": "Im deutschen Journalismus wird eine wiedergegebene Behauptung im Konjunktiv I (der Verbform der indirekten Rede) getragen, und zwar nicht nur für einen Satz: Nach einem einzigen einleitenden Verb (erklärte, räumte ein, wies zurück, teilte mit, beteuerte, kündigte an, beklagen) oder einer Quellenangabe (nach Angaben der Polizei, einer Studie zufolge, wie die Staatsanwaltschaft mitteilte) bleibt jedes folgende Verb des Berichts im Konjunktiv, bis der Schreibende wieder mit eigener Stimme spricht. Genau das übst du hier: die Fähigkeit, eine Zeitung zu lesen und zu wissen, wer spricht. Jede der siebzehn Aufgaben ist ein kurzer Presse- oder Literaturbericht von zwei oder drei Sätzen mit zwei oder drei Lücken; die Infinitive stehen in Klammern, und du tippst die finiten Formen der Reihe nach (sei, habe, werde, könne, müsse, gebe …). Wo der Konjunktiv I genau wie der Indikativ aussähe, meist im Plural (sie haben, sie werden, sie können), nimmst du stattdessen den Konjunktiv II (hätten, würden, könnten); nur dort wird eine Form des Konjunktivs II akzeptiert. Umlaute zählen in dieser Übung: hätten, würden und könnten sind die Antwort, hatten, wurden und konnten sind falsch.",
       "tips": [
         {
           "kind": "rule",
@@ -3791,7 +3807,7 @@
         "today": "Ihn über einen ganzen Absatz durchzuhalten, sodass jeder Satz zeigt, wessen Worte er enthält."
       },
       "hookEn": "Read a German news report and know in every line who is speaking: the source, or the paper itself.",
-      "introEn": "In German journalism a reported claim is carried in the Konjunktiv I, and not just for one clause: after a single introducing verb (erklärte, räumte ein, wies zurück, teilte mit, beteuerte, kündigte an, beklagen) or a source phrase (nach Angaben der Polizei, einer Studie zufolge, wie die Staatsanwaltschaft mitteilte), every following verb of the report stays in the Konjunktiv until the writer speaks in their own voice again. That is the skill this quiz drills — the one that lets you read a newspaper and know who is speaking. Each of the fifteen items is a short press or literary report of two or three sentences with two or three gaps; the infinitives are given in brackets and you type the finite forms in order (sei, habe, werde, könne, müsse, gebe …). Where the Konjunktiv I would look exactly like the indicative – mostly in the plural (sie haben, sie werden, sie können) – you use the Konjunktiv II instead (hätten, würden, könnten); those are the only places where a Konjunktiv II form is accepted. Umlauts count in this quiz: hätten, würden and könnten are the answer, hatten, wurden and konnten are wrong.",
+      "introEn": "In German journalism a reported claim is carried in the Konjunktiv I, and not just for one clause: after a single introducing verb (erklärte, räumte ein, wies zurück, teilte mit, beteuerte, kündigte an, beklagen) or a source phrase (nach Angaben der Polizei, einer Studie zufolge, wie die Staatsanwaltschaft mitteilte), every following verb of the report stays in the Konjunktiv until the writer speaks in their own voice again. That is the skill this quiz drills — the one that lets you read a newspaper and know who is speaking. Each of the seventeen items is a short press or literary report of two or three sentences with two or three gaps; the infinitives are given in brackets and you type the finite forms in order (sei, habe, werde, könne, müsse, gebe …). Where the Konjunktiv I would look exactly like the indicative – mostly in the plural (sie haben, sie werden, sie können) – you use the Konjunktiv II instead (hätten, würden, könnten); those are the only places where a Konjunktiv II form is accepted. Umlauts count in this quiz: hätten, würden and könnten are the answer, hatten, wurden and konnten are wrong.",
       "rememberEn": [
         "One introducing verb, then Konjunktiv I for the whole report; indicative = the paper’s own voice.",
         "sei / seien, habe, werde, könne, müsse, gebe …; hätten / würden / könnten only where Konjunktiv I = indicative.",
@@ -3811,7 +3827,7 @@
     ],
     "title": "Umformulierung 2: direkt ↔ indirekt, Konnektor ↔ Präposition, Aktiv ↔ Passiv",
     "help": {
-      "intro": "Dasselbe in einer anderen grammatischen Form zu sagen, ohne Bedeutung, Zeitform, Handelnden oder Register zu ändern: Das tust du immer dann, wenn du einen Bericht zusammenfasst, eine Quelle zitierst oder einen Entwurf straffst. Diese Übung trainiert drei der wichtigsten Umformungen in siebzehn Aufgaben: direkte ↔ indirekte Rede (Modus, Person, Zeitbezug, Fragen, Aufforderungen), Konnektor ↔ Präposition (weil ↔ wegen / aufgrund, obwohl ↔ trotz, nachdem ↔ nach, bevor ↔ vor, wenn ↔ bei, indem ↔ durch, um … zu ↔ zu / zwecks) und Aktiv ↔ Passiv ↔ Passiversatz (werden-Passiv mit Handelndem, sein + zu, sich lassen, -bar). Der Rest des Zielsatzes ist vorgegeben; du tippst nur den entscheidenden Teil, meist ein bis vier Wörter in einer oder zwei Lücken, und jede natürliche Variante wird akzeptiert (aufgrund / wegen / infolge, obwohl / obgleich / wenngleich, am Vortag / tags zuvor, Aufbruch / Weggang …). Nominalstil und Verbalstil als solche übt die eigene Übung zum Nominalstil; hier kommt das nur vor, wo eine Präposition ein Nomen braucht.",
+      "intro": "Dasselbe in einer anderen grammatischen Form zu sagen, ohne Bedeutung, Zeitform, Handelnden oder Register zu ändern: Das tust du immer dann, wenn du einen Bericht zusammenfasst, eine Quelle zitierst oder einen Entwurf straffst. Diese Übung trainiert drei der wichtigsten Umformungen in neunzehn Aufgaben: direkte ↔ indirekte Rede (Modus, Person, Zeitbezug, Fragen, Aufforderungen), Konnektor ↔ Präposition (weil ↔ wegen / aufgrund, obwohl ↔ trotz, nachdem ↔ nach, bevor ↔ vor, wenn ↔ bei, indem ↔ durch, um … zu ↔ zu / zwecks) und Aktiv ↔ Passiv ↔ Passiversatz (werden-Passiv mit Handelndem, sein + zu, sich lassen, -bar). Der Rest des Zielsatzes ist vorgegeben; du tippst nur den entscheidenden Teil, meist ein bis vier Wörter in einer oder zwei Lücken, und jede natürliche Variante wird akzeptiert (aufgrund / wegen / infolge, obwohl / obgleich / wenngleich, am Vortag / tags zuvor, Aufbruch / Weggang …). Nominalstil und Verbalstil als solche übt die eigene Übung zum Nominalstil; hier kommt das nur vor, wo eine Präposition ein Nomen braucht.",
       "tips": [
         {
           "kind": "rule",
@@ -4149,7 +4165,7 @@
       ],
       "hook": "Sag es ein zweites Mal anders, gib es wieder, setz es ins Passiv, tausch weil gegen wegen, ohne ein Gramm Bedeutung zu verlieren.",
       "hookEn": "Say it a second way — report it, passivise it, swap weil for wegen — without losing a grain of meaning.",
-      "introEn": "Saying the same thing in another grammatical form — without changing meaning, tense, agent or register — is what you do whenever you summarise a report, quote a source or tighten a draft. This quiz drills three of the key moves in seventeen items: direct ↔ indirect speech (mood, person, time reference, questions, requests), connector ↔ preposition (weil ↔ wegen / aufgrund, obwohl ↔ trotz, nachdem ↔ nach, bevor ↔ vor, wenn ↔ bei, indem ↔ durch, um … zu ↔ zu / zwecks) and active ↔ passive ↔ passive substitute (werden-passive with agent, sein + zu, sich lassen, -bar). The rest of the target sentence is given; you type only the decisive part – usually one to four words in one or two gaps – and every natural variant is accepted (aufgrund / wegen / infolge, obwohl / obgleich / wenngleich, am Vortag / tags zuvor, Aufbruch / Weggang …). Nominal ↔ verbal style as such is drilled in the separate Nominalstil quiz; here it appears only where a preposition needs a noun.",
+      "introEn": "Saying the same thing in another grammatical form — without changing meaning, tense, agent or register — is what you do whenever you summarise a report, quote a source or tighten a draft. This quiz drills three of the key moves in nineteen items: direct ↔ indirect speech (mood, person, time reference, questions, requests), connector ↔ preposition (weil ↔ wegen / aufgrund, obwohl ↔ trotz, nachdem ↔ nach, bevor ↔ vor, wenn ↔ bei, indem ↔ durch, um … zu ↔ zu / zwecks) and active ↔ passive ↔ passive substitute (werden-passive with agent, sein + zu, sich lassen, -bar). The rest of the target sentence is given; you type only the decisive part – usually one to four words in one or two gaps – and every natural variant is accepted (aufgrund / wegen / infolge, obwohl / obgleich / wenngleich, am Vortag / tags zuvor, Aufbruch / Weggang …). Nominal ↔ verbal style as such is drilled in the separate Nominalstil quiz; here it appears only where a preposition needs a noun.",
       "rememberEn": [
         "Direct ↔ indirect: mood, person, time words (gestern → am Vortag), ob / W-word, solle / möge.",
         "Connector ↔ preposition: weil ↔ wegen, obwohl ↔ trotz, bevor ↔ vor, wenn ↔ bei, indem ↔ durch, um … zu ↔ zu.",
@@ -4398,7 +4414,7 @@
     ],
     "title": "Konnotation & Wortwahl",
     "help": {
-      "intro": "Zwei Wörter können dieselbe Sache benennen und sie verschieden beurteilen. Viele deutsche Wörter treten als Dreiergruppe auf, ein positives, ein neutrales und ein negatives: sparsam (+) / ohne neutrales Wort / geizig (−); preiswert (+) / billig (−, wenn es schlecht gemacht meint); rüstig (+) / alt (0) / vergreist (−); wissbegierig (+) / neugierig (0) / indiskret, aufdringlich (−); Herausforderung (+ Einrahmung) / Problem (0) / Katastrophe (−); Duft (+) / Geruch (0) / Gestank (−); standhaft (+) / stur (−); mutig (+) / leichtsinnig (−); gründlich (+) / pedantisch (−); schlank (+) / dürr (−); bescheiden (+) / unterwürfig (−); Reform (+ Einrahmung) / Kürzung (−); entlassen (0) / freisetzen (Euphemismus, also Beschönigung). In jedem der achtzehn Sätze erzwingt der Zusammenhang eine Konnotation (den wertenden Beiklang eines Wortes); der Hinweis sagt, ob du das positive, das negative oder das beschönigende Wort brauchst, und jedes Wort, das in den Zusammenhang passt, wird akzeptiert. So liest du die Haltung eines Pressetextes aus seiner Wortwahl heraus, und so wählst du beim Schreiben deine eigenen Wörter mit Bedacht.",
+      "intro": "Zwei Wörter können dieselbe Sache benennen und sie verschieden beurteilen. Viele deutsche Wörter treten als Dreiergruppe auf, ein positives, ein neutrales und ein negatives: sparsam (+) / ohne neutrales Wort / geizig (−); preiswert (+) / billig (−, wenn es schlecht gemacht meint); rüstig (+) / alt (0) / vergreist (−); wissbegierig (+) / neugierig (0) / indiskret, aufdringlich (−); Herausforderung (+ Einrahmung) / Problem (0) / Katastrophe (−); Duft (+) / Geruch (0) / Gestank (−); standhaft (+) / stur (−); mutig (+) / leichtsinnig (−); gründlich (+) / pedantisch (−); schlank (+) / dürr (−); bescheiden (+) / unterwürfig (−); Reform (+ Einrahmung) / Kürzung (−); entlassen (0) / freisetzen (Euphemismus, also Beschönigung). In jedem der zwanzig Sätze erzwingt der Zusammenhang eine Konnotation (den wertenden Beiklang eines Wortes); der Hinweis sagt, ob du das positive, das negative oder das beschönigende Wort brauchst, und jedes Wort, das in den Zusammenhang passt, wird akzeptiert. So liest du die Haltung eines Pressetextes aus seiner Wortwahl heraus, und so wählst du beim Schreiben deine eigenen Wörter mit Bedacht.",
       "tips": [
         {
           "kind": "rule",
@@ -4756,7 +4772,7 @@
       },
       "hook": "Lies die Haltung eines Autors aus einzelnen Wörtern wie Reform oder Kürzung heraus, und wähl selbst mit Absicht warme, neutrale oder kalte Wörter.",
       "hookEn": "Read a writer's stance from single words like Reform versus Kürzung, and choose warm, neutral or cold words on purpose yourself.",
-      "introEn": "Two words can name the same thing and judge it differently. Many German words come in triples: a positive word, a neutral one and a negative one – sparsam (+) / – / geizig (−); preiswert (+) / billig (−, when it means shoddy); rüstig (+) / alt (0) / vergreist (−); wissbegierig (+) / neugierig (0) / indiskret, aufdringlich (−); Herausforderung (+ framing) / Problem (0) / Katastrophe (−); Duft (+) / Geruch (0) / Gestank (−); standhaft (+) / stur (−); mutig (+) / leichtsinnig (−); gründlich (+) / pedantisch (−); schlank (+) / dürr (−); bescheiden (+) / unterwürfig (−); Reform (+ framing) / Kürzung (−); entlassen (0) / freisetzen (euphemism). In each of the eighteen sentences the context forces one connotation; the cue says whether you need the positive, the negative or the euphemistic word, and every word that fits the context is accepted. This is how you read a press text’s stance from its word choice, and how you choose your own words deliberately in writing.",
+      "introEn": "Two words can name the same thing and judge it differently. Many German words come in triples: a positive word, a neutral one and a negative one – sparsam (+) / – / geizig (−); preiswert (+) / billig (−, when it means shoddy); rüstig (+) / alt (0) / vergreist (−); wissbegierig (+) / neugierig (0) / indiskret, aufdringlich (−); Herausforderung (+ framing) / Problem (0) / Katastrophe (−); Duft (+) / Geruch (0) / Gestank (−); standhaft (+) / stur (−); mutig (+) / leichtsinnig (−); gründlich (+) / pedantisch (−); schlank (+) / dürr (−); bescheiden (+) / unterwürfig (−); Reform (+ framing) / Kürzung (−); entlassen (0) / freisetzen (euphemism). In each of the twenty sentences the context forces one connotation; the cue says whether you need the positive, the negative or the euphemistic word, and every word that fits the context is accepted. This is how you read a press text’s stance from its word choice, and how you choose your own words deliberately in writing.",
       "rememberEn": [
         "Find the neutral middle (alt, neugierig, Problem, Geruch); the words around it carry the judgement.",
         "Loaded words reveal stance: Reform / Kürzung, Demonstranten / Randalierer, entlassen / freisetzen."
@@ -4771,7 +4787,7 @@
     ],
     "title": "Abtönung & Graduierung: durchaus, keineswegs, geradezu",
     "help": {
-      "intro": "Abtönung, also das feine Dosieren der Kraft einer Aussage, verleiht dem Deutschen auf hohem Niveau seine Urteilsgenauigkeit, und sie gelingt mit Adverbien, für die es im Englischen keine Eins-zu-eins-Entsprechung gibt. Bekräftigen gegen einen Zweifel: durchaus, sehr wohl. Verneinen: keineswegs, keinesfalls, mitnichten (gehoben), durchaus nicht, bei weitem nicht. Untertreiben: nicht gerade, nicht eben. Steigern: geradezu, regelrecht, schlichtweg (ohne Übertreibung so zu nennen); ausgesprochen, überaus, äußerst, ungemein (in hohem Maße); schlechthin / par excellence nach dem Nomen. Relativieren: ohnehin, sowieso (so oder so); allemal (in jedem Fall). Abschwächen: gleichsam, gewissermaßen, sozusagen (im übertragenen Sinn); einigermaßen, halbwegs, leidlich (so einigermaßen ausreichend). Retten und einräumen: immerhin, wenigstens, zumindest; zwar, freilich, gewiss … doch. In jedem der fünfzehn Sätze nennt der englische Hinweis die Nuance. Jedes Adverb, das sie in diesem Zusammenhang ausdrückt, wird akzeptiert, es geht also um die Schattierung und nicht ums Erraten eines einzigen Wortes. Die Adverbien stehen im Mittelfeld (dem Raum zwischen den Verbteilen) vor dem Wort, das sie abtönen (durchaus berechtigt, keineswegs sicher). Nur schlechthin folgt seinem Nomen, und zwar, freilich, immerhin stehen oft auf Position 1.",
+      "intro": "Abtönung, also das feine Dosieren der Kraft einer Aussage, verleiht dem Deutschen auf hohem Niveau seine Urteilsgenauigkeit, und sie gelingt mit Adverbien, für die es im Englischen keine Eins-zu-eins-Entsprechung gibt. Bekräftigen gegen einen Zweifel: durchaus, sehr wohl. Verneinen: keineswegs, keinesfalls, mitnichten (gehoben), durchaus nicht, bei weitem nicht. Untertreiben: nicht gerade, nicht eben. Steigern: geradezu, regelrecht, schlichtweg (ohne Übertreibung so zu nennen); ausgesprochen, überaus, äußerst, ungemein (in hohem Maße); schlechthin / par excellence nach dem Nomen. Relativieren: ohnehin, sowieso (so oder so); allemal (in jedem Fall). Abschwächen: gleichsam, gewissermaßen, sozusagen (im übertragenen Sinn); einigermaßen, halbwegs, leidlich (so einigermaßen ausreichend). Retten und einräumen: immerhin, wenigstens, zumindest; zwar, freilich, gewiss … doch. In jedem der siebzehn Sätze nennt der englische Hinweis die Nuance. Jedes Adverb, das sie in diesem Zusammenhang ausdrückt, wird akzeptiert, es geht also um die Schattierung und nicht ums Erraten eines einzigen Wortes. Die Adverbien stehen im Mittelfeld (dem Raum zwischen den Verbteilen) vor dem Wort, das sie abtönen (durchaus berechtigt, keineswegs sicher). Nur schlechthin folgt seinem Nomen, und zwar, freilich, immerhin stehen oft auf Position 1.",
       "tips": [
         {
           "kind": "rule",
@@ -5097,7 +5113,7 @@
       ],
       "hook": "Stell die genaue Temperatur jedes Urteils ein, mit Wörtern wie durchaus, keineswegs und geradezu, die das Englische nur umschreiben kann.",
       "hookEn": "Set the exact temperature of every judgement with words like durchaus, keineswegs and geradezu, which English can only paraphrase.",
-      "introEn": "Abtönung – shading the force of a statement – is what gives advanced German its precision of judgement, and it is done with adverbs that have no one-to-one English equivalent. Affirming against a doubt: durchaus, sehr wohl. Denying: keineswegs, keinesfalls, mitnichten (elevated), durchaus nicht, bei weitem nicht. Understating: nicht gerade, nicht eben. Intensifying: geradezu, regelrecht, schlichtweg (downright); ausgesprochen, überaus, äußerst, ungemein (decidedly, exceedingly); schlechthin / par excellence after the noun. Relativising: ohnehin, sowieso (anyway); allemal (any day). Softening: gleichsam, gewissermaßen, sozusagen (as it were); einigermaßen, halbwegs, leidlich (reasonably). Salvaging and conceding: immerhin, wenigstens, zumindest; zwar, freilich, gewiss … doch. In each of the fifteen sentences the English cue names the nuance; every adverb that expresses it in that context is accepted, so the drill is about the shade, not about guessing one word. They sit in the middle field before the word they shade (durchaus berechtigt, keineswegs sicher) – schlechthin follows its noun, and zwar, freilich, immerhin often stand in position 1.",
+      "introEn": "Abtönung – shading the force of a statement – is what gives advanced German its precision of judgement, and it is done with adverbs that have no one-to-one English equivalent. Affirming against a doubt: durchaus, sehr wohl. Denying: keineswegs, keinesfalls, mitnichten (elevated), durchaus nicht, bei weitem nicht. Understating: nicht gerade, nicht eben. Intensifying: geradezu, regelrecht, schlichtweg (downright); ausgesprochen, überaus, äußerst, ungemein (decidedly, exceedingly); schlechthin / par excellence after the noun. Relativising: ohnehin, sowieso (anyway); allemal (any day). Softening: gleichsam, gewissermaßen, sozusagen (as it were); einigermaßen, halbwegs, leidlich (reasonably). Salvaging and conceding: immerhin, wenigstens, zumindest; zwar, freilich, gewiss … doch. In each of the seventeen sentences the English cue names the nuance; every adverb that expresses it in that context is accepted, so the drill is about the shade, not about guessing one word. They sit in the middle field before the word they shade (durchaus berechtigt, keineswegs sicher) – schlechthin follows its noun, and zwar, freilich, immerhin often stand in position 1.",
       "rememberEn": [
         "durchaus (certainly) / keineswegs, mitnichten (by no means) / geradezu, regelrecht (downright) / immerhin (at least) / freilich, zwar (admittedly) / schlechthin (par excellence, after the noun).",
         "Middle field, before the shaded word; zwar / freilich / immerhin may lead.",
@@ -5283,7 +5299,7 @@
     ],
     "title": "Sprichwörter",
     "help": {
-      "intro": "In echten Texten erscheinen Sprichwörter selten vollständig. Journalisten brechen sie ab (Wer anderen eine Grube gräbt …), verdrehen sie in Schlagzeilen (Viele Köche, kein Brei; Ein Glück kommt selten allein), kürzen sie auf ein Stichwort (Kurze Beine; im Glashaus sitzen) oder zitieren sie in indirekter Rede (was Hänschen nicht lerne …). Wer geübt liest, muss aus dem Bruchstück das ganze Sprichwort erkennen und verstehen, warum der Schreibende darauf anspielt. In jeder der sechzehn Aufgaben wird in einer Schlagzeile, einem Kommentar, einem Bericht oder einem Interview auf ein Sprichwort angespielt; der Hinweis gibt seine Bedeutung auf Englisch, und du tippst das entscheidende Wort so, wie es in der Anspielung vorkommt. Die Sprichwörter: Viele Köche verderben den Brei · Wer anderen eine Grube gräbt, fällt selbst hinein · Wer im Glashaus sitzt, sollte nicht mit Steinen werfen · Der Apfel fällt nicht weit vom Stamm · Lügen haben kurze Beine · Der Krug geht so lange zum Brunnen, bis er bricht · Hochmut kommt vor dem Fall · Den Letzten beißen die Hunde · Wo gehobelt wird, (da) fallen Späne · Es ist nicht alles Gold, was glänzt · Wer den Pfennig nicht ehrt, ist des Talers nicht wert · Die Katze lässt das Mausen nicht · Ein Unglück kommt selten allein · Man soll den Tag nicht vor dem Abend loben · Eine Schwalbe macht noch keinen Sommer · Was Hänschen nicht lernt, lernt Hans nimmermehr.",
+      "intro": "In echten Texten erscheinen Sprichwörter selten vollständig. Journalisten brechen sie ab (Wer anderen eine Grube gräbt …), verdrehen sie in Schlagzeilen (Viele Köche, kein Brei; Ein Glück kommt selten allein), kürzen sie auf ein Stichwort (Kurze Beine; im Glashaus sitzen) oder zitieren sie in indirekter Rede (was Hänschen nicht lerne …). Wer geübt liest, muss aus dem Bruchstück das ganze Sprichwort erkennen und verstehen, warum der Schreibende darauf anspielt. In jeder der achtzehn Aufgaben wird in einer Schlagzeile, einem Kommentar, einem Bericht oder einem Interview auf ein Sprichwort angespielt; der Hinweis gibt seine Bedeutung auf Englisch, und du tippst das entscheidende Wort so, wie es in der Anspielung vorkommt. Die Sprichwörter: Viele Köche verderben den Brei · Wer anderen eine Grube gräbt, fällt selbst hinein · Wer im Glashaus sitzt, sollte nicht mit Steinen werfen · Der Apfel fällt nicht weit vom Stamm · Lügen haben kurze Beine · Der Krug geht so lange zum Brunnen, bis er bricht · Hochmut kommt vor dem Fall · Den Letzten beißen die Hunde · Wo gehobelt wird, (da) fallen Späne · Es ist nicht alles Gold, was glänzt · Wer den Pfennig nicht ehrt, ist des Talers nicht wert · Die Katze lässt das Mausen nicht · Ein Unglück kommt selten allein · Man soll den Tag nicht vor dem Abend loben · Eine Schwalbe macht noch keinen Sommer · Was Hänschen nicht lernt, lernt Hans nimmermehr.",
       "tips": [
         {
           "kind": "rule",
@@ -5645,7 +5661,7 @@
       },
       "hook": "Schlagzeilen lieben das halbe Sprichwort: Lern, Wer anderen eine Grube gräbt … zu Ende zu führen, und erwisch den Witz, wenn sich ein Wort ändert.",
       "hookEn": "Headlines love half a proverb — learn to finish Wer anderen eine Grube gräbt … and catch the joke when one word changes.",
-      "introEn": "In real texts proverbs rarely appear whole. Journalists cut them off (Wer anderen eine Grube gräbt …), twist them in headlines (Viele Köche, kein Brei; Ein Glück kommt selten allein), shorten them to a keyword (Kurze Beine; im Glashaus sitzen) or quote them in reported speech (was Hänschen nicht lerne …). A skilled reader has to recognise the whole proverb from the fragment and understand why the writer alluded to it. In each of the sixteen items a proverb is alluded to in a headline, commentary, report or interview; the cue gives its meaning in English, and you type the decisive word as it appears in the allusion. The proverbs: Viele Köche verderben den Brei · Wer anderen eine Grube gräbt, fällt selbst hinein · Wer im Glashaus sitzt, sollte nicht mit Steinen werfen · Der Apfel fällt nicht weit vom Stamm · Lügen haben kurze Beine · Der Krug geht so lange zum Brunnen, bis er bricht · Hochmut kommt vor dem Fall · Den Letzten beißen die Hunde · Wo gehobelt wird, (da) fallen Späne · Es ist nicht alles Gold, was glänzt · Wer den Pfennig nicht ehrt, ist des Talers nicht wert · Die Katze lässt das Mausen nicht · Ein Unglück kommt selten allein · Man soll den Tag nicht vor dem Abend loben · Eine Schwalbe macht noch keinen Sommer · Was Hänschen nicht lernt, lernt Hans nimmermehr.",
+      "introEn": "In real texts proverbs rarely appear whole. Journalists cut them off (Wer anderen eine Grube gräbt …), twist them in headlines (Viele Köche, kein Brei; Ein Glück kommt selten allein), shorten them to a keyword (Kurze Beine; im Glashaus sitzen) or quote them in reported speech (was Hänschen nicht lerne …). A skilled reader has to recognise the whole proverb from the fragment and understand why the writer alluded to it. In each of the eighteen items a proverb is alluded to in a headline, commentary, report or interview; the cue gives its meaning in English, and you type the decisive word as it appears in the allusion. The proverbs: Viele Köche verderben den Brei · Wer anderen eine Grube gräbt, fällt selbst hinein · Wer im Glashaus sitzt, sollte nicht mit Steinen werfen · Der Apfel fällt nicht weit vom Stamm · Lügen haben kurze Beine · Der Krug geht so lange zum Brunnen, bis er bricht · Hochmut kommt vor dem Fall · Den Letzten beißen die Hunde · Wo gehobelt wird, (da) fallen Späne · Es ist nicht alles Gold, was glänzt · Wer den Pfennig nicht ehrt, ist des Talers nicht wert · Die Katze lässt das Mausen nicht · Ein Unglück kommt selten allein · Man soll den Tag nicht vor dem Abend loben · Eine Schwalbe macht noch keinen Sommer · Was Hänschen nicht lernt, lernt Hans nimmermehr.",
       "rememberEn": [
         "Recognise the whole from the fragment: truncation (Wer anderen eine Grube gräbt …), twist (Viele Köche, kein Brei), keyword (im Glashaus).",
         "Know the exact wording – a misquote is a joke you didn’t intend.",
@@ -7102,7 +7118,7 @@
     ],
     "title": "Konjunktiv II: Nuancen",
     "help": {
-      "intro": "Auf dieser Stufe ist der Konjunktiv II längst nicht mehr nur „würde + Infinitiv“ für irreale Bedingungen; er trägt Bedeutungsnuancen, die das Englische durch Modalverben, Adverbien oder die Satzmelodie ausdrückt. Diese Übung trainiert sieben davon in 17 Sätzen: das Modalverb in der Vergangenheit mit doppeltem Infinitiv (hätte … sollen / müssen / können / dürfen), samt seiner Wortstellung im Nebensatz (dass er es hätte wissen müssen); das knapp Vermiedene mit beinahe, fast und um ein Haar (Ich wäre beinahe gestürzt); irreale Vergleiche mit als ob, als wenn und als + Verb an zweiter Stelle (als hätte sie mich nie zuvor gesehen); Wunsch und Bedauern (Hätte ich doch nur …!, Wenn er doch nur … wäre!); höfliche Distanz (Ich hätte da eine Frage; Wäre es möglich …?); die irreale Folge nach zu …, als dass; und die gehobene Bedingung „Wäre da nicht …“. Jede Lücke ist die entscheidende Verbform; der Hinweis gibt den Infinitiv oder die Infinitive. Umlaute zählen: hatte und hätte, wusste und wüsste sind verschiedene Modi.",
+      "intro": "Auf dieser Stufe ist der Konjunktiv II längst nicht mehr nur „würde + Infinitiv“ für irreale Bedingungen; er trägt Bedeutungsnuancen, die das Englische durch Modalverben, Adverbien oder die Satzmelodie ausdrückt. Diese Übung trainiert sieben davon in 19 Sätzen: das Modalverb in der Vergangenheit mit doppeltem Infinitiv (hätte … sollen / müssen / können / dürfen), samt seiner Wortstellung im Nebensatz (dass er es hätte wissen müssen); das knapp Vermiedene mit beinahe, fast und um ein Haar (Ich wäre beinahe gestürzt); irreale Vergleiche mit als ob, als wenn und als + Verb an zweiter Stelle (als hätte sie mich nie zuvor gesehen); Wunsch und Bedauern (Hätte ich doch nur …!, Wenn er doch nur … wäre!); höfliche Distanz (Ich hätte da eine Frage; Wäre es möglich …?); die irreale Folge nach zu …, als dass; und die gehobene Bedingung „Wäre da nicht …“. Jede Lücke ist die entscheidende Verbform; der Hinweis gibt den Infinitiv oder die Infinitive. Umlaute zählen: hatte und hätte, wusste und wüsste sind verschiedene Modi.",
       "tips": [
         {
           "kind": "rule",
@@ -7497,7 +7513,7 @@
         "today": "Das knapp Vermiedene (wäre fast gefallen), als ob ohne ob, und zu …, als dass."
       },
       "hookEn": "Say 'should have known', 'almost fell' and 'if only' in German with the Konjunktiv II shades that English hides in modals.",
-      "introEn": "At this stage the Konjunktiv II is no longer just “würde + infinitive” for unreal conditions; it carries shades of meaning that English expresses with modals, adverbs or intonation. This quiz drills seven of them in 17 sentences: the past modal with a double infinitive (hätte … sollen / müssen / können / dürfen), including its word order in subordinate clauses (dass er es hätte wissen müssen); near-misses with beinahe, fast and um ein Haar (Ich wäre beinahe gestürzt); unreal comparisons with als ob, als wenn and als + verb second (als hätte sie mich nie zuvor gesehen); wishes and regret (Hätte ich doch nur …!, Wenn er doch nur … wäre!); polite distance (Ich hätte da eine Frage; Wäre es möglich …?); unreal consequence after zu …, als dass; and the elevated condition “Wäre da nicht …”. Each gap is the decisive verb form; the cue gives the infinitive(s). Umlauts count: hatte and hätte, wusste and wüsste are different moods.",
+      "introEn": "At this stage the Konjunktiv II is no longer just “würde + infinitive” for unreal conditions; it carries shades of meaning that English expresses with modals, adverbs or intonation. This quiz drills seven of them in 19 sentences: the past modal with a double infinitive (hätte … sollen / müssen / können / dürfen), including its word order in subordinate clauses (dass er es hätte wissen müssen); near-misses with beinahe, fast and um ein Haar (Ich wäre beinahe gestürzt); unreal comparisons with als ob, als wenn and als + verb second (als hätte sie mich nie zuvor gesehen); wishes and regret (Hätte ich doch nur …!, Wenn er doch nur … wäre!); polite distance (Ich hätte da eine Frage; Wäre es möglich …?); unreal consequence after zu …, als dass; and the elevated condition “Wäre da nicht …”. Each gap is the decisive verb form; the cue gives the infinitive(s). Umlauts count: hatte and hätte, wusste and wüsste are different moods.",
       "rememberEn": [
         "hätte + infinitive + modal infinitive: Du hättest anrufen sollen.",
         "In a subordinate clause hätte stands before the two infinitives: dass er es hätte wissen müssen.",
@@ -7519,7 +7535,7 @@
     ],
     "title": "Konnektoren: indes, wiewohl, zumal, gleichwohl, mithin",
     "help": {
-      "intro": "Diese gehobenen Konnektoren (Verbindungswörter) sind in der Bedeutung selten neu, die meisten haben einen Alltagszwilling, den du schon kennst (aber, obwohl, weil, trotzdem, deshalb). Sie unterscheiden sich aber im Stil, in der genauen logischen Beziehung und, das ist entscheidend, in der Wortstellung, die sie auslösen. Diese Übung trainiert 16 Sätze: indes / indessen als Gegensatz („jedoch“) und zeitlich („währenddessen“); wiewohl, obschon, obgleich und wenn auch als gehobene Konnektoren der Einräumung; zumal (da) für „vor allem weil“; gleichwohl, nichtsdestoweniger und dessen ungeachtet als einräumende Adverbien mit dem Verb an zweiter Stelle; mithin und somit für eine logische Schlussfolgerung; insofern als und das geteilte insoweit …, als für die Einschränkung; allein als literarisches „aber“ außerhalb des Satzes; und respektive. Jeder Hinweis nennt die englische Bedeutung und die Stelle in der Wortstellung, die du füllen musst, und jedes Synonym, das zu beidem passt, wird akzeptiert.",
+      "intro": "Diese gehobenen Konnektoren (Verbindungswörter) sind in der Bedeutung selten neu, die meisten haben einen Alltagszwilling, den du schon kennst (aber, obwohl, weil, trotzdem, deshalb). Sie unterscheiden sich aber im Stil, in der genauen logischen Beziehung und, das ist entscheidend, in der Wortstellung, die sie auslösen. Diese Übung trainiert 18 Sätze: indes / indessen als Gegensatz („jedoch“) und zeitlich („währenddessen“); wiewohl, obschon, obgleich und wenn auch als gehobene Konnektoren der Einräumung; zumal (da) für „vor allem weil“; gleichwohl, nichtsdestoweniger und dessen ungeachtet als einräumende Adverbien mit dem Verb an zweiter Stelle; mithin und somit für eine logische Schlussfolgerung; insofern als und das geteilte insoweit …, als für die Einschränkung; allein als literarisches „aber“ außerhalb des Satzes; und respektive. Jeder Hinweis nennt die englische Bedeutung und die Stelle in der Wortstellung, die du füllen musst, und jedes Synonym, das zu beidem passt, wird akzeptiert.",
       "tips": [
         {
           "kind": "rule",
@@ -7869,7 +7885,7 @@
       ],
       "hook": "Indes, wiewohl, zumal, mithin: die gehobenen Konnektoren anspruchsvoller Prosa, und die Wortstellung, die jeder von ihnen verlangt.",
       "hookEn": "Indes, wiewohl, zumal, mithin: the elevated connectors of serious prose — and the word order each one demands.",
-      "introEn": "These elevated connectors are rarely new in meaning — most of them have an everyday twin you already know (aber, obwohl, weil, trotzdem, deshalb) — but they differ in register, in the exact logical relation they express and, crucially, in the word order they trigger. This quiz drills 16 sentences: indes / indessen as adversative “however” and as temporal “meanwhile”; wiewohl, obschon, obgleich and wenn auch as elevated concessive connectors; zumal (da) for “especially as”; gleichwohl, nichtsdestoweniger and dessen ungeachtet as concessive adverbs with verb-second order; mithin and somit for a logical conclusion; insofern als and the split insoweit …, als for restriction; allein as literary “but” outside the clause; and respektive. Every cue gives the English meaning and the word-order slot you must fill, and every synonym that fits both is accepted.",
+      "introEn": "These elevated connectors are rarely new in meaning — most of them have an everyday twin you already know (aber, obwohl, weil, trotzdem, deshalb) — but they differ in register, in the exact logical relation they express and, crucially, in the word order they trigger. This quiz drills 18 sentences: indes / indessen as adversative “however” and as temporal “meanwhile”; wiewohl, obschon, obgleich and wenn auch as elevated concessive connectors; zumal (da) for “especially as”; gleichwohl, nichtsdestoweniger and dessen ungeachtet as concessive adverbs with verb-second order; mithin and somit for a logical conclusion; insofern als and the split insoweit …, als for restriction; allein as literary “but” outside the clause; and respektive. Every cue gives the English meaning and the word-order slot you must fill, and every synonym that fits both is accepted.",
       "rememberEn": [
         "Subordinators (wiewohl, obschon, zumal, insofern als) → verb at the end.",
         "Adverbs (indes, gleichwohl, dessen ungeachtet, mithin) → verb second or in the middle field.",
@@ -7886,7 +7902,7 @@
     ],
     "title": "Präfixe: Bedeutung von ver-, zer-, er-, ent-, be-, über-",
     "help": {
-      "intro": "Deutsche Präfixe (Vorsilben) sind keine Verzierung: ver-, zer-, er-, ent- und be- verändern die Bedeutung eines Grundverbs nach festen Mustern, und über-, unter-, um- und durch- können entweder trennbar (betont, meist wörtlich und räumlich) oder untrennbar (unbetont, meist übertragen) sein. Diese Übung trainiert 18 Sätze. ver- zeigt an, dass etwas falsch gemacht wird (sich verrechnen, verschlafen) oder an sein Ende kommt (verblühen); zer- bedeutet in Stücke (zerreißen, zerbrechen); er- bedeutet, durch die Handlung ein Ergebnis zu erreichen (erkämpfen, ersteigern); ent- bedeutet Entfernung oder einen plötzlichen Beginn (entkalken, entflammen); be- macht ein Verb transitiv, gibt ihm also ein Akkusativobjekt (bearbeiten, beantworten + Akk). Die Paare übersetzen / übersetzen, umfahren / umfahren, unterhalten / unterhalten und durchschauen zeigen den Gegensatz von trennbar und untrennbar. Die Lücke ist das Präfixverb in seiner Satzform (Partizip, Präteritum oder ein getrenntes Verb in zwei Lücken); der Hinweis gibt das Grundverb und die englische Bedeutung.",
+      "intro": "Deutsche Präfixe (Vorsilben) sind keine Verzierung: ver-, zer-, er-, ent- und be- verändern die Bedeutung eines Grundverbs nach festen Mustern, und über-, unter-, um- und durch- können entweder trennbar (betont, meist wörtlich und räumlich) oder untrennbar (unbetont, meist übertragen) sein. Diese Übung trainiert 20 Sätze. ver- zeigt an, dass etwas falsch gemacht wird (sich verrechnen, verschlafen) oder an sein Ende kommt (verblühen); zer- bedeutet in Stücke (zerreißen, zerbrechen); er- bedeutet, durch die Handlung ein Ergebnis zu erreichen (erkämpfen, ersteigern); ent- bedeutet Entfernung oder einen plötzlichen Beginn (entkalken, entflammen); be- macht ein Verb transitiv, gibt ihm also ein Akkusativobjekt (bearbeiten, beantworten + Akk). Die Paare übersetzen / übersetzen, umfahren / umfahren, unterhalten / unterhalten und durchschauen zeigen den Gegensatz von trennbar und untrennbar. Die Lücke ist das Präfixverb in seiner Satzform (Partizip, Präteritum oder ein getrenntes Verb in zwei Lücken); der Hinweis gibt das Grundverb und die englische Bedeutung.",
       "tips": [
         {
           "kind": "rule",
@@ -8254,7 +8270,7 @@
         "today": "Die Kernbedeutung jedes Präfixes, und über-, unter-, um-, durch-, die in beide Richtungen gehen können."
       },
       "hookEn": "See what ver-, zer-, er-, ent- and be- do to a verb, and why übersetzen can mean translate or ferry across.",
-      "introEn": "German prefixes are not decoration: ver-, zer-, er-, ent- and be- change the meaning of a base verb in patterned ways, and über-, unter-, um- and durch- can be either separable (stressed, usually literal and spatial) or inseparable (unstressed, usually figurative). This quiz drills 18 sentences. ver- marks doing something wrongly (sich verrechnen, verschlafen) or to its end (verblühen); zer- means to pieces (zerreißen, zerbrechen); er- means achieving a result through the action (erkämpfen, ersteigern); ent- means removal or a sudden beginning (entkalken, entflammen); be- makes a verb transitive (bearbeiten, beantworten + Akk). The pairs übersetzen / übersetzen, umfahren / umfahren, unterhalten / unterhalten and durchschauen show the separable vs inseparable contrast. The gap is the prefixed verb in its sentence form (participle, Präteritum, or a split verb in two gaps); the cue gives the base verb and the English meaning.",
+      "introEn": "German prefixes are not decoration: ver-, zer-, er-, ent- and be- change the meaning of a base verb in patterned ways, and über-, unter-, um- and durch- can be either separable (stressed, usually literal and spatial) or inseparable (unstressed, usually figurative). This quiz drills 20 sentences. ver- marks doing something wrongly (sich verrechnen, verschlafen) or to its end (verblühen); zer- means to pieces (zerreißen, zerbrechen); er- means achieving a result through the action (erkämpfen, ersteigern); ent- means removal or a sudden beginning (entkalken, entflammen); be- makes a verb transitive (bearbeiten, beantworten + Akk). The pairs übersetzen / übersetzen, umfahren / umfahren, unterhalten / unterhalten and durchschauen show the separable vs inseparable contrast. The gap is the prefixed verb in its sentence form (participle, Präteritum, or a split verb in two gaps); the cue gives the base verb and the English meaning.",
       "rememberEn": [
         "ver- = wrongly / away / to the end; zer- = to pieces; er- = result; ent- = away or beginning; be- = + accusative.",
         "Inseparable prefixes take no ge-: verrechnet, zerrissen, erkämpft, entkalkt, bearbeitet.",
@@ -8274,7 +8290,7 @@
     ],
     "title": "Wortschatz",
     "help": {
-      "intro": "Jedes Wort aus den Übungen dieses Abschnitts in einem Kartenstapel: 362 Karten, davon 191 Nomen. Der Wortschatz dieses Abschnitts ist präzise und stilistisch markiert: Registerpaare, juristische und philosophische Begriffe und feste Wendungen, aus den Themen Wirtschaft & Recht, Medien & Journalismus, Stil & Rhetorik, Literatur: Kurzgeschichte. Schreib das deutsche Wort, wähl es aus vier Möglichkeiten oder dreh die Karte um und bewerte dich selbst. Ein Wort, das du nicht weißt, kommt im selben Durchgang wieder und bleibt bei deinen schwachen Wörtern, bis du es dreimal hintereinander richtig hast.",
+      "intro": "Jedes Wort aus den Übungen dieses Abschnitts in einem Kartenstapel: 355 Karten, davon 191 Nomen. Der Wortschatz dieses Abschnitts ist präzise und stilistisch markiert: Registerpaare, juristische und philosophische Begriffe und feste Wendungen, aus den Themen Wirtschaft & Recht, Medien & Journalismus, Stil & Rhetorik, Literatur: Kurzgeschichte. Schreib das deutsche Wort, wähl es aus vier Möglichkeiten oder dreh die Karte um und bewerte dich selbst. Ein Wort, das du nicht weißt, kommt im selben Durchgang wieder und bleibt bei deinen schwachen Wörtern, bis du es dreimal hintereinander richtig hast.",
       "tips": [
         {
           "kind": "rule",
@@ -8412,7 +8428,7 @@
       ],
       "hook": "Sammle den präzisen Wortschatz aus Wirtschaft, Recht, Medien und Literatur, und lern, welches Wort in einen formellen Text passt.",
       "hookEn": "Collect the precise vocabulary of business, law, media and literature, and learn which word fits a formal text.",
-      "introEn": "Every word this module’s exercises use, on one deck of flashcards: 362 cards, 191 of them nouns. The vocabulary of this module is precise, stylistically marked vocabulary: register pairs, legal and philosophical terms, and fixed expressions, from the themes Wirtschaft & Recht, Medien & Journalismus, Stil & Rhetorik, Literatur: Kurzgeschichte. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
+      "introEn": "Every word this module’s exercises use, on one deck of flashcards: 355 cards, 191 of them nouns. The vocabulary of this module is precise, stylistically marked vocabulary: register pairs, legal and philosophical terms, and fixed expressions, from the themes Wirtschaft & Recht, Medien & Journalismus, Stil & Rhetorik, Literatur: Kurzgeschichte. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
       "rememberEn": [
         "Never say a noun without its article, not even in your head.",
         "Miss a word? It comes back in the same run. Three correct answers in a row take it off the weak list.",
@@ -8536,8 +8552,8 @@
         },
         {
           "kind": "mnemonic",
-          "title": "Werkzeuge auf -er sind der, -eisen ist das, -chen ist das",
-          "text": "Ein Gerät, das mit -er nach seiner Tätigkeit benannt ist, ist maskulin: der Akkuschrauber, der Hobel, der Klüpfel. Wörter auf der Grundlage von das Eisen bleiben neutral: das Stemmeisen. Kleine Dinge auf -chen sind immer das: das Ölkännchen.",
+          "title": "Werkzeuge auf -er und -el sind der, -eisen ist das, -chen ist das",
+          "text": "Ein Gerät auf -er oder -el ist meist maskulin: der Akkuschrauber (nach seiner Tätigkeit benannt), der Hobel, der Klüpfel. Wörter auf der Grundlage von das Eisen bleiben neutral: das Stemmeisen. Kleine Dinge auf -chen sind immer das: das Ölkännchen.",
           "examples": [
             {
               "de": "der Akkuschrauber",
@@ -8566,8 +8582,8 @@
             "whyEn": "Every noun in -chen is neuter, whatever the word it comes from (die Kanne → das Kännchen)."
           },
           "en": {
-            "text": "A device named after what it does with -er is masculine: der Akkuschrauber, der Hobel, der Klüpfel. Words built on das Eisen stay neuter: das Stemmeisen. Little things in -chen are always das: das Ölkännchen.",
-            "title": "Tools in -er are der, -eisen is das, -chen is das"
+            "text": "A device in -er or -el is usually masculine: der Akkuschrauber (named after what it does), der Hobel, der Klüpfel. Words built on das Eisen stay neuter: das Stemmeisen. Little things in -chen are always das: das Ölkännchen.",
+            "title": "Tools in -er and -el are der, -eisen is das, -chen is das"
           }
         }
       ],

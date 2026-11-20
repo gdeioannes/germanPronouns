@@ -17,6 +17,24 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-11-20",
+    title: "Corrections, C1.2 to C2.2",
+    items: [
+      "Flashcards: the C1.2, C2.1 and C2.2 decks no longer have cards cut in half (von, sein, Wo gehobelt wird) or cards whose German side was only a hint from an exercise (Schach und Bahn, über- inseparable, Möglichkeit als Wendung). Verbs like widersprechen and kosten now show their case on the back of the card.",
+      "A dozen explanations corrected or made clearer, among them warteten … kämen in indirect speech, der Gefangene as an adjective used as a noun, sparsam as the positive word, Hobel and Klüpfel, the Fugen-s, zuzüglich and when a Bußgeldbescheid becomes rechtskräftig.",
+      "German examples that had English labels inside them are now German throughout, and nine C2.1 introductions give the right number of sentences.",
+    ],
+  },
+  {
+    date: "2026-11-20",
+    title: "Explained in Ukrainian all the way to C2",
+    items: [
+      "The Ukrainian button under the German explanations now works up to the last level: C1.2, C2.1 and C2.2 are in Ukrainian too, with every rule, example, check and why, and the word meanings in the flashcards and picture hunts.",
+      "Idioms get Ukrainian equivalents where there is one (der Bärendienst is «ведмежа послуга»), and wordplay that cannot travel keeps the German word beside the Ukrainian.",
+      "Written with AI and not yet fully checked by a native speaker: please tell us when something sounds off.",
+    ],
+  },
+  {
+    date: "2026-11-20",
     title: "German FAQ: 36 questions everyone asks",
     items: [
       "New in the Library menu: the German FAQ. Why are all nouns capitalized? Der, die or das? Why is the verb at the end? Why does halb drei mean 2:30? Thirty-six questions, each with a short answer, a full explanation with tables and examples, and the exercises that practise it.",
