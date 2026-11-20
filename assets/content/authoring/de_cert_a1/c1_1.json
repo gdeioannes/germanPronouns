@@ -3540,8 +3540,12 @@
           "en": "because / therefore / because of"
         },
         {
-          "de": "damit, um … zu / dazu / zu, zwecks",
-          "en": "so that, in order to / to that end / for that purpose"
+          "de": "damit, um … zu",
+          "en": "so that, in order to"
+        },
+        {
+          "de": "dazu",
+          "en": "to that end, for that purpose"
         },
         {
           "de": "wenn, falls, sofern / sonst, andernfalls / bei, im Falle",
@@ -3904,8 +3908,12 @@
           "en": "in contrast to"
         },
         {
-          "de": "als ob / als wenn + Konjunktiv II",
+          "de": "als ob + Konjunktiv II",
           "en": "as if"
+        },
+        {
+          "de": "als wenn + Konjunktiv II",
+          "en": "as if (also: als ob)"
         },
         {
           "de": "je … desto / umso",
@@ -4562,8 +4570,12 @@
           "en": "to find sb guilty of sth"
         },
         {
-          "de": "einer Sache müde / überdrüssig sein",
+          "de": "einer Sache müde sein",
           "en": "to be tired of sth"
+        },
+        {
+          "de": "einer Sache überdrüssig sein",
+          "en": "to be weary of sth"
         },
         {
           "de": "jemandem behilflich sein",
@@ -6553,7 +6565,7 @@
         {
           "kind": "mnemonic",
           "title": "Zeit: Folge den Nachbarn",
-          "text": "schliefen … erinnerten sich … (beide Präteritum); wach geblieben waren (Plusquamperfekt: Sie waren vorher wach geblieben). Eine Zeit für die Linie, einen Schritt zurück für das frühere Ereignis. Und nach „man vermutet, dass“ bleibt ein allgemeiner Mechanismus im Präsens.",
+          "text": "lasen … kannten (beide Präteritum); lesen gelernt hatten (Plusquamperfekt: Sie hatten es vorher gelernt). Eine Zeit für die Linie, einen Schritt zurück für das frühere Ereignis. Und nach „man vermutet, dass“ bleibt ein allgemeiner Mechanismus im Präsens.",
           "examples": [
             {
               "de": "Kinder, die früh lasen, kannten später mehr Wörter als jene, die erst spät lesen gelernt hatten.",
@@ -6584,7 +6596,7 @@
             "whyEn": "The line is in the Präteritum, and the earlier step goes one tense back: Plusquamperfekt."
           },
           "en": {
-            "text": "schliefen … erinnerten sich … (both Präteritum); wach geblieben waren (Plusquamperfekt: they had stayed awake before). One tense for the line, one step back for the earlier event. And after \"man vermutet, dass\" a general mechanism stays in the Präsens.",
+            "text": "lasen … kannten (both Präteritum); lesen gelernt hatten (Plusquamperfekt: they had learnt it before). One tense for the line, one step back for the earlier event. And after \"man vermutet, dass\" a general mechanism stays in the Präsens.",
             "title": "Tense: follow the neighbours"
           }
         }
@@ -8257,7 +8269,7 @@
     ],
     "title": "Wortschatz",
     "help": {
-      "intro": "Jedes Wort aus den Übungen dieses Abschnitts in einem Kartenstapel: 407 Karten, davon 226 Nomen. Der Wortschatz dieses Abschnitts gehört zum wissenschaftlichen und formellen Stil: Nominalstil, Forschungswortschatz und feste Verbindungen aus Nomen und Verb, aus den Themen Bildung & Wissenschaft, Forschung & Technik, Sprache & Denken, Arbeitswelt akademisch. Schreib das deutsche Wort, wähl es aus vier Möglichkeiten oder dreh die Karte um und bewerte dich selbst. Ein Wort, das du nicht weißt, kommt im selben Durchgang wieder und bleibt bei deinen schwachen Wörtern, bis du es dreimal hintereinander richtig hast.",
+      "intro": "Jedes Wort aus den Übungen dieses Abschnitts in einem Kartenstapel: 406 Karten, davon 226 Nomen. Der Wortschatz dieses Abschnitts gehört zum wissenschaftlichen und formellen Stil: Nominalstil, Forschungswortschatz und feste Verbindungen aus Nomen und Verb, aus den Themen Bildung & Wissenschaft, Forschung & Technik, Sprache & Denken, Arbeitswelt akademisch. Schreib das deutsche Wort, wähl es aus vier Möglichkeiten oder dreh die Karte um und bewerte dich selbst. Ein Wort, das du nicht weißt, kommt im selben Durchgang wieder und bleibt bei deinen schwachen Wörtern, bis du es dreimal hintereinander richtig hast.",
       "tips": [
         {
           "kind": "rule",
@@ -8394,7 +8406,7 @@
       ],
       "hook": "Lern die Sprache der Forschung und des formellen Schreibens, mit Artikeln, Pluralformen und den Verben, die zu jedem Nomen gehören.",
       "hookEn": "Learn the language of research and formal writing with articles, plurals and the verbs each noun goes with.",
-      "introEn": "Every word this module's exercises use, on one deck of flashcards: 407 cards, 226 of them nouns. The vocabulary of this module is academic and formal register: nominal style, research vocabulary and fixed noun-verb pairs, from the themes Bildung & Wissenschaft, Forschung & Technik, Sprache & Denken, Arbeitswelt akademisch. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
+      "introEn": "Every word this module's exercises use, on one deck of flashcards: 406 cards, 226 of them nouns. The vocabulary of this module is academic and formal register: nominal style, research vocabulary and fixed noun-verb pairs, from the themes Bildung & Wissenschaft, Forschung & Technik, Sprache & Denken, Arbeitswelt akademisch. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
       "rememberEn": [
         "Never say a noun without its article, not even in your head.",
         "Miss a word? It comes back in the same run. Three correct answers in a row take it off the weak list.",

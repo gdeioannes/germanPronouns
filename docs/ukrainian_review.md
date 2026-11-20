@@ -82,3 +82,47 @@ AI-translated. File + key + the doubt, one line each.
 - book/weimar grammar[0].blocks[0].root.yes.answer: the English "keep it" (decision tree, not a quiz) is translated as «залиш його».
 - book/rekorde document.tasks[1].items[2].prompt and grammar[1].blocks[1].head[2]: "In English" became «Українською».
 - book/auto reading.en: Max's over-familiar letter to the city uses «Любе Місто! … Обіймаю, твій Max» against the office's «Шановний пане Белл … З повагою».
+
+## B1.1 English button (2026-11-20)
+
+Done: 41 files, 2068/2068, 0 errors. Source fixed from this run: adj_komparativ sentences[11] why (höchst-:
+"the c shifts" → "with umlaut; the ch stays", German and French too). Left as written: elternzeit two vs three
+months (most common vs average), hoeren_umfrage check why (explains its own check question), konjunktionen
+context translated from the German.
+
+## B1.2 English button (2026-11-20)
+
+Done: 43 files, 2160/2160, 0 errors. Source fixed from this run: passiv_modal_intro context (German said the lift
+itself was ordered → „Ersatz ist aber schon bestellt worden“, re-recorded), infinitiv example (um … zu glossed as
+"in order to"), infinitiv tip 3 title (Verschieden? damit / dass). Visual rows with German in the English file:
+translated or kept (praet_misch infinitives).
+
+## B2.1 English button (2026-11-20)
+
+Done: 45 files, 2504/2504, 0 errors. Source fixed from this run: verben_praep context „aufeinander“ (re-recorded),
+mittelfeld „Sie hat ____.“ split into per-answer whys (es mir had the uns-gestern why), gesellschaft list
+Wahl-Entscheidung → Entscheidung, sprechen_dialog abschließend = "in conclusion" (vocab + deck card). Left as is:
+„parkende Autos“ (idiomatic), „Die Ministerin“ vs neutral "the minister", möchten in indirekt_fragen.
+
+## B2.2 English button (2026-11-20)
+
+Done: 46 files, 2468/2468, 0 errors. No German errors found. English-only gaps (translations are complete):
+"A = B" examples where the English gives one side (genitiv_praep, konsekutiv_modal_nominal, partizip_attribut,
+passiversatz_intro); nominalisierung_intro visual rows written in German.
+
+## C1.1 English button (2026-11-20)
+
+Done: 42 files, 2188/2188, 0 errors. Source errors found, NOT yet fixed (fix in German + English + fr/uk, then
+rebuild the C1.1 deck, deck-counts, re-record):
+- `quest_c1_1_tempuswahl` vocab[3] (and deck cards[75]): „historische Präsens“ → „das historische Präsens“.
+- C1.1 deck builder splits: cards[238]/[239] from „einer Sache müde / überdrüssig sein“ (each half broken),
+  cards[211] „als wenn + Konjunktiv II“ cut from „als ob / als wenn …“, cards[194] „zu, zwecks“ = "for that
+  purpose" (belongs to dazu; adverbialsaetze vocab[3]), cards[169]/[170] duplicate „Gesandte“.
+- `quest_c1_1_lesen_sprachbausteine` tips[3].en.text explains schliefen … wach geblieben waren, which is in
+  neither example of that tip.
+
+C1.1 fixed the same day: slash entries split in the source vocab (einer Sache müde sein / überdrüssig sein,
+als ob / als wenn + Konjunktiv II, damit, um … zu / dazu), so the deck no longer cuts them; sprachbausteine tip 3
+now explains the verbs of its own examples (lasen … kannten / lesen gelernt hatten). Recorded the 5 new texts.
+Left: „historische Präsens“ with article das reads „das historische Präsens“ (correct); der/die Gesandte = two
+cards by design, like Wahlberechtigte.

@@ -17,6 +17,14 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-11-20",
+    title: "B1 to C1.1 explained in Ukrainian on request",
+    items: [
+      "In Ukrainian, the button under the German explanations now opens Ukrainian instead of English from B1.1 to C1.1: every rule, example, check and why, and the word meanings. C1.2 to C2.2 follow.",
+      "More corrections found on the way, in every language: a German slip in a B1.2 text (the lift's replacement, not the lift, was ordered), aufeinander, the word order of es mir, abschließend, and C1.1 flashcards that had been cut in half (einer Sache müde sein, als ob / als wenn).",
+    ],
+  },
+  {
+    date: "2026-11-20",
     title: "French: read aloud in French, shorter search titles",
     items: [
       "From B1, the French line behind « Français » under each sentence is now marked as French, so a screen reader reads it in a French voice instead of an English one.",
