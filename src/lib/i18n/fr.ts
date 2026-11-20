@@ -2569,7 +2569,7 @@ export const FR: Record<string, string> = {
 	"Column for {w}":
 		"Colonne pour {w}",
 	"Learn German Free — Swipe-Through Course, A1 to C2 | Language Quiz":
-		"Apprendre l'allemand gratuitement : un cours en cartes, de A1 à A2 | Language Quiz",
+		"Apprendre l'allemand gratuitement, de A1 à A2 | Language Quiz",
 	"Learn German from English with {n} free five-minute cards: lessons, quizzes and picture hunts, every sentence spoken. A1 to C2, no sign-up.":
 		"Apprenez l'allemand avec des explications en français : {n} cartes gratuites de cinq minutes, avec leçons, quiz et chasses à l'image, chaque phrase lue à voix haute. De A1 à A2, sans inscription.",
 	"Language Quiz — Swipe your way to German, free":
@@ -2591,7 +2591,7 @@ export const FR: Record<string, string> = {
 	"Find your German level from A1 to C2 in about two minutes: tap the words you know, see about how many German words you know, and where to start learning.":
 		"Trouvez votre niveau d'allemand de A1 à C2 en deux minutes environ : touchez les mots que vous connaissez, découvrez combien de mots allemands vous connaissez à peu près, et où commencer.",
 	"German placement test: find your level | Language Quiz":
-		"Test de positionnement en allemand : trouvez votre niveau | Language Quiz",
+		"Test de positionnement en allemand : votre niveau | Language Quiz",
 	"A free ten-minute German placement test from A1 to C2: words, grammar, reading and listening, and the level to start learning at.":
 		"Un test de positionnement gratuit de dix minutes, de A1 à C2 : mots, grammaire, lecture et écoute, et le niveau où commencer.",
 	"New to German, or not? Start at the beginning, take a ten-minute placement test, or pick your level from A1 to C2.":

@@ -8,6 +8,8 @@
 	// starts closed again. Inherits its look from whatever wraps it.
 	import { hidesEnglish } from '$lib/domain/germanFirst';
 	import { progress } from '$lib/state/progress.svelte';
+	import { explainedInLang } from '$lib/i18n/content.svelte';
+	import { lang } from '$lib/i18n/lang.svelte';
 
 	let {
 		text,
@@ -23,11 +25,14 @@
 	let openedFor = $state<string | null>(null);
 	const waits = $derived(hidesEnglish(level) && !progress.alwaysEnglish);
 	const closed = $derived(waits && !shown && openedFor !== text);
+	// From B1 a French (or other) overlay fills this line: mark it in that
+	// language so a screen reader doesn't read it in an English voice.
+	const textLang = $derived(explainedInLang(level) ? lang.current : 'en');
 </script>
 
 {#if waits}
 	<span class="line">
-		<span class="text" class:closed lang="en">{text}</span>
+		<span class="text" class:closed lang={textLang}>{text}</span>
 		{#if closed}
 			<button type="button" class="reveal" onclick={() => (openedFor = text)}>{t('English')}</button>
 		{/if}

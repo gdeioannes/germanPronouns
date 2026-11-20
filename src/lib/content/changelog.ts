@@ -17,6 +17,14 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-11-20",
+    title: "French: read aloud in French, shorter search titles",
+    items: [
+      "From B1, the French line behind « Français » under each sentence is now marked as French, so a screen reader reads it in a French voice instead of an English one.",
+      "The French home page and placement test have shorter titles, so search results show them in full.",
+    ],
+  },
+  {
+    date: "2026-11-20",
     title: "Corrections, B1 to C2",
     items: [
       "Flashcards: nine B1.1 cards that showed an adjective with a noun's meaning are gone, and a few meanings are fixed (wir führen, sich wenden an, vor Kälte, das Bezugswort).",
