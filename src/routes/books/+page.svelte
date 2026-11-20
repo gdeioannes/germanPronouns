@@ -12,7 +12,7 @@
 	import { BOOKS, BOOK_PAGES, bookCover, bookMb, bookPdf, bookReadHref, hasLocalPdf } from '$lib/content/books';
 	import { lang } from '$lib/i18n/lang.svelte';
 	import { levelTranslated } from '$lib/i18n/available';
-	import { track } from '$lib/services/analytics';
+	import { trackBookDownload } from '$lib/services/analytics';
 	import { breadcrumbLd, itemListLd } from '$lib/seo';
 	import { page } from '$app/state';
 	import { onMount } from 'svelte';
@@ -75,7 +75,7 @@
 								href={bookPdf(book, lang.current)}
 								download
 								onclick={(e) => {
-									track('book_download', { book: book.level, from: 'books' });
+									trackBookDownload(book.level, 'books');
 									feedback.beforeDownload(e, { href: bookPdf(book, lang.current), book: book.level });
 								}}
 							>

@@ -15,6 +15,7 @@
 	import { openSignIn } from '$lib/state/signin.svelte';
 	import { BOOKS } from '$lib/content/books';
 	import { feedback } from '$lib/state/feedback.svelte';
+	import { isInternalDevice, setInternalDevice } from '$lib/services/analytics';
 	import {
 		deleteAudience,
 		deleteFeedback,
@@ -111,6 +112,21 @@
 		}
 	}
 
+	// This device in the analytics: the owner's own visits are not counted.
+	// Opening the back office as the owner marks the device by itself; the
+	// switch undoes it. (Phones that never sign in: open any page once with
+	// ?internal=1.)
+	let internalDevice = $state(false);
+	$effect(() => {
+		if (gate !== 'owner') return;
+		if (!isInternalDevice()) setInternalDevice(true);
+		internalDevice = isInternalDevice();
+	});
+	function toggleInternal() {
+		setInternalDevice(!internalDevice);
+		internalDevice = isInternalDevice();
+	}
+
 	let testNote = $state('');
 	function resetQuestions() {
 		feedback.resetThisBrowser();
@@ -179,6 +195,17 @@
 		</div>
 
 		{#if error}<p class="err" role="alert">{error}</p>{/if}
+
+		<p class="device" role="status">
+			{#if internalDevice}
+				<strong>This device is not counted in the analytics.</strong> Your own visits stay out of the numbers.
+			{:else}
+				<strong>This device is counted in the analytics</strong> like any visitor.
+			{/if}
+			<button type="button" class="btn ghost" onclick={toggleInternal}>
+				{internalDevice ? 'Count it again' : "Don't count this device"}
+			</button>
+		</p>
 
 		<details class="testing">
 			<summary>Testing the questions</summary>
@@ -366,6 +393,15 @@
 	}
 
 	.muted {
+		color: var(--ink-muted);
+	}
+
+	.device {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem 1rem;
+		align-items: center;
+		margin: 0 0 1rem;
 		color: var(--ink-muted);
 	}
 

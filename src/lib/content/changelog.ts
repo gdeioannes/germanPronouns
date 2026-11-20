@@ -16,6 +16,15 @@ export type ChangelogEntry = {
 
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-11-20",
+    title: "Downloads start right away",
+    items: [
+      "Only your first book download asks who the book is for. Every download after that starts at once.",
+      "While a book downloads, a small card shows you something else that is free here: Wortblöcke, Kafka's Die Verwandlung, Maya's mystery story, the Schreib mir! chat or the level check. A different one each time.",
+      "Tapping a download button twice no longer counts as two readers, so our numbers show how many people really take each book.",
+    ],
+  },
+  {
     date: "2026-11-19",
     title: "Wortblöcke: press, slide, answer",
     items: [

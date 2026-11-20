@@ -80,6 +80,21 @@ function isInternal(): boolean {
 	}
 }
 
+/** Whether this browser is marked as the team's own (its events are not sent). */
+export function isInternalDevice(): boolean {
+	return browser && isInternal();
+}
+
+/** Marks this browser as the team's own, or a visitor again. The back office's switch. */
+export function setInternalDevice(on: boolean): void {
+	try {
+		if (on) localStorage.setItem(INTERNAL_KEY, '1');
+		else localStorage.removeItem(INTERNAL_KEY);
+	} catch {
+		// Blocked storage: nothing to keep; ?internal=1 still works per load.
+	}
+}
+
 function isBot(): boolean {
 	try {
 		if (navigator.webdriver || BOT_UA.test(navigator.userAgent)) return true;
@@ -258,6 +273,31 @@ const bookUses = new Set<string>();
  * reading, or practised its word cards. One event per action per chapter per
  * page load, so a learner checking ten exercises costs one event, not ten.
  */
+const DOWNLOADED_KEY = 'lq_downloaded';
+
+/**
+ * A book's PDF was downloaded — counted once per book per visit (this tab's
+ * session): readers on a phone often tap a download two to five times when
+ * nothing seems to happen, and each tap used to count as a reader.
+ */
+export function trackBookDownload(book: string, from: string): void {
+	if (!browser) return;
+	let seen: string[] = [];
+	try {
+		seen = JSON.parse(sessionStorage.getItem(DOWNLOADED_KEY) ?? '[]');
+		if (!Array.isArray(seen)) seen = [];
+	} catch {
+		seen = [];
+	}
+	if (seen.includes(book)) return;
+	try {
+		sessionStorage.setItem(DOWNLOADED_KEY, JSON.stringify([...seen, book]));
+	} catch {
+		// Blocked storage: this tap counts, the next may too.
+	}
+	track('book_download', { book, from });
+}
+
 export function trackBookUse(level: string, chapter: string, action: 'check' | 'listen' | 'cards'): void {
 	const key = `${level}/${chapter}/${action}`;
 	if (bookUses.has(key)) return;

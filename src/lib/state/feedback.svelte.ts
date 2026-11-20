@@ -10,11 +10,14 @@
 //               something there (`moment(level)`), once per book.
 // And the menu's Feedback link opens the panel any time (`openFromMenu()`).
 //
-// Every PDF button goes through `beforeDownload()`: instead of downloading
-// at once it opens the download panel — "Who is this book for?" and a
-// "Start the download" button. One tap on an answer starts the download too;
-// answering is never required. (Owner's call, 2026-11-19.) Without
-// JavaScript, Firebase or in a second language, the link just downloads.
+// Every PDF button goes through `beforeDownload()`. The FIRST download in
+// this browser opens the download panel instead of downloading at once —
+// "Who is this book for?" and a "Start the download" button; one tap on an
+// answer starts the download too, answering is never required (owner's call,
+// 2026-11-19). Every later download starts at once, and the panel shows
+// "downloading" with one card about the site, a different one each time
+// (domain/downloadPromo, owner's call 2026-11-20). In a second language, or
+// without JavaScript, the link just downloads.
 //
 // The records are device-local (the `feedback_` prefix is never synced) and
 // written with plain localStorage, so the timer's tick does not wake the
@@ -43,9 +46,12 @@ import {
 	type Audience,
 	type BookRecord
 } from '$lib/domain/bookAsk';
+import { nextPromo, type Promo } from '$lib/domain/downloadPromo';
 
 const SITE_KEY = 'feedback_ask';
 const BOOK_KEY = 'feedback_books';
+/** { asked: the audience question was shown, promo: the card shown last }. */
+const DL_KEY = 'feedback_dl';
 const TICK_MS = 15_000;
 /** Use counts only with a tap, key or scroll within this long. */
 const IDLE_MS = 60_000;
@@ -72,6 +78,20 @@ const readSite = (): AskRecord => parseRecord(readRaw(SITE_KEY));
 const writeSite = (r: AskRecord) => writeRaw(SITE_KEY, r);
 const readBooks = (): BookRecord => parseBookRecord(readRaw(BOOK_KEY));
 const writeBooks = (r: BookRecord) => writeRaw(BOOK_KEY, r);
+
+interface DlRecord {
+	asked: boolean;
+	promo: number;
+}
+function readDl(): DlRecord {
+	try {
+		const r = JSON.parse(readRaw(DL_KEY) ?? '{}') as Partial<DlRecord>;
+		return { asked: r.asked === true, promo: typeof r.promo === 'number' ? r.promo : -1 };
+	} catch {
+		return { asked: false, promo: -1 };
+	}
+}
+const writeDl = (r: DlRecord) => writeRaw(DL_KEY, r);
 
 export type CardKind = 'site' | 'book';
 
@@ -108,6 +128,8 @@ class FeedbackStore {
 	/** The download panel, and the PDF it is about. */
 	dlOpen = $state(false);
 	dl = $state<DownloadInfo | null>(null);
+	/** After the first download: the card about the site this panel shows. */
+	dlPromo = $state<Promo | null>(null);
 	/** The reader answered "Who is it for?" (the download started with it). */
 	dlAnswered = $state(false);
 	/** After "My class": the panel shows the optional school line. */
@@ -194,18 +216,37 @@ class FeedbackStore {
 	 * Firebase, in a second language, or for a ctrl/cmd/middle click.
 	 */
 	beforeDownload(event: MouseEvent, info: DownloadInfo): void {
-		if (!this.available || lang.limited) return;
+		if (lang.limited) return;
 		if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
-		event.preventDefault();
+		const rec = readDl();
 		this.card = false;
 		this.panel = false;
 		this.dl = info;
+		this.askedThisLoad = true;
+		if (rec.asked || !this.available) {
+			// Not the first book: the link downloads by itself, the panel
+			// says so and shows the next card about the site.
+			const { promo, index } = nextPromo(rec.promo, info.book);
+			writeDl({ ...rec, promo: index });
+			this.dlPromo = promo;
+			this.dlOpen = true;
+			track('download_promo_shown', { card: promo.id, book: info.book });
+			return;
+		}
+		event.preventDefault();
+		writeDl({ ...rec, asked: true });
+		this.dlPromo = null;
 		this.dlAnswered = false;
 		this.askSchool = false;
 		this.audienceId = null;
 		this.dlOpen = true;
-		this.askedThisLoad = true;
 		track('feedback_asked', { kind: 'audience', book: info.book });
+	}
+
+	/** A tap on the panel's card about the site. */
+	promoClicked(): void {
+		if (this.dlPromo) track('download_promo_click', { card: this.dlPromo.id, book: this.dl?.book ?? '' });
+		this.dlOpen = false;
 	}
 
 	/** Starts the PDF the panel is about (the same file the button linked to). */
@@ -364,6 +405,7 @@ class FeedbackStore {
 		try {
 			localStorage.removeItem(SITE_KEY);
 			localStorage.removeItem(BOOK_KEY);
+			localStorage.removeItem(DL_KEY);
 		} catch {
 			// Blocked storage: nothing was kept anyway.
 		}

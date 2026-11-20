@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { feedback } from '$lib/state/feedback.svelte';
-	import { track } from '$lib/services/analytics';
+	import { track, trackBookDownload } from '$lib/services/analytics';
 	import Seo from '$lib/components/Seo.svelte';
 	import Book2 from '$lib/components/book2/Book2.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
@@ -375,7 +375,7 @@
 					href={pdfHref}
 					download
 					onclick={(e) => {
-						track('book_download', { book: data.book.level, from: 'reader' });
+						trackBookDownload(data.book.level, 'reader');
 						feedback.beforeDownload(e, { href: pdfHref, book: data.book.level });
 					}}
 				>

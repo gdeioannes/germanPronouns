@@ -20,6 +20,7 @@
 	import { untrack } from 'svelte';
 	import { cubicOut } from 'svelte/easing';
 	import { prefersReducedMotion } from '$lib/motion';
+	import { ARTICLE_COLORS } from '$lib/domain/wortbloecke';
 
 	const STARS = [1, 2, 3, 4, 5];
 	const WORDS = ['', 'Not good', 'Okay', 'Good', 'Very good', 'Love it'];
@@ -97,6 +98,18 @@
 	});
 
 	const dur = () => (prefersReducedMotion() ? 0 : 220);
+
+	/** The Wortblöcke card's picture: a little board, bottom row golden. */
+	const BLOCK_ROWS: { de: string; art: keyof typeof ARTICLE_COLORS; gold?: boolean }[][] = [
+		[{ de: 'UHR', art: 'die' }],
+		[{ de: 'HUND', art: 'der' }, { de: 'TOR', art: 'das' }],
+		[{ de: 'LAMPE', art: 'die' }, { de: 'ROT', art: 'none' }],
+		[{ de: 'HAUS', art: 'das', gold: true }, { de: 'BAUM', art: 'der', gold: true }]
+	];
+	const LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+
+	/** "Deutsch A1.2", or the classic's own title. */
+	const bookName = (book: string) => (book === 'Kafka' ? 'Die Verwandlung' : `Deutsch ${book}`);
 </script>
 
 {#snippet closeButton(onclick: () => void)}
@@ -181,7 +194,54 @@
 <Sheet bind:open={feedback.dlOpen} title="Your free PDF" id="download-panel">
 	{#if feedback.dl}
 		<div class="dl">
-			{#if !feedback.dlAnswered}
+			{#if feedback.dlPromo}
+				{@const p = feedback.dlPromo}
+				<!-- Not the first book: it is already downloading; one card
+				     about the rest of the site, a different one each time. -->
+				<p class="dl-ok">
+					<span class="tick" aria-hidden="true"><Icon name="check" size="0.8em" /></span>
+					<span>{bookName(feedback.dl.book)} is downloading.</span>
+					<a href={feedback.dl.href} download={feedback.dl.filename ?? ''}>Not starting?</a>
+				</p>
+				<a class="promo" href={p.href} onclick={() => feedback.promoClicked()}>
+					<span class="pic" class:dark={typeof p.visual !== 'object' || p.visual.book} aria-hidden="true">
+						{#if typeof p.visual === 'object'}
+							<img src={p.visual.img} alt="" class:book={p.visual.book} />
+						{:else if p.visual === 'blocks'}
+							<span class="blocks">
+								{#each BLOCK_ROWS as row, r (r)}
+									<span class="brow">
+										{#each row as w, i (i)}
+											<span class="bword">
+												{#each w.de as ch, k (k)}<span class="bsq" class:gold={w.gold} style:background={w.gold ? null : ARTICLE_COLORS[w.art]}>{ch}</span>{/each}
+											</span>
+										{/each}
+									</span>
+								{/each}
+							</span>
+						{:else if p.visual === 'chat'}
+							<span class="chat">
+								<span class="bubble in" lang="de">Hallo! Bist du neu in Berlin? 👋</span>
+								<span class="bubble out" lang="de">Ja! Seit gestern 😅</span>
+								<span class="bubble in typing"><i></i><i></i><i></i></span>
+							</span>
+						{:else}
+							<span class="ladder">
+								{#each LEVELS as l, i (l)}
+									<span class="step" style:height="{30 + i * 12}%" class:you={i === 2}>{l}{#if i === 2}<b>you?</b>{/if}</span>
+								{/each}
+							</span>
+						{/if}
+					</span>
+					<span class="promo-body">
+						<span class="promo-k">Also free on Language Quiz</span>
+						<strong class="promo-hook">{p.hook}</strong>
+						<span class="promo-line">{p.line}</span>
+						<span class="promo-btn">{p.cta} <Icon name="arrowRight" size="1em" /></span>
+					</span>
+				</a>
+				<button type="button" class="later" onclick={() => (feedback.dlOpen = false)}>Not now</button>
+			{:else if !feedback.dlAnswered}
 				<p class="dl-q">Who is this book for?</p>
 				<p class="sub">One tap, and your download starts. It helps us make the books better.</p>
 				<div class="who">
@@ -531,6 +591,298 @@
 
 	.dl-q.thanks {
 		color: var(--right);
+	}
+
+	.tick {
+		display: inline-grid;
+		place-items: center;
+		width: 1.4em;
+		height: 1.4em;
+		margin-inline-end: 0.2em;
+		border-radius: 50%;
+		background: var(--right);
+		color: #fff;
+		vertical-align: 0.1em;
+		font-size: 0.8em;
+	}
+
+	/* After the first book: one quiet line says it is downloading, and one
+	   card about the site wants to be tapped — a picture, a hook, a button. */
+	.dl-ok {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.4rem;
+		margin: 0;
+		color: var(--ink-muted);
+		font-size: 0.92rem;
+	}
+
+	.dl-ok a {
+		color: var(--ink-muted);
+	}
+
+	.promo {
+		display: flex;
+		flex-direction: column;
+		overflow: hidden;
+		border-radius: calc(var(--radius) + 4px);
+		background: var(--surface);
+		color: inherit;
+		text-decoration: none;
+		box-shadow:
+			0 0 0 1px var(--line),
+			0 18px 36px -22px rgba(31, 58, 95, 0.55);
+		transition:
+			transform var(--fast) var(--ease-out),
+			box-shadow var(--fast) var(--ease-out);
+	}
+
+	.promo:hover {
+		transform: translateY(-3px);
+		box-shadow:
+			0 0 0 1px var(--line-strong),
+			0 24px 44px -22px rgba(31, 58, 95, 0.6);
+	}
+
+	.promo:focus-visible {
+		outline: 3px solid var(--heading);
+		outline-offset: 3px;
+	}
+
+	.pic {
+		display: grid;
+		place-items: center;
+		height: 9.5rem;
+		overflow: hidden;
+		background: var(--accent-soft);
+	}
+
+	.pic.dark {
+		background:
+			radial-gradient(circle at 25% 0%, rgba(226, 176, 74, 0.25), transparent 60%),
+			var(--navy);
+	}
+
+	.pic img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition: transform var(--slow) var(--ease-out);
+	}
+
+	.pic img.book {
+		width: auto;
+		height: 118%;
+		object-fit: contain;
+		transform: rotate(-5deg) translateY(10%);
+		box-shadow: 0 16px 30px -10px rgba(0, 0, 0, 0.6);
+	}
+
+	.promo:hover .pic img:not(.book) {
+		transform: scale(1.04);
+	}
+
+	.blocks {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 3px;
+	}
+
+	.brow,
+	.bword {
+		display: flex;
+	}
+
+	.brow {
+		gap: 3px;
+	}
+
+	.bsq {
+		display: grid;
+		place-items: center;
+		width: 1.55rem;
+		height: 1.55rem;
+		color: #fff;
+		font-weight: 800;
+		font-size: 0.8rem;
+		box-shadow:
+			inset 0 0 0 1px rgba(0, 0, 0, 0.2),
+			inset 0 -3px 0 rgba(0, 0, 0, 0.15);
+	}
+
+	.bword .bsq:first-child {
+		border-start-start-radius: 4px;
+		border-end-start-radius: 4px;
+	}
+
+	.bword .bsq:last-child {
+		border-start-end-radius: 4px;
+		border-end-end-radius: 4px;
+	}
+
+	.bsq.gold {
+		background: linear-gradient(160deg, #f3d27f, #c9952f);
+		color: #4a3508;
+		box-shadow: 0 0 12px rgba(226, 176, 74, 0.7);
+	}
+
+	.chat {
+		display: flex;
+		flex-direction: column;
+		gap: 0.35rem;
+		width: min(18rem, 86%);
+	}
+
+	.bubble {
+		max-width: 80%;
+		padding: 0.4rem 0.7rem;
+		border-radius: 14px;
+		font-size: 0.85rem;
+		line-height: 1.3;
+	}
+
+	.bubble.in {
+		align-self: flex-start;
+		border-end-start-radius: 4px;
+		background: #fff;
+		color: var(--navy);
+	}
+
+	.bubble.out {
+		align-self: flex-end;
+		border-end-end-radius: 4px;
+		background: #e2b04a;
+		color: #2b1d02;
+	}
+
+	.typing {
+		display: flex;
+		gap: 3px;
+	}
+
+	.typing i {
+		width: 6px;
+		height: 6px;
+		border-radius: 50%;
+		background: var(--navy);
+		opacity: 0.5;
+		animation: dot 1.2s infinite;
+	}
+
+	.typing i:nth-child(2) {
+		animation-delay: 0.2s;
+	}
+
+	.typing i:nth-child(3) {
+		animation-delay: 0.4s;
+	}
+
+	@keyframes dot {
+		50% {
+			opacity: 1;
+			transform: translateY(-2px);
+		}
+	}
+
+	.ladder {
+		display: flex;
+		align-items: flex-end;
+		gap: 5px;
+		height: 75%;
+	}
+
+	.step {
+		position: relative;
+		display: grid;
+		place-items: end center;
+		width: 2.2rem;
+		padding-bottom: 0.3rem;
+		border-radius: 5px 5px 0 0;
+		background: rgba(255, 255, 255, 0.18);
+		color: #fff;
+		font-weight: 800;
+		font-size: 0.8rem;
+	}
+
+	.step.you {
+		background: #e2b04a;
+		color: #2b1d02;
+	}
+
+	.step b {
+		position: absolute;
+		bottom: 100%;
+		margin-bottom: 0.3rem;
+		color: #e2b04a;
+		font-size: 0.8rem;
+		white-space: nowrap;
+	}
+
+	.promo-body {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 0.35rem;
+		padding: 1rem 1.1rem 1.15rem;
+	}
+
+	.promo-k {
+		color: var(--accent-ink);
+		font-size: 0.7rem;
+		font-weight: 800;
+		letter-spacing: 0.09em;
+		text-transform: uppercase;
+	}
+
+	.promo-hook {
+		color: var(--heading);
+		font-family: 'Source Serif 4 Variable', 'Source Serif 4', ui-serif, Georgia, serif;
+		font-size: 1.35rem;
+		line-height: 1.2;
+		text-wrap: balance;
+	}
+
+	.promo-line {
+		color: var(--ink-muted);
+		font-size: 0.92rem;
+		line-height: 1.5;
+	}
+
+	.promo-btn {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.45rem;
+		margin-top: 0.45rem;
+		padding: 0.7rem 1.3rem;
+		border-radius: 6px;
+		background: var(--accent-ink);
+		color: #fff;
+		font-weight: 700;
+		box-shadow: 0 12px 24px -14px rgba(201, 104, 59, 0.9);
+	}
+
+	.later {
+		align-self: center;
+		padding: 0.3rem 0.8rem;
+		border: none;
+		background: none;
+		color: var(--ink-muted);
+		font: inherit;
+		font-size: 0.9rem;
+		text-decoration: underline;
+		cursor: pointer;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.typing i {
+			animation: none;
+		}
+		.promo,
+		.pic img {
+			transition: none;
+		}
 	}
 
 	.dl .sub {
