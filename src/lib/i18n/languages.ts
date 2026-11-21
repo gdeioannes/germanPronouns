@@ -13,12 +13,15 @@ export interface LangOption {
 }
 
 // After English: French, Spanish, Turkish, Ukrainian, then Arabic.
+// Each note ends with the levels explained in that language: A1–A2 fully,
+// above that through the explanation button (an overlay per level). The range
+// must follow assets/content/<lang>/de_cert_a1/: i18n.test.ts checks it.
 export const LANG_OPTIONS: LangOption[] = [
 	{ code: 'en', name: 'English', note: 'German explained in English · A1–C2', dir: 'ltr' },
-	{ code: 'fr', name: 'Français', note: "L'allemand expliqué en français · A1–A2", dir: 'ltr' },
-	{ code: 'es', name: 'Español', note: 'El alemán explicado en español · A1–A2', dir: 'ltr' },
+	{ code: 'fr', name: 'Français', note: "L'allemand expliqué en français · A1–C2", dir: 'ltr' },
+	{ code: 'es', name: 'Español', note: 'El alemán explicado en español · A1–C2', dir: 'ltr' },
 	{ code: 'tr', name: 'Türkçe', note: 'Türkçe açıklamalı Almanca · A1–A2', dir: 'ltr' },
-	{ code: 'uk', name: 'Українська', note: 'Німецька з поясненнями українською · A1–A2', dir: 'ltr' },
+	{ code: 'uk', name: 'Українська', note: 'Німецька з поясненнями українською · A1–C2', dir: 'ltr' },
 	{ code: 'ar', name: 'العربية', note: 'الألمانية بشرح عربي · A1–A2', dir: 'rtl' }
 ];
 

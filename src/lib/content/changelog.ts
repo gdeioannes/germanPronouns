@@ -16,6 +16,14 @@ export type ChangelogEntry = {
 
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-11-22",
+    title: "C1 and C2 explained in Spanish too",
+    items: [
+      "Spanish now reaches the top: in Spanish mode, the button under each German explanation opens Spanish from C1.1 to C2.2 as well, so every level from A1 to C2 can be read in Spanish.",
+      "The language picker now says how far each language goes: French, Ukrainian and Spanish explain A1 to C2, Turkish and Arabic A1 to A2. Before, every language said A1 to A2.",
+    ],
+  },
+  {
     date: "2026-11-21",
     title: "B1 and B2 explained in Spanish on request",
     items: [

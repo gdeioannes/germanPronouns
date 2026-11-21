@@ -8,6 +8,7 @@ import { applyPairs, localize, parsePath, translateDeep } from './content.svelte
 import { STRINGS } from './t';
 import { LOCAL_LEVEL_IDS, levelTranslated, routeTranslated } from './available';
 import { INDEXED_LANGS, PREFIX_LANGS } from './paths';
+import { LANG_OPTIONS } from './languages';
 
 describe('pickLang', () => {
 	it('takes ?lang= over everything', () => {
@@ -190,6 +191,19 @@ describe('indexed languages', () => {
 	for (const l of PREFIX_LANGS) {
 		it(`${l} is indexed exactly when it is finished`, () => {
 			expect({ lang: l, indexed: INDEXED_LANGS.includes(l) }).toEqual({ lang: l, indexed: ready(l) });
+		});
+	}
+});
+
+// The language pickers promise a range ("· A1–C2"): it must be the highest
+// band that has an overlay in that language, or the picker under- or overstates it.
+describe('language picker notes', () => {
+	for (const o of LANG_OPTIONS.filter((x) => x.code !== 'en')) {
+		it(`${o.code} names the levels it explains`, () => {
+			const dir = `assets/content/${o.code}/de_cert_a1`;
+			const levels = existsSync(dir) ? readdirSync(dir).map((f) => f.slice(0, 2).toUpperCase()) : [];
+			const top = ['C2', 'C1', 'B2', 'B1', 'A2', 'A1'].find((b) => levels.includes(b));
+			expect(o.note.endsWith(`A1–${top}`)).toBe(true);
 		});
 	}
 });

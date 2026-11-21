@@ -44,8 +44,8 @@ export const TR: Record<string, string> = {
 	'Legal & privacy': 'Yasal bilgiler ve gizlilik',
 
 	// ── Settings ─────────────────────────────────────────────
-	'The language the site explains German in. In Turkish, Arabic and Ukrainian, levels A1 and A2 are available.':
-		'Sitenin Almancayı hangi dilde anlattığı. Türkçe, Arapça ve Ukraynacada A1 ve A2 seviyeleri var.',
+	"The language the site explains German in. Every level is open in every language; under each name you see which levels are explained in it.":
+		"Sitenin Almancayı açıkladığı dil. Her dilde tüm seviyeler açık; her dilin adının altında hangi seviyelerin o dilde açıklandığını görürsün.",
 
 	// ── Home page ────────────────────────────────────────────
 	'Friends at an outdoor café on a summer evening in Berlin-Kreuzberg':

@@ -109,7 +109,7 @@
 	<section class="card">
 		<h2><bdi lang="en">Language</bdi> <span class="alt">· <bdi lang="fr">Langue</bdi> · <bdi lang="es">Idioma</bdi> · <bdi lang="tr">Dil</bdi> · <bdi lang="uk">Мова</bdi> · <bdi lang="ar">اللغة</bdi></span></h2>
 		<p class="lede">
-			{t('The language the site explains German in. In Turkish, Arabic and Ukrainian, levels A1 and A2 are available.')}
+			{t('The language the site explains German in. Every level is open in every language; under each name you see which levels are explained in it.')}
 		</p>
 		<div class="segmented" role="radiogroup" aria-label={LANGUAGE_LABEL} use:radioKeys>
 			{#each LANG_OPTIONS as { code, name: label, dir } (code)}

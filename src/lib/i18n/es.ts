@@ -72,8 +72,8 @@ export const ES: Record<string, string> = {
 		"Accesibilidad",
 	"Legal & privacy":
 		"Aviso legal y privacidad",
-	"The language the site explains German in. In Turkish, Arabic and Ukrainian, levels A1 and A2 are available.":
-		"El idioma en el que el sitio explica el alemán. En turco, árabe y ucraniano están disponibles los niveles A1 y A2.",
+	"The language the site explains German in. Every level is open in every language; under each name you see which levels are explained in it.":
+		"El idioma en el que el sitio explica el alemán. Todos los niveles están abiertos en cada idioma; bajo cada nombre ves qué niveles se explican en él.",
 	"Friends at an outdoor café on a summer evening in Berlin-Kreuzberg":
 		"Amigos en una terraza una tarde de verano en Berlín-Kreuzberg",
 	"German explained in your language · A1 to A2":
