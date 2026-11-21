@@ -17,6 +17,14 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-11-21",
+    title: "B1 and B2 explained in Spanish on request",
+    items: [
+      "From B1 on, the explanations are in German. In Spanish mode, the button under each one now opens Spanish instead of English, from B1.1 to B2.2: rules, tips, examples, why an answer is right, and the meanings on the flashcards.",
+      "Where the English compared German with English, the Spanish compares it with Spanish: the subjuntivo next to Konjunktiv I and II, the impersonal se next to the Passiv, cuyo next to dessen and deren, cuanto más … más next to je … desto.",
+    ],
+  },
+  {
+    date: "2026-11-21",
     title: "German explained in Spanish, A1 to A2",
     highlight: true,
     items: [

@@ -141,3 +141,43 @@ One line each: file + key + the doubt. Brief: `docs/spanish_guide.md`.
 - Herd → «cocina (fogones)/estufa», Hahn → «grifo/llave (del agua); gallo», Decke → «manta/cobija; techo»: added a second common sense not in the English; drop if the tap-a-word gloss must stay strictly one sense.
 
 ## B1–C2
+- b1_1 SOURCE: quest_b1_1_futur help.tips[0].visual.rows[0..1].en and quest_b1_1_relativ help.tips[0].visual.rows[0..1].en are German in the English file ("ein Versprechen", "der: Subjekt von wohnt"); translated into Spanish as the French did.
+- b1_1 SOURCE: quest_b1_1_konjunktionen help.context.en drops the German "trotzdem" ("I still make mistakes"); Spanish follows the German («aun así sigo cometiendo errores»).
+- b1_1 quest_b1_1_konjunktionen help.introEn: added «cuando + subjuntivo (cuando llegue) = siempre wenn» as a Spanish-reader hint; drop if too much.
+- b1_1 quest_b1_1_relativ_praep help.tips[1].en.trap / help.introEn: English "stranded preposition" angle replaced by «como en español: el hombre al que espero»; check the comparison reads well.
+- b1_1 quest_b1_1_verben_praep help.tips[0].en.trap: the English calques (warten für…) replaced by Spanish-style calques («warten zu», «interessieren durch», «denken in»); these are invented learner errors, check they are plausible.
+- b1_1 dialogue examples/contexts (es, futur, verben_praep, konj2_wuerde, …): speaker-change dashes " – " kept as in the German and as in es/a2_2; they are dialogue markers, not prose dashes.
+- b1_1 quest_b1_1_wortschatz cards[64..83] (Angestellte, Erwachsene… pairs, der/die): both cards of a pair glossed «empleado, empleada» etc. since the gloss does not know which card is which gender.
+- b1_2 quest_b1_2_damit_umzu help.tips[3].check.whyEn: the check question itself stays in English ('She is learning to cook so that…'); whyEn says «En español dirías "para que sus hijos …"», as the French layer does. Check it reads well beside the English question.
+- b1_2 quest_b1_2_sprechen_geschichte help.tips[0].en.trap: English "one past tense for everything" angle replaced by indefinido/imperfecto vs the spoken Perfekt/Präteritum split (ich habe gewartet / ich war zu spät); check the claim is clear.
+- b1_2 quest_b1_2_temporalsaetze help.tips[0].en.trap / help.introEn: English "before I had gone" angle replaced by «antes de que» + subjuntivo vs bevor + plain indicative.
+- b1_2 quest_b1_2_relativ_dat help.tips[0].en.trap: rewritten as «cuyo/cuya/cuyos» agrees with the possessed thing, dessen/deren with the possessor.
+- b1_2 quest_b1_2_zustandspassiv help.introEn / help.tips[0].en.trap: English "is for both" replaced by the Spanish ser/se (Vorgang) vs estar (Zustand) contrast; check the parallel is not overstated.
+- b1_2 quest_b1_2_modalpartikeln_intro help.introEn and quest_b1_2_hoeren_zug help.tips[1].en.text: Spanish «pues, pero, anda, oye, a ver» offered as rough tone equivalents of the particles; some are regionally coloured.
+- b1_2 quest_b1_2_technik sentences[8].whyEn: WLAN pronunciation given as «ve-lan» (English had 'vay-lan').
+- b1_2 regional words: «billete (boleto)» in schreiben_geschichte tips[0].examples[0]; «camarero (mesero)» in praet_reg tips[2].examples[1]; «computadora» as in b1_1.
+- b1_2 dialogue contexts (modalpartikeln_intro, technik, hoeren_podcast intro) and German-mirroring lists (praet_reg tips[3].examples «yo vivía – él vivía…», praet_misch tips[3].examples[0], sprechen_dialog «(yo – yo)»): " – " kept as in the German source and in b1_1.
+- b1_2 SOURCE: quest_b1_2_partizip_adj_intro help.tips[2].visual.items[0..1].en and quest_b1_2_zustandspassiv help.tips[1].visual.items[0..1].en are German in the English file ("das kochende Wasser (passiert gerade)", "passiert gerade (Handlung)", "ist zu (Zustand)"); translated into Spanish glosses as the French layer does.
+- b2_1 quest_b2_1_mittelfeld help.tips[1].en.text / help.introEn: added «al revés que en español: se lo doy» (Spanish clitics put the dative first, German pronouns the accusative); check the comparison helps rather than confuses.
+- b2_1 quest_b2_1_lassen help.tips[0].en.trap, tips[0].examples[1], help.context.en: English "have something done" angle replaced by the claim that Spanish «me corté el pelo / arreglé el auto» can mean someone else did it; examples glossed «Me corto el pelo (en la peluquería)».
+- b2_1 quest_b2_1_kausal_nominal help.tips[2].en.text / help.introEn: added aus ≈ «por miedo» (motive), vor ≈ «temblar de miedo» (reaction) as a Spanish parallel.
+- b2_1 quest_b2_1_dass_infinitiv help.tips[0].en.trap / introEn and quest_b2_1_infinitivsaetze help.tips[0].en.trap / introEn: English angle replaced by the Spanish infinitive vs «que» + subjuntivo split («espero aprobar / espero que apruebes», «para / para que», «sin / sin que»).
+- b2_1 quest_b2_1_passiv_subjektlos help.introEn, tips[0].en.trap, tips[1].en.text: compared with the Spanish impersonal «se» («se baila», «se le ayuda»); tips[1].examples[0] «se los felicitó / se les dio las gracias»: le/lo usage varies by region.
+- b2_1 quest_b2_1_konj1 help.introEn: added one sentence «No lo confundas con el subjuntivo español: no expresa deseo ni duda». Drop if too much.
+- b2_1 quest_b2_1_nachsilben_genus help.introEn / tips[1].en.trap: added that -ismus/-ion/-tät match Spanish -ismo/-ión/-dad in gender, while das Dokument / das Zentrum must not follow Spanish.
+- b2_1 quest_b2_1_adjektive_praep help.context.en: the German first-person speaker has no gender; Spanish needs one, feminine chosen («contenta, orgullosa, convencida, sola»).
+- b2_1 regional words: «auto», «estacionar / estacionamiento», «costos», «apartamento», «acera, banqueta», «papeleta de voto, boleta», «rellenar, llenar» as in b1; «piscina» (not alberca/pileta) in hoeren_gemeinderat.
+- b2_1 German-mirroring step lists kept with " – " (lesen_leserbrief / sprechen_dialog / stellungnahme rememberEn, stellungnahme and mittelfeld tip titles) and dialogue dashes in examples/contexts, as in b1.
+- b2_1 SOURCE: quest_b2_1_stellungnahme help.tips[0].examples[0].en drops "ob Homeoffice die Zukunft der Arbeit ist" from the German; Spanish follows the German.
+- b2_1 SOURCE: quest_b2_1_partizip_adj help.context.en has "parked cars" where the German has parkende Autos (Partizip I); Spanish «autos estacionados» follows the natural reading.
+- b2_2 quest_b2_2_futur1_vermutung / futur2 / hoeren_schulbeginn: Futur I/II compared with the Spanish «futuro de probabilidad» («estará en la oficina», «habrá perdido el tren»); tips[0].en.trap of futur1 says not to translate it with «debe de». Check the tone.
+- b2_2 quest_b2_2_relativ_dessen_deren help.tips[0].en.trap / introEn: added that «cuyo/cuya» agrees with the thing owned, dessen/deren with the owner; tips[3] ("Turn the English round") rewritten as «La preposición, siempre delante», since Spanish already fronts the preposition.
+- b2_2 quest_b2_2_irreal help.tips[0].en.trap: English "if I was" angle replaced by the regional «si sería» as the parallel to a superfluous würde. Drop if it reads as correcting the reader's Spanish.
+- b2_2 quest_b2_2_modalpartikeln help.tips[1].en.trap / introEn: false-friend list rewritten for Spanish (ruhig ≠ «tranquilo», wohl ≠ «bien»); intro adds «pues», «venga», «ya», «hombre» as rough Spanish carriers of the same tone.
+- b2_2 quest_b2_2_bigtext_chancen help.tips[0].examples[0].en: «no habría tenido tanto sueño» instead of «no habría estado tan cansado/a» to keep the first-person speaker's gender open; quest_b2_2_irreal and nominalisierung_intro keep the feminine forms the German gives (Ärztin, Bürgermeisterin, Läuferin).
+- b2_2 quest_b2_2_hoeren_nacht help.introEn: the English "the mayor" has no gender; rendered «la alcaldesa o el alcalde». Check against the audio script.
+- b2_2 regional words: «auto», «estacionar / estacionamiento», «costos», «apartamento» as in b2_1; suchbild/labor glosses «hucha, alcancía», «nevera, refrigerador», «cilindro de gas», «grifo», «lavabo» (Spain/LatAm differ).
+- b2_2 quest_b2_2_wortschatz cards: filled from the glosses of this level's vocab/spots (same English → same Spanish), plus by hand for the 18 cards with no match; spot-checked against the German.
+- b2_2 German-mirroring dashes kept (fachinterview "soll ja … – aber …", indefinit dialogue dashes, "Einerseits – andererseits", "die Ursache – die Folge"), as in b1/b2_1.
+- b2_2 SOURCE: quest_b2_2_nominalisierung_intro help.tips[3].visual.rows[0..3].en are German in the English file ("der Infinitiv: immer das", "-ung: immer die"); translated into Spanish.
+- b2_2 SOURCE: quest_b2_2_genitiv_praep help.tips[3].examples[0].en drops the German "= Es stürmte, sodass der Strom ausfiel"; Spanish follows the German.
