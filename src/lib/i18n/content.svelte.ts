@@ -27,7 +27,7 @@ interface Overlay {
 	text: Record<string, string>;
 }
 
-const files = import.meta.glob<{ default: Overlay }>(['$content/tr/de_cert_a1/*.json', '$content/ar/de_cert_a1/*.json', '$content/uk/de_cert_a1/*.json', '$content/fr/de_cert_a1/*.json']);
+const files = import.meta.glob<{ default: Overlay }>(['$content/tr/de_cert_a1/*.json', '$content/ar/de_cert_a1/*.json', '$content/uk/de_cert_a1/*.json', '$content/fr/de_cert_a1/*.json', '$content/es/de_cert_a1/*.json']);
 
 /** "<lang>/<level id>" of every overlay that exists ("fr/b1_1"). */
 const available = new Set(
@@ -218,7 +218,8 @@ const glossFiles = import.meta.glob<{ default: Record<string, string> }>([
 	'$content/tr/dictionary.de.json',
 	'$content/ar/dictionary.de.json',
 	'$content/uk/dictionary.de.json',
-	'$content/fr/dictionary.de.json'
+	'$content/fr/dictionary.de.json',
+	'$content/es/dictionary.de.json'
 ]);
 const glossaries = $state<Partial<Record<LocalLang, Record<string, string>>>>({});
 const glossaryPending = new Set<LocalLang>();

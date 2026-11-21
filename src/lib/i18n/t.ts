@@ -10,10 +10,11 @@ import { TR } from './tr';
 import { AR } from './ar';
 import { UK } from './uk';
 import { FR } from './fr';
+import { ES } from './es';
 import { isolateLatin } from './bidi';
 
 /** Interface strings per second language, keyed by the English. */
-export const STRINGS: Record<LocalLang, Record<string, string>> = { tr: TR, ar: AR, uk: UK, fr: FR };
+export const STRINGS: Record<LocalLang, Record<string, string>> = { tr: TR, ar: AR, uk: UK, fr: FR, es: ES };
 
 /** What is shown: Arabic with its German runs isolated (bidi.ts), made once on first use. */
 let shownAr: Record<string, string> | null = null;
@@ -67,8 +68,8 @@ export function labelLang(label: string | null | undefined): 'de' | undefined {
 	if (lang.ar) return /[\u0600-\u06FF]/.test(label) ? undefined : 'de';
 	// Ukrainian: a label without Cyrillic letters is German.
 	if (lang.uk) return /[\u0400-\u04FF]/.test(label) ? undefined : 'de';
-	// French shares the Latin letters and capitalises like German: only a
+	// French and Spanish share the Latin letters and capitalises like German: only a
 	// German-only letter marks a label German.
-	if (lang.fr) return /[\u00E4\u00F6\u00FC\u00DF\u00C4\u00D6\u00DC]/.test(label) ? 'de' : undefined;
+	if (lang.fr || lang.es) return /[\u00E4\u00F6\u00FC\u00DF\u00C4\u00D6\u00DC]/.test(label) ? 'de' : undefined;
 	return /[çğışÇĞİŞ]/.test(label) ? undefined : 'de';
 }

@@ -12,7 +12,7 @@
 
 import { LOCAL_LEVELS } from './available';
 
-export const PREFIX_LANGS = ['tr', 'ar', 'uk', 'fr'] as const;
+export const PREFIX_LANGS = ['tr', 'ar', 'uk', 'fr', 'es'] as const;
 export type PrefixLang = (typeof PREFIX_LANGS)[number];
 
 /**
@@ -24,7 +24,7 @@ export type PrefixLang = (typeof PREFIX_LANGS)[number];
  * language. i18n.test.ts fails both ways: indexed but unfinished, and
  * finished but still left out.
  */
-export const INDEXED_LANGS: readonly PrefixLang[] = ['tr', 'ar', 'uk', 'fr'];
+export const INDEXED_LANGS: readonly PrefixLang[] = ['tr', 'ar', 'uk', 'fr', 'es'];
 
 export function langIndexed(l: string | null | undefined): boolean {
 	return !!l && (INDEXED_LANGS as readonly string[]).includes(l);
@@ -32,7 +32,7 @@ export function langIndexed(l: string | null | undefined): boolean {
 
 /** "/tr/about" → "tr"; a path with no language prefix → null. */
 export function pathLang(pathname: string): PrefixLang | null {
-	const m = pathname.match(/^\/(tr|ar|uk|fr)(?=\/|$)/);
+	const m = pathname.match(/^\/(tr|ar|uk|fr|es)(?=\/|$)/);
 	return m ? (m[1] as PrefixLang) : null;
 }
 

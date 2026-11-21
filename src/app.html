@@ -11,16 +11,16 @@
 				if (localStorage.getItem('calm_effects') === 'true')
 					document.documentElement.dataset.effects = 'calm';
 			} catch (e) {}
-			// A second language (Turkish, Arabic, Ukrainian): the page is prerendered in
+			// A second language (Turkish, Arabic, Ukrainian, French, Spanish): the page is prerendered in
 			// English and switches right after hydration, so such a visitor's
 			// page stays hidden until then (never longer than 1.5 s). Arabic
 			// also turns the page right to left. Mirrors lang.svelte.ts pickLang.
 			try {
-				var L = ['en', 'tr', 'ar', 'uk', 'fr'];
+				var L = ['en', 'tr', 'ar', 'uk', 'fr', 'es'];
 				var q = new URLSearchParams(location.search).get('lang');
 				var s = localStorage.getItem('ui_lang');
-				// A /tr/, /ar/, /uk/ or /fr/ address names its language outright.
-				var pm = location.pathname.match(/^\/(tr|ar|uk|fr)(?=\/|$)/);
+				// A /tr/, /ar/, /uk/, /fr/ or /es/ address names its language outright.
+				var pm = location.pathname.match(/^\/(tr|ar|uk|fr|es)(?=\/|$)/);
 				var l = pm ? pm[1] : L.indexOf(q) >= 0 ? q : L.indexOf(s) >= 0 ? s : null;
 				if (!l) {
 					var bl = navigator.languages || [navigator.language];

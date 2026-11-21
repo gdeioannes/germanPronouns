@@ -26,7 +26,7 @@
 			"note": "Made with Google's Gemini image model, a pose of the story character Maya (assets/images/story_manifest.json, maya_ref_clue)."
 		},
 		{
-			"pattern": "^static/img/book-[a-c]\\d(-\\d)?-front(-(tr|ar|uk|fr))?\\.webp$",
+			"pattern": "^static/img/book-[a-c]\\d(-\\d)?-front(-(tr|ar|uk|fr|es))?\\.webp$",
 			"note": "Book cover images, composed by this project from the book's own credited Commons photos and its own typography."
 		},
 		{

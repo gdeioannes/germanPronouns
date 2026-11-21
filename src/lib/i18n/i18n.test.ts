@@ -84,7 +84,7 @@ describe('interface strings', () => {
 // changed shows English in that language. Re-translate it in
 // tool/turkish/<lang>/ and run `node tool/turkish/build.mjs <level> --lang <lang>`.
 describe('built overlays', () => {
-	const files = ['tr', 'ar', 'uk', 'fr'].flatMap((l) => {
+	const files = ['tr', 'ar', 'uk', 'fr', 'es'].flatMap((l) => {
 		const dir = `assets/content/${l}/de_cert_a1`;
 		return existsSync(dir) ? readdirSync(dir).filter((f) => f.endsWith('.json')).map((f) => `${l}/de_cert_a1/${f}`) : [];
 	});

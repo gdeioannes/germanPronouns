@@ -61,6 +61,7 @@ function englishLine(template: string | undefined, english: string): string | un
 			.replace('{subject}', english);
 	}
 	if (lang.fr) return frenchLine(template, english);
+	if (lang.es) return spanishLine(template, english);
 	if (lang.tr) {
 		// Turkish: the template and the noun come Turkish from the overlay.
 		// Turkish has "bir" for a/an and no plural after a number or "çok", so
@@ -123,6 +124,41 @@ function frenchPlural(word: string): string {
 	if (/(eau|eu|au)$/i.test(word) && !/^(pneu|bleu)$/i.test(word)) return `${word}x`;
 	if (/al$/i.test(word) && !/^(bal|festival|carnaval|récital)$/i.test(word)) return word.replace(/al$/i, 'aux');
 	return `${word}s`;
+}
+
+/**
+ * Spanish: like French, a noun is written with its indefinite article, which
+ * carries its gender, and may add its plural after a bar: "una mesa nueva|mesas nuevas".
+ *   {a}          un / una
+ *   {subject}    the noun without its article: "mesa nueva"
+ *   {pl}         its plural: given, or -s after a vowel, -es after a consonant, -z → -ces
+ *   {el/la}      any "{masculine/feminine}" pair, picked by the noun's gender;
+ *                "a el" and "de el" contract to "al" and "del".
+ * A word that is not a noun ("yo", "España") has no article and is used as is.
+ */
+export function spanishLine(template: string, english: string): string {
+	const [written, givenPlural] = english.split('|').map((s) => s.trim());
+	const m = /^(una|un)\s+(.+)$/i.exec(written);
+	const feminine = m ? m[1].toLowerCase() === 'una' : false;
+	const noun = m ? m[2] : written;
+	// The noun is the first word ("mesa nueva" → "mesas nuevas" only when given).
+	const plural = givenPlural ?? noun.replace(/^(\S+)/, spanishPlural);
+	let out = template
+		.replace(/\{a\}/g, feminine ? 'una' : 'un')
+		.replace(/\{pl\}/g, plural)
+		.replace(/\{subject\}/g, noun)
+		.replace(/\{([^{}/]+)\/([^{}/]+)\}/g, (_, masc: string, fem: string) => (feminine ? fem : masc));
+	out = out.replace(/\b([aA]|[dD]e) el\b/g, (_, p: string) => (p.toLowerCase() === 'a' ? `${p}l` : `${p[0]}el`));
+	return out;
+}
+
+function spanishPlural(word: string): string {
+	if (/[aeiouáéó]$/i.test(word)) return `${word}s`;
+	if (/z$/i.test(word)) return word.replace(/z$/i, 'ces');
+	// A last-syllable accent goes in the plural: canción → canciones, autobús → autobuses.
+	if (/[áéíóú][ns]$/i.test(word)) return `${word.replace(/[áéíóú](?=[ns]$)/i, (v) => 'aeiou'['áéíóú'.indexOf(v.toLowerCase())])}es`;
+	if (/[sx]$/i.test(word)) return word;
+	return `${word}es`;
 }
 
 /** The first usable answer for each gap — what a reveal writes in. */

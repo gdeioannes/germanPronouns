@@ -51,7 +51,7 @@ export function helpTableFor(quiz: Quiz): HelpTable | null {
 		rows: subjects.map((subject, row) => ({
 			subject: subject.display,
 			article: articleFor(subject.display, subject.gender),
-			// French nouns may carry their plural after a bar (spoken.ts frenchLine).
+			// French and Spanish nouns may carry their plural after a bar (spoken.ts frenchLine, spanishLine).
 			english: subject.english?.split('|')[0].trim(),
 			gender: subject.gender,
 			// A category whose values run short leaves a blank rather than

@@ -1,0 +1,143 @@
+# Spanish mode: open doubts
+
+Things the translators were unsure about, for a native speaker (or GDI) to check.
+One line each: file + key + the doubt. Brief: `docs/spanish_guide.md`.
+
+## Interface
+
+- ui/es.json "English" (and "Show/Hide English", "Show/Hide the English"): rendered as «Español» / «Mostrar/Ocultar la traducción», as the French table does. Where the button really opens English (B1+ text not translated), «Español» would be wrong: check EnglishToggle/EnglishLine usage.
+- ui/es.json loadingTips (keys 272–348, "Grief bacon", "Staircase joke", "Inner pig-dog" …): literal glosses of German compounds translated word for word («Tocino de pena», «Perro-cerdo interior»); some may read oddly without the German word shown beside them. "I only understand train station" → «me suena a chino» (Spain + LatAm OK?).
+- ui/es.json "Try for {medal}" → «Ganar {medal}» and "Try for {tier} and a fresh run starts…" → «Intenta conseguir {tier}…»: depends on {medal}/{tier} being the bare Spanish tier word (plata/oro), not "Silver medal".
+- ui/es.json "Creator of Language Quiz. A German learner…" → «Quien creó Language Quiz. Una persona que aprende alemán…»: phrased to keep GDI's gender open; also "I'm also its first test subject" → «Además, lo pruebo en mí antes que nadie». Confirm GDI is happy with gender-neutral wording or give a gender.
+- ui/es.json "I'm new to German" → «Empiezo de cero con el alemán» (avoids «Soy nuevo/nueva»).
+- ui/es.json " — you are ready." / "checks right — you are ready." → «: puedes seguir adelante.» (avoids «listo/a»).
+- ui/es.json "for the U-Bahn or a flight" → «para el metro o un vuelo»; "Pace" names «Paso a paso», «Aprendizaje rápido», «Aventura», «Pulir» are free renderings of Slow & steady / Fast learner / Adventurous / Polish up (adjectives would need a gender).
+- ui/es.json "Mistakes English speakers make" → «Errores típicos de los hispanohablantes» and "· German for English speakers" → «· Alemán para hispanohablantes»: only right if the content under them is the Spanish version.
+
+## A1.1
+
+- app/quest_a1_1_artikel subjects[6] «un ordenador (computadora)», subjects[17] «un coche (auto)» (also plural subjects[14] «un coche (auto)|coches (autos)»): regional pairs inside template subjects, so the bracket shows up in every generated sentence («El coche (auto) está aquí.»). Pick one word?
+- app/quest_a1_1_alphabet help.tips[0].*, help.remember[0], help.mistakes[0].why, subjects[7–8]: the English «E is 'ay', I is 'ee'» swap does not exist for Spanish speakers (vowels named as in Spanish); tip 0 rewritten as «Las vocales, como en español» and the trap moved to «ei = ai (Meier)». Check this still fits the tip's check (answer I).
+- app/quest_a1_1_farben sentences[0–17].why: the English-cognate etymologies (rot/red, grau/grey, schwarz/swarthy) dropped and replaced with pronunciation hints or Spanish parallels (rosa, lila); sentences[0].why «empieza igual, r-o» is a weak link to «rojo».
+- app/quest_a1_1_farben, quest_a1_1_hoeren_zahlen, quest_a1_1_lesen_fischmarkt: Banane given as «plátano» (Spain) with «(la banana)» only on first mention in farben; hoeren_zahlen/fischmarkt use plátano throughout. Kartoffel = «papas» (with «(patatas)» once). Check regional balance.
+- app/quest_a1_1_hoeren_cafe help.tips[1].*, passageTranslation: Schlagsahne/Schlagobers = «nata montada» (Spain); LatAm says «crema batida» (given once in tips[1].text only).
+- app/quest_a1_1_hoeren_wo help.vocab[2] / passage: Brille = «gafas» (Spain; LatAm «lentes/anteojos»); Tasche = «bolso»; Flur = «pasillo». help.tips[1].text adds a comparison with Spanish stem-changing verbs (pedir → pido) not in the English.
+- app/quest_a1_1_plural englishTemplates[1] «Aquí hay {muchos/muchas} {pl}.»: relies on the {m/f} pair being picked by the subject's gender (spoken.ts regex should handle any pair, but «muchos/muchas» is not one of the guide's listed examples).
+- app/quest_a1_1_praesens help.intro, help.tips[2].*: the English «one tense for three English ones / no -ing» rewritten as «no estar + gerundio»; the trap «Ich bin lernen Deutsch» kept and presented as a calque of «estoy aprendiendo».
+- app/quest_a1_1_lesen_hamburg help.tips[0].text, questions[1/4].explanation: thousands written 2500 / 700 000 (RAE style) instead of the English 2,500; a note that Milliarde = «mil millones» (not «billón») might help Spanish speakers but was not added.
+- SOURCE: app/quest_a1_1_lesen_hamburg questions[5].explanation «That is why he is over 800 years old»: «he» for the harbour (der Hafen calqued), should be «it».
+- SOURCE: app/quest_a1_1_hoeren_vorstellung help.tips[0].examples[0].en «'… come from England.'» lacks the subject («I come…»).
+- SOURCE: app/quest_a1_1_farben sentences[17].why «'brown' in German clothing: au = ow» reads oddly (probably «in German spelling»).
+- app/quest_a1_1_pronomen help.tips[1].check.why: the English «Sie can only be she» for „Sie ist Lehrerin.“ added «(aquí con mayúscula por estar al principio de la frase)»; subjects[4]/[12] and the (it) cues use «neutro: ello» per the cue table, which reads oddly for das Kind/das Baby (hints say «neutro (das Kind)»).
+- app/quest_a1_1_pronomen help.hook: the English «two ways to say you to one person» is no news to Spanish speakers (tú/usted); rewritten to stress that German never drops the subject.
+- app/quest_a1_1_sein_haben help.tips[2].*: the English «haben where English says to be» rewritten as «like Spanish tener hambre», with the trap moved to age («tengo 19 años» = Ich bin 19); check the tip still fits its check (Wir ____ Angst).
+- app/quest_a1_1_sprechen_vorstellung help.tips[1].*: pronunciation respelt for Spanish readers («vi JAI-ssen zi», check options «vain» / «uain» / «viin»); the h written as J (soft jota) may look too harsh.
+- app/quest_a1_1_sprechen_zahlen help.tips[0].text, help.remember[1]: English «ts as in cats» replaced by «pizza dicho a la italiana (pitsa)»; céntimos (Spain) used, LatAm says centavos.
+- app/quest_a1_1_zahlen help.tips[2].*: options «tsvai» / «suei» / «zvii» replace the English «tsvai» / «swei» / «zvee»; sechs respelt «zeks» with z = buzzing s (guide convention), which Spanish readers may read as θ or s.
+- app/quest_a1_1_zahlen_gross help.intro, help.tips[1].*: added that Spain writes 1.200 like German but many Latin American countries use the point for decimals; Spanish numerals in the Spanish lines written 1200 / 20 000 (RAE style), as in lesen_hamburg.
+- app/quest_a1_1_wo_praepositionen help.intro, help.tips[4].text: im/am/vom compared with Spanish al/del (not in the English); help.tips[1].examples[1] «Ella está en el médico» (Spain «en el médico», LatAm often «donde el médico» / «con el médico»).
+- app/quest_a1_1_wortbildung help.tips[1].trap, help.tips[3].text: English «apple cake has no gender» rewritten as «Spanish puts the main word first (pastel de manzana)»; subjects[11] American → «estadounidense».
+- app/quest_a1_1_wortschatz cards[189] «alemán / alemana» for Deutsche (one German form for both); cards[193]/[211] «suiza (una mujer)», «china (una mujer)» to avoid reading as the country / the language.
+- app/quest_a1_1_suchbild_klassenzimmer spots/vocab: Brotdose = «fiambrera (lonchera)», Computer = «computadora (ordenador)», Banane = «plátano (banana)»: regional pairs in brackets.
+- app/quest_a1_1_sprechen_dialog help.tips[2].examples[1] «¿Y usted?» follows the German „Und Sie?“ where the English just says «And you?».
+- SOURCE: app/quest_a1_1_zahlen_gross sentences[3].why «13 to 19 and the teens keep their own words» explains 112 (hundert + zwölf): 12 is not in 13–19 and «13 to 19 and the teens» is redundant; probably meant «11 to 19 keep their own words». Spanish says «del 11 al 19».
+- book/amt grammar[0].blocks[0].note, grammar[0].blocks[1].blocks[0].*, practise[0].title, canDo[0]: the "six letters in disguise" are English-speaker traps (E, I…); for Spanish speakers E and I are no trap, the tricky ones are G, H, J, V, W, Z. Rewritten as «letras disfrazadas» with the Spanish list; the six tiles marked in the German page stay the English six.
+- book/amt grammar[1].check.items[3].after: the options "bed" / "bad" are English words fixed in the German page; rendered «(palabras inglesas)». A reader without English cannot answer this item.
+- book/amt grammar[0].blocks[0].tiles[*].say: letter names respelt for Spanish readers (gue, ja, yot, fau, ve, tset, es-tset); «ja» for H may look like a harsh jota.
+- book/steckbrief reading.en: Maya's echo "The cat is on the table." translated into Spanish (as the French file does) so the line passes the English check; Mr Ziegler's English quote kept.
+- book/steckbrief grammar[1].fact: "three cases of looking at a noun" rendered «tres maneras de acompañar un sustantivo» (der / ein / mein?), since A1.1 teaches no cases.
+- book/zahlen grammar[0].blocks[2].blocks[1].text, grammar[0].fact: "three fingers the English way" → «sin el pulgar» / «índice y medio»; how people count on their fingers varies across Spanish-speaking countries.
+- book/zahlen grammar[0].blocks[0].tiles[*].say: «fía» (vier), «zeks», «zíben» with z = buzzing s (guide convention); Spanish readers may read z as θ or s.
+- book/hallo grammar[1].blocks[3].items[2–3], words.verbs[1]: Guten Tag / Guten Abend → «¡Buenos días! / ¡Buenas tardes!» and «¡Buenas noches! (al llegar)»; Spanish switches to buenas tardes/noches at different hours than German.
+- book/markt words.groups[2].items[4], grammar[0].fact: Pfund glossed «medio kilo (500 g)»; «libra» is still used in some Latin American countries (≈ 454–460 g).
+- book/zahlen, book/hallo, book/familie: Handy glossed «teléfono (celular, móvil)», Chips «papas fritas de bolsa», Erdbeere «fresa, frutilla», Kartoffel «papa, patata»: regional pairs, check balance.
+- book/cafe speak.intro, book/hallo reading.en: the learner's role rephrased to keep the gender open («él hace de camarero y tú pides»); Maya stays «la clienta».
+- book/koeln words.verbs[4], practise[2].items[3]: beim Arzt → «en el médico» (Spain); LatAm often says «donde el médico» / «en el consultorio».
+- SOURCE: book/familie appQuizzes.uebungen-2[1].for is "Übung 5 · Colour it in" (same as uebungen-2[0]) but its note is a reading quiz ("Three flags, three stories"): label probably copied by mistake.
+- SOURCE: book/koeln appQuizzes.uebungen-2[1].note "numbers and introducing yourself" (same text as in familie) does not fit a chapter about places in the city: probably copied.
+
+## A1.2
+
+- app/quest_a1_2_akkusativ englishTemplates.bestimmt[0]: "I see the {subject}." → «Lo que veo: {el/la} {subject}.» because «Veo {el/la}» needs the personal «a» for people (al hombre, a la mujer) but not for things; the colon form fits both.
+- app/quest_a1_2_einkaufen_mengen subjects[6], sentences[6].sentence: das Pfund rendered «medio kilo» (cue "(medio kilo)"), since «libra» means ~454 g and is not used everywhere; check the cue still reads well next to the answer Ein Pfund.
+- app/quest_a1_2_datum sentences[0–6].why: the English etymology notes (Tuesday, Thursday = Thor's day…) rewritten as Spanish parallels (Montag/lunes = moon, Dienstag/martes = war god, Donnerstag/jueves = thunder god Thor/Júpiter, Freitag/viernes = Freya/Venus); check the etymology wording.
+- app/quest_a1_2_hoeflich subjects[14], sentences[14].sentence: "Would you close the window?" / cue "(would you, formal)" → «¿Sería tan amable de cerrar la ventana?» / «(¿sería usted tan amable?, formal)», to keep it distinct from Könnten Sie = «¿podría?».
+- SOURCE: app/quest_a1_2_datum sentences[21].why says "not einte", but the wrong option shown is "einste" (options[0]).
+- SOURCE: app/quest_a1_2_hoeren_geburtstag help.hook says the pick-up is "at half past seven", but in the dialogue Ben picks Elif up "um halb sieben" (6:30); translated as in the English («a las siete y media»).
+- app/quest_a1_2_possessiv subjects, englishTemplates: the templates use only {subject} (Spanish mi/tu/su have no gender), so subjects are bare nouns («padre») without un/una; "I see my {subject}" → «Lo que veo: mi {subject}.» to avoid the personal «a» clash (a mi padre / mi bolso).
+- app/quest_a1_2_pronomen_akk help.intro, tips[1], sentences[11–13].hint: the English "'it' is three words" point rewritten as the Spanish lo/la point (the pronoun follows the GERMAN gender: la llave → der Schlüssel → ihn); hints like «En español: la (la llave), pero der Schlüssel es masculino». Check the hints do not give away too much.
+- app/quest_a1_2_modalverben sentences[1], app/quest_a1_2_satzbau subjects/sentences[11], app/quest_a1_2_wohin sentences[9], app/quest_a1_2_war_hatte sentences[0]: "I'm ill" rendered «no me encuentro bien / me siento mal» and "I was tired" «tenía sueño», to keep the learner's gender open (enfermo/a, cansado/a).
+- app/quest_a1_2_sprechen_dialog help.tips[2].check.options[2]: "Sorry, I'll answer in English." → «Perdón, respondo en español.» (the learner's own language).
+- app/quest_a1_2_wortschatz cards[131–134]: English gives "was / were / had / had"; Spanish adds the persons («era, estaba, fue (ich, er)», «tenía, tuvo (ich, er)», «teníamos, tenían (wir, sie)») so the two "had" cards differ.
+- app/quest_a1_2_uhrzeit, sprechen_alltag, wortschatz: every halb explanation adds the «las ocho y media» warning; uhrzeit tips[1] adds that German puts the minutes first (fünf nach zehn vs «las diez y cinco»).
+- SOURCE: app/quest_a1_2_pronomen_akk sentences[2].why says er → ihn is "the only pronoun pair where the accusative really changes shape", but ich → mich, du → dich, wir → uns, ihr → euch change too (the quiz's own intro says five change). Translated as «la única pareja de tercera persona…».
+- book/arzt grammar[1].blocks[0].rows[n][0] / [n][2]: the English "you" column is split: the gloss column uses tú («tienes que», «no debes») as a rule for the learner, the example column usted («Tiene que beber mucho»), since the doctor speaks to a patient. Check the mix reads well in the table.
+- book/zimmer grammar[0].blocks[0].rows[n][3], grammar[1].blocks[0].rows[n][2]: possessive and accusative tables glossed with Spanish forms (su (de él) / su (de ella); lo (a él, una cosa der), la (a ella, una cosa die), os / los, las (a ustedes)); notes added that Spanish «su» hides sein/ihr and that a thing's pronoun follows the GERMAN gender (der Tisch → ihn / la mesa).
+- book/bahn grammar[0].blocks[1].blocks[0].text, reading.fact: the halb trap rewritten for Spanish speakers («no es las ocho y media»; «quien habla español oye las diez y media»).
+- book/kurs grammar[1].blocks[2]: "English trap: will and must not" rewritten as «Trampa: musst nicht y darfst nicht» (no tienes que vs no debes); the will ≠ future point dropped, only «Ich will es quiero» kept.
+- book/biergarten words.groups[0].items[6] (Brezel) → «pretzel (lazo de pan salado)», items[11] chips → «papas fritas, patatas fritas»; document.tasks[1].items[2] options welcome / good night → «bienvenidos» / «buenas noches».
+- book/einkaufen practise[0].title, appQuizzes.uebungen-1[0].for: "the" (an exercise on den/die/das) → «El artículo correcto», as the French did.
+
+## A2.1
+
+- app/quest_a2_1_dativ_akkusativ sentences[1].sentence, sentences[15].sentence, help.tips[2].check.q: object cues "(it)" rendered with the Spanish object pronoun («(lo)» for der Garten, «(la)» for die Tasche), which happens to match the German gender here; for der Schlüssel (Spanish «la llave») the cue is «(eso → a ti)» so it does not suggest sie. Check the cues read naturally.
+- app/quest_a2_1_dativ_akkusativ help.intro, help.tips[0].trap: the English "to / word order" comparison rewritten for Spanish (personal «a», le/les; «se lo doy» has the opposite order to Ich gebe es ihm).
+- app/quest_a2_1_bigtext_wochenende passageTranslation: "We walked to her flat together" → «Fuimos a pie hasta su apartamento» (juntos/juntas would fix the narrator's gender).
+- app/quest_a2_1_komparativ help.intro, help.remember[1], help.tips[2].check.why: "irregular in a way English speakers will recognise (good/better)" → compared with Spanish bueno → mejor, mucho → más.
+- app/quest_a2_1_indefinitpronomen: man rendered as «se» / «uno» throughout, with a note not to translate Spanish «se» with sich; double negation («no he oído nada») contrasted with Ich habe nichts gehört.
+- app/quest_a2_1_modal_praeteritum englishTemplates.*: person subjects, so every template uses the impersonal colon form («{subject}: ayer no fue posible venir», «…hubo que…», «…estaba permitido»); a bit stiff, check it reads naturally with yo/tú/nosotros.
+- app/quest_a2_1_modal_praeteritum help.tips[3].check.why: dürfte glossed «podría ser que» (English "might"); help.tips[3].examples and help.tips[3].check.q cue: "As a child" → «En mi infancia» / «no me dejaban» to avoid de niño/de niña for the speaker.
+- app/quest_a2_1_temporal_2 help.intro, help.tips[0].trap, help.hook: the English seit/für "for" trap replaced by the Spanish one: «hace dos años» (vor) vs «desde hace dos años» (seit).
+- app/quest_a2_1_war_hatte help.intro: added the comparison war/hatte (background) vs Perfekt (events) ≈ imperfecto vs indefinido; it is only an approximation (war also covers «estuve/fue»), check it does not mislead.
+- app/quest_a2_1_war_hatte sentences[0].english, help.tips[0].examples[0]: "I was ill" → «me encontraba mal» to keep the speaker’s gender open.
+- app/quest_a2_1_wetter sentences[3/4/7/12].why: the English cognate notes (harvest, summer, winter, "k for c") dropped; kalt now warns against «caliente», and help.mistakes[1].why names the Spanish slip «ich habe kalt» (tengo frío).
+- app/quest_a2_1_woher_wo_wohin help.tips[0].trap, help.tips[3].text: the English "one phrase for both" point reversed: Spanish already separates «en el cine / al cine», «en casa / a casa»; German does it with the case.
+- app/quest_a2_1_pronomen_dativ help.tips[1], sentences[14].why: gefallen compared with «gustar» (same structure); added that helfen takes the dative although Spanish says «la ayudo». help.tips[3].text: added that there is no special form like «conmigo»: mit mir.
+- app/quest_a2_1_pronomen_dativ subjects[8].display / sentences[8].sentence cue "it: der Hund" → «le: der Hund» / «(él: der Hund)» (el perro is masculine in Spanish too), not the generic «neutro: ello».
+- app/quest_a2_1_schreiben_wochenende help.tips[0].examples[1], [2].examples[1]: gender-free renderings («Fuimos al centro…», «tenía mucho sueño») since the writer is the learner.
+- app/quest_a2_1_lesen_wetter: 2,000 / 2,962 written «2000» / «2962» (RAE: no separator in four-digit numbers); decimals kept with a comma (41,2) as in the German.
+- book/kaufhaus grammar[0].fact: the UK-size example rewritten for Spanish readers (Spain/France 40 ≈ German 38; Latin American sizes vary by country) and the shoe-scale sentence dropped since Spain uses the same EU scale. Check the size equivalence.
+- book/kaufhaus grammar[0].blocks[1].blocks[0].title/note, grammar[1].blocks[0].note: "it pleases me" rewritten as the Spanish «me gusta», which has exactly the German structure (thing = subject, person in the dative).
+- book/geschenke grammar[0].blocks[0].rows[2].en: added «(al revés que en «se lo doy»)» to the two-pronoun rule (es ihm vs Spanish indirect-before-direct).
+- book/hamburg grammar[1].blocks[0].note: added «sin doble negación: Niemand ist da (no hay nadie)»; grammar[1].blocks[1].blocks[0].text: man explained as the Spanish impersonal «se».
+- book/heidelberg grammar[1].blocks[0].blocks[1].text: "English has one word; German has two" reversed: Spanish also has two (en casa / a casa).
+- book/kindheit grammar[1].blocks[1].text: war/hatte compared with the imperfecto (era, tenía, hacía frío) as an approximation; practise[4].items[0].prompt "As a child I had a dog" → «En mi infancia tenía un perro» to keep the learner's gender open.
+- book/ostsee grammar[0].blocks[0].note: added that Spanish always uses «he», German sein for these verbs; practise[3].instruction "the key" → «las soluciones».
+- book/fundbuero reading.en: last line "Say hello to the fridge" → «Salude a la nevera de mi parte» (nevera is Spain/Colombia/Venezuela; refrigerador elsewhere); grammar[1].blocks[2].note: added that helfen is wem? although Spanish says «ayudo a la mujer» like «veo a la mujer».
+
+## A2.2
+
+- SOURCE: app/quest_a2_2_adjektiv_intro help.tips[2].examples[0].en: the English "the article signals — the adjective signals" does not translate the German example "der gute Film — ein guter Film"; Spanish translates the German («la buena película / una buena película»).
+- app/quest_a2_2_adjektiv_intro subjects[*].english: all noun subjects given with an explicit "|plural" because the adjective follows the noun in Spanish («una mesa nueva|mesas nuevas»); "jumper" → «un suéter cálido» (jersey is Spain-only).
+- app/quest_a2_2_hoeren_wohnung passageTranslation: "third floor" (dritter Stock) kept as «tercer piso»; in much of Latin America the ground floor counts as the first, so this would be «cuarto piso» there. Kalt/warm rent rendered «sin gastos (kalt) / con gastos (warm)».
+- app/quest_a2_2_hoeren_wohnung, help.intro: "two-room flat" → «apartamento de dos ambientes» (ambientes is Río de la Plata-flavoured; «dos habitaciones» would suggest two bedrooms in Spain).
+- app/quest_a2_2_gesundheit help.tips[3].trap: added that «droguería» means a pharmacy in some countries (Colombia), so die Drogerie is a real false friend there.
+- app/quest_a2_2_genitiv_s_datum subjects[5–14]: dates rendered with Spanish cardinals («el tres (de octubre)», «el primero»), since Spanish does not use ordinals for dates; the tips explain the German ordinal.
+- app/quest_a2_2_lesen_arzt help.tips[0].check.q, help.tips[3].check.q: the English single quotes around the German sentence became „…“.
+- app/quest_a2_2_passiv_intro help.tips[0].trap, help.remember[1]: the English "be vs werden" trap rewritten as ser/estar (wird repariert ≈ «es reparado», ist repariert ≈ «está reparado»); subjects/sentences rendered with the natural Spanish «se» passive or impersonal 3rd plural, not «ser + participio».
+- app/quest_a2_2_relativ_intro help.tips[1].trap, subjects[4]/[8]/[13]: den compared with «al que» (el hombre al que conozco); several Spanish glosses differ in gender from the German noun (la película / der Film, la llave / der Schlüssel), which the whys now point out.
+- app/quest_a2_2_reflexiv help.tips[1].trap: English "no reflexive in English" replaced by Spanish matches and mismatches (sich ausruhen = descansar; irse/quedarse not reflexive in German). sentences[4]/[10]/[16] (ihr) translated with ustedes: «Abríguense», «Dense prisa», «se han inscrito».
+- app/quest_a2_2_schreiben_einladung help.tips[0].trap: the English claim "sollten without the umlaut does not exist as a separate form" is confusing; rendered as «sollten no tiene diéresis y sirve para las dos cosas». SOURCE: the English sentence could be reworded.
+- app/quest_a2_2_lesen_test: Einbürgerungstest rendered «prueba» (not «examen»), aprobar/suspender for bestehen/durchfallen; in parts of Latin America «reprobar» is the usual word for durchfallen.
+- app/quest_a2_2_lesen_bier passageTranslation: Prinz Ludwig / Prinzessin Therese rendered «el príncipe Luis y la princesa Teresa» (Spanish convention for royals).
+- app/quest_a2_2_lesen_grimm help.tips[0].text: «Und wenn sie nicht gestorben sind…» glossed with «y fueron felices y comieron perdices», which is Spain-flavoured; Latin American readers may know «colorín colorado».
+- SOURCE: app/quest_a2_2_sprechen_kurzcheck imageDescription describes a young man on the phone outside a museum, but the exercise is about the things in your room (wo?/wohin?): the image may belong to another exercise.
+- SOURCE: app/quest_a2_2_suchbild_cafe help.tips[1].text: "der Mülleimer is the odd one out that is masculine without being a machine" is garbled; help.intro "with a counter and nobody in it with 32 things" is clumsy, and its example Wo ist der Teppich? names a rug that is not among the 32 spots.
+- app/quest_a2_2_wortschatz cards[168]/[171] (Seid!/Habt!): glossed «¡Sed! / ¡Sean! (ihr)», «¡Tened! / ¡Tengan! (ihr)»: the vosotros imperative is shown because the ustedes form alone would look like the Sie form; cards[169]/[172] marked (usted).
+- app/quest_a2_2_tekamolo help.intro, help.tips[0].trap: the English "reverse of English" comparison rewritten: Spanish order is free («voy a Berlín en tren mañana» / «mañana voy en tren a Berlín»), German fixes time–manner–place.
+- app/quest_a2_2_verben_praep_intro help.tips[0].trap: the English false-friend examples replaced by Spanish ones (soñar con ≠ mit, esperar without preposition vs warten auf).
+- app/quest_a2_2_wenn_deshalb help.tips[3], book/camping grammar[1].blocks[2].text: added that Spanish says «cuando» for both wenn and als.
+- book/umzug reading.intro: "fourth floor" → «cuarto piso» (same ground-floor counting caveat as hoeren_wohnung); reading.en: Maya (ihr) and Frau Huber (Sie, plural) both rendered with ustedes.
+- book/bibliothek reading.en: Max's made-up compounds (library card extension fee; book-reader-word-building-cost-bill) rendered as Spanish paraphrases, since the English gives no German; check against the German line.
+- book/rekorde grammar[1].blocks[1].head[2] and document.tasks[1].items[2].prompt: "in English" → «en español», with Spanish translations in that column.
+- SOURCE: app/quest_a2_2_wortschatz help.intro: the generic text ("the words for travel, health, home and describing people, and many verbs you now use in the Perfekt") reads oddly for A2.2; translated as is.
+- SOURCE: book/tracht listen.intro describes a child's room and book/weimar speak.intro describes a person: both look borrowed from other chapters' audio; translated as is.
+
+## Dictionary
+
+- Regional pairs given with a slash (Spain first or most common first): jugo/zumo, papa/patata, coche/carro, nevera/refrigerador, gafas/lentes, billete/boleto, móvil/celular, aparcar/estacionar, alquiler/renta, piso/departamento. A native check whether the order and choices suit every region.
+- Kind|noun → «niño/niña (neutro)», Student/Polizist/Künstler → «… (m.)»: Spanish nouns of common gender marked (m.)/(f.) to mirror the German pair.
+- ihr|pronoun, euch, euer: gloss names «ustedes» with «en España: vosotros/os/vuestro» in brackets, since the guide bans vosotros in explanations but Spain readers need the form.
+- Herd → «cocina (fogones)/estufa», Hahn → «grifo/llave (del agua); gallo», Decke → «manta/cobija; techo»: added a second common sense not in the English; drop if the tap-a-word gloss must stay strictly one sense.
+
+## B1–C2

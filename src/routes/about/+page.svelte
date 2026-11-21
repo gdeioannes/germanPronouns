@@ -606,6 +606,147 @@
 				genre de retours. <a href="/contact">Écrivez-moi</a>, chaque message est lu.
 			</p>
 		</section>
+	{:else if lang.es}
+		<!-- Spanish: written from the English, same shape as the French. Neutral Spanish, tú. -->
+		<header>
+			<h1>Acerca de Language Quiz</h1>
+			<p class="lede">
+				Un curso de alemán gratuito que respeta tu tiempo y tu privacidad: sin cuenta, sin
+				publicidad, sin suscripción, y nada sobre ti sale de tu navegador. En español, el curso
+				cubre los niveles A1 y A2.
+			</p>
+		</header>
+
+		<section class="split">
+			<div class="lead">
+				<h2>El proyecto</h2>
+				<p>
+					Language Quiz empezó en junio de 2026 como un pequeño quiz sobre la peor costumbre del alemán:
+					<em lang="de">der, die, das</em>. Versión tras versión, <strong class="key">se convirtió en un curso completo</strong>:
+					lecciones paso a paso con audio en cada nivel, ejercicios para completar, dictados,
+					tarjetas de vocabulario y un libro por nivel que funciona junto con la aplicación.
+				</p>
+			</div>
+			<figure>
+				<img src="/img/deck/bahnhof-1200.webp" alt="El vestíbulo lleno de gente de una estación de tren alemana" width="512" height="384" fetchpriority="high" />
+			<figcaption class="photo-credit"><a href="/credits#b2a12_bahn_opener">{creditShort('b2a12_bahn_opener')}</a></figcaption>
+			</figure>
+			<p>
+				Algunas convicciones guían cada decisión. <strong class="key">Aprender importa más que controlar</strong>:
+				nada está bloqueado, todos los niveles están abiertos desde la primera visita. Los errores
+				pequeños, como una diéresis olvidada o un punto que falta, no convierten una respuesta en
+				incorrecta, porque así es la práctica real. Y <strong class="key">todo sigue siendo gratis</strong>: tu
+				progreso se guarda en tu navegador, el audio está grabado de antemano y no hace falta ninguna cuenta.
+			</p>
+			<p>
+				<strong class="key">Aquí la privacidad no es un extra, es la base.</strong> Sin cookies,
+				sin identificadores, sin avisos de consentimiento; solo estadísticas anónimas y globales.
+				Los detalles están en la <a href="/settings">página de ajustes</a>.
+			</p>
+
+			<div class="disclosure" id="ai">
+				<h3>Cómo se usa la inteligencia artificial</h3>
+				<p>
+					Con toda honestidad: <strong class="key">este curso se hace con ayuda de herramientas de inteligencia artificial</strong>,
+					y tienes derecho a saber dónde.
+				</p>
+				<ul>
+					<li><strong>Imágenes</strong>: cada ilustración la genera el modelo de imágenes Gemini de Google, a partir de descripciones y de un estilo que yo escribo y elijo.</li>
+					<li><strong>Audio</strong>: el alemán que escuchas lo leen las voces neuronales de Google Cloud Text-to-Speech, no personas grabadas.</li>
+					<li><strong>Lecciones y ejercicios</strong>: Claude, de Anthropic, me ayuda a redactar las explicaciones, las frases de ejemplo y las preguntas; yo decido qué entra en el curso, lo reviso y lo corrijo.</li>
+					<li><strong>Español</strong>: las explicaciones y la interfaz en español las tradujo Claude y se reescribieron para hispanohablantes. Todavía no las ha revisado por completo una persona nativa: si ves un error, escríbeme, por favor.</li>
+					<li><strong>Código</strong>: escribo la aplicación con Claude Code, un asistente de programación basado en IA.</li>
+				</ul>
+				<p>
+					<strong class="key">Nada de esto trabaja sobre ti</strong>: ninguna IA lee tus respuestas ni tu
+					progreso, y el ejercicio de expresión oral te envía al asistente que tú elijas. Pero la IA
+					se equivoca, y puede que se me escapen errores. Si notas alguno, avísame, por favor.
+				</p>
+			</div>
+		</section>
+
+		<section class="split">
+			<div class="lead">
+				<h2>La misión</h2>
+				<p>
+					La mayoría de los cursos de idiomas están hechos para un solo tipo de estudiante: empezar en
+					la primera página, avanzar en línea recta, aprobar el examen, pasar página. Mucha gente no
+					aprende así, y mucha cree que el problema es suyo.
+					<strong class="key">No lo es.</strong> Mi objetivo con Language Quiz:
+					<strong class="key">abrir el alemán a esas personas</strong>.
+				</p>
+			</div>
+			<figure>
+				<img src="/img/deck/b2a21_sonntag_opener.webp" alt="Un sendero que serpentea por un bosque alemán soleado" width="512" height="384" loading="lazy" />
+			</figure>
+			<p>
+				Por eso el curso no quiere ser una sola línea recta. Una lección se puede leer, escuchar,
+				practicar con tarjetas, escribir, decir en voz alta o trabajar en papel en el libro: el mismo
+				alemán en tantas formas como maneras hay de aprender. Pasa de un nivel a otro, vuelve atrás,
+				sáltate lo que te aburre:
+				<strong class="key">el curso se adapta a tu forma de aprender, no al revés.</strong>
+			</p>
+			<p>
+				Funciona de principio a fin con tecnologías libres y gratuitas, para seguir siendo gratis
+				para cada estudiante. <strong class="key">El acceso a un idioma no debería depender de una suscripción.</strong>
+			</p>
+
+			<div class="disclosure" id="accessibility">
+				<h3>Accesibilidad</h3>
+				<p>
+					Abrir el alemán a todo el mundo también significa abrirlo a quien usa un lector de pantalla o
+					el teclado en vez del ratón, o no puede fiarse del color, del sonido o de una lectura rápida.
+					<strong class="key">El curso está hecho para funcionar también para esas personas</strong>, y
+					sigue las pautas WCAG 2.2 AA:
+				</p>
+				<ul>
+					<li><strong>Lectores de pantalla</strong>: las respuestas correctas e incorrectas, la respuesta corregida, el resultado de una ronda y las medallas nuevas se anuncian al momento. El alemán está marcado como alemán, para que lo lea una voz alemana.</li>
+					<li><strong>Una voz a la vez</strong>: el curso lee en voz alta las preguntas y respuestas en alemán. Si usas un lector de pantalla, desactiva «Leer en voz alta preguntas y respuestas» en los <a href="/settings">ajustes</a>.</li>
+					<li><strong>Teclado</strong>: cada ejercicio, mazo de tarjetas y panel funciona sin ratón; las flechas cambian de opción y Enter pasa a lo siguiente.</li>
+					<li><strong>Tu ritmo</strong>: nada tiene tiempo límite. Con el ajuste «Espérame», los ejercicios nunca avanzan solos.</li>
+					<li><strong>Audición</strong>: «Mostrar el texto en los ejercicios de escucha» añade el texto a los dictados y a los ejercicios de escucha. Ningún ejercicio necesita micrófono.</li>
+					<li><strong>Vista</strong>: los textos cumplen los contrastes AA, el género de los sustantivos se marca no solo con color sino también con un subrayado, y cada página funciona con 320 píxeles de ancho o con zoom al 400 %.</li>
+					<li><strong>Manos y escritura</strong>: la «Corrección flexible» (activada por defecto) acepta una respuesta a la que solo le falta una diéresis, un acento o un punto: un teclado sin ä, ö, ü ni ß no es problema.</li>
+					<li><strong>Movimiento y sonido</strong>: «Efectos tranquilos» en los ajustes, o «reducir movimiento» en tu dispositivo, quita el confeti y las sacudidas. «Silenciar la aplicación» quita todo el sonido.</li>
+				</ul>
+				<p>
+					Lo compruebo personalmente, pero no con todas las tecnologías de apoyo. Si algo te dificulta el uso,
+					<strong class="key">escríbeme, por favor</strong>: para mí es un error que corregir, no un deseo.
+				</p>
+			</div>
+		</section>
+
+		<section class="split">
+			<div class="lead">
+				<h2>Quién soy</h2>
+				<p>
+					Hola, aquí GDI. Vivo en Alemania desde 2019 y desde entonces aprendo alemán por el camino
+					difícil: todos los cursos presenciales de A1 a B1.2, la mayoría más de una vez, las grandes
+					aplicaciones de idiomas y una larga lista de recursos en línea. <strong class="key">Y me sigue costando.</strong>
+					Todas esas herramientas me perdían de la misma manera: un avance rígido, página tras página,
+					hasta que el interés desaparecía y dejaba de aprender. Pero cuando vives aquí, rendirse no es
+					una opción.
+				</p>
+			</div>
+			<figure>
+				<img src="/img/deck/b2b21_homeoffice_opener.webp" alt="Personas trabajando en escritorios en un espacio de trabajo compartido y luminoso" width="512" height="384" loading="lazy" />
+			</figure>
+			<p>
+				<strong class="key">Así que construyo el curso que me faltaba</strong>: algo que funcione solo y
+				junto a un curso presencial, para que el idioma siga vivo entre clase y clase.
+				<strong class="key">Y lo pruebo primero conmigo</strong>: casi cada parte de la aplicación la pruebo
+				antes en carne propia; si funciona, se queda, y si no, la rehago. Espero que ayude a otras personas
+				en mi situación, y en situaciones que todavía no imagino.
+			</p>
+			<p>
+				Lo hago todo sin equipo: el código, el contenido del curso, las imágenes y el audio, con las
+				herramientas de IA <a href="#ai">descritas arriba</a>. Language Quiz forma parte de mi sitio
+				personal <a href="https://www.100words.org/en/" rel="noopener">100words.org</a>, donde
+				encontrarás mis otros proyectos. Si algo está mal, confuso o falta,
+				<strong class="key">de verdad quiero saberlo</strong>: la aplicación nació precisamente de este
+				tipo de comentarios. <a href="/contact">Escríbeme</a>, leo cada mensaje.
+			</p>
+		</section>
 	{:else}
 	<header>
 		<h1>About Language Quiz</h1>

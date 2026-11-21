@@ -21,7 +21,8 @@ export const LOCALES: Record<string, { ogLocale: string }> = {
 	tr: { ogLocale: 'tr_TR' },
 	ar: { ogLocale: 'ar_AR' },
 	uk: { ogLocale: 'uk_UA' },
-	fr: { ogLocale: 'fr_FR' }
+	fr: { ogLocale: 'fr_FR' },
+	es: { ogLocale: 'es_ES' }
 };
 
 /** One translated twin of a page, for its hreflang link. */
@@ -176,6 +177,23 @@ const LOCAL_SEO: Record<
 		free: 'Expliqué en français, avec règles, exemples et audio, gratuit.',
 		level: 'allemand : cours et exercices',
 		levelLine: (level, n) => `${n} exercices d'allemand ${level} gratuits, expliqués en français, chaque phrase avec audio.`
+	},
+	es: {
+		kind: {
+			fillBlank: 'gramática alemana: explicación y ejercicios',
+			reading: 'ejercicio de comprensión lectora en alemán',
+			listening: 'ejercicio de comprensión auditiva en alemán',
+			dictation: 'dictado en alemán',
+			speakRepeat: 'ejercicio de pronunciación alemana',
+			speaking: 'ejercicio de expresión oral en alemán',
+			writing: 'ejercicio de expresión escrita en alemán',
+			vocabulary: 'tarjetas de vocabulario alemán',
+			suchbild: 'juego de vocabulario alemán con imágenes'
+		},
+		german: 'alemán',
+		free: 'Explicado en español, con reglas, ejemplos y audio, gratis.',
+		level: 'alemán: explicaciones y ejercicios',
+		levelLine: (level, n) => `${n} ejercicios gratis de alemán ${level}, explicados en español, cada frase con audio.`
 	}
 };
 

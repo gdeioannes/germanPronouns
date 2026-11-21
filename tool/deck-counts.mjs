@@ -13,7 +13,7 @@ import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 
 const [courseId = 'de_cert_a1'] = process.argv.slice(2).filter((a) => !a.startsWith('--'));
 const check = process.argv.includes('--check');
-const LANGS = ['tr', 'ar', 'uk', 'fr'];
+const LANGS = ['tr', 'ar', 'uk', 'fr', 'es'];
 const bundlePath = `assets/content/courses/${courseId}.json`;
 const bundle = JSON.parse(readFileSync(bundlePath, 'utf8'));
 

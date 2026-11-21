@@ -16,6 +16,16 @@ export type ChangelogEntry = {
 
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-11-21",
+    title: "German explained in Spanish, A1 to A2",
+    highlight: true,
+    items: [
+      "Choose Español on the home page or in Settings and the whole site speaks Spanish: menus, help, and every A1–A2 lesson and exercise, rewritten for Spanish speakers (der/die/das next to el/la, the cases next to lo/le, sein for both ser and estar, Sie conjugated like usted, the ch in Bach as the Spanish jota).",
+      "Neutral Spanish for Spain and Latin America alike: where the words differ, both are given (billete/boleto, móvil/celular). The four A1–A2 books come in Spanish too, as free PDFs, and tapping a German word shows its meaning in Spanish.",
+      "Every A1–A2 page has its own Spanish address under /es/. From B1 on, the explanations are in German with the English button, as in the other languages. The Spanish was written with AI and has not been fully checked by a native speaker yet: please tell us when something sounds off.",
+    ],
+  },
+  {
     date: "2026-11-20",
     title: "Corrections, C1.2 to C2.2",
     items: [
