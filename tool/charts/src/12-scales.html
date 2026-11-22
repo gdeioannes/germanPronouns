@@ -1,0 +1,265 @@
+<title>Word Scales Chart</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap">
+<style>
+/* Layout: one A4 landscape chart in the same skeleton as Charts 1 and 2 (header, lookup steps,
+   QR, rule rows), but the body is a decision path: three questions down the left, each "yes"
+   leads right into a sentence track with fixed slots. 1cqw = 2.97 mm on paper. */
+:root {
+	--board: #e8e3da;
+	--board-ink: #24262b;
+	--board-muted: #5f5a52;
+	--board-line: #cfc8bb;
+	--paper: #ffffff;
+	--ink: #111111;
+	--muted: #45413b;
+	--line: #8f887b;
+	--navy: #1f3a5f;
+	--navy-soft: #e8edf4;
+	--terracotta: #c9683b;
+	--terracotta-ink: #a24c26;
+	--verb-soft: #fbeae0;
+	--hi: #ffe14d;
+	--dat: #5b3aa8;
+	--gen: #0b6e74;
+	--sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+	--serif: 'Source Serif 4', ui-serif, Georgia, serif;
+}
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme="light"]) { --board: #1c1e23; --board-ink: #f1ede6; --board-muted: #aaa398; --board-line: #3a3c42; color-scheme: dark }
+}
+:root[data-theme="dark"] { --board: #1c1e23; --board-ink: #f1ede6; --board-muted: #aaa398; --board-line: #3a3c42; color-scheme: dark }
+
+body {
+	background: var(--board);
+	color: var(--board-ink);
+	font-family: var(--sans);
+	padding-block: 28px 56px;
+	padding-left: max(16px, env(safe-area-inset-left, 0px));
+	padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 22px }
+.intro h1 { font-family: var(--serif); font-size: clamp(1.8rem, 4.6vw, 2.6rem); font-weight: 700; line-height: 1.05; margin: 0 0 10px; text-wrap: balance }
+.intro p { font-family: var(--serif); font-size: 1.05rem; line-height: 1.5; max-width: 66ch; margin: 0; color: var(--board-muted) }
+.scroll { overflow-x: auto }
+.note { font-family: var(--serif); color: var(--board-muted); font-size: 0.95rem; line-height: 1.5; max-width: 70ch; border-top: 1px solid var(--board-line); padding-top: 16px; margin: 0 }
+
+.sheet { container-type: inline-size; aspect-ratio: 297 / 210; width: 100%; min-width: 720px; background: var(--paper); color: var(--ink); box-shadow: 0 1px 2px rgba(0,0,0,.18), 0 10px 28px rgba(0,0,0,.16); overflow: hidden }
+.page { height: 100%; box-sizing: border-box; padding: 1.8cqw 3cqw 1.4cqw; display: flex; flex-direction: column; gap: .9cqw }
+.hd { display: flex; align-items: flex-end; gap: 2cqw }
+.hd .t { margin-right: auto; flex: none }
+.brand { display: flex; align-items: center; gap: .8cqw; font-family: var(--serif); font-size: 1.6cqw; font-weight: 700; color: var(--navy) }
+.brand svg { width: 2.3cqw; height: 2.3cqw }
+.brand span { font-family: var(--sans); font-size: 1.1cqw; font-weight: 600; color: var(--muted); margin-left: .6cqw }
+.sheet h2.title { white-space: nowrap; font-family: var(--serif); font-size: 3.1cqw; font-weight: 700; line-height: 1; margin: .4cqw 0 0; color: var(--navy); letter-spacing: -.01em }
+.title small { font-family: var(--sans); font-size: 1.1cqw; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--terracotta-ink); vertical-align: 1.2cqw; margin-right: .8cqw }
+.path { display: flex; gap: .4cqw; align-items: center; font-size: .96cqw; font-weight: 600; padding-bottom: .3cqw }
+.path b { display: inline-block; width: 1.9cqw; line-height: 1.9cqw; border-radius: 50%; background: var(--terracotta-ink); color: #fff; text-align: center; font-weight: 800; margin-right: .5cqw }
+.path span { background: var(--navy-soft); border-radius: 1.2cqw; padding: .35cqw 1.1cqw .35cqw .35cqw; white-space: nowrap }
+.qr { display: flex; flex-direction: column; align-items: center; gap: .2cqw; font-size: .9cqw; font-weight: 700; color: var(--navy); white-space: nowrap; flex: none }
+.qr svg { width: 4.3cqw; height: 4.3cqw; display: block }
+
+/* the decision path */
+.main { flex: 1; min-height: 0; display: grid; grid-template-columns: 23cqw 4.6cqw 1fr; grid-template-rows: 11.4fr 9.5fr 14.6fr; gap: .9cqw 0 }
+.ask { display: flex; flex-direction: column; min-height: 0 }
+.q { flex: 1; min-height: 0; background: var(--navy); color: #fff; border-radius: .9cqw; padding: .6cqw 1cqw .7cqw; display: flex; flex-direction: column; justify-content: center; gap: .3cqw }
+.q b.n { display: inline-block; width: 2cqw; line-height: 2cqw; border-radius: 50%; background: #fff; color: var(--navy); text-align: center; font-weight: 800; font-size: 1.15cqw; margin-right: .6cqw; vertical-align: .15cqw }
+.q h3 { margin: 0; font-family: var(--serif); font-size: 1.62cqw; font-weight: 700; line-height: 1.12 }
+.q p { margin: 0; font-size: 1.02cqw; line-height: 1.3; font-weight: 500 }
+.q p b { font-weight: 800; color: var(--hi) }
+.q.else { background: #fff; color: var(--ink); border: .4cqw solid var(--navy) }
+.q.else h3 { color: var(--navy) }
+.q.else p b { color: var(--terracotta-ink) }
+.down { flex: none; height: 2.1cqw; margin-bottom: -.9cqw; display: flex; justify-content: center; align-items: center; gap: .5cqw; font-size: .82cqw; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--navy); position: relative }
+.down::before { content: ''; position: absolute; left: 4cqw; top: 0; bottom: .55cqw; width: .4cqw; background: var(--navy) }
+.down::after { content: ''; position: absolute; left: 3.45cqw; bottom: 0; border: .75cqw solid transparent; border-top-color: var(--navy); border-bottom: 0 }
+.yes { display: flex; flex-direction: column; justify-content: center; align-items: stretch; font-size: .82cqw; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--terracotta-ink); text-align: center; padding-bottom: 1.2cqw }
+.yes.last { padding-bottom: 0 }
+.yes i { display: block; height: .45cqw; background: var(--terracotta-ink); margin: .2cqw .75cqw 0 0; position: relative }
+.yes i::after { content: ''; position: absolute; right: -.75cqw; top: -.55cqw; border: .775cqw solid transparent; border-left-color: var(--terracotta-ink); border-right: 0 }
+
+/* the sentence tracks */
+.lane { border: .4cqw solid var(--navy); border-radius: .9cqw; overflow: hidden; display: grid; grid-template-columns: 9.4cqw 1fr; min-height: 0 }
+.lane.last { margin-bottom: 0 }
+.badge { background: var(--terracotta-ink); color: #fff; display: flex; flex-direction: column; justify-content: center; padding: .4cqw .9cqw; gap: .2cqw }
+.badge small { font-size: .78cqw; font-weight: 800; letter-spacing: .08em; text-transform: uppercase }
+.badge b { font-family: var(--serif); font-size: 2.3cqw; font-weight: 700; line-height: .95 }
+.badge span { font-size: .92cqw; font-weight: 600; line-height: 1.2 }
+.track { display: grid; min-height: 0; font-size: 1.24cqw; line-height: 1.15 }
+.track > div { border-left: .12cqw solid var(--line); border-top: .12cqw solid var(--line); padding: 0 .7cqw; display: flex; align-items: center; gap: .45cqw; white-space: nowrap; min-width: 0; font-weight: 500 }
+.track > .h { border-top: 0; background: var(--navy-soft); font-size: .78cqw; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; color: var(--navy); padding-block: .22cqw }
+.track > .h.vh { background: var(--terracotta-ink); color: #fff }
+.track > .vc { background: var(--verb-soft); border-left: .3cqw solid var(--terracotta-ink) }
+.track > .vc + div { border-left: .3cqw solid var(--terracotta-ink) }
+.track > .none { background: repeating-linear-gradient(135deg, #fff 0 .5cqw, #e3ddd2 .5cqw .62cqw); color: var(--muted); font-size: .9cqw; font-weight: 700 }
+.track > .foot { grid-column: 1 / -1; font-size: 1cqw; white-space: normal; padding-block: .25cqw; line-height: 1.25; display: block; border-left: .12cqw solid var(--line) }
+.track > .foot b { font-weight: 800 }
+.v { background: var(--terracotta-ink); color: #fff; font-weight: 800; padding: .08cqw .5cqw .12cqw; border-radius: .3cqw }
+.e { box-shadow: inset 0 0 0 .2cqw var(--terracotta-ink); color: var(--terracotta-ink); background: #fff; font-weight: 800; padding: .08cqw .5cqw .12cqw; border-radius: .3cqw }
+.s { box-shadow: inset 0 0 0 .15cqw var(--ink); font-weight: 800; padding: .04cqw .35cqw .08cqw }
+.track i { font-family: var(--serif); font-style: italic; color: var(--muted); font-size: 1.02cqw; margin-left: auto; padding-left: .6cqw }
+
+.tag { font-size: .8cqw; font-weight: 800; letter-spacing: .03em; text-transform: uppercase; border-radius: .3cqw; padding: .05cqw .35cqw; vertical-align: .08cqw }
+.tag.dat { background: var(--dat); color: #fff }
+.tag.gen { background: var(--gen); color: #fff }
+.tag.nom { background: #fff; color: var(--ink); box-shadow: inset 0 0 0 .15cqw var(--ink) }
+.tag.akk { background: var(--hi); color: var(--ink) }
+
+.rules { display: grid; grid-template-columns: 8.5cqw 1fr 1fr; border: .4cqw solid var(--navy); font-size: 1.06cqw; line-height: 1.26 }
+.rules > div { padding: .32cqw .8cqw .37cqw; border-top: .12cqw solid var(--line); border-left: .12cqw solid var(--line) }
+.rules > div:nth-child(-n+3) { border-top: 0 }
+.rules .rl { background: var(--navy); color: #fff; font-size: .78cqw; font-weight: 800; letter-spacing: .03em; text-transform: uppercase; display: flex; align-items: center; border-left: 0; border-top-color: #3d5a80 }
+.rules .rl.warn { background: var(--terracotta-ink) }
+.rules b { font-weight: 800 }
+.rules em { font-style: normal; font-weight: 800; padding: 0 .25cqw }
+.rules em.dat { background: var(--dat); color: #fff }
+.rules em.akk { background: var(--hi); color: var(--ink) }
+.rules em.gen { background: var(--gen); color: #fff }
+.rules .v, .rules .e, .key .v, .key .e { padding: 0 .3cqw; border-radius: .25cqw }
+.rules s { text-decoration-thickness: .14cqw; text-decoration-color: var(--terracotta-ink) }
+.rules small { font-size: .78cqw; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; color: var(--muted) }
+.key { display: flex; gap: .7cqw; align-items: center; font-size: 1cqw; font-weight: 500 }
+.key b { font-weight: 800 }
+.key .sp { margin-left: 1.2cqw }
+.hd { gap: 1.2cqw }
+.sheet h2.title { font-size: 2.7cqw }
+.path { font-size: .86cqw }
+.focus { display: grid; grid-template-columns: 1fr 30cqw; gap: 1.2cqw }
+.look { border: .4cqw solid var(--navy); border-radius: .9cqw; padding: .5cqw 1.3cqw .55cqw; display: flex; align-items: center; gap: 2cqw }
+.mini { position: relative; flex: none; width: 24cqw; display: flex; justify-content: space-between; padding-bottom: 1.5cqw; font-size: 1.7cqw; font-weight: 800; color: var(--navy) }
+.mini i { position: absolute; left: 0; right: 0; bottom: 0; height: 1.2cqw; background: var(--navy); clip-path: polygon(0 100%, 100% 0, 100% 100%) }
+.cap1 { display: flex; flex-direction: column; gap: .4cqw }
+.cap1 span { font-size: 1.04cqw; font-weight: 700; line-height: 1.24 }
+.cap1 strong { font-weight: 800; text-decoration: underline }
+.cap1 .c1 { color: var(--navy) }
+.cap1 .c2 { color: var(--terracotta-ink) }
+.cap1 b { display: inline-block; width: 1.5cqw; line-height: 1.5cqw; border-radius: 50%; color: #fff; text-align: center; font-size: .88cqw; margin-right: .4cqw }
+.cap1 .c1 b { background: var(--navy) } .cap1 .c2 b { background: var(--terracotta-ink) }
+.idea { background: var(--navy); color: #fff; border-radius: .9cqw; padding: .45cqw 1.1cqw .55cqw; display: flex; flex-direction: column; justify-content: center; gap: .2cqw; font-size: 1.02cqw; line-height: 1.28; font-weight: 500 }
+.idea h3 { margin: 0; font-family: var(--serif); font-size: 1.5cqw; font-weight: 700; line-height: 1.1 }
+.idea p { margin: 0 }
+.idea strong { color: var(--hi); font-weight: 800 }
+
+.scales { flex: 1; min-height: 0; display: grid; grid-template-rows: 1fr 1.36fr 1fr 1fr; border: .4cqw solid var(--navy) }
+.sc { display: grid; grid-template-columns: 10cqw 1fr 19cqw; align-items: center; border-top: .12cqw solid var(--line); min-height: 0 }
+.sc:first-child { border-top: 0 }
+.ql { align-self: stretch; background: var(--navy); color: #fff; display: flex; flex-direction: column; justify-content: center; padding: 0 1cqw; gap: .15cqw }
+.sc + .sc .ql { border-top: .12cqw solid #3d5a80 }
+.ql b { font-family: var(--serif); font-size: 1.7cqw; font-weight: 700; line-height: 1.05 }
+.ql i { font-family: var(--serif); font-size: .95cqw; line-height: 1.1 }
+.ln { position: relative; height: 5.9cqw; margin: 0 4.6cqw 0 4.6cqw }
+.sc.two .ln { height: 8.6cqw }
+.wedge { position: absolute; left: -2.4cqw; right: -2.4cqw; top: 3.5cqw; height: 1.5cqw; background: var(--navy); clip-path: polygon(0 100%, 100% 0, 100% 100%) }
+.wp { position: absolute; top: 0; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; background: #fff; box-shadow: inset 0 0 0 .16cqw var(--navy); border-radius: .5cqw; padding: .16cqw .55cqw .2cqw; white-space: nowrap; line-height: 1.1 }
+.wp::after { content: ''; position: absolute; left: calc(50% - .1cqw); top: 100%; width: .2cqw; height: 2.4cqw; background: var(--navy) }
+.wp b { font-size: 1.12cqw; font-weight: 800; color: var(--ink) }
+.wp i { font-family: var(--serif); font-size: .82cqw; color: var(--muted) }
+.end { position: absolute; top: 5.05cqw; font-size: .7cqw; font-weight: 800; color: var(--muted); letter-spacing: .04em }
+.end.l { left: -2.4cqw } .end.r { right: -2.4cqw }
+.vp { position: absolute; top: 5.6cqw; transform: translateX(-50%); white-space: nowrap; font-size: 1.08cqw }
+.vp .v { padding: .08cqw .5cqw .12cqw }
+.vcap { position: absolute; left: 12%; top: 5.75cqw; font-size: .86cqw; font-weight: 700; color: var(--terracotta-ink); white-space: nowrap }
+.vcap .e { padding: 0 .3cqw; box-shadow: inset 0 0 0 .12cqw var(--terracotta-ink) }
+.sc.two .end { top: 7.4cqw }
+.exs { padding: 0 1cqw; border-left: .12cqw solid var(--line); align-self: stretch; display: flex; flex-direction: column; justify-content: center; gap: .2cqw }
+.exs b { font-size: 1.14cqw; font-weight: 700; line-height: 1.3 }
+.exs i { font-family: var(--serif); font-size: .95cqw; color: var(--muted); line-height: 1.2 }
+.sheet mark { background: var(--navy); color: #fff; font-weight: 800; padding: 0 .35cqw; border-radius: .25cqw }
+.exs .v, .exs .e { padding: 0 .35cqw; border-radius: .25cqw }
+.exs .e { box-shadow: inset 0 0 0 .14cqw var(--terracotta-ink) }
+
+.rules { font-size: 1.04cqw; grid-template-columns: 9.4cqw 1fr 1fr }
+.rules > div { padding: .3cqw .9cqw .34cqw; line-height: 1.36 }
+.rules .rl { font-size: .84cqw; padding-left: 1cqw }
+.rules .lead { display: inline-block; font-size: .72cqw; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; line-height: 1.5; color: var(--navy); background: var(--navy-soft); border-radius: .3cqw; padding: 0 .5cqw; margin-right: .8cqw; vertical-align: .08cqw }
+.rules .aside { font-family: var(--serif); font-style: italic; color: var(--muted); font-size: .96cqw; margin-left: .7cqw }
+.rules .no, .rules .ok { font-weight: 800; margin-right: .35cqw }
+.rules .no { color: var(--terracotta-ink) }
+.rules .ok { color: #1c6a3c; margin-left: .7cqw }
+.key { font-size: .96cqw }
+.key .v { padding: 0 .4cqw; border-radius: .25cqw }
+.key .sp { margin-left: 1.1cqw }
+</style>
+
+<div class="wrap">
+	<header class="intro">
+		<h1>Chart 12, scales</h1>
+		<p>Words that are steps on a line: how often, how sure, how much, how strongly. Each family is drawn as one growing wedge, with its words where they belong on it.</p>
+	</header>
+
+	<div class="scroll">
+	<div class="sheet"><div class="page">
+		<div class="hd">
+			<div class="t">
+				<div class="brand"><svg viewBox="0 0 68 68" aria-hidden="true"><rect width="68" height="68" rx="15" fill="#1f3a5f"/><g transform="translate(2 2)"><circle cx="32" cy="32" r="23.5" fill="none" stroke="#fbf8f3" stroke-width="9"/><path d="M37.5 37.5L54 54" stroke="#c9683b" stroke-width="8"/></g></svg>Language Quiz<span>languagequiz.org</span></div>
+				<h2 class="title"><small>Chart 12</small>From nothing to everything</h2>
+			</div>
+			<div class="path">
+				<span><b>1</b>Pick the question</span>
+				<span><b>2</b>How far along the line?</span>
+				<span><b>3</b>Take the word at that point</span>
+			</div>
+			<div class="qr"><svg data-qr="33"></svg>Open in the app</div>
+		</div>
+
+		<div class="focus">
+			<div class="look">
+				<div class="mini"><span>nie</span><span>manchmal</span><span>immer</span><i></i></div>
+				<div class="cap1"><span class="c1"><b>1</b>Look here first: these words are <strong>not a list</strong>. They are steps on a line.</span><span class="c2"><b>2</b>Learn each family in order, from nothing to everything.</span></div>
+			</div>
+			<div class="idea"><h3>The one idea</h3>
+				<p>German has a word for every step between <strong>nothing</strong> and <strong>everything</strong>. If you know the line, you can always find the step you need.</p></div>
+		</div>
+
+		<div class="scales">
+			<div class="sc"><div class="ql"><b>Wie oft?</b><i>how often</i></div><div class="ln"><div class="wedge"></div><span class="wp" style="left:4%"><b>nie</b><i>never</i></span><span class="wp" style="left:17%"><b>fast nie</b><i>almost never</i></span><span class="wp" style="left:30%"><b>selten</b><i>rarely</i></span><span class="wp" style="left:45%"><b>manchmal</b><i>sometimes</i></span><span class="wp" style="left:60%"><b>oft</b><i>often</i></span><span class="wp" style="left:71%"><b>meistens</b><i>mostly</i></span><span class="wp" style="left:84%"><b>fast immer</b><i>almost always</i></span><span class="wp" style="left:96.5%"><b>immer</b><i>always</i></span><span class="end l">0 %</span><span class="end r">100 %</span></div><div class="exs"><b>Ich gehe <mark>selten</mark> ins Kino.</b><i>I rarely go to the cinema.</i></div></div>
+			<div class="sc two"><div class="ql"><b>Wie sicher?</b><i>how sure</i></div><div class="ln"><div class="wedge"></div><span class="wp" style="left:5%"><b>auf keinen Fall</b><i>no way</i></span><span class="wp" style="left:24%"><b>wohl kaum</b><i>hardly</i></span><span class="wp" style="left:42%"><b>vielleicht</b><i>maybe</i></span><span class="wp" style="left:60%"><b>wahrscheinlich</b><i>probably</i></span><span class="wp" style="left:79%"><b>bestimmt</b><i>surely</i></span><span class="wp" style="left:95%"><b>auf jeden Fall</b><i>definitely</i></span><span class="vp" style="left:5%"><span class="v">kann nicht</span></span><span class="vp" style="left:42%"><span class="v">könnte</span></span><span class="vp" style="left:60%"><span class="v">dürfte</span></span><span class="vp" style="left:79%"><span class="v">müsste</span></span><span class="vp" style="left:95%"><span class="v">muss</span></span><span class="vcap">with a verb: Er … krank <span class="e">sein</span>.</span><span class="end l">0 %</span><span class="end r">100 %</span></div><div class="exs"><b>Er <span class="v">muss</span> krank <span class="e">sein</span>.</b><i>He must be ill: I am almost sure.</i></div></div>
+			<div class="sc"><div class="ql"><b>Wie viel?</b><i>how much, how many</i></div><div class="ln"><div class="wedge"></div><span class="wp" style="left:4%"><b>kein</b><i>no, none</i></span><span class="wp" style="left:19%"><b>wenig</b><i>little, few</i></span><span class="wp" style="left:35%"><b>ein paar</b><i>a few</i></span><span class="wp" style="left:50%"><b>einige</b><i>some</i></span><span class="wp" style="left:65%"><b>viele</b><i>many</i></span><span class="wp" style="left:81%"><b>die meisten</b><i>most</i></span><span class="wp" style="left:96%"><b>alle</b><i>all</i></span><span class="end l">0 %</span><span class="end r">100 %</span></div><div class="exs"><b>Ich habe <mark>wenig</mark> Zeit.</b><i>I have little time.</i></div></div>
+			<div class="sc"><div class="ql"><b>Wie sehr?</b><i>how strongly</i></div><div class="ln"><div class="wedge"></div><span class="wp" style="left:5%"><b>gar nicht</b><i>not at all</i></span><span class="wp" style="left:21%"><b>kaum</b><i>hardly</i></span><span class="wp" style="left:37%"><b>ein bisschen</b><i>a little</i></span><span class="wp" style="left:55%"><b>ziemlich</b><i>quite</i></span><span class="wp" style="left:71%"><b>sehr</b><i>very</i></span><span class="wp" style="left:85%"><b>besonders</b><i>especially</i></span><span class="wp" style="left:96%"><b>total</b><i>totally</i></span><span class="end l">0 %</span><span class="end r">100 %</span></div><div class="exs"><b>Das ist <mark>ziemlich</mark> teuer.</b><i>That is quite expensive.</i></div></div>
+		</div>
+
+		<div class="rules">
+			<div class="rl">where it goes</div>
+			<div><b class="lead">after the verb</b>Ich <span class="v">gehe</span> oft ins Kino. · Ich <span class="v">bin</span> ziemlich müde.</div>
+			<div><b class="lead">or in position 1</b>Manchmal <span class="v">gehe</span> ich ins Kino. <span class="aside">the verb stays second, see Chart 3</span></div>
+			<div class="rl">viel or viele</div>
+			<div><b class="lead">no ending</b>with things you cannot count: viel Zeit · wenig Geld</div>
+			<div><b class="lead">with an ending</b>with a plural: viel<b>e</b> Freunde · wenig<b>e</b> Leute · all<b>e</b> Kinder</div>
+			<div class="rl">small helpers</div>
+			<div><b class="lead">noch nie</b>never so far <b class="lead" style="margin-left:1cqw">nie wieder</b>never again <b class="lead" style="margin-left:1cqw">immer noch</b>still</div>
+			<div><b class="lead">nicht + word</b>nicht oft, not often · nicht immer, not always · nicht sehr, not very</div>
+			<div class="rl warn">watch out</div>
+			<div><span class="no">✗</span><s>Ich oft gehe ins Kino.</s> <span class="ok">✓</span>Ich <span class="v">gehe</span> oft ins Kino.</div>
+			<div><span class="no">✗</span><s>Ich habe nie kein Geld.</s> <span class="ok">✓</span>Ich habe nie Geld. <span class="aside">one negative is enough</span></div>
+		</div>
+		<div class="key"><b>Key:</b> the wedge grows from nothing to everything. The positions show the order of the words, not exact numbers. <span class="v sp">muss</span> a modal verb used for a guess</div>
+	</div></div>
+	</div>
+
+	<p class="note">The QR code is a placeholder. The positions on the lines are approximate: they show the order, not exact percentages.</p>
+</div>
+
+<script>
+// Placeholder QR: finder patterns plus a seeded pattern.
+document.querySelectorAll('svg[data-qr]').forEach(function (svg) {
+	var n = 21, seed = Number(svg.dataset.qr) || 1, out = '';
+	function rnd() { seed = (seed * 1103515245 + 12345) & 0x7fffffff; return seed / 0x7fffffff; }
+	function finder(x, y) { return x >= 0 && x < 7 && y >= 0 && y < 7; }
+	function inFinder(x, y) { return finder(x, y) || finder(x - (n - 7), y) || finder(x, y - (n - 7)); }
+	function finderOn(x, y) {
+		var fx = x >= n - 7 ? x - (n - 7) : x, fy = y >= n - 7 ? y - (n - 7) : y;
+		var edge = fx === 0 || fx === 6 || fy === 0 || fy === 6;
+		var core = fx >= 2 && fx <= 4 && fy >= 2 && fy <= 4;
+		return edge || core;
+	}
+	for (var y = 0; y < n; y++) for (var x = 0; x < n; x++) {
+		var on = inFinder(x, y) ? finderOn(x, y) : rnd() > 0.52;
+		if (on) out += '<rect x="' + x + '" y="' + y + '" width="1.02" height="1.02"/>';
+	}
+	svg.setAttribute('viewBox', '0 0 ' + n + ' ' + n);
+	svg.setAttribute('fill', '#1f3a5f');
+	svg.setAttribute('role', 'img');
+	svg.setAttribute('aria-label', 'QR code placeholder');
+	svg.innerHTML = out;
+});
+</script>

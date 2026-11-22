@@ -1,0 +1,289 @@
+<title>Verb Preposition Map</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap">
+<style>
+/* Layout: one A4 landscape chart in the same skeleton as Charts 1 and 2 (header, lookup steps,
+   QR, rule rows), but the body is a decision path: three questions down the left, each "yes"
+   leads right into a sentence track with fixed slots. 1cqw = 2.97 mm on paper. */
+:root {
+	--board: #e8e3da;
+	--board-ink: #24262b;
+	--board-muted: #5f5a52;
+	--board-line: #cfc8bb;
+	--paper: #ffffff;
+	--ink: #111111;
+	--muted: #45413b;
+	--line: #8f887b;
+	--navy: #1f3a5f;
+	--navy-soft: #e8edf4;
+	--terracotta: #c9683b;
+	--terracotta-ink: #a24c26;
+	--verb-soft: #fbeae0;
+	--hi: #ffe14d;
+	--dat: #5b3aa8;
+	--gen: #0b6e74;
+	--sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+	--serif: 'Source Serif 4', ui-serif, Georgia, serif;
+}
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme="light"]) { --board: #1c1e23; --board-ink: #f1ede6; --board-muted: #aaa398; --board-line: #3a3c42; color-scheme: dark }
+}
+:root[data-theme="dark"] { --board: #1c1e23; --board-ink: #f1ede6; --board-muted: #aaa398; --board-line: #3a3c42; color-scheme: dark }
+
+body {
+	background: var(--board);
+	color: var(--board-ink);
+	font-family: var(--sans);
+	padding-block: 28px 56px;
+	padding-left: max(16px, env(safe-area-inset-left, 0px));
+	padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 22px }
+.intro h1 { font-family: var(--serif); font-size: clamp(1.8rem, 4.6vw, 2.6rem); font-weight: 700; line-height: 1.05; margin: 0 0 10px; text-wrap: balance }
+.intro p { font-family: var(--serif); font-size: 1.05rem; line-height: 1.5; max-width: 66ch; margin: 0; color: var(--board-muted) }
+.scroll { overflow-x: auto }
+.note { font-family: var(--serif); color: var(--board-muted); font-size: 0.95rem; line-height: 1.5; max-width: 70ch; border-top: 1px solid var(--board-line); padding-top: 16px; margin: 0 }
+
+.sheet { container-type: inline-size; aspect-ratio: 297 / 210; width: 100%; min-width: 720px; background: var(--paper); color: var(--ink); box-shadow: 0 1px 2px rgba(0,0,0,.18), 0 10px 28px rgba(0,0,0,.16); overflow: hidden }
+.page { height: 100%; box-sizing: border-box; padding: 1.8cqw 3cqw 1.4cqw; display: flex; flex-direction: column; gap: .9cqw }
+.hd { display: flex; align-items: flex-end; gap: 2cqw }
+.hd .t { margin-right: auto; flex: none }
+.brand { display: flex; align-items: center; gap: .8cqw; font-family: var(--serif); font-size: 1.6cqw; font-weight: 700; color: var(--navy) }
+.brand svg { width: 2.3cqw; height: 2.3cqw }
+.brand span { font-family: var(--sans); font-size: 1.1cqw; font-weight: 600; color: var(--muted); margin-left: .6cqw }
+.sheet h2.title { white-space: nowrap; font-family: var(--serif); font-size: 3.1cqw; font-weight: 700; line-height: 1; margin: .4cqw 0 0; color: var(--navy); letter-spacing: -.01em }
+.title small { font-family: var(--sans); font-size: 1.1cqw; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--terracotta-ink); vertical-align: 1.2cqw; margin-right: .8cqw }
+.path { display: flex; gap: .4cqw; align-items: center; font-size: .96cqw; font-weight: 600; padding-bottom: .3cqw }
+.path b { display: inline-block; width: 1.9cqw; line-height: 1.9cqw; border-radius: 50%; background: var(--terracotta-ink); color: #fff; text-align: center; font-weight: 800; margin-right: .5cqw }
+.path span { background: var(--navy-soft); border-radius: 1.2cqw; padding: .35cqw 1.1cqw .35cqw .35cqw; white-space: nowrap }
+.qr { display: flex; flex-direction: column; align-items: center; gap: .2cqw; font-size: .9cqw; font-weight: 700; color: var(--navy); white-space: nowrap; flex: none }
+.qr svg { width: 4.3cqw; height: 4.3cqw; display: block }
+
+/* the decision path */
+.main { flex: 1; min-height: 0; display: grid; grid-template-columns: 23cqw 4.6cqw 1fr; grid-template-rows: 11.4fr 9.5fr 14.6fr; gap: .9cqw 0 }
+.ask { display: flex; flex-direction: column; min-height: 0 }
+.q { flex: 1; min-height: 0; background: var(--navy); color: #fff; border-radius: .9cqw; padding: .6cqw 1cqw .7cqw; display: flex; flex-direction: column; justify-content: center; gap: .3cqw }
+.q b.n { display: inline-block; width: 2cqw; line-height: 2cqw; border-radius: 50%; background: #fff; color: var(--navy); text-align: center; font-weight: 800; font-size: 1.15cqw; margin-right: .6cqw; vertical-align: .15cqw }
+.q h3 { margin: 0; font-family: var(--serif); font-size: 1.62cqw; font-weight: 700; line-height: 1.12 }
+.q p { margin: 0; font-size: 1.02cqw; line-height: 1.3; font-weight: 500 }
+.q p b { font-weight: 800; color: var(--hi) }
+.q.else { background: #fff; color: var(--ink); border: .4cqw solid var(--navy) }
+.q.else h3 { color: var(--navy) }
+.q.else p b { color: var(--terracotta-ink) }
+.down { flex: none; height: 2.1cqw; margin-bottom: -.9cqw; display: flex; justify-content: center; align-items: center; gap: .5cqw; font-size: .82cqw; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--navy); position: relative }
+.down::before { content: ''; position: absolute; left: 4cqw; top: 0; bottom: .55cqw; width: .4cqw; background: var(--navy) }
+.down::after { content: ''; position: absolute; left: 3.45cqw; bottom: 0; border: .75cqw solid transparent; border-top-color: var(--navy); border-bottom: 0 }
+.yes { display: flex; flex-direction: column; justify-content: center; align-items: stretch; font-size: .82cqw; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--terracotta-ink); text-align: center; padding-bottom: 1.2cqw }
+.yes.last { padding-bottom: 0 }
+.yes i { display: block; height: .45cqw; background: var(--terracotta-ink); margin: .2cqw .75cqw 0 0; position: relative }
+.yes i::after { content: ''; position: absolute; right: -.75cqw; top: -.55cqw; border: .775cqw solid transparent; border-left-color: var(--terracotta-ink); border-right: 0 }
+
+/* the sentence tracks */
+.lane { border: .4cqw solid var(--navy); border-radius: .9cqw; overflow: hidden; display: grid; grid-template-columns: 9.4cqw 1fr; min-height: 0 }
+.lane.last { margin-bottom: 0 }
+.badge { background: var(--terracotta-ink); color: #fff; display: flex; flex-direction: column; justify-content: center; padding: .4cqw .9cqw; gap: .2cqw }
+.badge small { font-size: .78cqw; font-weight: 800; letter-spacing: .08em; text-transform: uppercase }
+.badge b { font-family: var(--serif); font-size: 2.3cqw; font-weight: 700; line-height: .95 }
+.badge span { font-size: .92cqw; font-weight: 600; line-height: 1.2 }
+.track { display: grid; min-height: 0; font-size: 1.24cqw; line-height: 1.15 }
+.track > div { border-left: .12cqw solid var(--line); border-top: .12cqw solid var(--line); padding: 0 .7cqw; display: flex; align-items: center; gap: .45cqw; white-space: nowrap; min-width: 0; font-weight: 500 }
+.track > .h { border-top: 0; background: var(--navy-soft); font-size: .78cqw; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; color: var(--navy); padding-block: .22cqw }
+.track > .h.vh { background: var(--terracotta-ink); color: #fff }
+.track > .vc { background: var(--verb-soft); border-left: .3cqw solid var(--terracotta-ink) }
+.track > .vc + div { border-left: .3cqw solid var(--terracotta-ink) }
+.track > .none { background: repeating-linear-gradient(135deg, #fff 0 .5cqw, #e3ddd2 .5cqw .62cqw); color: var(--muted); font-size: .9cqw; font-weight: 700 }
+.track > .foot { grid-column: 1 / -1; font-size: 1cqw; white-space: normal; padding-block: .25cqw; line-height: 1.25; display: block; border-left: .12cqw solid var(--line) }
+.track > .foot b { font-weight: 800 }
+.v { background: var(--terracotta-ink); color: #fff; font-weight: 800; padding: .08cqw .5cqw .12cqw; border-radius: .3cqw }
+.e { box-shadow: inset 0 0 0 .2cqw var(--terracotta-ink); color: var(--terracotta-ink); background: #fff; font-weight: 800; padding: .08cqw .5cqw .12cqw; border-radius: .3cqw }
+.s { box-shadow: inset 0 0 0 .15cqw var(--ink); font-weight: 800; padding: .04cqw .35cqw .08cqw }
+.track i { font-family: var(--serif); font-style: italic; color: var(--muted); font-size: 1.02cqw; margin-left: auto; padding-left: .6cqw }
+
+.tag { font-size: .8cqw; font-weight: 800; letter-spacing: .03em; text-transform: uppercase; border-radius: .3cqw; padding: .05cqw .35cqw; vertical-align: .08cqw }
+.tag.dat { background: var(--dat); color: #fff }
+.tag.gen { background: var(--gen); color: #fff }
+.tag.nom { background: #fff; color: var(--ink); box-shadow: inset 0 0 0 .15cqw var(--ink) }
+.tag.akk { background: var(--hi); color: var(--ink) }
+
+.rules { display: grid; grid-template-columns: 8.5cqw 1fr 1fr; border: .4cqw solid var(--navy); font-size: 1.06cqw; line-height: 1.26 }
+.rules > div { padding: .32cqw .8cqw .37cqw; border-top: .12cqw solid var(--line); border-left: .12cqw solid var(--line) }
+.rules > div:nth-child(-n+3) { border-top: 0 }
+.rules .rl { background: var(--navy); color: #fff; font-size: .78cqw; font-weight: 800; letter-spacing: .03em; text-transform: uppercase; display: flex; align-items: center; border-left: 0; border-top-color: #3d5a80 }
+.rules .rl.warn { background: var(--terracotta-ink) }
+.rules b { font-weight: 800 }
+.rules em { font-style: normal; font-weight: 800; padding: 0 .25cqw }
+.rules em.dat { background: var(--dat); color: #fff }
+.rules em.akk { background: var(--hi); color: var(--ink) }
+.rules em.gen { background: var(--gen); color: #fff }
+.rules .v, .rules .e, .key .v, .key .e { padding: 0 .3cqw; border-radius: .25cqw }
+.rules s { text-decoration-thickness: .14cqw; text-decoration-color: var(--terracotta-ink) }
+.rules small { font-size: .78cqw; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; color: var(--muted) }
+.key { display: flex; gap: .7cqw; align-items: center; font-size: 1cqw; font-weight: 500 }
+.key b { font-weight: 800 }
+.key .sp { margin-left: 1.2cqw }
+.hd { gap: 1.2cqw }
+.sheet h2.title { font-size: 2.9cqw }
+.path { font-size: .9cqw }
+.focus { display: grid; grid-template-columns: 1fr 31cqw; gap: 1.2cqw }
+.look { border: .4cqw solid var(--navy); border-radius: .9cqw; padding: .3cqw 1.3cqw .35cqw; display: flex; align-items: center; gap: 2cqw }
+.look .ph { display: flex; align-items: center; gap: .9cqw; white-space: nowrap }
+.look .ph > span { font-size: 2.5cqw; font-weight: 700; line-height: 1.25 }
+.look .slot { box-shadow: inset 0 0 0 .32cqw var(--navy); border-radius: .5cqw; padding: 0 .8cqw; background: var(--navy-soft) }
+.look .obj { background: var(--hi); padding: 0 .5cqw }
+.cap1 { display: flex; flex-direction: column; gap: .4cqw }
+.cap1 span { font-size: 1.04cqw; font-weight: 700; line-height: 1.22 }
+.cap1 strong { font-weight: 800; text-decoration: underline }
+.cap1 .c1 { color: var(--navy) }
+.cap1 .c2 { color: var(--terracotta-ink) }
+.cap1 b { display: inline-block; width: 1.5cqw; line-height: 1.5cqw; border-radius: 50%; color: #fff; text-align: center; font-size: .88cqw; margin-right: .4cqw }
+.cap1 .c1 b { background: var(--navy) } .cap1 .c2 b { background: var(--terracotta-ink) }
+.idea { background: var(--navy); color: #fff; border-radius: .9cqw; padding: .45cqw 1.1cqw .55cqw; display: flex; flex-direction: column; justify-content: center; gap: .2cqw; font-size: 1.02cqw; line-height: 1.28; font-weight: 500 }
+.idea h3 { margin: 0; font-family: var(--serif); font-size: 1.5cqw; font-weight: 700; line-height: 1.1 }
+.idea p { margin: 0 }
+.idea strong { color: var(--hi); font-weight: 800 }
+
+.metro { --pitch: 3.19cqw; --zgap: .55cqw; flex: 1; min-height: 0; display: flex; flex-direction: column; justify-content: center; gap: var(--zgap) }
+.zone { display: grid; grid-template-columns: 3.2cqw 1fr; column-gap: 1cqw }
+.zb { margin-bottom: 1cqw; border-radius: .6cqw; display: flex; align-items: center; justify-content: center; writing-mode: vertical-rl; transform: rotate(180deg); font-size: 1cqw; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; margin-bottom: .9cqw }
+.zone.akk .zb { background: var(--hi); color: var(--ink); box-shadow: inset 0 0 0 .12cqw var(--ink) }
+.zone.dat .zb { background: var(--dat); color: #fff }
+.zb.one { writing-mode: horizontal-tb; transform: none; font-size: .66cqw; letter-spacing: .05em; margin-bottom: 1cqw; border-radius: .35cqw }
+.zb { border-radius: .45cqw }
+.lines { display: flex; flex-direction: column }
+.ln { --c: var(--dat); position: relative; height: var(--pitch); display: grid; grid-template-columns: 1fr 8.4cqw 22cqw; column-gap: 1.4cqw; align-items: start }
+.ln.akk { --c: var(--hi) }
+.ln::before { content: ''; position: absolute; left: 0; right: 27.5cqw; top: .74cqw; height: .62cqw; background: var(--c) }
+.ln.akk::before { box-shadow: 0 0 0 .12cqw var(--ink) }
+/* terminus bar at the start of every line */
+.ln::after { content: ''; position: absolute; left: 0; top: .2cqw; width: .6cqw; height: 1.7cqw; border-radius: .2cqw; background: var(--c) }
+.ln.akk::after { box-shadow: 0 0 0 .12cqw var(--ink) }
+.st { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); padding: 0 1cqw 0 2cqw }
+.stn { position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: .04cqw; white-space: nowrap; min-height: 1px }
+.stn > b, .kst { display: inline-flex; align-items: center; height: 2.1cqw; box-sizing: border-box; background: #fff; box-shadow: inset 0 0 0 .16cqw var(--ink); border-radius: 1.05cqw; padding: 0 .95cqw; font-size: 1.1cqw; font-weight: 700; letter-spacing: .012em }
+.stn > i, .ex i { font-family: var(--serif); font-style: italic; font-size: .88cqw; color: var(--muted); padding-left: 1.1cqw; line-height: 1.05 }
+/* the interchange: one box that sits on two lines */
+.cap { position: absolute; left: 0; top: .12cqw; z-index: 2; height: calc(var(--pitch) + 2.05cqw); box-sizing: border-box; background: #fff; border: .2cqw solid var(--ink); outline: .16cqw solid var(--ink); outline-offset: .14cqw; border-radius: 1.2cqw; padding: .26cqw .7cqw .28cqw; display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start; white-space: nowrap }
+.cap.z { height: calc(var(--pitch) + var(--zgap) + 2.05cqw) }
+.cap b { font-size: 1.15cqw; font-weight: 800; letter-spacing: .005em }
+.cap i { font-family: var(--serif); font-style: italic; font-size: .86cqw; color: var(--ink); display: flex; align-items: center; gap: .45cqw; line-height: 1.1 }
+.sheet u.akk, .sheet u.dat { text-decoration: none; font-family: var(--sans); font-style: normal; font-size: .8cqw; font-weight: 800; border-radius: .3cqw; padding: .04cqw .4cqw .08cqw }
+.sheet u.akk { background: var(--hi); color: var(--ink); box-shadow: inset 0 0 0 .1cqw var(--ink) }
+.sheet u.dat { background: var(--dat); color: #fff }
+.bg { position: relative; background: var(--c); color: #fff; border-radius: .5cqw; height: 2.2cqw; margin-top: -.05cqw; padding: 0 .5cqw; display: flex; align-items: center; justify-content: center; white-space: nowrap }
+.ln.akk .bg { color: var(--ink); box-shadow: inset 0 0 0 .12cqw var(--ink) }
+.bg b { font-family: var(--serif); font-size: 1.9cqw; font-weight: 700; line-height: 2.05cqw }
+.ex { display: flex; flex-direction: column; gap: .04cqw; white-space: nowrap; padding-left: .4cqw }
+.ex b { height: 2.1cqw; display: flex; align-items: center; gap: .35cqw; font-size: 1.08cqw; font-weight: 600 }
+.ex i { padding-left: 0 }
+.sheet em.akk, .sheet em.dat { font-style: normal; font-weight: 800; padding: 0 .25cqw }
+.sheet em.akk { background: var(--hi); color: var(--ink) }
+.sheet em.dat { background: var(--dat); color: #fff }
+.rules { font-size: 1.06cqw; grid-template-columns: 9.4cqw 1fr 1fr }
+.rules > div { padding: .3cqw .9cqw .34cqw; line-height: 1.36 }
+.rules .rl { font-size: .84cqw; padding-left: 1cqw }
+.rules .u { display: inline-flex; align-items: center; gap: .35cqw; margin-right: 1.3cqw; white-space: nowrap; font-weight: 600 }
+.rules .u i { font-style: normal; font-weight: 800; font-size: .8cqw }
+.rules .lead { display: inline-block; font-size: .72cqw; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; line-height: 1.5; color: var(--navy); background: var(--navy-soft); border-radius: .3cqw; padding: 0 .5cqw; margin-right: .8cqw; vertical-align: .08cqw }
+.rules .lead.akk { background: var(--hi); color: var(--ink) }
+.rules .lead.dat { background: var(--dat); color: #fff }
+.rules .aside { font-family: var(--serif); font-style: italic; color: var(--muted); font-size: .98cqw; margin-left: .7cqw }
+.rules .no, .rules .ok { font-weight: 800; margin-right: .35cqw }
+.rules .no { color: var(--terracotta-ink) }
+.rules .ok { color: #1c6a3c; margin-left: .7cqw }
+.kst { height: 1.8cqw; font-size: .95cqw; padding: 0 .9cqw }
+.kst.kx { border-radius: .7cqw; box-shadow: inset 0 0 0 .2cqw var(--ink); outline: .14cqw solid var(--ink); outline-offset: .12cqw; font-weight: 800 }
+.kln { display: inline-block; width: 3.2cqw; height: .62cqw; border-radius: .2cqw }
+.kln.akk { background: var(--hi); box-shadow: 0 0 0 .12cqw var(--ink) }
+.kln.dat { background: var(--dat) }
+.key .sp { margin-left: 1.1cqw }
+</style>
+
+<div class="wrap">
+	<header class="intro">
+		<h1>Chart 7, a metro map</h1>
+		<p>Verbs with a fixed preposition, drawn like a metro map. A line is a preposition, a stop is a verb, the colour is the case. Where one verb takes two prepositions, two lines share one interchange.</p>
+	</header>
+
+	<div class="scroll">
+	<div class="sheet"><div class="page">
+		<div class="hd">
+			<div class="t">
+				<div class="brand"><svg viewBox="0 0 68 68" aria-hidden="true"><rect width="68" height="68" rx="15" fill="#1f3a5f"/><g transform="translate(2 2)"><circle cx="32" cy="32" r="23.5" fill="none" stroke="#fbf8f3" stroke-width="9"/><path d="M37.5 37.5L54 54" stroke="#c9683b" stroke-width="8"/></g></svg>Language Quiz<span>languagequiz.org</span></div>
+				<h2 class="title"><small>Chart 7</small>Verb + preposition</h2>
+			</div>
+			<div class="path">
+				<span><b>1</b>Find the verb's stop</span>
+				<span><b>2</b>Ride the line to its preposition</span>
+				<span><b>3</b>The colour is the case</span>
+			</div>
+			<div class="qr"><svg data-qr="29"></svg>Open in the app</div>
+		</div>
+
+		<div class="focus">
+			<div class="look">
+				<div class="ph"><span>warten</span><span class="slot">auf</span><span class="obj">den Bus</span></div>
+				<div class="cap1"><span class="c1"><b>1</b>Look here first: the verb picks its preposition. English does not help: wait <strong>for</strong> = warten <strong>auf</strong>.</span><span class="c2"><b>2</b>Read the map like a metro: a line is a preposition, a stop is a verb, the colour is the case.</span></div>
+			</div>
+			<div class="idea"><h3>The one idea</h3>
+				<p>Learn the verb and its preposition as <strong>one word</strong>: warten auf, never just warten. The colour of the line gives you the <strong>case</strong> for free.</p></div>
+		</div>
+
+		<div class="metro">
+			<div class="zone dat"><div class="zb one">Dativ</div><div class="lines"><div class="ln dat"><div class="st"><span class="stn"><b>helfen</b><i>help with</i></span><span class="stn"><span class="cap z"><i><u class="dat">bei</u>thank somebody</i><b>sich bedanken</b><i><u class="akk">für</u>thank for something</i></span></span><span class="stn"><span class="cap z"><i><u class="dat">bei</u>apologise to</i><b>sich entschuldigen</b><i><u class="akk">für</u>apologise for</i></span></span><span class="stn"><b>arbeiten</b><i>work at</i></span></div><div class="bg"><b>bei</b></div><div class="ex"><b>Ich bedanke mich <em class="dat">bei dir</em>.</b><i>I thank you.</i></div></div></div></div>
+			<div class="zone akk"><div class="zb">Akkusativ lines</div><div class="lines"><div class="ln akk"><div class="st"><span class="stn"><b>sich interessieren</b><i>be interested in</i></span><span class="stn"></span><span class="stn"></span><span class="stn"><b>sorgen</b><i>take care of</i></span></div><div class="bg"><b>für</b></div><div class="ex"><b>Danke <em class="akk">für die</em> Hilfe.</b><i>Thanks for the help.</i></div></div>
+			<div class="ln akk"><div class="st"><span class="stn"><b>denken</b><i>think of</i></span><span class="stn"><b>sich erinnern</b><i>remember</i></span><span class="stn"><b>glauben</b><i>believe in</i></span><span class="stn"><b>sich gewöhnen</b><i>get used to</i></span></div><div class="bg"><b>an</b></div><div class="ex"><b>Ich denke <em class="akk">an dich</em>.</b><i>I am thinking of you.</i></div></div>
+			<div class="ln akk"><div class="st"><span class="stn"><b>bitten</b><i>ask for</i></span><span class="stn"><b>sich kümmern</b><i>look after</i></span><span class="stn"><b>sich bewerben</b><i>apply for</i></span><span class="stn"><b>es geht</b><i>it is about</i></span></div><div class="bg"><b>um</b></div><div class="ex"><b>Ich bitte <em class="akk">um einen</em> Termin.</b><i>I am asking for an appointment.</i></div></div>
+			<div class="ln akk"><div class="st"><span class="stn"><b>warten</b><i>wait for</i></span><span class="stn"><span class="cap"><i><u class="akk">auf</u>look forward to</i><b>sich freuen</b><i><u class="akk">über</u>be happy about</i></span></span><span class="stn"><b>achten</b><i>pay attention to</i></span><span class="stn"><b>antworten</b><i>reply to</i></span></div><div class="bg"><b>auf</b></div><div class="ex"><b>Ich warte <em class="akk">auf den</em> Bus.</b><i>I am waiting for the bus.</i></div></div>
+			<div class="ln akk"><div class="st"><span class="stn"><b>sich ärgern</b><i>be annoyed about</i></span><span class="stn"></span><span class="stn"><b>nachdenken</b><i>think over</i></span><span class="stn"><span class="cap z"><i><u class="akk">über</u>talk about</i><b>sprechen</b><i><u class="dat">mit</u>talk to</i></span></span></div><div class="bg"><b>über</b></div><div class="ex"><b>Wir sprechen <em class="akk">über den</em> Film.</b><i>We are talking about the film.</i></div></div></div></div>
+			<div class="zone dat"><div class="zb">Dativ lines</div><div class="lines"><div class="ln dat"><div class="st"><span class="stn"><b>anfangen</b><i>start</i></span><span class="stn"><b>aufhören</b><i>stop</i></span><span class="stn"><b>sich treffen</b><i>meet</i></span><span class="stn"></span></div><div class="bg"><b>mit</b></div><div class="ex"><b>Ich spreche <em class="dat">mit dem</em> Chef.</b><i>I am talking to the boss.</i></div></div>
+			<div class="ln dat"><div class="st"><span class="stn"><b>träumen</b><i>dream of</i></span><span class="stn"><b>erzählen</b><i>tell about</i></span><span class="stn"><b>abhängen</b><i>depend on</i></span><span class="stn"><b>sich verabschieden</b><i>say goodbye to</i></span></div><div class="bg"><b>von</b></div><div class="ex"><b>Ich träume <em class="dat">von einem</em> Haus.</b><i>I dream of a house.</i></div></div>
+			<div class="ln dat"><div class="st"><span class="stn"><b>fragen</b><i>ask about</i></span><span class="stn"><b>suchen</b><i>look for</i></span><span class="stn"><b>riechen</b><i>smell of</i></span><span class="stn"><b>schmecken</b><i>taste of</i></span></div><div class="bg"><b>nach</b></div><div class="ex"><b>Er fragt <em class="dat">nach dem</em> Weg.</b><i>He asks for the way.</i></div></div>
+			<div class="ln dat"><div class="st"><span class="stn"><b>gehören</b><i>belong to</i></span><span class="stn"><b>einladen</b><i>invite to</i></span><span class="stn"><b>gratulieren</b><i>congratulate on</i></span><span class="stn"><b>passen</b><i>go with</i></span></div><div class="bg"><b>zu</b></div><div class="ex"><b>Ich gratuliere dir <em class="dat">zum</em> Geburtstag.</b><i>Happy birthday to you.</i></div></div>
+			<div class="ln dat"><div class="st"><span class="stn"><b>Angst haben</b><i>be afraid of</i></span><span class="stn"><b>warnen</b><i>warn about</i></span><span class="stn"><b>schützen</b><i>protect from</i></span><span class="stn"><b>sich fürchten</b><i>fear</i></span></div><div class="bg"><b>vor</b></div><div class="ex"><b>Ich habe Angst <em class="dat">vor dem</em> Hund.</b><i>I am afraid of the dog.</i></div></div></div></div>
+		</div>
+
+		<div class="rules">
+			<div class="rl">more stops</div>
+			<div><b class="lead akk">Akkusativ</b><span class="u">sich entscheiden <em class="akk">für</em></span><span class="u">hoffen <em class="akk">auf</em></span><span class="u">lachen <em class="akk">über</em></span><span class="u">schreiben <em class="akk">an</em></span><span class="u">sich verlieben <em class="akk">in</em></span></div>
+			<div><b class="lead dat">Dativ</b><span class="u">rechnen <em class="dat">mit</em></span><span class="u">halten <em class="dat">von</em></span><span class="u">führen <em class="dat">zu</em></span><span class="u">fliehen <em class="dat">vor</em></span><span class="u">teilnehmen <em class="dat">an</em></span><span class="u">bestehen <em class="dat">aus</em></span></div>
+			<div class="rl">change here</div>
+			<div><b class="lead">Both in one sentence</b>Ich spreche <em class="dat">mit dem</em> Chef <em class="akk">über den</em> Plan.</div>
+			<div><b class="lead">More interchanges</b><span class="u">diskutieren <em class="dat">mit</em><i>+</i><em class="akk">über</em></span><span class="u">sich beschweren <em class="dat">bei</em><i>+</i><em class="akk">über</em></span><span class="u">sich bewerben <em class="dat">bei</em><i>+</i><em class="akk">um</em></span></div>
+			<div class="rl">da- and wo-</div>
+			<div><b class="lead">A thing</b>Ich warte <b>darauf</b>. <b>Worauf</b> wartest du? <span class="aside">also darüber · daran</span></div>
+			<div><b class="lead">A person</b>Ich warte <em class="akk">auf ihn</em>. <em class="akk">Auf wen</em> wartest du?</div>
+			<div class="rl warn">watch out</div>
+			<div><span class="no">✗</span><s>Ich warte für den Bus.</s> <span class="ok">✓</span>Ich warte <em class="akk">auf den</em> Bus.</div>
+			<div><span class="no">✗</span><s>Ich interessiere mich in Musik.</s> <span class="ok">✓</span>… <em class="akk">für</em> Musik.</div>
+		</div>
+		<div class="key"><b>Map key:</b> <span class="kst">warten</span> a stop: one verb <span class="kst kx sp">sprechen</span> an interchange: one verb on two lines <span class="kln akk sp"></span> an Akkusativ line <span class="kln dat sp"></span> a Dativ line</div>
+	</div></div>
+	</div>
+
+	<p class="note">The QR code is a placeholder.</p>
+</div>
+
+<script>
+// Placeholder QR: finder patterns plus a seeded pattern.
+document.querySelectorAll('svg[data-qr]').forEach(function (svg) {
+	var n = 21, seed = Number(svg.dataset.qr) || 1, out = '';
+	function rnd() { seed = (seed * 1103515245 + 12345) & 0x7fffffff; return seed / 0x7fffffff; }
+	function finder(x, y) { return x >= 0 && x < 7 && y >= 0 && y < 7; }
+	function inFinder(x, y) { return finder(x, y) || finder(x - (n - 7), y) || finder(x, y - (n - 7)); }
+	function finderOn(x, y) {
+		var fx = x >= n - 7 ? x - (n - 7) : x, fy = y >= n - 7 ? y - (n - 7) : y;
+		var edge = fx === 0 || fx === 6 || fy === 0 || fy === 6;
+		var core = fx >= 2 && fx <= 4 && fy >= 2 && fy <= 4;
+		return edge || core;
+	}
+	for (var y = 0; y < n; y++) for (var x = 0; x < n; x++) {
+		var on = inFinder(x, y) ? finderOn(x, y) : rnd() > 0.52;
+		if (on) out += '<rect x="' + x + '" y="' + y + '" width="1.02" height="1.02"/>';
+	}
+	svg.setAttribute('viewBox', '0 0 ' + n + ' ' + n);
+	svg.setAttribute('fill', '#1f3a5f');
+	svg.setAttribute('role', 'img');
+	svg.setAttribute('aria-label', 'QR code placeholder');
+	svg.innerHTML = out;
+});
+</script>

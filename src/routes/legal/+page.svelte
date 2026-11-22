@@ -153,6 +153,23 @@
 			If you write to us by email, we keep the message as long as needed to answer it and to
 			fix what it reports, and then delete it. Legal basis: Art.&nbsp;6(1)(f) GDPR.
 		</p>
+
+		<h3 id="feedback">8. Ratings and feedback</h3>
+		<p>
+			In some places the site asks what you think: a star rating for the site, for a book or for a
+			grammar chart, with a box for a comment, and, when you download a book, who it is for.
+			Answering is voluntary and needs no account. What is stored when you answer: the stars, the
+			text you write, the page you were on, the book or chart it is about, the site language and
+			the time. No name, email address or user ID is stored with it, so we cannot tell who gave an
+			answer; please do not write personal details into the box. If you offer a sentence about a
+			book for publication and tick the box that allows it, that sentence, with the first name you
+			give, may be shown on the books page until you ask us to take it down. The answers are kept
+			in Cloud Firestore (Google Ireland Limited, see section 4) and are read only by the operator
+			of this site. Legal basis: Art.&nbsp;6(1)(f) GDPR, our legitimate interest in finding
+			mistakes and improving the material; for a published sentence, your consent, Art.&nbsp;6(1)(a)
+			GDPR, which you can withdraw at any time. To have an answer deleted, write to the address in
+			the imprint and say what you wrote and roughly when, so that we can find it.
+		</p>
 	</section>
 
 	<section id="forum">

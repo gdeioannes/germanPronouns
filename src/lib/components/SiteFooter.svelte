@@ -60,6 +60,7 @@
 			<a href="/books">{t('The books')}</a>
 			{#if !lang.limited}
 				<a href="/literature">Literature</a>
+				<a href="/charts">Grammar charts</a>
 				<a href="/stories">Stories</a>
 			{/if}
 		</div>

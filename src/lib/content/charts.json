@@ -1,0 +1,926 @@
+{
+	"edition": "Test edition · November 2026",
+	"downloadUntil": "2026-11-24T23:59:00+01:00",
+	"pdf": "/books/charts/german-grammar-charts.pdf",
+	"pages": 38,
+	"megabytes": 17.3,
+	"cover": "/img/charts/cover.webp",
+	"charts": [
+		{
+			"n": 1,
+			"title": "der, die or das?",
+			"topic": "Noun gender, read from the end of the word",
+			"kind": "Columns",
+			"level": "A1 → B1",
+			"slug": "gender",
+			"quizzes": [
+				{
+					"quiz": "quest_a1_1_artikel",
+					"for": "der, die or das?",
+					"note": "Sort everyday nouns by their article."
+				},
+				{
+					"quiz": "quest_a1_1_wortbildung",
+					"for": "The last part decides",
+					"note": "Make women’s job names with -in, and build compound nouns."
+				},
+				{
+					"quiz": "quest_b2_1_nachsilben_genus",
+					"for": "The endings, all three columns",
+					"note": "Give the article from the ending: -ung, -heit, -chen, -ismus …"
+				}
+			],
+			"img": "/img/charts/01.webp"
+		},
+		{
+			"n": 2,
+			"title": "der, die or das? By meaning",
+			"topic": "Days, months, metals, colours: families that share one article",
+			"kind": "Families",
+			"level": "A1 → A2",
+			"slug": "gender-meaning",
+			"quizzes": [
+				{
+					"quiz": "quest_a1_1_artikel",
+					"for": "Always der, die or das",
+					"note": "Sort everyday nouns by their article."
+				},
+				{
+					"quiz": "quest_a1_2_datum",
+					"for": "Days and months: der",
+					"note": "Days of the week and months in sentences."
+				},
+				{
+					"quiz": "quest_a1_1_laender",
+					"for": "Countries: mostly no article",
+					"note": "Countries, languages and nationalities, with die Schweiz and die Türkei."
+				}
+			],
+			"img": "/img/charts/02.webp"
+		},
+		{
+			"n": 3,
+			"title": "One Tisch, two …?",
+			"topic": "Five ways to make a plural, and which nouns take each",
+			"kind": "Columns",
+			"level": "A1 → A2",
+			"slug": "plural",
+			"quizzes": [
+				{
+					"quiz": "quest_a1_1_plural",
+					"for": "The five plural endings",
+					"note": "Sort nouns by how they make their plural."
+				},
+				{
+					"quiz": "quest_a2_1_dativ_artikel",
+					"for": "Dativ plural adds -n",
+					"note": "den Kindern, mit den Freunden: articles and endings in the Dativ."
+				}
+			],
+			"img": "/img/charts/03.webp"
+		},
+		{
+			"n": 4,
+			"title": "der, ein or nothing?",
+			"topic": "Known, new or no article, in 24 situations",
+			"kind": "Columns",
+			"level": "A1 → A2",
+			"slug": "articles",
+			"quizzes": [
+				{
+					"quiz": "quest_a1_1_artikel",
+					"for": "der, die, das: known",
+					"note": "The definite article for everyday nouns."
+				},
+				{
+					"quiz": "quest_a1_2_akkusativ",
+					"for": "After haben, brauchen",
+					"note": "einen, eine, ein after verbs like haben and brauchen."
+				},
+				{
+					"quiz": "quest_a1_2_negation",
+					"for": "kein: the no-article",
+					"note": "Say no to a noun with kein."
+				}
+			],
+			"img": "/img/charts/04.webp"
+		},
+		{
+			"n": 5,
+			"title": "ich mache, du machst",
+			"topic": "The present tense: six endings, sein, haben, werden, and vowel changes",
+			"kind": "Table",
+			"level": "A1",
+			"slug": "present",
+			"quizzes": [
+				{
+					"quiz": "quest_a1_1_praesens",
+					"for": "The six endings",
+					"note": "Regular verbs in the present tense."
+				},
+				{
+					"quiz": "quest_a1_1_sein_haben",
+					"for": "sein and haben",
+					"note": "The two verbs you need first."
+				},
+				{
+					"quiz": "quest_a1_1_vokalwechsel",
+					"for": "Vowel changes",
+					"note": "du fährst, er liest, sie nimmt."
+				}
+			],
+			"img": "/img/charts/05.webp"
+		},
+		{
+			"n": 6,
+			"title": "Where does the verb go?",
+			"topic": "Verb second, verb first, verb last",
+			"kind": "Decision path",
+			"level": "A1 → A2",
+			"slug": "verb-position",
+			"quizzes": [
+				{
+					"quiz": "quest_a1_2_satzbau",
+					"for": "Verb second",
+					"note": "Put the verb in position 2, also after a time word."
+				},
+				{
+					"quiz": "quest_a1_2_trennbare",
+					"for": "The prefix at the end",
+					"note": "Split verbs: Ich rufe dich an."
+				},
+				{
+					"quiz": "quest_a2_2_weil",
+					"for": "Verb last",
+					"note": "Side clauses with weil send the verb to the end."
+				}
+			],
+			"img": "/img/charts/06.webp"
+		},
+		{
+			"n": 7,
+			"title": "Komm! Kommt! Kommen Sie!",
+			"topic": "The imperative: du, ihr and Sie, built from the present",
+			"kind": "Table",
+			"level": "A1 → A2",
+			"slug": "imperative",
+			"quizzes": [
+				{
+					"quiz": "quest_a1_2_imperativ",
+					"for": "du, ihr, Sie",
+					"note": "Make the three imperatives."
+				},
+				{
+					"quiz": "quest_a1_2_hoeflich",
+					"for": "bitte: being polite",
+					"note": "Ask and order politely."
+				},
+				{
+					"quiz": "quest_a2_2_imperativ",
+					"for": "Every day",
+					"note": "More imperatives, with split verbs and sich."
+				}
+			],
+			"img": "/img/charts/07.webp"
+		},
+		{
+			"n": 8,
+			"title": "wer, wo, wann, warum?",
+			"topic": "All the question words, by what you want to know",
+			"kind": "Boxes",
+			"level": "A1 → A2",
+			"slug": "question-words",
+			"quizzes": [
+				{
+					"quiz": "quest_a1_1_wfragen",
+					"for": "The six boxes",
+					"note": "Pick the right question word."
+				},
+				{
+					"quiz": "quest_a2_2_indirekte_fragen",
+					"for": "The next step",
+					"note": "Not on the chart: the question inside a sentence. Können Sie mir sagen, wo …?"
+				}
+			],
+			"img": "/img/charts/08.webp"
+		},
+		{
+			"n": 9,
+			"title": "kein or nicht?",
+			"topic": "Saying no, and where nicht stands",
+			"kind": "Cards + track",
+			"level": "A1 → A2",
+			"slug": "kein-nicht",
+			"quizzes": [
+				{
+					"quiz": "quest_a1_2_negation",
+					"for": "kein or nicht?",
+					"note": "Say no with kein or nicht, and put nicht in its place."
+				}
+			],
+			"img": "/img/charts/09.webp"
+		},
+		{
+			"n": 10,
+			"title": "mein, dein, sein, ihr",
+			"topic": "The owner picks the word, the thing picks the ending",
+			"kind": "Two steps",
+			"level": "A1 → A2",
+			"slug": "possessives",
+			"quizzes": [
+				{
+					"quiz": "quest_a1_2_possessiv",
+					"for": "Owner picks the word",
+					"note": "mein, dein, sein, ihr: who owns it?"
+				},
+				{
+					"quiz": "quest_a1_2_possessiv_plural",
+					"for": "unser, euer, Ihr",
+					"note": "The owners in the plural."
+				},
+				{
+					"quiz": "quest_a2_1_welcher_dieser",
+					"for": "The ending follows the thing",
+					"note": "mein in the Dativ: mit meinem Bruder."
+				}
+			],
+			"img": "/img/charts/10.webp"
+		},
+		{
+			"n": 11,
+			"title": "Must, may, can or want?",
+			"topic": "The six modal verbs in six pictures",
+			"kind": "Pictures",
+			"level": "A1 → A2",
+			"slug": "modal-verbs",
+			"quizzes": [
+				{
+					"quiz": "quest_a1_2_modalverben",
+					"for": "The six pictures",
+					"note": "müssen, dürfen, können, wollen, sollen, möchten in sentences."
+				},
+				{
+					"quiz": "quest_a2_1_modal_praeteritum",
+					"for": "The past",
+					"note": "musste, konnte, durfte: sort the forms."
+				},
+				{
+					"quiz": "quest_a2_2_koennte_sollte",
+					"for": "Polite: könnte, sollte",
+					"note": "Suggestions and advice."
+				}
+			],
+			"img": "/img/charts/11.webp"
+		},
+		{
+			"n": 12,
+			"title": "The four cases",
+			"topic": "der, den, dem, des: every article, pronoun and ending in one table",
+			"kind": "Table",
+			"level": "A1 → B1",
+			"slug": "cases",
+			"quizzes": [
+				{
+					"quiz": "quest_a1_2_akkusativ",
+					"for": "Akkusativ",
+					"note": "den, einen: the direct object."
+				},
+				{
+					"quiz": "quest_a2_1_dativ_artikel",
+					"for": "Dativ",
+					"note": "dem, der, den: articles in the Dativ."
+				},
+				{
+					"quiz": "quest_a2_1_dativ_akkusativ",
+					"for": "Both in one sentence",
+					"note": "Wem? Was? Verbs with a Dativ and an Akkusativ."
+				},
+				{
+					"quiz": "quest_b1_1_genitiv",
+					"for": "Genitiv",
+					"note": "des Mannes, der Frau: whose?"
+				}
+			],
+			"img": "/img/charts/12.webp"
+		},
+		{
+			"n": 13,
+			"title": "ich, mich or mir?",
+			"topic": "Personal pronouns in three cases",
+			"kind": "Table + uses",
+			"level": "A1 → A2",
+			"slug": "pronouns",
+			"quizzes": [
+				{
+					"quiz": "quest_a1_1_pronomen",
+					"for": "ich, du, er …",
+					"note": "The subject pronouns."
+				},
+				{
+					"quiz": "quest_a1_2_pronomen_akk",
+					"for": "mich, dich, ihn …",
+					"note": "Pronouns in the Akkusativ."
+				},
+				{
+					"quiz": "quest_a1_2_dativ_pronomen_intro",
+					"for": "mir, dir, Ihnen",
+					"note": "Everyday Dativ: Wie geht es Ihnen?"
+				},
+				{
+					"quiz": "quest_a2_1_pronomen_dativ",
+					"for": "mir, dir, ihm …",
+					"note": "All the Dativ pronouns."
+				}
+			],
+			"img": "/img/charts/13.webp"
+		},
+		{
+			"n": 14,
+			"title": "um, am or im?",
+			"topic": "Time prepositions, from the clock to the year",
+			"kind": "Rings",
+			"level": "A1 → A2",
+			"slug": "time-prepositions",
+			"quizzes": [
+				{
+					"quiz": "quest_a1_2_uhrzeit",
+					"for": "um: the clock",
+					"note": "Tell the time."
+				},
+				{
+					"quiz": "quest_a1_2_wann_praepositionen",
+					"for": "um, am, im",
+					"note": "Wann? Times, days, months."
+				},
+				{
+					"quiz": "quest_a2_1_temporal_2",
+					"for": "seit, vor, nach, in, für",
+					"note": "How long ago, since when, how long."
+				}
+			],
+			"img": "/img/charts/14.webp"
+		},
+		{
+			"n": 15,
+			"title": "One verb, many prefixes",
+			"topic": "Which prefixes split off and what they mean",
+			"kind": "Hub",
+			"level": "A1 → B1",
+			"slug": "prefixes",
+			"quizzes": [
+				{
+					"quiz": "quest_a1_2_trennbare",
+					"for": "Prefixes that split off",
+					"note": "anrufen, aufstehen, mitkommen in sentences."
+				},
+				{
+					"quiz": "quest_c1_2_praefixe",
+					"for": "Both ways (hard)",
+					"note": "A C1 quiz: prefixes that can do both, übersetzen, umfahren."
+				}
+			],
+			"img": "/img/charts/15.webp"
+		},
+		{
+			"n": 16,
+			"title": "When does it happen?",
+			"topic": "The tenses on one time line",
+			"kind": "Timeline",
+			"level": "A1 → B1",
+			"slug": "tenses",
+			"quizzes": [
+				{
+					"quiz": "quest_a1_2_perfekt_intro",
+					"for": "Perfekt",
+					"note": "First steps: what you did."
+				},
+				{
+					"quiz": "quest_a2_2_praeteritum_intro",
+					"for": "Präteritum",
+					"note": "The written past: first steps."
+				},
+				{
+					"quiz": "quest_b1_1_futur",
+					"for": "Futur",
+					"note": "werden + infinitive."
+				},
+				{
+					"quiz": "quest_b1_2_plusquamperfekt",
+					"for": "Plusquamperfekt",
+					"note": "hatte / war + participle: the past before the past."
+				}
+			],
+			"img": "/img/charts/16.webp"
+		},
+		{
+			"n": 17,
+			"title": "habe gemacht, bin gegangen",
+			"topic": "The Perfekt: haben or sein, and four ways to build the participle",
+			"kind": "Two questions",
+			"level": "A1 → A2",
+			"slug": "perfekt",
+			"quizzes": [
+				{
+					"quiz": "quest_a1_2_perfekt_intro",
+					"for": "The participle",
+					"note": "First steps with the Perfekt."
+				},
+				{
+					"quiz": "quest_a2_1_perfekt_haben",
+					"for": "haben",
+					"note": "Perfekt with haben."
+				},
+				{
+					"quiz": "quest_a2_1_perfekt_sein",
+					"for": "sein",
+					"note": "Perfekt with sein: verbs of moving and changing."
+				}
+			],
+			"img": "/img/charts/17.webp"
+		},
+		{
+			"n": 18,
+			"title": "Wo? or Wohin?",
+			"topic": "The nine prepositions that take two cases",
+			"kind": "Pictures",
+			"level": "A2",
+			"slug": "wo-wohin",
+			"quizzes": [
+				{
+					"quiz": "quest_a1_1_wo_praepositionen",
+					"for": "Wo?",
+					"note": "Say where things are."
+				},
+				{
+					"quiz": "quest_a2_2_wechsel_wo",
+					"for": "Wo? + Dativ",
+					"note": "The nine prepositions with the Dativ."
+				},
+				{
+					"quiz": "quest_a2_2_wechsel_wohin",
+					"for": "Wohin? + Akkusativ",
+					"note": "The nine prepositions with the Akkusativ."
+				}
+			],
+			"img": "/img/charts/18.webp"
+		},
+		{
+			"n": 19,
+			"title": "für den, mit dem",
+			"topic": "Prepositions that always take Akkusativ or always Dativ",
+			"kind": "Groups",
+			"level": "A2",
+			"slug": "fixed-prepositions",
+			"quizzes": [
+				{
+					"quiz": "quest_a1_2_praepositionen",
+					"for": "Always Akkusativ",
+					"note": "durch, für, gegen, ohne, um."
+				},
+				{
+					"quiz": "quest_a2_1_dativ_praep",
+					"for": "Always Dativ",
+					"note": "aus, bei, mit, nach, seit, von, zu."
+				}
+			],
+			"img": "/img/charts/19.webp"
+		},
+		{
+			"n": 20,
+			"title": "nach, in or zu?",
+			"topic": "Where you go, where you are, where you come from",
+			"kind": "Columns",
+			"level": "A1 → A2",
+			"slug": "nach-in-zu",
+			"quizzes": [
+				{
+					"quiz": "quest_a1_2_wohin",
+					"for": "nach, zu, in",
+					"note": "Where are you going?"
+				},
+				{
+					"quiz": "quest_a2_1_woher_wo_wohin",
+					"for": "Wohin, Wo, Woher",
+					"note": "All three questions, one system."
+				}
+			],
+			"img": "/img/charts/20.webp"
+		},
+		{
+			"n": 21,
+			"title": "helfen, danken, gefallen",
+			"topic": "Verbs with a Dativ, and the order of two objects",
+			"kind": "Lists + slots",
+			"level": "A2",
+			"slug": "dativ-verbs",
+			"quizzes": [
+				{
+					"quiz": "quest_a1_2_dativ_pronomen_intro",
+					"for": "gefallen, gehören, schmecken",
+					"note": "Mir gefällt …: the Dativ verbs you meet first."
+				},
+				{
+					"quiz": "quest_a2_1_dativ_akkusativ",
+					"for": "Two objects",
+					"note": "Wem? Was? Giving verbs and the order of two objects."
+				}
+			],
+			"img": "/img/charts/21.webp"
+		},
+		{
+			"n": 22,
+			"title": "ich freue mich",
+			"topic": "Reflexive verbs: mich or mir, and verbs that come with sich",
+			"kind": "Table + pairs",
+			"level": "A2",
+			"slug": "reflexive",
+			"quizzes": [
+				{
+					"quiz": "quest_a2_2_reflexiv",
+					"for": "mich or mir?",
+					"note": "Reflexive verbs in everyday sentences."
+				}
+			],
+			"img": "/img/charts/22.webp"
+		},
+		{
+			"n": 23,
+			"title": "denn, deshalb, weil",
+			"topic": "Three kinds of linking word, three places for the verb",
+			"kind": "Tracks",
+			"level": "A2 → B1",
+			"slug": "linking-words",
+			"quizzes": [
+				{
+					"quiz": "quest_a2_2_wenn_deshalb",
+					"for": "deshalb: verb after it",
+					"note": "wenn and deshalb."
+				},
+				{
+					"quiz": "quest_a2_2_weil",
+					"for": "weil: verb last",
+					"note": "Side clauses with weil."
+				},
+				{
+					"quiz": "quest_a2_2_dass",
+					"for": "dass: verb last",
+					"note": "Side clauses with dass."
+				},
+				{
+					"quiz": "quest_b1_1_konjunktionen",
+					"for": "More side clauses",
+					"note": "wenn, als, obwohl."
+				}
+			],
+			"img": "/img/charts/23.webp"
+		},
+		{
+			"n": 24,
+			"title": "singen, sang, gesungen",
+			"topic": "Irregular verbs in sound families",
+			"kind": "Families",
+			"level": "A2 → B1",
+			"slug": "irregular-verbs",
+			"quizzes": [
+				{
+					"quiz": "quest_a2_1_perfekt_sein",
+					"for": "The participles",
+					"note": "gegangen, gekommen, geblieben: Perfekt with sein."
+				},
+				{
+					"quiz": "quest_b1_2_praet_unreg",
+					"for": "The Präteritum",
+					"note": "sang, ging, kam: irregular past forms."
+				},
+				{
+					"quiz": "quest_b1_2_praet_misch",
+					"for": "Mixed verbs",
+					"note": "brachte, dachte, kannte."
+				}
+			],
+			"img": "/img/charts/24.webp"
+		},
+		{
+			"n": 25,
+			"title": "gut, besser, am besten",
+			"topic": "-er, am -sten, umlauts, irregulars, comparing in sentences",
+			"kind": "Steps",
+			"level": "A2",
+			"slug": "comparison",
+			"quizzes": [
+				{
+					"quiz": "quest_a2_1_komparativ",
+					"for": "besser: -er",
+					"note": "Compare two things."
+				},
+				{
+					"quiz": "quest_a2_2_superlativ",
+					"for": "am besten",
+					"note": "The superlative."
+				},
+				{
+					"quiz": "quest_b1_1_adj_komparativ",
+					"for": "Before a noun",
+					"note": "das bessere Hotel, der schnellste Weg."
+				}
+			],
+			"img": "/img/charts/25.webp"
+		},
+		{
+			"n": 26,
+			"title": "der Junge, den Jungen",
+			"topic": "Nouns that add -n, and which ones they are",
+			"kind": "Table + groups",
+			"level": "A2 → B1",
+			"slug": "n-nouns",
+			"quizzes": [
+				{
+					"quiz": "quest_b1_2_n_deklination",
+					"for": "den Jungen, dem Jungen",
+					"note": "Nouns that add -n."
+				}
+			],
+			"img": "/img/charts/26.webp"
+		},
+		{
+			"n": 27,
+			"title": "Which adjective ending?",
+			"topic": "Three questions instead of three tables",
+			"kind": "Decision path",
+			"level": "A2 → B1",
+			"slug": "adjective-endings",
+			"quizzes": [
+				{
+					"quiz": "quest_a2_2_adjektiv_intro",
+					"for": "First meeting",
+					"note": "Sort the endings."
+				},
+				{
+					"quiz": "quest_b1_1_adj_bestimmt",
+					"for": "After der, die, das",
+					"note": "Adjective endings after the definite article."
+				},
+				{
+					"quiz": "quest_b1_1_adj_unbestimmt",
+					"for": "After ein, kein, mein",
+					"note": "Adjective endings after ein-words."
+				},
+				{
+					"quiz": "quest_b1_1_adj_nullartikel",
+					"for": "No article",
+					"note": "Adjective endings with no article."
+				}
+			],
+			"img": "/img/charts/27.webp"
+		},
+		{
+			"n": 28,
+			"title": "Verb + preposition",
+			"topic": "warten auf, denken an, träumen von: forty verbs on eleven lines",
+			"kind": "Map",
+			"level": "A2 → B2",
+			"slug": "verb-preposition",
+			"quizzes": [
+				{
+					"quiz": "quest_a2_2_verben_praep_intro",
+					"for": "The first verbs",
+					"note": "warten auf, denken an: worauf? darauf!"
+				},
+				{
+					"quiz": "quest_b1_1_verben_praep",
+					"for": "More verbs",
+					"note": "Verbs with prepositions in sentences."
+				},
+				{
+					"quiz": "quest_b2_1_verben_praep",
+					"for": "The whole map",
+					"note": "Verbs with prepositions, B2."
+				}
+			],
+			"img": "/img/charts/28.webp"
+		},
+		{
+			"n": 29,
+			"title": "darauf, worauf, auf ihn",
+			"topic": "da- and wo- words for things, pronouns for people",
+			"kind": "Build + pairs",
+			"level": "B1",
+			"slug": "da-wo",
+			"quizzes": [
+				{
+					"quiz": "quest_a2_2_verben_praep_intro",
+					"for": "darauf, worauf",
+					"note": "worauf? darauf! The first verbs."
+				},
+				{
+					"quiz": "quest_b1_1_verben_praep",
+					"for": "Thing or person?",
+					"note": "da-words, wo-questions and pronouns."
+				}
+			],
+			"img": "/img/charts/29.webp"
+		},
+		{
+			"n": 30,
+			"title": "Which man? The man who …",
+			"topic": "der, den, dem, dessen in four pictures",
+			"kind": "Pictures",
+			"level": "A2 → B1",
+			"slug": "relative-clauses",
+			"quizzes": [
+				{
+					"quiz": "quest_a2_2_relativ_intro",
+					"for": "der, den",
+					"note": "Relative clauses in Nominativ and Akkusativ."
+				},
+				{
+					"quiz": "quest_b1_1_relativ",
+					"for": "Building them",
+					"note": "More relative clauses."
+				},
+				{
+					"quiz": "quest_b1_2_relativ_dat",
+					"for": "dem, dessen",
+					"note": "Relative clauses in Dativ and Genitiv."
+				},
+				{
+					"quiz": "quest_b1_1_relativ_praep",
+					"for": "With a preposition",
+					"note": "der Mann, mit dem ich arbeite."
+				}
+			],
+			"img": "/img/charts/30.webp"
+		},
+		{
+			"n": 31,
+			"title": "werden: three jobs",
+			"topic": "Become, the future and the passive, told apart by the end",
+			"kind": "Three columns",
+			"level": "A2 → B1",
+			"slug": "werden",
+			"quizzes": [
+				{
+					"quiz": "quest_b1_1_futur",
+					"for": "werden = will",
+					"note": "The future with werden."
+				},
+				{
+					"quiz": "quest_a2_2_passiv_intro",
+					"for": "werden = is done",
+					"note": "The passive: Das wird gemacht."
+				},
+				{
+					"quiz": "quest_b2_2_futur1_vermutung",
+					"for": "A guess (harder)",
+					"note": "A B2 quiz: Er wird wohl krank sein."
+				}
+			],
+			"img": "/img/charts/31.webp"
+		},
+		{
+			"n": 32,
+			"title": "würde, hätte, wäre",
+			"topic": "Konjunktiv II: polite, wishes, unreal conditions, advice",
+			"kind": "Four uses",
+			"level": "B1",
+			"slug": "konjunktiv",
+			"quizzes": [
+				{
+					"quiz": "quest_b1_1_konj2_wuerde",
+					"for": "würde + infinitive",
+					"note": "Konjunktiv II with würde."
+				},
+				{
+					"quiz": "quest_b1_1_konj2_haette",
+					"for": "Own forms",
+					"note": "hätte, wäre, könnte."
+				},
+				{
+					"quiz": "quest_a2_2_koennte_sollte",
+					"for": "Giving advice",
+					"note": "könnte and sollte."
+				},
+				{
+					"quiz": "quest_b1_2_irreale_wuensche",
+					"for": "Wishing",
+					"note": "Hätte ich doch …!"
+				}
+			],
+			"img": "/img/charts/32.webp"
+		},
+		{
+			"n": 33,
+			"title": "zu, um … zu, ohne … zu",
+			"topic": "When the second verb takes zu, and when it does not",
+			"kind": "Groups",
+			"level": "B1",
+			"slug": "zu-infinitive",
+			"quizzes": [
+				{
+					"quiz": "quest_b1_1_infinitiv_zu",
+					"for": "When zu is needed",
+					"note": "Infinitive with zu."
+				},
+				{
+					"quiz": "quest_b1_2_infinitiv",
+					"for": "um, ohne, statt … zu",
+					"note": "Infinitive clauses."
+				},
+				{
+					"quiz": "quest_b1_2_damit_umzu",
+					"for": "um … zu or damit?",
+					"note": "Same subject or not."
+				},
+				{
+					"quiz": "quest_b2_1_dass_infinitiv",
+					"for": "dass or zu?",
+					"note": "Turn a dass clause into zu and back."
+				}
+			],
+			"img": "/img/charts/33.webp"
+		},
+		{
+			"n": 34,
+			"title": "When the verbs pile up",
+			"topic": "Two, three and four verb parts in one sentence",
+			"kind": "Reference",
+			"level": "B1 → B2",
+			"slug": "verb-piles",
+			"quizzes": [
+				{
+					"quiz": "quest_b1_2_passiv_modal_intro",
+					"for": "Passive with a modal",
+					"note": "Das muss gemacht werden."
+				},
+				{
+					"quiz": "quest_b2_1_modalpassiv",
+					"for": "Three verbs at the end",
+					"note": "Modal passive in side clauses."
+				},
+				{
+					"quiz": "quest_b2_1_lassen",
+					"for": "lassen",
+					"note": "lassen and the double infinitive."
+				}
+			],
+			"img": "/img/charts/34.webp"
+		},
+		{
+			"n": 35,
+			"title": "From Aktiv to Passiv",
+			"topic": "What moves, what changes case, in every tense",
+			"kind": "Before and after",
+			"level": "B1 → B2",
+			"slug": "passiv",
+			"quizzes": [
+				{
+					"quiz": "quest_a2_2_passiv_intro",
+					"for": "Present",
+					"note": "Das wird gemacht: first steps."
+				},
+				{
+					"quiz": "quest_b1_2_passiv",
+					"for": "Present, more",
+					"note": "The passive in the present."
+				},
+				{
+					"quiz": "quest_b1_2_passiv_praet",
+					"for": "Präteritum",
+					"note": "wurde + participle."
+				},
+				{
+					"quiz": "quest_b2_1_passiv_perfekt",
+					"for": "Perfekt",
+					"note": "ist … worden."
+				}
+			],
+			"img": "/img/charts/35.webp"
+		},
+		{
+			"n": 36,
+			"title": "er sagt, er sei krank",
+			"topic": "Indirect speech: Konjunktiv I for what others said",
+			"kind": "Table + pairs",
+			"level": "B2 → C1",
+			"slug": "indirect-speech",
+			"quizzes": [
+				{
+					"quiz": "quest_b2_1_konj1",
+					"for": "The forms",
+					"note": "Konjunktiv I: er sei, er habe."
+				},
+				{
+					"quiz": "quest_b2_1_konj1_vergangenheit",
+					"for": "Past, questions, requests",
+					"note": "Report the past, questions and requests."
+				},
+				{
+					"quiz": "quest_c1_2_konjunktiv1_indirekte_rede",
+					"for": "In texts",
+					"note": "Indirect speech at C1."
+				}
+			],
+			"img": "/img/charts/36.webp"
+		}
+	]
+}

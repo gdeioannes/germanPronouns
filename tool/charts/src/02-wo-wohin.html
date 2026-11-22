@@ -1,0 +1,261 @@
+<title>Wo oder Wohin Chart</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap">
+<style>
+/* Layout: one A4 landscape chart in the same skeleton as Chart 1 (header, lookup steps, QR,
+   rule rows), but the body is a picture: nine small scenes on the left, the two answers
+   on the right. The sheet has one fixed high-contrast look; the page around it follows the
+   viewer's theme. 1cqw = 2.97 mm on paper. */
+:root {
+	--board: #e8e3da;
+	--board-ink: #24262b;
+	--board-muted: #5f5a52;
+	--board-line: #cfc8bb;
+	--paper: #ffffff;
+	--ink: #111111;
+	--muted: #45413b;
+	--line: #8f887b;
+	--navy: #1f3a5f;
+	--navy-soft: #e8edf4;
+	--terracotta: #c9683b;
+	--terracotta-ink: #a24c26;
+	--hi: #ffe14d;
+	--dat: #5b3aa8;
+	--gen: #0b6e74;
+	--sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+	--serif: 'Source Serif 4', ui-serif, Georgia, serif;
+}
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme="light"]) { --board: #1c1e23; --board-ink: #f1ede6; --board-muted: #aaa398; --board-line: #3a3c42; color-scheme: dark }
+}
+:root[data-theme="dark"] { --board: #1c1e23; --board-ink: #f1ede6; --board-muted: #aaa398; --board-line: #3a3c42; color-scheme: dark }
+
+body {
+	background: var(--board);
+	color: var(--board-ink);
+	font-family: var(--sans);
+	padding-block: 28px 56px;
+	padding-left: max(16px, env(safe-area-inset-left, 0px));
+	padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 22px }
+.intro h1 { font-family: var(--serif); font-size: clamp(1.8rem, 4.6vw, 2.6rem); font-weight: 700; line-height: 1.05; margin: 0 0 10px; text-wrap: balance }
+.intro p { font-family: var(--serif); font-size: 1.05rem; line-height: 1.5; max-width: 66ch; margin: 0; color: var(--board-muted) }
+.scroll { overflow-x: auto }
+.note { font-family: var(--serif); color: var(--board-muted); font-size: 0.95rem; line-height: 1.5; max-width: 70ch; border-top: 1px solid var(--board-line); padding-top: 16px; margin: 0 }
+
+.sheet { container-type: inline-size; aspect-ratio: 297 / 210; width: 100%; min-width: 720px; background: var(--paper); color: var(--ink); box-shadow: 0 1px 2px rgba(0,0,0,.18), 0 10px 28px rgba(0,0,0,.16); overflow: hidden }
+.page { height: 100%; box-sizing: border-box; padding: 1.8cqw 3cqw 1.4cqw; display: flex; flex-direction: column; gap: .9cqw }
+.hd { display: flex; align-items: flex-end; gap: 2cqw }
+.hd .t { margin-right: auto; flex: none }
+.brand { display: flex; align-items: center; gap: .8cqw; font-family: var(--serif); font-size: 1.6cqw; font-weight: 700; color: var(--navy) }
+.brand svg { width: 2.3cqw; height: 2.3cqw }
+.brand span { font-family: var(--sans); font-size: 1.1cqw; font-weight: 600; color: var(--muted); margin-left: .6cqw }
+.title { white-space: nowrap; font-family: var(--serif); font-size: 3.1cqw; font-weight: 700; line-height: 1; margin: .4cqw 0 0; color: var(--navy); letter-spacing: -.01em }
+.title small { font-family: var(--sans); font-size: 1.1cqw; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--terracotta-ink); vertical-align: 1.2cqw; margin-right: .8cqw }
+.path { display: flex; gap: .4cqw; align-items: center; font-size: .96cqw; font-weight: 600; padding-bottom: .3cqw }
+.path b { display: inline-block; width: 1.9cqw; line-height: 1.9cqw; border-radius: 50%; background: var(--terracotta-ink); color: #fff; text-align: center; font-weight: 800; margin-right: .5cqw }
+.path span { background: var(--navy-soft); border-radius: 1.2cqw; padding: .35cqw 1.1cqw .35cqw .35cqw; white-space: nowrap }
+.path i { font-style: normal; color: var(--muted) }
+.qr { display: flex; flex-direction: column; align-items: center; gap: .2cqw; font-size: .9cqw; font-weight: 700; color: var(--navy); white-space: nowrap; flex: none }
+.qr svg { width: 4.3cqw; height: 4.3cqw; display: block }
+
+.main { flex: 1; min-height: 0; display: grid; grid-template-columns: 56cqw 1fr; gap: 1.4cqw }
+.tiles { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(3, 1fr); gap: .8cqw; min-height: 0 }
+.tile { border: .3cqw solid var(--navy); border-radius: .9cqw; padding: .5cqw .9cqw .6cqw; display: flex; flex-direction: column; min-height: 0; min-width: 0 }
+.tile h3 { margin: 0; font-size: 2.3cqw; font-weight: 800; color: var(--navy); line-height: 1; display: flex; align-items: baseline; gap: .8cqw }
+.tile h3 i { font-family: var(--serif); font-size: 1.15cqw; font-weight: 400; color: var(--muted) }
+.tile svg { flex: 1; min-height: 0; width: 100%; display: block }
+.tile p { margin: 0; font-size: 1.04cqw; line-height: 1.3; font-weight: 500; white-space: nowrap }
+.tile p b { display: inline-block; width: 4.1cqw; font-weight: 800; color: var(--muted) }
+.tile p strong { font-weight: 800; color: var(--navy) }
+.tile p.use { border-top: .12cqw solid var(--line); margin-top: .25cqw; padding-top: .2cqw; font-size: .98cqw; overflow: hidden; text-overflow: ellipsis }
+.tag { font-size: .8cqw; font-weight: 800; letter-spacing: .03em; text-transform: uppercase; border-radius: .3cqw; padding: .05cqw .35cqw; margin-left: .2cqw; vertical-align: .08cqw }
+.tag.dat { background: var(--dat); color: #fff }
+.tag.gen { background: var(--gen); color: #fff }
+.tag.nom { background: #fff; color: var(--ink); box-shadow: inset 0 0 0 .15cqw var(--ink) }
+.tag.akk { background: var(--hi); color: var(--ink) }
+.pan .verbs { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1cqw; font-size: 1.08cqw }
+.pan .verbs b { grid-column: 1 / -1 }
+.pan .verbs span strong { font-weight: 800 }
+mark { background: var(--hi); color: var(--ink); font-weight: 800; padding: 0 .25cqw }
+
+.side { display: grid; grid-template-rows: 1fr 1fr; gap: .8cqw; min-height: 0 }
+.pan { border: .4cqw solid var(--navy); border-radius: .9cqw; overflow: hidden; display: flex; flex-direction: column; min-height: 0 }
+.pan header { display: flex; align-items: center; gap: 1.2cqw; padding: .5cqw 1.2cqw .6cqw }
+.pan header div { margin-right: auto }
+.pan header b { display: block; font-family: var(--serif); font-size: 2.9cqw; font-weight: 700; line-height: 1 }
+.pan header span { font-size: 1.05cqw; font-weight: 800; letter-spacing: .06em; text-transform: uppercase }
+.pan header svg { width: 11cqw; height: 4.6cqw; flex: none }
+.pan.go header { background: var(--hi); color: var(--ink) }
+.pan.stay header { background: var(--dat); color: #fff }
+.pan.stay { border-color: var(--dat) }
+.pan .in { flex: 1; padding: .7cqw 1.2cqw .8cqw; display: flex; flex-direction: column; justify-content: space-between; gap: .4cqw; font-size: 1.2cqw; line-height: 1.25 }
+.pan .say { font-size: 1.45cqw; font-weight: 800; margin: 0 }
+.pan .say i { display: block; font-family: var(--serif); font-size: 1.1cqw; font-weight: 400; color: var(--muted) }
+.pan .say strong { color: var(--navy) }
+.pan dl { display: grid; grid-template-columns: repeat(4, 1fr); gap: .5cqw; margin: 0 }
+.pan dl div { border: .15cqw solid var(--line); border-radius: .5cqw; padding: .3cqw .6cqw .35cqw }
+.pan dt { font-size: .95cqw; font-weight: 700; color: var(--muted) }
+.pan dd { margin: 0; font-size: 1.5cqw; font-weight: 800; line-height: 1.05 }
+.pan dd small { font-size: 1cqw; color: var(--muted) }
+.pan p { margin: 0 }
+.pan p b { font-weight: 800 }
+
+.rules { display: grid; grid-template-columns: 8.5cqw 1fr 1fr; border: .4cqw solid var(--navy); font-size: 1.08cqw; line-height: 1.26 }
+.rules > div { padding: .35cqw .8cqw .4cqw; border-top: .12cqw solid var(--line); border-left: .12cqw solid var(--line) }
+.rules > div:nth-child(-n+3) { border-top: 0 }
+.rules .rl { background: var(--navy); color: #fff; font-size: .78cqw; font-weight: 800; letter-spacing: .03em; text-transform: uppercase; display: flex; align-items: center; border-left: 0; border-top-color: #3d5a80 }
+.rules .rl.warn { background: var(--terracotta-ink) }
+.rules b { font-weight: 800 }
+.rules em { font-style: normal; font-weight: 800; color: var(--terracotta-ink) }
+.c.dat, .rules em.dat { background: var(--dat); color: #fff; font-style: normal; font-weight: 800; padding: 0 .25cqw }
+.rules em.akk { background: var(--hi); color: var(--ink); font-style: normal; font-weight: 800; padding: 0 .25cqw }
+.key { display: flex; gap: .7cqw; align-items: center; font-size: 1cqw; font-weight: 500 }
+.key b { font-weight: 800 }
+.path .tag { font-size: .9cqw }
+.pan .say i { display: none }
+.pan .in { padding-top: .55cqw; padding-bottom: .6cqw; gap: .3cqw }
+</style>
+
+<div class="wrap">
+	<header class="intro">
+		<h1>Chart 2, a picture instead of a table</h1>
+		<p>The nine prepositions that can take two cases. The left side shows where each one puts the ball. The right side answers the only question that matters: is it moving there, or is it already there?</p>
+	</header>
+
+	<div class="scroll">
+	<div class="sheet"><div class="page">
+		<div class="hd">
+			<div class="t">
+				<div class="brand"><svg viewBox="0 0 68 68" aria-hidden="true"><rect width="68" height="68" rx="15" fill="#1f3a5f"/><g transform="translate(2 2)"><circle cx="32" cy="32" r="23.5" fill="none" stroke="#fbf8f3" stroke-width="9"/><path d="M37.5 37.5L54 54" stroke="#c9683b" stroke-width="8"/></g></svg>Language Quiz<span>languagequiz.org</span></div>
+				<h2 class="title"><small>Chart 2</small>Wo? or Wohin?</h2>
+			</div>
+			<div class="path">
+				<span><b>1</b>Is it one of these nine? <i>→ yes</i></span>
+				<span><b>2</b>Moving to a new place? <span class="tag akk">Akkusativ</span></span>
+				<span><b>3</b>Already there? <span class="tag dat">Dativ</span></span>
+			</div>
+			<div class="qr"><svg data-qr="71"></svg>Open in the app</div>
+		</div>
+
+		<div class="main">
+			<div class="tiles" id="tiles"></div>
+			<div class="side">
+				<section class="pan go">
+					<header><div><b>Wohin?</b><span>To a new place · Akkusativ</span></div>
+						<svg viewBox="0 0 110 46" aria-hidden="true"><line x1="4" y1="42" x2="106" y2="42" stroke="#111" stroke-width="1.5"/><rect x="66" y="12" width="32" height="30" fill="#fff" stroke="#111" stroke-width="2.5"/><circle cx="14" cy="34" r="7" fill="#c9683b" stroke="#111" stroke-width="1.5"/><path d="M26 30 Q46 8 74 24" fill="none" stroke="#111" stroke-width="2.5"/><path d="M80 28 L69 27 L74 18 Z" fill="#111"/></svg>
+					</header>
+					<div class="in">
+						<p class="say">Ich lege den Ball <mark>in den</mark> Karton.<i>I put the ball into the box.</i></p>
+						<dl><div><dt>der</dt><dd><mark>den</mark></dd></div><div><dt>die</dt><dd><mark>die</mark></dd></div><div><dt>das</dt><dd><mark>das</mark></dd></div><div><dt>plural</dt><dd><mark>die</mark></dd></div></dl>
+						<p class="verbs"><b>Verbs that put it there: regular, and they need an object</b>
+							<span><strong>legen</strong> · legte · hat gelegt</span><span><strong>stellen</strong> · stellte · hat gestellt</span>
+							<span><strong>setzen</strong> · setzte · hat gesetzt</span><span><strong>hängen</strong> · hängte · hat gehängt</span></p>
+						<p><b>Short forms:</b> ins = in das · ans = an das · aufs = auf das</p>
+					</div>
+				</section>
+				<section class="pan stay">
+					<header><div><b>Wo?</b><span>Already there · Dativ</span></div>
+						<svg viewBox="0 0 110 46" aria-hidden="true"><line x1="4" y1="42" x2="106" y2="42" stroke="#fff" stroke-width="1.5"/><rect x="66" y="12" width="32" height="30" fill="#5b3aa8" stroke="#fff" stroke-width="2.5"/><circle cx="82" cy="33" r="7" fill="#c9683b" stroke="#fff" stroke-width="1.5"/></svg>
+					</header>
+					<div class="in">
+						<p class="say">Der Ball liegt <span class="c dat">in dem</span> Karton.<i>The ball is lying in the box.</i></p>
+						<dl><div><dt>der</dt><dd><span class="c dat">dem</span></dd></div><div><dt>die</dt><dd><span class="c dat">der</span></dd></div><div><dt>das</dt><dd><span class="c dat">dem</span></dd></div><div><dt>plural</dt><dd><span class="c dat">den</span> <small>+n</small></dd></div></dl>
+						<p class="verbs"><b>Verbs that say where it is: irregular, no object</b>
+							<span><strong>liegen</strong> · lag · hat gelegen</span><span><strong>stehen</strong> · stand · hat gestanden</span>
+							<span><strong>sitzen</strong> · saß · hat gesessen</span><span><strong>hängen</strong> · hing · hat gehangen</span></p>
+						<p><b>Short forms:</b> im = in dem · am = an dem</p>
+					</div>
+				</section>
+			</div>
+		</div>
+
+		<div class="rules">
+			<div class="rl">remember</div>
+			<div><b>A new place</b> → <span class="tag akk">Akkusativ</span> <b>The same place</b> → <span class="tag dat">Dativ</span> even with movement inside it: Ich laufe <em class="dat">im</em> Park.</div>
+			<div>The verbs come in pairs: <b>legen → liegen</b> (flat), <b>stellen → stehen</b> (upright), <b>setzen → sitzen</b>, <b>hängen → hängen</b>.</div>
+			<div class="rl">not two-way</div>
+			<div><b>zu · nach · bei · von · aus</b> always take the <span class="tag dat">Dativ</span> even when you move: Ich gehe <em class="dat">zum</em> Arzt.</div>
+			<div><b>durch · für · gegen · ohne · um</b> always take the <span class="tag akk">Akkusativ</span> Ich gehe <em class="akk">durch den</em> Park. See Chart 1.</div>
+			<div class="rl">other meanings</div>
+			<div>Away from the picture, the case is fixed. <b>über</b> (about, across) <span class="tag akk">Akkusativ</span> <em class="akk">über den</em> Film · <b>vor</b> (ago), <b>unter</b> (among) <span class="tag dat">Dativ</span></div>
+			<div><b>da-</b> stands for a thing: auf dem Tisch → <em>darauf</em> · in der Tasche → <em>darin</em>.</div>
+			<div class="rl">with time</div>
+			<div><b>an · in · vor</b> take the <span class="tag dat">Dativ</span> <em class="dat">am</em> Montag · <em class="dat">im</em> Mai · <em class="dat">vor einem</em> Jahr.</div>
+			<div><b>über</b> takes the <span class="tag akk">Akkusativ</span> <em class="akk">über eine</em> Stunde.</div>
+			<div class="rl warn">watch out</div>
+			<div>The same wall, two cases: Ich hänge das Bild <em class="akk">an die</em> Wand. Das Bild hängt <em class="dat">an der</em> Wand.</div>
+			<div>Some verbs fix the case and ignore the picture: warten <b>auf</b> <span class="tag akk">Akkusativ</span> · denken <b>an</b> <span class="tag akk">Akkusativ</span> · Angst <b>vor</b> <span class="tag dat">Dativ</span></div>
+		</div>
+	<div class="key"><b>Case colours on every chart:</b> <span class="tag nom">Nominativ</span> <span class="tag akk">Akkusativ</span> <span class="tag dat">Dativ</span> <span class="tag gen">Genitiv</span></div>
+	</div></div>
+	</div>
+
+	<p class="note">The QR code is a placeholder. The scenes are simple drawings for this proof; the final sheet could use the app's picture style.</p>
+</div>
+
+<script>
+(function () {
+	var NAVY = '#1f3a5f', BALL = '#c9683b';
+	function box(x, y, w, h) { return '<rect x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '" fill="#e8edf4" stroke="' + NAVY + '" stroke-width="2.5"/>'; }
+	function ball(x, y, r) { return '<circle cx="' + x + '" cy="' + y + '" r="' + (r || 6) + '" fill="' + BALL + '" stroke="#111" stroke-width="1.3"/>'; }
+	var ground = '<line x1="6" y1="62" x2="94" y2="62" stroke="#111" stroke-width="1.4"/>';
+	var std = box(34, 30, 32, 32);
+	var T = [
+		{ p: 'in', en: 'in, into', art: std + ball(50, 50) },
+		{ p: 'an', en: 'at, on the side of', art: std + ball(72.5, 44) },
+		{ p: 'auf', en: 'on top of', art: std + ball(50, 23.5) },
+		{ p: 'über', en: 'above, over', art: std + ball(50, 11) + '<line x1="50" y1="19" x2="50" y2="28" stroke="#111" stroke-width="1.2" stroke-dasharray="2 2"/>' },
+		{ p: 'unter', en: 'under', art: box(34, 10, 32, 32) + ball(50, 55.5) + '<line x1="50" y1="44" x2="50" y2="48" stroke="#111" stroke-width="1.2" stroke-dasharray="2 2"/>' },
+		{ p: 'vor', en: 'in front of', art: std + '<circle cx="50" cy="55" r="8.5" fill="' + BALL + '" stroke="#fff" stroke-width="2.2"/><circle cx="50" cy="55" r="8.5" fill="none" stroke="#111" stroke-width="1.3"/>' },
+		{ p: 'hinter', en: 'behind', art: ball(64, 27, 7) + std },
+		{ p: 'neben', en: 'next to', art: std + ball(82, 55.5) },
+		{ p: 'zwischen', en: 'between', art: box(12, 34, 26, 28) + box(62, 34, 26, 28) + ball(50, 55.5) }
+	];
+	// what each preposition is used for beyond the picture
+	var USE = {
+		'in': '<strong>Enclosed space:</strong> im Kino',
+		'an': '<strong>Edge, wall, water:</strong> am Meer',
+		'auf': '<strong>Surface, event:</strong> auf dem Markt',
+		'über': '<strong>Also across, about</strong> <span class="tag akk">Akkusativ</span>',
+		'unter': '<strong>Among:</strong> unter Freunden <span class="tag dat">Dativ</span>',
+		'vor': '<strong>Ago:</strong> vor einem Jahr <span class="tag dat">Dativ</span>',
+		'hinter': '<strong>Out of sight:</strong> hinter dem Haus',
+		'neben': '<strong>Side by side:</strong> neben mir',
+		'zwischen': '<strong>Two limits:</strong> zwischen uns'
+	};
+	var h = '';
+	T.forEach(function (t) {
+		h += '<div class="tile"><h3>' + t.p + '<i>' + t.en + '</i></h3>' +
+			'<svg viewBox="0 0 100 66" aria-hidden="true">' + ground + t.art + '</svg>' +
+			'<p><b>Wo?</b>' + t.p + ' <span class="c dat">dem</span> Karton</p>' +
+			'<p><b>Wohin?</b>' + t.p + ' <mark>den</mark> Karton</p>' +
+			'<p class="use">' + USE[t.p] + '</p></div>';
+	});
+	document.getElementById('tiles').innerHTML = h;
+})();
+
+// Placeholder QR: finder patterns plus a seeded pattern.
+document.querySelectorAll('svg[data-qr]').forEach(function (svg) {
+	var n = 21, seed = Number(svg.dataset.qr) || 1, out = '';
+	function rnd() { seed = (seed * 1103515245 + 12345) & 0x7fffffff; return seed / 0x7fffffff; }
+	function finder(x, y) { return x >= 0 && x < 7 && y >= 0 && y < 7; }
+	function inFinder(x, y) { return finder(x, y) || finder(x - (n - 7), y) || finder(x, y - (n - 7)); }
+	function finderOn(x, y) {
+		var fx = x >= n - 7 ? x - (n - 7) : x, fy = y >= n - 7 ? y - (n - 7) : y;
+		var edge = fx === 0 || fx === 6 || fy === 0 || fy === 6;
+		var core = fx >= 2 && fx <= 4 && fy >= 2 && fy <= 4;
+		return edge || core;
+	}
+	for (var y = 0; y < n; y++) for (var x = 0; x < n; x++) {
+		var on = inFinder(x, y) ? finderOn(x, y) : rnd() > 0.52;
+		if (on) out += '<rect x="' + x + '" y="' + y + '" width="1.02" height="1.02"/>';
+	}
+	svg.setAttribute('viewBox', '0 0 ' + n + ' ' + n);
+	svg.setAttribute('fill', '#1f3a5f');
+	svg.setAttribute('role', 'img');
+	svg.setAttribute('aria-label', 'QR code placeholder');
+	svg.innerHTML = out;
+});
+</script>

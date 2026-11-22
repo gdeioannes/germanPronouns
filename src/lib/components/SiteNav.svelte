@@ -143,6 +143,7 @@
 	{#if !lang.limited}
 		<a href="{courseHref}/worksheet"><Icon name="printer" size="1em" /> Printable sheets</a>
 		<a href="/literature"><Icon name="book" size="1em" /> Literature</a>
+		<a href="/charts"><Icon name="cards" size="1em" /> Grammar charts</a>
 		<a href="/german-faq"><Icon name="help" size="1em" /> German FAQ</a>
 		<!-- The games, story mode among them: there for whoever wants to play,
 		     never dealt into the deck or shown on the front page. -->

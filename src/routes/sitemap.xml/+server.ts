@@ -6,6 +6,7 @@ import { coursePaths, DICTIONARY_PATH, lastModified, SHARED_WORD_PATHS } from '$
 import { nouns, verbs } from '$lib/server/words';
 import { wordSlug } from '$lib/domain/words';
 import { LITERATURE } from '$lib/content/literature';
+import { CHARTS_BOOK } from '$lib/content/charts';
 import { GERMAN_FAQ } from '$lib/content/germanFaq';
 import { kafkaStages } from '$lib/server/kafka';
 import type { RequestHandler } from './$types';
@@ -29,6 +30,8 @@ export const GET: RequestHandler = async () => {
 		{ loc: '/legal', lastmod: lastModified('src/routes/legal'), priority: '0.2' },
 		{ loc: '/stories', lastmod: lastModified('src/lib/domain/stories.ts'), priority: '0.6' },
 		{ loc: '/literature', lastmod: lastModified('src/lib/content/literature.ts'), priority: '0.6' },
+		{ loc: '/charts', lastmod: lastModified('src/lib/content/charts.json', 'src/routes/charts'), priority: '0.7' },
+		{ loc: CHARTS_BOOK.pdf, lastmod: lastModified('src/lib/content/charts.json'), priority: '0.5' },
 		{ loc: '/books', lastmod: lastModified('src/lib/content/books.ts', 'static/books/v2'), priority: '0.7' },
 		{ loc: '/start', lastmod: lastModified('src/routes/start'), priority: '0.6' },
 		{ loc: '/level-check', lastmod: lastModified('src/routes/level-check'), priority: '0.7' },

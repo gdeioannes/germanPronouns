@@ -241,6 +241,38 @@ export const PAGE_HELP: Record<string, HelpTopic> = {
 			}
 		]
 	},
+	'/charts': {
+		title: 'Grammar charts',
+		intro: 'Wall charts for the parts of German that are hard to remember. All of them come in one free PDF.',
+		items: [
+			{
+				title: 'How to use them',
+				text: 'Print the pages on one side, in colour, and hang up the one you need this week. On each chart, start at the box marked "Look here first".'
+			},
+			{
+				title: 'The colours',
+				text: 'They mean the same on every chart: yellow is the Akkusativ, violet the Dativ, teal the Genitiv, and a black outline the Nominativ. The verb that changes with the person is the solid orange-brown chip.'
+			},
+			{
+				title: 'A test edition',
+				text: 'The charts are still being tested and more are coming. If one is unclear or wrong, rate it at the bottom of this page and say what you found.'
+			}
+		]
+	},
+	'/charts/[slug]': {
+		title: 'Practise a chart',
+		intro: 'The QR code on a printed chart opens this page: the app quizzes that train what the chart shows, easiest first.',
+		items: [
+			{
+				title: 'Which part of the chart',
+				text: 'The label on each quiz names the part of the chart it practises. Keep the chart next to you while you play.'
+			},
+			{
+				title: 'Your progress',
+				text: 'A finished quiz turns green with a check, and the bar at the top counts them. Inside a quiz, previous and next stay on this list.'
+			}
+		]
+	},
 	'/literature': {
 		title: 'Literature',
 		intro: 'German classics in the original words, annotated for English speakers. Each one is a free PDF to print or read on a tablet.',

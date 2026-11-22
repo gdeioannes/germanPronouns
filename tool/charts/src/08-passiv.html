@@ -1,0 +1,297 @@
+<title>Passiv Chart</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap">
+<style>
+/* Layout: one A4 landscape chart in the same skeleton as Charts 1 and 2 (header, lookup steps,
+   QR, rule rows), but the body is a decision path: three questions down the left, each "yes"
+   leads right into a sentence track with fixed slots. 1cqw = 2.97 mm on paper. */
+:root {
+	--board: #e8e3da;
+	--board-ink: #24262b;
+	--board-muted: #5f5a52;
+	--board-line: #cfc8bb;
+	--paper: #ffffff;
+	--ink: #111111;
+	--muted: #45413b;
+	--line: #8f887b;
+	--navy: #1f3a5f;
+	--navy-soft: #e8edf4;
+	--terracotta: #c9683b;
+	--terracotta-ink: #a24c26;
+	--verb-soft: #fbeae0;
+	--hi: #ffe14d;
+	--dat: #5b3aa8;
+	--gen: #0b6e74;
+	--sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+	--serif: 'Source Serif 4', ui-serif, Georgia, serif;
+}
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme="light"]) { --board: #1c1e23; --board-ink: #f1ede6; --board-muted: #aaa398; --board-line: #3a3c42; color-scheme: dark }
+}
+:root[data-theme="dark"] { --board: #1c1e23; --board-ink: #f1ede6; --board-muted: #aaa398; --board-line: #3a3c42; color-scheme: dark }
+
+body {
+	background: var(--board);
+	color: var(--board-ink);
+	font-family: var(--sans);
+	padding-block: 28px 56px;
+	padding-left: max(16px, env(safe-area-inset-left, 0px));
+	padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 22px }
+.intro h1 { font-family: var(--serif); font-size: clamp(1.8rem, 4.6vw, 2.6rem); font-weight: 700; line-height: 1.05; margin: 0 0 10px; text-wrap: balance }
+.intro p { font-family: var(--serif); font-size: 1.05rem; line-height: 1.5; max-width: 66ch; margin: 0; color: var(--board-muted) }
+.scroll { overflow-x: auto }
+.note { font-family: var(--serif); color: var(--board-muted); font-size: 0.95rem; line-height: 1.5; max-width: 70ch; border-top: 1px solid var(--board-line); padding-top: 16px; margin: 0 }
+
+.sheet { container-type: inline-size; aspect-ratio: 297 / 210; width: 100%; min-width: 720px; background: var(--paper); color: var(--ink); box-shadow: 0 1px 2px rgba(0,0,0,.18), 0 10px 28px rgba(0,0,0,.16); overflow: hidden }
+.page { height: 100%; box-sizing: border-box; padding: 1.8cqw 3cqw 1.4cqw; display: flex; flex-direction: column; gap: .9cqw }
+.hd { display: flex; align-items: flex-end; gap: 2cqw }
+.hd .t { margin-right: auto; flex: none }
+.brand { display: flex; align-items: center; gap: .8cqw; font-family: var(--serif); font-size: 1.6cqw; font-weight: 700; color: var(--navy) }
+.brand svg { width: 2.3cqw; height: 2.3cqw }
+.brand span { font-family: var(--sans); font-size: 1.1cqw; font-weight: 600; color: var(--muted); margin-left: .6cqw }
+.sheet h2.title { white-space: nowrap; font-family: var(--serif); font-size: 3.1cqw; font-weight: 700; line-height: 1; margin: .4cqw 0 0; color: var(--navy); letter-spacing: -.01em }
+.title small { font-family: var(--sans); font-size: 1.1cqw; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--terracotta-ink); vertical-align: 1.2cqw; margin-right: .8cqw }
+.path { display: flex; gap: .4cqw; align-items: center; font-size: .96cqw; font-weight: 600; padding-bottom: .3cqw }
+.path b { display: inline-block; width: 1.9cqw; line-height: 1.9cqw; border-radius: 50%; background: var(--terracotta-ink); color: #fff; text-align: center; font-weight: 800; margin-right: .5cqw }
+.path span { background: var(--navy-soft); border-radius: 1.2cqw; padding: .35cqw 1.1cqw .35cqw .35cqw; white-space: nowrap }
+.qr { display: flex; flex-direction: column; align-items: center; gap: .2cqw; font-size: .9cqw; font-weight: 700; color: var(--navy); white-space: nowrap; flex: none }
+.qr svg { width: 4.3cqw; height: 4.3cqw; display: block }
+
+/* the decision path */
+.main { flex: 1; min-height: 0; display: grid; grid-template-columns: 23cqw 4.6cqw 1fr; grid-template-rows: 11.4fr 9.5fr 14.6fr; gap: .9cqw 0 }
+.ask { display: flex; flex-direction: column; min-height: 0 }
+.q { flex: 1; min-height: 0; background: var(--navy); color: #fff; border-radius: .9cqw; padding: .6cqw 1cqw .7cqw; display: flex; flex-direction: column; justify-content: center; gap: .3cqw }
+.q b.n { display: inline-block; width: 2cqw; line-height: 2cqw; border-radius: 50%; background: #fff; color: var(--navy); text-align: center; font-weight: 800; font-size: 1.15cqw; margin-right: .6cqw; vertical-align: .15cqw }
+.q h3 { margin: 0; font-family: var(--serif); font-size: 1.62cqw; font-weight: 700; line-height: 1.12 }
+.q p { margin: 0; font-size: 1.02cqw; line-height: 1.3; font-weight: 500 }
+.q p b { font-weight: 800; color: var(--hi) }
+.q.else { background: #fff; color: var(--ink); border: .4cqw solid var(--navy) }
+.q.else h3 { color: var(--navy) }
+.q.else p b { color: var(--terracotta-ink) }
+.down { flex: none; height: 2.1cqw; margin-bottom: -.9cqw; display: flex; justify-content: center; align-items: center; gap: .5cqw; font-size: .82cqw; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--navy); position: relative }
+.down::before { content: ''; position: absolute; left: 4cqw; top: 0; bottom: .55cqw; width: .4cqw; background: var(--navy) }
+.down::after { content: ''; position: absolute; left: 3.45cqw; bottom: 0; border: .75cqw solid transparent; border-top-color: var(--navy); border-bottom: 0 }
+.yes { display: flex; flex-direction: column; justify-content: center; align-items: stretch; font-size: .82cqw; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--terracotta-ink); text-align: center; padding-bottom: 1.2cqw }
+.yes.last { padding-bottom: 0 }
+.yes i { display: block; height: .45cqw; background: var(--terracotta-ink); margin: .2cqw .75cqw 0 0; position: relative }
+.yes i::after { content: ''; position: absolute; right: -.75cqw; top: -.55cqw; border: .775cqw solid transparent; border-left-color: var(--terracotta-ink); border-right: 0 }
+
+/* the sentence tracks */
+.lane { border: .4cqw solid var(--navy); border-radius: .9cqw; overflow: hidden; display: grid; grid-template-columns: 9.4cqw 1fr; min-height: 0 }
+.lane.last { margin-bottom: 0 }
+.badge { background: var(--terracotta-ink); color: #fff; display: flex; flex-direction: column; justify-content: center; padding: .4cqw .9cqw; gap: .2cqw }
+.badge small { font-size: .78cqw; font-weight: 800; letter-spacing: .08em; text-transform: uppercase }
+.badge b { font-family: var(--serif); font-size: 2.3cqw; font-weight: 700; line-height: .95 }
+.badge span { font-size: .92cqw; font-weight: 600; line-height: 1.2 }
+.track { display: grid; min-height: 0; font-size: 1.24cqw; line-height: 1.15 }
+.track > div { border-left: .12cqw solid var(--line); border-top: .12cqw solid var(--line); padding: 0 .7cqw; display: flex; align-items: center; gap: .45cqw; white-space: nowrap; min-width: 0; font-weight: 500 }
+.track > .h { border-top: 0; background: var(--navy-soft); font-size: .78cqw; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; color: var(--navy); padding-block: .22cqw }
+.track > .h.vh { background: var(--terracotta-ink); color: #fff }
+.track > .vc { background: var(--verb-soft); border-left: .3cqw solid var(--terracotta-ink) }
+.track > .vc + div { border-left: .3cqw solid var(--terracotta-ink) }
+.track > .none { background: repeating-linear-gradient(135deg, #fff 0 .5cqw, #e3ddd2 .5cqw .62cqw); color: var(--muted); font-size: .9cqw; font-weight: 700 }
+.track > .foot { grid-column: 1 / -1; font-size: 1cqw; white-space: normal; padding-block: .25cqw; line-height: 1.25; display: block; border-left: .12cqw solid var(--line) }
+.track > .foot b { font-weight: 800 }
+.v { background: var(--terracotta-ink); color: #fff; font-weight: 800; padding: .08cqw .5cqw .12cqw; border-radius: .3cqw }
+.e { box-shadow: inset 0 0 0 .2cqw var(--terracotta-ink); color: var(--terracotta-ink); background: #fff; font-weight: 800; padding: .08cqw .5cqw .12cqw; border-radius: .3cqw }
+.s { box-shadow: inset 0 0 0 .15cqw var(--ink); font-weight: 800; padding: .04cqw .35cqw .08cqw }
+.track i { font-family: var(--serif); font-style: italic; color: var(--muted); font-size: 1.02cqw; margin-left: auto; padding-left: .6cqw }
+
+.tag { font-size: .8cqw; font-weight: 800; letter-spacing: .03em; text-transform: uppercase; border-radius: .3cqw; padding: .05cqw .35cqw; vertical-align: .08cqw }
+.tag.dat { background: var(--dat); color: #fff }
+.tag.gen { background: var(--gen); color: #fff }
+.tag.nom { background: #fff; color: var(--ink); box-shadow: inset 0 0 0 .15cqw var(--ink) }
+.tag.akk { background: var(--hi); color: var(--ink) }
+
+.rules { display: grid; grid-template-columns: 8.5cqw 1fr 1fr; border: .4cqw solid var(--navy); font-size: 1.06cqw; line-height: 1.26 }
+.rules > div { padding: .32cqw .8cqw .37cqw; border-top: .12cqw solid var(--line); border-left: .12cqw solid var(--line) }
+.rules > div:nth-child(-n+3) { border-top: 0 }
+.rules .rl { background: var(--navy); color: #fff; font-size: .78cqw; font-weight: 800; letter-spacing: .03em; text-transform: uppercase; display: flex; align-items: center; border-left: 0; border-top-color: #3d5a80 }
+.rules .rl.warn { background: var(--terracotta-ink) }
+.rules b { font-weight: 800 }
+.rules em { font-style: normal; font-weight: 800; padding: 0 .25cqw }
+.rules em.dat { background: var(--dat); color: #fff }
+.rules em.akk { background: var(--hi); color: var(--ink) }
+.rules em.gen { background: var(--gen); color: #fff }
+.rules .v, .rules .e, .key .v, .key .e { padding: 0 .3cqw; border-radius: .25cqw }
+.rules s { text-decoration-thickness: .14cqw; text-decoration-color: var(--terracotta-ink) }
+.rules small { font-size: .78cqw; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; color: var(--muted) }
+.key { display: flex; gap: .7cqw; align-items: center; font-size: 1cqw; font-weight: 500 }
+.key b { font-weight: 800 }
+.key .sp { margin-left: 1.2cqw }
+.hd { gap: 1.2cqw }
+.sheet h2.title { font-size: 2.9cqw }
+.path { font-size: .86cqw }
+.hd { gap: 1cqw }
+.top { display: grid; grid-template-columns: 1fr 28cqw; gap: 1.2cqw }
+.flip { border: .4cqw solid var(--navy); border-radius: .9cqw; padding: .7cqw 1cqw .7cqw; display: grid; grid-template-columns: 9.4cqw repeat(4, 1fr); align-items: center; row-gap: .25cqw }
+.flip .w { justify-self: center; font-size: 1.9cqw; font-weight: 700; white-space: nowrap; position: relative }
+.flip .w .v, .flip .w .e { padding: .08cqw .6cqw .14cqw; border-radius: .4cqw }
+.flip .w .s { padding: .05cqw .5cqw .1cqw }
+.flip .w em { font-style: normal; padding: .05cqw .45cqw .1cqw }
+.flip .w em.akk { background: var(--hi) }
+.flip .w em.dat { background: var(--dat); color: #fff }
+.rowlab { display: flex; flex-direction: column; gap: .15cqw }
+.rowlab b { font-family: var(--serif); font-size: 1.7cqw; font-weight: 700; color: var(--navy); line-height: 1.1 }
+.rowlab i { font-family: var(--serif); font-size: .95cqw; color: var(--muted); line-height: 1.2 }
+.cp { justify-self: center; text-align: center; font-size: .86cqw; font-weight: 700; line-height: 1.25; color: var(--ink); max-width: 13cqw }
+.cp b { display: inline-block; width: 1.4cqw; line-height: 1.4cqw; border-radius: 50%; color: #fff; text-align: center; font-size: .82cqw; margin-right: .35cqw; background: var(--navy) }
+.cp.c1 { color: var(--ink) } .cp.c1 b { background: var(--ink) }
+.cp.c2 b { background: var(--terracotta-ink) }
+.cp.c3 b { background: var(--dat) }
+.arrows { grid-column: 2 / 6; width: 100%; height: 5cqw; display: block; overflow: visible; margin-block: .3cqw .9cqw }
+.brk { grid-column: 3 / 6; margin: .15cqw 16.66% .75cqw; height: 1.3cqw; border: .32cqw solid var(--terracotta-ink); border-top: 0; border-radius: 0 0 1cqw 1cqw; position: relative; display: flex; justify-content: center }
+.brk span { position: absolute; top: .6cqw; background: #fff; padding: 0 .8cqw; font-size: .86cqw; font-weight: 700; color: var(--terracotta-ink); white-space: nowrap }
+.brk b { display: inline-block; width: 1.4cqw; line-height: 1.4cqw; border-radius: 50%; color: #fff; background: var(--terracotta-ink); text-align: center; font-size: .82cqw; margin-right: .35cqw }
+.flip { padding-bottom: .7cqw }
+.cp.c2 { color: var(--terracotta-ink) }
+.arrows path { fill: none; vector-effect: non-scaling-stroke; stroke-linecap: round }
+.arrows .obj { stroke: var(--ink); stroke-width: .5cqw }
+.arrows .verb { stroke: var(--terracotta-ink); stroke-width: .4cqw }
+.arrows .doer { stroke: var(--dat); stroke-width: .4cqw; stroke-dasharray: 1cqw .7cqw }
+.flip .w.h1::before, .flip .w.h2::before, .flip .w.h3::before { content: ''; position: absolute; left: calc(50% - .8cqw); top: -.95cqw; border: .8cqw solid transparent; border-bottom: 0; border-top: 1.05cqw solid var(--ink) }
+.flip .w.h2::before { border-top-color: var(--terracotta-ink) }
+.flip .w.h3::before { border-top-color: var(--dat) }
+.side { display: flex; flex-direction: column; gap: .8cqw; min-height: 0 }
+.idea { background: var(--navy); color: #fff; border-radius: .9cqw; padding: .5cqw 1.1cqw .6cqw; font-size: 1.02cqw; line-height: 1.28; font-weight: 500 }
+.idea h3, .when h3 { margin: 0 0 .15cqw; font-family: var(--serif); font-size: 1.45cqw; font-weight: 700; line-height: 1.1 }
+.idea p { margin: 0 }
+.idea strong { color: var(--hi); font-weight: 800 }
+.when { flex: 1; border: .4cqw solid var(--navy); border-radius: .9cqw; padding: .45cqw 1cqw .5cqw; display: flex; flex-direction: column; justify-content: center; gap: .22cqw; font-size: .95cqw; line-height: 1.3 }
+.when h3 { color: var(--navy) }
+.when p { margin: 0 }
+.when b { font-weight: 800 }
+.when .v, .when .e { padding: 0 .3cqw; border-radius: .25cqw }
+.when .e { box-shadow: inset 0 0 0 .12cqw var(--terracotta-ink) }
+.tt { flex: 1; min-height: 0; border: .4cqw solid var(--navy); display: flex; flex-direction: column }
+.tth { background: var(--navy); color: #fff; font-family: var(--serif); font-size: 1.4cqw; font-weight: 700; padding: .15cqw .9cqw .3cqw; display: flex; align-items: baseline; gap: 1cqw }
+.tth span { font-family: var(--sans); font-size: .88cqw; font-weight: 600 }
+.tt .track { flex: 1; font-size: 1.2cqw }
+.tt .track > .lb { background: var(--navy-soft); color: var(--navy); font-size: .76cqw; font-weight: 800; letter-spacing: .04em; text-transform: uppercase }
+.tt .track > .lb.warn { background: var(--terracotta-ink); color: #fff }
+.tt .track > .en { font-family: var(--serif); font-style: italic; font-size: 1.04cqw; color: var(--muted) }
+.sheet em.akk, .sheet em.dat { font-style: normal; font-weight: 800; padding: 0 .25cqw }
+.sheet em.akk { background: var(--hi); color: var(--ink) }
+.sheet em.dat { background: var(--dat); color: #fff }
+.rules { font-size: 1.04cqw; grid-template-columns: 9.4cqw 1fr 1fr }
+.rules > div { padding: .3cqw .9cqw .34cqw; line-height: 1.36 }
+.rules .rl { font-size: .84cqw; padding-left: 1cqw }
+.rules .lead { display: inline-block; font-size: .72cqw; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; line-height: 1.5; color: var(--navy); background: var(--navy-soft); border-radius: .3cqw; padding: 0 .5cqw; margin-right: .8cqw; vertical-align: .08cqw }
+.rules .lead.akk { background: var(--hi); color: var(--ink) }
+.rules .lead.dat { background: var(--dat); color: #fff }
+.rules .aside { font-family: var(--serif); font-style: italic; color: var(--muted); font-size: .96cqw; margin-left: .7cqw }
+.rules .no, .rules .ok { font-weight: 800; margin-right: .35cqw }
+.rules .no { color: var(--terracotta-ink) }
+.rules .ok { color: #1c6a3c; margin-left: .7cqw }
+.key .sp { margin-left: .9cqw }
+</style>
+
+<div class="wrap">
+	<header class="intro">
+		<h1>Chart 8, a transformation</h1>
+		<p>Aktiv to Passiv. The same sentence twice. Two arrows show the swap; the verb stays where it is and splits in two. Underneath, the same Passiv in every tense.</p>
+	</header>
+
+	<div class="scroll">
+	<div class="sheet"><div class="page">
+		<div class="hd">
+			<div class="t">
+				<div class="brand"><svg viewBox="0 0 68 68" aria-hidden="true"><rect width="68" height="68" rx="15" fill="#1f3a5f"/><g transform="translate(2 2)"><circle cx="32" cy="32" r="23.5" fill="none" stroke="#fbf8f3" stroke-width="9"/><path d="M37.5 37.5L54 54" stroke="#c9683b" stroke-width="8"/></g></svg>Language Quiz<span>languagequiz.org</span></div>
+				<h2 class="title"><small>Chart 8</small>From Aktiv to Passiv</h2>
+			</div>
+			<div class="path">
+				<span><b>1</b>Akkusativ and doer swap places</span>
+				<span><b>2</b>Verb: werden + Partizip II</span>
+				<span><b>3</b>The doer leaves or takes von</span>
+			</div>
+			<div class="qr"><svg data-qr="45"></svg>Open in the app</div>
+		</div>
+
+		<div class="top">
+			<div class="flip">
+				<div class="rowlab"><b>Aktiv</b><i>The cook cooks the soup.</i></div>
+				<div class="w"><span class="s">Der Koch</span></div><div class="w"><span class="v">kocht</span></div><div class="w"><em class="akk">die Suppe</em>.</div><div class="w"></div>
+				<div></div>
+				<div class="cp c3"><b>3</b>who does it <span class="tag nom">Nominativ</span></div><div class="cp c2"><b>2</b>the verb: stays in the middle</div><div class="cp c1"><b>1</b>Look here first: what it happens to <span class="tag akk">Akkusativ</span></div><div></div>
+				<div></div>
+				<svg class="arrows" viewBox="0 0 400 100" preserveAspectRatio="none" aria-hidden="true">
+					<path class="doer" d="M50,0 C50,55 250,45 250,100"/>
+					<path class="obj" d="M250,0 C250,55 50,45 50,100"/>
+				</svg>
+				<div class="rowlab"><b>Passiv</b><i>The soup is cooked by the cook.</i></div>
+				<div class="w h1"><span class="s">Die Suppe</span></div><div class="w"><span class="v">wird</span></div><div class="w h3"><em class="dat">von dem Koch</em></div><div class="w"><span class="e">gekocht</span>.</div>
+				<div></div>
+				<div class="brk"><span><b>2</b>the verb splits in two</span></div>
+				<div></div>
+				<div class="cp c1"><b>1</b>now the subject <span class="tag nom">Nominativ</span></div><div class="cp c2">werden, conjugated</div><div class="cp c3"><b>3</b>optional: von <span class="tag dat">Dativ</span></div><div class="cp c2">Partizip II, at the end</div>
+			</div>
+			<div class="side">
+				<div class="idea"><h3>The one idea</h3>
+					<p>The Passiv turns the sentence around. <strong>What happens</strong> matters, <strong>who does it</strong> does not. The yellow Akkusativ moves to the front and becomes the subject.</p></div>
+				<div class="when"><h3>Use it when</h3>
+					<p><b>Nobody knows who:</b> Mein Rad <span class="v">wurde</span> <span class="e">gestohlen</span>.</p>
+					<p><b>Everybody knows who:</b> Der Müll <span class="v">wird</span> montags <span class="e">abgeholt</span>.</p>
+					<p><b>Rules, recipes, science:</b> Die Eier <span class="v">werden</span> zehn Minuten <span class="e">gekocht</span>.</p></div>
+			</div>
+		</div>
+
+		<div class="tt">
+			<div class="tth">One pattern, every tense<span>werden carries the tense, the Partizip II never changes</span></div>
+			<div class="track" style="grid-template-columns: 11cqw 9.6cqw 7.6cqw 8cqw 17cqw 1fr; grid-template-rows: auto repeat(6, 1fr)">
+				<div class="h" style="border-left:0">Form</div><div class="h">Position 1</div><div class="h vh">Verb</div><div class="h">Middle</div><div class="h vh">End</div><div class="h">In English</div>
+				<div class="lb">Präsens</div><div><span class="s">Die Suppe</span></div><div class="vc"><span class="v">wird</span></div><div>heute</div><div class="vc"><span class="e">gekocht</span>.</div><div class="en">The soup is being cooked today.</div>
+				<div class="lb">Präteritum</div><div><span class="s">Die Suppe</span></div><div class="vc"><span class="v">wurde</span></div><div>gestern</div><div class="vc"><span class="e">gekocht</span>.</div><div class="en">The soup was cooked yesterday.</div>
+				<div class="lb">Perfekt</div><div><span class="s">Die Suppe</span></div><div class="vc"><span class="v">ist</span></div><div>schon</div><div class="vc"><span class="e">gekocht</span><span class="e">worden</span>.</div><div class="en">The soup has already been cooked.</div>
+				<div class="lb">Modal verb</div><div><span class="s">Die Suppe</span></div><div class="vc"><span class="v">muss</span></div><div>noch</div><div class="vc"><span class="e">gekocht</span><span class="e">werden</span>.</div><div class="en">The soup still has to be cooked.</div>
+				<div class="lb">Futur I</div><div><span class="s">Die Suppe</span></div><div class="vc"><span class="v">wird</span></div><div>morgen</div><div class="vc"><span class="e">gekocht</span><span class="e">werden</span>.</div><div class="en">The soup will be cooked tomorrow.</div>
+				<div class="lb warn">Result, with sein</div><div><span class="s">Die Suppe</span></div><div class="vc"><span class="v">ist</span></div><div>schon</div><div class="vc"><span class="e">gekocht</span>.</div><div class="en">The soup is cooked. It is ready.</div>
+			</div>
+		</div>
+
+		<div class="rules">
+			<div class="rl">who did it</div>
+			<div><b class="lead dat">von + Dativ</b>a person or doer: Die Suppe wird <em class="dat">von dem</em> Koch gekocht.</div>
+			<div><b class="lead akk">durch + Akkusativ</b>a cause: Das Haus wurde <em class="akk">durch den</em> Sturm zerstört.</div>
+			<div class="rl">no Akkusativ?</div>
+			<div><b class="lead dat">Dativ stays Dativ</b>Man hilft <em class="dat">dem</em> Mann. → <em class="dat">Dem</em> Mann <span class="v">wird</span> <span class="e">geholfen</span>.</div>
+			<div><b class="lead">No subject at all</b>Hier <span class="v">wird</span> <span class="e">gearbeitet</span>. · Es <span class="v">wird</span> viel <span class="e">getanzt</span>.</div>
+			<div class="rl">other ways</div>
+			<div><b class="lead">man</b>Man kocht die Suppe. <span class="aside">the everyday choice in speech</span></div>
+			<div><b class="lead">sich lassen</b>Das lässt sich machen. <b class="lead" style="margin-left:1cqw">sein + zu</b>Das ist zu machen.</div>
+			<div class="rl warn">watch out</div>
+			<div><span class="no">✗</span><s>Die Suppe ist gekocht geworden.</s> <span class="ok">✓</span>… ist gekocht <span class="e">worden</span>. <span class="aside">no ge-</span></div>
+			<div><span class="no">✗</span><s>wird = will</s> <span class="ok">✓</span>Die Suppe <span class="v">wird</span> <span class="e">gekocht</span> = is being cooked, now.</div>
+		</div>
+		<div class="key"><span class="v">wird</span> conjugated verb <span class="e sp">gekocht</span> Partizip II or infinitive: never changes <b class="sp">Cases:</b> <span class="tag nom">Nominativ</span> <span class="tag akk">Akkusativ</span> <span class="tag dat">Dativ</span> <span class="tag gen">Genitiv</span></div>
+	</div></div>
+	</div>
+
+	<p class="note">The QR code is a placeholder.</p>
+</div>
+
+<script>
+// Placeholder QR: finder patterns plus a seeded pattern.
+document.querySelectorAll('svg[data-qr]').forEach(function (svg) {
+	var n = 21, seed = Number(svg.dataset.qr) || 1, out = '';
+	function rnd() { seed = (seed * 1103515245 + 12345) & 0x7fffffff; return seed / 0x7fffffff; }
+	function finder(x, y) { return x >= 0 && x < 7 && y >= 0 && y < 7; }
+	function inFinder(x, y) { return finder(x, y) || finder(x - (n - 7), y) || finder(x, y - (n - 7)); }
+	function finderOn(x, y) {
+		var fx = x >= n - 7 ? x - (n - 7) : x, fy = y >= n - 7 ? y - (n - 7) : y;
+		var edge = fx === 0 || fx === 6 || fy === 0 || fy === 6;
+		var core = fx >= 2 && fx <= 4 && fy >= 2 && fy <= 4;
+		return edge || core;
+	}
+	for (var y = 0; y < n; y++) for (var x = 0; x < n; x++) {
+		var on = inFinder(x, y) ? finderOn(x, y) : rnd() > 0.52;
+		if (on) out += '<rect x="' + x + '" y="' + y + '" width="1.02" height="1.02"/>';
+	}
+	svg.setAttribute('viewBox', '0 0 ' + n + ' ' + n);
+	svg.setAttribute('fill', '#1f3a5f');
+	svg.setAttribute('role', 'img');
+	svg.setAttribute('aria-label', 'QR code placeholder');
+	svg.innerHTML = out;
+});
+</script>

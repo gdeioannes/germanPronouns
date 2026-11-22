@@ -1,0 +1,305 @@
+<title>Time Preposition Rings</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap">
+<style>
+/* Layout: one A4 landscape chart in the same skeleton as Charts 1 and 2 (header, lookup steps,
+   QR, rule rows), but the body is a decision path: three questions down the left, each "yes"
+   leads right into a sentence track with fixed slots. 1cqw = 2.97 mm on paper. */
+:root {
+	--board: #e8e3da;
+	--board-ink: #24262b;
+	--board-muted: #5f5a52;
+	--board-line: #cfc8bb;
+	--paper: #ffffff;
+	--ink: #111111;
+	--muted: #45413b;
+	--line: #8f887b;
+	--navy: #1f3a5f;
+	--navy-soft: #e8edf4;
+	--terracotta: #c9683b;
+	--terracotta-ink: #a24c26;
+	--verb-soft: #fbeae0;
+	--hi: #ffe14d;
+	--dat: #5b3aa8;
+	--gen: #0b6e74;
+	--sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+	--serif: 'Source Serif 4', ui-serif, Georgia, serif;
+}
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme="light"]) { --board: #1c1e23; --board-ink: #f1ede6; --board-muted: #aaa398; --board-line: #3a3c42; color-scheme: dark }
+}
+:root[data-theme="dark"] { --board: #1c1e23; --board-ink: #f1ede6; --board-muted: #aaa398; --board-line: #3a3c42; color-scheme: dark }
+
+body {
+	background: var(--board);
+	color: var(--board-ink);
+	font-family: var(--sans);
+	padding-block: 28px 56px;
+	padding-left: max(16px, env(safe-area-inset-left, 0px));
+	padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 22px }
+.intro h1 { font-family: var(--serif); font-size: clamp(1.8rem, 4.6vw, 2.6rem); font-weight: 700; line-height: 1.05; margin: 0 0 10px; text-wrap: balance }
+.intro p { font-family: var(--serif); font-size: 1.05rem; line-height: 1.5; max-width: 66ch; margin: 0; color: var(--board-muted) }
+.scroll { overflow-x: auto }
+.note { font-family: var(--serif); color: var(--board-muted); font-size: 0.95rem; line-height: 1.5; max-width: 70ch; border-top: 1px solid var(--board-line); padding-top: 16px; margin: 0 }
+
+.sheet { container-type: inline-size; aspect-ratio: 297 / 210; width: 100%; min-width: 720px; background: var(--paper); color: var(--ink); box-shadow: 0 1px 2px rgba(0,0,0,.18), 0 10px 28px rgba(0,0,0,.16); overflow: hidden }
+.page { height: 100%; box-sizing: border-box; padding: 1.8cqw 3cqw 1.4cqw; display: flex; flex-direction: column; gap: .9cqw }
+.hd { display: flex; align-items: flex-end; gap: 2cqw }
+.hd .t { margin-right: auto; flex: none }
+.brand { display: flex; align-items: center; gap: .8cqw; font-family: var(--serif); font-size: 1.6cqw; font-weight: 700; color: var(--navy) }
+.brand svg { width: 2.3cqw; height: 2.3cqw }
+.brand span { font-family: var(--sans); font-size: 1.1cqw; font-weight: 600; color: var(--muted); margin-left: .6cqw }
+.sheet h2.title { white-space: nowrap; font-family: var(--serif); font-size: 3.1cqw; font-weight: 700; line-height: 1; margin: .4cqw 0 0; color: var(--navy); letter-spacing: -.01em }
+.title small { font-family: var(--sans); font-size: 1.1cqw; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--terracotta-ink); vertical-align: 1.2cqw; margin-right: .8cqw }
+.path { display: flex; gap: .4cqw; align-items: center; font-size: .96cqw; font-weight: 600; padding-bottom: .3cqw }
+.path b { display: inline-block; width: 1.9cqw; line-height: 1.9cqw; border-radius: 50%; background: var(--terracotta-ink); color: #fff; text-align: center; font-weight: 800; margin-right: .5cqw }
+.path span { background: var(--navy-soft); border-radius: 1.2cqw; padding: .35cqw 1.1cqw .35cqw .35cqw; white-space: nowrap }
+.qr { display: flex; flex-direction: column; align-items: center; gap: .2cqw; font-size: .9cqw; font-weight: 700; color: var(--navy); white-space: nowrap; flex: none }
+.qr svg { width: 4.3cqw; height: 4.3cqw; display: block }
+
+/* the decision path */
+.main { flex: 1; min-height: 0; display: grid; grid-template-columns: 23cqw 4.6cqw 1fr; grid-template-rows: 11.4fr 9.5fr 14.6fr; gap: .9cqw 0 }
+.ask { display: flex; flex-direction: column; min-height: 0 }
+.q { flex: 1; min-height: 0; background: var(--navy); color: #fff; border-radius: .9cqw; padding: .6cqw 1cqw .7cqw; display: flex; flex-direction: column; justify-content: center; gap: .3cqw }
+.q b.n { display: inline-block; width: 2cqw; line-height: 2cqw; border-radius: 50%; background: #fff; color: var(--navy); text-align: center; font-weight: 800; font-size: 1.15cqw; margin-right: .6cqw; vertical-align: .15cqw }
+.q h3 { margin: 0; font-family: var(--serif); font-size: 1.62cqw; font-weight: 700; line-height: 1.12 }
+.q p { margin: 0; font-size: 1.02cqw; line-height: 1.3; font-weight: 500 }
+.q p b { font-weight: 800; color: var(--hi) }
+.q.else { background: #fff; color: var(--ink); border: .4cqw solid var(--navy) }
+.q.else h3 { color: var(--navy) }
+.q.else p b { color: var(--terracotta-ink) }
+.down { flex: none; height: 2.1cqw; margin-bottom: -.9cqw; display: flex; justify-content: center; align-items: center; gap: .5cqw; font-size: .82cqw; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--navy); position: relative }
+.down::before { content: ''; position: absolute; left: 4cqw; top: 0; bottom: .55cqw; width: .4cqw; background: var(--navy) }
+.down::after { content: ''; position: absolute; left: 3.45cqw; bottom: 0; border: .75cqw solid transparent; border-top-color: var(--navy); border-bottom: 0 }
+.yes { display: flex; flex-direction: column; justify-content: center; align-items: stretch; font-size: .82cqw; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--terracotta-ink); text-align: center; padding-bottom: 1.2cqw }
+.yes.last { padding-bottom: 0 }
+.yes i { display: block; height: .45cqw; background: var(--terracotta-ink); margin: .2cqw .75cqw 0 0; position: relative }
+.yes i::after { content: ''; position: absolute; right: -.75cqw; top: -.55cqw; border: .775cqw solid transparent; border-left-color: var(--terracotta-ink); border-right: 0 }
+
+/* the sentence tracks */
+.lane { border: .4cqw solid var(--navy); border-radius: .9cqw; overflow: hidden; display: grid; grid-template-columns: 9.4cqw 1fr; min-height: 0 }
+.lane.last { margin-bottom: 0 }
+.badge { background: var(--terracotta-ink); color: #fff; display: flex; flex-direction: column; justify-content: center; padding: .4cqw .9cqw; gap: .2cqw }
+.badge small { font-size: .78cqw; font-weight: 800; letter-spacing: .08em; text-transform: uppercase }
+.badge b { font-family: var(--serif); font-size: 2.3cqw; font-weight: 700; line-height: .95 }
+.badge span { font-size: .92cqw; font-weight: 600; line-height: 1.2 }
+.track { display: grid; min-height: 0; font-size: 1.24cqw; line-height: 1.15 }
+.track > div { border-left: .12cqw solid var(--line); border-top: .12cqw solid var(--line); padding: 0 .7cqw; display: flex; align-items: center; gap: .45cqw; white-space: nowrap; min-width: 0; font-weight: 500 }
+.track > .h { border-top: 0; background: var(--navy-soft); font-size: .78cqw; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; color: var(--navy); padding-block: .22cqw }
+.track > .h.vh { background: var(--terracotta-ink); color: #fff }
+.track > .vc { background: var(--verb-soft); border-left: .3cqw solid var(--terracotta-ink) }
+.track > .vc + div { border-left: .3cqw solid var(--terracotta-ink) }
+.track > .none { background: repeating-linear-gradient(135deg, #fff 0 .5cqw, #e3ddd2 .5cqw .62cqw); color: var(--muted); font-size: .9cqw; font-weight: 700 }
+.track > .foot { grid-column: 1 / -1; font-size: 1cqw; white-space: normal; padding-block: .25cqw; line-height: 1.25; display: block; border-left: .12cqw solid var(--line) }
+.track > .foot b { font-weight: 800 }
+.v { background: var(--terracotta-ink); color: #fff; font-weight: 800; padding: .08cqw .5cqw .12cqw; border-radius: .3cqw }
+.e { box-shadow: inset 0 0 0 .2cqw var(--terracotta-ink); color: var(--terracotta-ink); background: #fff; font-weight: 800; padding: .08cqw .5cqw .12cqw; border-radius: .3cqw }
+.s { box-shadow: inset 0 0 0 .15cqw var(--ink); font-weight: 800; padding: .04cqw .35cqw .08cqw }
+.track i { font-family: var(--serif); font-style: italic; color: var(--muted); font-size: 1.02cqw; margin-left: auto; padding-left: .6cqw }
+
+.tag { font-size: .8cqw; font-weight: 800; letter-spacing: .03em; text-transform: uppercase; border-radius: .3cqw; padding: .05cqw .35cqw; vertical-align: .08cqw }
+.tag.dat { background: var(--dat); color: #fff }
+.tag.gen { background: var(--gen); color: #fff }
+.tag.nom { background: #fff; color: var(--ink); box-shadow: inset 0 0 0 .15cqw var(--ink) }
+.tag.akk { background: var(--hi); color: var(--ink) }
+
+.rules { display: grid; grid-template-columns: 8.5cqw 1fr 1fr; border: .4cqw solid var(--navy); font-size: 1.06cqw; line-height: 1.26 }
+.rules > div { padding: .32cqw .8cqw .37cqw; border-top: .12cqw solid var(--line); border-left: .12cqw solid var(--line) }
+.rules > div:nth-child(-n+3) { border-top: 0 }
+.rules .rl { background: var(--navy); color: #fff; font-size: .78cqw; font-weight: 800; letter-spacing: .03em; text-transform: uppercase; display: flex; align-items: center; border-left: 0; border-top-color: #3d5a80 }
+.rules .rl.warn { background: var(--terracotta-ink) }
+.rules b { font-weight: 800 }
+.rules em { font-style: normal; font-weight: 800; padding: 0 .25cqw }
+.rules em.dat { background: var(--dat); color: #fff }
+.rules em.akk { background: var(--hi); color: var(--ink) }
+.rules em.gen { background: var(--gen); color: #fff }
+.rules .v, .rules .e, .key .v, .key .e { padding: 0 .3cqw; border-radius: .25cqw }
+.rules s { text-decoration-thickness: .14cqw; text-decoration-color: var(--terracotta-ink) }
+.rules small { font-size: .78cqw; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; color: var(--muted) }
+.key { display: flex; gap: .7cqw; align-items: center; font-size: 1cqw; font-weight: 500 }
+.key b { font-weight: 800 }
+.key .sp { margin-left: 1.2cqw }
+.hd { gap: 1.2cqw }
+.sheet h2.title { font-size: 2.9cqw }
+.path { font-size: .88cqw }
+.focus { display: grid; grid-template-columns: 1fr 30cqw; gap: 1.2cqw }
+.look { border: .4cqw solid var(--navy); border-radius: .9cqw; padding: .5cqw 1.3cqw .55cqw; display: flex; align-items: center; gap: 2cqw }
+.nest { white-space: nowrap; font-weight: 800 }
+.nest span { display: inline-flex; align-items: center; gap: .8cqw; border-radius: 2.4cqw }
+.nest .n3 { background: var(--dat); color: #fff; padding: .45cqw .5cqw .45cqw 1.3cqw; font-size: 1.5cqw }
+.nest .n2 { background: #fff; color: var(--dat); box-shadow: inset 0 0 0 .22cqw var(--dat); padding: .35cqw .4cqw .35cqw 1.1cqw; font-size: 1.5cqw }
+.nest .n1 { background: var(--hi); color: var(--ink); box-shadow: inset 0 0 0 .14cqw var(--ink); padding: .25cqw 1cqw .3cqw; font-size: 1.5cqw }
+.cap1 { display: flex; flex-direction: column; gap: .4cqw }
+.cap1 span { font-size: 1.04cqw; font-weight: 700; line-height: 1.24 }
+.cap1 strong { font-weight: 800; text-decoration: underline }
+.cap1 .c1 { color: var(--navy) }
+.cap1 .c2 { color: var(--terracotta-ink) }
+.cap1 b { display: inline-block; width: 1.5cqw; line-height: 1.5cqw; border-radius: 50%; color: #fff; text-align: center; font-size: .88cqw; margin-right: .4cqw }
+.cap1 .c1 b { background: var(--navy) } .cap1 .c2 b { background: var(--terracotta-ink) }
+.idea { background: var(--navy); color: #fff; border-radius: .9cqw; padding: .45cqw 1.1cqw .55cqw; display: flex; flex-direction: column; justify-content: center; gap: .2cqw; font-size: 1.02cqw; line-height: 1.28; font-weight: 500 }
+.idea h3 { margin: 0; font-family: var(--serif); font-size: 1.5cqw; font-weight: 700; line-height: 1.1 }
+.idea p { margin: 0 }
+.idea strong { color: var(--hi); font-weight: 800 }
+
+.body { flex: 1; min-height: 0; display: grid; grid-template-columns: 36cqw 1fr; gap: 2cqw; align-items: stretch }
+.rings { width: 100%; height: 100%; display: block; min-height: 0 }
+.rings .r3 { fill: var(--dat) }
+.rings .r2 { fill: #fff; stroke: var(--dat); stroke-width: 5 }
+.rings .r1 { fill: var(--hi); stroke: var(--ink); stroke-width: 2.5 }
+.rings text { font-family: var(--sans); text-anchor: middle }
+.rings .w { fill: #fff }
+.rings .r2 ~ text.pb:nth-of-type(n) { }
+.rings .pb { font-family: var(--serif); font-size: 30px; font-weight: 700 }
+.rings .ps { font-size: 10.5px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase }
+.rings .ex { font-size: 15px; font-weight: 800 }
+.rings .k { fill: var(--ink) }
+.cards { display: grid; grid-template-rows: repeat(4, 1fr); gap: .7cqw; min-height: 0 }
+.rc { --c: var(--dat); display: grid; grid-template-columns: 9.6cqw 1fr; border: .35cqw solid var(--c); border-radius: .8cqw; overflow: hidden; min-height: 0 }
+.rb { background: var(--c); color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: .3cqw; padding: 0 .9cqw }
+.rb b { font-family: var(--serif); font-size: 2.6cqw; font-weight: 700; line-height: 1 }
+.rb .tag { background: #fff; color: var(--c); box-shadow: none }
+.rc.c-um { --c: var(--ink) }
+.rc.c-um .rb { background: var(--hi); color: var(--ink) }
+.rc.c-um .rb .tag { background: var(--ink); color: var(--hi) }
+.rc.c-am .rb { background: #fff; color: var(--dat); border-right: .35cqw solid var(--dat) }
+.rc.c-am .rb .tag { background: var(--dat); color: #fff }
+.rc.c-no { --c: var(--line); border-style: dashed }
+.rc.c-no .rb { background: #fff; color: var(--ink) }
+.rc.c-no .rb .tag { background: #fff; color: var(--ink); box-shadow: inset 0 0 0 .15cqw var(--ink) }
+.rin { padding: .35cqw 1cqw .4cqw; display: flex; flex-direction: column; justify-content: center; gap: .22cqw; min-width: 0 }
+.rin p { margin: 0 }
+.rin .what { font-size: .8cqw; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; color: var(--navy) }
+.rin .exs { display: flex; flex-wrap: wrap; gap: .3cqw 1.6cqw; font-size: 1.36cqw; font-weight: 700; white-space: nowrap }
+.rin .nt { font-size: .96cqw; line-height: 1.25 }
+.rin .nt b { font-weight: 800 }
+/* in the rings the two Dativ rings need different text colours */
+.rings text.w.mid { fill: var(--dat) }
+
+.sheet em.akk, .sheet em.dat { font-style: normal; font-weight: 800; padding: 0 .25cqw }
+.sheet em.akk { background: var(--hi); color: var(--ink) }
+.sheet em.dat { background: var(--dat); color: #fff }
+.sheet em.gen { font-style: normal; font-weight: 800; padding: 0 .25cqw; background: var(--gen); color: #fff }
+.rules .lead.gen { background: var(--gen); color: #fff }
+.rin .what i { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 1cqw; letter-spacing: 0; text-transform: none; color: var(--muted); margin-left: .8cqw }
+.rin { gap: .16cqw }
+.rin .nt { font-size: .93cqw }
+.rules { font-size: 1.04cqw; grid-template-columns: 9.4cqw 1fr 1fr }
+.rules > div { padding: .3cqw .9cqw .34cqw; line-height: 1.36 }
+.rules .rl { font-size: .84cqw; padding-left: 1cqw }
+.rules .lead { display: inline-block; font-size: .72cqw; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; line-height: 1.5; color: var(--navy); background: var(--navy-soft); border-radius: .3cqw; padding: 0 .5cqw; margin-right: .8cqw; vertical-align: .08cqw }
+.rules .lead.akk { background: var(--hi); color: var(--ink) }
+.rules .lead.dat { background: var(--dat); color: #fff }
+.rules .aside { font-family: var(--serif); font-style: italic; color: var(--muted); font-size: .96cqw; margin-left: .7cqw }
+.rules .no, .rules .ok { font-weight: 800; margin-right: .35cqw }
+.rules .no { color: var(--terracotta-ink) }
+.rules .ok { color: #1c6a3c; margin-left: .7cqw }
+.key .sp { margin-left: 1.1cqw }
+</style>
+
+<div class="wrap">
+	<header class="intro">
+		<h1>Chart 10, rings</h1>
+		<p>Time prepositions. The clock time sits inside the day, and the day sits inside the month, the season and the year. Each ring has one preposition.</p>
+	</header>
+
+	<div class="scroll">
+	<div class="sheet"><div class="page">
+		<div class="hd">
+			<div class="t">
+				<div class="brand"><svg viewBox="0 0 68 68" aria-hidden="true"><rect width="68" height="68" rx="15" fill="#1f3a5f"/><g transform="translate(2 2)"><circle cx="32" cy="32" r="23.5" fill="none" stroke="#fbf8f3" stroke-width="9"/><path d="M37.5 37.5L54 54" stroke="#c9683b" stroke-width="8"/></g></svg>Language Quiz<span>languagequiz.org</span></div>
+				<h2 class="title"><small>Chart 10</small>um, am or im?</h2>
+			</div>
+			<div class="path">
+				<span><b>1</b>How big is the time?</span>
+				<span><b>2</b>Find its ring</span>
+				<span><b>3</b>The ring gives the preposition and the case</span>
+			</div>
+			<div class="qr"><svg data-qr="18"></svg>Open in the app</div>
+		</div>
+
+		<div class="focus">
+			<div class="look">
+				<div class="nest"><span class="n3">im Mai<span class="n2">am Montag<span class="n1">um 8 Uhr</span></span></span></div>
+				<div class="cap1"><span class="c1"><b>1</b>Look here first: <strong>how big</strong> is the time? A clock time, a day, or something longer?</span><span class="c2"><b>2</b>The smaller the time, the further inside it sits.</span></div>
+			</div>
+			<div class="idea"><h3>The one idea</h3>
+				<p>Three words cover most of time: <strong>um</strong> for the clock, <strong>am</strong> for a day, <strong>im</strong> for anything longer. The small one sits inside the big one.</p></div>
+		</div>
+
+		<div class="body">
+			<svg class="rings" viewBox="0 0 400 400" role="img" aria-label="Three rings: um for the clock time inside am for the day inside im for month, season and year">
+				<circle cx="200" cy="200" r="194" class="r3"/>
+				<circle cx="200" cy="200" r="128" class="r2"/>
+				<circle cx="200" cy="200" r="62" class="r1"/>
+				<text x="200" y="44" class="pb w">im</text>
+				<text x="200" y="62" class="ps w">month · season · year</text>
+				<text x="104" y="330" class="ex w">im Mai</text>
+				<text x="298" y="330" class="ex w">im Sommer</text>
+				<text x="200" y="376" class="ex w">im Jahr 2026</text>
+				<text x="200" y="106" class="pb w mid">am</text>
+				<text x="200" y="123" class="ps w mid">day · date · part of the day</text>
+				<text x="143" y="270" class="ex w mid">am Montag</text>
+				<text x="258" y="270" class="ex w mid">am 3. Mai</text>
+				<text x="200" y="304" class="ex w mid">am Abend</text>
+				<text x="200" y="192" class="pb k">um</text>
+				<text x="200" y="212" class="ex k">8 Uhr</text>
+				<text x="200" y="228" class="ps k">the clock</text>
+			</svg>
+			<div class="cards">
+				<div class="rc c-um"><div class="rb"><b>um</b><span class="tag akk">Akkusativ</span></div><div class="rin"><p class="what">The clock: an exact time <i>Um wie viel Uhr?</i></p><p class="exs"><span>um 8 Uhr</span><span>um halb drei</span><span>um Mitternacht</span></p><p class="nt"><b>About, not exactly:</b> gegen 8 Uhr. <b>Between:</b> zwischen 8 und 10 Uhr.</p><p class="nt"><b>From, until:</b> ab 8 Uhr · bis 8 Uhr. No um after ab and bis.</p></div></div>
+				<div class="rc c-am"><div class="rb"><b>am</b><span class="tag dat">Dativ</span></div><div class="rin"><p class="what">One day, a date, or a part of the day <i>Wann? An welchem Tag?</i></p><p class="exs"><span>am Montag</span><span>am 3. Mai</span><span>am Abend</span><span>am Wochenende</span></p><p class="nt"><b>One exception:</b> in der Nacht, not am. <b>Also:</b> am Anfang · am Ende · am Geburtstag.</p><p class="nt"><b>Say the date with -en:</b> am 3. Mai = am dritt<b>en</b> Mai.</p></div></div>
+				<div class="rc c-im"><div class="rb"><b>im</b><span class="tag dat">Dativ</span></div><div class="rin"><p class="what">Longer than a day: month, season, year <i>Wann? In welchem Monat?</i></p><p class="exs"><span>im Mai</span><span>im Sommer</span><span>im Jahr 2026</span><span>in der Woche</span></p><p class="nt"><b>die-words:</b> in der Woche · in der Pause. <b>Plural:</b> in den Ferien.</p><p class="nt"><b>Also:</b> im Moment · im Urlaub · im 21. Jahrhundert.</p></div></div>
+				<div class="rc c-no"><div class="rb"><b>–</b><span class="tag nom">no word</span></div><div class="rin"><p class="what">Outside the rings: no preposition at all</p><p class="exs"><span>2026</span><span>nächste Woche</span><span>jeden Tag</span><span>Ende Mai</span></p><p class="nt"><b>A bare time is</b> <span class="tag akk">Akkusativ</span> jeden Tag · letzten Monat · den ganzen Abend.</p><p class="nt"><b>Every time, with -s and a small letter:</b> montags · abends · nachts.</p></div></div>
+			</div>
+		</div>
+
+		<div class="rules">
+			<div class="rl">from … to</div>
+			<div><b class="lead">von … bis</b>von Montag bis Freitag · von 8 bis 10 Uhr</div>
+			<div><b class="lead">ab</b>from then on: ab Montag <b class="lead" style="margin-left:1cqw">bis</b>until: bis morgen</div>
+			<div class="rl">before, after</div>
+			<div><b class="lead dat">vor · nach</b><em class="dat">vor dem</em> Essen · <em class="dat">nach der</em> Arbeit</div>
+			<div><b class="lead dat">seit</b>still going on: Ich wohne <em class="dat">seit einem</em> Jahr hier.</div>
+			<div class="rl">ago, in</div>
+			<div><b class="lead dat">vor = ago</b><em class="dat">vor einem</em> Jahr, a year ago</div>
+			<div><b class="lead dat">in = from now</b><em class="dat">in einem</em> Jahr, a year from now</div>
+			<div class="rl">how long</div>
+			<div><b class="lead akk">no word, or für</b>Ich bleibe <em class="akk">einen</em> Monat. <span class="aside">planned: für eine Woche</span></div>
+			<div><b class="lead gen">während + Genitiv</b>während <em class="gen">des</em> Essens <b class="lead" style="margin-left:1cqw">holidays</b>zu Weihnachten</div>
+			<div class="rl warn">watch out</div>
+			<div><span class="no">✗</span><s>in 2026</s> <span class="ok">✓</span>2026 or im Jahr 2026 <span class="no" style="margin-left:1.4cqw">✗</span><s>am Nacht</s> <span class="ok">✓</span>in der Nacht</div>
+			<div><span class="no">✗</span><s>im Montag · am Mai</s> <span class="ok">✓</span>am Montag · im Mai <span class="aside">day = am, longer = im</span></div>
+		</div>
+		<div class="key"><b>Ring colours:</b> <span class="tag akk">Akkusativ</span> um <span class="tag dat sp">Dativ</span> am = an dem · im = in dem <b class="sp">Small sits inside big:</b> um 8 Uhr, am Montag, im Mai</div>
+	</div></div>
+	</div>
+
+	<p class="note">The QR code is a placeholder.</p>
+</div>
+
+<script>
+// Placeholder QR: finder patterns plus a seeded pattern.
+document.querySelectorAll('svg[data-qr]').forEach(function (svg) {
+	var n = 21, seed = Number(svg.dataset.qr) || 1, out = '';
+	function rnd() { seed = (seed * 1103515245 + 12345) & 0x7fffffff; return seed / 0x7fffffff; }
+	function finder(x, y) { return x >= 0 && x < 7 && y >= 0 && y < 7; }
+	function inFinder(x, y) { return finder(x, y) || finder(x - (n - 7), y) || finder(x, y - (n - 7)); }
+	function finderOn(x, y) {
+		var fx = x >= n - 7 ? x - (n - 7) : x, fy = y >= n - 7 ? y - (n - 7) : y;
+		var edge = fx === 0 || fx === 6 || fy === 0 || fy === 6;
+		var core = fx >= 2 && fx <= 4 && fy >= 2 && fy <= 4;
+		return edge || core;
+	}
+	for (var y = 0; y < n; y++) for (var x = 0; x < n; x++) {
+		var on = inFinder(x, y) ? finderOn(x, y) : rnd() > 0.52;
+		if (on) out += '<rect x="' + x + '" y="' + y + '" width="1.02" height="1.02"/>';
+	}
+	svg.setAttribute('viewBox', '0 0 ' + n + ' ' + n);
+	svg.setAttribute('fill', '#1f3a5f');
+	svg.setAttribute('role', 'img');
+	svg.setAttribute('aria-label', 'QR code placeholder');
+	svg.innerHTML = out;
+});
+</script>

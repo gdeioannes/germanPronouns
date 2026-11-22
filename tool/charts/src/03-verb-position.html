@@ -1,0 +1,282 @@
+<title>Verb Position Chart</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap">
+<style>
+/* Layout: one A4 landscape chart in the same skeleton as Charts 1 and 2 (header, lookup steps,
+   QR, rule rows), but the body is a decision path: three questions down the left, each "yes"
+   leads right into a sentence track with fixed slots. 1cqw = 2.97 mm on paper. */
+:root {
+	--board: #e8e3da;
+	--board-ink: #24262b;
+	--board-muted: #5f5a52;
+	--board-line: #cfc8bb;
+	--paper: #ffffff;
+	--ink: #111111;
+	--muted: #45413b;
+	--line: #8f887b;
+	--navy: #1f3a5f;
+	--navy-soft: #e8edf4;
+	--terracotta: #c9683b;
+	--terracotta-ink: #a24c26;
+	--verb-soft: #fbeae0;
+	--hi: #ffe14d;
+	--dat: #5b3aa8;
+	--gen: #0b6e74;
+	--sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+	--serif: 'Source Serif 4', ui-serif, Georgia, serif;
+}
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme="light"]) { --board: #1c1e23; --board-ink: #f1ede6; --board-muted: #aaa398; --board-line: #3a3c42; color-scheme: dark }
+}
+:root[data-theme="dark"] { --board: #1c1e23; --board-ink: #f1ede6; --board-muted: #aaa398; --board-line: #3a3c42; color-scheme: dark }
+
+body {
+	background: var(--board);
+	color: var(--board-ink);
+	font-family: var(--sans);
+	padding-block: 28px 56px;
+	padding-left: max(16px, env(safe-area-inset-left, 0px));
+	padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 22px }
+.intro h1 { font-family: var(--serif); font-size: clamp(1.8rem, 4.6vw, 2.6rem); font-weight: 700; line-height: 1.05; margin: 0 0 10px; text-wrap: balance }
+.intro p { font-family: var(--serif); font-size: 1.05rem; line-height: 1.5; max-width: 66ch; margin: 0; color: var(--board-muted) }
+.scroll { overflow-x: auto }
+.note { font-family: var(--serif); color: var(--board-muted); font-size: 0.95rem; line-height: 1.5; max-width: 70ch; border-top: 1px solid var(--board-line); padding-top: 16px; margin: 0 }
+
+.sheet { container-type: inline-size; aspect-ratio: 297 / 210; width: 100%; min-width: 720px; background: var(--paper); color: var(--ink); box-shadow: 0 1px 2px rgba(0,0,0,.18), 0 10px 28px rgba(0,0,0,.16); overflow: hidden }
+.page { height: 100%; box-sizing: border-box; padding: 1.8cqw 3cqw 1.4cqw; display: flex; flex-direction: column; gap: .9cqw }
+.hd { display: flex; align-items: flex-end; gap: 2cqw }
+.hd .t { margin-right: auto; flex: none }
+.brand { display: flex; align-items: center; gap: .8cqw; font-family: var(--serif); font-size: 1.6cqw; font-weight: 700; color: var(--navy) }
+.brand svg { width: 2.3cqw; height: 2.3cqw }
+.brand span { font-family: var(--sans); font-size: 1.1cqw; font-weight: 600; color: var(--muted); margin-left: .6cqw }
+.sheet h2.title { white-space: nowrap; font-family: var(--serif); font-size: 3.1cqw; font-weight: 700; line-height: 1; margin: .4cqw 0 0; color: var(--navy); letter-spacing: -.01em }
+.title small { font-family: var(--sans); font-size: 1.1cqw; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--terracotta-ink); vertical-align: 1.2cqw; margin-right: .8cqw }
+.path { display: flex; gap: .4cqw; align-items: center; font-size: .96cqw; font-weight: 600; padding-bottom: .3cqw }
+.path b { display: inline-block; width: 1.9cqw; line-height: 1.9cqw; border-radius: 50%; background: var(--terracotta-ink); color: #fff; text-align: center; font-weight: 800; margin-right: .5cqw }
+.path span { background: var(--navy-soft); border-radius: 1.2cqw; padding: .35cqw 1.1cqw .35cqw .35cqw; white-space: nowrap }
+.qr { display: flex; flex-direction: column; align-items: center; gap: .2cqw; font-size: .9cqw; font-weight: 700; color: var(--navy); white-space: nowrap; flex: none }
+.qr svg { width: 4.3cqw; height: 4.3cqw; display: block }
+
+/* the decision path */
+.main { flex: 1; min-height: 0; display: grid; grid-template-columns: 23cqw 4.6cqw 1fr; grid-template-rows: 11.4fr 9.5fr 14.6fr; gap: .9cqw 0 }
+.ask { display: flex; flex-direction: column; min-height: 0 }
+.q { flex: 1; min-height: 0; background: var(--navy); color: #fff; border-radius: .9cqw; padding: .6cqw 1cqw .7cqw; display: flex; flex-direction: column; justify-content: center; gap: .3cqw }
+.q b.n { display: inline-block; width: 2cqw; line-height: 2cqw; border-radius: 50%; background: #fff; color: var(--navy); text-align: center; font-weight: 800; font-size: 1.15cqw; margin-right: .6cqw; vertical-align: .15cqw }
+.q h3 { margin: 0; font-family: var(--serif); font-size: 1.62cqw; font-weight: 700; line-height: 1.12 }
+.q p { margin: 0; font-size: 1.02cqw; line-height: 1.3; font-weight: 500 }
+.q p b { font-weight: 800; color: var(--hi) }
+.q.else { background: #fff; color: var(--ink); border: .4cqw solid var(--navy) }
+.q.else h3 { color: var(--navy) }
+.q.else p b { color: var(--terracotta-ink) }
+.down { flex: none; height: 2.1cqw; margin-bottom: -.9cqw; display: flex; justify-content: center; align-items: center; gap: .5cqw; font-size: .82cqw; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--navy); position: relative }
+.down::before { content: ''; position: absolute; left: 4cqw; top: 0; bottom: .55cqw; width: .4cqw; background: var(--navy) }
+.down::after { content: ''; position: absolute; left: 3.45cqw; bottom: 0; border: .75cqw solid transparent; border-top-color: var(--navy); border-bottom: 0 }
+.yes { display: flex; flex-direction: column; justify-content: center; align-items: stretch; font-size: .82cqw; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--terracotta-ink); text-align: center; padding-bottom: 1.2cqw }
+.yes.last { padding-bottom: 0 }
+.yes i { display: block; height: .45cqw; background: var(--terracotta-ink); margin: .2cqw .75cqw 0 0; position: relative }
+.yes i::after { content: ''; position: absolute; right: -.75cqw; top: -.55cqw; border: .775cqw solid transparent; border-left-color: var(--terracotta-ink); border-right: 0 }
+
+/* the sentence tracks */
+.lane { border: .4cqw solid var(--navy); border-radius: .9cqw; overflow: hidden; display: grid; grid-template-columns: 9.4cqw 1fr; min-height: 0 }
+.lane.last { margin-bottom: 0 }
+.badge { background: var(--terracotta-ink); color: #fff; display: flex; flex-direction: column; justify-content: center; padding: .4cqw .9cqw; gap: .2cqw }
+.badge small { font-size: .78cqw; font-weight: 800; letter-spacing: .08em; text-transform: uppercase }
+.badge b { font-family: var(--serif); font-size: 2.3cqw; font-weight: 700; line-height: .95 }
+.badge span { font-size: .92cqw; font-weight: 600; line-height: 1.2 }
+.track { display: grid; min-height: 0; font-size: 1.24cqw; line-height: 1.15 }
+.track > div { border-left: .12cqw solid var(--line); border-top: .12cqw solid var(--line); padding: 0 .7cqw; display: flex; align-items: center; gap: .45cqw; white-space: nowrap; min-width: 0; font-weight: 500 }
+.track > .h { border-top: 0; background: var(--navy-soft); font-size: .78cqw; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; color: var(--navy); padding-block: .22cqw }
+.track > .h.vh { background: var(--terracotta-ink); color: #fff }
+.track > .vc { background: var(--verb-soft); border-left: .3cqw solid var(--terracotta-ink) }
+.track > .vc + div { border-left: .3cqw solid var(--terracotta-ink) }
+.track > .none { background: repeating-linear-gradient(135deg, #fff 0 .5cqw, #e3ddd2 .5cqw .62cqw); color: var(--muted); font-size: .9cqw; font-weight: 700 }
+.track > .foot { grid-column: 1 / -1; font-size: 1cqw; white-space: normal; padding-block: .25cqw; line-height: 1.25; display: block; border-left: .12cqw solid var(--line) }
+.track > .foot b { font-weight: 800 }
+.v { background: var(--terracotta-ink); color: #fff; font-weight: 800; padding: .08cqw .5cqw .12cqw; border-radius: .3cqw }
+.e { box-shadow: inset 0 0 0 .2cqw var(--terracotta-ink); color: var(--terracotta-ink); background: #fff; font-weight: 800; padding: .08cqw .5cqw .12cqw; border-radius: .3cqw }
+.s { box-shadow: inset 0 0 0 .15cqw var(--ink); font-weight: 800; padding: .04cqw .35cqw .08cqw }
+.track i { font-family: var(--serif); font-style: italic; color: var(--muted); font-size: 1.02cqw; margin-left: auto; padding-left: .6cqw }
+
+.tag { font-size: .8cqw; font-weight: 800; letter-spacing: .03em; text-transform: uppercase; border-radius: .3cqw; padding: .05cqw .35cqw; vertical-align: .08cqw }
+.tag.dat { background: var(--dat); color: #fff }
+.tag.gen { background: var(--gen); color: #fff }
+.tag.nom { background: #fff; color: var(--ink); box-shadow: inset 0 0 0 .15cqw var(--ink) }
+.tag.akk { background: var(--hi); color: var(--ink) }
+
+.rules { display: grid; grid-template-columns: 8.5cqw 1fr 1fr; border: .4cqw solid var(--navy); font-size: 1.06cqw; line-height: 1.26 }
+.rules > div { padding: .32cqw .8cqw .37cqw; border-top: .12cqw solid var(--line); border-left: .12cqw solid var(--line) }
+.rules > div:nth-child(-n+3) { border-top: 0 }
+.rules .rl { background: var(--navy); color: #fff; font-size: .78cqw; font-weight: 800; letter-spacing: .03em; text-transform: uppercase; display: flex; align-items: center; border-left: 0; border-top-color: #3d5a80 }
+.rules .rl.warn { background: var(--terracotta-ink) }
+.rules b { font-weight: 800 }
+.rules em { font-style: normal; font-weight: 800; padding: 0 .25cqw }
+.rules em.dat { background: var(--dat); color: #fff }
+.rules em.akk { background: var(--hi); color: var(--ink) }
+.rules em.gen { background: var(--gen); color: #fff }
+.rules .v, .rules .e, .key .v, .key .e { padding: 0 .3cqw; border-radius: .25cqw }
+.rules s { text-decoration-thickness: .14cqw; text-decoration-color: var(--terracotta-ink) }
+.rules small { font-size: .78cqw; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; color: var(--muted) }
+.key { display: flex; gap: .7cqw; align-items: center; font-size: 1cqw; font-weight: 500 }
+.key b { font-weight: 800 }
+.key .sp { margin-left: 1.2cqw }
+</style>
+
+<div class="wrap">
+	<header class="intro">
+		<h1>Chart 3, a decision path</h1>
+		<p>Word order. Three questions on the left decide where the verb goes. Each answer leads into a sentence track with fixed slots, so the eye learns the positions and not a list of rules.</p>
+	</header>
+
+	<div class="scroll">
+	<div class="sheet"><div class="page">
+		<div class="hd">
+			<div class="t">
+				<div class="brand"><svg viewBox="0 0 68 68" aria-hidden="true"><rect width="68" height="68" rx="15" fill="#1f3a5f"/><g transform="translate(2 2)"><circle cx="32" cy="32" r="23.5" fill="none" stroke="#fbf8f3" stroke-width="9"/><path d="M37.5 37.5L54 54" stroke="#c9683b" stroke-width="8"/></g></svg>Language Quiz<span>languagequiz.org</span></div>
+				<h2 class="title"><small>Chart 3</small>Where does the verb go?</h2>
+			</div>
+			<div class="path">
+				<span><b>1</b>Find the verb with the ending</span>
+				<span><b>2</b>Answer the questions</span>
+				<span><b>3</b>Put it in its slot</span>
+			</div>
+			<div class="qr"><svg data-qr="93"></svg>Open in the app</div>
+		</div>
+
+		<div class="main">
+			<div class="ask">
+				<div class="q"><h3><b class="n">1</b>Does the clause start with a linking word?</h3>
+					<p><b>weil · dass · wenn · ob · als · obwohl · bevor · nachdem · damit</b>, a relative <b>der / die / das</b>, or a W-word inside a sentence</p></div>
+				<div class="down">no</div>
+			</div>
+			<div class="yes">yes<i></i></div>
+			<div class="lane" id="lane-last"></div>
+
+			<div class="ask">
+				<div class="q"><h3><b class="n">2</b>Is it a yes/no question or a command?</h3>
+					<p>No question word at the start. The answer is <b>ja</b>, <b>nein</b> or <b>doch</b>, or somebody has to do something.</p></div>
+				<div class="down">no</div>
+			</div>
+			<div class="yes">yes<i></i></div>
+			<div class="lane" id="lane-first"></div>
+
+			<div class="ask">
+				<div class="q else"><h3><b class="n" style="background:var(--navy);color:#fff">3</b>Everything else</h3>
+					<p>Statements and questions with a W-word: <b>wer · was · wo · wann · warum · wie</b>.</p>
+					<p>Position 1 holds <b>one</b> element, any one. The verb never moves from position 2. If the subject is not in position 1, it comes right after the verb.</p></div>
+			</div>
+			<div class="yes last">so<i></i></div>
+			<div class="lane last" id="lane-second"></div>
+		</div>
+
+		<div class="rules">
+			<div class="rl">position 1</div>
+			<div><b>One element, however long:</b> Nach dem Essen am Sonntag <span class="v">gehe</span> ich spazieren.</div>
+			<div><b>A whole clause can be position 1:</b> Wenn ich Zeit <span class="v">habe</span>, <span class="v">komme</span> ich. Verb meets verb at the comma.</div>
+			<div class="rl">position 0</div>
+			<div><b>und · aber · oder · denn · sondern</b> take no slot: …, aber ich <span class="v">habe</span> keine Zeit.</div>
+			<div><b>deshalb · dann · trotzdem · danach · also</b> fill position 1: Deshalb <span class="v">bleibe</span> ich zu Hause.</div>
+			<div class="rl">middle: who, what</div>
+			<div><b>Nouns:</b> <span class="tag dat">Dativ</span> before <span class="tag akk">Akkusativ</span> Ich gebe <em class="dat">dem Mann</em> <em class="akk">das Buch</em>.</div>
+			<div><b>Pronouns first</b>, and <span class="tag akk">Akkusativ</span> before <span class="tag dat">Dativ</span> Ich gebe <em class="dat">ihm</em> <em class="akk">das Buch</em>. Ich gebe <em class="akk">es</em> <em class="dat">ihm</em>.</div>
+			<div class="rl">middle: the rest</div>
+			<div><small>when</small> heute <small>why</small> wegen <em class="gen">des Regens</em> <small>how</small> mit <em class="dat">dem Bus</em> <small>where</small> <em class="dat">zur</em> Arbeit. Te-ka-mo-lo.</div>
+			<div><b>nicht</b> stands before the part it denies: nicht heute, nicht nach Berlin. To deny everything it goes to the end: Ich kaufe das Buch nicht.</div>
+			<div class="rl warn">watch out</div>
+			<div><s>Heute ich kaufe ein Buch.</s> → Heute <span class="v">kaufe</span> ich ein Buch. Two elements before the verb is the English order.</div>
+			<div><s>…, weil ich habe keine Zeit.</s> → …, weil ich keine Zeit <span class="v">habe</span>. After the linking word the verb waits until the end.</div>
+		</div>
+		<div class="key"><span class="v">kaufe</span> the verb with the ending <span class="e sp">gekauft</span> the rest of the verb <span class="s sp">ich</span> the subject, always <span class="tag nom">Nominativ</span> <b class="sp">Case colours on every chart:</b> <span class="tag nom">Nominativ</span> <span class="tag akk">Akkusativ</span> <span class="tag dat">Dativ</span> <span class="tag gen">Genitiv</span></div>
+	</div></div>
+	</div>
+
+	<p class="note">The QR code is a placeholder. In the app, the same chart could let you drag the words into the slots.</p>
+</div>
+
+<script>
+(function () {
+	function V(t) { return '<span class="v">' + t + '</span>'; }
+	function E(t) { return '<span class="e">' + t + '</span>'; }
+	function S(t) { return '<span class="s">' + t + '</span>'; }
+	var NONE = { none: true };
+	var LANES = {
+		'lane-last': {
+			small: 'Nebensatz', big: 'Verb last', sub: 'It waits until the end.',
+			cols: '15.5cqw 9cqw 1fr 14cqw',
+			head: ['Main clause', 'Linking word', 'Middle', 'Verb at the end'], verbCols: [3],
+			rows: [
+				['Ich komme nicht,', '<b>weil</b>', S('ich') + ' heute keine Zeit', V('habe') + '.'],
+				['Ich weiß,', '<b>dass</b>', S('er') + ' das Buch', E('gekauft') + V('hat') + '.'],
+				['Ich freue mich,', '<b>wenn</b>', S('du') + ' mich morgen', V('anrufst') + '.'],
+				['Das ist der Mann,', '<b>der</b>', 'in Berlin', V('wohnt') + '.']
+			],
+			foot: '<b>Two verbs:</b> the one with the ending is the very last word. <b>Split verbs</b> join again: an|rufen → anrufst.'
+		},
+		'lane-first': {
+			small: 'Frage · Imperativ', big: 'Verb first', sub: 'Position 1 is empty.',
+			cols: '13cqw 9.5cqw 1fr 11.5cqw',
+			head: ['Position 1', 'Verb', 'Middle', 'End'], verbCols: [1, 3],
+			rows: [
+				[NONE, V('Kaufst'), S('du') + ' heute ein Buch?', ''],
+				[NONE, V('Hast'), S('du') + ' das Buch', E('gekauft') + '?'],
+				[NONE, V('Ruf'), 'mich bitte', E('an') + '!']
+			],
+			foot: '<b>Commands:</b> Komm! (du) · Kommt! (ihr) · Kommen Sie! (formal, the only one that keeps its pronoun).'
+		},
+		'lane-second': {
+			small: 'Hauptsatz', big: 'Verb second', sub: 'The fixed point of the sentence.',
+			cols: '13cqw 9.5cqw 1fr 11.5cqw',
+			head: ['Position 1', 'Verb', 'Middle', 'End'], verbCols: [1, 3],
+			rows: [
+				[S('Ich'), V('kaufe'), 'heute ein Buch.', ''],
+				['Heute', V('kaufe'), S('ich') + ' ein Buch.<i>subject after the verb</i>', ''],
+				['Was', V('kaufst'), S('du') + ' heute?', ''],
+				[S('Ich'), V('habe'), 'gestern ein Buch', E('gekauft') + '.'],
+				['Morgen', V('will'), S('ich') + ' ein Buch', E('kaufen') + '.'],
+				[S('Ich'), V('rufe'), 'dich morgen', E('an') + '.']
+			],
+			foot: '<b>The verb bracket:</b> the verb with the ending in position 2, the rest at the end: participle, infinitive, split prefix.'
+		}
+	};
+	Object.keys(LANES).forEach(function (id) {
+		var L = LANES[id];
+		var h = '<div class="badge"><small>' + L.small + '</small><b>' + L.big.replace(' ', '<br>') + '</b><span>' + L.sub + '</span></div>';
+		h += '<div class="track" style="grid-template-columns:' + L.cols + ';grid-template-rows:auto repeat(' + L.rows.length + ',1fr) auto">';
+		L.head.forEach(function (t, i) { h += '<div class="h' + (L.verbCols.indexOf(i) >= 0 ? ' vh' : '') + '"' + (i === 0 ? ' style="border-left:0"' : '') + '>' + t + '</div>'; });
+		L.rows.forEach(function (r) {
+			r.forEach(function (c, i) {
+				var cls = L.verbCols.indexOf(i) >= 0 ? 'vc' : '';
+				var st = i === 0 ? ' style="border-left:0"' : '';
+				if (c === NONE) h += '<div class="none"' + st + '>empty</div>';
+				else h += '<div class="' + cls + '"' + st + '>' + c + '</div>';
+			});
+		});
+		h += '<div class="foot" style="border-left:0">' + L.foot + '</div></div>';
+		document.getElementById(id).innerHTML = h;
+	});
+})();
+
+// Placeholder QR: finder patterns plus a seeded pattern.
+document.querySelectorAll('svg[data-qr]').forEach(function (svg) {
+	var n = 21, seed = Number(svg.dataset.qr) || 1, out = '';
+	function rnd() { seed = (seed * 1103515245 + 12345) & 0x7fffffff; return seed / 0x7fffffff; }
+	function finder(x, y) { return x >= 0 && x < 7 && y >= 0 && y < 7; }
+	function inFinder(x, y) { return finder(x, y) || finder(x - (n - 7), y) || finder(x, y - (n - 7)); }
+	function finderOn(x, y) {
+		var fx = x >= n - 7 ? x - (n - 7) : x, fy = y >= n - 7 ? y - (n - 7) : y;
+		var edge = fx === 0 || fx === 6 || fy === 0 || fy === 6;
+		var core = fx >= 2 && fx <= 4 && fy >= 2 && fy <= 4;
+		return edge || core;
+	}
+	for (var y = 0; y < n; y++) for (var x = 0; x < n; x++) {
+		var on = inFinder(x, y) ? finderOn(x, y) : rnd() > 0.52;
+		if (on) out += '<rect x="' + x + '" y="' + y + '" width="1.02" height="1.02"/>';
+	}
+	svg.setAttribute('viewBox', '0 0 ' + n + ' ' + n);
+	svg.setAttribute('fill', '#1f3a5f');
+	svg.setAttribute('role', 'img');
+	svg.setAttribute('aria-label', 'QR code placeholder');
+	svg.innerHTML = out;
+});
+</script>

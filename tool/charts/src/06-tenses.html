@@ -1,0 +1,315 @@
+<title>Tense Timeline Chart</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap">
+<style>
+/* Layout: one A4 landscape chart in the same skeleton as Charts 1 and 2 (header, lookup steps,
+   QR, rule rows), but the body is a decision path: three questions down the left, each "yes"
+   leads right into a sentence track with fixed slots. 1cqw = 2.97 mm on paper. */
+:root {
+	--board: #e8e3da;
+	--board-ink: #24262b;
+	--board-muted: #5f5a52;
+	--board-line: #cfc8bb;
+	--paper: #ffffff;
+	--ink: #111111;
+	--muted: #45413b;
+	--line: #8f887b;
+	--navy: #1f3a5f;
+	--navy-soft: #e8edf4;
+	--terracotta: #c9683b;
+	--terracotta-ink: #a24c26;
+	--verb-soft: #fbeae0;
+	--hi: #ffe14d;
+	--dat: #5b3aa8;
+	--gen: #0b6e74;
+	--sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+	--serif: 'Source Serif 4', ui-serif, Georgia, serif;
+}
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme="light"]) { --board: #1c1e23; --board-ink: #f1ede6; --board-muted: #aaa398; --board-line: #3a3c42; color-scheme: dark }
+}
+:root[data-theme="dark"] { --board: #1c1e23; --board-ink: #f1ede6; --board-muted: #aaa398; --board-line: #3a3c42; color-scheme: dark }
+
+body {
+	background: var(--board);
+	color: var(--board-ink);
+	font-family: var(--sans);
+	padding-block: 28px 56px;
+	padding-left: max(16px, env(safe-area-inset-left, 0px));
+	padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 22px }
+.intro h1 { font-family: var(--serif); font-size: clamp(1.8rem, 4.6vw, 2.6rem); font-weight: 700; line-height: 1.05; margin: 0 0 10px; text-wrap: balance }
+.intro p { font-family: var(--serif); font-size: 1.05rem; line-height: 1.5; max-width: 66ch; margin: 0; color: var(--board-muted) }
+.scroll { overflow-x: auto }
+.note { font-family: var(--serif); color: var(--board-muted); font-size: 0.95rem; line-height: 1.5; max-width: 70ch; border-top: 1px solid var(--board-line); padding-top: 16px; margin: 0 }
+
+.sheet { container-type: inline-size; aspect-ratio: 297 / 210; width: 100%; min-width: 720px; background: var(--paper); color: var(--ink); box-shadow: 0 1px 2px rgba(0,0,0,.18), 0 10px 28px rgba(0,0,0,.16); overflow: hidden }
+.page { height: 100%; box-sizing: border-box; padding: 1.8cqw 3cqw 1.4cqw; display: flex; flex-direction: column; gap: .9cqw }
+.hd { display: flex; align-items: flex-end; gap: 2cqw }
+.hd .t { margin-right: auto; flex: none }
+.brand { display: flex; align-items: center; gap: .8cqw; font-family: var(--serif); font-size: 1.6cqw; font-weight: 700; color: var(--navy) }
+.brand svg { width: 2.3cqw; height: 2.3cqw }
+.brand span { font-family: var(--sans); font-size: 1.1cqw; font-weight: 600; color: var(--muted); margin-left: .6cqw }
+.sheet h2.title { white-space: nowrap; font-family: var(--serif); font-size: 3.1cqw; font-weight: 700; line-height: 1; margin: .4cqw 0 0; color: var(--navy); letter-spacing: -.01em }
+.title small { font-family: var(--sans); font-size: 1.1cqw; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--terracotta-ink); vertical-align: 1.2cqw; margin-right: .8cqw }
+.path { display: flex; gap: .4cqw; align-items: center; font-size: .96cqw; font-weight: 600; padding-bottom: .3cqw }
+.path b { display: inline-block; width: 1.9cqw; line-height: 1.9cqw; border-radius: 50%; background: var(--terracotta-ink); color: #fff; text-align: center; font-weight: 800; margin-right: .5cqw }
+.path span { background: var(--navy-soft); border-radius: 1.2cqw; padding: .35cqw 1.1cqw .35cqw .35cqw; white-space: nowrap }
+.qr { display: flex; flex-direction: column; align-items: center; gap: .2cqw; font-size: .9cqw; font-weight: 700; color: var(--navy); white-space: nowrap; flex: none }
+.qr svg { width: 4.3cqw; height: 4.3cqw; display: block }
+
+/* the decision path */
+.main { flex: 1; min-height: 0; display: grid; grid-template-columns: 23cqw 4.6cqw 1fr; grid-template-rows: 11.4fr 9.5fr 14.6fr; gap: .9cqw 0 }
+.ask { display: flex; flex-direction: column; min-height: 0 }
+.q { flex: 1; min-height: 0; background: var(--navy); color: #fff; border-radius: .9cqw; padding: .6cqw 1cqw .7cqw; display: flex; flex-direction: column; justify-content: center; gap: .3cqw }
+.q b.n { display: inline-block; width: 2cqw; line-height: 2cqw; border-radius: 50%; background: #fff; color: var(--navy); text-align: center; font-weight: 800; font-size: 1.15cqw; margin-right: .6cqw; vertical-align: .15cqw }
+.q h3 { margin: 0; font-family: var(--serif); font-size: 1.62cqw; font-weight: 700; line-height: 1.12 }
+.q p { margin: 0; font-size: 1.02cqw; line-height: 1.3; font-weight: 500 }
+.q p b { font-weight: 800; color: var(--hi) }
+.q.else { background: #fff; color: var(--ink); border: .4cqw solid var(--navy) }
+.q.else h3 { color: var(--navy) }
+.q.else p b { color: var(--terracotta-ink) }
+.down { flex: none; height: 2.1cqw; margin-bottom: -.9cqw; display: flex; justify-content: center; align-items: center; gap: .5cqw; font-size: .82cqw; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--navy); position: relative }
+.down::before { content: ''; position: absolute; left: 4cqw; top: 0; bottom: .55cqw; width: .4cqw; background: var(--navy) }
+.down::after { content: ''; position: absolute; left: 3.45cqw; bottom: 0; border: .75cqw solid transparent; border-top-color: var(--navy); border-bottom: 0 }
+.yes { display: flex; flex-direction: column; justify-content: center; align-items: stretch; font-size: .82cqw; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--terracotta-ink); text-align: center; padding-bottom: 1.2cqw }
+.yes.last { padding-bottom: 0 }
+.yes i { display: block; height: .45cqw; background: var(--terracotta-ink); margin: .2cqw .75cqw 0 0; position: relative }
+.yes i::after { content: ''; position: absolute; right: -.75cqw; top: -.55cqw; border: .775cqw solid transparent; border-left-color: var(--terracotta-ink); border-right: 0 }
+
+/* the sentence tracks */
+.lane { border: .4cqw solid var(--navy); border-radius: .9cqw; overflow: hidden; display: grid; grid-template-columns: 9.4cqw 1fr; min-height: 0 }
+.lane.last { margin-bottom: 0 }
+.badge { background: var(--terracotta-ink); color: #fff; display: flex; flex-direction: column; justify-content: center; padding: .4cqw .9cqw; gap: .2cqw }
+.badge small { font-size: .78cqw; font-weight: 800; letter-spacing: .08em; text-transform: uppercase }
+.badge b { font-family: var(--serif); font-size: 2.3cqw; font-weight: 700; line-height: .95 }
+.badge span { font-size: .92cqw; font-weight: 600; line-height: 1.2 }
+.track { display: grid; min-height: 0; font-size: 1.24cqw; line-height: 1.15 }
+.track > div { border-left: .12cqw solid var(--line); border-top: .12cqw solid var(--line); padding: 0 .7cqw; display: flex; align-items: center; gap: .45cqw; white-space: nowrap; min-width: 0; font-weight: 500 }
+.track > .h { border-top: 0; background: var(--navy-soft); font-size: .78cqw; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; color: var(--navy); padding-block: .22cqw }
+.track > .h.vh { background: var(--terracotta-ink); color: #fff }
+.track > .vc { background: var(--verb-soft); border-left: .3cqw solid var(--terracotta-ink) }
+.track > .vc + div { border-left: .3cqw solid var(--terracotta-ink) }
+.track > .none { background: repeating-linear-gradient(135deg, #fff 0 .5cqw, #e3ddd2 .5cqw .62cqw); color: var(--muted); font-size: .9cqw; font-weight: 700 }
+.track > .foot { grid-column: 1 / -1; font-size: 1cqw; white-space: normal; padding-block: .25cqw; line-height: 1.25; display: block; border-left: .12cqw solid var(--line) }
+.track > .foot b { font-weight: 800 }
+.v { background: var(--terracotta-ink); color: #fff; font-weight: 800; padding: .08cqw .5cqw .12cqw; border-radius: .3cqw }
+.e { box-shadow: inset 0 0 0 .2cqw var(--terracotta-ink); color: var(--terracotta-ink); background: #fff; font-weight: 800; padding: .08cqw .5cqw .12cqw; border-radius: .3cqw }
+.s { box-shadow: inset 0 0 0 .15cqw var(--ink); font-weight: 800; padding: .04cqw .35cqw .08cqw }
+.track i { font-family: var(--serif); font-style: italic; color: var(--muted); font-size: 1.02cqw; margin-left: auto; padding-left: .6cqw }
+
+.tag { font-size: .8cqw; font-weight: 800; letter-spacing: .03em; text-transform: uppercase; border-radius: .3cqw; padding: .05cqw .35cqw; vertical-align: .08cqw }
+.tag.dat { background: var(--dat); color: #fff }
+.tag.gen { background: var(--gen); color: #fff }
+.tag.nom { background: #fff; color: var(--ink); box-shadow: inset 0 0 0 .15cqw var(--ink) }
+.tag.akk { background: var(--hi); color: var(--ink) }
+
+.rules { display: grid; grid-template-columns: 8.5cqw 1fr 1fr; border: .4cqw solid var(--navy); font-size: 1.06cqw; line-height: 1.26 }
+.rules > div { padding: .32cqw .8cqw .37cqw; border-top: .12cqw solid var(--line); border-left: .12cqw solid var(--line) }
+.rules > div:nth-child(-n+3) { border-top: 0 }
+.rules .rl { background: var(--navy); color: #fff; font-size: .78cqw; font-weight: 800; letter-spacing: .03em; text-transform: uppercase; display: flex; align-items: center; border-left: 0; border-top-color: #3d5a80 }
+.rules .rl.warn { background: var(--terracotta-ink) }
+.rules b { font-weight: 800 }
+.rules em { font-style: normal; font-weight: 800; padding: 0 .25cqw }
+.rules em.dat { background: var(--dat); color: #fff }
+.rules em.akk { background: var(--hi); color: var(--ink) }
+.rules em.gen { background: var(--gen); color: #fff }
+.rules .v, .rules .e, .key .v, .key .e { padding: 0 .3cqw; border-radius: .25cqw }
+.rules s { text-decoration-thickness: .14cqw; text-decoration-color: var(--terracotta-ink) }
+.rules small { font-size: .78cqw; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; color: var(--muted) }
+.key { display: flex; gap: .7cqw; align-items: center; font-size: 1cqw; font-weight: 500 }
+.key b { font-weight: 800 }
+.key .sp { margin-left: 1.2cqw }
+.hd { gap: 1.2cqw }
+.sheet h2.title { font-size: 2.9cqw }
+.path { font-size: .9cqw }
+.tl { flex: 1; min-height: 0; display: flex; flex-direction: column; gap: .75cqw }
+.focus { display: grid; grid-template-columns: 1fr 31cqw; gap: 1.2cqw }
+.look { border: .4cqw solid var(--navy); border-radius: .9cqw; padding: .45cqw 1.3cqw .5cqw; display: flex; align-items: center; gap: 2cqw }
+.forms { display: flex; align-items: flex-start; gap: 1.1cqw; white-space: nowrap }
+.forms span { display: flex; flex-direction: column; align-items: center; gap: .2cqw }
+.forms b { font-size: 2.5cqw; font-weight: 800; line-height: 1.2; padding: .05cqw .8cqw .12cqw; border-radius: .5cqw }
+.forms b.e { box-shadow: inset 0 0 0 .3cqw var(--terracotta-ink); color: var(--terracotta-ink); background: #fff }
+.forms b.v { background: var(--terracotta-ink); color: #fff }
+.forms i { font-style: normal; font-size: .78cqw; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--navy) }
+.look .cap { display: flex; flex-direction: column; gap: .4cqw }
+.look .cap span { font-size: 1.06cqw; font-weight: 700; line-height: 1.22 }
+.look .cap strong { font-weight: 800; text-decoration: underline }
+.look .cap .c1 { color: var(--navy) }
+.look .cap .c2 { color: var(--terracotta-ink) }
+.look .cap b { display: inline-block; width: 1.5cqw; line-height: 1.5cqw; border-radius: 50%; color: #fff; text-align: center; font-size: .88cqw; margin-right: .4cqw }
+.look .c1 b { background: var(--navy) } .look .c2 b { background: var(--terracotta-ink) }
+.idea { background: var(--navy); color: #fff; border-radius: .9cqw; padding: .45cqw 1.1cqw .55cqw; display: flex; flex-direction: column; justify-content: center; gap: .2cqw; font-size: 1.02cqw; line-height: 1.28; font-weight: 500 }
+.idea h3 { margin: 0; font-family: var(--serif); font-size: 1.5cqw; font-weight: 700; line-height: 1.1 }
+.idea p { margin: 0 }
+.idea strong { color: var(--hi); font-weight: 800 }
+.one { background: var(--navy); color: #fff; border-radius: .8cqw; padding: .45cqw 1.1cqw .5cqw; font-size: 1.1cqw; font-weight: 500; line-height: 1.25 }
+.one b { font-family: var(--serif); font-size: 1.4cqw; font-weight: 700; margin-right: 1cqw }
+.one strong { color: var(--hi); font-weight: 800 }
+.row { flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: .8cqw }
+.card { position: relative; border: .35cqw solid var(--navy); border-radius: .8cqw; display: flex; flex-direction: column; min-height: 0; min-width: 0; background: #fff }
+.card::after { content: ''; position: absolute; left: calc(50% - .2cqw); width: .4cqw; height: 1.1cqw; background: var(--navy) }
+.row.top .card::after { bottom: -1.45cqw }
+.row.bot .card::after { top: -1.45cqw }
+.card header { background: var(--navy); color: #fff; padding: .2cqw .8cqw .3cqw; display: flex; align-items: baseline; gap: .6cqw; border-radius: .4cqw .4cqw 0 0; white-space: nowrap }
+.card header b { font-family: var(--serif); font-size: 1.5cqw; font-weight: 700; line-height: 1.15; margin-right: auto }
+.card header span { font-size: .78cqw; font-weight: 800; letter-spacing: .05em; text-transform: uppercase }
+.card.now { border-color: var(--terracotta-ink) }
+.card.now header { background: var(--terracotta-ink) }
+.card.now::after { background: var(--terracotta-ink) }
+.card.twist { border-color: var(--terracotta-ink) }
+.card.twist::after { background: var(--terracotta-ink) }
+.card.twist header { background: #fff; color: var(--ink); border-bottom: .3cqw solid var(--terracotta-ink); align-items: center; white-space: normal; padding: .3cqw .7cqw .35cqw; gap: .5cqw }
+.card.twist header b { font-family: var(--sans); font-size: 1.02cqw; font-weight: 800; line-height: 1.15; margin-right: 0 }
+.card.twist header span { order: -1; flex: none; background: var(--terracotta-ink); color: #fff; border-radius: .3cqw; padding: .12cqw .4cqw .16cqw; font-size: .7cqw; white-space: nowrap }
+.card .in { flex: 1; padding: .3cqw .8cqw .4cqw; display: flex; flex-direction: column; justify-content: center; gap: .22cqw }
+.card p { margin: 0 }
+.card .big { font-size: 1.42cqw; font-weight: 700; line-height: 1.2; display: flex; flex-wrap: wrap; align-items: center; gap: .3cqw .35cqw }
+.card.twist .big { font-size: 1.2cqw }
+.card .eng { font-family: var(--serif); font-style: italic; font-size: 1.02cqw; color: var(--muted); line-height: 1.2 }
+.card .ln { font-size: .92cqw; line-height: 1.22; font-weight: 500 }
+.card .ln .v, .card .ln .e { padding: 0 .3cqw; border-radius: .25cqw }
+.card .ln .e { box-shadow: inset 0 0 0 .12cqw var(--terracotta-ink) }
+.rules { font-size: 1.02cqw }
+.rules > div { padding-block: .26cqw .3cqw }
+.card .ln b { font-weight: 800 }
+.card .v, .card .e { padding: .04cqw .4cqw .08cqw }
+.axis { flex: none; position: relative; display: grid; grid-template-columns: repeat(5, 1fr); gap: .8cqw; justify-items: center; align-items: center; height: 2.6cqw; margin-block: .35cqw }
+.axis::before { content: ''; position: absolute; left: 0; right: 1.2cqw; top: calc(50% - .25cqw); height: .5cqw; background: var(--navy) }
+.axis::after { content: ''; position: absolute; right: 0; top: calc(50% - .9cqw); border: .9cqw solid transparent; border-left: 1.3cqw solid var(--navy); border-right: 0 }
+.pill { position: relative; z-index: 1; background: #fff; box-shadow: inset 0 0 0 .28cqw var(--navy); color: var(--navy); border-radius: 1.4cqw; padding: .3cqw 1.1cqw .35cqw; font-size: .86cqw; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; white-space: nowrap }
+.pill.jetzt { background: var(--terracotta-ink); box-shadow: none; color: #fff; font-size: 1.25cqw; letter-spacing: .03em; padding: .4cqw 1.5cqw .45cqw }
+.key .sp { margin-left: .9cqw }
+/* hierarchy: tenses and the line first */
+.row.top { flex: 1.53 }
+.row.top .card header { flex-direction: column; align-items: flex-start; gap: 0; padding: .3cqw .9cqw .45cqw }
+.row.top .card header b { font-size: 1.9cqw; margin: 0; line-height: 1.12 }
+.row.top .card header span { font-size: .82cqw }
+.row.top .card .big { font-size: 1.42cqw }
+.row.top .card .eng { font-size: 1.1cqw }
+.row.top .card .ln { font-size: .93cqw; line-height: 1.25 }
+.row.top .card .in { gap: .34cqw }
+.card::after { height: 1.7cqw }
+.row.top .card::after { bottom: -2.05cqw }
+.row.bot .card::after { top: -2.05cqw }
+.axis { height: 3.6cqw }
+.axis::before { height: .7cqw; top: calc(50% - .35cqw) }
+.axis::after { top: calc(50% - 1.1cqw); border-width: 1.1cqw; border-left-width: 1.5cqw; border-right-width: 0 }
+.pill { font-size: 1.14cqw; padding: .4cqw 1.3cqw .45cqw; box-shadow: inset 0 0 0 .32cqw var(--navy) }
+.pill.jetzt { font-size: 1.7cqw; padding: .42cqw 1.9cqw .5cqw; box-shadow: none }
+.row.bot .card:not(.twist) header b { font-size: 1.7cqw }
+.row.bot .card:not(.twist) .big { font-size: 1.4cqw }
+.row.bot .card:not(.twist) .ln { font-size: .88cqw }
+.row.bot .card:not(.twist) .in { padding-block: .2cqw .3cqw; gap: .12cqw }
+.row.bot .card.twist { border-width: .16cqw; background: var(--verb-soft) }
+.row.bot .card.twist::after { width: .16cqw; left: calc(50% - .08cqw) }
+.row.bot .card.twist header { background: transparent; border-bottom: 0; padding: .4cqw .7cqw 0 }
+.row.bot .card.twist header b { font-size: .96cqw }
+.row.bot .card.twist .in { justify-content: flex-start; padding: .3cqw .7cqw .4cqw; gap: .14cqw }
+.row.bot .card.twist .big { font-size: 1.05cqw }
+.row.bot .card.twist .eng { font-size: .9cqw }
+.row.bot .card.twist .ln { font-size: .86cqw; line-height: 1.24 }
+</style>
+
+<div class="wrap">
+	<header class="intro">
+		<h1>Chart 6, a timeline</h1>
+		<p>The tenses. One sentence travels along a time line from left to right. Above the line: the form for that moment. Below the line: the thing that surprises learners there.</p>
+	</header>
+
+	<div class="scroll">
+	<div class="sheet"><div class="page">
+		<div class="hd">
+			<div class="t">
+				<div class="brand"><svg viewBox="0 0 68 68" aria-hidden="true"><rect width="68" height="68" rx="15" fill="#1f3a5f"/><g transform="translate(2 2)"><circle cx="32" cy="32" r="23.5" fill="none" stroke="#fbf8f3" stroke-width="9"/><path d="M37.5 37.5L54 54" stroke="#c9683b" stroke-width="8"/></g></svg>Language Quiz<span>languagequiz.org</span></div>
+				<h2 class="title"><small>Chart 6</small>When does it happen?</h2>
+			</div>
+			<div class="path">
+				<span><b>1</b>Find the moment on the line</span>
+				<span><b>2</b>Speaking or writing?</span>
+				<span><b>3</b>Build the form</span>
+			</div>
+			<div class="qr"><svg data-qr="64"></svg>Open in the app</div>
+		</div>
+
+		<div class="tl">
+			<div class="focus">
+				<div class="look">
+					<div class="forms">
+						<span><b class="e">essen</b><i>infinitive</i></span>
+						<span><b class="v">aß</b><i>Präteritum</i></span>
+						<span><b class="e">gegessen</b><i>Partizip II</i></span>
+					</div>
+					<div class="cap"><span class="c1"><b>1</b>Look here first: every verb has <strong>three forms</strong>. Regular: machen · machte · gemacht.</span><span class="c2"><b>2</b>Each moment on the line needs one of them, alone or with a helper: haben, sein, werden.</span></div>
+				</div>
+				<div class="idea"><h3>The one idea</h3>
+					<p>German has two forms for the same past: <strong>speak</strong> with the Perfekt, <strong>write</strong> with the Präteritum. And the <strong>Präsens</strong> does most of the future.</p></div>
+			</div>
+			<div class="row top">
+				<section class="card"><header><b>Plusquamperfekt</b><span>earlier</span></header><div class="in"><p class="big">Ich <span class="v">hatte</span><span class="e">gegessen</span>.</p><p class="eng">I had eaten.</p><p class="ln"><b>Build:</b> hatte or war + Partizip II</p><p class="ln"><b>Use:</b> earlier than another past moment.</p></div></section>
+				<section class="card"><header><b>Perfekt</b><span>spoken past</span></header><div class="in"><p class="big">Ich <span class="v">habe</span><span class="e">gegessen</span>.</p><p class="eng">I ate. / I have eaten.</p><p class="ln"><b>Build:</b> haben or sein + Partizip II</p><p class="ln"><b>With sein:</b> Ich <span class="v">bin</span><span class="e">gegangen</span>.</p><p class="ln"><b>Use:</b> talking, messages, emails.</p></div></section>
+				<section class="card now"><header><b>Präsens</b><span>now</span></header><div class="in"><p class="big">Ich <span class="v">esse</span>.</p><p class="eng">I eat. / I am eating.</p><p class="ln"><b>Build:</b> stem + -e, -st, -t, -en</p><p class="ln"><b>Vowel change</b> in some verbs: du <span class="v">isst</span> · er <span class="v">isst</span>.</p><p class="ln"><b>Use:</b> now, always, and with a time word the future.</p></div></section>
+				<section class="card"><header><b>Futur I</b><span>will eat</span></header><div class="in"><p class="big">Ich <span class="v">werde</span><span class="e">essen</span>.</p><p class="eng">I will eat.</p><p class="ln"><b>Build:</b> werden + infinitive</p><p class="ln"><b>Use:</b> promises, guesses, plans without a date.</p></div></section>
+				<section class="card"><header><b>Futur II</b><span>will have eaten</span></header><div class="in"><p class="big">Ich <span class="v">werde</span><span class="e">gegessen</span><span class="e">haben</span>.</p><p class="eng">I will have eaten.</p><p class="ln"><b>Build:</b> werden + Partizip II + haben or sein</p><p class="ln"><b>Use:</b> finished before a future moment. Rare.</p></div></section>
+			</div>
+			<div class="axis">
+				<span class="pill">before that</span><span class="pill">the past</span><span class="pill jetzt">JETZT · now</span><span class="pill">the future</span><span class="pill">done by then</span>
+			</div>
+			<div class="row bot">
+				<section class="card twist"><header><b>nachdem: one tense further back</b><span>watch out</span></header><div class="in"><p class="big">Nachdem ich <span class="e">gegessen</span><span class="v">hatte</span>, <span class="v">ging</span> ich.</p><p class="eng">After I had eaten, I left.</p><p class="ln"><b>First action:</b> Plusquamperfekt. <b>Second action:</b> Präteritum or Perfekt.</p></div></section>
+				<section class="card"><header><b>Präteritum</b><span>written past</span></header><div class="in"><p class="big">Ich <span class="v">aß</span>.</p><p class="eng">I ate.</p><p class="ln"><b>Build:</b> stem + -te, or a new vowel.</p><p class="ln"><b>Use:</b> stories, news. <b>In speech:</b> war · hatte · konnte · musste.</p></div></section>
+				<section class="card twist"><header><b>seit: Präsens, not Perfekt</b><span>watch out</span></header><div class="in"><p class="big">Ich <span class="v">wohne</span> seit 2019 hier.</p><p class="eng">I have lived here since 2019.</p><p class="ln"><b>Still true today?</b> Then Präsens. English says have lived, German does not.</p></div></section>
+				<section class="card twist"><header><b>morgen: the Präsens is enough</b><span>watch out</span></header><div class="in"><p class="big">Morgen <span class="v">esse</span> ich Pizza.</p><p class="eng">I am going to eat pizza tomorrow.</p><p class="ln"><b>The time word already says future.</b> Keep Futur I for guesses and promises: Es <span class="v">wird</span><span class="e">regnen</span>.</p></div></section>
+				<section class="card twist"><header><b>Futur II is usually a guess</b><span>watch out</span></header><div class="in"><p class="big">Er <span class="v">wird</span> es <span class="e">vergessen</span><span class="e">haben</span>.</p><p class="eng">He has probably forgotten it.</p><p class="ln"><b>It is not about the future.</b> Often with wohl or sicher.</p></div></section>
+			</div>
+		</div>
+
+		<div class="rules">
+			<div class="rl">the 3 helpers</div>
+			<div><b>haben:</b> habe · hast · hat → past <b>hatte</b>. <b>sein:</b> bin · bist · ist → past <b>war</b>.</div>
+			<div><b>werden:</b> werde · wirst · wird → past <b>wurde</b>. With these three and the three verb forms you can build every tense.</div>
+			<div class="rl">haben or sein</div>
+			<div><b>sein:</b> movement from A to B (gehen, fahren, kommen), a change of state (aufwachen, einschlafen, werden), and sein, bleiben, passieren.</div>
+			<div><b>haben:</b> everything else. Always with an <span class="tag akk">Akkusativ</span> object and with every reflexive verb: Ich <span class="v">habe</span> mich <span class="e">gefreut</span>.</div>
+			<div class="rl">Partizip II</div>
+			<div><b>Regular</b> ge…t: gemacht · gekauft. <b>Irregular</b> ge…en, often a new vowel: gegessen · getrunken · gegangen.</div>
+			<div><b>No ge-</b> after be-, ver-, er-, ent-, zer- and on -ieren: besucht · verstanden · studiert. <b>Split verbs</b> take ge in the middle: eingekauft.</div>
+			<div class="rl">time words</div>
+			<div><b>Past:</b> gestern · letzte Woche · vor zwei Jahren · früher. <b>Now:</b> jetzt · gerade · heute · seit.</div>
+			<div><b>Future:</b> morgen · gleich · später · bald · nächste Woche. <b>gerade</b> = English -ing: Ich esse gerade.</div>
+			<div class="rl warn">watch out</div>
+			<div><s>Ich habe nach Berlin gefahren.</s> → Ich <span class="v">bin</span> nach Berlin <span class="e">gefahren</span>. Movement from A to B takes sein.</div>
+			<div><s>Ich habe seit 2019 hier gewohnt.</s> → Ich <span class="v">wohne</span> seit 2019 hier, if you still live there.</div>
+		</div>
+		<div class="key"><span class="v">habe</span> conjugated verb: changes with the person <span class="e sp">gegessen</span> Partizip II or infinitive: never changes <b class="sp">Cases:</b> <span class="tag nom">Nominativ</span> <span class="tag akk">Akkusativ</span> <span class="tag dat">Dativ</span> <span class="tag gen">Genitiv</span></div>
+	</div></div>
+	</div>
+
+	<p class="note">The QR code is a placeholder.</p>
+</div>
+
+<script>
+// Placeholder QR: finder patterns plus a seeded pattern.
+document.querySelectorAll('svg[data-qr]').forEach(function (svg) {
+	var n = 21, seed = Number(svg.dataset.qr) || 1, out = '';
+	function rnd() { seed = (seed * 1103515245 + 12345) & 0x7fffffff; return seed / 0x7fffffff; }
+	function finder(x, y) { return x >= 0 && x < 7 && y >= 0 && y < 7; }
+	function inFinder(x, y) { return finder(x, y) || finder(x - (n - 7), y) || finder(x, y - (n - 7)); }
+	function finderOn(x, y) {
+		var fx = x >= n - 7 ? x - (n - 7) : x, fy = y >= n - 7 ? y - (n - 7) : y;
+		var edge = fx === 0 || fx === 6 || fy === 0 || fy === 6;
+		var core = fx >= 2 && fx <= 4 && fy >= 2 && fy <= 4;
+		return edge || core;
+	}
+	for (var y = 0; y < n; y++) for (var x = 0; x < n; x++) {
+		var on = inFinder(x, y) ? finderOn(x, y) : rnd() > 0.52;
+		if (on) out += '<rect x="' + x + '" y="' + y + '" width="1.02" height="1.02"/>';
+	}
+	svg.setAttribute('viewBox', '0 0 ' + n + ' ' + n);
+	svg.setAttribute('fill', '#1f3a5f');
+	svg.setAttribute('role', 'img');
+	svg.setAttribute('aria-label', 'QR code placeholder');
+	svg.innerHTML = out;
+});
+</script>

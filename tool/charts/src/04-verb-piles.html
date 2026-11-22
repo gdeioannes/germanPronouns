@@ -1,0 +1,292 @@
+<title>Verb Pile Chart</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap">
+<style>
+/* Layout: one A4 landscape chart in the same skeleton as Charts 1 and 2 (header, lookup steps,
+   QR, rule rows), but the body is a decision path: three questions down the left, each "yes"
+   leads right into a sentence track with fixed slots. 1cqw = 2.97 mm on paper. */
+:root {
+	--board: #e8e3da;
+	--board-ink: #24262b;
+	--board-muted: #5f5a52;
+	--board-line: #cfc8bb;
+	--paper: #ffffff;
+	--ink: #111111;
+	--muted: #45413b;
+	--line: #8f887b;
+	--navy: #1f3a5f;
+	--navy-soft: #e8edf4;
+	--terracotta: #c9683b;
+	--terracotta-ink: #a24c26;
+	--verb-soft: #fbeae0;
+	--hi: #ffe14d;
+	--dat: #5b3aa8;
+	--gen: #0b6e74;
+	--sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+	--serif: 'Source Serif 4', ui-serif, Georgia, serif;
+}
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme="light"]) { --board: #1c1e23; --board-ink: #f1ede6; --board-muted: #aaa398; --board-line: #3a3c42; color-scheme: dark }
+}
+:root[data-theme="dark"] { --board: #1c1e23; --board-ink: #f1ede6; --board-muted: #aaa398; --board-line: #3a3c42; color-scheme: dark }
+
+body {
+	background: var(--board);
+	color: var(--board-ink);
+	font-family: var(--sans);
+	padding-block: 28px 56px;
+	padding-left: max(16px, env(safe-area-inset-left, 0px));
+	padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 22px }
+.intro h1 { font-family: var(--serif); font-size: clamp(1.8rem, 4.6vw, 2.6rem); font-weight: 700; line-height: 1.05; margin: 0 0 10px; text-wrap: balance }
+.intro p { font-family: var(--serif); font-size: 1.05rem; line-height: 1.5; max-width: 66ch; margin: 0; color: var(--board-muted) }
+.scroll { overflow-x: auto }
+.note { font-family: var(--serif); color: var(--board-muted); font-size: 0.95rem; line-height: 1.5; max-width: 70ch; border-top: 1px solid var(--board-line); padding-top: 16px; margin: 0 }
+
+.sheet { container-type: inline-size; aspect-ratio: 297 / 210; width: 100%; min-width: 720px; background: var(--paper); color: var(--ink); box-shadow: 0 1px 2px rgba(0,0,0,.18), 0 10px 28px rgba(0,0,0,.16); overflow: hidden }
+.page { height: 100%; box-sizing: border-box; padding: 1.8cqw 3cqw 1.4cqw; display: flex; flex-direction: column; gap: .9cqw }
+.hd { display: flex; align-items: flex-end; gap: 2cqw }
+.hd .t { margin-right: auto; flex: none }
+.brand { display: flex; align-items: center; gap: .8cqw; font-family: var(--serif); font-size: 1.6cqw; font-weight: 700; color: var(--navy) }
+.brand svg { width: 2.3cqw; height: 2.3cqw }
+.brand span { font-family: var(--sans); font-size: 1.1cqw; font-weight: 600; color: var(--muted); margin-left: .6cqw }
+.sheet h2.title { white-space: nowrap; font-family: var(--serif); font-size: 3.1cqw; font-weight: 700; line-height: 1; margin: .4cqw 0 0; color: var(--navy); letter-spacing: -.01em }
+.title small { font-family: var(--sans); font-size: 1.1cqw; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--terracotta-ink); vertical-align: 1.2cqw; margin-right: .8cqw }
+.path { display: flex; gap: .4cqw; align-items: center; font-size: .96cqw; font-weight: 600; padding-bottom: .3cqw }
+.path b { display: inline-block; width: 1.9cqw; line-height: 1.9cqw; border-radius: 50%; background: var(--terracotta-ink); color: #fff; text-align: center; font-weight: 800; margin-right: .5cqw }
+.path span { background: var(--navy-soft); border-radius: 1.2cqw; padding: .35cqw 1.1cqw .35cqw .35cqw; white-space: nowrap }
+.qr { display: flex; flex-direction: column; align-items: center; gap: .2cqw; font-size: .9cqw; font-weight: 700; color: var(--navy); white-space: nowrap; flex: none }
+.qr svg { width: 4.3cqw; height: 4.3cqw; display: block }
+
+/* the decision path */
+.main { flex: 1; min-height: 0; display: grid; grid-template-columns: 23cqw 4.6cqw 1fr; grid-template-rows: 11.4fr 9.5fr 14.6fr; gap: .9cqw 0 }
+.ask { display: flex; flex-direction: column; min-height: 0 }
+.q { flex: 1; min-height: 0; background: var(--navy); color: #fff; border-radius: .9cqw; padding: .6cqw 1cqw .7cqw; display: flex; flex-direction: column; justify-content: center; gap: .3cqw }
+.q b.n { display: inline-block; width: 2cqw; line-height: 2cqw; border-radius: 50%; background: #fff; color: var(--navy); text-align: center; font-weight: 800; font-size: 1.15cqw; margin-right: .6cqw; vertical-align: .15cqw }
+.q h3 { margin: 0; font-family: var(--serif); font-size: 1.62cqw; font-weight: 700; line-height: 1.12 }
+.q p { margin: 0; font-size: 1.02cqw; line-height: 1.3; font-weight: 500 }
+.q p b { font-weight: 800; color: var(--hi) }
+.q.else { background: #fff; color: var(--ink); border: .4cqw solid var(--navy) }
+.q.else h3 { color: var(--navy) }
+.q.else p b { color: var(--terracotta-ink) }
+.down { flex: none; height: 2.1cqw; margin-bottom: -.9cqw; display: flex; justify-content: center; align-items: center; gap: .5cqw; font-size: .82cqw; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--navy); position: relative }
+.down::before { content: ''; position: absolute; left: 4cqw; top: 0; bottom: .55cqw; width: .4cqw; background: var(--navy) }
+.down::after { content: ''; position: absolute; left: 3.45cqw; bottom: 0; border: .75cqw solid transparent; border-top-color: var(--navy); border-bottom: 0 }
+.yes { display: flex; flex-direction: column; justify-content: center; align-items: stretch; font-size: .82cqw; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--terracotta-ink); text-align: center; padding-bottom: 1.2cqw }
+.yes.last { padding-bottom: 0 }
+.yes i { display: block; height: .45cqw; background: var(--terracotta-ink); margin: .2cqw .75cqw 0 0; position: relative }
+.yes i::after { content: ''; position: absolute; right: -.75cqw; top: -.55cqw; border: .775cqw solid transparent; border-left-color: var(--terracotta-ink); border-right: 0 }
+
+/* the sentence tracks */
+.lane { border: .4cqw solid var(--navy); border-radius: .9cqw; overflow: hidden; display: grid; grid-template-columns: 9.4cqw 1fr; min-height: 0 }
+.lane.last { margin-bottom: 0 }
+.badge { background: var(--terracotta-ink); color: #fff; display: flex; flex-direction: column; justify-content: center; padding: .4cqw .9cqw; gap: .2cqw }
+.badge small { font-size: .78cqw; font-weight: 800; letter-spacing: .08em; text-transform: uppercase }
+.badge b { font-family: var(--serif); font-size: 2.3cqw; font-weight: 700; line-height: .95 }
+.badge span { font-size: .92cqw; font-weight: 600; line-height: 1.2 }
+.track { display: grid; min-height: 0; font-size: 1.24cqw; line-height: 1.15 }
+.track > div { border-left: .12cqw solid var(--line); border-top: .12cqw solid var(--line); padding: 0 .7cqw; display: flex; align-items: center; gap: .45cqw; white-space: nowrap; min-width: 0; font-weight: 500 }
+.track > .h { border-top: 0; background: var(--navy-soft); font-size: .78cqw; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; color: var(--navy); padding-block: .22cqw }
+.track > .h.vh { background: var(--terracotta-ink); color: #fff }
+.track > .vc { background: var(--verb-soft); border-left: .3cqw solid var(--terracotta-ink) }
+.track > .vc + div { border-left: .3cqw solid var(--terracotta-ink) }
+.track > .none { background: repeating-linear-gradient(135deg, #fff 0 .5cqw, #e3ddd2 .5cqw .62cqw); color: var(--muted); font-size: .9cqw; font-weight: 700 }
+.track > .foot { grid-column: 1 / -1; font-size: 1cqw; white-space: normal; padding-block: .25cqw; line-height: 1.25; display: block; border-left: .12cqw solid var(--line) }
+.track > .foot b { font-weight: 800 }
+.v { background: var(--terracotta-ink); color: #fff; font-weight: 800; padding: .08cqw .5cqw .12cqw; border-radius: .3cqw }
+.e { box-shadow: inset 0 0 0 .2cqw var(--terracotta-ink); color: var(--terracotta-ink); background: #fff; font-weight: 800; padding: .08cqw .5cqw .12cqw; border-radius: .3cqw }
+.s { box-shadow: inset 0 0 0 .15cqw var(--ink); font-weight: 800; padding: .04cqw .35cqw .08cqw }
+.track i { font-family: var(--serif); font-style: italic; color: var(--muted); font-size: 1.02cqw; margin-left: auto; padding-left: .6cqw }
+
+.tag { font-size: .8cqw; font-weight: 800; letter-spacing: .03em; text-transform: uppercase; border-radius: .3cqw; padding: .05cqw .35cqw; vertical-align: .08cqw }
+.tag.dat { background: var(--dat); color: #fff }
+.tag.gen { background: var(--gen); color: #fff }
+.tag.nom { background: #fff; color: var(--ink); box-shadow: inset 0 0 0 .15cqw var(--ink) }
+.tag.akk { background: var(--hi); color: var(--ink) }
+
+.rules { display: grid; grid-template-columns: 8.5cqw 1fr 1fr; border: .4cqw solid var(--navy); font-size: 1.06cqw; line-height: 1.26 }
+.rules > div { padding: .32cqw .8cqw .37cqw; border-top: .12cqw solid var(--line); border-left: .12cqw solid var(--line) }
+.rules > div:nth-child(-n+3) { border-top: 0 }
+.rules .rl { background: var(--navy); color: #fff; font-size: .78cqw; font-weight: 800; letter-spacing: .03em; text-transform: uppercase; display: flex; align-items: center; border-left: 0; border-top-color: #3d5a80 }
+.rules .rl.warn { background: var(--terracotta-ink) }
+.rules b { font-weight: 800 }
+.rules em { font-style: normal; font-weight: 800; padding: 0 .25cqw }
+.rules em.dat { background: var(--dat); color: #fff }
+.rules em.akk { background: var(--hi); color: var(--ink) }
+.rules em.gen { background: var(--gen); color: #fff }
+.rules .v, .rules .e, .key .v, .key .e { padding: 0 .3cqw; border-radius: .25cqw }
+.rules s { text-decoration-thickness: .14cqw; text-decoration-color: var(--terracotta-ink) }
+.rules small { font-size: .78cqw; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; color: var(--muted) }
+.key { display: flex; gap: .7cqw; align-items: center; font-size: 1cqw; font-weight: 500 }
+.key b { font-weight: 800 }
+.key .sp { margin-left: 1.2cqw }
+.hd { gap: 1.2cqw }
+.sheet h2.title { font-size: 2.9cqw }
+.path { font-size: .9cqw }
+.hero { display: grid; grid-template-columns: 65cqw 1fr; gap: 1.2cqw }
+.demo { border: .4cqw solid var(--navy); border-radius: .9cqw; display: grid; grid-template-columns: 12.4cqw 6.5cqw 5.5cqw 9cqw 11cqw 10cqw 1fr; align-items: center; justify-items: center; padding: .4cqw .6cqw .55cqw; row-gap: .4cqw; font-size: 2.05cqw; font-weight: 600; white-space: nowrap }
+.demo .v, .demo .e { padding: .1cqw .6cqw .16cqw; border-radius: .4cqw }
+.demo .s { padding: .06cqw .45cqw .1cqw }
+.demo .cap { font-size: .76cqw; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--navy) }
+.demo .cap.vcap { color: var(--terracotta-ink) }
+.demo .lab { justify-self: start; display: flex; flex-direction: column; white-space: normal; line-height: 1.15; gap: .1cqw }
+.demo .lab b { font-size: .8cqw; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; color: var(--navy) }
+.demo .lab i { font-family: var(--serif); font-size: 1cqw; font-weight: 400; color: var(--muted) }
+.ghost { display: block; width: 5.6cqw; height: 2.7cqw; border: .22cqw dashed var(--terracotta-ink); border-radius: .4cqw; box-sizing: border-box }
+.u { grid-column: 4 / 8; justify-self: stretch; margin-inline: 4.5cqw; height: 1.7cqw; border: .38cqw solid var(--terracotta-ink); border-top: 0; border-radius: 0 0 1.5cqw 1.5cqw; position: relative; font-size: .9cqw; font-weight: 800; color: var(--terracotta-ink); text-align: center; line-height: 1.15cqw }
+.u::after { content: ''; position: absolute; right: -.87cqw; top: -.8cqw; border: .68cqw solid transparent; border-top: 0; border-bottom: 1cqw solid var(--terracotta-ink) }
+.gist { background: var(--navy); color: #fff; border-radius: .9cqw; padding: .6cqw 1.1cqw .7cqw; display: flex; flex-direction: column; justify-content: center; gap: .45cqw; font-size: 1.06cqw; line-height: 1.28; font-weight: 500 }
+.gist h3 { margin: 0; font-family: var(--serif); font-size: 1.6cqw; font-weight: 700; line-height: 1.1 }
+.gist p { margin: 0; padding-left: 2.2cqw; position: relative }
+.gist p b { position: absolute; left: 0; top: .05cqw; width: 1.6cqw; line-height: 1.6cqw; border-radius: 50%; background: #fff; color: var(--navy); text-align: center; font-weight: 800; font-size: .95cqw }
+.gist strong { color: var(--hi); font-weight: 800 }
+.rt { flex: 1; min-height: 0; display: grid; border: .4cqw solid var(--navy); font-size: 1.22cqw; line-height: 1.15; grid-template-columns: 5.2cqw 10.8cqw 16.2cqw 1fr 1.1fr; grid-template-rows: auto repeat(10, 1fr) }
+.rt > div { border-left: .12cqw solid var(--line); border-top: .12cqw solid var(--line); padding: 0 .8cqw; display: flex; align-items: center; gap: .4cqw; white-space: nowrap; min-width: 0; font-weight: 500 }
+.rt > .h { border-top: 0; background: var(--navy-soft); font-size: .78cqw; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; color: var(--navy); padding-block: .25cqw }
+.rt > .h.big { background: var(--navy); color: #fff; font-family: var(--serif); font-size: 1.4cqw; letter-spacing: 0; text-transform: none; gap: .9cqw; align-items: baseline }
+.rt > .h.big span { font-family: var(--sans); font-size: .88cqw; font-weight: 600 }
+.rt > .g0 { border-top: .35cqw solid var(--navy) }
+.rt > .grp { background: var(--navy); color: #fff; flex-direction: column; justify-content: center; align-items: flex-start; gap: .1cqw; font-size: .76cqw; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; border-top-color: #fff }
+.rt > .grp b { font-family: var(--serif); font-size: 2.7cqw; line-height: .9; font-weight: 700 }
+.rt > .lb { background: var(--navy-soft); color: var(--navy); font-size: .8cqw; font-weight: 800; letter-spacing: .04em; text-transform: uppercase }
+.rt > .lb.warn { background: var(--terracotta-ink); color: #fff }
+.rt > .en { font-family: var(--serif); font-style: italic; font-size: 1.06cqw; color: var(--muted) }
+.rt > div { padding: 0 .6cqw; gap: .3cqw }
+.rt .sj { flex: 0 0 5.2cqw; font-weight: 600 }
+.rt .md { flex: 0 0 3.9cqw }
+.rt .lk { flex: 0 0 3cqw; font-weight: 800 }
+.rt > div > .v { min-width: 4.9cqw; text-align: center; box-sizing: border-box }
+.rt > div > .md + .v, .rt > div > .e + .v { min-width: 0 }
+.rt .dots { flex: 0 0 8cqw; height: 0; border-bottom: .24cqw dotted var(--muted); margin-inline: .3cqw }
+.rt small { font-size: .78cqw; font-weight: 700; color: var(--muted); letter-spacing: .03em; text-transform: uppercase }
+.rt i { font-family: var(--serif); font-style: italic; color: var(--muted); font-size: 1cqw; margin-left: auto; padding-left: .5cqw }
+.key .sp { margin-left: .9cqw }
+.rt > div > .v:first-child { min-width: 5.6cqw; text-align: center; box-sizing: border-box }
+.rt > div > .dots:first-child { flex-basis: 3.5cqw }
+</style>
+
+<div class="wrap">
+	<header class="intro">
+		<h1>Chart 4, the jump</h1>
+		<p>The companion to Chart 3. The top shows the one move that matters, drawn once. The table below is the same move for every tense.</p>
+	</header>
+
+	<div class="scroll">
+	<div class="sheet"><div class="page">
+		<div class="hd">
+			<div class="t">
+				<div class="brand"><svg viewBox="0 0 68 68" aria-hidden="true"><rect width="68" height="68" rx="15" fill="#1f3a5f"/><g transform="translate(2 2)"><circle cx="32" cy="32" r="23.5" fill="none" stroke="#fbf8f3" stroke-width="9"/><path d="M37.5 37.5L54 54" stroke="#c9683b" stroke-width="8"/></g></svg>Language Quiz<span>languagequiz.org</span></div>
+				<h2 class="title"><small>Chart 4</small>When the verbs pile up</h2>
+			</div>
+			<div class="path">
+				<span><b>1</b>Find the conjugated verb</span>
+				<span><b>2</b>Main clause: slot 2</span>
+				<span><b>3</b>After a linking word: the very end</span>
+			</div>
+			<div class="qr"><svg data-qr="58"></svg>Open in the app</div>
+		</div>
+
+		<div class="hero">
+			<div class="demo">
+				<div></div><div></div><div class="cap">Pos. 1</div><div class="cap vcap">Slot 2</div><div class="cap">Middle</div><div class="cap vcap">End</div><div></div>
+				<div class="lab"><b>Main clause</b><i>I have bought bread.</i></div><div></div><div><span class="s">Ich</span></div><div><span class="v">habe</span></div><div>Brot</div><div><span class="e">gekauft</span>.</div><div></div>
+				<div class="lab"><b>After a linking word</b><i>…, because I have bought bread.</i></div><div><b>weil</b></div><div><span class="s">ich</span></div><div><span class="ghost"></span></div><div>Brot</div><div><span class="e">gekauft</span></div><div><span class="v">habe</span>.</div>
+				<div class="u">the conjugated verb jumps to the end</div>
+			</div>
+			<div class="gist">
+				<h3>The whole rule</h3>
+				<p><b>1</b>The <strong>conjugated verb</strong> is the one that changes with the person: ich habe, du hast, er hat.</p>
+				<p><b>2</b>In a main clause it stands in <strong>slot 2</strong>. Every other verb word waits at the <strong>end</strong>.</p>
+				<p><b>3</b>After a linking word (weil, dass, wenn, ob …) it <strong>jumps behind them all</strong>.</p>
+			</div>
+		</div>
+		<div class="rt" id="rt"></div>
+
+		<div class="rules">
+			<div class="rl">the order</div>
+			<div><b>At the end:</b> the main verb first, then its helpers, the conjugated verb last.</div>
+			<div><b>Read the English backwards:</b> must be bought → <span class="e">gekauft</span> <span class="e">werden</span> <span class="v">muss</span> · has been bought → <span class="e">gekauft</span> <span class="e">worden</span> <span class="v">ist</span>.</div>
+			<div class="rl warn">the exception</div>
+			<div><b>Before two infinitives</b> the conjugated verb goes to the front: …, weil ich es <span class="v">habe</span> <span class="e">kaufen</span> <span class="e">müssen</span>.</div>
+			<div><b>Same reason:</b> the Perfekt of a modal verb uses the infinitive, not gemusst: Ich <span class="v">habe</span> es <span class="e">kaufen</span> <span class="e">müssen</span>.</div>
+			<div class="rl">zu + infinitive</div>
+			<div><b>It closes its clause</b> like any verb at the end: Ich <span class="v">versuche</span>, das Buch <span class="e">zu kaufen</span>. Split verbs: an<b>zu</b>rufen.</div>
+			<div><b>No zu</b> after modal verbs, werden, lassen, sehen, hören, gehen, bleiben: Ich <span class="v">gehe</span> <span class="e">einkaufen</span>.</div>
+			<div class="rl">after the end</div>
+			<div><b>Only three things</b> may stand behind the end: a comparison, a whole clause, a zu-infinitive.</div>
+			<div>Ich <span class="v">bin</span> schneller <span class="e">gelaufen</span> <b>als du</b>. · Ich <span class="v">habe</span> <span class="e">versucht</span>, <b>dich anzurufen</b>.</div>
+			<div class="rl warn">watch out</div>
+			<div><s>Ich habe gekauft das Buch.</s> → Ich <span class="v">habe</span> das Buch <span class="e">gekauft</span>. The object stays inside.</div>
+			<div><s>…, weil ich muss das Buch kaufen.</s> → …, weil ich das Buch <span class="e">kaufen</span> <span class="v">muss</span>.</div>
+		</div>
+		<div class="key"><span class="v">habe</span> conjugated verb: changes with the person <span class="e sp">gekauft</span> other verb words: never change <span class="s sp">ich</span> subject <b class="sp">Cases:</b> <span class="tag nom">Nominativ</span> <span class="tag akk">Akkusativ</span> <span class="tag dat">Dativ</span> <span class="tag gen">Genitiv</span></div>
+	</div></div>
+	</div>
+
+	<p class="note">The QR code is a placeholder.</p>
+</div>
+
+<script>
+(function () {
+	function V(t) { return '<span class="v">' + t + '</span>'; }
+	function E(t) { return '<span class="e">' + t + '</span>'; }
+	function row(sj, verb, md, end) { return '<span class="sj">' + sj + '</span>' + verb + '<span class="md">' + md + '</span>' + end; }
+	function sub(sj, md, pile, note) { return '<span class="lk">weil</span><span class="sj">' + sj + '</span><span class="md">' + md + '</span>' + pile + (note ? '<i>' + note + '</i>' : ''); }
+	// [form, English, main clause, after a linking word, warn]
+	var GROUPS = [
+		{ n: '1', label: 'verb', rows: [
+			['Präsens', 'I buy bread.', row('Ich', V('kaufe'), 'Brot.', ''), sub('ich', 'Brot', V('kaufe') + '.')],
+			['Split verb', 'I go shopping today.', row('Ich', V('kaufe'), 'heute', E('ein') + '.'), sub('ich', 'heute', V('einkaufe') + '.', 'one word again')]
+		] },
+		{ n: '2', label: 'verbs', rows: [
+			['Perfekt', 'I have bought bread.', row('Ich', V('habe'), 'Brot', E('gekauft') + '.'), sub('ich', 'Brot', E('gekauft') + V('habe') + '.')],
+			['Modal verb', 'I must buy bread.', row('Ich', V('muss'), 'Brot', E('kaufen') + '.'), sub('ich', 'Brot', E('kaufen') + V('muss') + '.')],
+			['Futur', 'I will buy bread.', row('Ich', V('werde'), 'Brot', E('kaufen') + '.'), sub('ich', 'Brot', E('kaufen') + V('werde') + '.')],
+			['Konjunktiv II', 'I would buy bread.', row('Ich', V('würde'), 'Brot', E('kaufen') + '.'), sub('ich', 'Brot', E('kaufen') + V('würde') + '.')],
+			['Passiv', 'The bread is bought today.', row('Das Brot', V('wird'), 'heute', E('gekauft') + '.'), sub('das Brot', 'heute', E('gekauft') + V('wird') + '.')]
+		] },
+		{ n: '3', label: 'verbs', rows: [
+			['Passiv + modal', 'The bread must be bought today.', row('Das Brot', V('muss'), 'heute', E('gekauft') + E('werden') + '.'), sub('das Brot', 'heute', E('gekauft') + E('werden') + V('muss') + '.')],
+			['Passiv Perfekt', 'The bread was bought today.', row('Das Brot', V('ist'), 'heute', E('gekauft') + E('worden') + '.'), sub('das Brot', 'heute', E('gekauft') + E('worden') + V('ist') + '.')],
+			['Perfekt + modal', 'I have had to buy bread.', row('Ich', V('habe'), 'Brot', E('kaufen') + E('müssen') + '.'), sub('ich', 'Brot', V('habe') + E('kaufen') + E('müssen') + '.'), 1]
+		] }
+	];
+	var h = '<div class="h" style="border-left:0">Verbs</div><div class="h">Form</div><div class="h">In English</div>' +
+		'<div class="h big">Main clause<span>conjugated verb in slot 2</span></div><div class="h big">After a linking word<span>conjugated verb last</span></div>';
+	GROUPS.forEach(function (g) {
+		g.rows.forEach(function (r, ri) {
+			var g0 = ri === 0 ? ' g0' : '';
+			if (ri === 0) h += '<div class="grp g0" style="grid-row:span ' + g.rows.length + ';border-left:0"><b>' + g.n + '</b>' + g.label + '</div>';
+			h += '<div class="lb' + g0 + (r[4] ? ' warn' : '') + '">' + r[0] + '</div>' +
+				'<div class="en' + g0 + '">' + r[1] + '</div>' +
+				'<div class="' + g0 + '">' + r[2] + '</div>' +
+				'<div class="' + g0 + '">' + r[3] + '</div>';
+		});
+	});
+	document.getElementById('rt').innerHTML = h;
+})();
+
+// Placeholder QR: finder patterns plus a seeded pattern.
+document.querySelectorAll('svg[data-qr]').forEach(function (svg) {
+	var n = 21, seed = Number(svg.dataset.qr) || 1, out = '';
+	function rnd() { seed = (seed * 1103515245 + 12345) & 0x7fffffff; return seed / 0x7fffffff; }
+	function finder(x, y) { return x >= 0 && x < 7 && y >= 0 && y < 7; }
+	function inFinder(x, y) { return finder(x, y) || finder(x - (n - 7), y) || finder(x, y - (n - 7)); }
+	function finderOn(x, y) {
+		var fx = x >= n - 7 ? x - (n - 7) : x, fy = y >= n - 7 ? y - (n - 7) : y;
+		var edge = fx === 0 || fx === 6 || fy === 0 || fy === 6;
+		var core = fx >= 2 && fx <= 4 && fy >= 2 && fy <= 4;
+		return edge || core;
+	}
+	for (var y = 0; y < n; y++) for (var x = 0; x < n; x++) {
+		var on = inFinder(x, y) ? finderOn(x, y) : rnd() > 0.52;
+		if (on) out += '<rect x="' + x + '" y="' + y + '" width="1.02" height="1.02"/>';
+	}
+	svg.setAttribute('viewBox', '0 0 ' + n + ' ' + n);
+	svg.setAttribute('fill', '#1f3a5f');
+	svg.setAttribute('role', 'img');
+	svg.setAttribute('aria-label', 'QR code placeholder');
+	svg.innerHTML = out;
+});
+</script>

@@ -56,3 +56,6 @@ static/books/v2/*_print.pdf
 static/img/photo/orig/
 # KDP upload folder (tool/kdp-package.mjs): large PDFs, rebuilt from the content.
 /kdp/
+
+# grammar charts book: intermediate pages
+tool/charts/.tmp/

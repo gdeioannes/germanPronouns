@@ -17,6 +17,18 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-11-22",
+    title: "Grammar charts for your wall: a test run",
+    highlight: true,
+    items: [
+      "New: German Grammar Charts, 36 wall charts in one free PDF. Each chart is one A4 page about one thing that is hard to remember: der, die or das, the four cases, where the verb goes, adjective endings, the tenses, verbs with their prepositions, and more, from A1 to C1.",
+      "Print a chart, hang it up, and scan its code: it opens the app's quizzes for exactly that chart, and shows which ones you have already done.",
+      "This is a test edition, and the download is open for a short time only. A clock next to the download button shows how long is left.",
+      "Tell us what you think: every chart's page has five stars and a box for mistakes you find. No account needed. What you report goes into the next edition.",
+      "You find the charts under Library → Grammar charts and on the home page. For now they are in English only.",
+    ],
+  },
+  {
+    date: "2026-11-22",
     title: "Send it to a friend",
     items: [
       "Every page can now be passed on. Look for the yellow: a yellow button or icon always means share. It is in the top bar, in each exercise, in the book reader and at the end of every page.",

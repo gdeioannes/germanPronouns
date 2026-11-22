@@ -1,0 +1,529 @@
+<title>Grammar Wall A1.1</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap">
+<style>
+/* Layout: three stacked sections. 1) the printed A4 landscape chart, 2) a phone mock of the
+   same chart inside the app (tap a cell, practise it, see your own map), 3) the link back
+   from a quiz mistake. Sheet and phone are mock-ups with one fixed look; the page around
+   them follows the viewer's theme. */
+:root {
+	--board: #e8e3da;
+	--board-ink: #24262b;
+	--board-muted: #5f5a52;
+	--board-line: #cfc8bb;
+	/* fixed mock-up palette (languagequiz.org) */
+	--paper: #ffffff;
+	--cream: #fbf8f3;
+	--ink: #111111;
+	--muted: #45413b;
+	--line: #8f887b;
+	--hi: #ffe14d;
+	--dat: #5b3aa8;
+	--gen: #0b6e74;
+	--soft: #e5e0d7;
+	--navy: #1f3a5f;
+	--navy-soft: #e8edf4;
+	--terracotta: #c9683b;
+	--terracotta-ink: #a24c26;
+	--terracotta-tint: #f7e6dd;
+	--der: #0f4a96;
+	--die: #a81f1b;
+	--das: #1c6a3c;
+	--plu: #2f2d2a;
+	--der-tint: #e7eef8;
+	--die-tint: #fbe9e7;
+	--das-tint: #e6f2ea;
+	--plu-tint: #ecebe8;
+	--good: #2f7d4f;
+	--good-bg: #d9eee0;
+	--mid-bg: #f6e9c4;
+	--bad: #b4452f;
+	--bad-bg: #f8d9d1;
+	--sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+	--serif: 'Source Serif 4', ui-serif, Georgia, serif;
+}
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme="light"]) { --board: #1c1e23; --board-ink: #f1ede6; --board-muted: #aaa398; --board-line: #3a3c42; color-scheme: dark }
+}
+:root[data-theme="dark"] { --board: #1c1e23; --board-ink: #f1ede6; --board-muted: #aaa398; --board-line: #3a3c42; color-scheme: dark }
+
+body {
+	background: var(--board);
+	color: var(--board-ink);
+	font-family: var(--sans);
+	padding-block: 28px 56px;
+	padding-left: max(16px, env(safe-area-inset-left, 0px));
+	padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px }
+.intro h1 { font-family: var(--serif); font-size: clamp(1.8rem, 4.6vw, 2.6rem); font-weight: 700; line-height: 1.05; margin: 0 0 10px; text-wrap: balance }
+.intro p, .sec > p { font-family: var(--serif); font-size: 1.05rem; line-height: 1.5; max-width: 66ch; margin: 0; color: var(--board-muted) }
+.sec { display: flex; flex-direction: column; gap: 16px }
+.sec h2 { font-family: var(--serif); font-size: 1.5rem; font-weight: 700; margin: 0; line-height: 1.1 }
+.sec h2 small { display: block; font-family: var(--sans); font-size: .72rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--board-muted); margin-bottom: 6px }
+.scroll { overflow-x: auto }
+.note { font-family: var(--serif); color: var(--board-muted); font-size: 0.95rem; line-height: 1.5; max-width: 70ch; border-top: 1px solid var(--board-line); padding-top: 16px; margin: 0 }
+
+/* ---------- 1. the printed sheet ---------- */
+.sheet { container-type: inline-size; aspect-ratio: 297 / 210; width: 100%; min-width: 720px; background: var(--paper); color: var(--ink); box-shadow: 0 1px 2px rgba(0,0,0,.18), 0 10px 28px rgba(0,0,0,.16); overflow: hidden }
+.page { height: 100%; box-sizing: border-box; padding: 1.8cqw 3cqw 1.3cqw; display: flex; flex-direction: column; gap: .7cqw }
+.hd { display: flex; align-items: flex-end; gap: 2cqw }
+.hd .t { margin-right: auto }
+.brand { display: flex; align-items: center; gap: .8cqw; font-family: var(--serif); font-size: 1.6cqw; font-weight: 700; color: var(--navy) }
+.brand svg { width: 2.3cqw; height: 2.3cqw }
+.brand span { font-family: var(--sans); font-size: 1.1cqw; font-weight: 600; color: var(--muted); margin-left: .6cqw }
+.hd .t { flex: none }
+.sheet h2.title { white-space: nowrap; font-family: var(--serif); font-size: 3.1cqw; font-weight: 700; line-height: 1; margin: .4cqw 0 0; color: var(--navy); letter-spacing: -.01em }
+.sheet h2.title small { display: inline; font-family: var(--sans); font-size: 1.1cqw; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--terracotta-ink); vertical-align: 1.6cqw; margin: 0 .8cqw 0 0 }
+.path { display: flex; gap: .6cqw; align-items: center; font-size: 1.15cqw; font-weight: 600; color: var(--ink); padding-bottom: .3cqw }
+.path b { display: inline-block; width: 1.9cqw; line-height: 1.9cqw; border-radius: 50%; background: var(--terracotta-ink); color: #fff; text-align: center; font-weight: 800; margin-right: .5cqw }
+.path span { background: var(--cream); border-radius: 1.2cqw; padding: .35cqw 1.1cqw .35cqw .35cqw; white-space: nowrap }
+.path i { font-style: normal; color: var(--muted) }
+.qr { display: flex; flex-direction: column; align-items: center; gap: .2cqw; font-size: .9cqw; font-weight: 700; color: var(--navy) }
+.qr svg { width: 4.3cqw; height: 4.3cqw; display: block }
+
+table.chart { flex: 1; width: 100%; border-collapse: collapse; table-layout: fixed; border: .4cqw solid var(--navy); font-size: 1.45cqw; line-height: 1.1 }
+.chart td, .chart th { border: .12cqw solid var(--line); padding: .1cqw .4cqw .14cqw .5cqw; text-align: left; white-space: nowrap; overflow: hidden; font-weight: 700; vertical-align: middle }
+.chart .ce { border-right: .4cqw solid var(--navy) }
+.chart tr.ge > * { border-bottom: .35cqw solid var(--navy) }
+.chart thead th { background: var(--navy); color: #fff; border-color: #3d5a80; padding: .35cqw .8cqw .45cqw; vertical-align: top }
+.chart thead th.ce { border-right-color: #6f88a8 }
+.chart thead tr.sub th.ce { border-right-color: var(--navy) }
+.chart thead th b { font-family: var(--serif); font-size: 2.15cqw; font-weight: 700; margin-right: .8cqw }
+.chart thead th i { font-family: var(--serif); font-size: 1.4cqw; font-weight: 400; opacity: .9 }
+.chart thead th small { display: block; font-size: .95cqw; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; margin-top: .15cqw }
+.chart tr.sub th { background: var(--navy-soft); color: var(--navy); font-size: .9cqw; font-weight: 800; letter-spacing: .03em; text-transform: uppercase; padding: .3cqw .5cqw; border-bottom: .3cqw solid var(--navy) }
+.chart .rl { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 1.2cqw; color: var(--ink); background: var(--navy-soft) }
+.chart .rl.g { background: var(--g); color: #fff; font-family: var(--sans); font-style: normal; font-weight: 800; font-size: 1cqw; line-height: 1.25 }
+.chart .rl.g b { display: block; font-size: 1.5cqw }
+.m { --g: var(--der); --gt: var(--der-tint) } .f { --g: var(--die); --gt: var(--die-tint) } .n { --g: var(--das); --gt: var(--das-tint) } .p { --g: var(--plu); --gt: var(--plu-tint) }
+.chart td.g { color: var(--g) }
+.chart td.pro { background: var(--paper) }
+.chart td.poss { font-weight: 600; color: var(--muted) }
+.chart tr.big td { padding-top: .15cqw; padding-bottom: .25cqw }
+.chart tr.big td.pro { font-size: 1.6cqw }
+.chart tr.big td.art { font-size: 1.95cqw; font-weight: 800 }
+.chart tr.big td.art.ein { font-size: 1.8cqw }
+.chart td .w { display: block }
+.chart tr.big td.same { font-weight: 500 }
+.chart tr.big td.chg { background: var(--hi) }
+.chart td u { display: block; width: fit-content; text-decoration: none; font-weight: 800; font-size: 1cqw; color: #fff; background: var(--terracotta-ink); border-radius: .3cqw; padding: .03cqw .35cqw; margin-top: .08cqw }
+.chart td u sup { font-size: .8cqw; color: #fff; margin-left: .3cqw; vertical-align: baseline }
+.chart td .no { color: var(--muted); font-weight: 500 }
+.chart td.ex { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 1.3cqw; color: var(--muted) }
+.chart td.ref { background: var(--navy-soft); font-size: 1.4cqw; font-weight: 500; color: var(--muted) }
+.chart td.ref span { color: var(--g); font-weight: 800 }
+.chart td.ref i { font-family: var(--serif); font-size: 1.02cqw; margin-left: 1cqw }
+.chart td.ex b { font-family: var(--sans); font-style: normal; font-weight: 700; color: var(--ink) }
+.chart tr.info td { white-space: normal; font-size: 1.06cqw; font-weight: 500; line-height: 1.24; padding: .28cqw .7cqw .32cqw; vertical-align: top }
+.chart tr.info td b { font-weight: 800 }
+.chart tr.info td em { font-style: normal; font-weight: 800; color: var(--terracotta-ink) }
+.chart tr.info td s { color: var(--muted) }
+.chart tr.info td.both { border-right: .4cqw solid var(--navy); background: var(--navy-soft) }
+.chart tr.info td.both div { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4cqw; margin-top: .15cqw }
+.chart tr.info td small { display: block; font-size: 1cqw; font-weight: 500; color: var(--muted); margin-top: .05cqw }
+.chart tr.info .rl { font-family: var(--sans); font-style: normal; font-weight: 800; font-size: .76cqw; letter-spacing: .02em; text-transform: uppercase; vertical-align: middle; line-height: 1.15; background: var(--navy); color: #fff; border-color: #3d5a80 }
+.chart tr.info.warn .rl { background: var(--terracotta-ink) }
+.leg { display: flex; gap: .2cqw 2cqw; flex-wrap: wrap; font-size: .98cqw; font-weight: 500; color: var(--ink); align-items: center }
+.leg u { text-decoration: none; font-weight: 800; color: #fff; background: var(--terracotta-ink); border-radius: .3cqw; padding: 0 .3cqw }
+.leg mark { background: var(--hi); color: var(--ink); font-weight: 800; padding: 0 .3cqw }
+.leg b { font-weight: 800 }
+.leg .dim { font-weight: 500; color: var(--ink) }
+
+/* ---------- 2. the app mock ---------- */
+.app { display: grid; grid-template-columns: minmax(0, 380px) minmax(0, 1fr); gap: 32px; align-items: start }
+@media (max-width: 760px) { .app { grid-template-columns: minmax(0, 1fr) } }
+.phone { background: var(--paper); color: var(--ink); border: 3px solid var(--navy); border-radius: 30px; overflow: hidden; box-shadow: 0 10px 28px rgba(0,0,0,.18); display: flex; flex-direction: column; min-height: 640px; font-size: 15px }
+.bar { display: flex; align-items: center; gap: 10px; padding: 14px 16px 10px; border-bottom: 1px solid var(--soft) }
+.bar svg { width: 24px; height: 24px; flex: none }
+.bar b { font-family: var(--serif); font-size: 17px; color: var(--navy); line-height: 1.1 }
+.bar small { display: block; font-family: var(--sans); font-size: 11px; font-weight: 600; color: var(--muted) }
+.seg { display: flex; gap: 6px; padding: 10px 16px 0; flex-wrap: wrap }
+.seg button { font: inherit; font-size: 13px; font-weight: 700; padding: 7px 12px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--paper); color: var(--ink); cursor: pointer }
+.seg button[aria-pressed="true"] { background: var(--navy); border-color: var(--navy); color: #fff }
+.seg.mode { padding-top: 12px }
+.seg.mode button { flex: 1; border-radius: 8px }
+.seg button:focus-visible, .cell:focus-visible, .opt:focus-visible, .act:focus-visible { outline: 3px solid var(--terracotta); outline-offset: 2px }
+.mini { display: grid; grid-template-columns: 26px repeat(4, minmax(0, 1fr)); gap: 4px; padding: 12px 16px 6px }
+.mini .ch { font-size: 10px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; color: var(--navy); text-align: center; padding-bottom: 2px }
+.mini .rh { display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; color: var(--g) }
+.cell { font: inherit; font-size: 17px; font-weight: 800; color: var(--g); background: var(--gt); border: 2px solid transparent; border-radius: 8px; padding: 11px 2px; cursor: pointer; min-width: 0 }
+.cell[aria-pressed="true"] { border-color: var(--navy) }
+.cell:disabled { color: var(--muted); background: var(--cream); cursor: default; font-weight: 500 }
+.heat .cell { color: var(--ink) }
+.heat .cell.h2 { background: var(--good-bg) } .heat .cell.h1 { background: var(--mid-bg) } .heat .cell.h0 { background: var(--bad-bg) }
+.heat .cell.hx { background: var(--cream); color: var(--muted) }
+.hleg { display: flex; gap: 10px; flex-wrap: wrap; padding: 0 16px; font-size: 11px; font-weight: 600; color: var(--muted) }
+.hleg span::before { content: ''; display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 4px; vertical-align: -1px; background: var(--c); border: 1px solid var(--line) }
+.panel { margin-top: auto; background: var(--cream); border-top: 1px solid var(--soft); padding: 16px; display: flex; flex-direction: column; gap: 10px; min-height: 270px }
+.panel h3 { font-family: var(--serif); font-size: 26px; margin: 0; color: var(--navy); line-height: 1 }
+.panel h3 small { font-family: var(--sans); font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-left: 8px }
+.panel p { margin: 0; font-size: 15px; line-height: 1.35 }
+.panel p.de { font-weight: 700 }
+.panel p.de mark { background: var(--terracotta-tint); color: var(--terracotta-ink); border-radius: 4px; padding: 0 3px }
+.panel p.en { font-family: var(--serif); font-style: italic; color: var(--muted); font-size: 14px; margin-top: -6px }
+.panel p.hint { font-family: var(--serif); color: var(--muted); font-size: 14px }
+.acts { display: flex; gap: 8px; margin-top: auto; flex-wrap: wrap }
+.act { font: inherit; font-size: 14px; font-weight: 700; padding: 10px 14px; border-radius: 8px; border: 1.5px solid var(--navy); background: var(--paper); color: var(--navy); cursor: pointer }
+.act.main { background: var(--terracotta-ink); border-color: var(--terracotta-ink); color: #fff; flex: 1 }
+.opts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px }
+.opt { font: inherit; font-size: 16px; font-weight: 700; padding: 11px 6px; border-radius: 8px; border: 1.5px solid var(--line); background: var(--paper); color: var(--ink); cursor: pointer }
+.opt.ok { background: var(--good-bg); border-color: var(--good); color: var(--good) }
+.opt.no { background: var(--bad-bg); border-color: var(--bad); color: var(--bad) }
+.opt:disabled { cursor: default }
+.panel p.why { font-size: 13px; font-weight: 600; color: var(--ink) }
+.dots { font-size: 11px !important; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--muted) }
+
+.steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 18px; counter-reset: s }
+.steps li { counter-increment: s; display: grid; grid-template-columns: 34px 1fr; gap: 12px }
+.steps li::before { content: counter(s); width: 30px; height: 30px; border-radius: 50%; background: var(--terracotta-ink); color: #fff; font-weight: 800; display: flex; align-items: center; justify-content: center; font-size: 14px }
+.steps b { display: block; font-size: 1rem; margin-bottom: 3px }
+.steps span { font-family: var(--serif); font-size: .98rem; line-height: 1.45; color: var(--board-muted) }
+
+/* ---------- 3. the link back ---------- */
+.miss { background: var(--paper); color: var(--ink); border-radius: 14px; border: 1px solid var(--soft); box-shadow: 0 6px 18px rgba(0,0,0,.1); padding: 18px; max-width: 520px; display: flex; flex-direction: column; gap: 12px; font-size: 15px }
+.miss .q { font-size: 19px; font-weight: 700; margin: 0 }
+.miss .q s { color: var(--bad); text-decoration-thickness: 2px }
+.miss .q mark { background: var(--good-bg); color: var(--good); border-radius: 4px; padding: 0 4px }
+.miss .y { margin: 0; font-family: var(--serif); line-height: 1.4 }
+.miss .map { display: flex; gap: 14px; align-items: center; background: var(--cream); border-radius: 10px; padding: 12px }
+.tiny { display: grid; grid-template-columns: repeat(4, 30px); gap: 3px; flex: none }
+.tiny i { height: 16px; border-radius: 3px; background: var(--soft) }
+.tiny i.on { background: var(--terracotta-ink); box-shadow: 0 0 0 3px var(--terracotta-tint) }
+.miss .map p { margin: 0; font-size: 13px; line-height: 1.4; color: var(--muted) }
+.miss .map p b { color: var(--navy); display: block; font-size: 14px }
+.tag { font-size: .8cqw; font-weight: 800; letter-spacing: .03em; text-transform: uppercase; border-radius: .3cqw; padding: .05cqw .35cqw }
+.tag.nom { background: #fff; color: var(--ink); box-shadow: inset 0 0 0 .15cqw var(--ink) }
+.tag.akk { background: var(--hi); color: var(--ink) }
+.tag.dat { background: var(--dat); color: #fff }
+.tag.gen { background: var(--gen); color: #fff }
+.chart tr.info td em.nom { color: var(--ink); box-shadow: inset 0 0 0 .14cqw var(--ink); padding: 0 .25cqw }
+.chart tr.info td em.akk { background: var(--hi); color: var(--ink); padding: 0 .25cqw }
+.chart tr.info td em.dat { background: var(--dat); color: #fff; padding: 0 .25cqw }
+.chart tr.info td em.gen { background: var(--gen); color: #fff; padding: 0 .25cqw }
+.chart thead tr:first-child th:nth-child(2) { box-shadow: inset 0 -.55cqw 0 #fff }
+.chart thead tr:first-child th:nth-child(3) { box-shadow: inset 0 -.55cqw 0 var(--hi) }
+.chart thead tr:first-child th:nth-child(4) { box-shadow: inset 0 -.55cqw 0 var(--dat) }
+.chart thead tr:first-child th:nth-child(5) { box-shadow: inset 0 -.55cqw 0 var(--gen) }
+.chart thead th { padding-bottom: .8cqw }
+</style>
+
+<div class="wrap">
+	<header class="intro">
+		<h1>The chart, on paper and in the app</h1>
+		<p>The printed chart is the same for everyone. Its code opens the same chart in the app, where every cell can be heard, practised and coloured by your own results.</p>
+	</header>
+
+	<section class="sec">
+		<h2><small>1 · On paper</small>Chart 1: the four cases</h2>
+		<p>The article forms are the largest thing on the sheet. In the Akkusativ, the masculine cells that change are tinted and the unchanged ones are set in lighter type. A three-step line says how to use the chart.</p>
+		<div class="scroll">
+		<div class="sheet"><div class="page">
+			<div class="hd">
+				<div class="t">
+					<div class="brand"><svg viewBox="0 0 68 68" aria-hidden="true"><rect width="68" height="68" rx="15" fill="#1f3a5f"/><g transform="translate(2 2)"><circle cx="32" cy="32" r="23.5" fill="none" stroke="#fbf8f3" stroke-width="9"/><path d="M37.5 37.5L54 54" stroke="#c9683b" stroke-width="8"/></g></svg>Language Quiz<span>languagequiz.org</span></div>
+					<h2 class="title"><small>Chart 1</small>The four cases</h2>
+				</div>
+				<div class="path">
+					<span><b>1</b>Verb or preposition <i>→ the case</i></span>
+					<span><b>2</b>The noun's gender <i>→ the row</i></span>
+					<span><b>3</b>Read the cell</span>
+				</div>
+				<div class="qr"><svg data-qr="37"></svg>Open in the app</div>
+			</div>
+			<table class="chart" id="chart" aria-label="The four German cases: pronouns, articles, adjective endings, prepositions and verbs">
+				<colgroup><col style="width:7%"><col style="width:6.6%"><col style="width:6.9%"><col style="width:9.75%"><col style="width:6.6%"><col style="width:6.9%"><col style="width:9.75%"><col style="width:6.6%"><col style="width:6.9%"><col style="width:9.75%"><col style="width:6.6%"><col style="width:6.9%"><col style="width:9.75%"></colgroup>
+			</table>
+			<div class="leg">
+				<span><u>-en</u> adjective ending: <b>dem</b> gut<u>en</u> Kind</span>
+				<span><mark>den</mark> changes from the Nominativ</span>
+				<span><b>+s · +n</b> the noun adds that letter</span>
+				<span><b>–</b> no article in the plural</span>
+				<span><b>Cases:</b> <span class="tag nom">Nominativ</span> <span class="tag akk">Akkusativ</span> <span class="tag dat">Dativ</span> <span class="tag gen">Genitiv</span></span>
+				<span><b>Like der:</b> dieser · jeder · welcher · alle</span>
+				<span><b>Like ein:</b> kein · mein · dein · sein · ihr · unser · euer</span>
+				<span><b>Some masculine nouns add -n:</b> den Studenten · dem Herrn</span>
+				</div>
+		</div></div>
+		</div>
+	</section>
+
+	<section class="sec">
+		<h2><small>2 · In the app</small>The same chart, alive</h2>
+		<p>This is a working mock-up. Tap a cell, then practise it. The progress shown is example data, not yours.</p>
+		<div class="app">
+			<div class="phone" id="phone">
+				<div class="bar"><svg viewBox="0 0 68 68" aria-hidden="true"><rect width="68" height="68" rx="15" fill="#1f3a5f"/><g transform="translate(2 2)"><circle cx="32" cy="32" r="23.5" fill="none" stroke="#fbf8f3" stroke-width="9"/><path d="M37.5 37.5L54 54" stroke="#c9683b" stroke-width="8"/></g></svg><b>The four cases<small>Chart 1 · Grammar charts</small></b></div>
+				<div class="seg mode" role="group" aria-label="View">
+					<button type="button" id="mode-chart" aria-pressed="true">Chart</button>
+					<button type="button" id="mode-heat" aria-pressed="false">My progress</button>
+				</div>
+				<div class="seg" role="group" aria-label="Word type" id="kinds">
+					<button type="button" data-kind="der" aria-pressed="true">der · die · das</button>
+					<button type="button" data-kind="ein" aria-pressed="false">ein · eine</button>
+					<button type="button" data-kind="pro" aria-pressed="false">er · sie · es</button>
+				</div>
+				<div class="mini" id="mini"></div>
+				<div class="hleg" id="hleg" hidden>
+					<span style="--c:var(--good-bg)">solid</span><span style="--c:var(--mid-bg)">shaky</span><span style="--c:var(--bad-bg)">weak</span><span style="--c:var(--cream)">not tried</span>
+				</div>
+				<div class="panel" id="panel" aria-live="polite"></div>
+			</div>
+
+			<ol class="steps">
+				<li><div><b>Scan the chart, land on the chart</b><span>The code is permanent, like the codes in the books. It opens this page, not a generic quiz list.</span></div></li>
+				<li><div><b>Tap any cell</b><span>You hear the form, see it in two sentences, and get the reason for the case in one line.</span></div></li>
+				<li><div><b>Practise only that cell</b><span>A short run on exactly the form you tapped. A whole row or a whole case works the same way.</span></div></li>
+				<li><div><b>The chart becomes your map</b><span>Every answer, here or in any other quiz, colours the cell it belongs to. Weak cells are where to practise next.</span></div></li>
+				<li><div><b>Print your own copy</b><span>The same sheet as in the book, with your weak cells marked.</span></div></li>
+			</ol>
+		</div>
+	</section>
+
+	<section class="sec">
+		<h2><small>3 · From any quiz</small>A mistake points back to the chart</h2>
+		<p>When a learner misses a question anywhere in the course, the explanation shows where that form sits on the chart. The chart becomes the mental map, and the book is advertised at the moment it is useful.</p>
+		<div class="miss">
+			<p class="q">Ich helfe <s>den</s> <mark>dem</mark> Mann.</p>
+			<p class="y"><b>helfen</b> takes the Dativ, and <i>der Mann</i> in the Dativ is <b>dem Mann</b>.</p>
+			<div class="map">
+				<div class="tiny" aria-hidden="true"><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+				<p><b>Chart 1 · Dativ · masculine</b>Open the chart, or find it in the Grammar Charts book.</p>
+			</div>
+		</div>
+	</section>
+
+	<p class="note">The QR code is a placeholder. The sentences in the mock-up are built from a small word list for this demo; in the app they would come from the course's own exercises.</p>
+</div>
+
+<script>
+(function () {
+	var CASES = [
+		{ n: 'Nominativ', q: 'wer? was?', job: 'the subject' },
+		{ n: 'Akkusativ', q: 'wen? was?', job: 'only masculine changes' },
+		{ n: 'Dativ', q: 'wem?', job: 'the receiver' },
+		{ n: 'Genitiv', q: 'wessen?', job: 'the owner' }
+	];
+	var G = [
+		{ k: 'm', mark: '●', name: 'masculine' }, { k: 'f', mark: '▲', name: 'feminine' },
+		{ k: 'n', mark: '■', name: 'neuter' }, { k: 'p', mark: '◆', name: 'plural' }
+	];
+	// forms[kind][gender] = [nom, akk, dat, gen]
+	var F = {
+		der: { m: ['der', 'den', 'dem', 'des'], f: ['die', 'die', 'der', 'der'], n: ['das', 'das', 'dem', 'des'], p: ['die', 'die', 'den', 'der'] },
+		ein: { m: ['ein', 'einen', 'einem', 'eines'], f: ['eine', 'eine', 'einer', 'einer'], n: ['ein', 'ein', 'einem', 'eines'], p: ['–', '–', '–', '–'] },
+		pro: { m: ['er', 'ihn', 'ihm', 'sein'], f: ['sie', 'sie', 'ihr', 'ihr'], n: ['es', 'es', 'ihm', 'sein'], p: ['sie', 'sie', 'ihnen', 'ihr'] }
+	};
+	// adjective endings after der-words and after ein-words (plural ein = no article)
+	var E = {
+		der: { m: ['e', 'en', 'en', 'en'], f: ['e', 'e', 'en', 'en'], n: ['e', 'e', 'en', 'en'], p: ['en', 'en', 'en', 'en'] },
+		ein: { m: ['er', 'en', 'en', 'en'], f: ['e', 'e', 'en', 'en'], n: ['es', 'es', 'en', 'en'], p: ['e', 'e', 'en', 'er'] }
+	};
+	var NOUNMARK = { m: ['', '', '', '+s'], f: ['', '', '', ''], n: ['', '', '', '+s'], p: ['', '', '+n', ''] };
+
+	/* ---------- the printed chart ---------- */
+	var persons = [
+		{ l: 'I', c: [['ich', 'ich <b>bin</b>'], ['mich', 'für <b>mich</b>'], ['mir', 'mit <b>mir</b>'], ['mein', '<b>mein</b> Hund']] },
+		{ l: 'you', c: [['du', 'du <b>bist</b>'], ['dich', 'für <b>dich</b>'], ['dir', 'mit <b>dir</b>'], ['dein', '<b>dein</b> Hund']] },
+		{ l: 'he/she/it', ref: true, c: ['<span class="m">er</span> · <span class="f">sie</span> · <span class="n">es</span><i>↑ the coloured rows above</i>', '<span class="m">ihn</span> · <span class="f">sie</span> · <span class="n">es</span>', '<span class="m">ihm</span> · <span class="f">ihr</span> · <span class="n">ihm</span>', '<span class="m">sein</span> · <span class="f">ihr</span> · <span class="n">sein</span>'] },
+		{ l: 'we', c: [['wir', 'wir <b>sind</b>'], ['uns', 'für <b>uns</b>'], ['uns', 'mit <b>uns</b>'], ['unser', '<b>unser</b> Hund']] },
+		{ l: 'you all', c: [['ihr', 'ihr <b>seid</b>'], ['euch', 'für <b>euch</b>'], ['euch', 'mit <b>euch</b>'], ['euer', '<b>euer</b> Hund']] },
+		{ l: '◆ they', c: [['sie', 'sie <b>sind</b>'], ['sie', 'für <b>sie</b>'], ['ihnen', 'mit <b>ihnen</b>'], ['ihr', '<b>ihr</b> Hund']] },
+		{ l: 'formal', end: true, c: [['Sie', 'Sie <b>sind</b>'], ['Sie', 'für <b>Sie</b>'], ['Ihnen', 'mit <b>Ihnen</b>'], ['Ihr', '<b>Ihr</b> Hund']] }
+	];
+	var RULES = "<tr class=\"info\"><td class=\"ce rl\">use it for</td><td colspan=\"3\" class=\"ce\"><b>Who does it.</b> <em class=nom>Der Hund</em> schläft.</td><td colspan=\"3\" class=\"ce\"><b>Who or what it is done to.</b> Ich sehe <em class=akk>den Hund</em>. Also time: <em class=akk>jeden Tag</em>.</td><td colspan=\"3\" class=\"ce\"><b>Who gets it.</b> Ich gebe <em class=dat>dem Hund</em> einen Ball.</td><td colspan=\"3\" class=\"ce\"><b>Whose it is.</b> Der Ball <em class=gen>des Hundes</em>.</td></tr><tr class=\"info\"><td class=\"ce rl\">always after</td><td colspan=\"3\" rowspan=\"2\" class=\"ce\">No preposition takes the Nominativ.</td><td colspan=\"3\" class=\"ce\"><b>durch · für · gegen · ohne · um · bis</b></td><td colspan=\"3\" class=\"ce\"><b>aus · außer · bei · mit · nach · seit · von · zu · gegenüber</b></td><td colspan=\"3\" rowspan=\"2\" class=\"ce\"><b>wegen · trotz · während · statt · innerhalb · außerhalb</b><small>In speech often with the Dativ.</small></td></tr><tr class=\"info\"><td class=\"ce rl\">either case</td><td colspan=\"6\" class=\"both\"><b>an · auf · hinter · in · neben · über · unter · vor · zwischen</b><div><span>Moving there, <b>wohin?</b> → <span class=\"tag akk\">Akkusativ</span> Ich gehe <em class=akk>in den</em> Park.</span><span>Being there, <b>wo?</b> → <span class=\"tag dat\">Dativ</span> Ich bin <em class=dat>in dem</em> Park (im Park).</span></div></td></tr><tr class=\"info\"><td class=\"ce rl\">after these verbs</td><td colspan=\"3\" class=\"ce\"><b>sein · werden · bleiben · heißen</b><small>Er ist <em class=nom>ein guter</em> Lehrer.</small></td><td colspan=\"3\" class=\"ce\"><b>Most verbs:</b> haben · sehen · kaufen · brauchen · es gibt</td><td colspan=\"3\" class=\"ce\"><b>helfen · danken · gefallen · gehören · antworten · passen</b></td><td colspan=\"3\" class=\"ce\">Almost none in everyday German.</td></tr><tr class=\"info\"><td class=\"ce rl\">remember</td><td colspan=\"3\" class=\"ce\">The dictionary form. Every other column is a change from this one.</td><td colspan=\"3\" class=\"ce\"><b>Only masculine changes:</b> der → den, ein → einen, er → ihn.</td><td colspan=\"3\" class=\"ce\"><b>-m</b> masculine and neuter · <b>-r</b> feminine · <b>-n</b> plural, and the noun adds -n.</td><td colspan=\"3\" class=\"ce\"><b>-s</b> masculine and neuter, and the noun adds -s · <b>-r</b> feminine and plural.</td></tr><tr class=\"info warn\"><td class=\"ce rl\">watch out</td><td colspan=\"3\" class=\"ce\">The subject is not always first: <em class=akk>Den Hund</em> sieht der Mann.</td><td colspan=\"3\" class=\"ce\"><b>es gibt</b> takes the Akkusativ: Es gibt <em class=akk>einen</em> Park.</td><td colspan=\"3\" class=\"ce\"><em class=dat>Mir</em> ist kalt, not <s>Ich bin kalt</s>. Pronouns flip: Ich gebe <em class=akk>es</em> <em class=dat>ihm</em>.</td><td colspan=\"3\" class=\"ce\">Names add -s with no apostrophe: <em class=gen>Annas</em> Hund.</td></tr>";
+	var h = '<thead><tr><th class="ce"></th>';
+	CASES.forEach(function (c) { h += '<th colspan="3" class="ce"><b>' + c.n + '</b><i>' + c.q + '</i><small>' + c.job + '</small></th>'; });
+	h += '</tr><tr class="sub"><th class="ce"></th>';
+	CASES.forEach(function (c, i) { h += '<th>' + (i === 3 ? 'poss.' : 'pron.') + '</th><th>der + adj.</th><th class="ce">ein + adj.</th>'; });
+	h += '</tr></thead><tbody>';
+	G.forEach(function (g, gi) {
+		h += '<tr class="big' + (gi === 3 ? ' ge' : '') + '"><td class="ce rl g ' + g.k + '"><b>' + g.mark + '</b>' + g.name + '</td>';
+		CASES.forEach(function (c, i) {
+			var same = i !== 1 ? '' : F.der[g.k][1] === F.der[g.k][0] ? ' same' : ' chg';
+			var mark = NOUNMARK[g.k][i] ? '<sup>' + NOUNMARK[g.k][i] + '</sup>' : '';
+			var ein = F.ein[g.k][i] === '–' ? '<span class="no">–</span>' : F.ein[g.k][i];
+			h += '<td class="pro ' + g.k + (i === 3 ? ' poss' : ' g') + same + '"><span class="w">' + F.pro[g.k][i] + '</span></td>' +
+				'<td class="art g ' + g.k + same + '"><span class="w">' + F.der[g.k][i] + '<u>-' + E.der[g.k][i] + mark + '</u></span></td>' +
+				'<td class="art ein ce g ' + g.k + same + '"><span class="w">' + ein + '<u>-' + E.ein[g.k][i] + mark + '</u></span></td>';
+		});
+		h += '</tr>';
+	});
+	persons.forEach(function (r) {
+		h += '<tr class="' + (r.end ? 'ge' : '') + '"><td class="ce rl">' + r.l + '</td>';
+		r.c.forEach(function (c, i) { h += r.ref ? '<td colspan="3" class="ce ref">' + c + '</td>' : '<td class="pro' + (i === 3 ? ' poss' : '') + '">' + c[0] + '</td><td colspan="2" class="ce ex">' + c[1] + '</td>'; });
+		h += '</tr>';
+	});
+	h += RULES;
+	document.getElementById('chart').insertAdjacentHTML('beforeend', h + '</tbody>');
+
+	/* ---------- the app mock ---------- */
+	var NOUNS = {
+		m: [{ n: 'Hund', g: 'Hundes', d: 'Hund', en: 'dog', poss: "dog's" }, { n: 'Mann', g: 'Mannes', d: 'Mann', en: 'man', poss: "man's" }],
+		f: [{ n: 'Katze', g: 'Katze', d: 'Katze', en: 'cat', poss: "cat's" }, { n: 'Frau', g: 'Frau', d: 'Frau', en: 'woman', poss: "woman's" }],
+		n: [{ n: 'Kind', g: 'Kindes', d: 'Kind', en: 'child', poss: "child's" }, { n: 'Mädchen', g: 'Mädchens', d: 'Mädchen', en: 'girl', poss: "girl's" }],
+		p: [{ n: 'Kinder', g: 'Kinder', d: 'Kindern', en: 'children', poss: "children's" }, { n: 'Freunde', g: 'Freunde', d: 'Freunden', en: 'friends', poss: "friends'" }]
+	};
+	var PRO_EN = { m: ['He', 'him', 'him', 'his'], f: ['She', 'her', 'her', 'her'], n: ['It', 'it', 'it', 'its'], p: ['They', 'them', 'them', 'their'] };
+	var WHY = [
+		'It is the subject of the sentence, so it is in the Nominativ.',
+		'sehen takes a direct object, so it is in the Akkusativ.',
+		'mit always takes the Dativ.',
+		'It says whose ball it is, so it is in the Genitiv.'
+	];
+	function cap(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
+	// one sentence for a cell: { de: [before, form, after], en }
+	function sentence(kind, g, ci, noun) {
+		var pl = g === 'p', form = F[kind][g][ci], a = kind === 'ein' ? 'a' : 'the';
+		if (kind === 'pro') {
+			var e = PRO_EN[g][ci];
+			if (ci === 0) return { de: ['', cap(form), pl ? ' sind da.' : ' ist da.'], en: e + (pl ? ' are here.' : ' is here.') };
+			if (ci === 1) return { de: ['Ich sehe ', form, '.'], en: 'I see ' + e + '.' };
+			if (ci === 2) return { de: ['Ich spiele mit ', form, '.'], en: 'I play with ' + e + '.' };
+			return { de: ['Das ist ', form, ' Ball.'], en: 'That is ' + e + ' ball.' };
+		}
+		if (ci === 0) return { de: ['', cap(form), ' ' + noun.n + (pl ? ' sind da.' : ' ist da.')], en: cap(a) + ' ' + noun.en + (pl ? ' are here.' : ' is here.') };
+		if (ci === 1) return { de: ['Ich sehe ', form, ' ' + noun.n + '.'], en: 'I see ' + a + ' ' + noun.en + '.' };
+		if (ci === 2) return { de: ['Ich spiele mit ', form, ' ' + noun.d + '.'], en: 'I play with ' + a + ' ' + noun.en + '.' };
+		return { de: ['Das ist der Ball ', form, ' ' + noun.g + '.'], en: 'That is ' + a + ' ' + noun.poss + ' ball.' };
+	}
+	function options(kind, g, ci) {
+		var right = F[kind][g][ci], pool = [];
+		['m', 'f', 'n', 'p'].forEach(function (x) { F[kind][x].forEach(function (f) { if (f !== '–' && f !== right && pool.indexOf(f) < 0) pool.push(f); }); });
+		var start = (ci * 2 + g.charCodeAt(0)) % pool.length, pick = [];
+		for (var i = 0; i < 3 && i < pool.length; i++) pick.push(pool[(start + i) % pool.length]);
+		return pick.concat([right]).sort();
+	}
+
+	var state = { kind: 'der', heat: false, sel: { g: 'm', c: 2 }, quiz: null };
+	// example progress: 0 weak, 1 shaky, 2 solid, -1 not tried; keyed kind+gender+case
+	var heat = {};
+	['der', 'ein', 'pro'].forEach(function (k, ki) {
+		['m', 'f', 'n', 'p'].forEach(function (g, gi) {
+			for (var c = 0; c < 4; c++) {
+				var v = c === 0 ? 2 : c === 1 ? (g === 'm' ? 1 : 2) : c === 2 ? ((gi + ki) % 3 === 0 ? 1 : 0) : -1;
+				heat[k + g + c] = v;
+			}
+		});
+	});
+	var mini = document.getElementById('mini'), panel = document.getElementById('panel');
+
+	function drawMini() {
+		var s = '<div></div>';
+		CASES.forEach(function (c) { s += '<div class="ch">' + c.n.slice(0, 3) + '.</div>'; });
+		G.forEach(function (g) {
+			s += '<div class="rh ' + g.k + '" title="' + g.name + '">' + g.mark + '</div>';
+			CASES.forEach(function (c, ci) {
+				var form = F[state.kind][g.k][ci], off = form === '–';
+				var hv = heat[state.kind + g.k + ci], hc = state.heat && !off ? (hv < 0 ? ' hx' : ' h' + hv) : '';
+				var on = state.sel && state.sel.g === g.k && state.sel.c === ci;
+				s += '<button type="button" class="cell ' + g.k + hc + '" data-g="' + g.k + '" data-c="' + ci + '"' + (off ? ' disabled' : '') +
+					' aria-pressed="' + (on ? 'true' : 'false') + '" aria-label="' + form + ', ' + c.n + ', ' + g.name + '">' + form + '</button>';
+			});
+		});
+		mini.className = 'mini' + (state.heat ? ' heat' : '');
+		mini.innerHTML = s;
+		document.getElementById('hleg').hidden = !state.heat;
+	}
+	function line(sn) { return '<p class="de">' + sn.de[0] + '<mark>' + sn.de[1] + '</mark>' + sn.de[2] + '</p><p class="en">' + sn.en + '</p>'; }
+	function drawPanel() {
+		if (state.quiz) return drawQuiz();
+		if (!state.sel) {
+			panel.innerHTML = '<p class="hint">' + (state.heat ? 'Green cells are solid, red cells are where to practise. Tap one.' : 'Tap any cell to hear it, see it in a sentence and practise it.') + '</p>';
+			return;
+		}
+		var g = state.sel.g, c = state.sel.c, form = F[state.kind][g][c], gn = G.filter(function (x) { return x.k === g; })[0].name;
+		var s = '<h3>' + form + '<small>' + CASES[c].n + ' · ' + gn + '</small></h3>';
+		s += line(sentence(state.kind, g, c, NOUNS[g][0]));
+		if (state.kind !== 'pro') s += line(sentence(state.kind, g, c, NOUNS[g][1]));
+		s += '<p class="why">' + WHY[c] + '</p>';
+		s += '<div class="acts">' + ('speechSynthesis' in window ? '<button type="button" class="act" id="say">▶ Listen</button>' : '') + '<button type="button" class="act main" id="go">Practise this cell</button></div>';
+		panel.innerHTML = s;
+	}
+	function buildQuiz() {
+		var g = state.sel.g, c = state.sel.c, k = state.kind, qs = [];
+		(k === 'pro' ? [null] : NOUNS[g]).forEach(function (noun) {
+			var sn = sentence(k, g, c, noun);
+			qs.push({ q: sn.de[0] + '____' + sn.de[2], hint: sn.en, opts: options(k, g, c), a: F[k][g][c], why: WHY[c] });
+		});
+		var s2 = sentence(k, g, c, NOUNS[g][0]);
+		qs.push({ q: 'Which case is “' + s2.de[1] + '” in here?', de: s2, opts: CASES.map(function (x) { return x.n; }), a: CASES[c].n, why: WHY[c] });
+		return { qs: qs, i: 0, right: 0, done: false, picked: null };
+	}
+	function drawQuiz() {
+		var z = state.quiz;
+		if (z.done) {
+			heat[state.kind + state.sel.g + state.sel.c] = z.right === z.qs.length ? 2 : z.right === 0 ? 0 : 1;
+			panel.innerHTML = '<p class="dots">Run finished</p><h3>' + z.right + ' of ' + z.qs.length + '</h3><p class="hint">' +
+				(z.right === z.qs.length ? 'This cell is now solid on your map.' : z.right === 0 ? 'This cell is marked weak on your map.' : 'This cell is marked shaky on your map.') +
+				'</p><div class="acts"><button type="button" class="act" id="back">Back to the cell</button><button type="button" class="act main" id="see">See my progress</button></div>';
+			return;
+		}
+		var q = z.qs[z.i], s = '<p class="dots">Question ' + (z.i + 1) + ' of ' + z.qs.length + '</p>';
+		s += q.de ? line(q.de) + '<p class="de">' + q.q + '</p>' : '<p class="de" style="font-size:18px">' + q.q + '</p><p class="en">' + q.hint + '</p>';
+		s += '<div class="opts">';
+		q.opts.forEach(function (o) {
+			var cls = z.picked === null ? '' : o === q.a ? ' ok' : o === z.picked ? ' no' : '';
+			s += '<button type="button" class="opt' + cls + '" data-o="' + o + '"' + (z.picked !== null ? ' disabled' : '') + '>' + o + '</button>';
+		});
+		s += '</div>';
+		if (z.picked !== null) s += '<p class="why">' + (z.picked === q.a ? 'Right. ' : 'It is ' + q.a + '. ') + q.why + '</p><div class="acts"><button type="button" class="act main" id="next">' + (z.i + 1 < z.qs.length ? 'Next' : 'Finish') + '</button></div>';
+		panel.innerHTML = s;
+	}
+	function draw() { drawMini(); drawPanel(); }
+
+	document.getElementById('phone').addEventListener('click', function (ev) {
+		var t = ev.target.closest('button'); if (!t) return;
+		if (t.dataset.kind) {
+			state.kind = t.dataset.kind; state.sel = null; state.quiz = null;
+			document.querySelectorAll('#kinds button').forEach(function (b) { b.setAttribute('aria-pressed', b === t ? 'true' : 'false'); });
+		} else if (t.id === 'mode-chart' || t.id === 'mode-heat' || t.id === 'see') {
+			state.heat = t.id !== 'mode-chart'; if (t.id === 'see') state.quiz = null;
+			document.getElementById('mode-chart').setAttribute('aria-pressed', state.heat ? 'false' : 'true');
+			document.getElementById('mode-heat').setAttribute('aria-pressed', state.heat ? 'true' : 'false');
+		} else if (t.classList.contains('cell')) {
+			state.sel = { g: t.dataset.g, c: Number(t.dataset.c) }; state.quiz = null;
+		} else if (t.id === 'go') {
+			state.quiz = buildQuiz();
+		} else if (t.id === 'back') {
+			state.quiz = null;
+		} else if (t.classList.contains('opt')) {
+			var z = state.quiz; z.picked = t.dataset.o; if (z.picked === z.qs[z.i].a) z.right++;
+		} else if (t.id === 'next') {
+			var q = state.quiz; q.picked = null; q.i++; if (q.i >= q.qs.length) q.done = true;
+		} else if (t.id === 'say') {
+			try {
+				var sn = sentence(state.kind, state.sel.g, state.sel.c, NOUNS[state.sel.g][0]);
+				var u = new SpeechSynthesisUtterance(sn.de.join('')); u.lang = 'de-DE'; u.rate = 0.9;
+				window.speechSynthesis.cancel(); window.speechSynthesis.speak(u);
+			} catch (e) { t.hidden = true; }
+			return;
+		} else { return; }
+		draw();
+	});
+	draw();
+})();
+
+// Placeholder QR: finder patterns plus a seeded pattern.
+document.querySelectorAll('svg[data-qr]').forEach(function (svg) {
+	var n = 21, seed = Number(svg.dataset.qr) || 1, out = '';
+	function rnd() { seed = (seed * 1103515245 + 12345) & 0x7fffffff; return seed / 0x7fffffff; }
+	function finder(x, y) { return x >= 0 && x < 7 && y >= 0 && y < 7; }
+	function inFinder(x, y) { return finder(x, y) || finder(x - (n - 7), y) || finder(x, y - (n - 7)); }
+	function finderOn(x, y) {
+		var fx = x >= n - 7 ? x - (n - 7) : x, fy = y >= n - 7 ? y - (n - 7) : y;
+		var edge = fx === 0 || fx === 6 || fy === 0 || fy === 6;
+		var core = fx >= 2 && fx <= 4 && fy >= 2 && fy <= 4;
+		return edge || core;
+	}
+	for (var y = 0; y < n; y++) for (var x = 0; x < n; x++) {
+		var on = inFinder(x, y) ? finderOn(x, y) : rnd() > 0.52;
+		if (on) out += '<rect x="' + x + '" y="' + y + '" width="1.02" height="1.02"/>';
+	}
+	svg.setAttribute('viewBox', '0 0 ' + n + ' ' + n);
+	svg.setAttribute('fill', '#1f3a5f');
+	svg.setAttribute('role', 'img');
+	svg.setAttribute('aria-label', 'QR code placeholder');
+	svg.innerHTML = out;
+});
+</script>

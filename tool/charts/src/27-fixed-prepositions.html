@@ -1,0 +1,405 @@
+<title>Fixed-Case Prepositions</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap">
+<style>
+/* Layout: one A4 landscape chart in the same skeleton as Charts 1 and 2 (header, lookup steps,
+   QR, rule rows), but the body is a decision path: three questions down the left, each "yes"
+   leads right into a sentence track with fixed slots. 1cqw = 2.97 mm on paper. */
+:root {
+	--board: #e8e3da;
+	--board-ink: #24262b;
+	--board-muted: #5f5a52;
+	--board-line: #cfc8bb;
+	--paper: #ffffff;
+	--ink: #111111;
+	--muted: #45413b;
+	--line: #8f887b;
+	--navy: #1f3a5f;
+	--navy-soft: #e8edf4;
+	--terracotta: #c9683b;
+	--terracotta-ink: #a24c26;
+	--verb-soft: #fbeae0;
+	--hi: #ffe14d;
+	--dat: #5b3aa8;
+	--gen: #0b6e74;
+	--sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+	--serif: 'Source Serif 4', ui-serif, Georgia, serif;
+}
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme="light"]) { --board: #1c1e23; --board-ink: #f1ede6; --board-muted: #aaa398; --board-line: #3a3c42; color-scheme: dark }
+}
+:root[data-theme="dark"] { --board: #1c1e23; --board-ink: #f1ede6; --board-muted: #aaa398; --board-line: #3a3c42; color-scheme: dark }
+
+body {
+	background: var(--board);
+	color: var(--board-ink);
+	font-family: var(--sans);
+	padding-block: 28px 56px;
+	padding-left: max(16px, env(safe-area-inset-left, 0px));
+	padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 22px }
+.intro h1 { font-family: var(--serif); font-size: clamp(1.8rem, 4.6vw, 2.6rem); font-weight: 700; line-height: 1.05; margin: 0 0 10px; text-wrap: balance }
+.intro p { font-family: var(--serif); font-size: 1.05rem; line-height: 1.5; max-width: 66ch; margin: 0; color: var(--board-muted) }
+.scroll { overflow-x: auto }
+.note { font-family: var(--serif); color: var(--board-muted); font-size: 0.95rem; line-height: 1.5; max-width: 70ch; border-top: 1px solid var(--board-line); padding-top: 16px; margin: 0 }
+
+.sheet { container-type: inline-size; aspect-ratio: 297 / 210; width: 100%; min-width: 720px; background: var(--paper); color: var(--ink); box-shadow: 0 1px 2px rgba(0,0,0,.18), 0 10px 28px rgba(0,0,0,.16); overflow: hidden }
+.page { height: 100%; box-sizing: border-box; padding: 1.8cqw 3cqw 1.4cqw; display: flex; flex-direction: column; gap: .9cqw }
+.hd { display: flex; align-items: flex-end; gap: 2cqw }
+.hd .t { margin-right: auto; flex: none }
+.brand { display: flex; align-items: center; gap: .8cqw; font-family: var(--serif); font-size: 1.6cqw; font-weight: 700; color: var(--navy) }
+.brand svg { width: 2.3cqw; height: 2.3cqw }
+.brand span { font-family: var(--sans); font-size: 1.1cqw; font-weight: 600; color: var(--muted); margin-left: .6cqw }
+.sheet h2.title { white-space: nowrap; font-family: var(--serif); font-size: 3.1cqw; font-weight: 700; line-height: 1; margin: .4cqw 0 0; color: var(--navy); letter-spacing: -.01em }
+.title small { font-family: var(--sans); font-size: 1.1cqw; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--terracotta-ink); vertical-align: 1.2cqw; margin-right: .8cqw }
+.path { display: flex; gap: .4cqw; align-items: center; font-size: .96cqw; font-weight: 600; padding-bottom: .3cqw }
+.path b { display: inline-block; width: 1.9cqw; line-height: 1.9cqw; border-radius: 50%; background: var(--terracotta-ink); color: #fff; text-align: center; font-weight: 800; margin-right: .5cqw }
+.path span { background: var(--navy-soft); border-radius: 1.2cqw; padding: .35cqw 1.1cqw .35cqw .35cqw; white-space: nowrap }
+.qr { display: flex; flex-direction: column; align-items: center; gap: .2cqw; font-size: .9cqw; font-weight: 700; color: var(--navy); white-space: nowrap; flex: none }
+.qr svg { width: 4.3cqw; height: 4.3cqw; display: block }
+
+/* the decision path */
+.main { flex: 1; min-height: 0; display: grid; grid-template-columns: 23cqw 4.6cqw 1fr; grid-template-rows: 11.4fr 9.5fr 14.6fr; gap: .9cqw 0 }
+.ask { display: flex; flex-direction: column; min-height: 0 }
+.q { flex: 1; min-height: 0; background: var(--navy); color: #fff; border-radius: .9cqw; padding: .6cqw 1cqw .7cqw; display: flex; flex-direction: column; justify-content: center; gap: .3cqw }
+.q b.n { display: inline-block; width: 2cqw; line-height: 2cqw; border-radius: 50%; background: #fff; color: var(--navy); text-align: center; font-weight: 800; font-size: 1.15cqw; margin-right: .6cqw; vertical-align: .15cqw }
+.q h3 { margin: 0; font-family: var(--serif); font-size: 1.62cqw; font-weight: 700; line-height: 1.12 }
+.q p { margin: 0; font-size: 1.02cqw; line-height: 1.3; font-weight: 500 }
+.q p b { font-weight: 800; color: var(--hi) }
+.q.else { background: #fff; color: var(--ink); border: .4cqw solid var(--navy) }
+.q.else h3 { color: var(--navy) }
+.q.else p b { color: var(--terracotta-ink) }
+.down { flex: none; height: 2.1cqw; margin-bottom: -.9cqw; display: flex; justify-content: center; align-items: center; gap: .5cqw; font-size: .82cqw; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--navy); position: relative }
+.down::before { content: ''; position: absolute; left: 4cqw; top: 0; bottom: .55cqw; width: .4cqw; background: var(--navy) }
+.down::after { content: ''; position: absolute; left: 3.45cqw; bottom: 0; border: .75cqw solid transparent; border-top-color: var(--navy); border-bottom: 0 }
+.yes { display: flex; flex-direction: column; justify-content: center; align-items: stretch; font-size: .82cqw; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--terracotta-ink); text-align: center; padding-bottom: 1.2cqw }
+.yes.last { padding-bottom: 0 }
+.yes i { display: block; height: .45cqw; background: var(--terracotta-ink); margin: .2cqw .75cqw 0 0; position: relative }
+.yes i::after { content: ''; position: absolute; right: -.75cqw; top: -.55cqw; border: .775cqw solid transparent; border-left-color: var(--terracotta-ink); border-right: 0 }
+
+/* the sentence tracks */
+.lane { border: .4cqw solid var(--navy); border-radius: .9cqw; overflow: hidden; display: grid; grid-template-columns: 9.4cqw 1fr; min-height: 0 }
+.lane.last { margin-bottom: 0 }
+.badge { background: var(--terracotta-ink); color: #fff; display: flex; flex-direction: column; justify-content: center; padding: .4cqw .9cqw; gap: .2cqw }
+.badge small { font-size: .78cqw; font-weight: 800; letter-spacing: .08em; text-transform: uppercase }
+.badge b { font-family: var(--serif); font-size: 2.3cqw; font-weight: 700; line-height: .95 }
+.badge span { font-size: .92cqw; font-weight: 600; line-height: 1.2 }
+.track { display: grid; min-height: 0; font-size: 1.24cqw; line-height: 1.15 }
+.track > div { border-left: .12cqw solid var(--line); border-top: .12cqw solid var(--line); padding: 0 .7cqw; display: flex; align-items: center; gap: .45cqw; white-space: nowrap; min-width: 0; font-weight: 500 }
+.track > .h { border-top: 0; background: var(--navy-soft); font-size: .78cqw; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; color: var(--navy); padding-block: .22cqw }
+.track > .h.vh { background: var(--terracotta-ink); color: #fff }
+.track > .vc { background: var(--verb-soft); border-left: .3cqw solid var(--terracotta-ink) }
+.track > .vc + div { border-left: .3cqw solid var(--terracotta-ink) }
+.track > .none { background: repeating-linear-gradient(135deg, #fff 0 .5cqw, #e3ddd2 .5cqw .62cqw); color: var(--muted); font-size: .9cqw; font-weight: 700 }
+.track > .foot { grid-column: 1 / -1; font-size: 1cqw; white-space: normal; padding-block: .25cqw; line-height: 1.25; display: block; border-left: .12cqw solid var(--line) }
+.track > .foot b { font-weight: 800 }
+.v { background: var(--terracotta-ink); color: #fff; font-weight: 800; padding: .08cqw .5cqw .12cqw; border-radius: .3cqw }
+.e { box-shadow: inset 0 0 0 .2cqw var(--terracotta-ink); color: var(--terracotta-ink); background: #fff; font-weight: 800; padding: .08cqw .5cqw .12cqw; border-radius: .3cqw }
+.s { box-shadow: inset 0 0 0 .15cqw var(--ink); font-weight: 800; padding: .04cqw .35cqw .08cqw }
+.track i { font-family: var(--serif); font-style: italic; color: var(--muted); font-size: 1.02cqw; margin-left: auto; padding-left: .6cqw }
+
+.tag { font-size: .8cqw; font-weight: 800; letter-spacing: .03em; text-transform: uppercase; border-radius: .3cqw; padding: .05cqw .35cqw; vertical-align: .08cqw }
+.tag.dat { background: var(--dat); color: #fff }
+.tag.gen { background: var(--gen); color: #fff }
+.tag.nom { background: #fff; color: var(--ink); box-shadow: inset 0 0 0 .15cqw var(--ink) }
+.tag.akk { background: var(--hi); color: var(--ink) }
+
+.rules { display: grid; grid-template-columns: 8.5cqw 1fr 1fr; border: .4cqw solid var(--navy); font-size: 1.06cqw; line-height: 1.26 }
+.rules > div { padding: .32cqw .8cqw .37cqw; border-top: .12cqw solid var(--line); border-left: .12cqw solid var(--line) }
+.rules > div:nth-child(-n+3) { border-top: 0 }
+.rules .rl { background: var(--navy); color: #fff; font-size: .78cqw; font-weight: 800; letter-spacing: .03em; text-transform: uppercase; display: flex; align-items: center; border-left: 0; border-top-color: #3d5a80 }
+.rules .rl.warn { background: var(--terracotta-ink) }
+.rules b { font-weight: 800 }
+.rules em { font-style: normal; font-weight: 800; padding: 0 .25cqw }
+.rules em.dat { background: var(--dat); color: #fff }
+.rules em.akk { background: var(--hi); color: var(--ink) }
+.rules em.gen { background: var(--gen); color: #fff }
+.rules .v, .rules .e, .key .v, .key .e { padding: 0 .3cqw; border-radius: .25cqw }
+.rules s { text-decoration-thickness: .14cqw; text-decoration-color: var(--terracotta-ink) }
+.rules small { font-size: .78cqw; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; color: var(--muted) }
+.key { display: flex; gap: .7cqw; align-items: center; font-size: 1cqw; font-weight: 500 }
+.key b { font-weight: 800 }
+.key .sp { margin-left: 1.2cqw }
+.hd { gap: 1.2cqw }
+.sheet h2.title { font-size: 2.8cqw }
+.path { font-size: .88cqw }
+.sheet { --m: #0f4a96; --f: #a81f1b; --n: #1c6a3c; --pl: #2f2d2a }
+.sheet em.nom, .sheet em.akk, .sheet em.dat, .sheet em.gen { font-style: normal; font-weight: 800; padding: 0 .3cqw }
+.sheet em.nom { box-shadow: inset 0 0 0 .15cqw var(--ink); color: var(--ink) }
+.sheet em.akk { background: var(--hi); color: var(--ink) }
+.sheet em.dat { background: var(--dat); color: #fff }
+.sheet em.gen { background: var(--gen); color: #fff }
+.sheet u.x { text-decoration: none; background: var(--terracotta-ink); color: #fff; font-weight: 800; padding: 0 .2cqw; border-radius: .2cqw; margin-left: .04cqw }
+.gm { color: var(--m) } .gf { color: var(--f) } .gn { color: var(--n) }
+.focus { display: grid; grid-template-columns: 1fr 30cqw; gap: 1.2cqw }
+.look { border: .4cqw solid var(--navy); border-radius: .9cqw; padding: .5cqw 1.3cqw .55cqw; display: flex; align-items: center; gap: 2cqw }
+.look .demo { font-size: 2.3cqw; font-weight: 700; white-space: nowrap; display: flex; align-items: center; gap: .7cqw }
+.look .demo .ar { color: var(--terracotta-ink) }
+.cap1 { display: flex; flex-direction: column; gap: .4cqw }
+.cap1 span { font-size: 1.02cqw; font-weight: 700; line-height: 1.24 }
+.cap1 strong { font-weight: 800; text-decoration: underline }
+.cap1 .c1 { color: var(--navy) }
+.cap1 .c2 { color: var(--terracotta-ink) }
+.cap1 b { display: inline-block; width: 1.5cqw; line-height: 1.5cqw; border-radius: 50%; color: #fff; text-align: center; font-size: .88cqw; margin-right: .4cqw }
+.cap1 .c1 b { background: var(--navy) } .cap1 .c2 b { background: var(--terracotta-ink) }
+.idea { background: var(--navy); color: #fff; border-radius: .9cqw; padding: .45cqw 1.1cqw .55cqw; display: flex; flex-direction: column; justify-content: center; gap: .2cqw; font-size: 1cqw; line-height: 1.28; font-weight: 500 }
+.idea h3 { margin: 0; font-family: var(--serif); font-size: 1.45cqw; font-weight: 700; line-height: 1.1 }
+.idea p { margin: 0 }
+.idea strong { color: var(--hi); font-weight: 800 }
+.rules { font-size: 1.04cqw; grid-template-columns: 9.4cqw 1fr 1fr }
+.rules > div { padding: .28cqw .9cqw .32cqw; line-height: 1.36 }
+.rules .rl { font-size: .84cqw; padding-left: 1cqw }
+.rules .lead { display: inline-block; font-size: .72cqw; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; line-height: 1.5; color: var(--navy); background: var(--navy-soft); border-radius: .3cqw; padding: 0 .5cqw; margin-right: .8cqw; vertical-align: .08cqw }
+.rules .aside { font-family: var(--serif); font-style: italic; color: var(--muted); font-size: .96cqw; margin-left: .7cqw }
+.rules .no, .rules .ok { font-weight: 800; margin-right: .35cqw }
+.rules .no { color: var(--terracotta-ink) }
+.rules .ok { color: #1c6a3c; margin-left: .7cqw }
+.key .sp { margin-left: 1.1cqw }
+.look .demo { gap: 1.8cqw; font-size: 2.1cqw }
+.look .demo .gm, .look .demo .gf, .look .demo .gn { font-weight: 800 }
+.gcols { flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1cqw }
+.gc { --g: var(--m); border: .35cqw solid var(--g); border-radius: .9cqw; overflow: hidden; display: flex; flex-direction: column; min-height: 0 }
+.gc.f { --g: var(--f) } .gc.n { --g: var(--n) }
+.gc header { background: var(--g); color: #fff; padding: .1cqw 1cqw .3cqw; display: flex; align-items: baseline; gap: .9cqw }
+.gc header b { font-family: var(--serif); font-size: 2.6cqw; font-weight: 700; line-height: 1.05 }
+.gc header span { font-size: .84cqw; font-weight: 800; letter-spacing: .06em; text-transform: uppercase }
+.gc h4 { margin: .4cqw 1cqw .05cqw; font-size: .74cqw; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--g) }
+.sure { list-style: none; margin: 0; padding: .1cqw 1cqw .2cqw; display: flex; flex-direction: column; gap: .12cqw }
+.sure li { display: grid; grid-template-columns: 12.5cqw 1fr; align-items: baseline; white-space: nowrap }
+.sure b { font-size: 1.85cqw; font-weight: 800; color: var(--g); line-height: 1.22 }
+.sure span { font-size: 1.04cqw; font-weight: 500 }
+.gc h4:first-of-type { color: #fff; background: var(--g); margin: 0; padding: 0 1cqw .4cqw; font-size: .8cqw }
+.ends { flex: 1; list-style: none; margin: 0; padding: 0 1cqw; display: flex; flex-direction: column; justify-content: space-evenly; border-top: .12cqw solid var(--g); padding-top: .1cqw }
+.ends li { display: grid; grid-template-columns: 8.4cqw 1fr; align-items: baseline; gap: .5cqw; border-bottom: .1cqw solid #d6d0c4; padding: .08cqw 0 .12cqw; white-space: nowrap }
+.ends li:last-child { border-bottom: 0 }
+.ends b { font-size: 1.1cqw; font-weight: 800; color: var(--g) }
+.ends span { font-size: .98cqw; font-weight: 500 }
+.ends i, .alw { font-style: normal; font-size: .64cqw; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; background: var(--ink); color: #fff; border-radius: .25cqw; padding: .05cqw .35cqw }
+.grp { margin: 0 1cqw .5cqw; font-size: .9cqw; line-height: 1.4 }
+.grp b { font-weight: 800 }
+.kb { display: inline-block; border: .2cqw solid currentColor; border-radius: .35cqw; padding: 0 .5cqw; font-weight: 800 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* word tails version */
+.look { padding: .25cqw 1.3cqw .25cqw .5cqw; gap: 1.3cqw }
+.look .girl { height: 5.8cqw; width: 4.5cqw; object-fit: cover; border-radius: .5cqw; flex: none }
+.look .demo { font-family: var(--serif); font-size: 3.6cqw; font-weight: 700; gap: .9cqw; line-height: 1 }
+.look .demo u.x { background: var(--n); padding: .1cqw .3cqw .25cqw; border-radius: .35cqw; display: inline-block; line-height: 1 }
+.lk { min-width: 0; display: flex; flex-direction: column-reverse; gap: .45cqw }
+.cap1 { gap: .4cqw }
+.cap1 span { font-size: 1.08cqw; line-height: 1.35 }
+.look { padding: .7cqw 1.5cqw .75cqw }
+.lk { gap: .65cqw }
+.look h3.lt { margin: 0; font-family: var(--serif); font-size: 1.3cqw; font-weight: 700; line-height: 1.1; color: var(--navy) }
+.look h3.lt strong { color: var(--terracotta-ink) }
+.look .cap1 .c1 { font-weight: 600; color: var(--ink) }
+.dm { gap: .4cqw } .dm small { font-size: .95cqw } .dm small b { font-size: .86cqw }
+.idea { padding: .7cqw 1.2cqw .8cqw; font-size: 1.08cqw; line-height: 1.35 }
+.cap1 .c2 { color: var(--ink); font-weight: 600 }
+.lk.a { flex: 1 } .lk.a .trio { justify-content: space-between }
+.idea h3 { font-size: 1.3cqw }
+.idea .proof { display: flex; flex-direction: column; align-items: flex-start; gap: .6cqw; margin-top: .6cqw }
+.idea .chip { flex: none; background: #fff; border-radius: .6cqw; padding: .3cqw .8cqw .3cqw .4cqw; display: flex; align-items: center; gap: .6cqw }
+.idea .chip .girl { height: 3.3cqw; width: 2.5cqw; object-fit: cover; border-radius: .4cqw }
+.idea .chip .w { font-family: var(--serif); font-size: 2.2cqw; font-weight: 700; color: var(--ink); white-space: nowrap; line-height: 1 }
+.idea .chip u.x { text-decoration: none; background: var(--n); color: #fff; padding: .1cqw .25cqw .2cqw; border-radius: .3cqw; display: inline-block }
+.idea .proof p b { font-weight: 800; white-space: nowrap }
+.trio { display: flex; align-items: flex-end; gap: 1.5cqw }
+.dm { --g: var(--n); display: flex; flex-direction: column; gap: .3cqw }
+.dm.f { --g: var(--f) }
+.dm .w { font-family: var(--serif); font-size: 2.5cqw; font-weight: 700; line-height: 1; white-space: nowrap }
+.dm.m { --g: var(--m) }
+.look { justify-content: space-between; padding: .3cqw 1.2cqw .35cqw; gap: 1.2cqw }
+.look { min-width: 0 }
+.lk.b { border-left: .15cqw solid var(--navy-soft); padding-left: 1.3cqw }
+.lk.b .trio { align-items: center; gap: .9cqw }
+.look .lk .girl { height: 3.9cqw; width: 3cqw }
+.dm u.x { text-decoration: none; background: var(--g); color: #fff; padding: .1cqw .3cqw .22cqw; border-radius: .35cqw; display: inline-block; line-height: 1 }
+.dm.s1 u.x { background: color-mix(in srgb, var(--g) 26%, #fff); color: var(--g) }
+.dm.s2 u.x { background: color-mix(in srgb, var(--g) 9%, #fff); color: var(--g); box-shadow: inset 0 0 0 .1cqw color-mix(in srgb, var(--g) 35%, #fff) }
+.dm small { font-size: .88cqw; font-weight: 600; color: var(--ink); white-space: nowrap }
+.dm small b { font-weight: 800; color: var(--g); text-transform: uppercase; letter-spacing: .05em; font-size: .8cqw; margin-right: .2cqw }
+.tails { flex: 1; min-height: 0; display: grid; grid-template-columns: 8.6cqw repeat(3, minmax(0, 1fr)); grid-template-rows: auto 6fr 7fr 5fr; gap: .5cqw .9cqw }
+.gh, .tc { --g: var(--m); --sw: 13cqw; --sr: 0cqw }
+.gh.f, .tc.f { --g: var(--f) } .gh.n, .tc.n { --g: var(--n) }
+.gh { background: var(--g); color: #fff; border-radius: .9cqw .9cqw 0 0; display: flex; align-items: baseline; gap: .9cqw; padding: 0 1.2cqw .3cqw; margin-bottom: -.5cqw }
+.gh b { font-family: var(--serif); font-size: 2.9cqw; font-weight: 700; line-height: 1.1 }
+.gh span { font-size: .8cqw; font-weight: 800; letter-spacing: .08em; text-transform: uppercase }
+.bl { background: var(--navy); color: #fff; border-radius: .7cqw; display: flex; flex-direction: column; justify-content: center; padding: 0 .8cqw; gap: .2cqw }
+.bl.b1 { background: #47617f } .bl.b2 { background: #fff; color: var(--navy); box-shadow: inset 0 0 0 .3cqw var(--navy) }
+.bl b { font-family: var(--serif); font-size: 1.5cqw; line-height: 1.05 }
+.bl span { font-size: .78cqw; font-weight: 600; line-height: 1.2 }
+.tc { position: relative; min-height: 0; display: grid; grid-template-columns: minmax(0, 1fr) var(--sw) var(--sr); grid-template-rows: repeat(var(--rows), 1fr); align-items: center; border: .3cqw solid var(--g); border-top-width: .12cqw; background: #fff }
+.tc.b2 { border-radius: 0 0 .9cqw .9cqw }
+.tc::before { content: ''; position: absolute; top: 0; bottom: 0; right: var(--sr); width: var(--sw); background: var(--g) }
+.tc.b1::before { background: color-mix(in srgb, var(--g) 20%, #fff) }
+.tc.b1::before { background: color-mix(in srgb, var(--g) 26%, #fff) }
+.tc.b2::before { background: color-mix(in srgb, var(--g) 9%, #fff) }
+.tc .st, .tc .en { position: relative; font-size: 1.75cqw; font-weight: 700; line-height: 1; white-space: nowrap }
+.tc .st { grid-column: 1; padding-right: 0; text-align: right; color: var(--ink) }
+.tc .en { grid-column: 2; padding-left: .1cqw; color: #fff; font-weight: 800 }
+.tc.b1 .en, .tc.b2 .en { color: var(--g) }
+.tc .en i { float: right; margin: .1cqw .9cqw 0 0; font-style: normal; font-size: 1.05cqw; font-weight: 800; line-height: 1.5; color: #fff; background: var(--g); border-radius: .3cqw; padding: 0 .45cqw }
+.tc .grp { position: relative; grid-column: 2; justify-self: end; align-self: stretch; margin: .32cqw .8cqw .32cqw 0; padding-left: .7cqw; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .15cqw; color: var(--g); min-width: 3.4cqw }
+.tc .grp::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: .45cqw; border: .2cqw solid currentColor; border-right: 0; border-radius: .3cqw 0 0 .3cqw }
+.tc.b0 .grp { color: #fff }
+.tc .grp b { font-family: var(--serif); font-size: 1.45cqw; font-weight: 700; line-height: 1; white-space: nowrap }
+.tc .grp i { font-style: normal; font-size: 1.05cqw; font-weight: 800; line-height: 1.5; color: #fff; background: var(--g); border-radius: .3cqw; padding: 0 .45cqw }
+.tc .ex { position: relative; grid-column: 1 / -1; align-self: stretch; display: flex; align-items: center; justify-content: center; background: #fff; border-top: .12cqw solid var(--g); gap: .8cqw; padding: .3cqw .9cqw .3cqw .6cqw; min-height: 0; min-width: 0 }
+.tc .ex img { height: 100%; max-height: 5.6cqw; flex: none; aspect-ratio: 1; object-fit: cover; border-radius: .6cqw; background: #fbf5e6 }
+.tc .ex p { margin: 0; font-size: .92cqw; line-height: 1.3; font-weight: 500; text-align: center; min-width: 0; white-space: nowrap }
+.tc .ex p b { font-weight: 800; color: var(--g) }
+.rules { font-size: 1cqw }
+.key { font-size: .95cqw; white-space: nowrap }
+
+/* fixed prepositions version */
+.lk.a .trio { justify-content: space-between }
+.dm .w { font-size: 2cqw }
+.dm small b { color: var(--navy) }
+.pp { display: inline-block; font-family: var(--serif); font-weight: 700; border-radius: .35cqw; padding: 0 .4cqw .05cqw; line-height: 1.25; white-space: nowrap }
+.pp.akk { background: var(--hi); color: var(--ink) } .pp.dat { background: var(--dat); color: #fff }
+b.akk { background: #fff4b3; border-radius: .2cqw; padding: 0 .08cqw; font-weight: 800 }
+b.dat { background: #e6defa; color: #3d2380; border-radius: .2cqw; padding: 0 .08cqw; font-weight: 800 }
+.idea .chip .w { font-size: 1.5cqw }
+.fixp { flex: 1; min-height: 0; display: grid; grid-template-columns: 1fr 1.9fr; gap: .9cqw }
+.bx { min-height: 0; display: flex; flex-direction: column; border: .3cqw solid var(--dat); border-radius: .8cqw; overflow: hidden; background: #fff }
+.bx.akk { border-color: #d9b600 }
+.bh { display: flex; align-items: baseline; gap: .9cqw; padding: .1cqw 1cqw .3cqw; background: var(--dat); color: #fff }
+.bx.akk .bh { background: var(--hi); color: var(--ink) }
+.bh b { font-family: var(--serif); font-size: 1.8cqw; font-weight: 700; line-height: 1.15 }
+.bh span { font-size: .78cqw; font-weight: 800; letter-spacing: .05em; text-transform: uppercase }
+.two { flex: 1; min-height: 0; display: grid; grid-template-columns: 1fr 1fr; grid-auto-flow: column; grid-template-rows: repeat(5, 1fr); column-gap: 0 }
+.two .pr:nth-child(n+6) { border-left: .15cqw solid #ddd3f5 }
+.two .pr { grid-template-columns: 8.4cqw 1fr }
+.two .pr .pp { font-size: 1.4cqw }
+.pr { flex: 1; min-height: 0; display: grid; grid-template-columns: 6.6cqw 1fr; grid-template-rows: auto auto auto; align-items: center; column-gap: .7cqw; padding: .1cqw .9cqw; border-top: .1cqw solid #e6e1f2 }
+.bx.akk .pr { border-top-color: #f1e7b5 }
+.bh + .pr, .two .pr:nth-child(1), .two .pr:nth-child(6) { border-top: 0 }
+.pr .pp { grid-row: 1 / 4; font-size: 1.5cqw; justify-self: start }
+.pen { font-size: .72cqw; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); line-height: 1.3 }
+.ph { font-family: var(--serif); font-size: 1.22cqw; font-weight: 600; line-height: 1.3; white-space: nowrap }
+.rules .sf { display: flex; flex-wrap: wrap; gap: .1cqw 1.1cqw; align-items: center }
+.rules .sf b { font-weight: 800; color: var(--navy) }
+.key .pp { font-size: .95cqw; padding: 0 .3cqw }
+</style>
+
+<div class="wrap">
+	<header class="intro">
+		<h1>Chart 27, prepositions with a fixed case</h1>
+		<p>The prepositions that always take Akkusativ or always Dativ.</p>
+	</header>
+
+	<div class="scroll">
+	<div class="sheet"><div class="page">
+		<div class="hd">
+			<div class="t">
+				<div class="brand"><svg viewBox="0 0 68 68" aria-hidden="true"><rect width="68" height="68" rx="15" fill="#1f3a5f"/><g transform="translate(2 2)"><circle cx="32" cy="32" r="23.5" fill="none" stroke="#fbf8f3" stroke-width="9"/><path d="M37.5 37.5L54 54" stroke="#c9683b" stroke-width="8"/></g></svg>Language Quiz<span>languagequiz.org</span></div>
+				<h2 class="title"><small>Chart 27</small>für den, mit dem</h2>
+			</div>
+			<div class="path">
+				<span><b>1</b>Find the preposition</span>
+				<span><b>2</b>Its colour is the case</span>
+				<span><b>3</b>Give the article that ending</span>
+			</div>
+			<div class="qr"><svg data-qr="27"></svg>Open in the app</div>
+		</div>
+
+		<div class="focus">
+			<div class="look">
+				<div class="lk a"><div class="trio">
+					<div class="dm"><div class="w"><span class="pp akk">durch</span> d<b class="akk">en</b> Park</div><small><b>Akkusativ</b> always, after durch</small></div>
+					<div class="dm"><div class="w"><span class="pp dat">mit</span> d<b class="dat">em</b> Bus</div><small><b>Dativ</b> always, after mit</small></div>
+					<div class="dm"><div class="w"><span class="pp dat">aus</span> d<b class="dat">er</b> Stadt</div><small><b>Dativ</b> always, after aus</small></div>
+				</div>
+				<div class="cap1"><span class="c1"><b>1</b>After these prepositions the case never changes: always Akkusativ (yellow) or always Dativ (violet). You see it in the article: den after durch, dem after mit.</span><span class="c2"><b>2</b>Learn them as two groups, with a phrase each. Nine other prepositions can take either case, depending on Wo? or Wohin?: they are on Chart 2.</span></div><h3 class="lt">Look here first: <strong>the preposition picks the case</strong></h3></div>
+			</div>
+			<div class="idea"><h3>The one idea: <strong>one preposition, one case</strong></h3>
+				<div class="proof"><span class="chip"><span class="w"><span class="pp akk">für</span> d<b class="akk">en</b> Chef · <span class="pp dat">mit</span> d<b class="dat">em</b> Chef</span></span><p>Same man, two prepositions, two cases: für always wants Akkusativ, mit always Dativ.</p></div></div>
+		</div>
+
+		<div class="fixp">
+			<div class="bx akk"><div class="bh"><b>always Akkusativ</b><span>remember: DOGFUB</span></div><div class="pr"><span class="pp akk">durch</span><span class="pen">through</span><span class="ph">durch d<b class="akk">en</b> Park</span><span class="ph">durch d<b class="akk">ie</b> Stadt</span></div><div class="pr"><span class="pp akk">ohne</span><span class="pen">without</span><span class="ph">ohne d<b class="akk">en</b> Schlüssel</span><span class="ph">ohne m<b class="akk">ich</b></span></div><div class="pr"><span class="pp akk">gegen</span><span class="pen">against</span><span class="ph">gegen d<b class="akk">ie</b> Wand</span><span class="ph">gegen acht Uhr</span></div><div class="pr"><span class="pp akk">für</span><span class="pen">for</span><span class="ph">für d<b class="akk">en</b> Chef</span><span class="ph">für m<b class="akk">ich</b></span></div><div class="pr"><span class="pp akk">um</span><span class="pen">around, at</span><span class="ph">um d<b class="akk">en</b> See</span><span class="ph">um acht Uhr</span></div><div class="pr"><span class="pp akk">bis</span><span class="pen">until</span><span class="ph">bis Montag</span><span class="ph">bis morgen</span></div><div class="pr"><span class="pp akk">entlang</span><span class="pen">along, after the noun</span><span class="ph">d<b class="akk">en</b> Fluss entlang</span><span class="ph">d<b class="akk">ie</b> Straße entlang</span></div></div>
+			<div class="bx dat"><div class="bh"><b>always Dativ</b><span>remember: aus bei mit nach seit von zu</span></div><div class="two"><div class="pr"><span class="pp dat">aus</span><span class="pen">out of, from</span><span class="ph">aus d<b class="dat">em</b> Haus</span><span class="ph">aus d<b class="dat">er</b> Türkei</span></div><div class="pr"><span class="pp dat">bei</span><span class="pen">at, near, with</span><span class="ph">bei d<b class="dat">er</b> Arbeit</span><span class="ph">bei mein<b class="dat">en</b> Eltern</span></div><div class="pr"><span class="pp dat">mit</span><span class="pen">with, by</span><span class="ph">mit d<b class="dat">em</b> Bus</span><span class="ph">mit mein<b class="dat">er</b> Freundin</span></div><div class="pr"><span class="pp dat">nach</span><span class="pen">to (cities), after</span><span class="ph">nach Berlin</span><span class="ph">nach d<b class="dat">em</b> Essen</span></div><div class="pr"><span class="pp dat">seit</span><span class="pen">since, for</span><span class="ph">seit ein<b class="dat">em</b> Jahr</span><span class="ph">seit zwei Woche<b class="dat">n</b></span></div><div class="pr"><span class="pp dat">von</span><span class="pen">from, of</span><span class="ph">von d<b class="dat">er</b> Arbeit</span><span class="ph">ein Freund von m<b class="dat">ir</b></span></div><div class="pr"><span class="pp dat">zu</span><span class="pen">to (people, places)</span><span class="ph">zu<b class="dat">m</b> Arzt</span><span class="ph">zu<b class="dat">r</b> Schule</span></div><div class="pr"><span class="pp dat">gegenüber</span><span class="pen">opposite</span><span class="ph">gegenüber d<b class="dat">em</b> Bahnhof</span><span class="ph">d<b class="dat">em</b> Kino gegenüber</span></div><div class="pr"><span class="pp dat">außer</span><span class="pen">except</span><span class="ph">außer m<b class="dat">ir</b></span><span class="ph">außer d<b class="dat">em</b> Chef</span></div><div class="pr"><span class="pp dat">ab</span><span class="pen">from (a time)</span><span class="ph">ab nächst<b class="dat">er</b> Woche</span><span class="ph">ab d<b class="dat">em</b> 1. Mai</span></div></div></div>
+		</div>
+
+		<div class="rules">
+			<div class="rl">short forms</div>
+			<div class="sf"><span><b>zum</b> = zu dem</span><span><b>zur</b> = zu der</span><span><b>beim</b> = bei dem</span><span><b>vom</b> = von dem</span><span><b>im</b> = in dem</span><span><b>ins</b> = in das</span><span><b>am</b> = an dem</span><span><b>ans</b> = an das</span></div>
+			<div><b class="lead">nine take both cases</b>an · auf · hinter · in · neben · über · unter · vor · zwischen: Wo? <b class="dat">Dativ</b> · Wohin? <b class="akk">Akkusativ</b> <span class="aside">see Chart 2</span></div>
+			<div class="rl warn">watch out</div>
+			<div><b class="lead">nach or zu?</b>nach + cities, countries, Hause: nach Wien · zu + people and places in town: zum Arzt, zur Bank</div>
+			<div><b class="lead">pronouns change too</b>für m<b class="akk">ich</b> · ohne d<b class="akk">ich</b> · mit m<b class="dat">ir</b> · bei d<b class="dat">ir</b> · von i<b class="dat">hm</b> <span class="aside">see Chart 21</span></div>
+		</div>
+		<div class="key"><b>Key:</b> <span class="sp"><span class="pp akk">für</span> <b class="akk">-en</b> = Akkusativ</span> <span class="sp"><span class="pp dat">mit</span> <b class="dat">-em</b> = Dativ</span> <span class="sp">the case colours of Chart 1</span> <span class="sp">DOGFUB = durch, ohne, gegen, für, um, bis</span></div>
+	</div></div>
+	</div>
+
+	<p class="note">The QR code is a placeholder.</p>
+</div>
+
+<script>
+// Placeholder QR: finder patterns plus a seeded pattern.
+document.querySelectorAll('svg[data-qr]').forEach(function (svg) {
+	var n = 21, seed = Number(svg.dataset.qr) || 1, out = '';
+	function rnd() { seed = (seed * 1103515245 + 12345) & 0x7fffffff; return seed / 0x7fffffff; }
+	function finder(x, y) { return x >= 0 && x < 7 && y >= 0 && y < 7; }
+	function inFinder(x, y) { return finder(x, y) || finder(x - (n - 7), y) || finder(x, y - (n - 7)); }
+	function finderOn(x, y) {
+		var fx = x >= n - 7 ? x - (n - 7) : x, fy = y >= n - 7 ? y - (n - 7) : y;
+		var edge = fx === 0 || fx === 6 || fy === 0 || fy === 6;
+		var core = fx >= 2 && fx <= 4 && fy >= 2 && fy <= 4;
+		return edge || core;
+	}
+	for (var y = 0; y < n; y++) for (var x = 0; x < n; x++) {
+		var on = inFinder(x, y) ? finderOn(x, y) : rnd() > 0.52;
+		if (on) out += '<rect x="' + x + '" y="' + y + '" width="1.02" height="1.02"/>';
+	}
+	svg.setAttribute('viewBox', '0 0 ' + n + ' ' + n);
+	svg.setAttribute('fill', '#1f3a5f');
+	svg.setAttribute('role', 'img');
+	svg.setAttribute('aria-label', 'QR code placeholder');
+	svg.innerHTML = out;
+});
+</script>

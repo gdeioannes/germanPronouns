@@ -19,7 +19,9 @@
 	import { afterNavigate } from '$app/navigation';
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
-	import { LITERATURE, bookRequestHref } from '$lib/content/literature';
+	import { LITERATURE, bookRequestHref, pdfFilename } from '$lib/content/literature';
+	import { CHARTS_BOOK } from '$lib/content/charts';
+	import ChartsDownload from '$lib/components/ChartsDownload.svelte';
 	import { BOOKS, bookCover, bookMb, bookPdf, pdfOffered } from '$lib/content/books';
 	import { t } from '$lib/i18n/t';
 	import { lang } from '$lib/i18n/lang.svelte';
@@ -345,10 +347,10 @@
 					<a
 						class="primary"
 						href={kafka.pdf.href}
-						download="{kafka.author} - {kafka.title}.pdf"
+						download={pdfFilename(kafka)}
 						onclick={(e) => {
 							track('literature_download', { book: kafka.id, from: 'home' });
-							feedback.beforeDownload(e, { href: kafka.pdf.href, filename: `${kafka.author} - ${kafka.title}.pdf`, book: 'Kafka' });
+							feedback.beforeDownload(e, { href: kafka.pdf.href, filename: pdfFilename(kafka), book: kafka.short });
 						}}
 					>
 						<Icon name="download" size="1.05em" /> Download the free PDF
@@ -360,6 +362,31 @@
 				<p class="lit-request">
 					Want a different book? <a href={bookRequestHref()}>Ask for it on the forum</a>.
 				</p>
+			</div>
+		</section>
+	{/if}
+
+	<!-- The grammar charts: wall charts in one free PDF (a test edition).
+	     English only, like the literature shelf. Its page is /charts. -->
+	{#if !lang.limited}
+		<section id="charts" class="book-offer charts" aria-labelledby="charts-offer-title">
+			<a class="book-pic" href="/charts" tabindex="-1" aria-hidden="true">
+				<img src={CHARTS_BOOK.cover} alt="" width="1280" height="905" loading="lazy" />
+				<span class="book-stamp">Test</span>
+			</a>
+			<div class="book-copy">
+				<p class="kicker">New · Grammar charts · test run</p>
+				<h2 id="charts-offer-title">The hard parts of German, on your wall.</h2>
+				<p>
+					{CHARTS_BOOK.charts.length} charts to print and hang up: the four cases, where the verb goes,
+					adjective endings, the tenses on one line, verbs with their prepositions. One idea per
+					page, the same colours on every chart.
+				</p>
+				<div class="lit-actions">
+					<span class="charts-dl"><ChartsDownload from="home" /></span>
+					<a class="lit-more" href="/charts">See all the charts <Icon name="arrowRight" size="1em" /></a>
+				</div>
+				<p class="book-note">{CHARTS_BOOK.pages} pages · {CHARTS_BOOK.megabytes} MB · A4 landscape · a test edition, more charts on the way</p>
 			</div>
 		</section>
 	{/if}
@@ -721,7 +748,8 @@
 
 	/* The offers sit under the sticky bar when a label jumps to them. */
 	#book,
-	#literature {
+	#literature,
+	#charts {
 		scroll-margin-top: 5rem;
 	}
 
@@ -794,6 +822,44 @@
 
 	.book-offer.lit .book-pic:hover {
 		transform: rotate(1deg) translateY(-4px);
+	}
+
+	/* The grammar charts offer: the literature card with a landscape cover. */
+	.book-offer.charts {
+		margin-top: 1.5rem;
+		grid-template-columns: minmax(0, 19rem) minmax(0, 1fr);
+		/* Its own colour, the yellow the charts use for what matters, so it stands
+		   apart from the white and cream blocks around it. */
+		background: #ffe14d;
+		border: 0;
+		box-shadow: 0 14px 34px -18px rgb(31 58 95 / 0.55);
+	}
+
+	.book-offer.charts .kicker,
+	.book-offer.charts .book-copy p,
+	.book-offer.charts .book-note {
+		color: #2b2a25;
+	}
+	.book-offer.charts .lit-more {
+		color: var(--navy, #1f3a5f);
+	}
+
+	.book-offer.charts .book-pic {
+		width: min(100%, 19rem);
+		transform: rotate(-2deg);
+	}
+
+	.book-offer.charts .book-pic:hover {
+		transform: rotate(-0.5deg) translateY(-4px);
+	}
+
+	@media (max-width: 56rem) {
+		.book-offer.charts {
+			grid-template-columns: minmax(0, 1fr);
+		}
+		.book-offer.charts .book-pic {
+			width: min(86%, 19rem);
+		}
 	}
 
 	.lit-actions {
@@ -951,7 +1017,8 @@
 		grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
 		gap: 1.5rem 1.1rem;
 		list-style: none;
-		margin: 0;
+		/* Room under the share band, so the covers do not sit on its edge. */
+		margin: 1.75rem 0 0;
 		padding: 0;
 	}
 	.book-shelf li {
