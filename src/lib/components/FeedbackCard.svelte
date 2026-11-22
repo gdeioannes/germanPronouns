@@ -11,6 +11,7 @@
 	// A 1–3 tap opens the panel; a 4–5 tap says thanks (and, for a book,
 	// offers sharing and a quote).
 	import Sheet from '$lib/components/Sheet.svelte';
+	import { t, tk } from '$lib/i18n/t';
 	import Icon from '$lib/icons/Icon.svelte';
 	import { announce } from '$lib/a11y.svelte';
 	import { feedback } from '$lib/state/feedback.svelte';
@@ -25,10 +26,10 @@
 	const STARS = [1, 2, 3, 4, 5];
 	const WORDS = ['', 'Not good', 'Okay', 'Good', 'Very good', 'Love it'];
 	const WHO: { id: Audience; label: string }[] = [
-		{ id: 'me', label: 'Me' },
-		{ id: 'class', label: 'My class' },
-		{ id: 'child', label: 'My child' },
-		{ id: 'other', label: 'Someone else' }
+		{ id: 'me', label: tk('Me') },
+		{ id: 'class', label: tk('My class') },
+		{ id: 'child', label: tk('My child') },
+		{ id: 'other', label: tk('Someone else') }
 	];
 
 	let comment = $state('');
@@ -189,19 +190,46 @@
 	</aside>
 {/if}
 
+{#snippet bridge()}
+	{@const c = feedback.dlCompanion}
+	{#if c && feedback.dl}
+		<!-- The book's other half: its first chapter in the app, where the
+		     recordings and the answer check are. -->
+		<a class="promo" href={c.href} onclick={() => feedback.bridgeClicked()}>
+			<span class="promo-body">
+				<span class="promo-k">{t('This book continues in the app')}</span>
+				<strong class="promo-hook" lang="de">{c.title}</strong>
+				<span class="promo-line">{t('Chapter 1 is ready: hear its dialogues, check your answers and practise its words. Free, no account.')}</span>
+				<span class="promo-btn">{t('Open chapter 1')} <Icon name="arrowRight" size="1em" /></span>
+			</span>
+		</a>
+	{/if}
+{/snippet}
+
 <!-- Every PDF button opens this first: the question, and the download one
-     tap away whether they answer or not. -->
-<Sheet bind:open={feedback.dlOpen} title="Your free PDF" id="download-panel">
+     tap away whether they answer or not. The panel is in the interface
+     language; the star card and the text boxes below are English only. -->
+<Sheet bind:open={feedback.dlOpen} title={t('Your free PDF')} id="download-panel">
 	{#if feedback.dl}
 		<div class="dl">
-			{#if feedback.dlPromo}
+			{#if feedback.dlStarted && feedback.dlCompanion}
+				<!-- Downloading, and not answering the question (a later book, or
+				     the first one skipped): the book's chapter in the app. -->
+				<p class="dl-ok">
+					<span class="tick" aria-hidden="true"><Icon name="check" size="0.8em" /></span>
+					<span>{t('{book} is downloading.', { book: bookName(feedback.dl.book) })}</span>
+					<a href={feedback.dl.href} download={feedback.dl.filename ?? ''}>{t('Not starting?')}</a>
+				</p>
+				{@render bridge()}
+				<button type="button" class="later" onclick={() => (feedback.dlOpen = false)}>{t('Not now')}</button>
+			{:else if feedback.dlPromo}
 				{@const p = feedback.dlPromo}
 				<!-- Not the first book: it is already downloading; one card
 				     about the rest of the site, a different one each time. -->
 				<p class="dl-ok">
 					<span class="tick" aria-hidden="true"><Icon name="check" size="0.8em" /></span>
-					<span>{bookName(feedback.dl.book)} is downloading.</span>
-					<a href={feedback.dl.href} download={feedback.dl.filename ?? ''}>Not starting?</a>
+					<span>{t('{book} is downloading.', { book: bookName(feedback.dl.book) })}</span>
+					<a href={feedback.dl.href} download={feedback.dl.filename ?? ''}>{t('Not starting?')}</a>
 				</p>
 				<a class="promo" href={p.href} onclick={() => feedback.promoClicked()}>
 					<span class="pic" class:dark={typeof p.visual !== 'object' || p.visual.book} aria-hidden="true">
@@ -240,41 +268,44 @@
 						<span class="promo-btn">{p.cta} <Icon name="arrowRight" size="1em" /></span>
 					</span>
 				</a>
-				<button type="button" class="later" onclick={() => (feedback.dlOpen = false)}>Not now</button>
+				<button type="button" class="later" onclick={() => (feedback.dlOpen = false)}>{t('Not now')}</button>
 			{:else if !feedback.dlAnswered}
-				<p class="dl-q">Who is this book for?</p>
-				<p class="sub">One tap, and your download starts. It helps us make the books better.</p>
+				<p class="dl-q">{t('Who is this book for?')}</p>
+				<p class="sub">{t('One tap, and your download starts. It helps us make the books better.')}</p>
 				<div class="who">
 					{#each WHO as w (w.id)}
-						<button type="button" class="pill" onclick={() => void feedback.pickAudience(w.id)}>{w.label}</button>
+						<button type="button" class="pill" onclick={() => void feedback.pickAudience(w.id)}>{t(w.label)}</button>
 					{/each}
 				</div>
-				<p class="or"><span>or</span></p>
+				<p class="or"><span>{t('or')}</span></p>
 				<a
 					class="send"
 					href={feedback.dl.href}
 					download={feedback.dl.filename ?? ''}
 					onclick={() => feedback.skippedQuestion()}
 				>
-					<Icon name="download" size="1.05em" /> Start the download
+					<Icon name="download" size="1.05em" /> {t('Start the download')}
 				</a>
-				<p class="note">Answering is optional. The PDF is free either way.</p>
+				<p class="note">{t('Answering is optional. The PDF is free either way.')}</p>
 			{:else}
 				<p class="dl-q thanks" lang="de">Danke schön!</p>
-				<p class="sub">Your download has started. <span lang="de">Viel Spaß mit dem Buch!</span></p>
+				<p class="sub">{t('Your download has started.')} <span lang="de">Viel Spaß mit dem Buch!</span></p>
 				{#if feedback.askSchool}
 					<form class="school" onsubmit={sendSchool}>
-						<label for="feedback-school">Which school or course? <span class="opt">(optional — it tells us where the books are used)</span></label>
+						<label for="feedback-school">{t('Which school or course?')} <span class="opt">{t('(optional — it tells us where the books are used)')}</span></label>
 						<input id="feedback-school" type="text" maxlength={SCHOOL_MAX} autocomplete="organization" bind:value={school} />
 						<div class="row">
-							<button type="submit" class="pill solid">Send</button>
+							<button type="submit" class="pill solid">{t('Send')}</button>
 						</div>
 					</form>
+				{:else if feedback.dlCompanion}
+					{@render bridge()}
+					<button type="button" class="later" onclick={() => (feedback.dlOpen = false)}>{t('Not now')}</button>
 				{:else}
-					<button type="button" class="pill" onclick={() => (feedback.dlOpen = false)}>Back to the page</button>
+					<button type="button" class="pill" onclick={() => (feedback.dlOpen = false)}>{t('Back to the page')}</button>
 				{/if}
 				<p class="note">
-					Nothing happening? <a href={feedback.dl.href} download={feedback.dl.filename ?? ''}>Start the download here</a>.
+					{t('Nothing happening?')} <a href={feedback.dl.href} download={feedback.dl.filename ?? ''}>{t('Start the download here')}</a>.
 				</p>
 			{/if}
 		</div>

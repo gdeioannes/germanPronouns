@@ -496,6 +496,48 @@ export const AR: Record<string, string> = {
 		"جديد اليوم",
 	"Why this matters":
 		"لماذا هذا مهم",
+	"Your free PDF":
+		"ملف PDF المجاني",
+	"{book} is downloading.":
+		"جارٍ تنزيل {book}.",
+	"Not starting?":
+		"لم يبدأ؟",
+	"Not now":
+		"ليس الآن",
+	"Who is this book for?":
+		"لمن هذا الكتاب؟",
+	"One tap, and your download starts. It helps us make the books better.":
+		"نقرة واحدة ويبدأ التنزيل. إجابتك تساعدنا على تحسين الكتب.",
+	"Me":
+		"لي",
+	"My class":
+		"لصفّي",
+	"My child":
+		"لطفلي",
+	"Someone else":
+		"لشخص آخر",
+	"or":
+		"أو",
+	"Start the download":
+		"ابدأ التنزيل",
+	"Answering is optional. The PDF is free either way.":
+		"الإجابة اختيارية. الملف مجاني في كل الأحوال.",
+	"Your download has started.":
+		"بدأ التنزيل.",
+	"Which school or course?":
+		"أي مدرسة أو دورة؟",
+	"(optional — it tells us where the books are used)":
+		"(اختياري: نعرف به أين تُستخدم الكتب)",
+	"Nothing happening?":
+		"لم يحدث شيء؟",
+	"Start the download here":
+		"ابدأ التنزيل من هنا",
+	"This book continues in the app":
+		"هذا الكتاب يكتمل في التطبيق",
+	"Chapter 1 is ready: hear its dialogues, check your answers and practise its words. Free, no account.":
+		"الفصل الأول جاهز: استمع إلى حواراته، وتحقّق من إجاباتك، وتمرّن على كلماته. مجانًا وبلا حساب.",
+	"Open chapter 1":
+		"افتح الفصل الأول",
 	"Try it now":
 		"جرّب الآن",
 	"Start practising":

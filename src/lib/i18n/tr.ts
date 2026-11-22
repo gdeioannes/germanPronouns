@@ -828,6 +828,48 @@ export const TR: Record<string, string> = {
 		"Bugün yeni",
 	"Why this matters":
 		"Bu neden önemli",
+	"Your free PDF":
+		"Ücretsiz PDF’in",
+	"{book} is downloading.":
+		"{book} indiriliyor.",
+	"Not starting?":
+		"Başlamadı mı?",
+	"Not now":
+		"Şimdi değil",
+	"Who is this book for?":
+		"Bu kitap kimin için?",
+	"One tap, and your download starts. It helps us make the books better.":
+		"Tek dokunuş, indirme başlar. Kitapları daha iyi yapmamıza yardımcı olur.",
+	"Me":
+		"Benim için",
+	"My class":
+		"Sınıfım için",
+	"My child":
+		"Çocuğum için",
+	"Someone else":
+		"Başka biri için",
+	"or":
+		"veya",
+	"Start the download":
+		"İndirmeyi başlat",
+	"Answering is optional. The PDF is free either way.":
+		"Cevap vermek isteğe bağlı. PDF her durumda ücretsiz.",
+	"Your download has started.":
+		"İndirme başladı.",
+	"Which school or course?":
+		"Hangi okul veya kurs?",
+	"(optional — it tells us where the books are used)":
+		"(isteğe bağlı: kitapların nerede kullanıldığını öğrenmiş oluruz)",
+	"Nothing happening?":
+		"Bir şey olmuyor mu?",
+	"Start the download here":
+		"İndirmeyi buradan başlat",
+	"This book continues in the app":
+		"Bu kitap uygulamada devam ediyor",
+	"Chapter 1 is ready: hear its dialogues, check your answers and practise its words. Free, no account.":
+		"1. bölüm hazır: diyaloglarını dinle, cevaplarını kontrol et, kelimelerini çalış. Ücretsiz, hesap gerekmez.",
+	"Open chapter 1":
+		"1. bölümü aç",
 	"Try it now":
 		"Şimdi dene",
 	"Start practising":

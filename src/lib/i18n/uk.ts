@@ -1116,6 +1116,48 @@ export const UK: Record<string, string> = {
 		"Нове сьогодні",
 	"Why this matters":
 		"Чому це важливо",
+	"Your free PDF":
+		"Твій безкоштовний PDF",
+	"{book} is downloading.":
+		"{book} завантажується.",
+	"Not starting?":
+		"Не починається?",
+	"Not now":
+		"Не зараз",
+	"Who is this book for?":
+		"Для кого ця книжка?",
+	"One tap, and your download starts. It helps us make the books better.":
+		"Один дотик, і завантаження почнеться. Це допомагає нам робити книжки кращими.",
+	"Me":
+		"Для мене",
+	"My class":
+		"Для мого класу",
+	"My child":
+		"Для моєї дитини",
+	"Someone else":
+		"Для когось іншого",
+	"or":
+		"або",
+	"Start the download":
+		"Почати завантаження",
+	"Answering is optional. The PDF is free either way.":
+		"Відповідати необов’язково. PDF безкоштовний у будь-якому разі.",
+	"Your download has started.":
+		"Завантаження почалося.",
+	"Which school or course?":
+		"Яка школа чи курс?",
+	"(optional — it tells us where the books are used)":
+		"(необов’язково: так ми знаємо, де користуються книжками)",
+	"Nothing happening?":
+		"Нічого не відбувається?",
+	"Start the download here":
+		"Почни завантаження тут",
+	"This book continues in the app":
+		"Ця книжка продовжується в застосунку",
+	"Chapter 1 is ready: hear its dialogues, check your answers and practise its words. Free, no account.":
+		"Розділ 1 готовий: послухай його діалоги, перевір свої відповіді й потренуй його слова. Безкоштовно, без облікового запису.",
+	"Open chapter 1":
+		"Відкрити розділ 1",
 	"Try it now":
 		"Спробувати зараз",
 	"Start practising":

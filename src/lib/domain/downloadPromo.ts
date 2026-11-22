@@ -63,6 +63,47 @@ export const PROMOS: Promo[] = [
 ];
 
 /**
+ * Where each course book carries on in the app: its first chapter's page,
+ * with the recordings, the answer check and the word cards (domain/bookStudy).
+ * Kept by hand so the panel needs no book content; the test holds it to the
+ * books themselves.
+ */
+export const FIRST_CHAPTER: Record<string, { id: string; title: string }> = {
+	'A1.1': { id: 'hallo', title: 'Hallo! Das bin ich' },
+	'A1.2': { id: 'einkaufen', title: 'Einkaufen' },
+	'A2.1': { id: 'sonntag', title: 'Was hast du gemacht?' },
+	'A2.2': { id: 'umzug', title: 'Der Umzug' },
+	'B1.1': { id: 'bewerbung', title: 'Die Bewerbung' },
+	'B1.2': { id: 'technik', title: 'Haben Sie es schon versucht?' },
+	'B2.1': { id: 'nachrichten', title: 'Er sagt, er sei krank' },
+	'B2.2': { id: 'forschung', title: 'Damit fing es an' },
+	'C1.1': { id: 'studie', title: 'Die Studie zeigt' },
+	'C1.2': { id: 'galerie', title: 'Das ist bemerkenswert' },
+	'C2.1': { id: 'gericht', title: 'Ich habe Einspruch eingelegt' },
+	'C2.2': { id: 'philosophie', title: 'Ausgerechnet heute' }
+};
+
+/** The app page a downloaded course book leads to. */
+export interface Companion {
+	href: string;
+	/** The first chapter's German title. */
+	title: string;
+}
+
+const COURSE_ID = 'de_cert_a1';
+
+/**
+ * The downloaded book's own first chapter in the app, or null for a book
+ * without chapter pages (a classic). Most readers took the PDF and left
+ * without ever seeing that the book has a spoken, checkable half here; the
+ * ones who followed a page code from the book are the ones who stayed.
+ */
+export function companionFor(book: string): Companion | null {
+	const first = FIRST_CHAPTER[book];
+	return first ? { href: `/course/${COURSE_ID}/book2/${book}/${first.id}`, title: first.title } : null;
+}
+
+/**
  * The card for this download: the one after the last shown, skipping the
  * book being downloaded. `last` is the index shown last time (-1 for none).
  */

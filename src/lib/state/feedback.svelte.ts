@@ -15,9 +15,12 @@
 // "Who is this book for?" and a "Start the download" button; one tap on an
 // answer starts the download too, answering is never required (owner's call,
 // 2026-11-19). Every later download starts at once, and the panel shows
-// "downloading" with one card about the site, a different one each time
-// (domain/downloadPromo, owner's call 2026-11-20). In a second language, or
-// without JavaScript, the link just downloads.
+// "downloading" with one card: for a course book, its own first chapter in
+// the app (where the recordings and the answer check are); for a classic,
+// something else the site has, a different card each time
+// (domain/downloadPromo). The same chapter card follows the first download,
+// answered or not. The panel speaks every interface language; without
+// JavaScript the link just downloads.
 //
 // The records are device-local (the `feedback_` prefix is never synced) and
 // written with plain localStorage, so the timer's tick does not wake the
@@ -46,7 +49,7 @@ import {
 	type Audience,
 	type BookRecord
 } from '$lib/domain/bookAsk';
-import { nextPromo, type Promo } from '$lib/domain/downloadPromo';
+import { companionFor, nextPromo, type Companion, type Promo } from '$lib/domain/downloadPromo';
 
 const SITE_KEY = 'feedback_ask';
 const BOOK_KEY = 'feedback_books';
@@ -130,6 +133,10 @@ class FeedbackStore {
 	dl = $state<DownloadInfo | null>(null);
 	/** After the first download: the card about the site this panel shows. */
 	dlPromo = $state<Promo | null>(null);
+	/** The downloaded book's first chapter in the app, when it has one. */
+	dlCompanion = $state<Companion | null>(null);
+	/** The download started without an answer: the panel says so. */
+	dlStarted = $state(false);
 	/** The reader answered "Who is it for?" (the download started with it). */
 	dlAnswered = $state(false);
 	/** After "My class": the panel shows the optional school line. */
@@ -212,20 +219,29 @@ class FeedbackStore {
 
 	/**
 	 * A PDF button was pressed: open the download panel instead of
-	 * downloading at once. Left alone (the link downloads by itself) without
-	 * Firebase, in a second language, or for a ctrl/cmd/middle click.
+	 * downloading at once. Left alone (the link downloads by itself) for a
+	 * ctrl/cmd/middle click.
 	 */
 	beforeDownload(event: MouseEvent, info: DownloadInfo): void {
-		if (lang.limited) return;
 		if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
 		const rec = readDl();
 		this.card = false;
 		this.panel = false;
 		this.dl = info;
+		this.dlCompanion = companionFor(info.book);
+		this.dlStarted = false;
 		this.askedThisLoad = true;
 		if (rec.asked || !this.available) {
-			// Not the first book: the link downloads by itself, the panel
-			// says so and shows the next card about the site.
+			// Not the first book: the link downloads by itself, and the panel
+			// says so. A course book shows its own first chapter in the app…
+			if (this.dlCompanion) {
+				this.dlPromo = null;
+				this.dlStarted = true;
+				this.dlOpen = true;
+				track('download_bridge_shown', { book: info.book, after: 'download' });
+				return;
+			}
+			// …a classic the next card about the site.
 			const { promo, index } = nextPromo(rec.promo, info.book);
 			writeDl({ ...rec, promo: index });
 			this.dlPromo = promo;
@@ -261,9 +277,24 @@ class FeedbackStore {
 		a.remove();
 	}
 
-	/** "Start the download" without answering: the panel's own link did it. */
+	/**
+	 * "Start the download" without answering: the panel's own link did it.
+	 * The panel stays to say so, with the book's chapter in the app.
+	 */
 	skippedQuestion(): void {
-		track('book_audience_skipped', { book: this.dl?.book ?? '' });
+		const book = this.dl?.book ?? '';
+		track('book_audience_skipped', { book });
+		if (!this.dlCompanion) {
+			this.dlOpen = false;
+			return;
+		}
+		this.dlStarted = true;
+		track('download_bridge_shown', { book, after: 'skip' });
+	}
+
+	/** A tap on the panel's card about the book's chapter in the app. */
+	bridgeClicked(): void {
+		track('download_bridge_click', { book: this.dl?.book ?? '' });
 		this.dlOpen = false;
 	}
 
@@ -283,6 +314,7 @@ class FeedbackStore {
 		track('book_audience', { who, book });
 		this.dlAnswered = true;
 		this.askSchool = who === 'class';
+		if (this.dlCompanion) track('download_bridge_shown', { book, after: 'answer' });
 		this.startDownload();
 		this.audienceId = await submitAudience(who, book, lang.current);
 	}

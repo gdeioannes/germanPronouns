@@ -1118,6 +1118,48 @@ export const ES: Record<string, string> = {
 		"Nuevo hoy",
 	"Why this matters":
 		"Por qué importa",
+	"Your free PDF":
+		"Tu PDF gratuito",
+	"{book} is downloading.":
+		"{book} se está descargando.",
+	"Not starting?":
+		"¿No empieza?",
+	"Not now":
+		"Ahora no",
+	"Who is this book for?":
+		"¿Para quién es este libro?",
+	"One tap, and your download starts. It helps us make the books better.":
+		"Un toque y empieza la descarga. Nos ayuda a mejorar los libros.",
+	"Me":
+		"Para mí",
+	"My class":
+		"Para mi clase",
+	"My child":
+		"Para mi hijo o hija",
+	"Someone else":
+		"Para otra persona",
+	"or":
+		"o",
+	"Start the download":
+		"Empezar la descarga",
+	"Answering is optional. The PDF is free either way.":
+		"Responder es opcional. El PDF es gratuito en cualquier caso.",
+	"Your download has started.":
+		"Tu descarga ha empezado.",
+	"Which school or course?":
+		"¿Qué escuela o curso?",
+	"(optional — it tells us where the books are used)":
+		"(opcional: nos dice dónde se usan los libros)",
+	"Nothing happening?":
+		"¿No pasa nada?",
+	"Start the download here":
+		"Empieza la descarga aquí",
+	"This book continues in the app":
+		"Este libro continúa en la aplicación",
+	"Chapter 1 is ready: hear its dialogues, check your answers and practise its words. Free, no account.":
+		"El capítulo 1 está listo: escucha sus diálogos, comprueba tus respuestas y practica sus palabras. Gratis, sin cuenta.",
+	"Open chapter 1":
+		"Abrir el capítulo 1",
 	"Try it now":
 		"Probar ahora",
 	"Start practising":

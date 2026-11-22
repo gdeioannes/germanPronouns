@@ -1116,6 +1116,48 @@ export const FR: Record<string, string> = {
 		"Nouveau aujourd'hui",
 	"Why this matters":
 		"Pourquoi c'est important",
+	"Your free PDF":
+		"Votre PDF gratuit",
+	"{book} is downloading.":
+		"{book} est en cours de téléchargement.",
+	"Not starting?":
+		"Rien ne démarre ?",
+	"Not now":
+		"Pas maintenant",
+	"Who is this book for?":
+		"Pour qui est ce livre ?",
+	"One tap, and your download starts. It helps us make the books better.":
+		"Un clic, et le téléchargement démarre. Cela nous aide à améliorer les livres.",
+	"Me":
+		"Pour moi",
+	"My class":
+		"Pour ma classe",
+	"My child":
+		"Pour mon enfant",
+	"Someone else":
+		"Pour quelqu’un d’autre",
+	"or":
+		"ou",
+	"Start the download":
+		"Lancer le téléchargement",
+	"Answering is optional. The PDF is free either way.":
+		"Répondre est facultatif. Le PDF est gratuit dans tous les cas.",
+	"Your download has started.":
+		"Votre téléchargement a démarré.",
+	"Which school or course?":
+		"Quelle école ou quel cours ?",
+	"(optional — it tells us where the books are used)":
+		"(facultatif : cela nous dit où les livres sont utilisés)",
+	"Nothing happening?":
+		"Il ne se passe rien ?",
+	"Start the download here":
+		"Lancez le téléchargement ici",
+	"This book continues in the app":
+		"Ce livre continue dans l’application",
+	"Chapter 1 is ready: hear its dialogues, check your answers and practise its words. Free, no account.":
+		"Le chapitre 1 est prêt : écoutez ses dialogues, vérifiez vos réponses et entraînez-vous avec ses mots. Gratuit, sans compte.",
+	"Open chapter 1":
+		"Ouvrir le chapitre 1",
 	"Try it now":
 		"Essayer maintenant",
 	"Start practising":

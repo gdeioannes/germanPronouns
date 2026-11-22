@@ -17,6 +17,15 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-11-22",
+    title: "From the PDF straight into its first chapter",
+    items: [
+      "After you download a course book, the panel now shows that book's first chapter in the app: one tap opens it, with the dialogues to hear, the answers to check and the words to practise. Free, no account.",
+      "The download panel now speaks Turkish, Arabic, Ukrainian, French and Spanish too. Before, in those languages the PDF simply downloaded and nothing told you it had started.",
+      "If you start the download without answering who the book is for, the panel now stays for a moment to confirm the download, with a link in case it did not start.",
+    ],
+  },
+  {
+    date: "2026-11-22",
     title: "Lessons: one rule, then you try it",
     items: [
       "A lesson no longer has to be read to the end before the first question. After the first rule and its quick check, Try it now takes you straight to the exercise.",
@@ -42,6 +51,8 @@ export const changelog: ChangelogEntry[] = [
       "The language can now be changed from the top bar on every page, the course included: a globe and the short name (EN, ES, FR …) open the same list as on the home page.",
       "Inside the course, picking a language that does not explain the level on screen yet asks first, in that language, with Switch anyway or Cancel. Progress is kept either way.",
       "In French, Spanish, Turkish and Ukrainian, the home page, the About page and the course answer no longer say only A1 and A2 are in that language: they say every level is explained in it.",
+      "Thirteen small slips in the English explanations fixed, in every language: a harbour called he, a café hunt asking for a rug that is not in the picture, an answer note naming the wrong wrong answer (einste), and examples that left out part of their German.",
+      "The A2.1 book's last page no longer runs off the bottom: the answers to the longer texts now close the answers pages, and the picture credits have their page to themselves.",
     ],
   },
   {
