@@ -25,12 +25,19 @@
 	import { openSignIn } from '$lib/state/signin.svelte';
 	import { feedback } from '$lib/state/feedback.svelte';
 	import PageHelp from '$lib/components/PageHelp.svelte';
+	import LangSwitch from '$lib/components/LangSwitch.svelte';
 	import { t } from '$lib/i18n/t';
 	import { lang } from '$lib/i18n/lang.svelte';
 
 	onMount(initWhatsNew);
 
-	let { courseHref, compact = false }: { courseHref: string; compact?: boolean } = $props();
+	// `level`: inside the course, the sub-level on screen, for the language
+	// button's question (LangSwitch).
+	let {
+		courseHref,
+		compact = false,
+		level = null
+	}: { courseHref: string; compact?: boolean; level?: string | null } = $props();
 
 	// Inside the course "Open the course" would point at where you already are.
 	// (A /tr/ or /ar/ address is the same page.)
@@ -283,6 +290,9 @@
 			<PageHelp topic={page.route.id} />
 			{@render feedbackLink()}
 			{@render signIn()}
+			<!-- The language, inside the course too: switching to one that does
+			     not explain this level asks first (LangSwitch). -->
+			<LangSwitch bar where="course" {level} />
 			{@render menuButtonSnippet()}
 		</div>
 		{#if open}
@@ -308,6 +318,9 @@
 					{@render cta()}
 				</nav>
 				<PageHelp topic={page.route.id} />
+				<!-- The language, from every page (the same picker as on the home
+				     photo, so not repeated there). -->
+				{#if bare !== '/'}<LangSwitch bar where="nav" />{/if}
 				<div class="narrow">
 					{@render cta()}
 					{@render menuButtonSnippet()}
@@ -323,6 +336,11 @@
 {/if}
 
 <style>
+	/* The language list hangs from the whole bar on a phone (LangSwitch). */
+	header.bar {
+		position: relative;
+	}
+
 	.bar-row {
 		display: flex;
 		align-items: center;

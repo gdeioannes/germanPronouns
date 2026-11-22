@@ -77,7 +77,7 @@
 	]}
 />
 
-<SiteNav courseHref="/course/{course.id}" compact />
+<SiteNav courseHref="/course/{course.id}" compact {level} />
 
 <main class="page-wide">
 	<a class="back-link" href="/course/{course.id}"><Icon name="arrowLeft" size="1em" /> {t(course.name)}</a>

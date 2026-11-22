@@ -5,13 +5,48 @@
 	// the other one finds theirs. A choice reloads the page, so every text,
 	// overlay and hidden part comes up in the new language at once (the same
 	// as arriving with it).
+	// `bar`: the same picker in the site's top bar, a globe and the short code
+	// (EN, ES …), styled for the light bar instead of a photo.
+	// `level`: inside the course, the sub-level on screen. Switching to a
+	// language that does not explain it asks first, in that language.
 	import { lang, setLang, type UiLang } from '$lib/i18n/lang.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
 	import { LANG_OPTIONS, LANGUAGE_LABEL } from '$lib/i18n/languages';
 	import { track } from '$lib/services/analytics';
 	import { addressIn } from '$lib/i18n/paths';
+	import { levelExplainedIn } from '$lib/i18n/content.svelte';
+	import { modal } from '$lib/a11y.svelte';
 
 	const OPTIONS = LANG_OPTIONS;
+
+	let {
+		bar = false,
+		where = 'home',
+		level = null
+	}: { bar?: boolean; where?: string; level?: string | null } = $props();
+
+	/** The language waiting for a yes, when it does not explain `level`. */
+	let asking = $state<(typeof OPTIONS)[number] | null>(null);
+	// The question goes to <body>: the slim course bar blurs and slides, which
+	// would hold a fixed overlay inside the bar. Then the usual modal contract.
+	function floating(node: HTMLElement, onclose: () => void) {
+		document.body.appendChild(node);
+		const m = modal(node.firstElementChild as HTMLElement, onclose);
+		return {
+			update: m.update,
+			destroy() {
+				m.destroy();
+				node.remove();
+			}
+		};
+	}
+
+	function cancel() {
+		asking = null;
+		button?.focus();
+	}
+
+	const levelName = $derived(level ? level.toUpperCase().replace('_', '.') : '');
 
 	let open = $state(false);
 	let root: HTMLElement;
@@ -21,8 +56,17 @@
 	function pick(code: UiLang) {
 		open = false;
 		if (code === lang.current) return button?.focus();
+		if (level && !levelExplainedIn(code, level)) {
+			asking = OPTIONS.find((o) => o.code === code) ?? null;
+			return;
+		}
+		go(code);
+	}
+
+	function go(code: UiLang) {
+		asking = null;
 		// Sent with keepalive, so it survives the reload just below.
-		track('language_picked', { from: lang.current, to: code, where: 'home' });
+		track('language_picked', { from: lang.current, to: code, where, ...(level ? { level } : {}) });
 		setLang(code);
 		// A ?lang= in the address would win over the saved choice on reload, and
 		// the page has its own address in each language (/tr/…, /ar/…).
@@ -68,7 +112,7 @@
 <svelte:window onpointerdown={onOutside} />
 
 <!-- svelte-ignore a11y_no_static_element_interactions -->
-<div class="lang-picker" bind:this={root} onkeydown={onKey} onfocusout={onFocusOut}>
+<div class="lang-picker" class:bar bind:this={root} onkeydown={onKey} onfocusout={onFocusOut}>
 	<button
 		type="button"
 		class="trigger"
@@ -79,9 +123,38 @@
 		onclick={toggle}
 	>
 		<Icon name="globe" size="1.1em" />
-		<span lang={current.code} dir={current.dir}>{current.name}</span>
-		<Icon name="chevronDown" size="0.9em" class={open ? 'up' : ''} />
+		{#if bar}
+			<span class="code" aria-hidden="true">{current.code.toUpperCase()}</span>
+		{:else}
+			<span lang={current.code} dir={current.dir}>{current.name}</span>
+			<Icon name="chevronDown" size="0.9em" class={open ? 'up' : ''} />
+		{/if}
 	</button>
+
+	{#if asking}
+		{@const m = asking.missing}
+		{@const [before, after] = m.text.split('{level}')}
+		<div class="backdrop" use:floating={cancel}>
+			<div
+				class="ask"
+				role="alertdialog"
+				aria-modal="true"
+				aria-labelledby="lang-ask-name"
+				aria-describedby="lang-ask-text"
+				lang={asking.code}
+				dir={asking.dir}
+				tabindex="-1"
+			>
+				<p class="ask-name" id="lang-ask-name"><Icon name="globe" size="1.1em" /> {asking.name}</p>
+				<p id="lang-ask-text">{before}<bdi dir="ltr">{levelName}</bdi>{after} {m.kept}</p>
+				<div class="ask-actions">
+					<!-- svelte-ignore a11y_autofocus -->
+					<button type="button" class="no" autofocus onclick={cancel}>{m.no}</button>
+					<button type="button" class="yes" onclick={() => asking && go(asking.code)}>{m.yes}</button>
+				</div>
+			</div>
+		</div>
+	{/if}
 
 	{#if open}
 		<div class="menu" role="menu" aria-label={LANGUAGE_LABEL}>
@@ -192,6 +265,129 @@
 
 	.trigger:focus-visible {
 		outline: 2px solid #fff;
+		outline-offset: 2px;
+	}
+
+	/* In the top bar: quiet like Sign in beside it, globe in the accent. */
+	.bar .trigger {
+		gap: 0.3rem;
+		padding: 0.35rem 0.45rem;
+		border: 0;
+		border-radius: 6px;
+		background: none;
+		backdrop-filter: none;
+		color: var(--ink-muted);
+		font-size: var(--step--1);
+	}
+
+	.bar .trigger:hover {
+		background: none;
+		color: var(--heading);
+	}
+
+	.bar .trigger :global(.icon) {
+		color: var(--accent-ink);
+	}
+
+	.bar .trigger:focus-visible {
+		outline-color: var(--accent-ink);
+	}
+
+	.bar .menu {
+		z-index: 60;
+		border: 1px solid var(--line, #e4dfd6);
+	}
+
+	/* On a phone the button sits mid-bar, so a list hung from it would run off
+	   the screen: it hangs from the whole bar instead, inside the gutters. */
+	@media (max-width: 40rem) {
+		.lang-picker.bar {
+			position: static;
+		}
+		.bar .menu {
+			top: calc(100% - 0.25rem);
+			inset-inline: 1rem;
+			min-width: 0;
+		}
+		.bar .menu small {
+			white-space: normal;
+		}
+	}
+
+	.code {
+		letter-spacing: 0.03em;
+	}
+
+	/* The question before switching to a language that skips this level. */
+	.backdrop {
+		position: fixed;
+		inset: 0;
+		z-index: 100;
+		display: grid;
+		place-items: center;
+		padding: 1rem;
+		background: rgb(20 22 26 / 0.45);
+	}
+
+	.ask {
+		display: grid;
+		gap: 0.75rem;
+		width: min(26rem, 100%);
+		padding: 1.25rem;
+		border-radius: 0.9rem;
+		background: #fff;
+		color: #1d2330;
+		box-shadow: 0 18px 48px rgb(0 0 0 / 0.28);
+		text-align: start;
+	}
+
+	.ask:focus {
+		outline: none;
+	}
+
+	.ask p {
+		margin: 0;
+		line-height: 1.5;
+	}
+
+	.ask-name {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		font-weight: 700;
+		color: var(--accent-ink, #8a3f1d);
+	}
+
+	.ask-actions {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-end;
+		gap: 0.5rem;
+		margin-top: 0.25rem;
+	}
+
+	.ask-actions button {
+		padding: 0.55rem 1rem;
+		border-radius: 6px;
+		font: inherit;
+		font-weight: 600;
+		cursor: pointer;
+	}
+
+	.ask-actions .no {
+		border: 1px solid #d6d1c8;
+		background: #fff;
+		color: #1d2330;
+	}
+
+	.ask-actions .yes {
+		border: 1px solid var(--accent-ink, #8a3f1d);
+		background: var(--accent-ink, #8a3f1d);
+		color: #fff;
+	}
+
+	.ask-actions button:focus-visible {
+		outline: 2px solid var(--accent-ink, #8a3f1d);
 		outline-offset: 2px;
 	}
 </style>

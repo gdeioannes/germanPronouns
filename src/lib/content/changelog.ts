@@ -21,6 +21,8 @@ export const changelog: ChangelogEntry[] = [
     items: [
       "Spanish now reaches the top: in Spanish mode, the button under each German explanation opens Spanish from C1.1 to C2.2 as well, so every level from A1 to C2 can be read in Spanish.",
       "The language picker now says how far each language goes: French, Ukrainian and Spanish explain A1 to C2, Turkish and Arabic A1 to A2. Before, every language said A1 to A2.",
+      "The language can now be changed from the top bar on every page, the course included: a globe and the short name (EN, ES, FR …) open the same list as on the home page.",
+      "Inside the course, picking a language that does not explain the level on screen yet asks first, in that language, with Switch anyway or Cancel. Progress is kept either way.",
     ],
   },
   {

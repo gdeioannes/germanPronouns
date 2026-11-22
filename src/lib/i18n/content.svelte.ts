@@ -49,6 +49,16 @@ export function explainedInLang(level: string | null | undefined): boolean {
 	return lang.limited && !levelTranslated(level) && overlaid(level);
 }
 
+/**
+ * Whether a language explains this level (A1–A2 fully, above that through the
+ * explanation button). English always does. The language pickers inside the
+ * course ask before switching to one that does not.
+ */
+export function levelExplainedIn(l: string, level: string | null | undefined): boolean {
+	if (l === 'en' || !level) return true;
+	return available.has(`${l}/${levelId(level)}`);
+}
+
 /** Loaded overlays by "<lang>/<level id>" ("ar/a1_1"); absent until fetched. */
 const maps = $state<Record<string, Overlay>>({});
 const pending = new Set<string>();

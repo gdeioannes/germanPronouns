@@ -133,7 +133,7 @@
      and a one-line footer. The deck's stage takes whatever is left, so on a
      phone the card, its buttons and the footer all fit without scrolling. -->
 <div class="shell">
-<SiteNav courseHref="/course/{course.id}" compact />
+<SiteNav courseHref="/course/{course.id}" compact level={current?.level} />
 
 <main class="page-wide home">
 	<!-- The page is about the cards: the heading is a small label, the ring

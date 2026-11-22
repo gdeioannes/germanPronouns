@@ -304,7 +304,7 @@
 </svelte:head>
 
 {#if !cover}
-	<div class="chrome"><SiteNav {courseHref} compact /></div>
+	<div class="chrome"><SiteNav {courseHref} compact level={data.book.level} /></div>
 {/if}
 
 <main data-ready={ready}>
