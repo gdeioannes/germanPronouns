@@ -18,7 +18,6 @@
  "categories[2].group": "nationalitaet",
  "categories[3].label": "Nationalität — Sie ist …",
  "categories[3].group": "nationalitaet_f",
- "categories[4].label": "Himmelsrichtung — von Deutschland aus",
  "help.intro": "Nerelisin, hangi dili konuşuyorsun, hangi millettensin: herkesin ilk sorduğu üç soru ve senin tekrar tekrar vereceğin üç cevap. aus, Türkçedeki -den eki gibidir: aus Deutschland ≈ Almanya'dan. Ülke adlarının çoğu Artikel (tanımlık) almaz ve aus doğrudan önüne gelir: aus Deutschland, aus Spanien. Birkaç ülke ise dişil ya da çoğuldur ve Artikel'ini korur, bu Artikel de aus'tan sonra değişir: die Schweiz → aus der Schweiz, die Türkei → aus der Türkei, die USA → aus den USA. Diller büyük harfle yazılan nötr isimlerdir (Deutsch, Englisch) ve çoğu -isch ile biter, Türkçedeki -ce/-çe gibi (Türkçe, İngilizce). Milliyetler insanları anlatan isimlerdir: Deutscher / Deutsche, Engländer / Engländerin, Franzose / Französin. sein'dan sonra Artikel almazlar: Ich bin Deutsche.",
  "help.tips[0].title": "aus + ülke, Artikel yok",
  "help.tips[0].text": "Ich komme aus Deutschland / aus Spanien / aus Japan. Şehirler de aynı: aus Berlin, aus Wien.",
@@ -105,5 +104,6 @@
  "englishTemplates.Nationalität — Sie ist …[0]": "{subject}: o (kadın) oralı (milliyeti).",
  "englishTemplates.Nationalität — Sie ist …[1]": "{subject}: annem oralı bir kadın (milliyeti).",
  "englishTemplates.Himmelsrichtung — von Deutschland aus[0]": "Almanya'dan bakınca {subject} hangi yönde? (kuzey, güney, doğu, batı?)",
+ "englishTemplates.Sprache — Man spricht …[0]": "{subject}: orada insanlar hangi dili konuşuyor?",
  "help.tips[4].title": "Norden, Süden, Osten, Westen"
 }

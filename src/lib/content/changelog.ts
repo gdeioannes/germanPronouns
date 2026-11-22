@@ -17,6 +17,15 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-11-22",
+    title: "Turkish: every level, A1 to C2",
+    items: [
+      "In Turkish mode, the button under each German explanation now opens Turkish from B1.1 to C2.2: rules, tips, examples, why an answer is right, and the meanings on the flashcards.",
+      "Where the English compared German with English, the Turkish compares it with Turkish: -miş next to Konjunktiv I, -erdi next to würde, Turkish participles before the noun next to German relative clauses, -il/-in next to the Passiv.",
+      "The 32 newer reading and listening exercises in A1 and A2 are now in Turkish too, and tapping any German word in A1–A2 shows its Turkish meaning.",
+    ],
+  },
+  {
+    date: "2026-11-22",
     title: "C1 and C2 explained in Spanish too",
     items: [
       "Spanish now reaches the top: in Spanish mode, the button under each German explanation opens Spanish from C1.1 to C2.2 as well, so every level from A1 to C2 can be read in Spanish.",

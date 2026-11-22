@@ -1,0 +1,23 @@
+{
+ "help.tips[0].examples[0].en": "\"Gerçekten uygulanıp uygulanmayacağı ise başka bir soru.\" → \"tamamen uygulanıyor\" = nicht gesagt (açık bırakılmış, reddedilmemiş)",
+ "help.tips[0].examples[1].en": "\"… kaldırımdaki insanlara neredeyse hiçbir yararları yok.\" → \"yayalar için ağaçlar kadar etkili\" = stimmt nicht",
+ "help.tips[0].check.whyEn": "Soruyu açık bırakıyor ve hiçbir şeyi reddetmiyor; bu yüzden ifade söylenmemiştir (nicht gesagt).",
+ "help.tips[0].en.text": "stimmt: bunu söyledi. stimmt nicht: tersini söyledi ya da reddetti. nicht gesagt: konuyu açık bıraktı ya da hiç değinmedi. Açıkça açık bıraktığı bir soru (\"ist eine andere Frage\") nicht gesagt'tir, stimmt nicht değil; çünkü hiçbir şeyi reddetmiyor.",
+ "help.tips[0].en.title": "Üç cevap, üç sınama",
+ "help.tips[0].en.trap": "Konuşan şüpheci göründüğü için stimmt nicht işaretleme. Bir ifade içermeyen şüphecilik yine de nicht gesagt'tir.",
+ "help.tips[1].examples[0].en": "Bugün neredeyse bütün büyük şehirlerin bir sıcak hava eylem planı var, en azından kâğıt üzerinde.",
+ "help.tips[1].examples[1].en": "\"Sorunun sürücüler olduğunu iddia etmek istemiyorum\" → \"asıl sorunu sürücülerde görüyor\" = stimmt nicht",
+ "help.tips[1].check.whyEn": "allerdings nur iddiayı şehir merkeziyle sınırlar; bu da \"her yerde\" ifadesiyle çelişir.",
+ "help.tips[1].en.text": "zumindest auf dem Papier (yalnızca kâğıt üzerinde) · allerdings weniger (ama daha az) · solange (yalnızca … olduğu sürece) · ich will nicht behaupten, dass … (… iddia etmiyorum). Her niteleyici bir iddiayı sınırlar ya da tersine çevirir ve ifade tam da bu sınır üzerine kuruludur.",
+ "help.tips[1].en.title": "Maddeleri niteleyiciler oluşturur",
+ "help.tips[2].examples[0].en": "\"… ilk değerlendirmeler cesaret verici.\" → \"sıcaktan ölümleri kanıtlanmış biçimde azalttı\" = nicht gesagt",
+ "help.tips[2].examples[1].en": "Kimse park yerini kaybetmediği sürece kabul oranı yüksek. (bir koşul, koşulsuz bir onay değil)",
+ "help.tips[2].check.whyEn": "Bir işaret kanıt değildir, ama bunu reddetmiyor da; kanıt iddiası basitçe hiç ortaya atılmıyor.",
+ "help.tips[2].en.text": "Kendini \"bu muhtemelen doğru\" diye düşünürken yakalarsan dur: soru, bunu ONUN söyleyip söylemediğidir. Cesaret verici, kanıtlanmış demek değildir; bir koşula bağlı yüksek kabul, genel onay değildir.",
+ "help.tips[2].en.title": "Akla yatkın olan söylenmiş değildir",
+ "help.hookEn": "Uzman bunu söyledi mi, reddetti mi, yoksa hiç değinmedi mi? Küçük niteleyicileri yakala, farkı duyarsın.",
+ "help.introEn": "Kent iklimi araştırmacısı Dr. Keller ile şehirlerde sıcaktan korunma üzerine bir röportaj: on yılda ne değişti, tropik geceler neden önemli, hangi önlemler işe yarıyor (ağaçlar, yeşil çatılar, su öğeleri), yaşlı ağaçların neden kolayca yerine yenisi konamayacağı, sakinlerin nerede direndiği, en çok kimin risk altında olduğu ve küçük kasabaların ne yapması gerektiği. Alıştırma sana sekiz ifade veriyor; bunları stimmt (söylüyor, belki başka kelimelerle), stimmt nicht (tersini söylüyor ya da açıkça reddediyor) ya da nicht gesagt (değinmiyor) olarak işaretleyeceksin. Dinleyicilerin hata yaptığı yer üçüncü cevaptır: bir ima bir ifade değildir ve \"cesaret verici ilk sonuçlar\" \"kanıtlanmış\" demek değildir. Niteleyicilere kulak ver: zumindest auf dem Papier, allerdings weniger, solange, ich will nicht behaupten; her biri bir ifadenin anahtarıdır.",
+ "help.rememberEn[0]": "stimmt = söylendi; stimmt nicht = tersi ya da reddedildi; nicht gesagt = açık bırakıldı ya da hiç değinilmedi.",
+ "help.rememberEn[1]": "Niteleyiciler (zumindest, allerdings, solange, ich will nicht behaupten) maddeleri belirler; akla yatkın ≠ söylenmiş.",
+ "help.examEn": "Bir uzmanın neyi söylediğine, neyi reddettiğine ya da neye hiç değinmediğine karar vermek C1 sınavında temel bir dinleme becerisidir; her haber röportajında da."
+}

@@ -61,7 +61,7 @@ export const LANG_OPTIONS: LangOption[] = [
 	{
 		code: 'tr',
 		name: 'Türkçe',
-		note: 'Türkçe açıklamalı Almanca · A1–A2',
+		note: 'Türkçe açıklamalı Almanca · A1–C2',
 		dir: 'ltr',
 		missing: {
 			text: '{level} seviyesi henüz Türkçe açıklanmıyor: açıklamalar Almanca kalır, yardım düğmesi onları İngilizce gösterir.',

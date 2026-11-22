@@ -1,0 +1,22 @@
+{
+ "help.tips[0].examples[0].en": "Saat 10.15'te kalkması planlanan Hamburg-Frankfurt ICE 521 bugün maalesef yaklaşık yirmi dakika rötarlı.",
+ "help.tips[0].examples[1].en": "Bunun nedeni hattaki bir onarım çalışması.",
+ "help.tips[0].check.whyEn": "Sabit kalıp … hat … Minuten Verspätung'dur: tren on dakika rötarlı.",
+ "help.tips[0].en.text": "Achtung, eine Durchsage … · … hat leider … Minuten Verspätung · Grund dafür ist … · fährt nicht von Gleis …, sondern von Gleis … · Bitte beachten Sie … · Wir bitten um Ihr Verständnis.",
+ "help.tips[0].en.title": "Anons kalıbı",
+ "help.tips[1].examples[0].en": "Tren bugün dört numaralı perondan değil, yedi numaralı perondan kalkıyor.",
+ "help.tips[1].examples[1].en": "Ancak içecekler ve küçük atıştırmalıklar yerinizde satılacak.",
+ "help.tips[1].check.whyEn": "sondern'den sonraki saat geçerli olandır; ilk saat eski plandır.",
+ "help.tips[1].en.text": "İlk bilgi eski bilgidir; sondern ya da aber'den sonraki bugün geçerlidir. Anonslar bunu sürekli yapar: ilk sayı ya da yer artık geçerli olmayandır.",
+ "help.tips[1].en.title": "nicht … sondern, aber = düzeltme",
+ "help.tips[2].examples[0].en": "Stuttgart aktarması olan yolculardan Frankfurt'ta trendeki anonsları dinlemeleri rica olunur.",
+ "help.tips[2].examples[1].en": "Restoran vagonu bugün maalesef kapalı.",
+ "help.tips[2].check.whyEn": "werden gebeten senden rica edildiği anlamına gelir; sondaki fiil, einzusteigen, ne yapacağını söyler: binmek.",
+ "help.tips[2].en.text": "werden gebeten (rica olunur), werden verkauft (satılır): anonslar kimin yaptığını değil, ne yapıldığını anlatır. Bilgiyi sondaki fiil taşır.",
+ "help.tips[2].en.title": "Edilgen sana ne olacağını söyler",
+ "help.hookEn": "Rötarlar, peron değişiklikleri, kapalı bir restoran vagonu: istasyon anonsu cızırdarken önemli olan tek ayrıntıyı yakala.",
+ "help.introEn": "Yaklaşık 150 kelimelik bir istasyon anonsu, peronda duyduğun gibi bir kez duyuluyor, burada anons sesiyle. Anonslar ve bir gruba söylenen bilgiler, bir yolculukta anlaşılması en yararlı şeyler arasındadır. Bu anons dört kısa paragrafa altı bilgi sığdırıyor: rötar ve nedeni, değişen peron (nicht Gleis vier, sondern Gleis sieben; nicht … sondern düzeltme kalıbıdır), aktarması olan yolcuların ne yapması gerektiği, bisiklet yerlerinin bugün nerede olduğu ve restoran vagonunda ne olduğu. Edilgen ve resmî emir kipi anonsların dil bilgisidir: Reisende … werden gebeten …; Getränke werden am Platz verkauft; Bitte beachten Sie … Sayılara ve sondern ile aber'den sonraki kelimeye kulak ver: bilgi orada değişir.",
+ "help.rememberEn[0]": "Rötar, neden, peron, aktarma, bisikletler, restoran: altı yuva, altı soru.",
+ "help.rememberEn[1]": "nicht … sondern / aber: ikinci bilgi gerçek olandır.",
+ "help.examEn": "Bunun gibi istasyon ve tur anonsları B1 sınavında standart bir dinleme metnidir; her rötarlı trende de."
+}
