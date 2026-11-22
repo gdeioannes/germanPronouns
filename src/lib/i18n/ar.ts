@@ -536,6 +536,8 @@ export const AR: Record<string, string> = {
 		"هذه الصفحة غير متوفرة بالعربية بعد",
 	"In your language, the course covers levels A1 and A2. This part of the site is only in English for now.":
 		"بالعربية تغطي الدورة المستويين A1 وA2. هذا الجزء من الموقع بالإنجليزية فقط حاليًا.",
+	"In your language, the course covers every level, A1 to C2. This part of the site is only in English for now.":
+		"بالعربية تغطي الدورة كل المستويات، من A1 إلى C2. هذا الجزء من الموقع بالإنجليزية فقط حاليًا.",
 	"Back to the course":
 		"العودة إلى الدورة",
 	"Show it in English":
@@ -2714,6 +2716,8 @@ export const AR: Record<string, string> = {
 		"بدون تسجيل",
 	"Twelve levels, all open: four in your language":
 		"اثنا عشر مستوى، كلها مفتوحة: أربعة منها بالعربية",
+	"Twelve levels, all open, every one explained in your language":
+		"اثنا عشر مستوى، كلها مفتوحة، وكل واحد منها مشروح بالعربية",
 	"From your first Hallo to C2: up to A2 explained in your language, then German explained in German. A short check tells you where to begin, and you can move up or back whenever you like.":
 		"من أول Hallo إلى C2: حتى A2 بشرح عربي، وبعده الألمانية بشرح ألماني. اختبار قصير يخبرك من أين تبدأ، وتستطيع أن تصعد أو ترجع متى شئت.",
 	"The twelve levels":
@@ -2736,6 +2740,8 @@ export const AR: Record<string, string> = {
 		"لا. لا شيء مقفل: اختر المستوى الذي يناسبك من المستويات الفرعية الاثني عشر (من A1.1 إلى A2.2 بالعربية، وبعدها بالألمانية) وابدأ من هناك.",
 	"The course covers A1 to C2 of the CEFR scale, A1 and A2 explained in your language, and the skills exams test: reading, listening, writing and speaking. Language Quiz is an independent study aid and is not affiliated with any examination body.":
 		"تغطي الدورة المستويات من A1 إلى C2 من الإطار الأوروبي المرجعي، وA1 وA2 بشرح عربي، والمهارات التي تختبرها الامتحانات: القراءة، والاستماع، والكتابة، والمحادثة. وLanguage Quiz أداة تعلّم مستقلة لا ترتبط بأي جهة امتحانات.",
+	"The course covers A1 to C2 of the CEFR scale, every level explained in your language, and the skills exams test: reading, listening, writing and speaking. Language Quiz is an independent study aid and is not affiliated with any examination body.":
+		"تغطي الدورة المستويات من A1 إلى C2 من الإطار الأوروبي المرجعي، وكلها بشرح عربي، والمهارات التي تختبرها الامتحانات: القراءة، والاستماع، والكتابة، والمحادثة. وLanguage Quiz أداة تعلّم مستقلة لا ترتبط بأي جهة امتحانات.",
 	"Exercise":
 		"تمرين",
 	"Grammar & words":

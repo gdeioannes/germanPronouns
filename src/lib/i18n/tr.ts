@@ -13,6 +13,8 @@ export const TR: Record<string, string> = {
 	'This page is not in your language yet': 'Bu sayfa henüz Türkçe değil',
 	'In your language, the course covers levels A1 and A2. This part of the site is only in English for now.':
 		'Türkçe kurs A1 ve A2 seviyelerini kapsıyor. Sitenin bu bölümü şimdilik yalnızca İngilizce.',
+	"In your language, the course covers every level, A1 to C2. This part of the site is only in English for now.":
+		"Türkçe kurs A1’den C2’ye kadar tüm seviyeleri kapsıyor. Sitenin bu bölümü şimdilik yalnızca İngilizce.",
 	'Back to the course': 'Kursa dön',
 	'Show it in English': 'İngilizce göster',
 	'The books': 'Kitaplar',
@@ -2434,6 +2436,8 @@ export const TR: Record<string, string> = {
 		"Üyelik gerekmez",
 	"Twelve levels, all open: four in your language":
 		"On iki seviye, hepsi açık: dördü Türkçe",
+	"Twelve levels, all open, every one explained in your language":
+		"On iki seviye, hepsi açık, her biri Türkçe açıklamalı",
 	"From your first Hallo to C2: up to A2 explained in your language, then German explained in German. A short check tells you where to begin, and you can move up or back whenever you like.":
 		"İlk Hallo’ndan C2’ye kadar: A2’ye kadar Türkçe açıklamalı, sonrası Almanca açıklamalı. Kısa bir test nereden başlayacağını söyler; istediğin zaman ileri ya da geri gidebilirsin.",
 	"The twelve levels":
@@ -2456,6 +2460,8 @@ export const TR: Record<string, string> = {
 		"Hayır. Hiçbir şey kilitli değil: on iki alt seviyeden (A1.1–A2.2 Türkçe, sonrası Almanca) sana uyanı seç ve oradan başla.",
 	"The course covers A1 to C2 of the CEFR scale, A1 and A2 explained in your language, and the skills exams test: reading, listening, writing and speaking. Language Quiz is an independent study aid and is not affiliated with any examination body.":
 		"Kurs, Avrupa Dilleri Ortak Çerçevesi’nin (CEFR) A1’den C2’ye kadar tüm seviyelerini (A1 ve A2 Türkçe açıklamalı) ve sınavların ölçtüğü becerileri kapsar: okuma, dinleme, yazma ve konuşma. Language Quiz bağımsız bir çalışma aracıdır ve hiçbir sınav kurumuyla bağlantısı yoktur.",
+	"The course covers A1 to C2 of the CEFR scale, every level explained in your language, and the skills exams test: reading, listening, writing and speaking. Language Quiz is an independent study aid and is not affiliated with any examination body.":
+		"Kurs, Avrupa Dilleri Ortak Çerçevesi’nin (CEFR) A1’den C2’ye kadar tüm seviyelerini (hepsi Türkçe açıklamalı) ve sınavların ölçtüğü becerileri kapsar: okuma, dinleme, yazma ve konuşma. Language Quiz bağımsız bir çalışma aracıdır ve hiçbir sınav kurumuyla bağlantısı yoktur.",
 	"Exercise":
 		"Alıştırma",
 	"Grammar & words":

@@ -16,6 +16,7 @@
 	import { account } from '$lib/state/account.svelte';
 	import { openSignIn } from '$lib/state/signin.svelte';
 	import LangSwitch from '$lib/components/LangSwitch.svelte';
+	import { explainsAllLevels } from '$lib/i18n/content.svelte';
 
 	type Card = 'levels' | 'fix' | 'books' | 'voice' | 'open';
 
@@ -64,7 +65,7 @@
 			alt: t('Blue beach chairs on the Baltic beach at Rostock'),
 			focus: '50% 60%',
 			place: 'Warnemünde, Ostsee',
-			kicker: lang.limited ? t('Twelve levels, all open: four in your language') : 'Twelve levels, all open',
+			kicker: lang.limited ? t(explainsAllLevels() ? 'Twelve levels, all open, every one explained in your language' : 'Twelve levels, all open: four in your language') : 'Twelve levels, all open',
 			title: t('Start at your level.'),
 			text: lang.limited
 				? t('From your first Hallo to C2: up to A2 explained in your language, then German explained in German. A short check tells you where to begin, and you can move up or back whenever you like.')

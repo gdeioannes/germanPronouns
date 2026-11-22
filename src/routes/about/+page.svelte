@@ -65,7 +65,7 @@
 			<p class="lede">
 				Zamanına ve gizliliğine saygı duyan ücretsiz bir Almanca kursu: hesap yok, reklam yok,
 				ödeme duvarı yok ve seninle ilgili hiçbir şey tarayıcından dışarı çıkmaz. Türkçe kurs
-				A1 ve A2 seviyelerini kapsıyor.
+				A1’den C2’ye kadar tüm seviyeleri açıklıyor.
 			</p>
 		</header>
 
@@ -332,7 +332,7 @@
 			<p class="lede">
 				Безкоштовний курс німецької, який поважає твій час і твою приватність: без акаунта, без
 				реклами, без платного доступу, і ніщо про тебе не залишає твій браузер. Українською курс
-				охоплює рівні A1 і A2.
+				пояснює всі рівні, від A1 до C2.
 			</p>
 		</header>
 
@@ -469,7 +469,7 @@
 			<p class="lede">
 				Un cours d'allemand gratuit qui respecte votre temps et votre vie privée : pas de compte,
 				pas de publicité, pas d'abonnement, et rien de ce qui vous concerne ne quitte votre
-				navigateur. En français, le cours couvre les niveaux A1 et A2.
+				navigateur. En français, le cours explique tous les niveaux, de A1 à C2.
 			</p>
 		</header>
 
@@ -613,7 +613,7 @@
 			<p class="lede">
 				Un curso de alemán gratuito que respeta tu tiempo y tu privacidad: sin cuenta, sin
 				publicidad, sin suscripción, y nada sobre ti sale de tu navegador. En español, el curso
-				cubre los niveles A1 y A2.
+				explica todos los niveles, de A1 a C2.
 			</p>
 		</header>
 

@@ -16,6 +16,8 @@ export const ES: Record<string, string> = {
 		"Esta página aún no está en español",
 	"In your language, the course covers levels A1 and A2. This part of the site is only in English for now.":
 		"En español, el curso cubre los niveles A1 y A2. Esta parte del sitio por ahora solo está en inglés.",
+	"In your language, the course covers every level, A1 to C2. This part of the site is only in English for now.":
+		"En español, el curso cubre todos los niveles, de A1 a C2. Esta parte del sitio por ahora solo está en inglés.",
 	"Back to the course":
 		"Volver al curso",
 	"Show it in English":
@@ -2714,6 +2716,8 @@ export const ES: Record<string, string> = {
 		"Sin registro",
 	"Twelve levels, all open: four in your language":
 		"Doce niveles, todos abiertos: cuatro en español",
+	"Twelve levels, all open, every one explained in your language":
+		"Doce niveles, todos abiertos, cada uno explicado en español",
 	"From your first Hallo to C2: up to A2 explained in your language, then German explained in German. A short check tells you where to begin, and you can move up or back whenever you like.":
 		"Desde tu primer Hallo hasta C2: hasta A2 explicado en español, después el alemán explicado en alemán. Una prueba corta te dice dónde empezar, y puedes subir o bajar cuando quieras.",
 	"The twelve levels":
@@ -2736,6 +2740,8 @@ export const ES: Record<string, string> = {
 		"No. No hay nada bloqueado: elige el nivel que te corresponde entre los doce subniveles (de A1.1 a A2.2 en español, después en alemán) y empieza ahí.",
 	"The course covers A1 to C2 of the CEFR scale, A1 and A2 explained in your language, and the skills exams test: reading, listening, writing and speaking. Language Quiz is an independent study aid and is not affiliated with any examination body.":
 		"El curso cubre de A1 a C2 de la escala del MCER, con A1 y A2 explicados en español, y las destrezas que evalúan los exámenes: lectura, comprensión auditiva, expresión escrita y expresión oral. Language Quiz es una ayuda de estudio independiente y no tiene relación con ningún organismo examinador.",
+	"The course covers A1 to C2 of the CEFR scale, every level explained in your language, and the skills exams test: reading, listening, writing and speaking. Language Quiz is an independent study aid and is not affiliated with any examination body.":
+		"El curso cubre de A1 a C2 de la escala del MCER, con todos los niveles explicados en español, y las destrezas que evalúan los exámenes: lectura, comprensión auditiva, expresión escrita y expresión oral. Language Quiz es una ayuda de estudio independiente y no tiene relación con ningún organismo examinador.",
 	"Exercise":
 		"Ejercicio",
 	"Grammar & words":

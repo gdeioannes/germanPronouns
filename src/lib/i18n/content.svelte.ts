@@ -59,6 +59,11 @@ export function levelExplainedIn(l: string, level: string | null | undefined): b
 	return available.has(`${l}/${levelId(level)}`);
 }
 
+/** The learner's language explains every level, A1 to C2 (French, Ukrainian, Spanish). */
+export function explainsAllLevels(): boolean {
+	return levelExplainedIn(lang.current, 'C2.2');
+}
+
 /** Loaded overlays by "<lang>/<level id>" ("ar/a1_1"); absent until fetched. */
 const maps = $state<Record<string, Overlay>>({});
 const pending = new Set<string>();

@@ -16,6 +16,8 @@ export const FR: Record<string, string> = {
 		"Cette page n'existe pas encore dans votre langue",
 	"In your language, the course covers levels A1 and A2. This part of the site is only in English for now.":
 		"Dans votre langue, le cours couvre les niveaux A1 et A2. Cette partie du site n'existe pour l'instant qu'en anglais.",
+	"In your language, the course covers every level, A1 to C2. This part of the site is only in English for now.":
+		"En français, le cours couvre tous les niveaux, de A1 à C2. Cette partie du site n'existe pour l'instant qu'en anglais.",
 	"Back to the course":
 		"Retour au cours",
 	"Show it in English":
@@ -2712,6 +2714,8 @@ export const FR: Record<string, string> = {
 		"Pas d'inscription",
 	"Twelve levels, all open: four in your language":
 		"Douze niveaux, tous ouverts : quatre en français",
+	"Twelve levels, all open, every one explained in your language":
+		"Douze niveaux, tous ouverts, chacun expliqué en français",
 	"From your first Hallo to C2: up to A2 explained in your language, then German explained in German. A short check tells you where to begin, and you can move up or back whenever you like.":
 		"De votre premier Hallo jusqu'à C2 : jusqu'à A2 expliqué en français, puis l'allemand expliqué en allemand. Un court test vous dit par où commencer, et vous pouvez monter ou redescendre quand vous voulez.",
 	"The twelve levels":
@@ -2734,6 +2738,8 @@ export const FR: Record<string, string> = {
 		"Non. Rien n'est verrouillé : choisissez le niveau qui vous correspond parmi les douze sous-niveaux (A1.1 à A2.2 en français, puis en allemand) et commencez là.",
 	"The course covers A1 to C2 of the CEFR scale, A1 and A2 explained in your language, and the skills exams test: reading, listening, writing and speaking. Language Quiz is an independent study aid and is not affiliated with any examination body.":
 		"Le cours couvre les niveaux A1 à C2 du CECRL, A1 et A2 expliqués en français, et les compétences que les examens évaluent : lire, écouter, écrire et parler. Language Quiz est une aide à l'apprentissage indépendante, sans lien avec aucun organisme d'examen.",
+	"The course covers A1 to C2 of the CEFR scale, every level explained in your language, and the skills exams test: reading, listening, writing and speaking. Language Quiz is an independent study aid and is not affiliated with any examination body.":
+		"Le cours couvre les niveaux A1 à C2 du CECRL, tous expliqués en français, et les compétences que les examens évaluent : lire, écouter, écrire et parler. Language Quiz est une aide à l'apprentissage indépendante, sans lien avec aucun organisme d'examen.",
 	"Exercise":
 		"Exercice",
 	"Grammar & words":

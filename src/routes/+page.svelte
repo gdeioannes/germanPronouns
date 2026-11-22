@@ -21,6 +21,7 @@
 	import { BOOKS, bookCover, bookMb, bookPdf, pdfOffered } from '$lib/content/books';
 	import { t } from '$lib/i18n/t';
 	import { lang } from '$lib/i18n/lang.svelte';
+	import { explainsAllLevels } from '$lib/i18n/content.svelte';
 	import { levelTranslated } from '$lib/i18n/available';
 	import { SettingsKeys } from '$lib/domain/keys';
 	import { track, trackBookDownload } from '$lib/services/analytics';
@@ -152,11 +153,16 @@
 		'Does it prepare me for an exam?':
 			'The course covers A1 to C2 of the CEFR scale, A1 and A2 explained in your language, and the skills exams test: reading, listening, writing and speaking. Language Quiz is an independent study aid and is not affiliated with any examination body.'
 	};
+	// French, Ukrainian and Spanish explain every level, so the exam answer says so.
+	const faqSwap = (q: string) =>
+		q === 'Does it prepare me for an exam?' && explainsAllLevels()
+			? 'The course covers A1 to C2 of the CEFR scale, every level explained in your language, and the skills exams test: reading, listening, writing and speaking. Language Quiz is an independent study aid and is not affiliated with any examination body.'
+			: FAQ_TR_SWAP[q];
 	const FAQ = $derived(
 		FAQ_EN.map((item) => ({
 			id: item.q,
 			q: t(item.q),
-			a: t(lang.limited ? (FAQ_TR_SWAP[item.q] ?? item.a) : item.a, { n: data.subLevelCount })
+			a: t(lang.limited ? (faqSwap(item.q) ?? item.a) : item.a, { n: data.subLevelCount })
 		}))
 	);
 	const faqEn = $derived(FAQ_EN.map((item) => ({ q: item.q, a: item.a.replace('{n}', String(data.subLevelCount)) })));

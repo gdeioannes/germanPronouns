@@ -3,6 +3,7 @@
 	// yet. Turkish mode shows only what exists in Turkish; this is the way back.
 	import { setLang } from '$lib/i18n/lang.svelte';
 	import { t } from '$lib/i18n/t';
+	import { explainsAllLevels } from '$lib/i18n/content.svelte';
 	import SiteNav from '$lib/components/SiteNav.svelte';
 
 	let { courseHref = '/' }: { courseHref?: string } = $props();
@@ -12,7 +13,7 @@
 
 <main class="not-tr">
 	<h1>{t('This page is not in your language yet')}</h1>
-	<p>{t('In your language, the course covers levels A1 and A2. This part of the site is only in English for now.')}</p>
+	<p>{t(explainsAllLevels() ? 'In your language, the course covers every level, A1 to C2. This part of the site is only in English for now.' : 'In your language, the course covers levels A1 and A2. This part of the site is only in English for now.')}</p>
 	<div class="actions">
 		<a class="primary" href={courseHref}>{t('Back to the course')}</a>
 		<button type="button" onclick={() => setLang('en')}>{t('Show it in English')}</button>

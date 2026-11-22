@@ -16,6 +16,8 @@ export const UK: Record<string, string> = {
 		"Ця сторінка ще не перекладена твоєю мовою",
 	"In your language, the course covers levels A1 and A2. This part of the site is only in English for now.":
 		"Твоєю мовою курс охоплює рівні A1 і A2. Ця частина сайту поки що лише англійською.",
+	"In your language, the course covers every level, A1 to C2. This part of the site is only in English for now.":
+		"Українською курс охоплює всі рівні, від A1 до C2. Ця частина сайту поки що лише англійською.",
 	"Back to the course":
 		"Назад до курсу",
 	"Show it in English":
@@ -2716,6 +2718,8 @@ export const UK: Record<string, string> = {
 		"Без реєстрації",
 	"Twelve levels, all open: four in your language":
 		"Дванадцять рівнів, усі відкриті: чотири українською",
+	"Twelve levels, all open, every one explained in your language":
+		"Дванадцять рівнів, усі відкриті, кожен пояснено українською",
 	"From your first Hallo to C2: up to A2 explained in your language, then German explained in German. A short check tells you where to begin, and you can move up or back whenever you like.":
 		"Від першого Hallo до C2: до A2 з поясненнями українською, далі німецька з поясненнями німецькою. Коротка перевірка покаже, з чого почати, а рухатися вперед чи назад можна будь-коли.",
 	"The twelve levels":
@@ -2738,6 +2742,8 @@ export const UK: Record<string, string> = {
 		"Ні. Нічого не заблоковано: вибери рівень, який тобі підходить, із дванадцяти підрівнів (від A1.1 до A2.2 українською, далі німецькою) і починай з нього.",
 	"The course covers A1 to C2 of the CEFR scale, A1 and A2 explained in your language, and the skills exams test: reading, listening, writing and speaking. Language Quiz is an independent study aid and is not affiliated with any examination body.":
 		"Курс охоплює рівні від A1 до C2 шкали CEFR, A1 і A2 з поясненнями українською, і навички, які перевіряють на іспитах: читання, слухання, письмо і говоріння. Language Quiz є незалежним навчальним посібником і не пов’язаний з жодною екзаменаційною установою.",
+	"The course covers A1 to C2 of the CEFR scale, every level explained in your language, and the skills exams test: reading, listening, writing and speaking. Language Quiz is an independent study aid and is not affiliated with any examination body.":
+		"Курс охоплює рівні від A1 до C2 шкали CEFR, усі з поясненнями українською, і навички, які перевіряють на іспитах: читання, слухання, письмо і говоріння. Language Quiz є незалежним навчальним посібником і не пов’язаний з жодною екзаменаційною установою.",
 	"Exercise":
 		"Вправа",
 	"Grammar & words":
