@@ -4569,7 +4569,7 @@
           "examples": [
             {
               "de": "der gute Film — ein guter Film",
-              "en": "the article signals — the adjective signals",
+              "en": "the good film — a good film",
               "focus": [
                 "gute",
                 "guter"
@@ -8084,7 +8084,7 @@
               ]
             }
           ],
-          "trap": "Keep the umlaut: könnten and sollten are the polite ones. konnten means could in the past, and sollten without the umlaut does not exist as a separate form, so an umlaut missing from könnten changes the meaning.",
+          "trap": "Keep the umlaut: könnten is the polite one, and konnten without it means could in the past. sollten has no umlaut at all and is polite just as it is.",
           "check": {
             "q": "Which one invites rather than decides?",
             "options": [
@@ -8270,7 +8270,7 @@
     ],
     "title": "Wortschatz",
     "help": {
-      "intro": "Every word this module's exercises use, on one deck of flashcards: 403 cards, 180 of them nouns. The vocabulary of this module is the words for travel, health, home and describing people, and many verbs you now use in the Perfekt, from the themes Wohnen & Einrichtung, Körper & Gesundheit; beim Arzt, Kleidung & Einkaufen, Menschen beschreiben. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
+      "intro": "Every word this module's exercises use, on one deck of flashcards: 403 cards, 180 of them nouns. The vocabulary of this module is the words for your home and its furniture, the body and health, clothes and shopping, and describing people, from the themes Wohnen & Einrichtung, Körper & Gesundheit; beim Arzt, Kleidung & Einkaufen, Menschen beschreiben. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
       "tips": [
         {
           "kind": "rule",
@@ -9775,7 +9775,7 @@
     ],
     "help": {
       "hook": "An empty café before opening time: tap each thing in the picture, then give it its article.",
-      "intro": "A picture hunt instead of a deck: one small, cosy café before opening time, with a counter and nobody in it with 32 things to find in it, every one an everyday noun — der Tresen, die Kaffeemaschine, das Milchkännchen, the cake on the counter and the croissant on the table. The prompt asks a question like Wo ist der Teppich? and you tap the object in the picture. A tap on the wrong object tells you what you hit and you keep looking; after three misses the right one is shown. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt gets harder: the prompt hides the article (Wo ist ___ Kaffeemaschine?), and after the find you pick der, die or das yourself. No object is asked twice in the same run.",
+      "intro": "A picture hunt instead of a deck: one small, cosy café before opening time, with a counter, nobody in it yet, and 32 things to find, every one an everyday noun — der Tresen, die Kaffeemaschine, das Milchkännchen, the cake on the counter and the croissant on the table. The prompt asks a question like Wo ist der Tresen? and you tap the object in the picture. A tap on the wrong object tells you what you hit and you keep looking; after three misses the right one is shown. Each find shows its label, coloured by its gender, then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt gets harder: the prompt hides the article (Wo ist ___ Kaffeemaschine?), and after the find you pick der, die or das yourself. No object is asked twice in the same run.",
       "tips": [
         {
           "kind": "rule",
@@ -9842,7 +9842,7 @@
         {
           "kind": "warning",
           "title": "Devices in -er are masculine — but watch die Maschine",
-          "text": "A device named with -er, the thing that does the job, is der: der Toaster, der Wasserkocher, der Mülleimer is the odd one out that is masculine without being a machine. Do not let the coffee fool you: die Kaffeemaschine takes its article from die Maschine.",
+          "text": "A device named with -er, the thing that does the job, is der: der Toaster, der Wasserkocher. der Mülleimer is masculine too, though it is not a machine. Do not let the coffee fool you: die Kaffeemaschine takes its article from die Maschine.",
           "examples": [
             {
               "de": "der Wasserkocher",

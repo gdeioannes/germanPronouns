@@ -808,7 +808,9 @@
 					</section>
 				{/each}
 			</div>
-			{#if k === keyPages.length - 1 && extras.length}
+			<!-- The longer texts' answers close the last answers page, which has
+			     room to spare; the credits page alone ran over in A2.1. -->
+			{#if k === keyPages.length - 2 && extras.length}
 				<div class="extra-key" lang="de">
 					<p class="eyebrow">Mehr lesen und hören · Lösungen</p>
 					{#each extras as x, i (x.id)}
