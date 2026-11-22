@@ -125,6 +125,31 @@
 	let mode = $state<'learn' | 'practise'>('learn');
 	const learning = $derived(!!lessonSteps && mode === 'learn');
 
+	/** The furthest lesson step reached in this visit (0 = the opening screen). */
+	let lessonReached = 0;
+	function lessonStep(index: number, kind: string) {
+		lessonReached = index;
+		if (lessonSteps) track('lesson_step', { course: course.id, quiz: quiz.id, kind, step: index, of: lessonSteps.length });
+	}
+
+	// How far into the questions a visit gets. quiz_started and quiz_completed
+	// bracket it; these two marks (one answered, five answered) say whether a
+	// visit that never completed left before the first question or mid-run.
+	let seenQuestions = { quiz: '', last: '', count: 0 };
+	function onQuestion(q: QuestionRef | null) {
+		question = q;
+		if (!q) return;
+		if (seenQuestions.quiz !== quiz.id) seenQuestions = { quiz: quiz.id, last: '', count: 0 };
+		const key = `${q.number}:${q.text}`;
+		if (key === seenQuestions.last) return;
+		seenQuestions.last = key;
+		seenQuestions.count += 1;
+		const answered = seenQuestions.count - 1;
+		if (answered === 1 || answered === 5) {
+			track('quiz_progress', { course: course.id, quiz: quiz.id, type: quiz.type, answered });
+		}
+	}
+
 	async function readSeen(): Promise<string[]> {
 		try {
 			const raw = await storage.get(SettingsKeys.seenHelpMemory);
@@ -135,7 +160,12 @@
 	}
 
 	/** Leaves the lesson for the exercise, and remembers it was taught. */
-	async function practise() {
+	async function practise(how: 'skip' | 'early' | 'end' | 'switch' = 'switch') {
+		// How the lesson was left, and how far it had been read: with
+		// lesson_step, this is where a lesson loses its readers.
+		if (mode === 'learn' && lessonSteps) {
+			track('lesson_left', { course: course.id, quiz: quiz.id, how, step: lessonReached, of: lessonSteps.length });
+		}
 		mode = 'practise';
 		const id = quiz.id;
 		await tick();
@@ -171,6 +201,7 @@
 		moreOpen = false;
 		reportOpen = false;
 		question = null;
+		lessonReached = 0;
 		mode = 'learn';
 		if (untrack(() => quiz.game)) {
 			mode = 'practise';
@@ -535,7 +566,7 @@
 	<main class="stage">
 		{#if lessonSteps}
 			<div class="pane" class:parked={!learning} inert={!learning}>
-				<Lesson steps={lessonSteps} locale={course.learnLocale} level={quiz.level} germanNotes={quiz.help?.german} {deckHref} onPractise={practise} />
+				<Lesson steps={lessonSteps} locale={course.learnLocale} level={quiz.level} germanNotes={quiz.help?.german} {deckHref} onPractise={practise} onStep={lessonStep} />
 			</div>
 		{/if}
 		<div class="pane exercise" class:parked={learning} inert={learning}>
@@ -550,7 +581,7 @@
 				onRunFinished={runFinished}
 				onTryAgain={tryAgain}
 				onClimbOffer={(o) => (ladderOffer = o)}
-				onQuestion={(q) => (question = q)}
+				{onQuestion}
 			/>
 		{:else if quiz.type === 'reading'}
 			<!-- Two shapes share this type: a passage with questions, and the "big
@@ -563,7 +594,7 @@
 					onFinish={(passed) => passed && complete()}
 					onTryAgain={tryAgain}
 					onClimbOffer={(o) => (ladderOffer = o)}
-					onQuestion={(q) => (question = q)}
+					{onQuestion}
 				/>
 			{:else}
 				<PassageQuiz
@@ -571,7 +602,7 @@
 					locale={course.learnLocale}
 					mode="read"
 					onFinish={passageFinished}
-					onQuestion={(q) => (question = q)}
+					{onQuestion}
 				/>
 			{/if}
 		{:else if quiz.type === 'listening'}
@@ -580,12 +611,12 @@
 				locale={course.learnLocale}
 				mode="listen"
 				onFinish={passageFinished}
-				onQuestion={(q) => (question = q)}
+				{onQuestion}
 			/>
 		{:else if quiz.type === 'dictation'}
-			<DictationQuiz {quiz} locale={course.learnLocale} onRunFinished={runFinished} onQuestion={(q) => (question = q)} />
+			<DictationQuiz {quiz} locale={course.learnLocale} onRunFinished={runFinished} {onQuestion} />
 		{:else if quiz.type === 'speakRepeat'}
-			<SpeakRepeatQuiz {quiz} locale={course.learnLocale} onFinish={complete} onQuestion={(q) => (question = q)} />
+			<SpeakRepeatQuiz {quiz} locale={course.learnLocale} onFinish={complete} {onQuestion} />
 		{:else if quiz.type === 'speaking'}
 			<SpeakingQuiz
 				{quiz}
@@ -614,7 +645,7 @@
 				onTryAgain={tryAgain}
 				onClimbOffer={(o) => (ladderOffer = o)}
 				{focusWord}
-				onQuestion={(q) => (question = q)}
+				{onQuestion}
 			/>
 		{:else if quiz.type === 'suchbild' && cards && roomDeck}
 			<div class="cards-bar">
@@ -640,7 +671,7 @@
 				onRunFinished={cardsRoundFinished}
 				onTryAgain={cardsAgain}
 				onClimbOffer={(o) => (cardsOffer = o)}
-				onQuestion={(q) => (question = q)}
+				{onQuestion}
 			/>
 		{:else if quiz.type === 'suchbild'}
 			<SuchbildQuiz
@@ -649,7 +680,7 @@
 				onRunFinished={runFinished}
 				onTryAgain={tryAgain}
 				onClimbOffer={(o) => (ladderOffer = o)}
-				onQuestion={(q) => (question = q)}
+				{onQuestion}
 				onCards={() => showCards(true)}
 				active={!learning}
 			/>

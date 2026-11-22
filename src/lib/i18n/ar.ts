@@ -496,6 +496,12 @@ export const AR: Record<string, string> = {
 		"جديد اليوم",
 	"Why this matters":
 		"لماذا هذا مهم",
+	"Try it now":
+		"جرّب الآن",
+	"Start practising":
+		"ابدأ التمرين",
+	"Lesson · {n} rules · you practise after the first one":
+		"درس · {n} قواعد · تتمرّن بعد القاعدة الأولى",
 	"Start the lesson":
 		"ابدأ الدرس",
 	"I know this — practise now":

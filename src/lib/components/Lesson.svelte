@@ -30,7 +30,8 @@
 		level = null,
 		germanNotes = false,
 		deckHref = null,
-		onPractise
+		onPractise,
+		onStep
 	}: {
 		steps: LessonStep[];
 		locale?: string;
@@ -39,8 +40,13 @@
 		/** The explanations are in German: every word of them is tappable. */
 		germanNotes?: boolean;
 		deckHref?: string | null;
-		/** Leave the lesson for the exercise. */
-		onPractise: () => void;
+		/**
+		 * Leave the lesson for the exercise: skipped from the first screen, left
+		 * after the first rule ("early"), or read to the end.
+		 */
+		onPractise: (how: 'skip' | 'early' | 'end') => void;
+		/** A step was reached for the first time (analytics: where a lesson is left). */
+		onStep?: (index: number, kind: LessonStep['kind']) => void;
 	} = $props();
 
 	let index = $state(0);
@@ -55,8 +61,23 @@
 		tip.en ? [tip.en.title, tip.en.text, tip.en.trap].filter((x): x is string => !!x) : [];
 
 	$effect(() => {
-		if (index > reached) reached = index;
+		if (index > reached) {
+			reached = index;
+			onStep?.(index, steps[index].kind);
+		}
 	});
+
+	// One rule, then a go at it: the check after the first rule offers the
+	// exercise, with the rest of the lesson one tap away (and still there under
+	// Learn). A lesson read front to back before the first question lost most
+	// of the people who opened it.
+	const firstCheck = $derived(steps.findIndex((s) => s.kind === 'check'));
+
+	/** Leaves after the first rule; coming back to Learn opens on the next step. */
+	function tryNow(from: number) {
+		index = from + 1;
+		onPractise('early');
+	}
 
 	const checks = $derived(
 		steps.flatMap((s, i) => (s.kind === 'check' ? [{ i, check: s.check }] : []))
@@ -134,7 +155,9 @@
 			<div class="page" data-kind={s.kind}>
 				{#if s.kind === 'hook'}
 					<p class="eyebrow">
-						{tn(ruleCount, 'Lesson · {n} rule · about {min} min', 'Lesson · {n} rules · about {min} min', { min: minutes })}
+						{ruleCount > 1 && firstCheck > 0
+							? t('Lesson · {n} rules · you practise after the first one', { n: ruleCount })
+							: tn(ruleCount, 'Lesson · {n} rule · about {min} min', 'Lesson · {n} rules · about {min} min', { min: minutes })}
 					</p>
 					<h2 class="hook">{@render prose(s.hook)}</h2>
 
@@ -173,7 +196,7 @@
 						<button type="button" class="btn" onclick={() => (index = 1)}>
 							{t('Start the lesson')} <Icon name="arrowRight" size="1em" />
 						</button>
-						<button type="button" class="btn-quiet" onclick={onPractise}>{t('I know this — practise now')}</button>
+						<button type="button" class="btn-quiet" onclick={() => onPractise('skip')}>{t('I know this — practise now')}</button>
 					</div>
 				{:else if s.kind === 'rule'}
 					{@const kind = s.tip.kind ?? 'rule'}
@@ -259,7 +282,14 @@
 								<div class="en-row"><EnglishToggle bind:open={openEnglish[`why${i}`]} /></div>
 								{#if openEnglish[`why${i}`]}<EnglishPanel lines={[c.whyEn]} />{/if}
 							{/if}
-							{#if i < steps.length - 1}
+							{#if i === firstCheck && i < steps.length - 1}
+								<div class="actions">
+									<button type="button" class="btn" onclick={() => tryNow(i)}>
+										{t('Try it now')} <Icon name="arrowRight" size="1em" />
+									</button>
+									<button type="button" class="btn-quiet" onclick={() => (index = i + 1)}>{t('Keep learning')}</button>
+								</div>
+							{:else if i < steps.length - 1}
 								<button type="button" class="btn" onclick={() => (index = i + 1)}>
 									{t('Continue')} <Icon name="arrowRight" size="1em" />
 								</button>
@@ -379,8 +409,8 @@
 					{/if}
 
 					<div class="actions sticky">
-						<button type="button" class="btn big" onclick={onPractise}>
-							Start practising <Icon name="arrowRight" size="1em" />
+						<button type="button" class="btn big" onclick={() => onPractise('end')}>
+							{t('Start practising')} <Icon name="arrowRight" size="1em" />
 						</button>
 					</div>
 				{/if}

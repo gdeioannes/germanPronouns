@@ -1116,6 +1116,12 @@ export const UK: Record<string, string> = {
 		"Нове сьогодні",
 	"Why this matters":
 		"Чому це важливо",
+	"Try it now":
+		"Спробувати зараз",
+	"Start practising":
+		"Почати практику",
+	"Lesson · {n} rules · you practise after the first one":
+		"Урок · правил: {n} · після першого вже практика",
 	"Start the lesson":
 		"Почати урок",
 	"I know this — practise now":

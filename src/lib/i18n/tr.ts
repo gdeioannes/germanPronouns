@@ -828,6 +828,12 @@ export const TR: Record<string, string> = {
 		"Bugün yeni",
 	"Why this matters":
 		"Bu neden önemli",
+	"Try it now":
+		"Şimdi dene",
+	"Start practising":
+		"Alıştırmaya başla",
+	"Lesson · {n} rules · you practise after the first one":
+		"Ders · {n} kural · ilkinden sonra alıştırma yaparsın",
 	"Start the lesson":
 		"Derse başla",
 	"I know this — practise now":

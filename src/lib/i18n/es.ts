@@ -1118,6 +1118,12 @@ export const ES: Record<string, string> = {
 		"Nuevo hoy",
 	"Why this matters":
 		"Por qué importa",
+	"Try it now":
+		"Probar ahora",
+	"Start practising":
+		"Empezar a practicar",
+	"Lesson · {n} rules · you practise after the first one":
+		"Lección · {n} reglas · practicas después de la primera",
 	"Start the lesson":
 		"Empezar la lección",
 	"I know this — practise now":

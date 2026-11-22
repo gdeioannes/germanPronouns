@@ -17,6 +17,15 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-11-22",
+    title: "Lessons: one rule, then you try it",
+    items: [
+      "A lesson no longer has to be read to the end before the first question. After the first rule and its quick check, Try it now takes you straight to the exercise.",
+      "Keep learning carries on with the next rule, and the Learn switch brings you back to where you stopped, so nothing of the lesson is lost.",
+      "The first screen of a lesson now says so: it names how many rules there are and that you practise after the first one. This works the same in English, Turkish, Arabic, Ukrainian, French and Spanish.",
+    ],
+  },
+  {
+    date: "2026-11-22",
     title: "Turkish: every level, A1 to C2",
     items: [
       "In Turkish mode, the button under each German explanation now opens Turkish from B1.1 to C2.2: rules, tips, examples, why an answer is right, and the meanings on the flashcards.",
