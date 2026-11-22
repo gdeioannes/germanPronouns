@@ -17,6 +17,17 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-11-22",
+    title: "Send it to a friend",
+    items: [
+      "Every page can now be passed on. Look for the yellow: a yellow button or icon always means share. It is in the top bar, in each exercise, in the book reader and at the end of every page.",
+      "One tap opens a panel that shows your message the way it will arrive. Change the words if you like, then send it by WhatsApp, Telegram or email, copy the link, or show a QR code to someone sitting next to you.",
+      "Finished a round? Share my score sends the exercise with your result. Your friend sees what you got and, after their own round, both scores side by side.",
+      "The level test and the word check have Share my result, and the download panel offers to send the books on once your PDF has started.",
+      "All of this works in English, Turkish, Arabic, Ukrainian, French and Spanish, and a link sent from one of those languages opens in it.",
+    ],
+  },
+  {
+    date: "2026-11-22",
     title: "Vote for the next free German book",
     items: [
       "The literature page now lists thirty German classics, five for each level from A1 to C2, from Max und Moritz and Heidi to Effi Briest and Faust. Every one is free to read and has a picture and a short summary.",

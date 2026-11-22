@@ -28,7 +28,8 @@
 
 import { browser } from '$app/environment';
 import { page } from '$app/state';
-import { track } from '$lib/services/analytics';
+import { track, trackOnce } from '$lib/services/analytics';
+import { share, shareLink } from '$lib/services/share';
 import {
 	NO_TEXTS,
 	addAudienceSchool,
@@ -246,7 +247,8 @@ class FeedbackStore {
 			writeDl({ ...rec, promo: index });
 			this.dlPromo = promo;
 			this.dlOpen = true;
-			track('download_promo_shown', { card: promo.id, book: info.book });
+			// Once per card per visit: the same card shown again is no new fact.
+			trackOnce('download_promo_shown', { card: promo.id, book: info.book }, promo.id);
 			return;
 		}
 		event.preventDefault();
@@ -256,7 +258,9 @@ class FeedbackStore {
 		this.askSchool = false;
 		this.audienceId = null;
 		this.dlOpen = true;
-		track('feedback_asked', { kind: 'audience', book: info.book });
+		// No event for the question itself: it was one per download panel, and
+		// its two answers (book_audience, book_audience_skipped) already say
+		// it was asked.
 	}
 
 	/** A tap on the panel's card about the site. */
@@ -283,7 +287,8 @@ class FeedbackStore {
 	 */
 	skippedQuestion(): void {
 		const book = this.dl?.book ?? '';
-		track('book_audience_skipped', { book });
+		// Once per book per visit: phone readers tap the link several times.
+		trackOnce('book_audience_skipped', { book }, book);
 		if (!this.dlCompanion) {
 			this.dlOpen = false;
 			return;
@@ -361,23 +366,15 @@ class FeedbackStore {
 
 	/** Sends the books page on: the share sheet, or the link copied. */
 	async share(): Promise<void> {
-		const url = `${location.origin}/books`;
-		const text = 'Free German books, A1 to C2, with audio and exercises online.';
-		track('book_shared', { book: this.book });
-		try {
-			if (navigator.share) {
-				await navigator.share({ title: 'Language Quiz — the books', text, url });
-				return;
-			}
-		} catch {
-			// Cancelled, or the sheet failed: fall back to copying.
-		}
-		try {
-			await navigator.clipboard.writeText(url);
-			this.copied = true;
-		} catch {
-			// No clipboard either: nothing to do.
-		}
+		// Counted as a share_tap (where: book_thanks) like every other share.
+		const outcome = await share({
+			where: 'book_thanks',
+			url: shareLink('book_thanks', '/books'),
+			title: 'Language Quiz — the books',
+			text: 'Free German books, A1 to C2, with audio and exercises online.',
+			props: { book: this.book }
+		});
+		if (outcome === 'copied') this.copied = true;
 	}
 
 	/** The card's × — the rating card counts it; the audience one is already spent. */

@@ -7,6 +7,7 @@
 	import Seo from '$lib/components/Seo.svelte';
 	import SiteNav from '$lib/components/SiteNav.svelte';
 	import SiteFooter from '$lib/components/SiteFooter.svelte';
+	import ShareNudge from '$lib/components/ShareNudge.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
 	import { returnTo, returnLabel } from '$lib/state/returnTo.svelte';
 	import { BOOKS, BOOK_PAGES, bookCover, bookMb, bookPdf, bookReadHref, pdfOffered } from '$lib/content/books';
@@ -57,6 +58,9 @@
 			{/if}
 		</p>
 	</header>
+
+	<!-- Asked before the list: whoever sees twelve free books may know who needs them. -->
+	<ShareNudge where="books" text={t('I thought of you: twelve free German books with audio, from A1 to C2. No sign-up, nothing to pay.')} />
 
 	<ol class="shelf">
 		{#each shelf as book (book.level)}

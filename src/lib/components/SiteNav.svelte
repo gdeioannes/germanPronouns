@@ -26,6 +26,8 @@
 	import { feedback } from '$lib/state/feedback.svelte';
 	import PageHelp from '$lib/components/PageHelp.svelte';
 	import LangSwitch from '$lib/components/LangSwitch.svelte';
+	import ShareButton from '$lib/components/ShareButton.svelte';
+	import { openShare } from '$lib/state/sharePanel.svelte';
 	import { t } from '$lib/i18n/t';
 	import { lang } from '$lib/i18n/lang.svelte';
 
@@ -109,6 +111,17 @@
 
 	function toggle(menu: Menu) {
 		dropdown = dropdown === menu ? null : menu;
+	}
+
+	// "Share this page": an icon in the bar where there is room, a line under
+	// Menu on a phone. Not on pages that are about the visitor (settings, a
+	// post being written) or that nobody would send on.
+	const NO_SHARE = new Set(['/settings', '/backoffice', '/legal', '/contact', '/credits', '/forum/new']);
+	const canShare = $derived(!NO_SHARE.has(page.route.id ?? ''));
+
+	function shareFromMenu() {
+		open = false;
+		openShare({ where: 'nav' });
 	}
 </script>
 
@@ -249,6 +262,12 @@
 			<a href="/settings" rel="nofollow"><Icon name="settings" size="1em" /> {t('Settings')}</a>
 			{@render signIn()}
 			{@render feedbackLink()}
+			{#if canShare}
+				<button type="button" class="menu-share" onclick={shareFromMenu}>
+					<Icon name="share" size="1em" />
+					<span>{t('Share this page')}</span>
+				</button>
+			{/if}
 		</div>
 		<p class="group-head">{t('Library')}</p>
 		{@render libraryLinks()}
@@ -288,6 +307,8 @@
 			{/if}
 			<!-- "?": how this screen works (content/pageHelp), on pages that have an entry. -->
 			<PageHelp topic={page.route.id} />
+			<!-- Share this page. On a phone the bar is full: it is under Menu there. -->
+			{#if canShare}<span class="share-slot"><ShareButton where="nav" look="tag" label={t('Share')} /></span>{/if}
 			{@render feedbackLink()}
 			{@render signIn()}
 			<!-- The language, inside the course too: switching to one that does
@@ -318,6 +339,7 @@
 					{@render cta()}
 				</nav>
 				<PageHelp topic={page.route.id} />
+				{#if canShare}<span class="share-slot"><ShareButton where="nav" look="tag" label={t('Share')} /></span>{/if}
 				<!-- The language, from every page (the same picker as on the home
 				     photo, so not repeated there). -->
 				{#if bare !== '/'}<LangSwitch bar where="nav" />{/if}
@@ -496,8 +518,40 @@
 
 	.menu-links .root-row {
 		display: flex;
-		gap: 1.5rem;
+		flex-wrap: wrap;
+		gap: 0.4rem 1.5rem;
 		align-items: center;
+	}
+
+	/* Under Menu the share link keeps its words in both bars: on a phone it is
+	   the only one there is. */
+	.menu-share {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		padding: 0;
+		border: 0;
+		background: none;
+		color: var(--heading);
+		font: inherit;
+		font-size: var(--step--1);
+		font-weight: 700;
+		cursor: pointer;
+	}
+
+	.menu-share :global(.icon) {
+		color: var(--accent-ink);
+	}
+
+	/* The bar's share icon: only where the bar has room for one more. */
+	.share-slot {
+		display: inline-flex;
+	}
+
+	@media (max-width: 40rem) {
+		.share-slot {
+			display: none;
+		}
 	}
 
 	.forum-link :global(.icon) {

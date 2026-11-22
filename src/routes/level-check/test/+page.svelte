@@ -53,6 +53,8 @@
 	} from '$lib/domain/placement';
 	import type { PageData } from './$types';
 	import { t } from '$lib/i18n/t';
+	import ShareButton from '$lib/components/ShareButton.svelte';
+	import { withLang } from '$lib/i18n/paths';
 	import { lang } from '$lib/i18n/lang.svelte';
 	import { inLang } from '$lib/i18n/content.svelte';
 
@@ -513,6 +515,17 @@
 			<p class="meaning small">{t(LEVEL_MEANING[chosen] ?? '')}</p>
 			<div class="actions">
 				<button type="button" class="btn" onclick={startHere}>{t('Start learning at {level}', { level: chosen })} <Icon name="arrowRight" size="1em" /></button>
+				{#if !skipped}
+					<!-- A result is about the learner, so it is the page people pass on. -->
+					<ShareButton
+						where="level"
+						look="ghost"
+						label={t('Share my result')}
+						text={t('My German level: {level}. Find yours in ten minutes, free:', { level })}
+						path={withLang(lang.local, '/level-check/test')}
+						props={{ level, check: 'test' }}
+					/>
+				{/if}
 			</div>
 			<p class="small"><button type="button" class="btn-quiet" onclick={start}>{skipped ? t('Take the full test') : t('Take the test again')}</button></p>
 		</div>

@@ -9,6 +9,7 @@
 
 export const TR: Record<string, string> = {
 	// ── Shell, navigation, footer ────────────────────────────
+	'Language': 'Dil',
 	'Skip to content': 'İçeriğe geç',
 	'This page is not in your language yet': 'Bu sayfa henüz Türkçe değil',
 	'In your language, the course covers levels A1 and A2. This part of the site is only in English for now.':
@@ -2528,4 +2529,52 @@ export const TR: Record<string, string> = {
 		"Alıştırmayı aç",
 	"Play {n}":
 		"{n} numarayı çal",
+	"Share this page":
+		"Bu sayfayı paylaş",
+	"Link copied":
+		"Bağlantı kopyalandı",
+	"Share this exercise":
+		"Bu alıştırmayı paylaş",
+	"Share":
+		"Paylaş",
+	"I got {right} of {total} on this German exercise: “{topic}”. Can you beat it?":
+		"Bu Almanca alıştırmada {total} sorudan {right} doğru yaptım: “{topic}”. Geçebilir misin?",
+	"A free German exercise: “{topic}”":
+		"Ücretsiz bir Almanca alıştırması: “{topic}”",
+	"A friend got {right} of {total} here. Your turn.":
+		"Bir arkadaşın burada {total} sorudan {right} doğru yaptı. Sıra sende.",
+	"You: {a} of {b}. Your friend: {c} of {d}.":
+		"Sen: {b} sorudan {a}. Arkadaşın: {d} sorudan {c}.",
+	"Know someone who is learning German?":
+		"Almanca öğrenen birini tanıyor musun?",
+	"I thought of you: twelve free German books with audio, from A1 to C2. No sign-up, nothing to pay.":
+		"Aklıma sen geldin: A1'den C2'ye, sesli on iki ücretsiz Almanca kitap. Kayıt yok, ücret yok.",
+	"Share my result":
+		"Sonucumu paylaş",
+	"My German level: {level}. Find yours in ten minutes, free:":
+		"Almanca seviyem: {level}. Seninkini on dakikada ücretsiz öğren:",
+	"I know about {n} German words. How many do you know?":
+		"Yaklaşık {n} Almanca kelime biliyorum. Sen kaç tane biliyorsun?",
+	"Share my score":
+		"Puanımı paylaş",
+	"If you know a friend who needs this, please share it with them.":
+		"Buna ihtiyacı olan bir arkadaşın varsa lütfen onunla paylaş.",
+	"Send it to a friend":
+		"Bir arkadaşına gönder",
+	"Your message. Change it if you like.":
+		"Mesajın. İstersen değiştir.",
+	"Copy link":
+		"Bağlantıyı kopyala",
+	"Email":
+		"E-posta",
+	"QR code":
+		"QR kodu",
+	"Someone next to you? They point their phone camera at this.":
+		"Yanında biri mi var? Telefonunun kamerasını buna tutsun.",
+	"Thank you for passing it on.":
+		"Paylaştığın için teşekkürler.",
+	"More ways":
+		"Diğer yollar",
+	"I thought of you: a free German book with audio, level {level}. No sign-up, nothing to pay.":
+		"Aklıma sen geldin: sesli, ücretsiz bir Almanca kitap, seviye {level}. Kayıt yok, ücret yok.",
 };

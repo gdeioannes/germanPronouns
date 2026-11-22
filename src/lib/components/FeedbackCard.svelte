@@ -17,11 +17,16 @@
 	import { feedback } from '$lib/state/feedback.svelte';
 	import { NAME_MAX, QUOTE_MAX, SCHOOL_MAX, TEXT_MAX } from '$lib/services/feedback';
 	import type { Audience } from '$lib/domain/bookAsk';
+	import { LITERATURE } from '$lib/content/literature';
 	import { fly } from 'svelte/transition';
 	import { untrack } from 'svelte';
 	import { cubicOut } from 'svelte/easing';
 	import { prefersReducedMotion } from '$lib/motion';
 	import { ARTICLE_COLORS } from '$lib/domain/wortbloecke';
+	import ShareButton from '$lib/components/ShareButton.svelte';
+	import { shareLink, trackShare, whatsappLink } from '$lib/services/share';
+	import { withLang } from '$lib/i18n/paths';
+	import { lang } from '$lib/i18n/lang.svelte';
 
 	const STARS = [1, 2, 3, 4, 5];
 	const WORDS = ['', 'Not good', 'Okay', 'Good', 'Very good', 'Love it'];
@@ -109,8 +114,12 @@
 	];
 	const LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
 
-	/** "Deutsch A1.2", or the classic's own title. */
-	const bookName = (book: string) => (book === 'Kafka' ? 'Die Verwandlung' : `Deutsch ${book}`);
+	/** "Deutsch A1.2" for a course book, a classic's own title, anything else as it is. */
+	function bookName(book: string): string {
+		const classic = LITERATURE.find((b) => b.short === book);
+		if (classic) return classic.title;
+		return /^[ABC][12](.[12])?$/.test(book) ? `Deutsch ${book}` : book;
+	}
 </script>
 
 {#snippet closeButton(onclick: () => void)}
@@ -190,6 +199,28 @@
 	</aside>
 {/if}
 
+<!-- The book is on its way: the one moment a reader has something worth
+     passing on. The books page, in their language, to whoever they choose. -->
+{#snippet sendOn()}
+	{@const booksPath = withLang(lang.local, '/books')}
+	{@const words = t('I thought of you: twelve free German books with audio, from A1 to C2. No sign-up, nothing to pay.')}
+	<div class="send-on">
+		<p class="send-on-q">{t('Know someone who is learning German?')}</p>
+		<div class="row">
+			<a
+				class="btn wa"
+				href={whatsappLink(words, shareLink('download', booksPath))}
+				target="_blank"
+				rel="noopener"
+				onclick={() => trackShare('download', 'whatsapp', { book: feedback.dl?.book ?? '' })}
+			>
+				<Icon name="chat" size="1em" /> WhatsApp
+			</a>
+			<ShareButton where="download" look="ghost" label={t('Share')} text={words} path={booksPath} props={{ book: feedback.dl?.book ?? '' }} />
+		</div>
+	</div>
+{/snippet}
+
 {#snippet bridge()}
 	{@const c = feedback.dlCompanion}
 	{#if c && feedback.dl}
@@ -221,6 +252,7 @@
 					<a href={feedback.dl.href} download={feedback.dl.filename ?? ''}>{t('Not starting?')}</a>
 				</p>
 				{@render bridge()}
+				{@render sendOn()}
 				<button type="button" class="later" onclick={() => (feedback.dlOpen = false)}>{t('Not now')}</button>
 			{:else if feedback.dlPromo}
 				{@const p = feedback.dlPromo}
@@ -268,6 +300,7 @@
 						<span class="promo-btn">{p.cta} <Icon name="arrowRight" size="1em" /></span>
 					</span>
 				</a>
+				{@render sendOn()}
 				<button type="button" class="later" onclick={() => (feedback.dlOpen = false)}>{t('Not now')}</button>
 			{:else if !feedback.dlAnswered}
 				<p class="dl-q">{t('Who is this book for?')}</p>
@@ -300,8 +333,10 @@
 					</form>
 				{:else if feedback.dlCompanion}
 					{@render bridge()}
+					{@render sendOn()}
 					<button type="button" class="later" onclick={() => (feedback.dlOpen = false)}>{t('Not now')}</button>
 				{:else}
+					{@render sendOn()}
 					<button type="button" class="pill" onclick={() => (feedback.dlOpen = false)}>{t('Back to the page')}</button>
 				{/if}
 				<p class="note">
@@ -892,6 +927,35 @@
 		color: #fff;
 		font-weight: 700;
 		box-shadow: 0 12px 24px -14px rgba(201, 104, 59, 0.9);
+	}
+
+	/* Its own tinted card, so it reads as a second thing to do, not a footnote. */
+	.send-on {
+		display: flex;
+		flex-direction: column;
+		gap: 0.7rem;
+		padding: 1rem 1.1rem 1.1rem;
+		border-radius: calc(var(--radius) + 4px);
+		background: var(--accent-soft);
+	}
+
+	.send-on-q {
+		margin: 0;
+		font-family: 'Source Serif 4 Variable', 'Source Serif 4', ui-serif, Georgia, serif;
+		font-size: 1.2rem;
+		font-weight: 600;
+		line-height: 1.25;
+		color: var(--heading);
+	}
+
+	.send-on .row > :global(*) {
+		flex: 1 1 8rem;
+	}
+
+	/* The green of WhatsApp, with dark text: white on it is too faint to read. */
+	.send-on .wa {
+		background: #25d366;
+		color: #06301f;
 	}
 
 	.later {

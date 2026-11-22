@@ -6,6 +6,7 @@
 	import Icon from '$lib/icons/Icon.svelte';
 	import { t } from '$lib/i18n/t';
 	import { lang } from '$lib/i18n/lang.svelte';
+	import ShareNudge from '$lib/components/ShareNudge.svelte';
 
 	// The course and its version come from the root layout's
 	// load (see +layout.server.ts), so every page shows the same footer
@@ -18,10 +19,19 @@
 	 * `compact`: one slim row, for pages that must fit a phone screen without
 	 * scrolling (the swipe-deck home). The disclaimer shrinks to a line.
 	 */
-	let { compact = false }: { compact?: boolean } = $props();
+	/** `share`: off where the page around the footer already offers it (an exercise's More panel). */
+	let { compact = false, share = true }: { compact?: boolean; share?: boolean } = $props();
+
+	// The band above the links: on a phone the top bar has no room for a share
+	// button, so this is where a reader who got to the end of a page finds it.
+	const NO_SHARE = new Set(['/settings', '/backoffice', '/legal', '/contact', '/credits', '/forum/new']);
+	const canShare = $derived(share && !compact && !NO_SHARE.has(page.route.id ?? ''));
 </script>
 
 <footer class="foot" class:compact>
+	{#if canShare}
+		<div class="pass-on"><ShareNudge where="footer" /></div>
+	{/if}
 	<div class="about">
 		<a class="brand" href="/">
 			<Logo tile size="1.75rem" />
@@ -93,6 +103,11 @@
 		grid-template-columns: minmax(15rem, 1.3fr) 3.2fr;
 		gap: 2rem 3rem;
 		align-items: start;
+	}
+
+	.pass-on {
+		grid-column: 1 / -1;
+		font-size: 1rem;
 	}
 
 	.about {

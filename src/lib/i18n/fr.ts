@@ -8,6 +8,7 @@
 // Written by an AI, not yet checked by a native speaker (docs/french_review.md).
 
 export const FR: Record<string, string> = {
+	'Language': 'Langue',
 
 	// ── Added by tool/turkish/ui-merge.mjs ───────────────────
 	"Skip to content":
@@ -2806,4 +2807,52 @@ export const FR: Record<string, string> = {
 		"Ouvrir l'exercice",
 	"Play {n}":
 		"Écouter le {n}",
+	"Share this page":
+		"Partager cette page",
+	"Link copied":
+		"Lien copié",
+	"Share this exercise":
+		"Partager cet exercice",
+	"Share":
+		"Partager",
+	"I got {right} of {total} on this German exercise: “{topic}”. Can you beat it?":
+		"J'ai eu {right} sur {total} à cet exercice d'allemand : « {topic} ». Qui fait mieux ?",
+	"A free German exercise: “{topic}”":
+		"Un exercice d'allemand gratuit : « {topic} »",
+	"A friend got {right} of {total} here. Your turn.":
+		"Un ami a eu {right} sur {total} ici. À vous de jouer.",
+	"You: {a} of {b}. Your friend: {c} of {d}.":
+		"Vous : {a} sur {b}. Votre ami : {c} sur {d}.",
+	"Know someone who is learning German?":
+		"Vous connaissez quelqu'un qui apprend l'allemand ?",
+	"I thought of you: twelve free German books with audio, from A1 to C2. No sign-up, nothing to pay.":
+		"J'ai pensé à toi : douze livres d'allemand gratuits avec audio, de A1 à C2. Sans inscription, sans rien payer.",
+	"Share my result":
+		"Partager mon résultat",
+	"My German level: {level}. Find yours in ten minutes, free:":
+		"Mon niveau d'allemand : {level}. Trouvez le vôtre en dix minutes, gratuitement :",
+	"I know about {n} German words. How many do you know?":
+		"Je connais environ {n} mots allemands. Et vous, combien ?",
+	"Share my score":
+		"Partager mon score",
+	"If you know a friend who needs this, please share it with them.":
+		"Si vous connaissez quelqu'un à qui cela peut servir, n'hésitez pas à le lui envoyer.",
+	"Send it to a friend":
+		"Envoyez-le à un ami",
+	"Your message. Change it if you like.":
+		"Votre message. Modifiez-le si vous voulez.",
+	"Copy link":
+		"Copier le lien",
+	"Email":
+		"E-mail",
+	"QR code":
+		"Code QR",
+	"Someone next to you? They point their phone camera at this.":
+		"Quelqu'un à côté de vous ? Il vise ce code avec l'appareil photo de son téléphone.",
+	"Thank you for passing it on.":
+		"Merci de l'avoir partagé.",
+	"More ways":
+		"Autres moyens",
+	"I thought of you: a free German book with audio, level {level}. No sign-up, nothing to pay.":
+		"J'ai pensé à toi : un livre d'allemand gratuit avec audio, niveau {level}. Sans inscription, sans rien payer.",
 };

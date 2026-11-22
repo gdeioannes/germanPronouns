@@ -8,6 +8,7 @@
 // Written by an AI, not yet checked by a native speaker (docs/spanish_review.md).
 
 export const ES: Record<string, string> = {
+	'Language': 'Idioma',
 
 	// ── Added by tool/turkish/ui-merge.mjs ───────────────────
 	"Skip to content":
@@ -2808,4 +2809,52 @@ export const ES: Record<string, string> = {
 		"Abrir el ejercicio",
 	"Play {n}":
 		"Reproducir {n}",
+	"Share this page":
+		"Compartir esta página",
+	"Link copied":
+		"Enlace copiado",
+	"Share this exercise":
+		"Compartir este ejercicio",
+	"Share":
+		"Compartir",
+	"I got {right} of {total} on this German exercise: “{topic}”. Can you beat it?":
+		"Saqué {right} de {total} en este ejercicio de alemán: «{topic}». ¿Puedes superarlo?",
+	"A free German exercise: “{topic}”":
+		"Un ejercicio de alemán gratis: «{topic}»",
+	"A friend got {right} of {total} here. Your turn.":
+		"Un amigo sacó {right} de {total} aquí. Te toca.",
+	"You: {a} of {b}. Your friend: {c} of {d}.":
+		"Tú: {a} de {b}. Tu amigo: {c} de {d}.",
+	"Know someone who is learning German?":
+		"¿Conoces a alguien que esté aprendiendo alemán?",
+	"I thought of you: twelve free German books with audio, from A1 to C2. No sign-up, nothing to pay.":
+		"Me acordé de ti: doce libros de alemán gratis con audio, de A1 a C2. Sin registro y sin pagar nada.",
+	"Share my result":
+		"Compartir mi resultado",
+	"My German level: {level}. Find yours in ten minutes, free:":
+		"Mi nivel de alemán: {level}. Descubre el tuyo en diez minutos, gratis:",
+	"I know about {n} German words. How many do you know?":
+		"Sé unas {n} palabras en alemán. ¿Cuántas sabes tú?",
+	"Share my score":
+		"Compartir mi puntuación",
+	"If you know a friend who needs this, please share it with them.":
+		"Si conoces a alguien que lo necesite, compártelo con esa persona, por favor.",
+	"Send it to a friend":
+		"Envíaselo a un amigo",
+	"Your message. Change it if you like.":
+		"Tu mensaje. Cámbialo si quieres.",
+	"Copy link":
+		"Copiar enlace",
+	"Email":
+		"Correo",
+	"QR code":
+		"Código QR",
+	"Someone next to you? They point their phone camera at this.":
+		"¿Hay alguien a tu lado? Que apunte aquí con la cámara de su móvil.",
+	"Thank you for passing it on.":
+		"Gracias por compartirlo.",
+	"More ways":
+		"Otras formas",
+	"I thought of you: a free German book with audio, level {level}. No sign-up, nothing to pay.":
+		"Me acordé de ti: un libro de alemán gratis con audio, nivel {level}. Sin registro y sin pagar nada.",
 };

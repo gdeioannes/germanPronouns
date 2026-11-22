@@ -16,13 +16,17 @@ import { stripLang } from '$lib/i18n/paths';
 export type ShareWhere =
 	| 'nav' // the top bar's button, or the Menu's "Share this page"
 	| 'footer' // the band above the footer links
+	| 'books' // the ask at the top of the books page
+	| 'home' // the ask on the home page's book shelf
+	| 'reader' // the book reader's toolbar
 	| 'quiz' // an exercise's header or its More panel
 	| 'quiz_done' // an exercise's finished bar (carries the score)
 	| 'download' // the download panel, after a book started downloading
 	| 'book_thanks' // the book's thank-you card
 	| 'level' // a placement test or word check result
 	| 'game' // a game's own screen
-	| 'poll'; // the literature poll's thank-you, after a vote
+	| 'poll' // the literature poll's thank-you, after a vote
+	| 'chart'; // a grammar chart's page, or the charts page ('print' = the QR code in the printed book)
 
 /** The query parameter a score rides in: "9-10" = nine of ten. */
 export const SCORE_PARAM = 'score';
@@ -54,11 +58,24 @@ export function shareLink(where: ShareWhere, path?: string, score?: SharedScore 
 
 /** A WhatsApp link that opens the chat picker with the text and link written in. */
 export function whatsappLink(text: string, url: string): string {
-	return `https://wa.me/?text=${encodeURIComponent(`${text} ${url}`)}`;
+	return `https://wa.me/?text=${encodeURIComponent(`${text}\n${url}`)}`;
 }
 
+/** A Telegram link: the chat picker, with the link and the words under it. */
+export function telegramLink(text: string, url: string): string {
+	return `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`;
+}
+
+/** An email, ready to address: the words and the link in its body. */
+export function mailLink(subject: string, text: string, url: string): string {
+	return `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`${text}\n\n${url}`)}`;
+}
+
+/** The ways out of the share panel (`sheet` = the device's own share sheet). */
+export type ShareHow = 'sheet' | 'copy' | 'whatsapp' | 'telegram' | 'email' | 'qr';
+
 /** One share tap, by any way out. `route` is the page without its language prefix. */
-export function trackShare(where: ShareWhere, how: 'sheet' | 'copy' | 'whatsapp', props: Record<string, string | number> = {}): void {
+export function trackShare(where: ShareWhere, how: ShareHow, props: Record<string, string | number> = {}): void {
 	track('share_tap', { where, how, route: stripLang(location.pathname), ...props });
 }
 
@@ -67,7 +84,7 @@ export type ShareOutcome = 'shared' | 'copied' | 'cancelled' | 'failed';
 /**
  * Hands the link on. The share sheet when the browser has one; a learner who
  * closes the sheet has not shared, so that is not counted. Otherwise the link
- * (with its line of text in front, when there is one) goes to the clipboard.
+ * (under its line of text, when there is one) goes to the clipboard.
  */
 export async function share(opts: {
 	where: ShareWhere;
@@ -89,7 +106,7 @@ export async function share(opts: {
 		}
 	}
 	try {
-		await navigator.clipboard.writeText(opts.text ? `${opts.text} ${opts.url}` : opts.url);
+		await navigator.clipboard.writeText(opts.text ? `${opts.text}\n${opts.url}` : opts.url);
 		trackShare(opts.where, 'copy', opts.props);
 		return 'copied';
 	} catch {

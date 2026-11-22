@@ -40,7 +40,7 @@ describe('shareLink', () => {
 describe('whatsappLink', () => {
 	it('writes the text and the link into one message', () => {
 		expect(whatsappLink('Look: this', 'https://x.org/a?ref=share-download')).toBe(
-			'https://wa.me/?text=Look%3A%20this%20https%3A%2F%2Fx.org%2Fa%3Fref%3Dshare-download'
+			'https://wa.me/?text=Look%3A%20this%0Ahttps%3A%2F%2Fx.org%2Fa%3Fref%3Dshare-download'
 		);
 	});
 });

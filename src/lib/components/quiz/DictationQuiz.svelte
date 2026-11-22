@@ -55,7 +55,7 @@
 		quiz: DictationQuiz;
 		locale: string;
 		/** A run of RUN_LENGTH lines is over — the exercise counts as done. */
-		onRunFinished: (passed: boolean) => void;
+		onRunFinished: (passed: boolean, right: number, total: number) => void;
 		/** The line on screen, for "Report a problem". */
 		onQuestion?: (q: QuestionRef | null) => void;
 	} = $props();
@@ -237,7 +237,7 @@
 			bestStreak: bestInRun
 		});
 		clearSpot(quiz.storageKeyPrefix);
-		onRunFinished(passed);
+		onRunFinished(passed, right, RUN_LENGTH);
 		// The medal is the run's score; a better one than before is a medal moment.
 		const medal = scoreMedal(right, RUN_LENGTH, RUN_PASS_MARK / RUN_LENGTH);
 		const line = t('{right} of {n} heard right', { right, n: RUN_LENGTH });

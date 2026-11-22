@@ -15,6 +15,7 @@
 	import Announcer from '$lib/components/Announcer.svelte';
 	import MergePanel from '$lib/components/MergePanel.svelte';
 	import SignInSheet from '$lib/components/SignInSheet.svelte';
+	import SharePanel from '$lib/components/SharePanel.svelte';
 	import NotInLanguage from '$lib/components/NotInLanguage.svelte';
 	import FeedbackCard from '$lib/components/FeedbackCard.svelte';
 	import { feedback } from '$lib/state/feedback.svelte';
@@ -228,4 +229,5 @@
 <MergePanel />
 <SignInSheet />
 <FeedbackCard />
+<SharePanel />
 <Announcer />

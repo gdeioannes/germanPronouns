@@ -67,7 +67,7 @@
 		quiz: SuchbildQuiz;
 		locale: string;
 		/** A run of RUN_LENGTH finds is over — the hunt counts as done. */
-		onRunFinished: (passed: boolean) => void;
+		onRunFinished: (passed: boolean, right: number, total: number) => void;
 		/** The object being hunted, for "Report a problem". */
 		onQuestion?: (q: QuestionRef | null) => void;
 		/** Starts a fresh run, as the finish bar's "Try again" does. */
@@ -324,7 +324,7 @@
 		if (left) saveSpot<Spot>(quiz.storageKeyPrefix, left);
 		else clearSpot(quiz.storageKeyPrefix);
 		const passed = runPassed(right, RUN_LENGTH);
-		onRunFinished(passed);
+		onRunFinished(passed, right, RUN_LENGTH);
 		announce(
 			t('Run finished: {right} of {n} right — {result}. Your streak is {streak}.', { right, n: RUN_LENGTH, result: passed ? t('exercise done') : t('not this time'), streak })
 		);

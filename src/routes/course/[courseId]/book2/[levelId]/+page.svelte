@@ -5,6 +5,7 @@
 	import Book2 from '$lib/components/book2/Book2.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
 	import SiteNav from '$lib/components/SiteNav.svelte';
+	import { openShare } from '$lib/state/sharePanel.svelte';
 	import { returnTo, returnLabel } from '$lib/state/returnTo.svelte';
 	import { page } from '$app/state';
 	import type { PageData } from './$types';
@@ -363,6 +364,20 @@
 				</form>
 			{/if}
 			<span class="grow"></span>
+			<!-- A book is the thing a reader knows someone else needs. -->
+			<button
+				type="button"
+				class="btn share"
+				title={t('Share')}
+				onclick={() =>
+					openShare({
+						where: 'reader',
+						text: t('I thought of you: a free German book with audio, level {level}. No sign-up, nothing to pay.', { level: data.book.level }),
+						props: { book: data.book.level }
+					})}
+			>
+				<Icon name="share" size="1em" /> <span class="lbl">{t('Share')}</span>
+			</button>
 			<!-- The page is the book, laid out on A4 for print: the browser prints it as it is. -->
 			<button type="button" class="btn print" title={t('Print')} onclick={() => window.print()}>
 				<Icon name="printer" size="1em" /> <span class="lbl">{t('Print')}</span>
@@ -547,6 +562,15 @@
 	/* A small phone: one row still, so Print goes (nobody prints from one; the PDF stays). */
 	@media (max-width: 420px) {
 		.dl-bar .btn.print { display: none; }
+	}
+
+	.btn.share {
+		border: 1px solid var(--share-strong);
+		background: var(--share);
+		color: var(--share-ink);
+		font: inherit;
+		font-weight: 700;
+		cursor: pointer;
 	}
 
 	.btn.print {

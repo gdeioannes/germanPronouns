@@ -53,7 +53,10 @@
 	import { progress } from '$lib/state/progress.svelte';
 	import { storage } from '$lib/services/storage';
 	import { clearOpened, clearSpot, markOpened } from '$lib/state/resume';
-	import { track } from '$lib/services/analytics';
+	import { track, trackOnce } from '$lib/services/analytics';
+	import ShareButton from '$lib/components/ShareButton.svelte';
+	import { readScore, share, shareLink, type SharedScore } from '$lib/services/share';
+	import { announce } from '$lib/a11y.svelte';
 	import { onMount, tick, untrack } from 'svelte';
 	import type { PageData } from './$types';
 	import { inLang, inLangQuiz, localGloss } from '$lib/i18n/content.svelte';
@@ -189,13 +192,19 @@
 		notesCheckedFor = id;
 		// Paired with quiz_completed: the gap between them is the drop-off.
 		// `from: 'book'` when opened from a book page's quiz list (its `?book` flag).
+		// Once per exercise per visit: a reload, or coming back to it from the
+		// deck, is the same start.
 		untrack(() =>
-			track('quiz_started', {
-				course: course.id,
-				quiz: id,
-				type: quiz.type,
-				...(browser && page.url.searchParams.has(BOOK_PARAM) ? { from: 'book' } : {})
-			})
+			trackOnce(
+				'quiz_started',
+				{
+					course: course.id,
+					quiz: id,
+					type: quiz.type,
+					...(browser && page.url.searchParams.has(BOOK_PARAM) ? { from: 'book' } : {})
+				},
+				id
+			)
 		);
 		notesOpen = false;
 		moreOpen = false;
@@ -240,6 +249,42 @@
 		finished = false;
 		doneDismissed = false;
 		ladderOffer = null;
+		myScore = null;
+	}
+
+	// -- sharing ---------------------------------------------------------------
+	// The finished bar's Share sends the exercise on with the score in the link
+	// ("?score=9-10", services/share); whoever opens that link sees what there
+	// is to beat, and after their own run the two scores side by side. No
+	// account and no server: the score rides in the address.
+
+	/** This run's score, for the kinds that have one. */
+	let myScore = $state<SharedScore | null>(null);
+	/** The score in the link this exercise was opened from, if a friend sent it. */
+	let friend = $state<SharedScore | null>(null);
+	$effect(() => {
+		// Client only: a prerendered page has no query string.
+		friend = browser ? readScore(page.url.search) : null;
+	});
+
+	const shareText = $derived(
+		myScore
+			? t('I got {right} of {total} on this German exercise: “{topic}”. Can you beat it?', {
+					right: myScore.right,
+					total: myScore.total,
+					topic: topicOf(quiz.title)
+				})
+			: t('A free German exercise: “{topic}”', { topic: topicOf(quiz.title) })
+	);
+
+	let shareCopied = $state(false);
+	/** "Share this exercise" in the More panel. */
+	async function shareExercise() {
+		const outcome = await share({ where: 'quiz', url: shareLink('quiz'), text: shareText, props: { quiz: quiz.id } });
+		if (outcome !== 'copied') return;
+		shareCopied = true;
+		announce(t('Link copied'));
+		setTimeout(() => (shareCopied = false), 2400);
 	}
 
 	/** A medal-ladder drill's next medal, reported by the drill once it finishes. */
@@ -301,6 +346,7 @@
 		cards = false;
 		cardsDone = false;
 		cardsOffer = null;
+		myScore = null;
 	});
 
 	// The ribbon reads this quiz's stored medals, which load lazily: without
@@ -364,6 +410,7 @@
 	 * the answer history, a failed one too, so its misses count as weak spots.
 	 */
 	function passageFinished(passed: boolean, correct: number, total: number) {
+		if (passed) myScore = { right: correct, total };
 		void progress.recordPassage(
 			quiz.storageKeyPrefix,
 			Array.from({ length: total }, (_, i) => ({ correct: i < correct }))
@@ -377,7 +424,8 @@
 	 * A pass gets the fireworks; a weaker run just the chime. The medal, if
 	 * the streak earned one, was celebrated on the answer that crossed it.
 	 */
-	function runFinished(passed: boolean) {
+	function runFinished(passed: boolean, right?: number, total?: number) {
+		myScore = right !== undefined && total ? { right, total } : null;
 		void markDone();
 		doneDismissed = false;
 		if (passed) celebrate();
@@ -542,6 +590,10 @@
 					<span class="tool-label">{t('Report')}</span>
 				</button>
 			{/if}
+			<!-- On a phone the header is full: sharing is in the More panel there. -->
+			<span class="share-tool">
+				<ShareButton where="quiz" tone="accent" label={t('Share')} text={shareText} props={{ quiz: quiz.id }} />
+			</span>
 			<button
 				type="button"
 				class="tool"
@@ -561,6 +613,14 @@
 		<!-- The content is real and complete; the drill behind it is the
 		     minimum. Said plainly so nobody mistakes thin for finished. -->
 		<p class="preview">{t('Preview — the explanation is complete, the exercise is still being expanded.')}</p>
+	{/if}
+
+	{#if friend && !finished}
+		<!-- Opened from a friend's shared result: what there is to beat. -->
+		<p class="challenge">
+			<Icon name="trophy" size="1em" />
+			<span>{t('A friend got {right} of {total} here. Your turn.', { right: friend.right, total: friend.total })}</span>
+		</p>
 	{/if}
 
 	<main class="stage">
@@ -697,7 +757,12 @@
 	<aside class="done" transition:fly={{ y: 40, duration: 320, easing: cubicOut }}>
 		<p class="done-line">
 			<Icon name="check" size="1.15em" />
-			<span><strong>{t('Finished.')}</strong> {markedAs}</span>
+			<span>
+				<strong>{t('Finished.')}</strong> {markedAs}
+				{#if friend && myScore}
+					<span class="versus">{t('You: {a} of {b}. Your friend: {c} of {d}.', { a: myScore.right, b: myScore.total, c: friend.right, d: friend.total })}</span>
+				{/if}
+			</span>
 			<button type="button" class="done-close" aria-label={t('Hide')} onclick={() => (doneDismissed = true)}>
 				<Icon name="close" size="1em" />
 			</button>
@@ -726,6 +791,15 @@
 					<Icon name="cards" size="1em" /> {t('Deal me another card')}
 				</a>
 			{/if}
+			<!-- The one moment a learner has something to send: the run just done. -->
+			<ShareButton
+				where="quiz_done"
+				look="ghost"
+				label={myScore ? t('Share my score') : t('Share')}
+				text={shareText}
+				score={myScore}
+				props={{ quiz: quiz.id }}
+			/>
 		</div>
 	</aside>
 {:else if finished}
@@ -797,6 +871,9 @@
 		<button type="button" onclick={() => { moreOpen = false; tryAgain(); }}>
 			<Icon name="repeat" size="1.05em" /> {finished ? t('Try again') : t('Start over')}
 		</button>
+		<button type="button" onclick={shareExercise}>
+			<Icon name={shareCopied ? 'check' : 'share'} size="1.05em" /> {shareCopied ? t('Link copied') : t('Share this exercise')}
+		</button>
 		<a href="/course/{course.id}"><Icon name="cards" size="1.05em" /> {t('Your deck')}</a>
 		{#if quiz.level}
 			<a href={levelPath}><Icon name="book" size="1.05em" /> {levelTitle ?? quiz.level}</a>
@@ -834,7 +911,7 @@
 		<p class="photo-credit">{t('Photo: {credit}, Wikimedia Commons', { credit: data.photoCredit })}</p>
 	{/if}
 
-	<SiteFooter />
+	<SiteFooter share={false} />
 </Sheet>
 
 {#if canReport}
@@ -1039,6 +1116,27 @@
 		display: none;
 	}
 
+	/* A friend's score to beat, from a shared link: one quiet line. */
+	.challenge {
+		display: flex;
+		align-items: center;
+		gap: 0.45rem;
+		flex: none;
+		max-width: none;
+		margin: -0.25rem 0 0.6rem;
+		padding: 0.4rem 0.7rem;
+		border-radius: var(--radius-sm);
+		background: var(--accent-soft);
+		color: var(--accent-ink);
+		font-size: var(--step--1);
+		font-weight: 700;
+	}
+
+	.share-tool {
+		display: inline-flex;
+		align-items: center;
+	}
+
 	.preview {
 		flex: none;
 		margin: -0.25rem 0 0.6rem;
@@ -1145,8 +1243,15 @@
 		color: var(--right);
 	}
 
+	.versus {
+		display: block;
+		font-size: var(--step--1);
+		font-weight: 700;
+	}
+
 	.done-close {
 		display: inline-flex;
+		flex: none;
 		margin-inline-start: auto;
 		padding: 0.3rem;
 		border: 0;
@@ -1302,7 +1407,8 @@
 			height: 2.35rem;
 			padding: 0 0.7rem;
 		}
-		.tool-label {
+		.tool-label,
+		.share-tool {
 			display: none;
 		}
 		/* The switch drops to its two icons: the book and the pen carry the
@@ -1329,11 +1435,10 @@
 
 		/* Tight to the header: the on-screen keyboard rises over the lower
 		   half, and the answer field must stay above it. */
-		.done-actions .btn {
+		/* Four ways on, two by two. */
+		.done-actions :global(.btn) {
 			flex: 1 1 calc(50% - 0.3rem);
-		}
-		.done-actions .btn:last-child {
-			flex-basis: 100%;
+			padding-inline: 0.6rem;
 		}
 		.with-done .stage {
 			padding-bottom: 11rem;

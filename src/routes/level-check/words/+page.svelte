@@ -10,6 +10,8 @@
 	// made-up words correct the score) are in domain/wordCheck.
 	import Seo from '$lib/components/Seo.svelte';
 	import PageHelp from '$lib/components/PageHelp.svelte';
+	import ShareButton from '$lib/components/ShareButton.svelte';
+	import { t } from '$lib/i18n/t';
 	import Icon from '$lib/icons/Icon.svelte';
 	import { page } from '$app/state';
 	import { goto } from '$app/navigation';
@@ -337,6 +339,14 @@
 				<div class="after">
 					<button type="button" class="btn btn-ghost" onclick={start}><Icon name="repeat" size="1em" /> Check again</button>
 					<a class="btn btn-ghost" href="/level-check"><Icon name="calendar" size="1em" /> Your history</a>
+					<ShareButton
+						where="level"
+						look="ghost"
+						label={t('Share my result')}
+						text={t('I know about {n} German words. How many do you know?', { n: number(result.words) })}
+						path="/level-check/words"
+						props={{ level: here ?? '', check: 'words' }}
+					/>
 				</div>
 			</section>
 		{/if}

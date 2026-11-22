@@ -35,6 +35,11 @@
 	--line-strong: var(--outline);
 	--accent: var(--terracotta);
 	--accent-soft: #f7e6dd;
+	/* Sharing has a colour of its own, used for nothing else: wherever this
+	   yellow shows, it is a way to send the page to someone. */
+	--share: #f5c443;
+	--share-strong: #e9ae1c;
+	--share-ink: #1f3a5f;
 	/* The terracotta deepened for text and for fills behind white text: the
 	   brand tone itself is 3.8:1 on paper, under the 4.5:1 body text needs.
 	   Borders, dots and other non-text marks keep the brighter tone. */
@@ -449,6 +454,17 @@ input[type='number'] {
 .btn-ghost:hover:not(:disabled) {
 	border-color: var(--accent);
 	color: var(--accent-ink);
+}
+
+.btn-share {
+	background: var(--share);
+	border-color: var(--share-strong);
+	color: var(--share-ink);
+	font-weight: 700;
+}
+
+.btn-share:hover:not(:disabled) {
+	background: var(--share-strong);
 }
 
 .btn-quiet {

@@ -2,6 +2,8 @@
 	import { feedback } from '$lib/state/feedback.svelte';
 	import Seo from '$lib/components/Seo.svelte';
 	import SiteFooter from '$lib/components/SiteFooter.svelte';
+	import ShareNudge from '$lib/components/ShareNudge.svelte';
+	import { withLang } from '$lib/i18n/paths';
 	import { courseLd, websiteLd } from '$lib/seo';
 	// The front door. One product, one language pair: English → German. The
 	// hero shows the benefits and one key visual — a learner with the course's
@@ -261,6 +263,11 @@
 	<section class="book-shelf" aria-labelledby="book-shelf-title">
 		<h2 id="book-shelf-title">{lang.limited ? t('The twelve books, A1.1 to C2.2') : 'All twelve books, A1.1 to C2.2'}</h2>
 		<p>{t('Each one has twelve new places, twelve stories and real German documents. All free, 131 pages each.')}</p>
+		<ShareNudge
+			where="home"
+			text={t('I thought of you: twelve free German books with audio, from A1 to C2. No sign-up, nothing to pay.')}
+			path={withLang(lang.local, '/books')}
+		/>
 		<ul>
 			{#each SHELF as book (book.level)}
 				<li>

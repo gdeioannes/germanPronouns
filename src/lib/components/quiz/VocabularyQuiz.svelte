@@ -50,7 +50,7 @@
 		courseId: string;
 		locale: string;
 		/** A run of RUN_LENGTH cards is over — the deck counts as done. */
-		onRunFinished: (passed: boolean) => void;
+		onRunFinished: (passed: boolean, right: number, total: number) => void;
 		/** A source quiz id: start the deck on that quiz's words only. */
 		focusWord?: string | null;
 		/** The card on screen, for "Report a problem". */
@@ -271,7 +271,7 @@
 		if (left) saveSpot<Spot>(quiz.storageKeyPrefix, left);
 		else clearSpot(quiz.storageKeyPrefix);
 		const passed = runPassed(right, RUN_LENGTH);
-		onRunFinished(passed);
+		onRunFinished(passed, right, RUN_LENGTH);
 		announce(
 			t('Run finished: {right} of {n} right — {result}. Your streak is {streak}.', { right, n: RUN_LENGTH, result: passed ? t('exercise done') : t('not this time'), streak })
 		);

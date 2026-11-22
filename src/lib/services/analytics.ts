@@ -463,12 +463,61 @@ if (browser) {
 	}
 }
 
-/** Routes already counted in this tab: going back and forth is one view each. */
-const seenRoutes = new Set<string>();
+// ---------------------------------------------------------------------------
+// Once per visit. A visit is a browser tab (sessionStorage, gone when the tab
+// closes). Without this a reload, or a phone reader tapping a link three
+// times, counted again: in November 2026 a quarter of all screen_views and of
+// quiz_starteds were the same visitor on the same page.
+// ---------------------------------------------------------------------------
 
-/** Records one `screen_view` per route per page load. */
-export function trackScreenView(path: string): void {
-	if (!path || seenRoutes.has(path)) return;
-	seenRoutes.add(path);
-	track('screen_view', { route: path });
+const ONCE_KEY = 'lq_once';
+let once: Set<string> | null = null;
+
+function onceSet(): Set<string> {
+	if (once) return once;
+	try {
+		const stored = JSON.parse(sessionStorage.getItem(ONCE_KEY) ?? '[]');
+		once = new Set(Array.isArray(stored) ? stored : []);
+	} catch {
+		once = new Set();
+	}
+	return once;
 }
+
+/**
+ * `track`, but only the first time in this visit for the given key (the
+ * event's name when no key is given). For events that describe a state
+ * ("saw this page", "opened this exercise") rather than a fresh decision.
+ */
+export function trackOnce(
+	name: string,
+	props: Record<string, string | number | boolean> = {},
+	key = ''
+): void {
+	if (!browser) return;
+	const id = `${name}|${key}`;
+	const seen = onceSet();
+	if (seen.has(id)) return;
+	seen.add(id);
+	try {
+		// Capped: a long visit must not grow the store without end.
+		sessionStorage.setItem(ONCE_KEY, JSON.stringify([...seen].slice(-400)));
+	} catch {
+		// Blocked storage: once per page load is still kept, in memory.
+	}
+	track(name, props);
+}
+
+/** Records one `screen_view` per route per visit: back and forth, or a reload, is one view. */
+export function trackScreenView(path: string): void {
+	if (!path) return;
+	trackOnce('screen_view', { route: path }, path);
+}
+
+// ---------------------------------------------------------------------------
+// Sharing. A shared link carries ?ref=share-<where> (services/share.ts), which
+// resolveAttribution() above already reads: every event of the visit it brings
+// has source "share-<where>", channel "campaign". So an arrival needs no event
+// of its own, and "did a share bring anyone, and did they start a quiz?" is the
+// ordinary funnel filtered by source. The tap itself is `share_tap`.
+// ---------------------------------------------------------------------------

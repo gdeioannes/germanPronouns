@@ -1,9 +1,8 @@
 <script lang="ts">
-	// The share button: one tap sends the page on (services/share). On a phone
-	// that is the share sheet; elsewhere the link is copied and the button says
-	// so for a moment.
+	// The share button: one tap opens the share panel (SharePanel, mounted in
+	// the root layout) with the message and the ways to send it.
 	//
-	//   <ShareButton where="quiz" />                     a round icon
+	//   <ShareButton where="quiz" />                     a round icon (tone="accent": tinted)
 	//   <ShareButton where="nav" look="tag" … />         the top bar's labelled button
 	//   <ShareButton where="quiz_done" look="btn" … />   the site's filled button (ghost: outlined)
 	//
@@ -11,8 +10,8 @@
 	// page's own title.
 	import { t } from '$lib/i18n/t';
 	import Icon from '$lib/icons/Icon.svelte';
-	import { announce } from '$lib/a11y.svelte';
-	import { share, shareLink, type ShareWhere, type SharedScore } from '$lib/services/share';
+	import { openShare } from '$lib/state/sharePanel.svelte';
+	import type { ShareWhere, SharedScore } from '$lib/services/share';
 
 	let {
 		where,
@@ -26,7 +25,8 @@
 	}: {
 		where: ShareWhere;
 		look?: 'icon' | 'pill' | 'tag' | 'btn' | 'ghost';
-		tone?: 'muted' | 'light';
+		/** For the icon: grey, white (on a dark bar), or tinted so it stands out in a full row. */
+		tone?: 'muted' | 'light' | 'accent';
 		/** The words on (or, for the icon, read out for) the button. */
 		label?: string;
 		/** A line to send with the link. */
@@ -40,35 +40,20 @@
 	} = $props();
 
 	const words = $derived(label ?? t('Share this page'));
-	let copied = $state(false);
-	let timer: ReturnType<typeof setTimeout> | undefined;
 
-	async function onclick() {
-		const outcome = await share({ where, url: shareLink(where, path, score), text, props });
-		if (outcome !== 'copied') return;
-		copied = true;
-		announce(t('Link copied'));
-		clearTimeout(timer);
-		timer = setTimeout(() => (copied = false), 2400);
+	function onclick() {
+		openShare({ where, path, text, score, props });
 	}
 </script>
 
 {#if look === 'icon'}
-	<button
-		type="button"
-		class="icon-btn"
-		class:light={tone === 'light'}
-		class:copied
-		aria-label={words}
-		title={copied ? t('Link copied') : words}
-		{onclick}
-	>
-		<Icon name={copied ? 'check' : 'share'} size="1.15em" />
+	<button type="button" class="icon-btn" class:light={tone === 'light'} class:accent={tone === 'accent'} aria-label={words} title={words} {onclick}>
+		<Icon name="share" size="1.15em" />
 	</button>
 {:else}
-	<button type="button" class={look === 'btn' ? 'btn' : look === 'ghost' ? 'btn btn-ghost' : look} class:copied {onclick}>
-		<Icon name={copied ? 'check' : 'share'} size="1em" />
-		<span>{copied ? t('Link copied') : words}</span>
+	<button type="button" class={look === 'btn' || look === 'ghost' ? 'btn btn-share' : look} {onclick}>
+		<Icon name="share" size="1em" />
+		<span>{words}</span>
 	</button>
 {/if}
 
@@ -93,15 +78,48 @@
 		color: var(--heading);
 		background: var(--surface-alt);
 	}
-	.icon-btn.copied {
-		color: var(--right);
-	}
 	.icon-btn.light {
 		color: rgb(255 255 255 / 0.85);
 	}
 	.icon-btn.light:hover {
 		color: #fff;
 		background: rgb(255 255 255 / 0.12);
+	}
+
+	/* Icon only, where a labelled button would crowd the row, but the one
+	   solid disc in it: filled, a little larger, and a ring that spreads out
+	   from it three times when the page opens. */
+	.icon-btn.accent {
+		width: 2.6rem;
+		height: 2.6rem;
+		font-size: 1.1rem;
+		border: 1px solid var(--share-strong);
+		background: var(--share);
+		color: var(--share-ink);
+		box-shadow: 0 4px 10px -4px rgb(233 174 28 / 0.9);
+		animation: ring 1.8s var(--ease-out) 0.8s 3;
+	}
+	.icon-btn.accent:hover {
+		background: var(--share-strong);
+		color: var(--share-ink);
+		transform: scale(1.08);
+	}
+	@keyframes ring {
+		from {
+			box-shadow:
+				0 4px 10px -4px rgb(233 174 28 / 0.9),
+				0 0 0 0 rgb(245 196 67 / 0.8);
+		}
+		to {
+			box-shadow:
+				0 4px 10px -4px rgb(233 174 28 / 0.9),
+				0 0 0 0.9rem rgb(245 196 67 / 0);
+		}
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.icon-btn.accent {
+			animation: none;
+		}
 	}
 
 	.pill {
@@ -132,10 +150,10 @@
 		gap: 0.35rem;
 		height: 2.2rem;
 		padding: 0 0.8rem;
-		border: 1px solid var(--accent);
+		border: 1px solid var(--share-strong);
 		border-radius: 999px;
-		background: var(--accent-soft);
-		color: var(--accent-ink);
+		background: var(--share);
+		color: var(--share-ink);
 		font: inherit;
 		font-size: var(--step--1);
 		font-weight: 700;
@@ -146,13 +164,6 @@
 			color var(--fast) var(--ease-out);
 	}
 	.tag:hover {
-		background: var(--accent-ink);
-		color: #fff;
-	}
-
-	.pill.copied,
-	.tag.copied {
-		border-color: var(--right);
-		color: var(--right);
+		background: var(--share-strong);
 	}
 </style>

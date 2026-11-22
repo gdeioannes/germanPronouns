@@ -8,6 +8,7 @@
 // Written by an AI, not yet checked by a native speaker (docs/arabic_review.md).
 
 export const AR: Record<string, string> = {
+	'Language': 'اللغة',
 	"das Verb":
 		"das Verb",
 	"masculine, feminine, neuter":
@@ -2808,4 +2809,52 @@ export const AR: Record<string, string> = {
 		"افتح التمرين",
 	"Play {n}":
 		"تشغيل {n}",
+	"Share this page":
+		"شارك هذه الصفحة",
+	"Link copied":
+		"تم نسخ الرابط",
+	"Share this exercise":
+		"شارك هذا التمرين",
+	"Share":
+		"مشاركة",
+	"I got {right} of {total} on this German exercise: “{topic}”. Can you beat it?":
+		"حصلت على {right} من {total} في هذا التمرين الألماني: «{topic}». هل تستطيع التفوق عليّ؟",
+	"A free German exercise: “{topic}”":
+		"تمرين ألماني مجاني: «{topic}»",
+	"A friend got {right} of {total} here. Your turn.":
+		"حصل صديق لك على {right} من {total} هنا. حان دورك.",
+	"You: {a} of {b}. Your friend: {c} of {d}.":
+		"أنت: {a} من {b}. صديقك: {c} من {d}.",
+	"Know someone who is learning German?":
+		"هل تعرف شخصًا يتعلم الألمانية؟",
+	"I thought of you: twelve free German books with audio, from A1 to C2. No sign-up, nothing to pay.":
+		"تذكرتك: اثنا عشر كتابًا مجانيًا لتعلم الألمانية مع تسجيلات صوتية، من A1 إلى C2. بلا تسجيل وبلا مقابل.",
+	"Share my result":
+		"شارك نتيجتي",
+	"My German level: {level}. Find yours in ten minutes, free:":
+		"مستواي في الألمانية: {level}. اعرف مستواك في عشر دقائق، مجانًا:",
+	"I know about {n} German words. How many do you know?":
+		"أعرف نحو {n} كلمة ألمانية. كم كلمة تعرف أنت؟",
+	"Share my score":
+		"شارك نتيجتي",
+	"If you know a friend who needs this, please share it with them.":
+		"إذا كنت تعرف صديقًا يحتاج إلى هذا، فشاركه معه من فضلك.",
+	"Send it to a friend":
+		"أرسله إلى صديق",
+	"Your message. Change it if you like.":
+		"رسالتك. غيّرها إن شئت.",
+	"Copy link":
+		"انسخ الرابط",
+	"Email":
+		"البريد الإلكتروني",
+	"QR code":
+		"رمز QR",
+	"Someone next to you? They point their phone camera at this.":
+		"هل بجانبك أحد؟ يوجّه كاميرا هاتفه إلى هذا الرمز.",
+	"Thank you for passing it on.":
+		"شكرًا لمشاركتك.",
+	"More ways":
+		"طرق أخرى",
+	"I thought of you: a free German book with audio, level {level}. No sign-up, nothing to pay.":
+		"تذكرتك: كتاب مجاني لتعلم الألمانية مع تسجيلات صوتية، المستوى {level}. بلا تسجيل وبلا مقابل.",
 };

@@ -122,6 +122,14 @@ const RAW = {
 	share: {
 		d: 'M17.5 3.5a2.5 2.5 0 1 1 0 5a2.5 2.5 0 1 1 0-5Z M6.5 9.5a2.5 2.5 0 1 1 0 5a2.5 2.5 0 1 1 0-5Z M17.5 15.5a2.5 2.5 0 1 1 0 5a2.5 2.5 0 1 1 0-5Z M8.7 10.8l6.6-3.6 M8.7 13.2l6.6 3.6'
 	},
+	/** A paper plane — send it. */
+	send: { d: 'M20.5 3.5 3.5 10.5l6.5 3 3 6.5 7.5-16.5Z M10 13.5l4-4' },
+	/** An envelope. */
+	mail: { d: 'M4.5 6h15a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-15a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1Z M4 7.5l8 6 8-6' },
+	/** Three corner squares and a few dots — a QR code. */
+	qr: {
+		d: 'M4.5 4.5h5v5h-5Z M14.5 4.5h5v5h-5Z M4.5 14.5h5v5h-5Z M14.5 14.5h2v2h-2Z M19.5 14.5v0 M19.5 19.5v0 M14.5 19.5h2'
+	},
 	/** A wrapped box with a bow — a present. */
 	gift: {
 		d: 'M4.5 9h15v3.5h-15Z M5.5 12.5v7h13v-7 M12 9v10.5 M12 9C10.5 6 7.5 5.5 7.5 7.5S10.5 9 12 9Zm0 0c1.5-3 4.5-3.5 4.5-1.5S13.5 9 12 9Z'

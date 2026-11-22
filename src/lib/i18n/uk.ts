@@ -8,6 +8,7 @@
 // Written by an AI, not yet checked by a native speaker (docs/ukrainian_review.md).
 
 export const UK: Record<string, string> = {
+	'Language': 'Мова',
 
 	// ── Added by tool/turkish/ui-merge.mjs ───────────────────
 	"Skip to content":
@@ -2810,4 +2811,52 @@ export const UK: Record<string, string> = {
 		"Відкрити вправу",
 	"Play {n}":
 		"Відтворити {n}",
+	"Share this page":
+		"Поділитися цією сторінкою",
+	"Link copied":
+		"Посилання скопійовано",
+	"Share this exercise":
+		"Поділитися цією вправою",
+	"Share":
+		"Поділитися",
+	"I got {right} of {total} on this German exercise: “{topic}”. Can you beat it?":
+		"У мене {right} з {total} у цій вправі з німецької: «{topic}». Зможеш краще?",
+	"A free German exercise: “{topic}”":
+		"Безкоштовна вправа з німецької: «{topic}»",
+	"A friend got {right} of {total} here. Your turn.":
+		"Твій друг набрав тут {right} з {total}. Тепер твоя черга.",
+	"You: {a} of {b}. Your friend: {c} of {d}.":
+		"Ти: {a} з {b}. Твій друг: {c} з {d}.",
+	"Know someone who is learning German?":
+		"Знаєш когось, хто вчить німецьку?",
+	"I thought of you: twelve free German books with audio, from A1 to C2. No sign-up, nothing to pay.":
+		"Це для тебе: дванадцять безкоштовних книжок з німецької з аудіо, від A1 до C2. Без реєстрації, нічого платити не треба.",
+	"Share my result":
+		"Поділитися результатом",
+	"My German level: {level}. Find yours in ten minutes, free:":
+		"Мій рівень німецької: {level}. Дізнайся свій за десять хвилин, безкоштовно:",
+	"I know about {n} German words. How many do you know?":
+		"Я знаю приблизно {n} німецьких слів. А скільки знаєш ти?",
+	"Share my score":
+		"Поділитися результатом",
+	"If you know a friend who needs this, please share it with them.":
+		"Якщо знаєш друга, якому це потрібно, поділися з ним, будь ласка.",
+	"Send it to a friend":
+		"Надішли другові",
+	"Your message. Change it if you like.":
+		"Твоє повідомлення. Зміни його, якщо хочеш.",
+	"Copy link":
+		"Скопіювати посилання",
+	"Email":
+		"Ел. пошта",
+	"QR code":
+		"QR-код",
+	"Someone next to you? They point their phone camera at this.":
+		"Хтось поруч? Нехай наведе камеру телефона сюди.",
+	"Thank you for passing it on.":
+		"Дякуємо, що ділишся.",
+	"More ways":
+		"Інші способи",
+	"I thought of you: a free German book with audio, level {level}. No sign-up, nothing to pay.":
+		"Це для тебе: безкоштовна книжка з німецької з аудіо, рівень {level}. Без реєстрації, нічого платити не треба.",
 };
