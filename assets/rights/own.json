@@ -90,6 +90,10 @@
 		{
 			"pattern": "^static/img/photo/(web/)?(b2a12_woche_plan|b2a22_verabredung_kino|b2b11_bewerbung_anzeige|b2b12_abschied_cv|b2b21_interview_plakat|b2b22_forschung_zettel|b2c22_anspielung_doc)\\.jpg$",
 			"note": "Documents typeset for the books by tool/make-documents.mjs (timetable, cinema listing, job advert, CV, poster, flyer, job reference); people, firms and schools in them are made up."
+		},
+		{
+			"pattern": "^static/img/charts/",
+			"note": "Pages of the grammar charts book and its cover, rendered by tool/gen-charts.mjs from this project's own charts (HTML in tool/charts/src). The few drawings on them (the man on the cover and on the modal-verb and relative-clause charts, the girl on the gender chart) were made for this project with Google's Gemini image model."
 		}
 	]
 }
