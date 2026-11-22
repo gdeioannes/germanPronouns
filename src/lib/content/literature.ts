@@ -8,6 +8,11 @@ export interface LiteratureBook {
 	id: string;
 	author: string;
 	title: string;
+	/**
+	 * The short name saved with download answers and analytics ("Kafka"). Keep
+	 * it stable once a book is live, or old answers stop matching new ones.
+	 */
+	short: string;
 	/** The English title, as readers know it. */
 	en: string;
 	year: number;
@@ -29,6 +34,7 @@ export const LITERATURE: LiteratureBook[] = [
 		id: 'kafka-verwandlung',
 		author: 'Franz Kafka',
 		title: 'Die Verwandlung',
+		short: 'Kafka',
 		en: 'The Metamorphosis',
 		year: 1915,
 		level: 'B1–B2',
@@ -36,7 +42,7 @@ export const LITERATURE: LiteratureBook[] = [
 			'One morning a travelling salesman wakes up as a giant insect, and his first worry is the train he has missed. Short, gripping and darkly funny: the classic first novella for learners of German.',
 		inside: [
 			'The complete original text, in twelve reading stages of about 20 minutes',
-			'855 words explained in the margin, beside the line they are on',
+			'855 words explained in English: in the PDF beside the line they are on, online at the start of each stage',
 			'76 notes on grammar, idioms and Prague German at the foot of the page',
 			'A guide to the 1917 spelling, so daß and mußte never stop you',
 			'A dictionary at the back, A to Z, with the page that explains each word'
@@ -54,6 +60,11 @@ export const LITERATURE: LiteratureBook[] = [
 		read: '/literature/die-verwandlung'
 	}
 ];
+
+/** The name a downloaded PDF is saved under: "Franz Kafka - Die Verwandlung.pdf". */
+export function pdfFilename(book: LiteratureBook): string {
+	return `${book.author} - ${book.title}.pdf`;
+}
 
 /**
  * The forum topic where readers ask for the next book. It needs one fixed

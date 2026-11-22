@@ -7,18 +7,21 @@
 	import SiteFooter from '$lib/components/SiteFooter.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
 	import StoreEditions from '$lib/components/StoreEditions.svelte';
+	import BookPoll from '$lib/components/BookPoll.svelte';
 	import { returnTo, returnLabel } from '$lib/state/returnTo.svelte';
-	import { LITERATURE, bookRequestHref, bookRequestRule } from '$lib/content/literature';
+	import { LITERATURE, bookRequestHref, bookRequestRule, pdfFilename } from '$lib/content/literature';
 	import { track } from '$lib/services/analytics';
 	import { bookLd, breadcrumbLd, itemListLd } from '$lib/seo';
 	import { page } from '$app/state';
+
+	let { data } = $props();
 
 	const courseHref = $derived(page.data.site?.courseHref ?? '/');
 </script>
 
 <Seo
-	title="German classics annotated for English speakers, free PDF"
-	description="Read German classics in the original, like Kafka's Die Verwandlung, annotated for English speakers: reading stages, glossaries and notes on the language. Free PDF."
+	title="Free German books: classics with English notes, free PDF"
+	description="Free German books to read in the original: Kafka's Die Verwandlung with English notes, as a free PDF in short reading stages. Vote for the next free book."
 	path="/literature"
 	jsonLd={[
 		...LITERATURE.map(bookLd),
@@ -60,10 +63,10 @@
 						<a
 							class={book.read ? 'secondary' : 'primary'}
 							href={book.pdf.href}
-							download="{book.author} - {book.title}.pdf"
+							download={pdfFilename(book)}
 							onclick={(e) => {
 								track('literature_download', { book: book.id });
-								feedback.beforeDownload(e, { href: book.pdf.href, filename: `${book.author} - ${book.title}.pdf`, book: 'Kafka' });
+								feedback.beforeDownload(e, { href: book.pdf.href, filename: pdfFilename(book), book: book.short });
 							}}
 						>
 							<Icon name="download" size="1.05em" /> Download the free PDF
@@ -76,12 +79,13 @@
 		{/each}
 	</ol>
 
+	<BookPoll pictureCredits={data.pictureCredits} />
+
 	<!-- Requests go to one forum topic, so readers see and back each other's picks. -->
 	<section class="request" aria-labelledby="request-title">
-		<h2 id="request-title">Which book next?</h2>
+		<h2 id="request-title">Not on the list?</h2>
 		<p>
-			More books are on the way. Ask for the one you would like to read on the forum, or
-			back someone else's pick.
+			Ask for the book you would like to read on the forum, or back someone else's pick.
 		</p>
 		<p class="rule">{bookRequestRule()}</p>
 		<a class="request-link" href={bookRequestHref()}>

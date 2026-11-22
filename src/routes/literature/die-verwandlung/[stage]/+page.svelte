@@ -21,7 +21,7 @@
 	const next = $derived(s.n < data.count ? `${base}/stage-${s.n + 1}` : null);
 	const description = $derived(
 		clip(
-			`${s.en} Kafka's original German, with ${s.glossary.length} words explained in English and ${s.notes.length} notes on the language.`,
+			`${s.en} A free German book: Kafka's original, with ${s.glossary.length} words explained in English and ${s.notes.length} notes on the language.`,
 			160
 		)
 	);

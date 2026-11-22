@@ -1,0 +1,18 @@
+{
+	"_comment": "Pictures for the literature poll (content/bookPoll.ts) where no free picture passed the zero-doubt check on Wikimedia Commons. Made with `node tool/gen-images.mjs --manifest assets/images/literature_manifest.json --no-link`, then `node tool/lit-images.mjs ai <bookId>` frames them as static/img/lit/lit_<bookId>.webp.",
+	"style": "A book illustration in the manner of a 19th-century woodcut: black ink lines and cross-hatching only, on plain warm cream paper (#f4efe6), drawn directly on the paper with no frame, no border and no coloured panel. Calm, warm, a little old-fashioned. Wide empty margins around the scene. No letters, no words, no numbers, no signatures, no logos, no flags, no symbols or emblems of any kind. Portrait format.",
+	"images": [
+		{
+			"id": "lit_krambambuli",
+			"prompt": "A gamekeeper in a long coat and a hat with a feather stands at the edge of a beech forest, one hand resting on the head of a large, beautiful hunting dog that looks up at him faithfully. A shotgun hangs over his shoulder, barrel pointing to the sky. Autumn leaves on the ground."
+		},
+		{
+			"id": "lit_kleider-machen-leute",
+			"prompt": "A thin, shy young tailor in a splendid dark velvet coat with a fur collar steps down from a horse-drawn coach in the square of a small Swiss town; townspeople at an inn door bow to him as if he were a nobleman, while he looks unsure. Mountains far behind the gabled houses. No box or frame line around the scene, and nothing written or scribbled in the corners: no signature, no monogram, no initials."
+		},
+		{
+			"id": "lit_biene-maja",
+			"prompt": "A young honeybee with large curious eyes and shining wings flies out of a straw beehive into a summer meadow full of flowers, a beetle and a grasshopper watching her from a stalk of grass. Friendly, gentle, not a cartoon."
+		}
+	]
+}

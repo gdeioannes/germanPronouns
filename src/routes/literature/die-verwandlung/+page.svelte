@@ -7,7 +7,7 @@
 	import SiteFooter from '$lib/components/SiteFooter.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
 	import StoreEditions from '$lib/components/StoreEditions.svelte';
-	import { LITERATURE } from '$lib/content/literature';
+	import { LITERATURE, pdfFilename } from '$lib/content/literature';
 	import { track } from '$lib/services/analytics';
 	import { absoluteUrl, breadcrumbLd, readingBookLd } from '$lib/seo';
 	import { page } from '$app/state';
@@ -22,8 +22,8 @@
 </script>
 
 <Seo
-	title="Die Verwandlung in German with English notes, free online"
-	description="Read Kafka's Die Verwandlung in the original German, in twelve short stages, with the hard words explained in English and notes on the grammar as you read."
+	title="Die Verwandlung: a free German book with English notes"
+	description="Kafka's Die Verwandlung as a free German book: the original text in twelve short stages, hard words explained in English. Read online or as a free PDF."
 	{path}
 	type="article"
 	image={absoluteUrl(book.cover)}
@@ -64,10 +64,10 @@
 				<a
 					class="ghost"
 					href={book.pdf.href}
-					download="{book.author} - {book.title}.pdf"
+					download={pdfFilename(book)}
 					onclick={(e) => {
 						track('literature_download', { book: book.id, from: 'reader' });
-						feedback.beforeDownload(e, { href: book.pdf.href, filename: `${book.author} - ${book.title}.pdf`, book: 'Kafka' });
+						feedback.beforeDownload(e, { href: book.pdf.href, filename: pdfFilename(book), book: book.short });
 					}}
 				>
 					<Icon name="download" size="1em" /> PDF to print ({book.pdf.pages} pages)

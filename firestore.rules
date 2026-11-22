@@ -233,6 +233,44 @@ service cloud.firestore {
       allow write: if isSiteOwner();
     }
 
+    // -- literature poll -------------------------------------------------------
+    // book_votes/{bookId}: { count, en, es, fr, tr, ar, uk }. Everyone reads the
+    // counts. Anyone, no login, moves `count` by exactly one together with ONE
+    // language field by the same one (a vote, or taking it back); nothing ever
+    // goes below zero. Missing language fields count as 0. Moderators prune.
+    function voteLangs(d) {
+      return d.get('en', 0) + d.get('es', 0) + d.get('fr', 0) + d.get('tr', 0) + d.get('ar', 0) + d.get('uk', 0);
+    }
+
+    function voteLangStep(n, o, l, step) {
+      let delta = n.get(l, 0) - o.get(l, 0);
+      return n.get(l, 0) is int && n.get(l, 0) >= 0 && (delta == 0 || delta == step);
+    }
+
+    function voteStep(n, o, step) {
+      return n.count is int
+        && n.count >= 0
+        && n.count == o.get('count', 0) + step
+        && voteLangs(n) == voteLangs(o) + step
+        && voteLangStep(n, o, 'en', step)
+        && voteLangStep(n, o, 'es', step)
+        && voteLangStep(n, o, 'fr', step)
+        && voteLangStep(n, o, 'tr', step)
+        && voteLangStep(n, o, 'ar', step)
+        && voteLangStep(n, o, 'uk', step);
+    }
+
+    match /book_votes/{bookId} {
+      allow read: if true;
+      allow create: if bookId.matches('^[a-z0-9-]{2,40}$')
+        && request.resource.data.keys().hasOnly(['count', 'en', 'es', 'fr', 'tr', 'ar', 'uk'])
+        && voteStep(request.resource.data, {}, 1);
+      allow update: if request.resource.data.keys().hasOnly(['count', 'en', 'es', 'fr', 'tr', 'ar', 'uk'])
+        && (voteStep(request.resource.data, resource.data, 1)
+          || voteStep(request.resource.data, resource.data, -1));
+      allow delete: if isAdmin();
+    }
+
     // -- Wortblöcke world Bestenliste ----------------------------------------
     // The arcade way: everyone reads the board, anyone may append ONE score
     // with a five-letter name — no login, like the cabinets. Shape-checked,

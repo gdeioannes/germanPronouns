@@ -17,6 +17,17 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-11-22",
+    title: "Vote for the next free German book",
+    items: [
+      "The literature page now lists thirty German classics, five for each level from A1 to C2, from Max und Moritz and Heidi to Effi Briest and Faust. Every one is free to read and has a picture and a short summary.",
+      "Vote for the books you would like to read next. The one with the most votes is the next we turn into a free book with notes, like Kafka's Die Verwandlung.",
+      "Choose the language you want the notes in: English, Spanish, French, Turkish, Arabic or Ukrainian. The summaries switch to that language too.",
+      "After you vote, a share button lets you send the poll to friends: with their votes, your book could be next.",
+      "The Kafka PDF now saves with its real name, and the margin wording on the literature page is clearer.",
+    ],
+  },
+  {
+    date: "2026-11-22",
     title: "From the PDF straight into its first chapter",
     items: [
       "After you download a course book, the panel now shows that book's first chapter in the app: one tap opens it, with the dialogues to hear, the answers to check and the words to practise. Free, no account.",
