@@ -16,7 +16,7 @@
 </script>
 
 <Seo
-	title={t('About Language Quiz: a free German course by a learner')}
+	title={t('About us: who makes Language Quiz and why')}
 	description={t('The story behind Language Quiz: a free, accessible A1–C2 German course by a learner in Germany for people who struggle with linear courses. No account, no ads.')}
 	path="/about"
 	jsonLd={[

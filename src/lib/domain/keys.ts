@@ -14,6 +14,14 @@ export const SettingsKeys = {
 	lastContentId: 'last_content_id',
 	lastNounProgressionKey: 'last_noun_progression_key',
 	answerRevealMode: 'answer_reveal_mode',
+	/** Web-only. Only an explicit "false" turns it off: a wrong answer waits for Next, so the why gets read. */
+	waitAfterMiss: 'wait_after_miss',
+	/** Web-only. Only an explicit "true" turns it on: a right answer with a spelling note waits for Next. */
+	waitAfterSpelling: 'wait_after_spelling',
+	/** Web-only. Prefix for "1" once a one-time side tip has been closed (`tip_seen_<id>`). */
+	tipSeenPrefix: 'tip_seen_',
+	/** Web-only. Pinned exercises and questions, plus unpin notes (domain/pins). Synced with its own merge. */
+	pins: 'pinned_items',
 	progressionUnlockLaps: 'progression_unlock_laps',
 	showFirstLetterHint: 'show_first_letter_hint',
 	relaxedCorrection: 'relaxed_correction',

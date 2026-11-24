@@ -63,7 +63,7 @@
 	.talk {
 		display: flex;
 		flex-direction: column;
-		gap: 0.3rem;
+		gap: 0.55rem;
 		width: 10.5rem;
 		margin-block: -2.3rem -0.2rem;
 		font-size: 0.86rem;
@@ -171,6 +171,47 @@
 		}
 		.go button {
 			flex: 1 1 8rem;
+		}
+	}
+
+	/* Phones: a smaller band. The two bubbles sit side by side, the sentence is a
+	   step smaller and the two buttons share one row. */
+	@media (max-width: 36rem) {
+		.nudge {
+			gap: 0.7rem;
+			margin-top: 1.8rem;
+			padding: 0.9rem 0.9rem 1rem;
+			border-radius: 14px;
+		}
+		.talk {
+			flex-direction: row;
+			align-items: flex-end;
+			gap: 0.4rem;
+			width: auto;
+			margin-block: -1.8rem 0;
+			font-size: 0.75rem;
+		}
+		.b {
+			padding: 0.35rem 0.6rem;
+			border-radius: 11px;
+		}
+		.out {
+			align-self: auto;
+			order: 2;
+		}
+		.nudge p {
+			font-size: 1.05rem;
+			line-height: 1.25;
+		}
+		.go {
+			flex-wrap: nowrap;
+			gap: 0.45rem;
+		}
+		.go button {
+			flex: 1 1 0;
+			min-height: 2.5rem;
+			padding: 0 0.7rem;
+			font-size: 0.9rem;
 		}
 	}
 

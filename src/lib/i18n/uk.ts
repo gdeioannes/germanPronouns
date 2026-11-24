@@ -35,6 +35,8 @@ export const UK: Record<string, string> = {
 		"Обліковий запис",
 	"Sign in":
 		"Увійти",
+	"Open course app":
+		"Застосунок курсу",
 	"Open the course":
 		"Відкрити курс",
 	"new updates":
@@ -1963,7 +1965,7 @@ export const UK: Record<string, string> = {
 		"Спирається на вже завершене: «{topicOf}».",
 	"{n} left":
 		"Залишилося: {n}",
-	"About Language Quiz: a free German course by a learner":
+	"About us: who makes Language Quiz and why":
 		"Про Language Quiz: безкоштовний курс німецької від учня",
 	"About Language Quiz":
 		"Про Language Quiz",
@@ -2149,8 +2151,10 @@ export const UK: Record<string, string> = {
 		"Перейти на початкову сторінку",
 	"and pick your level there.":
 		"і вибери там свій рівень.",
-	"German textbooks A1 to C2, free PDF":
-		"Підручники німецької від A1 до C2, безкоштовні PDF",
+	"Free German Books A1–C2: 12 PDF Textbooks | Language Quiz":
+		"Безкоштовні підручники німецької PDF, A1–C2 | Language Quiz",
+	"Free German books, A1 to C2":
+		"Безкоштовні книжки з німецької, A1–C2",
 	"Books":
 		"Книжки",
 	"Contact Language Quiz: questions, mistakes and ideas":
@@ -2331,6 +2335,58 @@ export const UK: Record<string, string> = {
 		"Повільно",
 	"Wait for me":
 		"Зачекай на мене",
+	"Wait for Next after a wrong answer":
+		"Чекати на «Далі» після помилки",
+	"The correction and why it is right stay on screen until you press Next or Enter. Recommended: a mistake is the best moment to learn. Turn it off and the exercise moves on by itself, at the speed above.":
+		"Виправлення і пояснення залишаються на екрані, доки ти не натиснеш «Далі» або Enter. Рекомендовано: помилка — найкращий момент, щоб навчитися. Якщо вимкнути, вправа переходить далі сама, зі швидкістю, вибраною вище.",
+	"Wait for Next after a spelling slip":
+		"Чекати на «Далі» після описки",
+	"When an answer counts as right but a letter was off, like a missing umlaut, the note about it stays until you press Next or Enter. Off by default: the exercise moves on by itself.":
+		"Коли відповідь зараховано, але одна літера була неправильна, наприклад, бракує умлауту, примітка про це залишається, доки ти не натиснеш «Далі» або Enter. Типово вимкнено: вправа переходить далі сама.",
+	"Take your time with mistakes":
+		"Не поспішай із помилками",
+	"After a wrong answer, the exercise now waits so you can read why. Prefer to keep going? You can change this in Settings.":
+		"Після неправильної відповіді вправа тепер чекає: є час прочитати чому. Хочеш іти далі без пауз? Це можна змінити в Налаштуваннях.",
+	"Open Settings":
+		"Відкрити Налаштування",
+	"Got it":
+		"Зрозуміло",
+	// ── Pins ─────────────────────────────────────────────────
+	"Pin": "Закріпити",
+	"Pinned": "Закріплене",
+	"Unpin": "Відкріпити",
+	"Pin this exercise or this question to practise again": "Закріпи цю вправу або це запитання, щоб потренуватися ще раз",
+	"Pin this exercise": "Закріпити цю вправу",
+	"Unpin this exercise": "Відкріпити цю вправу",
+	"Pin this question": "Закріпити це запитання",
+	"Unpin this question": "Відкріпити це запитання",
+	"See everything pinned": "Переглянути все закріплене",
+	"Exercise pinned. Find it under Pinned in the menu.": "Вправу закріплено. Вона в розділі «Закріплене» в меню.",
+	"Exercise unpinned.": "Вправу відкріплено.",
+	"Question pinned. Find it under Pinned in the menu.": "Запитання закріплено. Воно в розділі «Закріплене» в меню.",
+	"Question unpinned.": "Запитання відкріплено.",
+	"What you saved to come back to. In any exercise, tap Pin at the top to save the whole exercise or the question on screen.":
+		"Збережене, щоб до нього повернутися. У будь-якій вправі натисни «Закріпити» вгорі, щоб зберегти всю вправу або запитання на екрані.",
+	"Unpinned.": "Відкріплено.",
+	"Undo": "Скасувати",
+	"Pinned again.": "Знову закріплено.",
+	"Nothing pinned yet": "Поки нічого не закріплено",
+	"Missed a sentence you want to see again, or found an exercise worth repeating? Open it, tap Pin at the top, and it waits for you here.":
+		"Є речення, яке хочеться побачити ще раз, або вправа, яку варто повторити? Відкрий її, натисни «Закріпити» вгорі, і вона чекатиме тут.",
+	"Questions": "Запитання",
+	"Practise my pinned questions": "Тренувати закріплені запитання",
+	"practise it in its exercise": "тренується у своїй вправі",
+	"Right the last three times. Ready to unpin it?": "Правильно три останні рази. Можна відкріпити?",
+	"Your pinned questions": "Твої закріплені запитання",
+	"1 question. A run is ten answers, so it comes back until the run is over.":
+		"1 запитання. Раунд — це десять відповідей, тож воно повертається, доки раунд не закінчиться.",
+	"{n} questions, mixed into runs of ten.": "Запитань: {n}, перемішані в раунди по десять.",
+	"{n} pinned questions are no longer in the course in that form and are left out.":
+		"Закріплених запитань, яких уже немає в курсі в такому вигляді: {n}. Їх пропущено.",
+	"Loading…": "Завантаження…",
+	"No fill-in questions pinned yet. Pin one from an exercise and practise it here.":
+		"Поки немає закріплених запитань із пропусками. Закріпи одне у вправі й тренуй його тут.",
+	"Back to Pinned": "Назад до закріпленого",
 	"Start where you like":
 		"Починай звідки хочеш",
 	"Every level is open from the start — nothing has to be unlocked. Already speak some German? Jump straight in at your level.":
@@ -2619,9 +2675,9 @@ export const UK: Record<string, string> = {
 		"Порада",
 	"Column for {w}":
 		"Стовпчик для {w}",
-	"Learn German Free — Swipe-Through Course, A1 to C2 | Language Quiz":
+	"Language Quiz: Free German Course, Books (PDF) & App, A1–C2":
 		"Вчи німецьку безкоштовно: курс у картках, від A1 до A2 | Language Quiz",
-	"Learn German from English with {n} free five-minute cards: lessons, quizzes and picture hunts, every sentence spoken. A1 to C2, no sign-up.":
+	"Free German resources, A1 to C2: {n} five-minute lessons and quizzes with audio, plus twelve free PDF books. No sign-up, no ads.":
 		"Вчи німецьку з поясненнями українською: {n} безкоштовних п’ятихвилинних карток з уроками, вікторинами й пошуком на малюнку, кожне речення озвучене. Від A1 до A2, без реєстрації.",
 	"Language Quiz — Swipe your way to German, free":
 		"Language Quiz: гортай картки й вчи німецьку безкоштовно",
@@ -2629,7 +2685,7 @@ export const UK: Record<string, string> = {
 		"Курс німецької для україномовних, які живуть у Німеччині або переїжджають туди: п’ятихвилинні картки з уроками, вікторинами й пошуком на малюнку, кожне речення озвучене, і книжка для кожного рівня, пов’язана із застосунком. Від A1 до A2, без облікового запису.",
 	"The story behind Language Quiz: a free, accessible A1–C2 German course by a learner in Germany for people who struggle with linear courses. No account, no ads.":
 		"Історія Language Quiz: безкоштовний доступний курс німецької A1–C2 від людини, яка вчить мову в Німеччині, для тих, кому важко з лінійними курсами. Без облікового запису, без реклами.",
-	"Twelve German books, one per level from A1.1 to C2.2: real places, stories, real documents and practice, 131 pages each. Read them online or download the free PDF.":
+	"Twelve free German textbooks (PDF), one per level from A1.1 to C2.2: real places, stories, real documents and practice. Read online or download, no sign-up.":
 		"Дванадцять книжок німецької, по одній на рівень від A1.1 до C2.2: справжні місця, історії, справжні документи і практика, по 131 сторінці. Читай онлайн або завантаж безкоштовний PDF.",
 	"Get in touch with the person behind Language Quiz: feedback, corrections, questions. One quick human check, then the email address.":
 		"Зв’яжися з автором Language Quiz: відгуки, виправлення, запитання. Одна коротка перевірка на людяність, і ось адреса електронної пошти.",

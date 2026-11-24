@@ -93,7 +93,7 @@ don't render in `words` items or in the hook line, so don't use them there.
   800 the trim leaves a few hundred pixels and the cover prints blurry. Topic pictures stay at 800.
 - **Public-domain and CC photos (Wikimedia Commons) are always an option** when a real photo beats a
   drawing: a station board, a market, a city. Credit them in the book's `credits` with author and
-  licence, the way the printed book does in `assets/content/chapters/de_cert_a1/_photos.json`.
+  licence, the way Book v2 does in `assets/content/book2/de_cert_a1/_photos.json`.
 - **The picture dictionary is drawn fresh** for each book, in the same study-book style (GDI,
   2026-10-21: the app's word-card pictures are not usable on paper). One plain object per word,
   ids `cpd_<word>`, shared between books, so a word drawn once is reused later.

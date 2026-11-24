@@ -63,6 +63,31 @@ export function revealPause(mode: AnswerRevealMode): number | null {
 	return mode === 'manual' ? null : REVEAL_PAUSE[mode];
 }
 
+/** What a checked answer turned out to be, for how long its reveal stays. */
+export type RevealOutcome = 'right' | 'spelling' | 'wrong';
+
+/** The two "wait for Next" switches that sit beside the speed. */
+export interface RevealHolds {
+	waitAfterMiss: boolean;
+	waitAfterSpelling: boolean;
+}
+
+/**
+ * The pause before moving on by itself, or null to wait for Next or Enter:
+ * always in 'manual'; after a miss unless the learner turned that off (on by
+ * default — the point is to read why); after a right answer with a spelling
+ * note only when they asked for it.
+ */
+export function revealPauseFor(
+	mode: AnswerRevealMode,
+	outcome: RevealOutcome,
+	holds: RevealHolds
+): number | null {
+	if (outcome === 'wrong' && holds.waitAfterMiss) return null;
+	if (outcome === 'spelling' && holds.waitAfterSpelling) return null;
+	return revealPause(mode);
+}
+
 /** How many answers the per-quiz history keeps; enough to rank weak spots. */
 const ANSWER_HISTORY_LIMIT = 200;
 /** How many of the latest answers say how the learner is doing *now*. */
@@ -192,6 +217,10 @@ class ProgressStore {
 	autoSpeak = $state(true);
 	/** How long the answer stays revealed before the next question. */
 	answerRevealMode = $state<AnswerRevealMode>('normal');
+	/** A wrong answer stays until Next or Enter. On by default. */
+	waitAfterMiss = $state(true);
+	/** A right answer with a spelling note stays until Next or Enter. Off by default. */
+	waitAfterSpelling = $state(false);
 	loaded = $state(false);
 
 	private pending: Promise<void> | null = null;
@@ -247,6 +276,8 @@ class ProgressStore {
 		if (mode === 'quick' || mode === 'normal' || mode === 'slow' || mode === 'manual') {
 			this.answerRevealMode = mode;
 		}
+		this.waitAfterMiss = (await storage.get(SettingsKeys.waitAfterMiss)) !== 'false';
+		this.waitAfterSpelling = (await storage.get(SettingsKeys.waitAfterSpelling)) === 'true';
 		this.loaded = true;
 	}
 
@@ -753,6 +784,21 @@ class ProgressStore {
 	async setAnswerRevealMode(value: AnswerRevealMode): Promise<void> {
 		this.answerRevealMode = value;
 		await storage.set(SettingsKeys.answerRevealMode, value);
+	}
+
+	async setWaitAfterMiss(value: boolean): Promise<void> {
+		this.waitAfterMiss = value;
+		await storage.set(SettingsKeys.waitAfterMiss, String(value));
+	}
+
+	async setWaitAfterSpelling(value: boolean): Promise<void> {
+		this.waitAfterSpelling = value;
+		await storage.set(SettingsKeys.waitAfterSpelling, String(value));
+	}
+
+	/** The pause after an answer, or null to wait for Next — speed and switches together. */
+	pauseFor(outcome: RevealOutcome): number | null {
+		return revealPauseFor(this.answerRevealMode, outcome, this);
 	}
 
 	/** Wipes every trace of progress — the "start over" path. */

@@ -11,9 +11,10 @@
 	// language that does not explain it asks first, in that language.
 	import { lang, setLang, type UiLang } from '$lib/i18n/lang.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
-	import { LANG_OPTIONS, LANGUAGE_LABEL } from '$lib/i18n/languages';
+	import { LANG_OPTIONS } from '$lib/i18n/languages';
+	import { t } from '$lib/i18n/t';
 	import { track } from '$lib/services/analytics';
-	import { addressIn } from '$lib/i18n/paths';
+	import { addressIn, hasTwin, stripLang } from '$lib/i18n/paths';
 	import { levelExplainedIn } from '$lib/i18n/content.svelte';
 	import { modal } from '$lib/a11y.svelte';
 
@@ -72,7 +73,11 @@
 		// the page has its own address in each language (/tr/…, /ar/…).
 		const url = new URL(location.href);
 		url.searchParams.delete('lang');
-		url.pathname = addressIn(code, url.pathname);
+		// Only pages built under the language prefix (A1–A2) move there; a
+		// B1–C2 page has no such address and would 404 on the static host, so it
+		// stays at its bare address and the saved choice switches the language.
+		const bare = stripLang(url.pathname);
+		url.pathname = hasTwin(bare) ? addressIn(code, bare) : bare;
 		location.replace(url);
 	}
 
@@ -119,7 +124,7 @@
 		bind:this={button}
 		aria-haspopup="menu"
 		aria-expanded={open}
-		aria-label="{LANGUAGE_LABEL}: {current.name}"
+		aria-label="{t('Language')}: {current.name}"
 		onclick={toggle}
 	>
 		<Icon name="globe" size="1.1em" />
@@ -157,7 +162,7 @@
 	{/if}
 
 	{#if open}
-		<div class="menu" role="menu" aria-label={LANGUAGE_LABEL}>
+		<div class="menu" role="menu" aria-label={t('Language')}>
 			{#each OPTIONS as o (o.code)}
 				<button
 					type="button"

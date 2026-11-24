@@ -314,6 +314,10 @@ export function websiteLd() {
 		'@context': 'https://schema.org',
 		'@type': 'WebSite',
 		name: SITE_NAME,
+		// The other ways people type the name: it tells a search engine the
+		// brand belongs to the home page, not to whichever page says it most.
+		alternateName: ['LanguageQuiz', 'languagequiz.org'],
+		description: 'Free German course, books and exercises, A1 to C2.',
 		url: SITE_URL,
 		inLanguage: lang.current,
 		publisher: ORGANIZATION

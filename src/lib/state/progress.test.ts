@@ -7,7 +7,7 @@
 // ribbon and an undercounted progress ring.
 
 import { beforeEach, describe, expect, it } from 'vitest';
-import { progress, revealPause } from './progress.svelte';
+import { progress, revealPause, revealPauseFor } from './progress.svelte';
 import { buildLadder } from '$lib/domain/ladder';
 import { quizStatsKeys, SettingsKeys } from '$lib/domain/keys';
 import { LEGACY_GOAL_STREAK } from '$lib/domain/progress';
@@ -313,5 +313,47 @@ describe('revealPause', () => {
 		expect(revealPause('normal')).toBe(1500);
 		expect(revealPause('slow')).toBe(3000);
 		expect(revealPause('manual')).toBeNull();
+	});
+});
+
+describe('revealPauseFor', () => {
+	const defaults = { waitAfterMiss: true, waitAfterSpelling: false };
+
+	it('waits for Next after a miss by default, and moves on after a right answer', () => {
+		expect(revealPauseFor('normal', 'wrong', defaults)).toBeNull();
+		expect(revealPauseFor('normal', 'right', defaults)).toBe(1500);
+		// A spelling note moves on unless asked otherwise.
+		expect(revealPauseFor('quick', 'spelling', defaults)).toBe(500);
+	});
+
+	it('follows the two switches', () => {
+		const drill = { waitAfterMiss: false, waitAfterSpelling: true };
+		expect(revealPauseFor('slow', 'wrong', drill)).toBe(3000);
+		expect(revealPauseFor('slow', 'spelling', drill)).toBeNull();
+	});
+
+	it('still waits after everything in "wait for me"', () => {
+		const off = { waitAfterMiss: false, waitAfterSpelling: false };
+		for (const outcome of ['right', 'spelling', 'wrong'] as const) {
+			expect(revealPauseFor('manual', outcome, off)).toBeNull();
+		}
+	});
+
+	it('defaults to waiting after a miss and keeps both switches across a reload', async () => {
+		const map = installStorage();
+		await progress.load();
+		expect(progress.waitAfterMiss).toBe(true);
+		expect(progress.waitAfterSpelling).toBe(false);
+
+		await progress.setWaitAfterMiss(false);
+		await progress.setWaitAfterSpelling(true);
+		await progress.setAnswerRevealMode('normal');
+		expect(map.get(SettingsKeys.waitAfterMiss)).toBe('false');
+		expect(map.get(SettingsKeys.waitAfterSpelling)).toBe('true');
+
+		await progress.load();
+		expect(progress.waitAfterMiss).toBe(false);
+		expect(progress.waitAfterSpelling).toBe(true);
+		expect(progress.pauseFor('wrong')).toBe(1500);
 	});
 });

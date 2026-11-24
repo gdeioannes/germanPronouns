@@ -10,7 +10,7 @@
 	import { lang } from '$lib/i18n/lang.svelte';
 	import { routeTranslated } from '$lib/i18n/available';
 
-	let { topic, tone = 'muted' }: { topic: string | null | undefined; tone?: 'muted' | 'light' } = $props();
+	let { topic, tone = 'muted' }: { topic: string | null | undefined; tone?: 'muted' | 'light' | 'row' } = $props();
 
 	// Turkish mode: help only for the screens that exist in Turkish.
 	const help = $derived(topic && (!lang.limited || routeTranslated(topic)) ? PAGE_HELP[topic] : undefined);
@@ -33,13 +33,15 @@
 		type="button"
 		class="help-btn"
 		class:light={tone === 'light'}
+		class:row={tone === 'row'}
 		aria-haspopup="dialog"
 		aria-controls="page-help"
 		aria-label={t('Help: {title}', { title: t(help.title) })}
 		title={t('How this works')}
 		onclick={() => (open = true)}
 	>
-		<Icon name="help" size="1.15em" />
+		<Icon name="help" size={tone === 'row' ? '1em' : '1.15em'} />
+		{#if tone === 'row'}<span>{t('How this works')}</span>{/if}
 	</button>
 	<div use:toBody>
 	<Sheet bind:open title={t(help.title)} id="page-help">
@@ -89,6 +91,23 @@
 	.help-btn.light:hover {
 		color: #fff;
 		background: rgb(255 255 255 / 0.12);
+	}
+	/* A line of the slim bar's menu (SiteNav): the icon and the words. */
+	.help-btn.row {
+		gap: 0.4rem;
+		width: auto;
+		height: auto;
+		border-radius: 0;
+		color: var(--heading);
+		font: inherit;
+		font-size: var(--step--1);
+		font-weight: 700;
+	}
+	.help-btn.row:hover {
+		background: none;
+	}
+	.help-btn.row :global(.icon) {
+		color: var(--accent-ink);
 	}
 	.help {
 		display: grid;

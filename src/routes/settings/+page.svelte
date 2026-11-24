@@ -13,8 +13,6 @@
 	import { forgetFirstSeen, track } from '$lib/services/analytics';
 	import { catalog } from '$lib/content';
 
-	/** The old whole-level printed book is withdrawn; flip back on with the new A1 book. */
-	const SHOW_PRINTED_BOOK = false;
 	import { loadCourse } from '$lib/content';
 	import { buildLadder } from '$lib/domain/ladder';
 	import { progress, type AnswerRevealMode } from '$lib/state/progress.svelte';
@@ -25,10 +23,11 @@
 	import type { PopulatedCourse } from '$lib/content/types';
 	import { lang, setLang, type UiLang } from '$lib/i18n/lang.svelte';
 	import { t } from '$lib/i18n/t';
-	import { LANG_OPTIONS, LANGUAGE_LABEL } from '$lib/i18n/languages';
+	import { LANG_OPTIONS } from '$lib/i18n/languages';
 	import { addressIn, pathLang } from '$lib/i18n/paths';
 	import { page } from '$app/state';
 	import { goto } from '$app/navigation';
+	import { tick } from 'svelte';
 
 	let course = $state<PopulatedCourse | null>(null);
 	let confirmingReset = $state(false);
@@ -38,6 +37,13 @@
 			const loaded = await loadCourse(catalog.defaultCourseId);
 			course = loaded;
 			if (!progress.loaded) await progress.load();
+			// Arrived from a tip (/settings#after-miss): the cards above have
+			// just grown, so the browser's own jump landed short. Go again.
+			const id = page.url.hash.slice(1);
+			if (id) {
+				await tick();
+				document.getElementById(id)?.scrollIntoView({ block: 'center' });
+			}
 		})();
 	});
 
@@ -111,7 +117,7 @@
 		<p class="lede">
 			{t('The language the site explains German in. Every level is open in every language; under each name you see which levels are explained in it.')}
 		</p>
-		<div class="segmented" role="radiogroup" aria-label={LANGUAGE_LABEL} use:radioKeys>
+		<div class="segmented" role="radiogroup" aria-label={t('Language')} use:radioKeys>
 			{#each LANG_OPTIONS as { code, name: label, dir } (code)}
 				<button
 					type="button"
@@ -330,6 +336,35 @@
 				</button>
 			{/each}
 		</div>
+		<!-- "Wait for me" already waits after every answer: nothing to choose then. -->
+		{#if progress.answerRevealMode !== 'manual'}
+			<label class="row target" id="after-miss">
+				<input
+					type="checkbox"
+					checked={progress.waitAfterMiss}
+					onchange={(e) => progress.setWaitAfterMiss(e.currentTarget.checked)}
+				/>
+				<span>
+					<strong>{t('Wait for Next after a wrong answer')}</strong>
+					<small>
+						{t('The correction and why it is right stay on screen until you press Next or Enter. Recommended: a mistake is the best moment to learn. Turn it off and the exercise moves on by itself, at the speed above.')}
+					</small>
+				</span>
+			</label>
+			<label class="row target" id="after-spelling">
+				<input
+					type="checkbox"
+					checked={progress.waitAfterSpelling}
+					onchange={(e) => progress.setWaitAfterSpelling(e.currentTarget.checked)}
+				/>
+				<span>
+					<strong>{t('Wait for Next after a spelling slip')}</strong>
+					<small>
+						{t('When an answer counts as right but a letter was off, like a missing umlaut, the note about it stays until you press Next or Enter. Off by default: the exercise moves on by itself.')}
+					</small>
+				</span>
+			</label>
+		{/if}
 	</section>
 
 	<section class="card">
@@ -348,26 +383,6 @@
 			{/each}
 		</ul>
 	</section>
-
-	<!-- Hidden 2026-11-05: the whole-level printed book (/book/<level>) is withdrawn
-	     until a new A1 book (Book v2 A1.1 + A1.2) replaces it. The progress pages stay
-	     reachable by URL so QR codes in any printed copy still open them. -->
-	{#if SHOW_PRINTED_BOOK}
-	<section class="card">
-		<h2>My book</h2>
-		<p class="lede">
-			Working through the printed book? Tell the app what you did on paper, unit by unit, and it counts as done here too. No check, no score: a tick is a tick.
-		</p>
-		<ul class="levels">
-			{#each ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'] as b (b)}
-				<li>
-					<span>Deutsch {b}</span>
-					<a href="/course/{course?.id ?? catalog.defaultCourseId}/book/{b}/progress">Open the checklist</a>
-				</li>
-			{/each}
-		</ul>
-	</section>
-	{/if}
 
 	{#if account.available && !lang.limited}
 		<section class="card">
@@ -538,6 +553,27 @@
 
 	.row input {
 		margin-top: 0.25rem;
+	}
+
+	/* The switch a tip linked to lights up for a moment. */
+	.row.target {
+		margin-inline: -0.6rem;
+		padding-inline: 0.6rem;
+		border-radius: var(--radius-sm);
+	}
+
+	.row.target:target {
+		animation: spotlight 2.4s ease-out;
+	}
+
+	@keyframes spotlight {
+		0%,
+		40% {
+			background: var(--accent-soft);
+		}
+		100% {
+			background: transparent;
+		}
 	}
 
 	/* A switch that the mute currently overrides. */

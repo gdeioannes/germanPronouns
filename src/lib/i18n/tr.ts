@@ -25,6 +25,7 @@ export const TR: Record<string, string> = {
 	Account: 'Hesap',
 	'Sign in': 'Giriş yap',
 	'Open the course': 'Kursu aç',
+	'Open course app': 'Uygulamayı aç',
 	'new updates': 'yeni güncellemeler',
 	Library: 'Kitaplık',
 	Menu: 'Menü',
@@ -1672,7 +1673,7 @@ export const TR: Record<string, string> = {
 		"Bitirdiğin “{topicOf}” konusunun üzerine kurulu.",
 	"{n} left":
 		"{n} kaldı",
-	"About Language Quiz: a free German course by a learner":
+	"About us: who makes Language Quiz and why":
 		"Language Quiz hakkında: bir öğrencinin ücretsiz Almanca kursu",
 	"About Language Quiz":
 		"Language Quiz hakkında",
@@ -1858,8 +1859,10 @@ export const TR: Record<string, string> = {
 		"Başlangıç sayfasına git",
 	"and pick your level there.":
 		"ve seviyeni orada seç.",
-	"German textbooks A1 to C2, free PDF":
-		"A1’den C2’ye Almanca ders kitapları, ücretsiz PDF",
+	"Free German Books A1–C2: 12 PDF Textbooks | Language Quiz":
+		"Ücretsiz Almanca kitapları PDF, A1–C2 | Language Quiz",
+	"Free German books, A1 to C2":
+		"Ücretsiz Almanca kitapları, A1–C2",
 	"Books":
 		"Kitaplar",
 	"Contact Language Quiz: questions, mistakes and ideas":
@@ -2040,6 +2043,58 @@ export const TR: Record<string, string> = {
 		"Yavaş",
 	"Wait for me":
 		"Beni bekle",
+	"Wait for Next after a wrong answer":
+		"Yanlış cevaptan sonra İleri'yi bekle",
+	"The correction and why it is right stay on screen until you press Next or Enter. Recommended: a mistake is the best moment to learn. Turn it off and the exercise moves on by itself, at the speed above.":
+		"Düzeltme ve neden doğru olduğu, İleri'ye ya da Enter'a basana kadar ekranda kalır. Önerilir: bir hata, öğrenmek için en iyi andır. Kapatırsan alıştırma yukarıdaki hızda kendiliğinden ilerler.",
+	"Wait for Next after a spelling slip":
+		"Yazım hatasından sonra İleri'yi bekle",
+	"When an answer counts as right but a letter was off, like a missing umlaut, the note about it stays until you press Next or Enter. Off by default: the exercise moves on by itself.":
+		"Bir cevap doğru sayıldığında ama bir harf yanlışsa (örneğin eksik bir umlaut), bununla ilgili not İleri'ye ya da Enter'a basana kadar kalır. Varsayılan olarak kapalı: alıştırma kendiliğinden ilerler.",
+	"Take your time with mistakes":
+		"Hatalarda acele etme",
+	"After a wrong answer, the exercise now waits so you can read why. Prefer to keep going? You can change this in Settings.":
+		"Yanlış bir cevaptan sonra alıştırma artık bekler, böylece nedenini okuyabilirsin. Devam etmeyi mi tercih edersin? Bunu Ayarlar'dan değiştirebilirsin.",
+	"Open Settings":
+		"Ayarları aç",
+	"Got it":
+		"Anladım",
+	// ── Pins ─────────────────────────────────────────────────
+	"Pin": "Sabitle",
+	"Pinned": "Sabitlenenler",
+	"Unpin": "Sabitlemeyi kaldır",
+	"Pin this exercise or this question to practise again": "Tekrar çalışmak için bu alıştırmayı ya da bu soruyu sabitle",
+	"Pin this exercise": "Bu alıştırmayı sabitle",
+	"Unpin this exercise": "Bu alıştırmanın sabitlemesini kaldır",
+	"Pin this question": "Bu soruyu sabitle",
+	"Unpin this question": "Bu sorunun sabitlemesini kaldır",
+	"See everything pinned": "Sabitlenenlerin hepsini gör",
+	"Exercise pinned. Find it under Pinned in the menu.": "Alıştırma sabitlendi. Menüde Sabitlenenler altında bulabilirsin.",
+	"Exercise unpinned.": "Alıştırmanın sabitlemesi kaldırıldı.",
+	"Question pinned. Find it under Pinned in the menu.": "Soru sabitlendi. Menüde Sabitlenenler altında bulabilirsin.",
+	"Question unpinned.": "Sorunun sabitlemesi kaldırıldı.",
+	"What you saved to come back to. In any exercise, tap Pin at the top to save the whole exercise or the question on screen.":
+		"Geri dönmek için kaydettiklerin. Herhangi bir alıştırmada üstteki Sabitle'ye dokun; alıştırmanın tamamını ya da ekrandaki soruyu kaydet.",
+	"Unpinned.": "Sabitleme kaldırıldı.",
+	"Undo": "Geri al",
+	"Pinned again.": "Yeniden sabitlendi.",
+	"Nothing pinned yet": "Henüz sabitlenen bir şey yok",
+	"Missed a sentence you want to see again, or found an exercise worth repeating? Open it, tap Pin at the top, and it waits for you here.":
+		"Yeniden görmek istediğin bir cümleyi mi kaçırdın, ya da tekrar etmeye değer bir alıştırma mı buldun? Aç, üstteki Sabitle'ye dokun; burada seni bekler.",
+	"Questions": "Sorular",
+	"Practise my pinned questions": "Sabitlediğim soruları çalış",
+	"practise it in its exercise": "kendi alıştırmasında çalış",
+	"Right the last three times. Ready to unpin it?": "Son üç kez doğru. Sabitlemeyi kaldırmaya hazır mısın?",
+	"Your pinned questions": "Sabitlediğin sorular",
+	"1 question. A run is ten answers, so it comes back until the run is over.":
+		"1 soru. Bir tur on cevaptır, bu yüzden tur bitene kadar tekrar gelir.",
+	"{n} questions, mixed into runs of ten.": "{n} soru, onluk turlara karıştırılmış.",
+	"{n} pinned questions are no longer in the course in that form and are left out.":
+		"Sabitlenen {n} soru artık kursta o haliyle yok, bu yüzden dışarıda bırakıldı.",
+	"Loading…": "Yükleniyor…",
+	"No fill-in questions pinned yet. Pin one from an exercise and practise it here.":
+		"Henüz sabitlenmiş boşluk doldurma sorusu yok. Bir alıştırmadan birini sabitle ve burada çalış.",
+	"Back to Pinned": "Sabitlenenlere dön",
 	"Start where you like":
 		"İstediğin yerden başla",
 	"Every level is open from the start — nothing has to be unlocked. Already speak some German? Jump straight in at your level.":
@@ -2337,9 +2392,9 @@ export const TR: Record<string, string> = {
 	'Tip': 'İpucu',
 	'Column for {w}': '{w} için sütun',
 	// Search titles and descriptions (the /tr/ and /ar/ pages)
-	"Learn German Free — Swipe-Through Course, A1 to C2 | Language Quiz":
+	"Language Quiz: Free German Course, Books (PDF) & App, A1–C2":
 		"Almanca Öğren: Türkçe Açıklamalı Ücretsiz Kurs, A1–A2 | Language Quiz",
-	"Learn German from English with {n} free five-minute cards: lessons, quizzes and picture hunts, every sentence spoken. A1 to C2, no sign-up.":
+	"Free German resources, A1 to C2: {n} five-minute lessons and quizzes with audio, plus twelve free PDF books. No sign-up, no ads.":
 		"Türkçe konu anlatımıyla Almanca öğren: A1 ve A2 için {n} kısa ders ve alıştırma, her cümle sesli, ücretsiz PDF kitaplar. Üyelik yok.",
 	"Language Quiz — Swipe your way to German, free":
 		"Language Quiz — Türkçe açıklamalı Almanca, ücretsiz",
@@ -2347,7 +2402,7 @@ export const TR: Record<string, string> = {
 		"Almanya’da yaşayan ya da Almanya’ya taşınan Türkçe konuşanlar için Almanca kursu: beş dakikalık kartlarla dersler ve alıştırmalar, her cümle sesli, her seviye için uygulamaya bağlı bir kitap. A1–A2, hesap gerekmez.",
 	"The story behind Language Quiz: a free, accessible A1–C2 German course by a learner in Germany for people who struggle with linear courses. No account, no ads.":
 		"Language Quiz’in hikâyesi: Almanya’da yaşayan bir öğrencinin, klasik kurslarda zorlananlar için hazırladığı ücretsiz ve erişilebilir Almanca kursu. Hesap yok, reklam yok.",
-	"Twelve German books, one per level from A1.1 to C2.2: real places, stories, real documents and practice, 131 pages each. Read them online or download the free PDF.":
+	"Twelve free German textbooks (PDF), one per level from A1.1 to C2.2: real places, stories, real documents and practice. Read online or download, no sign-up.":
 		"A1.1’den A2.2’ye dört Almanca kitap, Türkçe açıklamalı: gerçek yerler, hikâyeler, gerçek belgeler ve alıştırmalar. Ücretsiz PDF olarak indir.",
 	"Get in touch with the person behind Language Quiz: feedback, corrections, questions. One quick human check, then the email address.":
 		"Language Quiz’i hazırlayan kişiyle iletişime geç: görüş, düzeltme, soru. Kısa bir doğrulama, ardından e-posta adresi.",

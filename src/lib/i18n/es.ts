@@ -35,6 +35,8 @@ export const ES: Record<string, string> = {
 		"Cuenta",
 	"Sign in":
 		"Iniciar sesión",
+	"Open course app":
+		"Abrir la app",
 	"Open the course":
 		"Abrir el curso",
 	"new updates":
@@ -1965,7 +1967,7 @@ export const ES: Record<string, string> = {
 		"Se basa en «{topicOf}», que ya terminaste.",
 	"{n} left":
 		"quedan {n}",
-	"About Language Quiz: a free German course by a learner":
+	"About us: who makes Language Quiz and why":
 		"Acerca de Language Quiz: un curso de alemán gratuito hecho por alguien que lo está aprendiendo",
 	"About Language Quiz":
 		"Acerca de Language Quiz",
@@ -2151,8 +2153,10 @@ export const ES: Record<string, string> = {
 		"Ir a la página de inicio",
 	"and pick your level there.":
 		"y elige allí tu nivel.",
-	"German textbooks A1 to C2, free PDF":
-		"Libros de texto de alemán de A1 a C2, PDF gratis",
+	"Free German Books A1–C2: 12 PDF Textbooks | Language Quiz":
+		"Libros de alemán gratis en PDF, de A1 a C2 | Language Quiz",
+	"Free German books, A1 to C2":
+		"Libros de alemán gratis, de A1 a C2",
 	"Books":
 		"Libros",
 	"Contact Language Quiz: questions, mistakes and ideas":
@@ -2333,6 +2337,58 @@ export const ES: Record<string, string> = {
 		"Lenta",
 	"Wait for me":
 		"Espérame",
+	"Wait for Next after a wrong answer":
+		"Esperar a «Siguiente» tras un error",
+	"The correction and why it is right stay on screen until you press Next or Enter. Recommended: a mistake is the best moment to learn. Turn it off and the exercise moves on by itself, at the speed above.":
+		"La corrección y el porqué se quedan en pantalla hasta que pulses «Siguiente» o Intro. Recomendado: un error es el mejor momento para aprender. Si lo desactivas, el ejercicio avanza solo, a la velocidad de arriba.",
+	"Wait for Next after a spelling slip":
+		"Esperar a «Siguiente» tras un fallo de ortografía",
+	"When an answer counts as right but a letter was off, like a missing umlaut, the note about it stays until you press Next or Enter. Off by default: the exercise moves on by itself.":
+		"Cuando una respuesta cuenta como correcta pero falla una letra, como una diéresis olvidada, la nota se queda hasta que pulses «Siguiente» o Intro. Desactivado por defecto: el ejercicio avanza solo.",
+	"Take your time with mistakes":
+		"Tómate tu tiempo con los errores",
+	"After a wrong answer, the exercise now waits so you can read why. Prefer to keep going? You can change this in Settings.":
+		"Después de una respuesta incorrecta, el ejercicio ahora espera para que puedas leer el porqué. ¿Prefieres seguir sin parar? Puedes cambiarlo en Ajustes.",
+	"Open Settings":
+		"Abrir Ajustes",
+	"Got it":
+		"Entendido",
+	// ── Pins ─────────────────────────────────────────────────
+	"Pin": "Fijar",
+	"Pinned": "Fijados",
+	"Unpin": "Quitar",
+	"Pin this exercise or this question to practise again": "Fija este ejercicio o esta pregunta para practicarlos otra vez",
+	"Pin this exercise": "Fijar este ejercicio",
+	"Unpin this exercise": "Quitar este ejercicio de fijados",
+	"Pin this question": "Fijar esta pregunta",
+	"Unpin this question": "Quitar esta pregunta de fijados",
+	"See everything pinned": "Ver todo lo fijado",
+	"Exercise pinned. Find it under Pinned in the menu.": "Ejercicio fijado. Lo encuentras en Fijados, en el menú.",
+	"Exercise unpinned.": "Ejercicio quitado de fijados.",
+	"Question pinned. Find it under Pinned in the menu.": "Pregunta fijada. La encuentras en Fijados, en el menú.",
+	"Question unpinned.": "Pregunta quitada de fijados.",
+	"What you saved to come back to. In any exercise, tap Pin at the top to save the whole exercise or the question on screen.":
+		"Lo que guardaste para volver a ello. En cualquier ejercicio, toca Fijar arriba para guardar el ejercicio entero o la pregunta en pantalla.",
+	"Unpinned.": "Quitado de fijados.",
+	"Undo": "Deshacer",
+	"Pinned again.": "Fijado de nuevo.",
+	"Nothing pinned yet": "Todavía no has fijado nada",
+	"Missed a sentence you want to see again, or found an exercise worth repeating? Open it, tap Pin at the top, and it waits for you here.":
+		"¿Fallaste una frase que quieres volver a ver, o encontraste un ejercicio que vale la pena repetir? Ábrelo, toca Fijar arriba y te espera aquí.",
+	"Questions": "Preguntas",
+	"Practise my pinned questions": "Practicar mis preguntas fijadas",
+	"practise it in its exercise": "se practica en su ejercicio",
+	"Right the last three times. Ready to unpin it?": "Bien las tres últimas veces. ¿La quitas?",
+	"Your pinned questions": "Tus preguntas fijadas",
+	"1 question. A run is ten answers, so it comes back until the run is over.":
+		"1 pregunta. Una ronda son diez respuestas, así que vuelve hasta que termine la ronda.",
+	"{n} questions, mixed into runs of ten.": "{n} preguntas, mezcladas en rondas de diez.",
+	"{n} pinned questions are no longer in the course in that form and are left out.":
+		"{n} preguntas fijadas ya no están en el curso de esa forma y se dejan fuera.",
+	"Loading…": "Cargando…",
+	"No fill-in questions pinned yet. Pin one from an exercise and practise it here.":
+		"Todavía no hay preguntas de completar fijadas. Fija una desde un ejercicio y practícala aquí.",
+	"Back to Pinned": "Volver a Fijados",
 	"Start where you like":
 		"Empieza donde quieras",
 	"Every level is open from the start — nothing has to be unlocked. Already speak some German? Jump straight in at your level.":
@@ -2621,9 +2677,9 @@ export const ES: Record<string, string> = {
 		"Consejo",
 	"Column for {w}":
 		"Columna para {w}",
-	"Learn German Free — Swipe-Through Course, A1 to C2 | Language Quiz":
+	"Language Quiz: Free German Course, Books (PDF) & App, A1–C2":
 		"Aprende alemán gratis: un curso para deslizar, de A1 a C2 | Language Quiz",
-	"Learn German from English with {n} free five-minute cards: lessons, quizzes and picture hunts, every sentence spoken. A1 to C2, no sign-up.":
+	"Free German resources, A1 to C2: {n} five-minute lessons and quizzes with audio, plus twelve free PDF books. No sign-up, no ads.":
 		"Aprende alemán desde el español con {n} tarjetas gratis de cinco minutos: lecciones, quizzes y búsquedas en imágenes, cada frase en voz alta. De A1 a C2, sin registro.",
 	"Language Quiz — Swipe your way to German, free":
 		"Language Quiz: aprende alemán deslizando, gratis",
@@ -2631,7 +2687,7 @@ export const ES: Record<string, string> = {
 		"Un curso de alemán para hispanohablantes que viven en Alemania o van a mudarse allí: tarjetas de cinco minutos con lecciones, quizzes y búsquedas en imágenes, cada frase en voz alta, y un libro para cada nivel conectado con la app. De A1 a C2, sin cuenta.",
 	"The story behind Language Quiz: a free, accessible A1–C2 German course by a learner in Germany for people who struggle with linear courses. No account, no ads.":
 		"La historia de Language Quiz: un curso de alemán de A1 a C2 gratuito y accesible, creado en Alemania por alguien que aprende el idioma, para quienes tienen dificultades con los cursos lineales. Sin cuenta, sin anuncios.",
-	"Twelve German books, one per level from A1.1 to C2.2: real places, stories, real documents and practice, 131 pages each. Read them online or download the free PDF.":
+	"Twelve free German textbooks (PDF), one per level from A1.1 to C2.2: real places, stories, real documents and practice. Read online or download, no sign-up.":
 		"Doce libros de alemán, uno por nivel de A1.1 a C2.2: lugares reales, historias, documentos auténticos y práctica, 131 páginas cada uno. Léelos en línea o descarga el PDF gratis.",
 	"Get in touch with the person behind Language Quiz: feedback, corrections, questions. One quick human check, then the email address.":
 		"Ponte en contacto con la persona que hay detrás de Language Quiz: comentarios, correcciones, preguntas. Una comprobación rápida de que eres una persona y luego la dirección de correo.",

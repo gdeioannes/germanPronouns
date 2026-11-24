@@ -43,7 +43,8 @@
 	import { tick, untrack } from 'svelte';
 	import { drawFromShuffleBag } from '$lib/domain/shuffleBag';
 	import { RUN_LENGTH, runPassed, STREAK_LAP_SIZE } from '$lib/domain/progress';
-	import { MIN_SHOW, progress, revealPause } from '$lib/state/progress.svelte';
+	import { MIN_SHOW, progress } from '$lib/state/progress.svelte';
+	import { noteHeldMiss } from '$lib/state/sideTip.svelte';
 	import { clearSpot, loadSpot, saveSpot } from '$lib/state/resume';
 	import { announce } from '$lib/a11y.svelte';
 	import { freshen, prefersReducedMotion } from '$lib/motion';
@@ -555,8 +556,13 @@
 			await typeOut(canonical);
 		}
 		skip = moveOn;
-		const pause = revealPause(progress.answerRevealMode);
-		if (pause === null) return;
+		// A miss waits for Next by default, so the why gets read; a spelling
+		// note only if the learner asked for it in Settings.
+		const pause = progress.pauseFor(!correct ? 'wrong' : fixes.length ? 'spelling' : 'right');
+		if (pause === null) {
+			if (!correct) noteHeldMiss();
+			return;
+		}
 		// A spelling note, or a why under a miss, needs reading time of its own.
 		await wait(fixes.length || missWhy ? Math.max(pause * 2, 2500) : pause);
 		if (skip === moveOn) moveOn();

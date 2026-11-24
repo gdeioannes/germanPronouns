@@ -48,7 +48,8 @@
 	import { SettingsKeys } from '$lib/domain/keys';
 	import { tts } from '$lib/services/speech';
 	import { sayAnswer } from '$lib/services/sayAnswer';
-	import { MIN_SHOW, progress, revealPause } from '$lib/state/progress.svelte';
+	import { MIN_SHOW, progress } from '$lib/state/progress.svelte';
+	import { noteHeldMiss } from '$lib/state/sideTip.svelte';
 	import { clearSpot, loadSpot, saveSpot } from '$lib/state/resume';
 	import { announce } from '$lib/a11y.svelte';
 	import { onMount, untrack } from 'svelte';
@@ -171,6 +172,8 @@
 	let timers: ReturnType<typeof setTimeout>[] = [];
 	/** Set while an answer is on show: moves on now (Enter, or the button). */
 	let skip = $state<(() => void) | null>(null);
+	/** The answer waits for Next ("Wait for me", or a miss): show the button. */
+	let held = $state(false);
 
 	const locked = $derived(verdict !== null);
 	/** Dev aid for placing the boxes: `?spots` outlines and names every one. */
@@ -567,13 +570,18 @@
 
 		const moveOn = () => {
 			skip = null;
+			held = false;
 			clearTimers();
 			if (answered >= RUN_LENGTH) finishRun();
 			else next();
 		};
+		// A miss waits for Next by default (Settings can turn that off); a half
+		// is still a find and moves on.
+		const pause = progress.pauseFor(mark === 'wrong' ? 'wrong' : 'right');
+		held = pause === null;
+		if (held && mark === 'wrong') noteHeldMiss();
 		if (mark !== 'wrong') wait(MIN_SHOW).then(() => (skip ??= moveOn));
 		else await wait(600).then(() => (skip = moveOn));
-		const pause = revealPause(progress.answerRevealMode);
 		if (pause === null) {
 			skip ??= moveOn;
 			return;
@@ -795,7 +803,7 @@
 		{:else if blank}
 			{#key blank}<p class="nudge">{t('Nothing to find there — try another spot.')}</p>{/key}
 		{/if}
-		{#if locked && progress.answerRevealMode === 'manual'}
+		{#if locked && held}
 			<button type="button" class="btn next" disabled={!skip} onclick={() => skip?.()}>
 				{t('Next')} <Icon name="arrowRight" size="1em" />
 			</button>

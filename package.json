@@ -22,7 +22,6 @@
 		"story-sfx": "node tool/gen-story-sfx.mjs",
 		"story-review": "node tool/review-story.mjs",
 		"dictionary": "node tool/build-dictionary.mjs",
-		"books": "node tool/gen-books.mjs",
 		"charts": "node tool/gen-charts.mjs"
 	},
 	"devDependencies": {

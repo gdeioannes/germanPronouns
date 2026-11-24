@@ -24,6 +24,7 @@
 	import { account } from '$lib/state/account.svelte';
 	import { openSignIn } from '$lib/state/signin.svelte';
 	import { feedback } from '$lib/state/feedback.svelte';
+	import { pins } from '$lib/state/pins.svelte';
 	import PageHelp from '$lib/components/PageHelp.svelte';
 	import LangSwitch from '$lib/components/LangSwitch.svelte';
 	import ShareButton from '$lib/components/ShareButton.svelte';
@@ -31,7 +32,11 @@
 	import { t } from '$lib/i18n/t';
 	import { lang } from '$lib/i18n/lang.svelte';
 
-	onMount(initWhatsNew);
+	onMount(() => {
+		initWhatsNew();
+		// For the pin square beside the course button (pinnedSquare).
+		void pins.load();
+	});
 
 	// `level`: inside the course, the sub-level on screen, for the language
 	// button's question (LangSwitch).
@@ -89,8 +94,12 @@
 		if (inside) button?.focus();
 	}
 
-	// A click elsewhere closes them.
+	// A click elsewhere closes them. Not one inside a panel a menu line opened
+	// (the help sheet, the language question): those live at the end of <body>,
+	// and closing the menu would take the line, and its panel, away.
 	function onWindowPointer(event: PointerEvent) {
+		const target = event.target as Element | null;
+		if (target?.closest?.('.sheet, .backdrop')) return;
 		if ((open || dropdown) && root && !root.contains(event.target as Node)) {
 			open = false;
 			dropdown = null;
@@ -119,6 +128,20 @@
 	const NO_SHARE = new Set(['/settings', '/backoffice', '/legal', '/contact', '/credits', '/forum/new']);
 	const canShare = $derived(!NO_SHARE.has(page.route.id ?? ''));
 
+	// "You are here": the link, or the dropdown holding the page, is marked.
+	const GROUP_PATHS: Record<Menu, string[]> = {
+		library: ['/words', '/books', '/literature', '/charts', '/german-faq', '/stories', '/play'],
+		about: ['/about', '/changelog', '/forum', '/contact']
+	};
+	const under = (path: string) => bare === path || bare.startsWith(`${path}/`);
+	const here = $derived<Record<Menu, boolean>>({
+		library: GROUP_PATHS.library.some(under),
+		about: GROUP_PATHS.about.some(under)
+	});
+
+	/** Signed in, the account button shows the address's first letter. */
+	const initial = $derived(account.email?.trim().charAt(0).toUpperCase() ?? '');
+
 	function shareFromMenu() {
 		open = false;
 		openShare({ where: 'nav' });
@@ -137,14 +160,19 @@
 <!-- The three groups' links. `wide` adds the sub-heads the dropdown panels
      use; the phone list gets its own headings instead. -->
 {#snippet libraryLinks()}
-	<!-- Turkish mode lists only what exists in Turkish (i18n/available). -->
-	{#if !lang.limited}<a href="/words"><Icon name="words" size="1em" /> Word library</a>{/if}
+	<!-- Three kinds of thing, three short groups: what you read on screen,
+	     what you print, what you play. A limited language lists only what
+	     exists in it (i18n/available), which is the books, so no heads. -->
+	{#if !lang.limited}
+		<a href="/words"><Icon name="words" size="1em" /> Word library</a>
+		<a href="/literature"><Icon name="feather" size="1em" /> Literature</a>
+		<a href="/german-faq"><Icon name="help" size="1em" /> German FAQ</a>
+		<p class="group-head">Print</p>
+	{/if}
 	<a href="/books"><Icon name="book" size="1em" /> {t('The books')}</a>
 	{#if !lang.limited}
 		<a href="{courseHref}/worksheet"><Icon name="printer" size="1em" /> Printable sheets</a>
-		<a href="/literature"><Icon name="book" size="1em" /> Literature</a>
 		<a href="/charts"><Icon name="cards" size="1em" /> Grammar charts</a>
-		<a href="/german-faq"><Icon name="help" size="1em" /> German FAQ</a>
 		<!-- The games, story mode among them: there for whoever wants to play,
 		     never dealt into the deck or shown on the front page. -->
 		<p class="group-head">Games</p>
@@ -154,10 +182,32 @@
 	{/if}
 {/snippet}
 
+<!-- The learner's pins, in the full bar: a square in the course button's
+     colour, on its left, with how many are saved. It is the learner's own
+     list, so it is not a Library link, and it only shows once there is a pin
+     (under Menu it is a line of the top row, always). -->
+{#snippet pinnedSquare()}
+	{#if pins.items.length}
+		<a
+			class="pin-sq"
+			href="/pinned"
+			aria-label="{t('Pinned')} ({pins.items.length})"
+			title={t('Pinned')}
+			aria-current={under('/pinned') ? 'page' : undefined}
+		>
+			<Icon name="pin" size="1.15em" />
+			<span class="count" aria-hidden="true">{pins.items.length}</span>
+		</a>
+	{/if}
+{/snippet}
+
 <!-- "Your level": the word check (and later the placement test). A root link
      beside the levels, since it is how a learner finds which level is theirs. -->
-{#snippet levelCheckLink()}
-	<a class="level-link" href="/level-check"><Icon name="star" size="1em" /> {t('Your level')}</a>
+{#snippet levelCheckLink(icon = true)}
+	<a class="level-link" href="/level-check" aria-current={under('/level-check') ? 'page' : undefined}>
+		{#if icon}<Icon name="star" size="1em" />{/if}
+		{t('Your level')}
+	</a>
 {/snippet}
 
 <!-- The forum lives under About; its dot (a reply to your topic) also shows
@@ -189,9 +239,20 @@
 	<a href="/contact">{t('Contact')}</a>
 {/snippet}
 
-<!-- Rate the site, any time: opens the feedback panel (FeedbackCard). Always
-     in the bar — a star and a word in the full bar, the star alone in the slim
-     one — and in the phone menu. Styled exactly like Sign in beside it. -->
+<!-- The About dropdown in the full bar: its links, then Feedback as a row of
+     the same panel (the full bar has no Feedback button of its own). -->
+{#snippet aboutDrop()}
+	{@render aboutLinks()}
+	{#if feedback.available && !lang.limited}
+		<button type="button" class="panel-row" aria-haspopup="dialog" aria-controls="feedback-panel" onclick={openFeedback}>
+			<Icon name="star" size="1em" /> Feedback
+		</button>
+	{/if}
+{/snippet}
+
+<!-- Rate the site, any time: opens the feedback panel (FeedbackCard). A star and
+     a word under Menu; the full bar keeps it in the About dropdown
+     (aboutDrop). -->
 {#snippet feedbackLink()}
 	{#if feedback.available && !lang.limited}
 		<button type="button" class="sign-in" aria-haspopup="dialog" aria-controls="feedback-panel" onclick={openFeedback}>
@@ -204,22 +265,46 @@
 <!-- Sign in, in plain sight: the course needs no account, and saying so is
      part of the link's job, but a learner who has one should not have to
      hunt for it in settings. Signed in, it becomes the account itself. -->
-{#snippet signIn()}
+<!-- In the full bar it is the icon alone: a person, or once signed in a
+     filled disc with the address's first letter. Under Menu (the slim bar's
+     only place for it) it keeps its words. -->
+{#snippet signIn(labelled = false)}
 	{#if account.available && !lang.limited}
-		<button type="button" class="sign-in" aria-haspopup="dialog" aria-controls="sign-in-sheet" onclick={openSignIn}>
-			<Icon name="cloud" size="1em" />
-			{#if account.signedIn}
-				<span class="sign-in-label">{t('Account')}</span>
-			{:else}
-				<span class="sign-in-label">{t('Sign in')}</span>
-			{/if}
-		</button>
+		{@const label = account.signedIn ? t('Account') : t('Sign in')}
+		{#if labelled}
+			<button type="button" class="sign-in" aria-haspopup="dialog" aria-controls="sign-in-sheet" onclick={openSignIn}>
+				<Icon name="user" size="1em" />
+				<span class="sign-in-label">{label}</span>
+			</button>
+		{:else}
+			<button
+				type="button"
+				class="account"
+				aria-haspopup="dialog"
+				aria-controls="sign-in-sheet"
+				aria-label={label}
+				title={label}
+				onclick={openSignIn}
+			>
+				{#if account.signedIn && initial}
+					<span class="initial" aria-hidden="true">{initial}</span>
+				{:else}
+					<Icon name="user" size="1.15em" />
+				{/if}
+			</button>
+		{/if}
 	{/if}
 {/snippet}
 
-{#snippet cta()}
+<!-- The full bar has room to say it is an app, and for the books beside it:
+     most visitors come for the free books. On a phone the books button drops
+     its icon, and on the tightest ones it is the icon alone. -->
+{#snippet cta(books = false)}
+	{#if books && bare !== '/books'}
+		<a class="bar-cta books" href="/books" aria-label={t('Books')}><Icon name="book" size="1em" /> <span>{t('Books')}</span></a>
+	{/if}
 	{#if !inCourse}
-		<a class="bar-cta" href={courseHref}>{t('Open the course')}</a>
+		<a class="bar-cta" href={courseHref}>{t('Open course app')}</a>
 	{/if}
 {/snippet}
 
@@ -229,6 +314,7 @@
 		<button
 			type="button"
 			class="drop-btn"
+			class:here={here[menu]}
 			bind:this={dropButtons[menu]}
 			aria-expanded={dropdown === menu}
 			aria-controls="{menu}-menu"
@@ -236,8 +322,8 @@
 			onclick={() => toggle(menu)}
 		>
 			{label}
+			{#if dotted && dropdown !== menu}<span class="dot inline" aria-hidden="true"></span>{/if}
 			<Icon name="chevronDown" size="0.9em" class={dropdown === menu ? 'flip' : ''} />
-			{#if dotted && dropdown !== menu}<span class="dot" aria-hidden="true"></span>{/if}
 		</button>
 		{#if dropdown === menu}
 			<div
@@ -260,21 +346,42 @@
 	<div class="menu-links">
 		<div class="root-row">
 			{@render levelCheckLink()}
+			<!-- The slim bar shows the pins and the account itself. -->
+			{#if !compact || !pins.items.length}
+				<a href="/pinned">
+					<Icon name="pin" size="1em" />
+					{t('Pinned')}{#if pins.items.length}&nbsp;<span class="pin-count">{pins.items.length}</span>{/if}
+				</a>
+			{/if}
 			<a href="/settings" rel="nofollow"><Icon name="settings" size="1em" /> {t('Settings')}</a>
-			{@render signIn()}
-			{@render feedbackLink()}
+			{#if !compact}{@render signIn(true)}{/if}
+			<!-- The slim bar has feedback, help and the language in it, except on
+			     a phone, where they are lines of this row (`phone`). -->
+			{#if compact}
+				<span class="phone">{@render feedbackLink()}</span>
+			{:else}
+				{@render feedbackLink()}
+			{/if}
 			{#if canShare}
 				<button type="button" class="menu-share" onclick={shareFromMenu}>
 					<Icon name="share" size="1em" />
 					<span>{t('Share this page')}</span>
 				</button>
 			{/if}
+			{#if compact}
+				<span class="phone">
+					<PageHelp topic={page.route.id} tone="row" />
+					<LangSwitch bar where="course" {level} />
+				</span>
+			{/if}
 		</div>
 		<p class="group-head">{t('Library')}</p>
 		{@render libraryLinks()}
 		<p class="group-head">{t('About')}</p>
 		{@render aboutLinks()}
-		{@render cta()}
+		<!-- The full bar already shows the course button beside Menu; only the
+		     slim bar, which has none, gets it at the end of the list. -->
+		{#if compact}{@render cta()}{/if}
 	</div>
 {/snippet}
 
@@ -299,22 +406,46 @@
 	<header class="mini" class:tucked class:open bind:this={root}>
 		<div class="mini-row">
 			{@render brand()}
-			<!-- The places people jump to most sit in the bar as icons; the
-			     rest are one tap away under Menu. -->
-			{#if !lang.limited}
-				<a class="icon-link" href="/words" aria-label="Word library" title="Word library">
-					<Icon name="words" size="1.15em" />
+			<!-- The same order as the full bar: Share first, the one coloured
+			     button; then the grey tools, every one the same round size
+			     (word library, help for this screen, feedback, language); a
+			     hairline; then the learner's own places (pins once there are
+			     any, the account) and Menu. On a phone only the last group
+			     stays in the bar: the rest is in the menu's top row. -->
+			{#if canShare}<span class="share-slot"><ShareButton where="nav" look="tag" label={t('Share')} /></span>{/if}
+			<div class="tools">
+				{#if !lang.limited}
+					<a class="icon-link" href="/words" aria-label="Word library" title="Word library">
+						<Icon name="words" size="1.15em" />
+					</a>
+				{/if}
+				<!-- "?": how this screen works (content/pageHelp), on pages that have an entry. -->
+				<PageHelp topic={page.route.id} />
+				{#if feedback.available && !lang.limited}
+					<button
+						type="button"
+						class="icon-link"
+						aria-haspopup="dialog"
+						aria-controls="feedback-panel"
+						aria-label="Feedback"
+						title="Feedback"
+						onclick={openFeedback}
+					>
+						<Icon name="star" size="1.15em" />
+					</button>
+				{/if}
+				<!-- The language, inside the course too: switching to one that does
+				     not explain this level asks first (LangSwitch). -->
+				<LangSwitch bar where="course" {level} />
+				<span class="hair" aria-hidden="true"></span>
+			</div>
+			{#if pins.items.length}
+				<a class="icon-link pin" href="/pinned" aria-label="{t('Pinned')} ({pins.items.length})" title={t('Pinned')}>
+					<Icon name="pin" size="1.15em" />
+					<span class="count" aria-hidden="true">{pins.items.length}</span>
 				</a>
 			{/if}
-			<!-- "?": how this screen works (content/pageHelp), on pages that have an entry. -->
-			<PageHelp topic={page.route.id} />
-			<!-- Share this page. On a phone the bar is full: it is under Menu there. -->
-			{#if canShare}<span class="share-slot"><ShareButton where="nav" look="tag" label={t('Share')} /></span>{/if}
-			{@render feedbackLink()}
 			{@render signIn()}
-			<!-- The language, inside the course too: switching to one that does
-			     not explain this level asks first (LangSwitch). -->
-			<LangSwitch bar where="course" {level} />
 			{@render menuButtonSnippet()}
 		</div>
 		{#if open}
@@ -327,25 +458,29 @@
 	<header class="bar" class:open bind:this={root}>
 		<div class="bar-row">
 			{@render brand()}
-			<!-- Wide: the three dropdowns in the bar. Narrow: the way into the
-			     course always stays in the bar; the rest drop down under Menu,
-			     which shrinks to its icon so nothing has to wrap. -->
-			<div class="bar-end">
-				<nav class="wide" aria-label={t('Main')}>
-					{@render levelCheckLink()}
-					{@render drop('library', t('Library'), libraryLinks)}
-					{@render drop('about', t('About'), aboutLinks, false, (whatsNew.unseen || forum.unread.length > 0) && !lang.limited)}
-					{@render feedbackLink()}
-					{@render signIn()}
-					{@render cta()}
-				</nav>
-				<PageHelp topic={page.route.id} />
+			<!-- Wide, three parts: the brand; in the middle the links, with Share
+			     as the one coloured thing among them; at the end the quiet
+			     utilities (help, language), then the way into the course and the
+			     account. Narrow: the course button always stays in the bar; the
+			     rest drop down under Menu, which shrinks to its icon on a phone. -->
+			<nav class="wide" aria-label={t('Main')}>
+				{@render levelCheckLink(false)}
+				{@render drop('library', t('Library'), libraryLinks)}
+				{@render drop('about', t('About'), aboutDrop, false, (whatsNew.unseen || forum.unread.length > 0) && !lang.limited)}
 				{#if canShare}<span class="share-slot"><ShareButton where="nav" look="tag" label={t('Share')} /></span>{/if}
+			</nav>
+			<div class="bar-end">
+				<PageHelp topic={page.route.id} />
 				<!-- The language, from every page (the same picker as on the home
 				     photo, so not repeated there). -->
 				{#if bare !== '/'}<LangSwitch bar where="nav" />{/if}
+				<div class="wide-end">
+					{@render pinnedSquare()}
+					{@render cta(true)}
+					{@render signIn()}
+				</div>
 				<div class="narrow">
-					{@render cta()}
+					{@render cta(true)}
 					{@render menuButtonSnippet()}
 				</div>
 			</div>
@@ -403,6 +538,66 @@
 		font-size: var(--step--1);
 	}
 
+	/* A link is as tall as a finger, not as tall as its letters. */
+	.bar .wide > a,
+	.drop-btn {
+		padding-block: 0.5rem;
+	}
+
+	/* The course button and the account, behind a hairline that sets them
+	   apart from the help and language icons. */
+	.wide-end {
+		display: flex;
+		align-items: center;
+		gap: 0.6rem;
+		margin-inline-start: 0.4rem;
+		padding-inline-start: 1rem;
+		border-inline-start: 1px solid var(--line-strong);
+	}
+
+	/* The pins: a square as tall as the course button beside it. */
+	.pin-sq {
+		position: relative;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 2.35rem;
+		height: 2.35rem;
+		border-radius: 6px;
+		background: var(--heading);
+		color: #fff;
+		transition: background var(--fast) var(--ease-out);
+	}
+
+	.pin-sq:hover {
+		background: color-mix(in srgb, var(--heading) 86%, #000);
+	}
+
+	.pin-sq .count {
+		position: absolute;
+		top: -0.4rem;
+		inset-inline-end: -0.4rem;
+		display: grid;
+		place-items: center;
+		min-width: 1.1rem;
+		height: 1.1rem;
+		padding: 0 0.25rem;
+		border-radius: 999px;
+		background: var(--accent-ink);
+		color: #fff;
+		font-size: 0.68rem;
+		font-weight: 700;
+		line-height: 1;
+		box-shadow: 0 0 0 2px var(--bg);
+	}
+
+	/* You are here. */
+	.bar .wide > a[aria-current='page'],
+	.drop-btn.here {
+		color: var(--heading);
+		box-shadow: inset 0 -2px 0 var(--accent);
+	}
+
 	nav a {
 		color: var(--ink-muted);
 		text-decoration: none;
@@ -413,21 +608,45 @@
 		color: var(--heading);
 	}
 
-	.bar-cta {
-		padding: 0.45rem 0.95rem;
-		border: 1px solid var(--line-strong);
+	/* The filled buttons in the bar: the way into the course, and the books. */
+	a.bar-cta {
+		padding: 0.5rem 1rem;
+		border: 1px solid var(--heading);
 		border-radius: 6px;
-		color: var(--heading);
+		background: var(--heading);
+		color: #fff;
+		font-size: var(--step--1);
+		font-weight: 700;
+		text-decoration: none;
+		white-space: nowrap;
+		transition: background var(--fast) var(--ease-out);
 	}
 
-	/* On a phone the bar is brand + course button + Menu; the links drop down. */
-	@media (max-width: 40rem) {
-		.bar .wide {
+	a.bar-cta:hover {
+		background: color-mix(in srgb, var(--heading) 86%, #000);
+		color: #fff;
+	}
+
+	/* The books beside it: the same filled button, with its icon. */
+	a.bar-cta.books {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+	}
+
+	/* Below a laptop's width the links no longer fit on one line: the bar is
+	   brand + help + language + course button + Menu, and the links drop down. */
+	@media (max-width: 64rem) {
+		.bar .wide,
+		.wide-end {
 			display: none;
 		}
 		.narrow {
 			display: flex;
 		}
+	}
+
+	@media (max-width: 40rem) {
 		.bar-row {
 			gap: 0.5rem;
 			padding: 0.8rem 1rem;
@@ -453,9 +672,31 @@
 	}
 
 	/* Tightest phones: the wordmark goes, the mark alone carries the brand. */
-	@media (max-width: 24rem) {
+	@media (max-width: 30rem) {
 		.bar .brand span {
 			display: none;
+		}
+	}
+
+	/* Two buttons and the Menu on the smallest phones: the books button keeps its icon. */
+	@media (max-width: 26rem) {
+		.narrow .bar-cta.books :global(svg) {
+			display: none;
+		}
+		.narrow .bar-cta {
+			padding-inline: 0.6rem;
+		}
+	}
+
+	@media (max-width: 21rem) {
+		.narrow .bar-cta.books :global(svg) {
+			display: inline;
+		}
+		.narrow .bar-cta.books span {
+			display: none;
+		}
+		.narrow .bar-cta.books {
+			padding-inline: 0.6rem;
 		}
 	}
 
@@ -492,36 +733,76 @@
 		color: var(--accent-ink);
 	}
 
-	/* In the slim bar it is an icon like its neighbours. */
-	.mini .sign-in {
+	/* The account in the bars: a round icon button like help beside it. */
+	.account {
+		display: inline-flex;
+		align-items: center;
 		justify-content: center;
 		width: 2.2rem;
 		height: 2.2rem;
+		padding: 0;
+		border: 0;
 		border-radius: 50%;
+		background: none;
+		color: var(--ink-muted);
+		font: inherit;
+		cursor: pointer;
+		transition:
+			color var(--fast) var(--ease-out),
+			background var(--fast) var(--ease-out);
 	}
 
-	.mini .sign-in:hover {
+	.account:hover {
+		color: var(--heading);
 		background: var(--surface-alt);
 	}
 
-	.mini .sign-in .sign-in-label {
-		position: absolute;
-		width: 1px;
-		height: 1px;
-		overflow: hidden;
-		clip-path: inset(50%);
-		white-space: nowrap;
-	}
-
-	.mini .sign-in :global(.icon) {
-		color: var(--ink-muted);
+	.account .initial {
+		display: grid;
+		place-items: center;
+		width: 1.85rem;
+		height: 1.85rem;
+		border-radius: 50%;
+		background: var(--heading);
+		color: #fff;
+		font-size: var(--step--1);
+		font-weight: 700;
+		line-height: 1;
 	}
 
 	.menu-links .root-row {
+		/* The language list hangs from this row on a phone (LangSwitch). */
+		position: relative;
 		display: flex;
 		flex-wrap: wrap;
 		gap: 0.4rem 1.5rem;
 		align-items: center;
+	}
+
+	.pin-count {
+		color: var(--accent-ink);
+	}
+
+	/* The language list hangs from the row, at its end, so it can never run
+	   off either side wherever the button wraps to; the menu grows to hold
+	   it, so its last language is not cut off at the menu's edge. */
+	.menu-links :global(.lang-picker.bar) {
+		position: static;
+	}
+
+	.menu-links :global(.lang-picker .menu) {
+		top: calc(100% + 0.4rem);
+		inset-inline: auto 0;
+	}
+
+	.menu-links:has(:global(.lang-picker .menu)) {
+		min-height: 31rem;
+	}
+
+	@media (max-width: 40rem) {
+		.menu-links :global(.lang-picker .menu) {
+			inset-inline: 0;
+		}
 	}
 
 	/* Under Menu the share link keeps its words in both bars: on a phone it is
@@ -547,6 +828,11 @@
 	/* The bar's share icon: only where the bar has room for one more. */
 	.share-slot {
 		display: inline-flex;
+	}
+
+	/* In the bars Share takes the corners of the buttons around it. */
+	.share-slot :global(.tag) {
+		border-radius: 6px;
 	}
 
 	@media (max-width: 40rem) {
@@ -598,11 +884,6 @@
 		transform: rotate(180deg);
 	}
 
-	.drop-btn .dot {
-		top: -0.15rem;
-		inset-inline-end: -0.6rem;
-	}
-
 	.drop-panel {
 		position: absolute;
 		top: calc(100% + 0.7rem);
@@ -627,12 +908,37 @@
 		border-radius: var(--radius-sm);
 	}
 
-	.drop-panel a:hover {
+	.drop-panel a:hover,
+	.panel-row:hover {
 		background: var(--surface-alt);
+		color: var(--heading);
 	}
 
-	.drop-panel a :global(.icon) {
+	.drop-panel a :global(.icon),
+	.panel-row :global(.icon) {
 		color: var(--accent-ink);
+	}
+
+	/* A group's head starts where the rows' icons do. */
+	.drop-panel .group-head {
+		padding-inline: 0.75rem;
+	}
+
+	/* A button that is a row of the panel (Feedback opens a dialog). */
+	.panel-row {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		white-space: nowrap;
+		padding: 0.5rem 0.75rem;
+		border: 0;
+		border-radius: var(--radius-sm);
+		background: none;
+		color: var(--ink-muted);
+		font: inherit;
+		font-weight: 600;
+		text-align: start;
+		cursor: pointer;
 	}
 
 	/* In the dropdown the mark rides beside the words instead of on an icon. */
@@ -723,24 +1029,6 @@
 		height: 24px;
 	}
 
-	.icon-link {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		width: 2.2rem;
-		height: 2.2rem;
-		border-radius: 50%;
-		color: var(--ink-muted);
-		transition:
-			color var(--fast) var(--ease-out),
-			background var(--fast) var(--ease-out);
-	}
-
-	.icon-link:hover {
-		color: var(--heading);
-		background: var(--surface-alt);
-	}
-
 	.menu {
 		position: relative;
 		display: inline-flex;
@@ -756,6 +1044,104 @@
 		font-size: var(--step--1);
 		font-weight: 600;
 		cursor: pointer;
+	}
+
+	/* The slim bar: one size for everything in it. Each grey tool is a 2.2rem
+	   round target with the same icon size; Share and Menu are 2.2rem tall;
+	   all of it sits on one centre line. */
+	.tools {
+		display: flex;
+		align-items: center;
+		gap: 0.15rem;
+	}
+
+	/* Every icon in the row is drawn at one size, whatever the font size of
+	   the button it sits in (those differ: a bare button, a link, the
+	   language picker), and the language button is as tall as the rest and
+	   as grey. */
+	.mini .mini-row :global(.icon) {
+		width: 1.15rem;
+		height: 1.15rem;
+	}
+
+	.mini .mini-row :global(.lang-picker .trigger) {
+		height: 2.2rem;
+		padding-block: 0;
+	}
+
+	.mini .mini-row :global(.lang-picker .trigger .icon) {
+		color: inherit;
+	}
+
+	.icon-link {
+		position: relative;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 2.2rem;
+		height: 2.2rem;
+		padding: 0;
+		border: 0;
+		border-radius: 50%;
+		background: none;
+		color: var(--ink-muted);
+		font: inherit;
+		cursor: pointer;
+		transition:
+			color var(--fast) var(--ease-out),
+			background var(--fast) var(--ease-out);
+	}
+
+	.icon-link:hover {
+		color: var(--heading);
+		background: var(--surface-alt);
+	}
+
+	/* How many pins, on the icon's corner. */
+	.icon-link .count {
+		position: absolute;
+		top: 0;
+		inset-inline-end: -0.1rem;
+		display: grid;
+		place-items: center;
+		min-width: 1rem;
+		height: 1rem;
+		padding: 0 0.2rem;
+		border-radius: 999px;
+		background: var(--accent-ink);
+		color: #fff;
+		font-size: 0.62rem;
+		font-weight: 700;
+		line-height: 1;
+		box-shadow: 0 0 0 2px var(--bg);
+	}
+
+	/* The hairline between the tools and the learner's own places. */
+	.hair {
+		width: 1px;
+		height: 1.4rem;
+		margin-inline: 0.45rem 0.3rem;
+		background: var(--line-strong);
+	}
+
+	.mini .menu {
+		height: 2.2rem;
+		margin-inline-start: 0.3rem;
+		padding-block: 0;
+	}
+
+	/* The lines of the menu's top row that only a phone needs. */
+	.menu-links .phone {
+		display: none;
+	}
+
+	@media (max-width: 40rem) {
+		.tools {
+			display: none;
+		}
+		.menu-links .phone {
+			display: contents;
+		}
 	}
 
 	.menu .dot {
@@ -805,10 +1191,15 @@
 		margin-top: 0.3rem;
 	}
 
-	.menu-links .bar-cta {
+	/* A button, not a row of the list: it keeps its own padding and takes no
+	   row line on a phone. */
+	.menu-links a.bar-cta {
 		grid-column: 1 / -1;
 		justify-self: start;
 		margin-top: 1rem;
+		padding: 0.5rem 1rem;
+		border: 1px solid var(--heading);
+		font-size: var(--step--1);
 	}
 
 	/* On phones the links stack as full-width rows. */

@@ -10,7 +10,8 @@
 // would inflate a weak spot a little more with each start-up until the
 // worksheet thought the learner could do nothing right.
 
-import { quizStatsKeys } from './keys';
+import { quizStatsKeys, SettingsKeys } from './keys';
+import { mergePinValues } from './pins';
 import { mergeQuestionHistory, parseQuestionHistory } from './questionHistory';
 import { LOG_LIMIT as WORD_CHECK_LOG_LIMIT, WORD_CHECK_LOG } from './wordCheck';
 import {
@@ -210,6 +211,8 @@ function mergeValue(
 	if (key.endsWith(SUFFIX.scoreMedal)) {
 		return betterMedal(parseMedal(local), parseMedal(remote)) ?? local;
 	}
+	// Pins from both devices, minus whatever either unpinned since.
+	if (key === SettingsKeys.pins) return mergePinValues(local, remote);
 
 	// Settings and saved selections: a preference, so newest write wins.
 	return preferRemote ? remote : local;

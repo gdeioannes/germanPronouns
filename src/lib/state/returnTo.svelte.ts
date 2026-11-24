@@ -10,6 +10,7 @@ import { t } from '$lib/i18n/t';
 
 const SIDE_TRIPS = [
 	/^\/words(\/|$)/,
+	/^\/pinned(\/|$)/,
 	/^\/stories\/?$/,
 	/^\/literature\/?$/,
 	/^\/books\/?$/,

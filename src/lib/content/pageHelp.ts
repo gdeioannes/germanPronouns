@@ -353,6 +353,29 @@ export const PAGE_HELP: Record<string, HelpTopic> = {
 		]
 	},
 
+	'/pinned': {
+		title: 'Pinned',
+		intro: 'What you saved to practise again: single questions and whole exercises.',
+		items: [
+			{
+				title: 'How to pin',
+				text: 'In any exercise, tap Pin at the top. Choose the whole exercise, or just the question on screen, for example a sentence you got wrong. Tap Pin again to unpin.'
+			},
+			{
+				title: 'Practise my pinned questions',
+				text: 'Your pinned fill-in sentences, mixed into one drill with runs of ten, the same steps and the same why under a mistake. Scores here never change the exercises they come from. Other questions open their own exercise.'
+			},
+			{
+				title: 'When to unpin',
+				text: 'A question you got right the last three times in the drill says so. Unpin it with the ✕; "Undo" brings it back if that was a slip.'
+			},
+			{
+				title: 'On all your devices',
+				text: 'Pins are kept in this browser. Signed in, they come with you to your other devices too.'
+			}
+		]
+	},
+
 	'/words': {
 		title: 'Word library',
 		intro: 'Every German word in the course in one place: search for a word and open its page.',

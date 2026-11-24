@@ -222,7 +222,7 @@ is a flat scene in the house style, never a stock-looking render.
   kinds), the listen and speak quiz ids, the *I can* lines.
 - The page `/course/<id>/book2/<level>` renders it with the companion's
   components plus three new blocks: `wordpage`, `photo` (with caption and
-  credit) and `reading`. Print through the existing `gen-books.mjs` path.
+  credit) and `reading`. Print through `tool/gen-book2.mjs`.
 - Tests: the companion tests (answers for every exercise, taught before asked,
   gender colours, codes registered, pictures on disk) run on book v2 files
   unchanged; two new ones: every chapter has its nine pages, every photo has a

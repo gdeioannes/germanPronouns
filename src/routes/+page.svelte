@@ -33,8 +33,6 @@
 	import type { PageData } from './$types';
 
 	const kafka = LITERATURE[0];
-	/** The old whole-A1 printed book's test-copy offer; off until a new A1 book exists. */
-	const SHOW_TEST_COPY = false;
 
 	// One corner label per offer, each leading to its own section. A label goes
 	// for good in this browser once it is clicked, and only then: scrolling
@@ -192,8 +190,8 @@
 </script>
 
 <Seo
-	title={t('Learn German Free — Swipe-Through Course, A1 to C2 | Language Quiz')}
-	description={t('Learn German from English with {n} free five-minute cards: lessons, quizzes and picture hunts, every sentence spoken. A1 to C2, no sign-up.', { n: lang.limited ? data.localTotal : data.total })}
+	title={t('Language Quiz: Free German Course, Books (PDF) & App, A1–C2')}
+	description={t('Free German resources, A1 to C2: {n} five-minute lessons and quizzes with audio, plus twelve free PDF books. No sign-up, no ads.', { n: lang.limited ? data.localTotal : data.total })}
 	path="/"
 	ogTitle={t('Language Quiz — Swipe your way to German, free')}
 	ogDescription={t('A German course for English speakers living in Germany or moving there: five-minute cards with lessons, quizzes and picture hunts, every sentence spoken, and a book for every level linked to the app. A1 to C2, no account.')}
@@ -242,7 +240,6 @@
 	</section>
 
 	<!-- The new book: Deutsch A1.1 (Book v2), a free PDF. -->
-	{#if !SHOW_TEST_COPY}
 	<section id="book" class="book-offer" aria-labelledby="book-offer-title">
 		<a class="book-pic" href="/course/{data.card.id}/book2/A1.1" tabindex="-1" aria-hidden="true">
 			<img src={bookCover(firstBook, lang.current)} alt="" width="640" height="905" loading="lazy" />
@@ -289,43 +286,6 @@
 			{/each}
 		</ul>
 	</section>
-	{:else}
-	<!-- Hidden 2026-11-05: the old whole-A1 printed book and its test-copy offer,
-	     withdrawn until a new A1 book (A1.1 + A1.2) replaces it. -->
-	<section id="book" class="book-offer" aria-labelledby="book-offer-title">
-		<a class="book-pic" href="/contact" tabindex="-1" aria-hidden="true">
-			<img src="/img/book-a1-front.webp" alt="" width="640" height="828" loading="lazy" />
-			<span class="book-stamp">Work in progress</span>
-		</a>
-		<div class="book-copy">
-			<p class="kicker">The book · test copies, free</p>
-			<h2 id="book-offer-title">Deutsch A1 is becoming a printed book. Want to test it?</h2>
-			<p>
-				The whole A1 course on paper: 170 pages in colour, every lesson and exercise, and a code
-				on each unit that opens its audio and tutor in the app. It is not finished. The layout,
-				the wording and the order of things are still being worked on, and that is exactly why I
-				need readers now, before it goes on sale.
-			</p>
-			<p>
-				The first people who are interested get a copy for free, printing and postage on me. Read
-				it, use it for a week or two, and tell me what you think, good or bad. Your notes shape
-				the finished book.
-			</p>
-			<a class="primary" href="/contact">
-				Ask for a test copy <Icon name="arrowRight" size="1.05em" />
-			</a>
-			<p class="book-note">A handful of copies · no strings, no obligation to be kind</p>
-			<div class="book-dl">
-				<p class="kicker">New · free PDF</p>
-				<p><strong>Deutsch A1.1 · Erste Schritte</strong>, the new book: twelve chapters, each one a real place in Germany, with photos, stories and the practice. 131 pages.</p>
-				<a class="primary" href="/books/v2/de_cert_a1_a1_1.pdf" download onclick={(e) => { trackBookDownload('A1.1', 'home'); feedback.beforeDownload(e, { href: '/books/v2/de_cert_a1_a1_1.pdf', book: 'A1.1' }); }}>
-					<Icon name="download" size="1.05em" /> Download the PDF · {BOOKS[0].mb} MB
-				</a>
-				<a class="book-preview" href="/course/{data.card.id}/book2/A1.1">Look inside first</a>
-			</div>
-		</div>
-	</section>
-	{/if}
 
 	<!-- Literature: the first annotated classic, free as a PDF. The shelf
 	     itself is /literature; this offer shows its first book. -->
@@ -990,16 +950,6 @@
 
 	.faq dd a {
 		color: var(--accent-ink);
-	}
-
-	.book-dl {
-		margin-top: 1.5rem;
-		padding-top: 1.2rem;
-		border-top: 1px solid var(--line);
-	}
-
-	.book-dl p {
-		margin: 0.3rem 0 0.8rem;
 	}
 
 	.book-shelf {

@@ -1363,6 +1363,8 @@ export const AR: Record<string, string> = {
 		"الإعدادات",
 	"Account":
 		"الحساب",
+	"Open course app":
+		"افتح التطبيق",
 	"Open the course":
 		"افتح الدورة",
 	"new updates":
@@ -1933,8 +1935,10 @@ export const AR: Record<string, string> = {
 		"اذهب إلى صفحة البداية",
 	"and pick your level there.":
 		"واختر مستواك هناك.",
-	"German textbooks A1 to C2, free PDF":
-		"كتب لتعلّم الألمانية من A1 إلى C2، PDF مجاني",
+	"Free German Books A1–C2: 12 PDF Textbooks | Language Quiz":
+		"كتب تعلم الألمانية PDF مجانًا: 12 كتابًا من A1 إلى C2",
+	"Free German books, A1 to C2":
+		"كتب مجانية لتعلّم الألمانية، من A1 إلى C2",
 	"Books":
 		"الكتب",
 	"Read online":
@@ -2239,6 +2243,58 @@ export const AR: Record<string, string> = {
 		"بطيء",
 	"Wait for me":
 		"انتظرني",
+	"Wait for Next after a wrong answer":
+		"انتظر «التالي» بعد الإجابة الخاطئة",
+	"The correction and why it is right stay on screen until you press Next or Enter. Recommended: a mistake is the best moment to learn. Turn it off and the exercise moves on by itself, at the speed above.":
+		"يبقى التصحيح وسببه على الشاشة حتى تضغط «التالي» أو Enter. موصى به: الخطأ أفضل لحظة للتعلّم. إن أوقفته ينتقل التمرين وحده بالسرعة المختارة أعلاه.",
+	"Wait for Next after a spelling slip":
+		"انتظر «التالي» بعد خطأ إملائي",
+	"When an answer counts as right but a letter was off, like a missing umlaut, the note about it stays until you press Next or Enter. Off by default: the exercise moves on by itself.":
+		"حين تُحسب الإجابة صحيحة لكن فيها حرف غير دقيق، مثل نقطتي الأوملاوت الناقصتين، تبقى الملاحظة حتى تضغط «التالي» أو Enter. متوقف افتراضيًا: ينتقل التمرين وحده.",
+	"Take your time with mistakes":
+		"خذ وقتك مع الأخطاء",
+	"After a wrong answer, the exercise now waits so you can read why. Prefer to keep going? You can change this in Settings.":
+		"بعد الإجابة الخاطئة، ينتظر التمرين الآن لتقرأ السبب. تفضّل المتابعة دون توقف؟ يمكنك تغيير ذلك في الإعدادات.",
+	"Open Settings":
+		"افتح الإعدادات",
+	"Got it":
+		"فهمت",
+	// ── Pins ─────────────────────────────────────────────────
+	"Pin": "تثبيت",
+	"Pinned": "المثبّتة",
+	"Unpin": "إلغاء التثبيت",
+	"Pin this exercise or this question to practise again": "ثبّت هذا التمرين أو هذا السؤال لتتدرّب عليه مرة أخرى",
+	"Pin this exercise": "ثبّت هذا التمرين",
+	"Unpin this exercise": "ألغِ تثبيت هذا التمرين",
+	"Pin this question": "ثبّت هذا السؤال",
+	"Unpin this question": "ألغِ تثبيت هذا السؤال",
+	"See everything pinned": "اعرض كل المثبّتات",
+	"Exercise pinned. Find it under Pinned in the menu.": "تم تثبيت التمرين. تجده تحت «المثبّتة» في القائمة.",
+	"Exercise unpinned.": "أُلغي تثبيت التمرين.",
+	"Question pinned. Find it under Pinned in the menu.": "تم تثبيت السؤال. تجده تحت «المثبّتة» في القائمة.",
+	"Question unpinned.": "أُلغي تثبيت السؤال.",
+	"What you saved to come back to. In any exercise, tap Pin at the top to save the whole exercise or the question on screen.":
+		"ما حفظته لتعود إليه. في أي تمرين، اضغط «تثبيت» في الأعلى لتحفظ التمرين كله أو السؤال الظاهر على الشاشة.",
+	"Unpinned.": "أُلغي التثبيت.",
+	"Undo": "تراجع",
+	"Pinned again.": "ثُبّت من جديد.",
+	"Nothing pinned yet": "لا شيء مثبّت بعد",
+	"Missed a sentence you want to see again, or found an exercise worth repeating? Open it, tap Pin at the top, and it waits for you here.":
+		"أخطأت في جملة تريد أن تراها مرة أخرى، أو وجدت تمرينًا يستحق التكرار؟ افتحه واضغط «تثبيت» في الأعلى، وسينتظرك هنا.",
+	"Questions": "الأسئلة",
+	"Practise my pinned questions": "تدرّب على أسئلتي المثبّتة",
+	"practise it in its exercise": "يُتدرَّب عليه في تمرينه",
+	"Right the last three times. Ready to unpin it?": "صحيح في المرات الثلاث الأخيرة. هل تلغي تثبيته؟",
+	"Your pinned questions": "أسئلتك المثبّتة",
+	"1 question. A run is ten answers, so it comes back until the run is over.":
+		"سؤال واحد. الجولة عشر إجابات، لذلك يعود حتى تنتهي الجولة.",
+	"{n} questions, mixed into runs of ten.": "عدد الأسئلة: {n}، ممزوجة في جولات من عشرة.",
+	"{n} pinned questions are no longer in the course in that form and are left out.":
+		"أسئلة مثبّتة لم تعد في الدورة بهذا الشكل فتُركت جانبًا: {n}.",
+	"Loading…": "جارٍ التحميل…",
+	"No fill-in questions pinned yet. Pin one from an exercise and practise it here.":
+		"لا توجد أسئلة ملء فراغ مثبّتة بعد. ثبّت سؤالًا من تمرين وتدرّب عليه هنا.",
+	"Back to Pinned": "العودة إلى المثبّتة",
 	"Start where you like":
 		"ابدأ من حيث شئت",
 	"Every level is open from the start — nothing has to be unlocked. Already speak some German? Jump straight in at your level.":
@@ -2446,7 +2502,7 @@ export const AR: Record<string, string> = {
 		"german-practice.ics",
 	"; your streak carries on.":
 		"؛ وسلسلتك مستمرة.",
-	"About Language Quiz: a free German course by a learner":
+	"About us: who makes Language Quiz and why":
 		"عن Language Quiz: دورة ألمانية مجانية من متعلّم",
 	"About Language Quiz":
 		"عن Language Quiz",
@@ -2617,9 +2673,9 @@ export const AR: Record<string, string> = {
 	"No. Your progress is saved in your own browser, with nothing to sign up for.":
 		"لا. يُحفظ تقدمك في متصفحك أنت، ولا شيء تحتاج أن تسجّل فيه.",
 	// Search titles and descriptions (the /tr/ and /ar/ pages)
-	"Learn German Free — Swipe-Through Course, A1 to C2 | Language Quiz":
+	"Language Quiz: Free German Course, Books (PDF) & App, A1–C2":
 		"تعلم اللغة الألمانية بالعربي: دورة مجانية من A1 إلى A2 | Language Quiz",
-	"Learn German from English with {n} free five-minute cards: lessons, quizzes and picture hunts, every sentence spoken. A1 to C2, no sign-up.":
+	"Free German resources, A1 to C2: {n} five-minute lessons and quizzes with audio, plus twelve free PDF books. No sign-up, no ads.":
 		"تعلّم الألمانية بشرح عربي: {n} درسًا وتمرينًا قصيرًا للمستويين A1 وA2، كل جملة مسموعة، وكتب PDF مجانية. بدون تسجيل.",
 	"Language Quiz — Swipe your way to German, free":
 		"Language Quiz — الألمانية بشرح عربي، مجانًا",
@@ -2627,7 +2683,7 @@ export const AR: Record<string, string> = {
 		"دورة ألمانية للناطقين بالعربية في ألمانيا أو القادمين إليها: بطاقات من خمس دقائق فيها دروس وتمارين، كل جملة مسموعة، وكتاب لكل مستوى مرتبط بالتطبيق. من A1 إلى A2، بدون حساب.",
 	"The story behind Language Quiz: a free, accessible A1–C2 German course by a learner in Germany for people who struggle with linear courses. No account, no ads.":
 		"قصة Language Quiz: دورة ألمانية مجانية وسهلة الاستخدام أعدّها متعلّم يعيش في ألمانيا لمن يجدون صعوبة في الدورات التقليدية. بدون حساب وبدون إعلانات.",
-	"Twelve German books, one per level from A1.1 to C2.2: real places, stories, real documents and practice, 131 pages each. Read them online or download the free PDF.":
+	"Twelve free German textbooks (PDF), one per level from A1.1 to C2.2: real places, stories, real documents and practice. Read online or download, no sign-up.":
 		"أربعة كتب ألمانية من A1.1 إلى A2.2 بشرح عربي: أماكن حقيقية وقصص ووثائق حقيقية وتمارين. حمّلها مجانًا بصيغة PDF.",
 	"Get in touch with the person behind Language Quiz: feedback, corrections, questions. One quick human check, then the email address.":
 		"تواصل مع صاحب Language Quiz: ملاحظات وتصحيحات وأسئلة. تحقّق سريع من أنك إنسان، ثم يظهر عنوان البريد الإلكتروني.",

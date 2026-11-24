@@ -8,6 +8,7 @@
 	import SiteNav from '$lib/components/SiteNav.svelte';
 	import SiteFooter from '$lib/components/SiteFooter.svelte';
 	import ShareNudge from '$lib/components/ShareNudge.svelte';
+	import ChartsBanner from '$lib/components/ChartsBanner.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
 	import { returnTo, returnLabel } from '$lib/state/returnTo.svelte';
 	import { BOOKS, BOOK_PAGES, bookCover, bookMb, bookPdf, bookReadHref, pdfOffered } from '$lib/content/books';
@@ -32,8 +33,8 @@
 </script>
 
 <Seo
-	title={t('German textbooks A1 to C2, free PDF')}
-	description={t('Twelve German books, one per level from A1.1 to C2.2: real places, stories, real documents and practice, 131 pages each. Read them online or download the free PDF.')}
+	title={t('Free German Books A1–C2: 12 PDF Textbooks | Language Quiz')}
+	description={t('Twelve free German textbooks (PDF), one per level from A1.1 to C2.2: real places, stories, real documents and practice. Read online or download, no sign-up.')}
 	path="/books"
 	jsonLd={[
 		itemListLd(t('The books'), BOOKS.map((b) => ({ name: `Deutsch ${b.level} · ${b.sub}`, path: `/books#${b.file}` }))),
@@ -47,7 +48,7 @@
 	<a class="back-link" href={returnTo.path}><Icon name="arrowLeft" size="1em" /> {returnLabel(returnTo.path)}</a>
 
 	<header>
-		<h1>{t('The books')}</h1>
+		<h1>{t('Free German books, A1 to C2')}</h1>
 		<p class="lede">
 			{#if lang.limited}
 				{t('One book per level, twelve in all: A1.1 to A2.2 in your language, then in German, the way the course goes on. Each has twelve chapters, each chapter a real place in Germany: words first, a photo, a story, two rules, a real document, and the practice. The audio is a QR code away. All free, {pages} pages each.', { pages: BOOK_PAGES })}
@@ -58,6 +59,9 @@
 			{/if}
 		</p>
 	</header>
+
+	<!-- The grammar charts (diagram book), shown first while their test run is open. English only. -->
+	{#if !lang.limited}<ChartsBanner />{/if}
 
 	<!-- Asked before the list: whoever sees twelve free books may know who needs them. -->
 	<ShareNudge where="books" text={t('I thought of you: twelve free German books with audio, from A1 to C2. No sign-up, nothing to pay.')} />

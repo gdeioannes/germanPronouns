@@ -28,7 +28,8 @@
 	import RunSummary from './RunSummary.svelte';
 	import RunTracker from './RunTracker.svelte';
 	import { RUN_LENGTH, runPassed, STREAK_LAP_SIZE } from '$lib/domain/progress';
-	import { MIN_SHOW, progress, revealPause } from '$lib/state/progress.svelte';
+	import { MIN_SHOW, progress } from '$lib/state/progress.svelte';
+	import { noteHeldMiss } from '$lib/state/sideTip.svelte';
 	import { clearSpot, loadSpot, saveSpot } from '$lib/state/resume';
 	import { announce } from '$lib/a11y.svelte';
 	import { tick } from 'svelte';
@@ -362,13 +363,17 @@
 		// The run's last card moves on to the summary instead of a new deal.
 		const moveOn = () => {
 			skip = null;
+			held = false;
 			clearTimers();
 			if (answered >= RUN_LENGTH) finishRun();
 			else next();
 		};
+		// A miss waits for Next by default (Settings can turn that off).
+		const pause = progress.pauseFor(correct ? 'right' : 'wrong');
+		held = pause === null;
+		if (held && !correct) noteHeldMiss();
 		if (correct) wait(MIN_SHOW).then(() => (skip ??= moveOn));
 		else await wait(600).then(() => (skip = moveOn));
-		const pause = revealPause(progress.answerRevealMode);
 		if (pause === null) {
 			skip ??= moveOn;
 			return;
@@ -381,6 +386,8 @@
 
 	/** Set while an answered card is on show: deals the next one now. */
 	let skip = $state<(() => void) | null>(null);
+	/** The answered card waits for Next ("Wait for me", or a miss): show the button. */
+	let held = $state(false);
 
 	function onWindowKey(event: KeyboardEvent) {
 		if (event.key !== 'Enter' || event.repeat || !locked || !skip) return;
@@ -643,7 +650,7 @@
 							{/if}
 						</p>
 					{/if}
-					{#if locked && progress.answerRevealMode === 'manual'}
+					{#if locked && held}
 						<button type="button" class="btn next-card" disabled={!skip} onclick={() => skip?.()}>
 							{t('Next card')} <Icon name="arrowRight" size="1em" />
 						</button>

@@ -13,8 +13,7 @@
 //   - a code whose target has gone resolves to a "this moved" page that
 //     offers the nearest thing, never a 404.
 //
-// tool/gen-books.mjs calls `register` for every QR a book needs and writes
-// the registry back; the /b/[code] route resolves from it.
+// The /b/[code] route resolves from the registry.
 
 import { SITE_URL } from '$lib/seo';
 
@@ -52,7 +51,8 @@ export function resolveLink(link: BookLink): string {
 		case 'level':
 			return `/course/de_cert_a1/level/${link.target}`;
 		case 'book':
-			return `/course/de_cert_a1/book/${link.target}/progress`;
+			// The old whole-level book (A1 … C2) is gone: its codes open the shelf.
+			return '/books';
 		case 'url':
 			return link.target;
 		case 'chapter': {
@@ -62,21 +62,6 @@ export function resolveLink(link: BookLink): string {
 			return `/course/de_cert_a1/book2/${level}/${chapter}${part ? `#${part}` : ''}`;
 		}
 	}
-}
-
-/**
- * The code for a (kind, target), minting one when none exists. Codes are
- * `<book>-<n>`: the book they were first printed in and a running number,
- * so a code reads as "A1 book, link 7" and tells nothing else.
- */
-export function register(registry: BookLinkRegistry, kind: LinkKind, target: string, book: string, note?: string): string {
-	const found = registry.links.find((l) => l.kind === kind && l.target === target);
-	if (found) return found.code;
-	const prefix = book.toLowerCase();
-	const used = registry.links.filter((l) => l.code.startsWith(prefix + '-')).length;
-	const code = `${prefix}-${String(used + 1).padStart(2, '0')}`;
-	registry.links.push({ code, kind, target, note, since: new Date().toISOString().slice(0, 10) });
-	return code;
 }
 
 /**

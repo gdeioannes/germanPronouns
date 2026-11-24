@@ -86,34 +86,37 @@
 		background: rgb(255 255 255 / 0.12);
 	}
 
-	/* Icon only, where a labelled button would crowd the row, but the one
-	   solid disc in it: filled, a little larger, and a ring that spreads out
-	   from it three times when the page opens. */
+	/* Icon only, where a labelled button would crowd the row: the same square
+	   as the quiz header's tools beside it (2.5rem, 6px corners), but the one
+	   filled one, with a ring that spreads out from it three times when the
+	   page opens. */
 	.icon-btn.accent {
-		width: 2.6rem;
-		height: 2.6rem;
+		width: 2.5rem;
+		height: 2.5rem;
 		font-size: 1.1rem;
 		border: 1px solid var(--share-strong);
+		border-radius: 6px;
 		background: var(--share);
 		color: var(--share-ink);
-		box-shadow: 0 4px 10px -4px rgb(233 174 28 / 0.9);
 		animation: ring 1.8s var(--ease-out) 0.8s 3;
 	}
 	.icon-btn.accent:hover {
 		background: var(--share-strong);
 		color: var(--share-ink);
-		transform: scale(1.08);
+		transform: translateY(-1px);
 	}
 	@keyframes ring {
 		from {
-			box-shadow:
-				0 4px 10px -4px rgb(233 174 28 / 0.9),
-				0 0 0 0 rgb(245 196 67 / 0.8);
+			box-shadow: 0 0 0 0 rgb(245 196 67 / 0.8);
 		}
 		to {
-			box-shadow:
-				0 4px 10px -4px rgb(233 174 28 / 0.9),
-				0 0 0 0.9rem rgb(245 196 67 / 0);
+			box-shadow: 0 0 0 0.9rem rgb(245 196 67 / 0);
+		}
+	}
+	@media (max-width: 36rem) {
+		.icon-btn.accent {
+			width: 2.35rem;
+			height: 2.35rem;
 		}
 	}
 	@media (prefers-reduced-motion: reduce) {

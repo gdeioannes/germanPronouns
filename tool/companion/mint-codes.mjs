@@ -1,7 +1,7 @@
 // Mints the permanent QR codes for one printed book (A2, B1 …) into
 // assets/content/booklinks.json, without printing it — so a study companion
 // can print its codes before the book exists. Same rule and order as
-// tool/gen-books.mjs, which skips codes already minted, so the two agree.
+// the old whole-level book generator (since removed), so existing codes agree.
 //
 //   node tool/companion/mint-codes.mjs A2
 import { readFileSync, writeFileSync } from 'node:fs';

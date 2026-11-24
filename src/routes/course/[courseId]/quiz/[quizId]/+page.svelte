@@ -24,6 +24,9 @@
 	} from '$lib/seo';
 	import Sheet from '$lib/components/Sheet.svelte';
 	import ReportPanel from '$lib/components/forum/ReportPanel.svelte';
+	import SideTip from '$lib/components/SideTip.svelte';
+	import PinButton from '$lib/components/PinButton.svelte';
+	import { dismissTip, sideTip } from '$lib/state/sideTip.svelte';
 	import SiteFooter from '$lib/components/SiteFooter.svelte';
 	import DoneMark from '$lib/components/DoneMark.svelte';
 	import DictationQuiz from '$lib/components/quiz/DictationQuiz.svelte';
@@ -569,12 +572,23 @@
 					aria-haspopup="dialog"
 					aria-expanded={notesOpen}
 					aria-controls="notes-{quiz.id}"
+					title={t('Notes')}
 					onclick={() => (notesOpen = true)}
 				>
 					<Icon name="book" size="1.1em" />
-					<span>{t('Notes')}</span>
+					<span class="tool-label">{t('Notes')}</span>
 				</button>
 			{/if}
+			<PinButton
+				source={{
+					courseId: course.id,
+					quizId: quiz.id,
+					quizTitle: topicOf(quiz.title),
+					quizType: quiz.type,
+					level: quiz.level
+				}}
+				question={question?.text ?? null}
+			/>
 			{#if canReport}
 				<button
 					type="button"
@@ -601,6 +615,7 @@
 				aria-expanded={moreOpen}
 				aria-controls="more-{quiz.id}"
 				aria-label={t('More')}
+				title={t('More')}
 				onclick={() => (moreOpen = true)}
 			>
 				<Icon name="menu" size="1.1em" />
@@ -749,6 +764,16 @@
 		</div>
 	</main>
 </div>
+
+<!-- Once, on the first miss that waits for Next: that can be changed. -->
+<SideTip
+	open={sideTip.id === 'wait-after-miss'}
+	title={t('Take your time with mistakes')}
+	text={t('After a wrong answer, the exercise now waits so you can read why. Prefer to keep going? You can change this in Settings.')}
+	actionLabel={t('Open Settings')}
+	actionHref="/settings#after-miss"
+	ondismiss={dismissTip}
+/>
 
 {#if finished && !doneDismissed}
 	<!-- Floats over the foot of the exercise rather than pushing it: the page
@@ -1037,6 +1062,28 @@
 	.tool.notes:hover {
 		background: var(--accent-ink);
 		color: #fff;
+	}
+
+	/* Icons only, at every width: the words beside them crowded the title
+	   into a sliver. Each button keeps its name for a screen reader (aria-label)
+	   and as a tooltip (title). */
+	.tool {
+		position: relative;
+		justify-content: center;
+		width: 2.5rem;
+		padding: 0;
+	}
+
+	/* The Learn ⇄ Practise switch keeps its words (it is the page's main
+	   choice); only on a phone does it drop to its two icons, below. */
+	.tool-label {
+		/* Not display:none — the words stay for a screen reader. */
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+		clip-path: inset(50%);
+		white-space: nowrap;
 	}
 
 	/* Learn ⇄ Practise: one switch. The two labels sit either side of a knob
@@ -1404,16 +1451,12 @@
 			line-clamp: 1;
 		}
 		.tool {
+			width: 2.35rem;
 			height: 2.35rem;
-			padding: 0 0.7rem;
 		}
-		.tool-label,
 		.share-tool {
 			display: none;
 		}
-		/* The switch drops to its two icons: the book and the pen carry the
-		   meaning, and the header has no room for the words next to a long
-		   German title. The button keeps its label for a screen reader. */
 		.mode-switch {
 			height: 2.35rem;
 		}
@@ -1422,9 +1465,9 @@
 			padding: 0 0.75rem;
 			font-size: var(--step-0);
 		}
+		/* The book and the pen carry the meaning; the words stay for a
+		   screen reader that reads the switch's two halves. */
 		.mode-switch .side-label {
-			/* Not display:none — the words stay for a screen reader that reads
-			   the switch's two halves rather than its label. */
 			position: absolute;
 			width: 1px;
 			height: 1px;

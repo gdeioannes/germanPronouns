@@ -16,6 +16,40 @@ export type ChangelogEntry = {
 
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-11-24",
+    title: "Pin it and come back to it",
+    highlight: true,
+    items: [
+      "New: pins. A pin button in every exercise saves the whole exercise, or just the question on your screen, so you can come back to it later.",
+      "Everything you pin is on one page, Pinned. From there you can open an exercise again or practise your pinned questions in one round.",
+      "Once you have a pin, a pin with a number appears in the top bar, next to the course button. One tap takes you to your list.",
+      "Pins need no account. If you are signed in, they follow you to your other devices.",
+    ],
+  },
+  {
+    date: "2026-11-24",
+    title: "A tidier top bar",
+    items: [
+      "The top bar has fewer things in it and one clear way in: the dark blue button opens the course. Share keeps its yellow and sits with the links.",
+      "The Library menu is in three short groups: things to read on screen, things to print, and games. Literature has its own icon, so it no longer looks like the course books.",
+      "Feedback moved into the About menu. Signing in is now the small person icon at the end of the bar; once you are signed in it shows your first letter.",
+      "The bar shows which page you are on, and its links are easier to hit.",
+      "Inside the course, the buttons in the bar now have one size and sit on one line, in the same order as on the home page.",
+      "On tablets and small laptops the links fold into Menu sooner, so nothing gets squeezed.",
+    ],
+  },
+  {
+    date: "2026-11-24",
+    title: "Time to read your mistake",
+    items: [
+      "After a wrong answer the exercise now waits for you. Read the right answer and why, then tap Next when you are ready. Before, it moved on by itself.",
+      "Prefer the old pace? Settings has a switch for it: Wait for Next after a wrong answer. A second switch makes it wait after a small spelling slip too.",
+      "The grammar charts stay open for download two days longer, until 26 November, and the books page now shows them first.",
+      "On a phone, the Share with a friend band at the end of a page is smaller.",
+      "The old one-book-per-level pages (Deutsch A1 to C2) are gone. Their links now open the bookshelf, where the twelve current books are.",
+    ],
+  },
+  {
     date: "2026-11-22",
     title: "Grammar charts for your wall: a test run",
     highlight: true,

@@ -49,7 +49,7 @@ export const load: PageServerLoad = async ({ params }) => {
 	// A level with an authored study companion prints that instead. Its QR
 	// codes reuse the printed book's permanent codes: one that isn't in the
 	// registry yet is left off rather than minted here, where nothing would
-	// save it (tool/gen-books.mjs owns minting).
+	// save it.
 	const companion = loadCompanion(course.id, params.levelId);
 	const links = registry as unknown as BookLinkRegistry;
 	const code = async (kind: LinkKind, target?: string) => {
