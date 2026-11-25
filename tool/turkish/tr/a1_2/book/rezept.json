@@ -1,5 +1,14 @@
 {
  "subtitle": "İnsanlara ne yapacaklarını söylemek, mutfakta ve her yerde",
+ "appQuizzes.woerter[0].note": "Bir mutfak resmi: uygulama söyleyince her şeyi bul.",
+ "appQuizzes.lesen[0].note": "Şişeyi atma! Pfand hakkında oku ve 8 soruyu cevapla.",
+ "appQuizzes.grammatik-1[0].note": "Bir fiil, üç kişi: her biri için emir.",
+ "appQuizzes.grammatik-2[0].note": "dann 1. yer sayılır: fiil hemen ondan sonra gelir.",
+ "appQuizzes.alltag[0].note": "Daha fazla kural: Pfand hakkında oku ve 8 soruyu cevapla.",
+ "appQuizzes.uebungen-1[0].note": "Daha fazla emir, yazarken kontrol edilir.",
+ "appQuizzes.uebungen-2[0].for": "Übung 6 · Emre çevir",
+ "appQuizzes.uebungen-2[0].note": "Her cümleyi emre çevir.",
+ "appQuizzes.uebungen-2[1].note": "Resimde mutfak eşyalarını bul.",
  "words.intro": "Almanya tek bir soruda ikiye bölünür: patates salatası mayonezli mi, mayonezsiz mi? Tarifler, çamaşır makineleri ve büyükanneler hep emir kipiyle konuşur.",
  "words.more": "Auch in der Küche · mutfakta ayrıca",
  "words.groups[0].title": "In der Küche · mutfakta",
@@ -39,7 +48,6 @@
  "grammar[0].blocks[0].rows[2][0]": "bir yabancıya (Sie)",
  "grammar[0].blocks[0].note": "ihr: ihr biçimi, ihr olmadan. Sie: mastar, sonra Sie.",
  "grammar[0].blocks[1].blocks[0].title": "du: du'yu ve -st'yi at",
- "grammar[0].blocks[1].blocks[0].note": "Sonda bir e de olur: Warte! Mache!",
  "grammar[0].blocks[1].blocks[0].rows[0].en": "du kommst",
  "grammar[0].blocks[1].blocks[0].rows[1].en": "du nimmst",
  "grammar[0].blocks[1].blocks[0].rows[2].en": "du sprichst",
@@ -187,13 +195,5 @@
  "reading.tasks[1].title": "Du oder Sie?",
  "document.tasks[0].title": "Lies die Regeln",
  "document.tasks[1].title": "Mach das! Mach das nicht!",
- "appQuizzes.woerter[0].note": "Bir mutfak resmi: uygulama söyleyince her şeyi bul.",
- "appQuizzes.lesen[0].note": "Şişeyi atma! Pfand hakkında oku ve 8 soruyu cevapla.",
- "appQuizzes.grammatik-1[0].note": "Bir fiil, üç kişi: her biri için emir.",
- "appQuizzes.grammatik-2[0].note": "dann 1. yer sayılır: fiil hemen ondan sonra gelir.",
- "appQuizzes.alltag[0].note": "Daha fazla kural: Pfand hakkında oku ve 8 soruyu cevapla.",
- "appQuizzes.uebungen-1[0].note": "Daha fazla emir, yazarken kontrol edilir.",
- "appQuizzes.uebungen-2[0].for": "Übung 6 · Emre çevir",
- "appQuizzes.uebungen-2[0].note": "Her cümleyi emre çevir.",
- "appQuizzes.uebungen-2[1].note": "Resimde mutfak eşyalarını bul."
+ "grammar[0].blocks[1].blocks[0].note": "Sonda bir e de çoğu zaman olur: Mache! — -t ya da -d'den sonra ise şarttır: Warte! Rede!"
 }

@@ -24,6 +24,35 @@ export const MIN_HARD_POOL = 10;
 /** The sentence's trailing "(…)" cue, with the space before it; one level of nesting allowed. */
 const TRAILING_CUE = /\s*\((?:[^()]|\([^()]*\))*\)\s*$/;
 
+/** A run of sentence text, and whether word help may read it as German. */
+export interface CuePart {
+	text: string;
+	german: boolean;
+}
+
+/**
+ * Splits a sentence run so its bracketed cue can be left out of word help
+ * where it is English. Cues come German ("(wiederholen)"), English ("(be
+ * understood better)") and mixed ("(despite: die hohen Kosten)"), and the
+ * dictionary can't tell English "be" from the letter Be — it glossed the cue
+ * in German. So the cue is cut at its separators, and a piece counts as
+ * German only when the dictionary knows every word in it. A German piece with
+ * a word the dictionary lacks goes plain too: a missed tap, not a wrong gloss.
+ */
+export function cueParts(run: string, known: (word: string) => boolean): CuePart[] {
+	const match = TRAILING_CUE.exec(run);
+	if (!match) return [{ text: run, german: true }];
+	const parts: CuePart[] = [];
+	const head = run.slice(0, match.index);
+	if (head) parts.push({ text: head, german: true });
+	for (const piece of match[0].split(/([():;,→—]+)/)) {
+		if (!piece) continue;
+		const words = piece.match(/\p{L}+/gu);
+		parts.push({ text: piece, german: !!words && words.every(known) });
+	}
+	return parts;
+}
+
 /**
  * The sentence as the gold step shows it: the trailing cue dropped, unless it
  * must stay. With no English line the cue is the only question there is, so

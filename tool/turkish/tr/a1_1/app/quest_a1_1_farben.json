@@ -1,6 +1,5 @@
 {
  "subjectColumnLabel": "Türkçe",
- "help.intro": "Renkler, bir şeyi anlatmak için kullandığın ilk Adjektiv'lerdir (sıfatlar) ve başta onları kolay yerde kullanırsın: sein fiilinden sonra, orada hiç değişmezler: Das Auto ist rot. Die Blume ist gelb. (Bir isimden önce sıfat bir sonek alır, ein rotes Auto gibi, ama bu kursta daha sonra geliyor. Şimdilik sadece tanıman yeterli.) On bir temel renge ihtiyacın var. Bunlardan üçü başka dillerden gelmiştir ve ileride de hiç sonek almaz: rosa, lila ve orange. Bu alıştırma sana bir ipucu verip rengi soruyor. İpuçları sana fark ettirmeden Himmel, Gras ve Sonne gibi isimleri de öğretiyor.",
  "help.tips[0].title": "sein'dan sonra renkler değişmez",
  "help.tips[0].text": "Das Auto ist rot. Die Autos sind rot. Der Himmel ist blau. İsim ne olursa olsun, ist / sind'den sonra renk yalın hâlinde kalır.",
  "help.tips[0].examples[0].en": "Muz sarı.",
@@ -49,7 +48,6 @@
  "help.tips[3].visual.rows[0].en": "açık mavi",
  "help.tips[3].visual.rows[1].en": "koyu yeşil",
  "help.remember[0]": "Blut rot, Himmel blau, Gras grün, Sonne gelb: bu alıştırmadaki ipuçları aynı zamanda akılda tutma yolun.",
- "help.remember[1]": "Üç yabancı hiç değişmez: rosa, lila, orange.",
  "help.vocab[0].en": "kırmızı",
  "help.vocab[1].en": "mavi",
  "help.vocab[2].en": "yeşil",
@@ -67,7 +65,6 @@
  "help.context.en": "Odam rengârenk: duvar sarı, halı mavi, lamba kırmızı. Sandalyem siyah. Ya en sevdiğim elbise? Pembe, tabii ki!",
  "help.mistakes[0].why": "sein'dan sonra sıfat sonek almaz.",
  "help.mistakes[1].wrong": "ein rosanes Kleid",
- "help.mistakes[1].why": "rosa, lila ve orange hiç sonek almaz.",
  "help.mistakes[2].wrong": "die Farbe ist gelbe",
  "help.mistakes[2].why": "Aynı kural: ist'ten sonra yalın hâl.",
  "help.hook": "Bir rengi ist'ten sonra koy, hiç değişmez: Das Auto ist rot. Öğreneceğin en kolay sıfatlar.",
@@ -131,5 +128,8 @@
  "help.tips[2].check.answer": "lila",
  "help.tips[3].check.options[0]": "hellblau",
  "help.tips[3].check.options[1]": "dunkelblau",
- "help.tips[3].check.answer": "hellblau"
+ "help.tips[3].check.answer": "hellblau",
+ "help.intro": "Renkler, bir şeyi anlatmak için kullandığın ilk Adjektiv'lerdir (sıfatlar) ve başta onları kolay yerde kullanırsın: sein fiilinden sonra, orada hiç değişmezler: Das Auto ist rot. Die Blume ist gelb. (Bir isimden önce sıfat bir sonek alır, ein rotes Auto gibi, ama bu kursta daha sonra geliyor. Şimdilik sadece tanıman yeterli.) On bir temel renge ihtiyacın var. Bunlardan ikisi başka dillerden gelmiştir ve ileride de hiç sonek almaz: rosa ve lila. Bu alıştırma sana bir ipucu verip rengi soruyor. İpuçları sana fark ettirmeden Himmel, Gras ve Sonne gibi isimleri de öğretiyor.",
+ "help.remember[1]": "İki yabancı hiç değişmez: rosa ve lila.",
+ "help.mistakes[1].why": "rosa ve lila hiç sonek almaz."
 }

@@ -510,7 +510,7 @@
       ],
       "difficulty": "advanced",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-e",
       "sentence": "____ Besteck liegt in der Schublade.",
       "meanings": {
         "es": "los cubiertos"
@@ -615,7 +615,7 @@
       ],
       "difficulty": "beginner",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-",
       "meanings": {
         "es": "la tarta de manzana"
       }
@@ -975,7 +975,7 @@
       ],
       "difficulty": "beginner",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-",
       "meanings": {
         "es": "el panecillo"
       }
@@ -2340,7 +2340,7 @@
         "emotions"
       ],
       "difficulty": "intermediate",
-      "declensionSafe": true,
+      "declensionSafe": false,
       "plural": "-en",
       "sentence": "____ Herz schlägt sehr schnell.",
       "meanings": {
@@ -2563,7 +2563,7 @@
     {
       "noun": "Erkältung",
       "gender": "f",
-      "english": "cold/flu",
+      "english": "cold (illness)",
       "categories": [
         "health"
       ],
@@ -6876,7 +6876,7 @@
       ],
       "difficulty": "beginner",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "¨-e",
       "meanings": {
         "es": "el fútbol"
       }
@@ -8995,7 +8995,7 @@
       ],
       "difficulty": "beginner",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-n",
       "meanings": {
         "es": "la tarea"
       }
@@ -9025,7 +9025,7 @@
       ],
       "difficulty": "beginner",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-nen",
       "meanings": {
         "es": "la alumna"
       }
@@ -9039,7 +9039,7 @@
       ],
       "difficulty": "beginner",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "¨-e",
       "meanings": {
         "es": "el patio del colegio"
       }
@@ -9054,7 +9054,7 @@
       ],
       "difficulty": "beginner",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "¨-er",
       "meanings": {
         "es": "el libro de texto"
       }
@@ -9069,7 +9069,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": false,
-      "plural": "—",
+      "plural": "-en",
       "meanings": {
         "es": "el director"
       }
@@ -9084,7 +9084,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-nen",
       "meanings": {
         "es": "la directora"
       }
@@ -9099,7 +9099,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-",
       "meanings": {
         "es": "el entrenador"
       }
@@ -9113,7 +9113,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-",
       "meanings": {
         "es": "el guía turístico"
       }
@@ -9127,7 +9127,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-",
       "meanings": {
         "es": "el asesor"
       }
@@ -9142,7 +9142,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-",
       "meanings": {
         "es": "el conductor de autobús"
       }
@@ -9157,7 +9157,7 @@
       ],
       "difficulty": "beginner",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-",
       "meanings": {
         "es": "el conductor"
       }
@@ -9171,7 +9171,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-",
       "meanings": {
         "es": "el mecánico"
       }
@@ -9186,7 +9186,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-",
       "meanings": {
         "es": "el empleado"
       }
@@ -9196,11 +9196,11 @@
       "gender": "m",
       "english": "tourist",
       "categories": [
-        "professions"
+        "transport"
       ],
       "difficulty": "intermediate",
       "declensionSafe": false,
-      "plural": "—",
+      "plural": "-en",
       "meanings": {
         "es": "el turista"
       }
@@ -9214,7 +9214,7 @@
       ],
       "difficulty": "beginner",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-s",
       "meanings": {
         "es": "el primo"
       }
@@ -9228,7 +9228,7 @@
       ],
       "difficulty": "beginner",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-n",
       "meanings": {
         "es": "la prima"
       }
@@ -9242,49 +9242,35 @@
       ],
       "difficulty": "beginner",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "¨-e",
       "meanings": {
         "es": "el invitado"
       }
     },
     {
-      "noun": "Gäste",
-      "gender": "m",
-      "english": "guests (plural)",
-      "categories": [
-        "family"
-      ],
-      "difficulty": "beginner",
-      "declensionSafe": true,
-      "plural": "—",
-      "meanings": {
-        "es": "los invitados"
-      }
-    },
-    {
       "noun": "Großeltern",
-      "gender": "f",
-      "english": "grandparents (plural)",
+      "gender": "pl",
+      "english": "grandparents",
       "categories": [
         "family"
       ],
       "difficulty": "beginner",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-",
       "meanings": {
         "es": "los abuelos"
       }
     },
     {
       "noun": "Eltern",
-      "gender": "f",
-      "english": "parents (plural)",
+      "gender": "pl",
+      "english": "parents",
       "categories": [
         "family"
       ],
       "difficulty": "beginner",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-",
       "meanings": {
         "es": "los padres"
       }
@@ -9312,7 +9298,7 @@
       ],
       "difficulty": "beginner",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-",
       "meanings": {
         "es": "el aula"
       }
@@ -9326,7 +9312,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "¨-e",
       "meanings": {
         "es": "el patio"
       }
@@ -9341,7 +9327,7 @@
       ],
       "difficulty": "beginner",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-e",
       "meanings": {
         "es": "el camino"
       }
@@ -9355,7 +9341,7 @@
       ],
       "difficulty": "beginner",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-",
       "meanings": {
         "es": "la habitación"
       }
@@ -9369,7 +9355,7 @@
       ],
       "difficulty": "beginner",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-e",
       "meanings": {
         "es": "el paquete"
       }
@@ -9383,7 +9369,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "¨-e",
       "meanings": {
         "es": "el contrato"
       }
@@ -9397,7 +9383,7 @@
       ],
       "difficulty": "beginner",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-n",
       "meanings": {
         "es": "el grupo"
       }
@@ -9411,7 +9397,7 @@
       ],
       "difficulty": "beginner",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-e",
       "meanings": {
         "es": "la fiesta (la celebración)"
       }
@@ -9440,7 +9426,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-e",
       "meanings": {
         "es": "el sistema"
       }
@@ -9468,7 +9454,7 @@
       ],
       "difficulty": "beginner",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-e",
       "meanings": {
         "es": "la tarde"
       }
@@ -9482,7 +9468,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-n",
       "meanings": {
         "es": "la paloma"
       }
@@ -9496,7 +9482,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-e",
       "meanings": {
         "es": "el pingüino"
       }
@@ -9510,7 +9496,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-",
       "meanings": {
         "es": "el hámster"
       }
@@ -9524,7 +9510,7 @@
       ],
       "difficulty": "beginner",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-s",
       "meanings": {
         "es": "el poni"
       }
@@ -9538,7 +9524,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "¨-er",
       "meanings": {
         "es": "el unicornio"
       }
@@ -9552,7 +9538,7 @@
       ],
       "difficulty": "advanced",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-n",
       "meanings": {
         "es": "la paloma mensajera"
       }
@@ -9594,7 +9580,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-e",
       "meanings": {
         "es": "el amigo por correspondencia"
       }
@@ -9608,7 +9594,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-nen",
       "meanings": {
         "es": "la amiga por correspondencia"
       }
@@ -9622,7 +9608,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-nen",
       "meanings": {
         "es": "la anfitriona"
       }
@@ -9636,7 +9622,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-e",
       "meanings": {
         "es": "el gemelo"
       }
@@ -9650,7 +9636,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-en",
       "meanings": {
         "es": "el catedrático (el profesor)"
       }
@@ -9664,7 +9650,7 @@
       ],
       "difficulty": "beginner",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-s",
       "meanings": {
         "es": "el payaso"
       }
@@ -9678,7 +9664,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-nen",
       "meanings": {
         "es": "la payasa"
       }
@@ -9692,7 +9678,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-",
       "meanings": {
         "es": "el conserje"
       }
@@ -9706,7 +9692,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-",
       "meanings": {
         "es": "el profesor de baile"
       }
@@ -9720,7 +9706,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-",
       "meanings": {
         "es": "el mago"
       }
@@ -9734,7 +9720,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-",
       "meanings": {
         "es": "el caballero"
       }
@@ -9748,7 +9734,7 @@
       ],
       "difficulty": "beginner",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-nen",
       "meanings": {
         "es": "la princesa"
       }
@@ -9762,7 +9748,7 @@
       ],
       "difficulty": "advanced",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-nen",
       "meanings": {
         "es": "la adivina"
       }
@@ -9776,7 +9762,7 @@
       ],
       "difficulty": "advanced",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-e",
       "meanings": {
         "es": "el chófer"
       }
@@ -9804,7 +9790,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-s",
       "meanings": {
         "es": "el profesional (el experto)"
       }
@@ -9818,7 +9804,7 @@
       ],
       "difficulty": "beginner",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-s",
       "meanings": {
         "es": "la pizza"
       }
@@ -9832,7 +9818,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-s",
       "meanings": {
         "es": "el pudin (las natillas)"
       }
@@ -9846,21 +9832,21 @@
       ],
       "difficulty": "beginner",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-e",
       "meanings": {
         "es": "la galleta"
       }
     },
     {
       "noun": "Pommes",
-      "gender": "f",
-      "english": "fries (plural)",
+      "gender": "pl",
+      "english": "fries",
       "categories": [
         "food"
       ],
       "difficulty": "beginner",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-",
       "meanings": {
         "es": "las patatas fritas"
       }
@@ -9874,7 +9860,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-s",
       "meanings": {
         "es": "el bufé"
       }
@@ -9888,7 +9874,7 @@
       ],
       "difficulty": "advanced",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-e",
       "meanings": {
         "es": "la receta secreta"
       }
@@ -9902,7 +9888,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-",
       "meanings": {
         "es": "la fuente (el pozo)"
       }
@@ -9916,7 +9902,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "¨-e",
       "meanings": {
         "es": "el palacio"
       }
@@ -9930,7 +9916,7 @@
       ],
       "difficulty": "beginner",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "¨-e",
       "meanings": {
         "es": "el parque infantil"
       }
@@ -9944,7 +9930,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "¨-er",
       "meanings": {
         "es": "la noria"
       }
@@ -9958,7 +9944,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "¨-e",
       "meanings": {
         "es": "la mudanza"
       }
@@ -9966,15 +9952,15 @@
     {
       "noun": "Limousine",
       "gender": "f",
-      "english": "limousine",
+      "english": "saloon car, sedan; also: limousine",
       "categories": [
         "transport"
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-n",
       "meanings": {
-        "es": "la limusina"
+        "es": "la berlina (el sedán)"
       }
     },
     {
@@ -9986,7 +9972,7 @@
       ],
       "difficulty": "advanced",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-e",
       "meanings": {
         "es": "la autocaravana"
       }
@@ -10000,7 +9986,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-",
       "meanings": {
         "es": "el camión de los helados"
       }
@@ -10014,7 +10000,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "¨-e",
       "meanings": {
         "es": "el ascensor"
       }
@@ -10028,7 +10014,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "Foren",
       "meanings": {
         "es": "el foro"
       }
@@ -10042,7 +10028,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-s",
       "meanings": {
         "es": "el navegador (GPS)"
       }
@@ -10056,7 +10042,7 @@
       ],
       "difficulty": "advanced",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-e",
       "meanings": {
         "es": "el megáfono"
       }
@@ -10070,7 +10056,7 @@
       ],
       "difficulty": "beginner",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-s",
       "meanings": {
         "es": "la tableta"
       }
@@ -10084,7 +10070,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-e",
       "meanings": {
         "es": "el laboratorio"
       }
@@ -10098,7 +10084,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-e",
       "meanings": {
         "es": "el experimento"
       }
@@ -10112,7 +10098,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-s",
       "meanings": {
         "es": "la foto de clase"
       }
@@ -10126,7 +10112,7 @@
       ],
       "difficulty": "advanced",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-e",
       "meanings": {
         "es": "el turno de pizarra"
       }
@@ -10140,7 +10126,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-e",
       "meanings": {
         "es": "el cómic (el tebeo)"
       }
@@ -10154,7 +10140,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-s",
       "meanings": {
         "es": "el concurso de talentos"
       }
@@ -10182,7 +10168,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-n",
       "meanings": {
         "es": "el escenario"
       }
@@ -10224,7 +10210,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-s",
       "meanings": {
         "es": "el tango"
       }
@@ -10238,7 +10224,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-e",
       "meanings": {
         "es": "la cama elástica (el trampolín)"
       }
@@ -10252,7 +10238,7 @@
       ],
       "difficulty": "beginner",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-s",
       "meanings": {
         "es": "el globo"
       }
@@ -10266,7 +10252,7 @@
       ],
       "difficulty": "beginner",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-",
       "meanings": {
         "es": "la pegatina"
       }
@@ -10280,7 +10266,7 @@
       ],
       "difficulty": "advanced",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-n",
       "meanings": {
         "es": "el silbato"
       }
@@ -10294,7 +10280,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "¨-er",
       "meanings": {
         "es": "la rueda de ejercicio"
       }
@@ -10308,7 +10294,7 @@
       ],
       "difficulty": "beginner",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "¨-er",
       "meanings": {
         "es": "el muñeco de nieve"
       }
@@ -10322,7 +10308,7 @@
       ],
       "difficulty": "advanced",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-n",
       "meanings": {
         "es": "la buhardilla"
       }
@@ -10336,7 +10322,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-er",
       "meanings": {
         "es": "el letrero (la señal)"
       }
@@ -10350,7 +10336,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-",
       "meanings": {
         "es": "la nota (el papelito)"
       }
@@ -10364,7 +10350,7 @@
       ],
       "difficulty": "beginner",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-n",
       "meanings": {
         "es": "la postal"
       }
@@ -10378,7 +10364,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-e",
       "meanings": {
         "es": "el paquete gigante"
       }
@@ -10392,7 +10378,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-n",
       "meanings": {
         "es": "la excusa"
       }
@@ -10406,7 +10392,7 @@
       ],
       "difficulty": "advanced",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "¨-e",
       "meanings": {
         "es": "la costumbre (la tradición)"
       }
@@ -10420,7 +10406,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-n",
       "meanings": {
         "es": "la línea (el renglón)"
       }
@@ -10434,7 +10420,7 @@
       ],
       "difficulty": "beginner",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-e",
       "meanings": {
         "es": "el chiste"
       }
@@ -10462,7 +10448,7 @@
       ],
       "difficulty": "beginner",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-",
       "meanings": {
         "es": "el monstruo"
       }
@@ -10490,7 +10476,7 @@
       ],
       "difficulty": "beginner",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-n",
       "meanings": {
         "es": "la celebración (la fiesta)"
       }
@@ -10511,14 +10497,14 @@
     },
     {
       "noun": "Leute",
-      "gender": "m",
-      "english": "people (plural)",
+      "gender": "pl",
+      "english": "people",
       "categories": [
         "family"
       ],
       "difficulty": "beginner",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-",
       "meanings": {
         "es": "la gente"
       }
@@ -10532,7 +10518,7 @@
       ],
       "difficulty": "advanced",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-n",
       "meanings": {
         "es": "el bucle continuo"
       }
@@ -10546,7 +10532,7 @@
       ],
       "difficulty": "beginner",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-e",
       "meanings": {
         "es": "la ensalada"
       }
@@ -10574,7 +10560,7 @@
       ],
       "difficulty": "beginner",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-n",
       "meanings": {
         "es": "la naranja"
       }
@@ -10588,7 +10574,7 @@
       ],
       "difficulty": "beginner",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-en",
       "meanings": {
         "es": "el piso (el apartamento)"
       }
@@ -10602,7 +10588,7 @@
       ],
       "difficulty": "beginner",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "¨-er",
       "meanings": {
         "es": "el baño"
       }
@@ -10630,7 +10616,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-n",
       "meanings": {
         "es": "la tarjeta de crédito"
       }
@@ -10644,7 +10630,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-e",
       "meanings": {
         "es": "la cita"
       }
@@ -10686,7 +10672,7 @@
       ],
       "difficulty": "beginner",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-s",
       "meanings": {
         "es": "el billete (la entrada)"
       }
@@ -10700,7 +10686,7 @@
       ],
       "difficulty": "beginner",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-e",
       "meanings": {
         "es": "el teléfono"
       }
@@ -10714,7 +10700,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-",
       "meanings": {
         "es": "el monedero (la cartera)"
       }
@@ -10858,7 +10844,7 @@
       ],
       "difficulty": "beginner",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-n",
       "meanings": {
         "es": "la ayuda"
       }
@@ -11013,7 +10999,7 @@
       ],
       "difficulty": "advanced",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-en",
       "meanings": {
         "es": "el gobierno"
       }
@@ -11028,7 +11014,7 @@
       ],
       "difficulty": "advanced",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-en",
       "meanings": {
         "es": "la sociedad"
       }
@@ -11043,7 +11029,7 @@
       ],
       "difficulty": "advanced",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-en",
       "meanings": {
         "es": "la mayoría"
       }
@@ -11085,7 +11071,7 @@
       ],
       "difficulty": "advanced",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-en",
       "meanings": {
         "es": "la investigación"
       }
@@ -11100,7 +11086,7 @@
       ],
       "difficulty": "advanced",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-se",
       "meanings": {
         "es": "el hallazgo (la comprensión)"
       }
@@ -11157,7 +11143,7 @@
       ],
       "difficulty": "advanced",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-e",
       "meanings": {
         "es": "la ley"
       }
@@ -11227,7 +11213,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-en",
       "meanings": {
         "es": "la solicitud de empleo"
       }
@@ -11242,7 +11228,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "¨-er",
       "meanings": {
         "es": "el sueldo"
       }
@@ -11256,7 +11242,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-e",
       "meanings": {
         "es": "el aparato"
       }
@@ -11285,7 +11271,7 @@
       ],
       "difficulty": "intermediate",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-en",
       "meanings": {
         "es": "la exposición"
       }
@@ -11299,7 +11285,7 @@
       ],
       "difficulty": "advanced",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-en",
       "meanings": {
         "es": "la percepción"
       }
@@ -11343,7 +11329,7 @@
       ],
       "difficulty": "advanced",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-en",
       "meanings": {
         "es": "la libertad"
       }
@@ -11401,7 +11387,7 @@
       ],
       "difficulty": "advanced",
       "declensionSafe": true,
-      "plural": "—",
+      "plural": "-en",
       "meanings": {
         "es": "el requisito (la condición previa)"
       }

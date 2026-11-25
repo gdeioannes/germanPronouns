@@ -1,6 +1,5 @@
 {
  "help.intro": "Yaklaşık bir buçuk dakikalık bir telefon görüşmesi: Elif, arkadaşı Ben'i doğum günü partisine davet ediyor ve ikisi ne zaman, nerede, hediye ve kimin kimi alacağı konusunu ayarlıyor. Bu arada yabancıları şaşırtan iki Alman doğum günü kuralını öğreniyorsun: doğum gününden önce asla kutlama yapılmaz ve işe pastayı meslektaşlar değil, doğum günü olan kişi getirir. Sahne uydurma; gelenekler gerçek. Yeni öğrendiklerini duyacaksın: Akkusativ (-i hâli) zamirleri (Ich lade dich ein. Holst du mich ab? Ich kenne sie nicht) ve cümle içindeki ayrılabilen fiiller (einladen, abholen, mitbringen, anrufen, anfangen: Ich hole dich um sieben ab). Önce bütün görüşme için bir kez dinle, sonra saatler ve görevler için bir kez daha dinle.",
- "help.tips[0].text": "Akkusativ zamirleri fiilin nesnesidir, Türkçedeki beni, seni, onu gibi: Ich lade dich ein (seni davet ediyorum). Holst du mich ab? (beni alır mısın?). Ich kenne ihn nicht (onu tanımıyorum, erkek). Wir sehen euch am Samstag (sizi görürüz, çoğul). Kennst du sie? (onu, kadın / onları). Yalnızca ich → mich, du → dich, er → ihn biçim değiştirir; sie, es, uns, euch, Sie aynı kalır.",
  "help.tips[0].examples[0].en": "Seni partime davet ediyorum. Beni saat yedide alabilir misin?",
  "help.tips[0].examples[1].en": "Jonas'ı tanıyor musun? Hayır, onu tanımıyorum. Ama onu, kız kardeşini tanıyorum.",
  "help.tips[0].check.q": "Ich rufe ____ morgen an. (du)",
@@ -12,7 +11,6 @@
  "help.tips[1].check.q": "Wann ____ die Party ____? (anfangen)",
  "help.tips[1].check.options[2]": "fangt … an",
  "help.tips[1].check.why": "anfangen ayrılabilen bir fiil ve ünlüsü değişiyor: die Party fängt … an.",
- "help.remember[0]": "Ich lade dich ein, du holst mich ab, ich kenne ihn nicht: mich, dich, ihn değişir; sie, uns, euch aynı kalır.",
  "help.remember[1]": "Ayrılabilen fiiller: ön ek sonda (Ich hole dich ab), modal fiilden sonra bir arada (Kannst du mich abholen?).",
  "help.exam": "Davetler, saatler ve buluşma planları içeren kısa telefon görüşmeleri bu seviyede tipik bir dinleme görevidir.",
  "help.hook": "Bir doğum günü daveti, kimsenin sana söylemediği bir pasta kuralı ve altı buçukta kimin kimi alacağı sorusu. Dinle.",
@@ -85,5 +83,7 @@
  "questions[1].options[1]": "In Deutschland gratuliert man nicht vor dem Geburtstag.",
  "questions[2].options[1]": "Dativ-Pronomen dir und ein Modalverb am Satzende",
  "questions[2].options[2]": "Imperativ und Plural",
- "help.tips[0].title": "mich, dich, ihn, sie, uns, euch"
+ "help.tips[0].title": "mich, dich, ihn, sie, uns, euch",
+ "help.tips[0].text": "Akkusativ zamirleri fiilin nesnesidir, Türkçedeki beni, seni, onu gibi: Ich lade dich ein (seni davet ediyorum). Holst du mich ab? (beni alır mısın?). Ich kenne ihn nicht (onu tanımıyorum, erkek). Wir sehen euch am Samstag (sizi görürüz, çoğul). Kennst du sie? (onu, kadın / onları). ich → mich, du → dich, er → ihn, wir → uns, ihr → euch biçim değiştirir; sie, es ve Sie aynı kalır.",
+ "help.remember[0]": "Ich lade dich ein, du holst mich ab, ich kenne ihn nicht: mich, dich, ihn, uns, euch değişir; sie, es, Sie aynı kalır."
 }

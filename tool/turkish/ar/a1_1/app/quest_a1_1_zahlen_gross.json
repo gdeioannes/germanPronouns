@@ -41,7 +41,6 @@
  "help.tips[3].check.answer": "dreihundertsechsundsiebzig",
  "help.tips[3].check.why": "اقرأ المئات من اليسار (dreihundert)، ثم اقلب الزوج الأخير فقط: 76 = sechsundsiebzig.",
  "help.tips[4].title": "الأعداد الترتيبية: -te حتى 19، و-ste من 20",
- "help.tips[4].text": "التواريخ والترتيب تستعمل الأعداد الترتيبية، وتُكتب مع نقطة: der 1. Mai = der erste Mai. أضف -te للأعداد من 2 إلى 19 (zweite، vierte، zehnte، neunzehnte) و-ste من 20 فما فوق (zwanzigste، dreißigste، hundertste). ثلاثة شاذة: erste، dritte، siebte.",
  "help.tips[4].examples[0].en": "اليوم هو الأول من مايو (أيار).",
  "help.tips[4].examples[1].en": "غدًا الثالث من يونيو (حزيران).",
  "help.tips[4].examples[2].en": "الحادي والثلاثون من ديسمبر (كانون الأول) ليلة رأس السنة.",
@@ -51,7 +50,6 @@
  "help.tips[4].check.why": "من 20 فما فوق النهاية -ste.",
  "help.remember[0]": "عدد واحد، كلمة واحدة: sechshundertfünfzig، tausendzweihundert.",
  "help.remember[1]": "السنوات قبل 2000 بالمئات (neunzehnhundert…)، وبعد 2000 بـ zweitausend.",
- "help.remember[2]": "الترتيبية: -te حتى 19، و-ste من 20؛ وerste وdritte وsiebte شاذة. 3. Juni = dritte Juni.",
  "help.vocab[0].en": "مئة",
  "help.vocab[1].en": "ألف",
  "help.vocab[2].en": "مليون",
@@ -171,7 +169,6 @@
  "sentences[15].options[0]": "zweikommavier",
  "sentences[15].options[1]": "zweihundertvierzig",
  "sentences[15].options[2]": "zweitausendvierzig",
- "sentences[15].why": "zweitausendvierhundert، أو vierundzwanzighundert، «أربعة وعشرون مئة».",
  "sentences[16].english": "وُلد جدي في 1937.",
  "sentences[16].options[0]": "tausendneunhundertsiebenunddreißig",
  "sentences[16].options[1]": "neunzehnhundertdreiundsiebzig",
@@ -219,5 +216,8 @@
  "sentences[9].options[2]": "hundertzwanzig",
  "sentences[20].options[1]": "dritter",
  "sentences[22].options[2]": "zweite",
- "sentences[23].options[2]": "einunddreißig"
+ "sentences[23].options[2]": "einunddreißig",
+ "help.tips[4].text": "التواريخ والترتيب تستعمل الأعداد الترتيبية، وتُكتب مع نقطة: der 1. Mai = der erste Mai. أضف -te للأعداد من 2 إلى 19 (zweite، vierte، zehnte، neunzehnte) و-ste من 20 فما فوق (zwanzigste، dreißigste، hundertste). أربعة شاذة: erste، dritte، siebte، achte (t واحدة فقط).",
+ "help.remember[2]": "الترتيبية: -te حتى 19، و-ste من 20؛ وerste وdritte وsiebte وachte شاذة. 3. Juni = dritte Juni.",
+ "sentences[15].why": "zweitausendvierhundert: الآلاف أولًا، ثم المئات، كلها كلمة واحدة."
 }

@@ -2913,4 +2913,17 @@ export const AR: Record<string, string> = {
 		"طرق أخرى",
 	"I thought of you: a free German book with audio, level {level}. No sign-up, nothing to pay.":
 		"تذكرتك: كتاب مجاني لتعلم الألمانية مع تسجيلات صوتية، المستوى {level}. بلا تسجيل وبلا مقابل.",
+	// Release banner and edition note (2026-11-25)
+	"News about this release":
+		"أخبار عن هذا الإصدار",
+	"Content review":
+		"مراجعة المحتوى",
+	"The German in the app and in the books has been checked and corrected. If you downloaded a book, download the new edition.":
+		"تمّت مراجعة الألمانية في التطبيق وفي الكتب وتصحيحها. إذا كنت قد نزّلت كتابًا، فنزّل الطبعة الجديدة.",
+	"What changed":
+		"ما الذي تغيّر",
+	"New editions":
+		"الطبعات الجديدة",
+	"Current edition: {edition} ({date}). The German in every book was reviewed and corrected; if your PDF is older, download it again.":
+		"الطبعة الحالية: {edition} ({date}). تمّت مراجعة الألمانية في كل كتاب وتصحيحها؛ إذا كان ملف PDF لديك أقدم، فنزّله من جديد.",
 };

@@ -1838,7 +1838,7 @@
         {
           "kind": "warning",
           "title": "haben where English says 'to be'",
-          "text": "German is hungry, thirsty, afraid and in a hurry with haben: Ich habe Hunger, Durst, Angst, Zeit. Age, on the other hand, uses sein: Ich bin zwanzig.",
+          "text": "German is hungry, thirsty and afraid with haben, and has time the same way: Ich habe Hunger, Durst, Angst, Zeit. Age, on the other hand, uses sein: Ich bin zwanzig.",
           "examples": [
             {
               "de": "Ich habe Hunger und Durst.",
@@ -1858,7 +1858,7 @@
               ]
             }
           ],
-          "trap": "'I am hungry' word-for-word (Ich bin hungrig) is understood but sounds foreign; Germans say they *have* hunger.",
+          "trap": "'I am hungry' word-for-word (Ich bin hungrig) is correct but less common; in everyday speech Germans say they *have* hunger.",
           "check": {
             "q": "Wir ____ Angst.",
             "options": [
@@ -1990,7 +1990,7 @@
         {
           "wrong": "Ich bin durstig.",
           "right": "Ich habe Durst.",
-          "why": "Like Hunger, Durst is a noun you have — 'durstig' is understood but not what Germans say."
+          "why": "Like Hunger, Durst is a noun you have — 'durstig' is correct too, but Durst haben is the everyday phrase."
         }
       ],
       "hook": "Two verbs carry half of everyday German: sein for who you are, haben for what you've got."
@@ -3545,7 +3545,7 @@
         {
           "kind": "rule",
           "title": "Euros first, cents second, no comma word",
-          "text": "2,20 € = zwei Euro zwanzig. 1,10 € = ein Euro zehn (ein, not eins, before Euro — and 'einen Euro zehn' after kostet is also heard; both are right). Whole euros: zwei Euro, no 's' on Euro.",
+          "text": "2,20 € = zwei Euro zwanzig. 1,10 € = ein Euro zehn (ein, not eins, before Euro — after kostet it is 'einen Euro zehn', though 'ein Euro zehn' is often heard there too). Whole euros: zwei Euro, no 's' on Euro.",
           "examples": [
             {
               "de": "Ein Brot kostet zwei Euro zehn.",
@@ -3557,10 +3557,10 @@
               ]
             },
             {
-              "de": "Die Kartoffeln kosten ein Euro zehn.",
+              "de": "Die Kartoffeln kosten einen Euro zehn.",
               "en": "The potatoes cost 1.10 €.",
               "focus": [
-                "ein",
+                "einen",
                 "Euro",
                 "zehn"
               ]
@@ -3945,7 +3945,7 @@
     ],
     "title": "Farben",
     "help": {
-      "intro": "Colours are the first adjectives you use to describe things, and at first you use them in the easy position: after the verb sein, where they never change — Das Auto ist rot. Die Blume ist gelb. (Before a noun an adjective takes an ending — ein rotes Auto — but that comes later in the course; for now you only need to recognise it.) You need eleven basic colours, and three of them are loanwords that never take any ending even later: rosa, lila and orange. This quiz gives you a clue and asks for the colour; the clues also quietly teach you nouns like Himmel, Gras and Sonne.",
+      "intro": "Colours are the first adjectives you use to describe things, and at first you use them in the easy position: after the verb sein, where they never change — Das Auto ist rot. Die Blume ist gelb. (Before a noun an adjective takes an ending — ein rotes Auto — but that comes later in the course; for now you only need to recognise it.) You need eleven basic colours, and two of them are loanwords that never take any ending even later: rosa and lila. This quiz gives you a clue and asks for the colour; the clues also quietly teach you nouns like Himmel, Gras and Sonne.",
       "tips": [
         {
           "kind": "rule",
@@ -4205,7 +4205,7 @@
       ],
       "remember": [
         "Blut is rot, Himmel is blau, Gras is grün, Sonne is gelb — the clues in this quiz are the mnemonic.",
-        "Three foreigners never change: rosa, lila, orange."
+        "Two foreigners never change: rosa and lila."
       ],
       "vocab": [
         {
@@ -4288,7 +4288,7 @@
         {
           "wrong": "ein rosanes Kleid",
           "right": "ein rosa Kleid",
-          "why": "rosa, lila and orange never take endings."
+          "why": "rosa and lila never take endings."
         },
         {
           "wrong": "die Farbe ist gelbe",
@@ -5501,7 +5501,7 @@
         {
           "wrong": "Ich bin in dem Büro.",
           "right": "Ich bin im Büro.",
-          "why": "in + dem is always contracted to im in speech and normal writing."
+          "why": "in + dem is normally contracted to im in speech and writing."
         },
         {
           "wrong": "Ich bin in Siemens.",
@@ -5762,7 +5762,7 @@
         {
           "wrong": "die Arztin, die Kochin",
           "right": "die Ärztin, die Köchin",
-          "why": "Short vowels a/o often take an umlaut in the -in form."
+          "why": "The vowels a/o often take an umlaut in the -in form."
         },
         {
           "wrong": "die Kollegein",
@@ -6653,7 +6653,7 @@
         {
           "kind": "rule",
           "title": "Ordinal numbers: -te up to 19, -ste from 20",
-          "text": "Dates and rankings use ordinals, written with a full stop: der 1. Mai = der erste Mai. Add -te to the numbers 2 to 19 (zweite, vierte, zehnte, neunzehnte) and -ste from 20 upwards (zwanzigste, dreißigste, hundertste). Three are irregular: erste, dritte, siebte.",
+          "text": "Dates and rankings use ordinals, written with a full stop: der 1. Mai = der erste Mai. Add -te to the numbers 2 to 19 (zweite, vierte, zehnte, neunzehnte) and -ste from 20 upwards (zwanzigste, dreißigste, hundertste). Four are irregular: erste, dritte, siebte, achte (only one t).",
           "examples": [
             {
               "de": "Heute ist der erste Mai.",
@@ -6693,7 +6693,7 @@
       "remember": [
         "One number, one word: sechshundertfünfzig, tausendzweihundert.",
         "Years before 2000 in hundreds (neunzehnhundert…), after 2000 with zweitausend.",
-        "Ordinals: -te to 19, -ste from 20; erste, dritte, siebte are irregular. 3. Juni = dritte Juni."
+        "Ordinals: -te to 19, -ste from 20; erste, dritte, siebte, achte are irregular. 3. Juni = dritte Juni."
       ],
       "vocab": [
         {
@@ -7082,8 +7082,8 @@
         },
         {
           "kind": "mnemonic",
-          "title": "International words in -o or -a are often das",
-          "text": "Words German took from other languages and that end in -o or -a are usually neuter: das Sofa, das Radio, das Auto. Picture them all parked together in one das-garage.",
+          "title": "International words in -o are often das",
+          "text": "Words German took from other languages and that end in -o are usually neuter: das Radio, das Auto, das Kino. das Sofa is neuter too, but most words in -a are die (die Pizza, die Kamera). Picture them all parked together in one das-garage.",
           "examples": [
             {
               "de": "das Sofa, Plural: -s",
@@ -9742,7 +9742,7 @@
           {
             "kind": "rule",
             "title": "Plurals at the market",
-            "text": "der Fisch → die Fische, der Apfel → die Äpfel, die Banane → die Bananen, die Blume → die Blumen, der Aal → die Aale, die Tüte → die Tüten, der Euro → stays Euro after a number (zehn Euro), die Uhr → fünf Uhr (time, no plural). Many feminine nouns take -n or -en; many masculine nouns take -e, sometimes with umlaut (Äpfel).",
+            "text": "der Fisch → die Fische, der Apfel → die Äpfel, die Banane → die Bananen, die Blume → die Blumen, der Aal → die Aale, die Tüte → die Tüten, der Euro → stays Euro after a number (zehn Euro), die Uhr → fünf Uhr (time, no plural). Many feminine nouns take -n or -en; many masculine nouns take -e, and some change only the vowel (Äpfel).",
             "examples": [
               {
                 "de": "Zehn Bananen, fünf Äpfel und drei Fische in einer Tüte.",
@@ -9841,7 +9841,7 @@
       },
       "category": "Daily Life",
       "passageTitle": "Sonntag, fünf Uhr, Fischmarkt",
-      "passage": "Es ist Sonntag, fünf Uhr am Morgen. In Hamburg schlafen fast alle Menschen. Aber am Hafen ist es laut. Hier ist der Fischmarkt.\n\nDen Fischmarkt gibt es seit 1703. Das ist über dreihundert Jahre! Er ist jeden Sonntag offen, von fünf Uhr bis halb zehn. Im Winter beginnt er um sieben Uhr.\n\nWas gibt es hier? Natürlich Fische: Aale, Lachs und Krabben. Aber auch Obst und Gemüse, Blumen, Käse, Brot und Kleidung. Die Verkäufer rufen laut: „Zehn Bananen, zwei Ananas und fünf Kiwis, alles zusammen nur zehn Euro!“ Sie werfen die Bananen in eine Tüte. Die Leute lachen und kaufen.\n\nDer berühmteste Verkäufer heißt Aale-Dieter. Er verkauft seit über fünfzig Jahren Aale auf dem Fischmarkt. Er ruft sehr laut und macht viele Witze.\n\nViele Leute kommen direkt von der Party. Sie tanzen noch ein bisschen in der Fischauktionshalle, trinken Kaffee und essen ein Fischbrötchen. Dann gehen sie nach Hause und schlafen.",
+      "passage": "Es ist Sonntag, fünf Uhr am Morgen. In Hamburg schlafen fast alle Menschen. Aber am Hafen ist es laut. Hier ist der Fischmarkt.\n\nDen Fischmarkt gibt es seit 1703. Das sind über dreihundert Jahre! Er ist jeden Sonntag offen, von fünf Uhr bis halb zehn. Im Winter beginnt er um sieben Uhr.\n\nWas gibt es hier? Natürlich Fische: Aale, Lachs und Krabben. Aber auch Obst und Gemüse, Blumen, Käse, Brot und Kleidung. Die Verkäufer rufen laut: „Zehn Bananen, zwei Ananas und fünf Kiwis, alles zusammen nur zehn Euro!“ Sie werfen die Bananen in eine Tüte. Die Leute lachen und kaufen.\n\nDer berühmteste Verkäufer heißt Aale-Dieter. Er verkauft seit über fünfzig Jahren Aale auf dem Fischmarkt. Er ruft sehr laut und macht viele Witze.\n\nViele Leute kommen direkt von der Party. Sie tanzen noch ein bisschen in der Fischauktionshalle, trinken Kaffee und essen ein Fischbrötchen. Dann gehen sie nach Hause und schlafen.",
       "passageTranslation": "It is Sunday, five o'clock in the morning. In Hamburg almost everyone is asleep. But at the harbour it is loud. Here is the fish market.\n\nThe fish market has existed since 1703. That is over three hundred years! It is open every Sunday, from five o'clock to half past nine. In winter it starts at seven o'clock.\n\nWhat is there here? Fish, of course: eels, salmon and prawns. But also fruit and vegetables, flowers, cheese, bread and clothes. The sellers shout loudly: 'Ten bananas, two pineapples and five kiwis, all together only ten euros!' They throw the bananas into a bag. The people laugh and buy.\n\nThe most famous seller is called Aale-Dieter. He has sold eels at the fish market for over fifty years. He shouts very loudly and makes many jokes.\n\nMany people come straight from the party. They dance a little more in the fish auction hall, drink coffee and eat a fish roll. Then they go home and sleep.",
       "questions": [
         {
@@ -9871,7 +9871,7 @@
             "seit fünfzig Jahren"
           ],
           "correctIndex": 0,
-          "explanation": "\"Den Fischmarkt gibt es seit 1703. Das ist über dreihundert Jahre!\"",
+          "explanation": "\"Den Fischmarkt gibt es seit 1703. Das sind über dreihundert Jahre!\"",
           "questionTranslation": "Since when has the fish market existed?",
           "optionsTranslation": [
             "since 1703",
@@ -10513,7 +10513,7 @@
         "Tom": "male"
       },
       "passageTitle": "Szene: Im Kaffeehaus",
-      "passage": "Kellner: Grüß Gott! Sind Sie zu zweit?\nMia: Ja, wir sind zu zweit. Haben Sie einen Tisch am Fenster?\nKellner: Natürlich. Bitte, hier. Was möchten Sie trinken?\nMia: Ich möchte einen Kaffee. Haben Sie Cappuccino?\nKellner: Wir sind in Wien! Hier heißt das Melange. Das ist Kaffee mit Milch und Milchschaum.\nMia: Gut, dann eine Melange, bitte.\nTom: Und was ist ein Einspänner?\nKellner: Ein Einspänner ist ein schwarzer Kaffee im Glas, mit viel Schlagobers. Schlagobers ist Schlagsahne.\nTom: Das klingt gut. Ich nehme einen Einspänner.\nKellner: Sehr gern. Möchten Sie auch etwas essen?\nTom: Ja, ich habe Hunger. Haben Sie Apfelstrudel?\nKellner: Ja, Apfelstrudel haben wir. Und Sachertorte.\nMia: Ein Stück Sachertorte für mich, bitte.\nTom: Und ein Apfelstrudel für mich.\nKellner: Also: eine Melange, ein Einspänner, eine Sachertorte, ein Apfelstrudel. Das Wasser ist gratis.\nMia: Danke! Wie viel kostet das alles?\nKellner: Die Melange kostet vier Euro zwanzig, der Einspänner fünf Euro, die Sachertorte fünf Euro fünfzig und der Apfelstrudel vier Euro achtzig. Zusammen neunzehn Euro fünfzig.\nTom: Das ist okay. Wir sind im Urlaub!\nKellner: Dann willkommen in Wien. Das Kaffeehaus ist seit 1876 hier. Sie haben Zeit, bleiben Sie, so lange Sie möchten.",
+      "passage": "Kellner: Grüß Gott! Sind Sie zu zweit?\nMia: Ja, wir sind zu zweit. Haben Sie einen Tisch am Fenster?\nKellner: Natürlich. Bitte, hier. Was möchten Sie trinken?\nMia: Ich möchte einen Kaffee. Haben Sie Cappuccino?\nKellner: Wir sind in Wien! Hier heißt das Melange. Das ist Kaffee mit Milch und Milchschaum.\nMia: Gut, dann eine Melange, bitte.\nTom: Und was ist ein Einspänner?\nKellner: Ein Einspänner ist ein schwarzer Kaffee im Glas, mit viel Schlagobers. Schlagobers ist Schlagsahne.\nTom: Das klingt gut. Ich nehme einen Einspänner.\nKellner: Sehr gern. Möchten Sie auch etwas essen?\nTom: Ja, ich habe Hunger. Haben Sie Apfelstrudel?\nKellner: Ja, Apfelstrudel haben wir. Und Sachertorte.\nMia: Ein Stück Sachertorte für mich, bitte.\nTom: Und ein Apfelstrudel für mich.\nKellner: Also: eine Melange, ein Einspänner, eine Sachertorte, ein Apfelstrudel. Das Wasser ist gratis.\nMia: Danke! Wie viel kostet das alles?\nKellner: Die Melange kostet vier Euro zwanzig, der Einspänner fünf Euro, die Sachertorte fünf Euro fünfzig und der Apfelstrudel vier Euro achtzig. Zusammen neunzehn Euro fünfzig.\nTom: Das ist okay. Wir sind im Urlaub!\nKellner: Dann willkommen in Wien. Das Kaffeehaus ist seit 1876 hier. Sie haben Zeit, bleiben Sie, solange Sie möchten.",
       "passageTranslation": "Waiter: Grüß Gott! Are there two of you?\nMia: Yes, there are two of us. Do you have a table by the window?\nWaiter: Of course. Please, here. What would you like to drink?\nMia: I would like a coffee. Do you have cappuccino?\nWaiter: We are in Vienna! Here it is called Melange. That is coffee with milk and milk foam.\nMia: Good, then a Melange, please.\nTom: And what is an Einspänner?\nWaiter: An Einspänner is a black coffee in a glass, with a lot of Schlagobers. Schlagobers is whipped cream.\nTom: That sounds good. I will take an Einspänner.\nWaiter: With pleasure. Would you also like something to eat?\nTom: Yes, I am hungry. Do you have apple strudel?\nWaiter: Yes, we have apple strudel. And Sacher cake.\nMia: A piece of Sacher cake for me, please.\nTom: And an apple strudel for me.\nWaiter: So: one Melange, one Einspänner, one Sacher cake, one apple strudel. The water is free.\nMia: Thank you! How much does it all cost?\nWaiter: The Melange costs four euros twenty, the Einspänner five euros, the Sacher cake five euros fifty and the apple strudel four euros eighty. Together nineteen euros fifty.\nTom: That is okay. We are on holiday!\nWaiter: Then welcome to Vienna. The coffee house has been here since 1876. You have time, stay as long as you like.",
       "questions": [
         {

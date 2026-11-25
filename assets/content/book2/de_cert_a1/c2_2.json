@@ -293,7 +293,7 @@
 								[
 									"die Mündigkeit",
 									"die Unmündigkeit",
-									"autonomy · immaturity"
+									"maturity · immaturity"
 								],
 								[
 									"die Würde",
@@ -1228,7 +1228,7 @@
 								"en": "not really"
 							},
 							{
-								"de": "der Steuer · die Steuer",
+								"de": "das Steuer · die Steuer",
 								"pl": "",
 								"en": "helm · tax"
 							},
@@ -1734,7 +1734,7 @@
 				"questions": [
 					"Wie sagst du: Bitte geht jetzt?",
 					"Was meint man, wenn man „interessant“ sagt?",
-					"Wer war dein letzter letzter Gast?"
+					"Wer war dein letzter Gast?"
 				],
 				"labels": [
 					{
@@ -1844,7 +1844,7 @@
 						"de": "Das ist praktisch. Ein guter Platz."
 					},
 					{
-						"de": "Um halb zwei zieht Lena ihren Schlafanzug an, und setzt sich wieder an den Tisch. Herr Kolb erzählt vom Jahr 1988."
+						"de": "Um halb zwei zieht Lena ihren Schlafanzug an und setzt sich wieder an den Tisch. Herr Kolb erzählt vom Jahr 1988."
 					},
 					{
 						"who": "Max",
@@ -4286,7 +4286,7 @@
 							]
 						}
 					],
-					"fact": "Ein Vortrag auf Deutsch hat Signale, und das Publikum wartet darauf: *Zunächst*, *Im Folgenden*, *Abschließend*. Fehlen sie, klingt es, als hätte niemand die Leitung. Dasselbe Wort an derselben Stelle ist hier kein schlechter Stil. Es gilt als gute Manieren.",
+					"fact": "Ein Vortrag auf Deutsch hat Signale, und das Publikum wartet darauf: *Zunächst*, *Im Folgenden*, *Abschließend*. Fehlen sie, klingt es, als hätte niemand die Leitung. Dasselbe Wort an derselben Stelle ist hier kein schlechter Stil. Es gilt als gutes Benehmen.",
 					"check": {
 						"title": "Mini-Check",
 						"instruction": "Kreise das richtige Wort ein.",
@@ -5904,7 +5904,7 @@
 			},
 			"document": {
 				"photo": "b2c22_knoellchen_doc",
-				"caption": "Die Förmliche Zustellung",
+				"caption": "Die förmliche Zustellung",
 				"intro": "Ein echter gelber Umschlag. Jeder Deutsche kennt diese Farbe, und jedem schlägt das Herz schneller, wenn er im Briefkasten liegt. Der Postbote schreibt das Datum von Hand darauf, und ab da läuft die Frist. Sieh nach oben: *Umschlag bitte aufbewahren*.",
 				"fact": "Der Umschlag beweist, dass du den Brief bekommen hast, auch ungeöffnet. Urlaub gilt selten als Entschuldigung.",
 				"tasks": [
@@ -7357,7 +7357,7 @@
 											"de": "er krank"
 										},
 										{
-											"de": "war!."
+											"de": "war."
 										}
 									],
 									"en": "da · weil: Verb am Ende"
@@ -10338,7 +10338,7 @@
 								"answer": "weise"
 							},
 							{
-								"before": "denn",
+								"before": "dann",
 								"options": [
 									"auf",
 									"an"

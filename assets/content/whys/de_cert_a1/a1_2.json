@@ -54,7 +54,7 @@
 			{ "sentence": "Ich ____ leider nicht kommen, ich bin krank. (können)", "why": "Modal verbs take no ending with ich: ich kann — ich and er/sie/es share one form." },
 			{ "sentence": "Meine Kinder ____ schon gut schwimmen. (können)", "why": "Plural subjects get the infinitive form back: sie können, with the ö." },
 			{ "sentence": "Ich ____ heute bis sechs Uhr arbeiten. (müssen)", "why": "ich muss — the singular drops the umlaut: muss, not müss." },
-			{ "sentence": "____ ihr morgen früh aufstehen? (müssen)", "why": "ihr takes -t on the singular stem: müsst — ihr keeps the umlaut." },
+			{ "sentence": "____ ihr morgen früh aufstehen? (müssen)", "why": "ihr takes -t on the infinitive stem: müsst — ihr keeps the umlaut." },
 			{ "sentence": "Tom ist krank. Er ____ zum Arzt gehen. (müssen)", "why": "er/sie/es matches ich with modals: er muss, no -t." },
 			{ "sentence": "Wir ____ am Wochenende nach Berlin fahren. (wollen)", "why": "wir takes the infinitive form: wollen." },
 			{ "sentence": "____ du wirklich den ganzen Tag schlafen? (wollen)", "why": "wollen changes o → i in the singular: du willst." },
@@ -94,7 +94,7 @@
 	{
 		"id": "quest_a1_2_datum",
 		"whys": [
-			{ "sentence": "Der erste Arbeitstag der Woche ist ____.", "why": "Montag — Monday; the German week starts on Monday, and the day words all end in -tag." },
+			{ "sentence": "Der erste Arbeitstag der Woche ist ____.", "why": "Montag — Monday; the German week starts on Monday, and all the day words except Mittwoch end in -tag." },
 			{ "sentence": "Der Tag nach Montag ist ____.", "why": "Dienstag — Tuesday; not from dienen but an old god's day, like Tuesday." },
 			{ "sentence": "Die Mitte der Arbeitswoche ist ____.", "why": "Mittwoch — literally 'mid-week', the one day not ending in -tag." },
 			{ "sentence": "Der Tag vor Freitag ist ____.", "why": "Donnerstag — thunder's day, exactly like Thursday (Thor's day)." },
@@ -202,7 +202,7 @@
 		"id": "quest_a1_2_perfekt_intro",
 		"whys": [
 			{ "sentence": "Ich ____ gestern lange ____ . (arbeiten)", "why": "Regular Perfekt: haben + ge…(e)t — gearbeitet, with an extra e after the t-stem." },
-			{ "sentence": "Wir ____ zwei Tage in Berlin ____ . (bleiben)", "why": "bleiben takes sein, not haben — staying counts as a change-of-state verb: sind … geblieben." },
+			{ "sentence": "Wir ____ zwei Tage in Berlin ____ . (bleiben)", "why": "bleiben takes sein, not haben — an exception to learn by heart, because staying is neither movement nor change: sind … geblieben." },
 			{ "sentence": "____ du schon ____ ? (essen)", "why": "essen is irregular: hast … gegessen — with an extra g inside, gegessen." },
 			{ "sentence": "Am Wochenende ____ ich nach Hamburg ____ . (fahren)", "why": "Movement from A to B takes sein: bin … gefahren." },
 			{ "sentence": "Der Lehrer ____ mich etwas ____ . (fragen)", "why": "fragen is regular: hat + ge…t — gefragt." },
@@ -257,7 +257,7 @@
 			{ "sentence": "____ keine Angst, der Hund ist lieb! (haben)", "why": "haben's du-command is Hab! — from the stem hab-, not hast." },
 			{ "sentence": "Kinder, ____ jetzt bitte ins Bett! (gehen)", "why": "The ihr-imperative is simply the ihr form without ihr: geht!" },
 			{ "sentence": "Es regnet. ____ eure Jacken mit! (nehmen)", "why": "The ihr-imperative has NO vowel change: Nehmt!, unlike Nimm." },
-			{ "sentence": "____ bitte ruhig, der Film beginnt! (sein)", "why": "sein's ihr-command is Seid! — its one form that ends in -d." },
+			{ "sentence": "____ bitte ruhig, der Film beginnt! (sein)", "why": "sein's ihr-command is Seid! — spelt with -d, exactly like ihr seid." },
 			{ "sentence": "Es ist heiß. ____ viel Wasser! (trinken)", "why": "ihr-imperative = ihr form minus ihr: Trinkt!" },
 			{ "sentence": "____ Sie bitte Platz, Frau Weber! (nehmen)", "why": "The Sie-imperative keeps Sie and inverts: Nehmen Sie! — infinitive form first." },
 			{ "sentence": "____ Sie bitte hier, der Arzt kommt gleich. (warten)", "why": "Sie-commands are verb + Sie: Warten Sie!" },
@@ -336,7 +336,7 @@
 		"whys": [
 			{ "sentence": "____ Äpfel, bitte. (a kilo)", "why": "Ein Kilo Äpfel — the amount and the thing stand side by side, no 'of' in between." },
 			{ "sentence": "Ich hätte gern ____ Käse. (500 grams)", "why": "500 Gramm Käse — Gramm stays singular after numbers, and no 'of'." },
-			{ "sentence": "Wir brauchen ____ Milch. (a litre)", "why": "ein Liter Milch — measure + thing, with nothing between them." },
+			{ "sentence": "Wir brauchen ____ Milch. (a litre)", "why": "einen Liter Milch — measure + thing, with nothing between them; der Liter is accusative after brauchen." },
 			{ "sentence": "____ Wasser, bitte. (a bottle)", "why": "Eine Flasche Wasser — die Flasche, so eine; no 'of' before Wasser." },
 			{ "sentence": "Ich nehme ____ Kuchen. (a piece)", "why": "ein Stück Kuchen — das Stück; 'a piece cake', the of is silent." },
 			{ "sentence": "Haben Sie ____ Reis? (a packet)", "why": "eine Packung Reis — die Packung, so eine." },

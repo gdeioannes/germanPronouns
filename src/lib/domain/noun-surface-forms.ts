@@ -49,6 +49,7 @@ export const NOUN_SURFACE_FORMS: Record<string, string> = {
 	Stunden: 'Stunde',
 	Pausen: 'Pause',
 	Namen: 'Name',
+	Gäste: 'Gast',
 	Gästen: 'Gast',
 	Schülern: 'Schüler',
 };

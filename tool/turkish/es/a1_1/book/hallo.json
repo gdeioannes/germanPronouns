@@ -130,7 +130,6 @@
  "grammar[0].blocks[1].blocks[1].items[3].en": "Vive en Múnich.",
  "grammar[0].blocks[1].blocks[1].items[4].en": "perro",
  "grammar[0].blocks[2].blocks[0].title": "¿du o Sie?",
- "grammar[0].blocks[2].blocks[0].note": "¿No lo sabes? Di *Sie* y espera a oír “Wir können du sagen”.",
  "grammar[0].blocks[2].blocks[0].root.q": "¿Un amigo, la familia, un niño u otra persona que aprende contigo?",
  "grammar[0].blocks[2].blocks[1].title": "¿sie, sie o Sie?",
  "grammar[0].blocks[2].blocks[1].text": "*sie* es «ella», *sie* es «ellos/ellas», y *Sie* con S mayúscula es el «usted». El verbo lo delata: sie *ist* (ella es), sie *sind* (ellos son), Sie *sind* (usted es). Como «ustedes son», Sie va con el verbo en plural.",
@@ -233,5 +232,6 @@
  "document.tasks[1].title": "Wer ist das?",
  "document.tasks[2].title": "Dein Klingelschild",
  "practise[2].title": "Max stellt sich vor",
- "practise[7].title": "Das bin ich"
+ "practise[7].title": "Das bin ich",
+ "grammar[0].blocks[2].blocks[0].note": "¿No lo sabes? Di *Sie* y espera a oír “Wir können Du sagen”."
 }

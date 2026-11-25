@@ -35,7 +35,6 @@
  "sentences[1].why": "500 Gramm Käse: Gramm після чисел лишається в однині, і жодного відмінка.",
  "sentences[2].sentence": "Wir brauchen ____ Milch. (літр)",
  "sentences[2].english": "Нам потрібен літр молока.",
- "sentences[2].why": "ein Liter Milch: міра + річ, нічого між ними.",
  "sentences[3].sentence": "____ Wasser, bitte. (пляшка)",
  "sentences[3].english": "Пляшку води, будь ласка.",
  "sentences[3].why": "Eine Flasche Wasser: die Flasche, тож eine; Wasser не змінюється.",
@@ -124,5 +123,6 @@
  "sentences[14].options[2]": "Flasche",
  "sentences[15].options[0]": "Packung",
  "sentences[17].options[0]": "Dose",
- "help.tips[2].title": "Ціни"
+ "help.tips[2].title": "Ціни",
+ "sentences[2].why": "einen Liter Milch: міра + річ, нічого між ними; der Liter стоїть в Akkusativ після brauchen."
 }

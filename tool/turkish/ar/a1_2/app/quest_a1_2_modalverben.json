@@ -73,7 +73,6 @@
  "sentences[3].options[0]": "musse",
  "sentences[3].why": "ich muss: المفرد يفقد الـ Umlaut، muss، لا müss.",
  "sentences[4].english": "هل يجب عليكم أن تستيقظوا مبكرًا غدًا؟",
- "sentences[4].why": "ihr يأخذ -t على جذع الجمع: müsst، وihr يحتفظ بالـ Umlaut.",
  "sentences[5].english": "Tom مريض. يجب أن يذهب إلى الطبيب.",
  "sentences[5].why": "er/sie/es يطابق ich مع الأفعال المساعدة: er muss، دون -t.",
  "sentences[6].english": "نريد أن نذهب إلى برلين في عطلة نهاية الأسبوع.",
@@ -138,5 +137,6 @@
  "sentences[16].options[0]": "soll",
  "sentences[16].options[2]": "sollst",
  "sentences[17].options[0]": "soll",
- "sentences[17].options[2]": "sollen"
+ "sentences[17].options[2]": "sollen",
+ "sentences[4].why": "ihr يأخذ -t على جذع المصدر: müsst، وihr يحتفظ بالـ Umlaut."
 }

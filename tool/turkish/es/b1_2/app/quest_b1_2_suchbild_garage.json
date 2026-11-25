@@ -16,7 +16,6 @@
  "spots[14].en": "alicates, pinzas",
  "spots[15].en": "destornillador",
  "spots[16].en": "tornillo de banco",
- "spots[17].en": "cinta adhesiva americana",
  "spots[18].en": "taladro",
  "spots[19].en": "linterna",
  "spots[20].en": "cuerda",
@@ -63,7 +62,6 @@
  "help.vocab[14].en": "alicates, pinzas",
  "help.vocab[15].en": "destornillador",
  "help.vocab[16].en": "tornillo de banco",
- "help.vocab[17].en": "cinta adhesiva americana",
  "help.vocab[18].en": "taladro",
  "help.vocab[19].en": "linterna",
  "help.vocab[20].en": "cuerda",
@@ -82,5 +80,7 @@
  "help.introEn": "Una búsqueda en una imagen en lugar de un mazo de tarjetas: un garaje de casa, bien usado, que también sirve de taller, con 32 cosas que encontrar: der Schraubstock en el banco de trabajo, die Zange en el panel perforado, das Verlängerungskabel enrollado en el suelo. La consigna pregunta Wo ist der Rasenmäher? y tú lo tocas en la imagen. Tocar la pared vacía no cuesta nada; si tocas el objeto equivocado, te dice qué has tocado y sigues buscando, y después de tres fallos se muestra el correcto. Cada hallazgo muestra su nombre, coloreado según su género, y luego deja una pequeña marca de ese color, para que veas lo que ya has encontrado. Cuando superas una ronda, la búsqueda se vuelve más difícil: la consigna esconde el artículo (Wo ist ___ Rasenmäher?) y, después de encontrarlo, eliges tú der, die o das. Ningún objeto se pregunta dos veces en la misma ronda.",
  "help.rememberEn[0]": "La última parte de un compuesto fija el artículo: das Schloss → das Vorhängeschloss.",
  "help.rememberEn[1]": "Los nombres de agente hechos con verbo + -er son der (der Rasenmäher), pero die Leiter y das Fenster no.",
- "help.rememberEn[2]": "Las herramientas terminadas en -e suelen ser die: die Säge, die Zange."
+ "help.rememberEn[2]": "Las herramientas terminadas en -e suelen ser die: die Säge, die Zange.",
+ "spots[17].en": "cinta adhesiva",
+ "help.vocab[17].en": "cinta adhesiva"
 }

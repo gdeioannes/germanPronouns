@@ -51,7 +51,6 @@
  "help.remember[0]": "-in = هي، و-innen = هنّ (كلهن نساء)، وكلاهما die.",
  "help.remember[1]": "في الاسم المركب، الكلمة الأخيرة هي الرئيس: تعطي المعنى والجنس.",
  "help.context.en": "في شركتي تعمل نساء كثيرات: مديرتي، وزميلتان من إيطاليا، وصحفية. في المقصف اليوم شوربة سمك وكعكة تفاح. كعكة التفاح من الطباخة، لذيذة!",
- "help.mistakes[0].why": "حروف العلة القصيرة a/o تأخذ غالبًا Umlaut في صيغة -in.",
  "help.mistakes[1].why": "e الأخيرة تُحذف قبل -in.",
  "help.mistakes[2].wrong": "die Apfelkuchen (لكعكة واحدة)",
  "help.mistakes[2].why": "الاسم المركب يأخذ جنس جزئه الأخير، der Kuchen.",
@@ -217,5 +216,6 @@
  "sentences[16].options[0]": "Ärztin",
  "sentences[17].options[0]": "Verkäuferin",
  "sentences[24].options[0]": "Nachbarin",
- "sentences[25].options[0]": "Köchin"
+ "sentences[25].options[0]": "Köchin",
+ "help.mistakes[0].why": "حروف العلة a/o تأخذ غالبًا Umlaut في صيغة -in."
 }

@@ -54,7 +54,6 @@
  "help.hook": "Nommez n'importe quel jour, mois ou date en allemand, et dites exactement quand ont lieu votre anniversaire, votre rendez-vous ou vos vacances.",
  "sentences[0].hint": "En français : lundi",
  "sentences[0].english": "Le premier jour de travail de la semaine est ____ (lundi).",
- "sentences[0].why": "Montag : lundi. La semaine allemande commence le lundi, et les noms de jours se terminent presque tous en -tag. Montag, c'est le jour de la lune (Mond), exactement comme lundi.",
  "sentences[1].hint": "En français : mardi",
  "sentences[1].english": "Le jour après lundi est ____ (mardi).",
  "sentences[1].why": "Dienstag : mardi. Il ne vient pas de dienen, mais du jour d'un ancien dieu de la guerre, comme mardi vient de Mars.",
@@ -158,5 +157,6 @@
  "sentences[26].options[2]": "acht",
  "sentences[27].options[0]": "zweite",
  "sentences[27].options[2]": "zwei",
- "sentences[28].options[2]": "fünfundzwanzig"
+ "sentences[28].options[2]": "fünfundzwanzig",
+ "sentences[0].why": "Montag : lundi. La semaine allemande commence le lundi, et tous les noms de jours, sauf Mittwoch, se terminent en -tag."
 }

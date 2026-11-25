@@ -1943,7 +1943,7 @@
         {
           "kind": "rule",
           "title": "nach and vor",
-          "text": "nach = past, vor = to: Viertel nach acht (8:15), Viertel vor neun (8:45), zehn nach zwei (2:10), zwanzig vor sechs (5:40). The minutes always come first: fünf nach zehn is 10:05, zehn nach fünf is 5:10. Adding Minuten is fine too (fünf Minuten nach zehn), but there is no und — never zehn und fünf. In the south and east you will also hear zehn vor halb drei (2:20) and drei Viertel elf (10:45); the quiz accepts those as well.",
+          "text": "nach = past, vor = to: Viertel nach acht (8:15), Viertel vor neun (8:45), zehn nach zwei (2:10), zwanzig vor sechs (5:40). The minutes always come first: fünf nach zehn is 10:05, zehn nach fünf is 5:10. Adding Minuten is fine too (fünf Minuten nach zehn), but there is no und — never zehn und fünf. In the south and east you will also hear zehn vor halb drei (2:20) and drei viertel elf (10:45); the quiz accepts those as well.",
           "examples": [
             {
               "de": "Es ist fünf nach zehn.",
@@ -5050,7 +5050,7 @@
         {
           "kind": "rule",
           "title": "The dative pronouns",
-          "text": "mir, dir, ihm, ihr, ihm, uns, euch, ihnen, Ihnen. mir and dir rhyme; ihm is his/its, ihr is hers; ihnen is them, Ihnen is you (formal).",
+          "text": "mir, dir, ihm, ihr, ihm, uns, euch, ihnen, Ihnen. mir and dir rhyme; ihm is (to) him/it, ihr is (to) her; ihnen is (to) them, Ihnen is (to) you (formal).",
           "examples": [
             {
               "de": "Wie geht es dir? – Mir geht es gut.",
@@ -7803,7 +7803,7 @@
             },
             {
               "de": "das Handtuch, Plural: Handtücher",
-              "en": "tea towel (das Tuch)",
+              "en": "towel (das Tuch)",
               "focus": [
                 "das"
               ]
@@ -8062,7 +8062,7 @@
           "de": "Handtuch",
           "article": "das",
           "plural": "Handtücher",
-          "en": "tea towel"
+          "en": "towel"
         },
         {
           "de": "Schneidebrett",
@@ -8124,7 +8124,7 @@
         1024,
         1024
       ],
-      "sceneAlt": "A cosy family kitchen seen from the front: on the left a window, a fridge, a broom and a rubbish bin; along the back a counter with a microwave, a coffee machine, a kettle, a cooker with a pot and a frying pan, a sink with a tap and a radio, a rail with spoons, a whisk and an oven glove, a wall cupboard and a clock under a hanging lamp. In front stands a table with a bowl with an apple, an egg, bread, a cup, a bottle and a chopping board with a knife, and a chair; on the right a door with a tea towel beside it.",
+      "sceneAlt": "A cosy family kitchen seen from the front: on the left a window, a fridge, a broom and a rubbish bin; along the back a counter with a microwave, a coffee machine, a kettle, a cooker with a pot and a frying pan, a sink with a tap and a radio, a rail with spoons, a whisk and an oven glove, a wall cupboard and a clock under a hanging lamp. In front stands a table with a bowl with an apple, an egg, bread, a cup, a bottle and a chopping board with a knife, and a chair; on the right a door with a towel beside it.",
       "spots": [
         {
           "de": "Tür",
@@ -8375,7 +8375,7 @@
         {
           "de": "Handtuch",
           "article": "das",
-          "en": "tea towel",
+          "en": "towel",
           "plural": "Handtücher",
           "x": 83.2,
           "y": 49.3,
@@ -8473,7 +8473,7 @@
     ],
     "help": {
       "hook": "A small corner shop full of groceries: find each item in the picture, then give it its article.",
-      "intro": "A picture hunt instead of a deck: one small corner shop with 32 things to find in it, all words you need when you go shopping — der Einkaufswagen, die Kasse, das Fließband, the cheese on the shelf and the fish in the freezer. The prompt asks Wo ist …? and you tap the object in the picture. A tap on bare wall or floor costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Each find shows its label, coloured by its gender (blue der, red die, green das), then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Kasse?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
+      "intro": "A picture hunt instead of a deck: one small corner shop with 32 things to find in it, all words you need when you go shopping — der Einkaufswagen, die Kasse, das Kassenband, the cheese on the shelf and the fish in the freezer. The prompt asks Wo ist …? and you tap the object in the picture. A tap on bare wall or floor costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Each find shows its label, coloured by its gender (blue der, red die, green das), then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Kasse?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
       "tips": [
         {
           "kind": "rule",
@@ -8623,9 +8623,9 @@
           "en": "chest freezer"
         },
         {
-          "de": "Fließband",
+          "de": "Kassenband",
           "article": "das",
-          "plural": "Fließbänder",
+          "plural": "Kassenbänder",
           "en": "conveyor belt"
         },
         {
@@ -8785,7 +8785,7 @@
           "de": "Melone",
           "article": "die",
           "plural": "-n",
-          "en": "watermelon"
+          "en": "melon"
         },
         {
           "de": "Gurke",
@@ -8811,7 +8811,7 @@
         936,
         936
       ],
-      "sceneAlt": "A small corner shop seen from the front: on the left a checkout with a till, a conveyor belt, a chocolate bar and a paper bag, and a shopping basket on the floor. At the back a tall shelf with wine, milk, juice, eggs, toilet paper, a roast chicken, sausages, cheese, a watermelon, a tomato and a present; beside it a hanging scale under a bakery shelf with a cake and a croissant. On the right a chest freezer with ice cream, a steak and a fish; in front a fruit and vegetable stall, a bucket of flowers and a shopping trolley.",
+      "sceneAlt": "A small corner shop seen from the front: on the left a checkout with a till, a conveyor belt, a chocolate bar and a paper bag, and a shopping basket on the floor. At the back a tall shelf with wine, milk, juice, eggs, toilet paper, a roast chicken, sausages, cheese, a melon, a tomato and a present; beside it a hanging scale under a bakery shelf with a cake and a croissant. On the right a chest freezer with ice cream, a steak and a fish; in front a fruit and vegetable stall, a bucket of flowers and a shopping trolley.",
       "spots": [
         {
           "de": "Regal",
@@ -8834,10 +8834,10 @@
           "h": 25
         },
         {
-          "de": "Fließband",
+          "de": "Kassenband",
           "article": "das",
           "en": "conveyor belt",
-          "plural": "Fließbänder",
+          "plural": "Kassenbänder",
           "x": 5,
           "y": 51.5,
           "w": 25.2,
@@ -9117,7 +9117,7 @@
         {
           "de": "Melone",
           "article": "die",
-          "en": "watermelon",
+          "en": "melon",
           "plural": "-n",
           "x": 50.8,
           "y": 65.6,
@@ -9841,7 +9841,7 @@
         {
           "de": "Fußgänger",
           "en": "pedestrian",
-          "example": "Hier fahren nur Fahrräder und Fußgänger.",
+          "example": "Hier sind nur Fahrräder und Fußgänger unterwegs.",
           "article": "der",
           "plural": "-"
         },
@@ -10632,7 +10632,7 @@
       },
       "category": "History",
       "passageTitle": "Die Nacht, in der die Mauer fiel",
-      "passage": "Von 1961 bis 1989 war Berlin eine Stadt mit zwei Teilen: West-Berlin und Ost-Berlin. In der Mitte war die Mauer. Sie war 155 Kilometer lang und fast vier Meter hoch. Die Regierung von Ost-Deutschland hat die Mauer im August 1961 gebaut. Die Menschen im Osten durften nicht in den Westen.\n\nFamilien hatten plötzlich eine Grenze in der Mitte. Eine Oma wohnte im Osten, ihre Enkel im Westen. 28 Jahre lang war das so.\n\nIm Herbst 1989 waren viele Menschen im Osten auf der Straße. Sie haben demonstriert und gerufen: „Wir sind das Volk!“ Am Abend des 9. November 1989 hat ein Politiker im Fernsehen gesagt: Die Grenze ist offen. Tausende Menschen sind sofort zur Mauer gegangen. Um 23 Uhr haben die Soldaten die Tore geöffnet. Die Menschen haben gelacht, geweint, getanzt und auf der Mauer gesessen. Es war eine große Party.\n\nEin Jahr später, am 3. Oktober 1990, war Deutschland wieder ein Land. Heute siehst du die Mauer nur noch an wenigen Orten. Ein Teil steht an der Spree: die East Side Gallery, 1,3 Kilometer lang, mit vielen Bildern.",
+      "passage": "Von 1961 bis 1989 war Berlin eine Stadt mit zwei Teilen: West-Berlin und Ost-Berlin. In der Mitte war die Mauer. Sie war 155 Kilometer lang und fast vier Meter hoch. Die Regierung von Ostdeutschland hat die Mauer im August 1961 gebaut. Die Menschen im Osten durften nicht in den Westen.\n\nFamilien hatten plötzlich eine Grenze in der Mitte. Eine Oma wohnte im Osten, ihre Enkel im Westen. 28 Jahre lang war das so.\n\nIm Herbst 1989 waren viele Menschen im Osten auf der Straße. Sie haben demonstriert und gerufen: „Wir sind das Volk!“ Am Abend des 9. November 1989 hat ein Politiker im Fernsehen gesagt: Die Grenze ist offen. Tausende Menschen sind sofort zur Mauer gegangen. Um 23 Uhr haben die Soldaten die Tore geöffnet. Die Menschen haben gelacht, geweint, getanzt und auf der Mauer gesessen. Es war eine große Party.\n\nEin Jahr später, am 3. Oktober 1990, war Deutschland wieder ein Land. Heute siehst du die Mauer nur noch an wenigen Orten. Ein Teil steht an der Spree: die East Side Gallery, 1,3 Kilometer lang, mit vielen Bildern.",
       "passageTranslation": "From 1961 to 1989 Berlin was a city with two parts: West Berlin and East Berlin. In the middle was the Wall. It was 155 kilometres long and almost four metres high. The government of East Germany built the Wall in August 1961. The people in the East were not allowed into the West.\n\nFamilies suddenly had a border in the middle. A grandmother lived in the East, her grandchildren in the West. For 28 years it was like that.\n\nIn autumn 1989 many people in the East were on the streets. They demonstrated and shouted: 'We are the people!' On the evening of 9 November 1989 a politician said on television: the border is open. Thousands of people went straight to the Wall. At 11 pm the soldiers opened the gates. People laughed, cried, danced and sat on the Wall. It was a big party.\n\nA year later, on 3 October 1990, Germany was one country again. Today you see the Wall only in a few places. One part stands by the Spree: the East Side Gallery, 1.3 kilometres long, with many pictures.",
       "questions": [
         {
@@ -10654,7 +10654,7 @@
           ]
         },
         {
-          "question": "Wann hat Ost-Deutschland die Mauer gebaut?",
+          "question": "Wann hat Ostdeutschland die Mauer gebaut?",
           "options": [
             "im August 1961",
             "im November 1989",
@@ -10662,7 +10662,7 @@
             "im Herbst 1989"
           ],
           "correctIndex": 0,
-          "explanation": "\"Die Regierung von Ost-Deutschland hat die Mauer im August 1961 gebaut.\"",
+          "explanation": "\"Die Regierung von Ostdeutschland hat die Mauer im August 1961 gebaut.\"",
           "questionTranslation": "When did East Germany build the Wall?",
           "optionsTranslation": [
             "in August 1961",
@@ -11192,7 +11192,7 @@
           {
             "kind": "rule",
             "title": "mich, dich, ihn, sie, uns, euch",
-            "text": "The accusative pronouns are the object of the verb: Ich lade dich ein (I invite you). Holst du mich ab? (Do you pick me up?). Ich kenne ihn nicht (I do not know him). Wir sehen euch am Samstag (we see you all). Kennst du sie? (her / them). Only ich → mich, du → dich, er → ihn change their form; sie, es, uns, euch, Sie stay the same.",
+            "text": "The accusative pronouns are the object of the verb: Ich lade dich ein (I invite you). Holst du mich ab? (Do you pick me up?). Ich kenne ihn nicht (I do not know him). Wir sehen euch am Samstag (we see you all). Kennst du sie? (her / them). ich → mich, du → dich, er → ihn, wir → uns, ihr → euch change their form; sie, es and Sie stay the same.",
             "examples": [
               {
                 "de": "Ich lade dich zu meiner Party ein. Kannst du mich um sieben abholen?",
@@ -11286,7 +11286,7 @@
           }
         ],
         "remember": [
-          "Ich lade dich ein, du holst mich ab, ich kenne ihn nicht: mich, dich, ihn change; sie, uns, euch stay.",
+          "Ich lade dich ein, du holst mich ab, ich kenne ihn nicht: mich, dich, ihn, uns, euch change; sie, es, Sie stay.",
           "Separable verbs: prefix at the end (Ich hole dich ab), together after a modal (Kannst du mich abholen?)."
         ],
         "exam": "Short phone calls with invitations, times and arrangements are a typical listening task at this level.",

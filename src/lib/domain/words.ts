@@ -112,6 +112,14 @@ export interface CaseRow {
  */
 export function caseTable(entry: SharedNounEntry): CaseRow[] | null {
 	if (!entry.declensionSafe) return null;
+	// A plural-only noun (die Eltern, die Leute) has only the plural column.
+	if (entry.gender === 'pl') {
+		return [
+			{ label: 'Nominativ', singular: '—', plural: `die ${entry.noun}` },
+			{ label: 'Akkusativ', singular: '—', plural: `die ${entry.noun}` },
+			{ label: 'Dativ', singular: '—', plural: `den ${dativePlural(entry.noun)}` }
+		];
+	}
 	const a = CASE_ARTICLES[entry.gender];
 	if (!a) return null;
 	const plural = pluralForm(entry.noun, entry.plural);

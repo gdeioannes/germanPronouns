@@ -22,7 +22,6 @@
  "spots[20].en": "poche de perfusion",
  "spots[21].en": "distributeur de désinfectant",
  "spots[22].en": "serviette",
- "spots[23].en": "poubelle à pédale",
  "spots[24].en": "masque à oxygène",
  "spots[25].en": "stéthoscope",
  "spots[26].en": "bouquet de fleurs",
@@ -42,7 +41,6 @@
  "help.tips[1].en.text": "die Wärmflasche est un sac en caoutchouc, pas du tout une bouteille, mais il finit par die Flasche, donc il est féminin. das Kopfkissen et das Klemmbrett suivent das Kissen et das Brett. Fiez-vous au dernier mot, pas à l'aspect de l'objet.",
  "help.tips[1].en.title": "Même dernière partie, même article, même quand cela paraît bizarre",
  "help.tips[2].examples[0].en": "poche de perfusion",
- "help.tips[2].examples[1].en": "poubelle à pédale",
  "help.tips[2].check.whyEn": "La dernière partie est der Tisch, donc c'est der Nachttisch.",
  "help.tips[2].en.text": "Beaucoup de récipients et de supports de cette chambre sont masculins : der Infusionsbeutel, der Treteimer, der Infusionsständer, der Nachttisch. Imaginez un infirmier, Herr Beutel, qui les porte tous devant le lit ; dites chacun avec der quand il passe. Le français ne vous aidera pas : la poche, la poubelle, la table, mais der partout.",
  "help.tips[2].en.title": "Ce qui contient quelque chose : der Beutel, der Eimer, der Ständer",
@@ -69,7 +67,6 @@
  "help.vocab[20].en": "poche de perfusion",
  "help.vocab[21].en": "distributeur de désinfectant",
  "help.vocab[22].en": "serviette",
- "help.vocab[23].en": "poubelle à pédale",
  "help.vocab[24].en": "masque à oxygène",
  "help.vocab[25].en": "stéthoscope",
  "help.vocab[26].en": "bouquet de fleurs",
@@ -82,5 +79,8 @@
  "help.introEn": "Une chasse à l'image au lieu d'un paquet de cartes : une chambre d'hôpital vide, comme celles que l'on voit en rendant visite à quelqu'un dans un service, avec 32 choses à y trouver, chacune un nom précis que l'on rencontre rarement dans un manuel : der Bettgalgen au-dessus du lit, die Schnabeltasse sur la table de chevet, das Röntgenbild au mur, der Treteimer près du lavabo. La consigne demande Wo ist …? et vous touchez l'objet dans l'image. Chaque objet trouvé affiche son nom, coloré selon son genre, puis laisse une petite coche de cette couleur, pour que vous voyiez ce que vous avez déjà trouvé. Toucher un mur vide ne coûte rien ; toucher le mauvais objet vous dit ce que vous avez touché et vous continuez à chercher, et après trois erreurs, le bon objet est montré. Une fois une série réussie, la chasse se corse : la consigne cache l'article (Wo ist ___ Schnabeltasse?), et après avoir trouvé l'objet, vous choisissez vous-même der, die ou das. Aucun objet n'est demandé deux fois dans la même série.",
  "help.rememberEn[0]": "La dernière partie d'un mot composé fixe l'article : die Flasche → die Sauerstoffflasche, die Wärmflasche.",
  "help.rememberEn[1]": "das Bett, das Kissen, das Brett restent neutres dans les mots composés : das Krankenbett, das Kopfkissen, das Klemmbrett.",
- "help.rememberEn[2]": "Les mots empruntés ont souvent un genre fixe à apprendre par cœur : der Paravent, das Stethoskop, das Rollo."
+ "help.rememberEn[2]": "Les mots empruntés ont souvent un genre fixe à apprendre par cœur : der Paravent, das Stethoskop, das Rollo.",
+ "spots[23].en": "poubelle",
+ "help.tips[2].examples[1].en": "poubelle",
+ "help.vocab[23].en": "poubelle"
 }

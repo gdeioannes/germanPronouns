@@ -16,7 +16,6 @@
  "spots[14].en": "pince",
  "spots[15].en": "tournevis",
  "spots[16].en": "étau",
- "spots[17].en": "ruban adhésif",
  "spots[18].en": "perceuse",
  "spots[19].en": "lampe de poche",
  "spots[20].en": "corde",
@@ -63,7 +62,6 @@
  "help.vocab[14].en": "pince",
  "help.vocab[15].en": "tournevis",
  "help.vocab[16].en": "étau",
- "help.vocab[17].en": "ruban adhésif",
  "help.vocab[18].en": "perceuse",
  "help.vocab[19].en": "lampe de poche",
  "help.vocab[20].en": "corde",
@@ -82,5 +80,7 @@
  "help.introEn": "Une chasse à l'image au lieu d'un paquet de cartes : un garage de maison bien vécu, qui sert aussi d'atelier, avec 32 choses à y trouver : der Schraubstock sur l'établi, die Zange sur le panneau perforé, das Verlängerungskabel enroulé par terre. La consigne demande Wo ist der Rasenmäher? et vous le touchez sur l'image. Toucher un mur vide ne coûte rien ; toucher le mauvais objet vous dit ce que vous avez touché et vous continuez à chercher, et après trois erreurs, le bon objet est montré. Chaque trouvaille affiche son nom, coloré selon son genre, puis laisse une petite coche de cette couleur, pour que vous voyiez ce que vous avez déjà trouvé. Une fois une série réussie, la chasse devient plus difficile : la consigne cache l'article (Wo ist ___ Rasenmäher?), et après la trouvaille, vous choisissez vous-même der, die ou das. Aucun objet n'est demandé deux fois dans la même série.",
  "help.rememberEn[0]": "La dernière partie d'un mot composé fixe l'article : das Schloss → das Vorhängeschloss.",
  "help.rememberEn[1]": "Les « faiseurs » tirés d'un verbe avec -er sont der (der Rasenmäher), mais die Leiter et das Fenster ne le sont pas.",
- "help.rememberEn[2]": "Les outils en -e sont en général die : die Säge, die Zange."
+ "help.rememberEn[2]": "Les outils en -e sont en général die : die Säge, die Zange.",
+ "spots[17].en": "ruban adhésif",
+ "help.vocab[17].en": "ruban adhésif"
 }

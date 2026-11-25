@@ -87,7 +87,6 @@
  "sentences[11].english": "Іде дощ. Візьміть куртки з собою!",
  "sentences[11].why": "Наказовий спосіб для ihr НЕ має зміни голосного: Nehmt!, на відміну від Nimm.",
  "sentences[12].english": "Будь ласка, тихо, фільм починається!",
- "sentences[12].why": "Наказ від sein для ihr є Seid!, його єдина форма на -d.",
  "sentences[13].english": "Спекотно. Пийте багато води!",
  "sentences[13].why": "Наказовий спосіб для ihr = форма ihr мінус ihr: Trinkt!",
  "sentences[14].english": "Сідайте, будь ласка, пані Вебер!",
@@ -126,5 +125,6 @@
  "sentences[17].options[2]": "Liest",
  "sentences[18].options[1]": "Liest",
  "sentences[18].options[2]": "Lese",
- "help.tips[2].title": "Sie: інфінітив + Sie"
+ "help.tips[2].title": "Sie: інфінітив + Sie",
+ "sentences[12].why": "Наказ від sein для ihr є Seid!, пишеться з -d, точно як ihr seid."
 }

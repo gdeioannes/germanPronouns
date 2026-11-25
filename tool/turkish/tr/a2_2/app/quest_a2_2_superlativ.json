@@ -81,7 +81,6 @@
  "sentences[1].why": "kurz → am kürzesten: umlaut ve z'den sonra fazladan bir e.",
  "sentences[2].english": "En hızlı Anna koşuyor.",
  "sentences[2].options[0]": "schnellesten",
- "sentences[2].options[1]": "schnellste",
  "sentences[2].why": "Düz + -sten: am schnellsten.",
  "sentences[3].english": "Bu dondurmanın tadı en güzel.",
  "sentences[3].options[0]": "gutesten",
@@ -93,7 +92,6 @@
  "sentences[5].english": "En yüksek Everest.",
  "sentences[5].options[0]": "hochsten",
  "sentences[5].options[1]": "höhesten",
- "sentences[5].why": "hoch → am höchsten: c yer değiştirir, höch-.",
  "sentences[6].english": "Ailede en yaşlı dedem.",
  "sentences[6].options[0]": "altesten",
  "sentences[6].options[1]": "ältsten",
@@ -147,7 +145,6 @@
  "sentences[16].options[2]": "näheren",
  "sentences[16].why": "nah → am nächsten: yine düzensiz Superlativ.",
  "sentences[17].english": "En büyük ağabeyim elli yaşında bile.",
- "sentences[17].options[0]": "älteste",
  "sentences[17].options[2]": "altester",
  "sentences[17].why": "İsimden önce: ältest- artı sıfat eki, mein ältester Bruder.",
  "sentences[18].english": "En çok işe bisikletle gitmeyi severim.",
@@ -162,6 +159,7 @@
  "help.tips[3].check.options[0]": "am besten",
  "help.tips[3].check.answer": "am besten",
  "sentences[0].options[2]": "größte",
+ "sentences[2].options[1]": "schnellste",
  "sentences[2].options[2]": "schnelleren",
  "sentences[3].options[1]": "besseren",
  "sentences[3].options[2]": "beste",
@@ -170,6 +168,8 @@
  "sentences[6].options[2]": "älteren",
  "sentences[10].options[1]": "weiteren",
  "sentences[15].options[0]": "besten",
+ "sentences[17].options[0]": "älteste",
  "sentences[17].options[1]": "ältesten",
- "sentences[18].options[2]": "lieber"
+ "sentences[18].options[2]": "lieber",
+ "sentences[5].why": "hoch → am höchsten: höher'in düşürdüğü c geri gelir, höch-."
 }

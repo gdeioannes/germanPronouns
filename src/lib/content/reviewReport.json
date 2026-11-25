@@ -1,0 +1,2148 @@
+{
+	"date": "2026-11-25",
+	"total": 286,
+	"groups": [
+		{
+			"title": "App · A1.1",
+			"fixes": [
+				{
+					"unit": "quest_a1_1_sein_haben (fillBlank) \"sein & haben\"",
+					"from": "ihr takes seid — the one form of sein that ends in -d.",
+					"to": "ihr takes seid — written with d (seit, with t, means 'since').",
+					"category": "false-claim",
+					"reason": "sind (wir/sie/Sie) also ends in -d, so seid is not the only form of sein ending in -d. The replacement keeps a useful, true hint (the same one the check question in this quiz already uses)."
+				},
+				{
+					"unit": "quest_a1_1_lesen_dasbinich (reading) \"Lesen: Das bin ich\"",
+					"from": "Ich bin Studentin und lerne an der Universität.",
+					"to": "Ich bin Studentin und studiere an der Universität.",
+					"category": "answer-key",
+					"reason": "The explanation presents this as a quotation from the passage, but the passage says 'Ich bin Studentin und studiere an der Universität.' The quote must match the text (and 'studieren' is the right verb for a university student)."
+				},
+				{
+					"unit": "quest_a1_1_hoeren_cafe (listening) \"Hören: Im Kaffeehaus\"",
+					"from": "bleiben Sie, so lange Sie möchten",
+					"to": "bleiben Sie, solange Sie möchten",
+					"category": "spelling",
+					"reason": "Here it is the subordinating conjunction introducing a clause (after the comma), which Duden writes as one word: 'solange Sie möchten'. Two words only in 'so lange, wie Sie möchten'."
+				},
+				{
+					"unit": "quest_a1_1_lesen_fischmarkt (reading) \"Lesen: Sonntag, fünf Uhr, Fischmarkt\"",
+					"from": "Das ist über dreihundert Jahre!",
+					"to": "Das sind über dreihundert Jahre!",
+					"category": "grammar",
+					"reason": "With a plural predicate noun the verb agrees with it: 'Das sind über dreihundert Jahre.' ('Das ist ... Jahre' would only work with 'her'.) Occurs twice: in the passage and in the explanation of the question 'Seit wann gibt es den Fischmarkt?' (also in the recorded/quoted text)."
+				},
+				{
+					"unit": "quest_a1_1_lesen_fischmarkt (reading) \"Lesen: Sonntag, fünf Uhr, Fischmarkt\"",
+					"from": "many masculine nouns take -e, sometimes with umlaut (Äpfel)",
+					"to": "many masculine nouns take -e, and some change only the vowel (Äpfel)",
+					"category": "false-claim",
+					"reason": "Äpfel is given as an example of '-e with umlaut', but Äpfel has no -e ending (umlaut only), as the check right below says itself. A true example of -e + umlaut would be Märkte or Stühle."
+				},
+				{
+					"unit": "quest_a1_1_hoeren_zahlen (listening) \"Hören: Zahlen & Preise\"",
+					"from": "Die Kartoffeln kosten ein Euro zehn",
+					"to": "Die Kartoffeln kosten einen Euro zehn",
+					"category": "grammar",
+					"reason": "kosten takes the accusative, and Euro is masculine: standard German is 'kosten einen Euro zehn'. 'kostet ein Euro' is heard colloquially but is not the standard form a learner should copy. Occurs three times in this unit (example line, passage, last explanation); the passage is a recorded listening text, so the audio would need re-recording too. The bare price 'ein Euro zehn' as a label or answer option is fine."
+				},
+				{
+					"unit": "quest_a1_1_farben (fillBlank) \"Farben\"",
+					"from": "rosa, lila and orange never take endings.",
+					"to": "rosa and lila never take endings.",
+					"category": "false-claim",
+					"reason": "The mistake shown is 'ein rosanes Kleid'; the explanation again includes orange among the never-inflected colours, contradicting the lesson card in the same quiz (ein oranges T-Shirt)."
+				},
+				{
+					"unit": "quest_a1_1_sein_haben (fillBlank) \"sein & haben\"",
+					"from": "German is hungry, thirsty, afraid and in a hurry with haben: Ich habe Hunger, Durst, Angst, Zeit.",
+					"to": "German is hungry, thirsty and afraid with haben, and has time the same way: Ich habe Hunger, Durst, Angst, Zeit.",
+					"category": "false-claim",
+					"reason": "'Ich habe Zeit' means 'I have time', not 'I am in a hurry' (that would be 'Ich habe es eilig'). The fourth example does not match the fourth English adjective."
+				},
+				{
+					"unit": "quest_a1_1_wo_praepositionen (fillBlank) \"Wo? — Ortsangaben\"",
+					"from": "in + dem is always contracted to im in speech and normal writing.",
+					"to": "in + dem is normally contracted to im in speech and writing.",
+					"category": "false-claim",
+					"reason": "'in dem Büro' is not wrong German (it is used when dem is stressed or a relative clause follows), and the quiz itself accepts 'in dem Park / in dem Büro' as answers. 'always' overstates it and contradicts the answer key."
+				},
+				{
+					"unit": "quest_a1_1_hoeren_zahlen",
+					"from": "and 'einen Euro zehn' after kostet is also heard; both are right",
+					"to": "after kostet it is 'einen Euro zehn', though 'ein Euro zehn' is often heard there too",
+					"category": "false-claim",
+					"reason": "After kosten the accusative is the standard form."
+				},
+				{
+					"unit": "quest_a1_1_farben",
+					"from": "and three of them are loanwords that never take any ending even later: rosa, lila and orange",
+					"to": "and two of them are loanwords that never take any ending even later: rosa and lila",
+					"category": "false-claim",
+					"reason": "orange can be inflected (ein oranges T-Shirt), as the lesson card in the same quiz says."
+				},
+				{
+					"unit": "quest_a1_1_farben",
+					"from": "Three foreigners never change: rosa, lila, orange.",
+					"to": "Two foreigners never change: rosa and lila.",
+					"category": "false-claim",
+					"reason": "Same contradiction with the lesson card."
+				},
+				{
+					"unit": "quest_a1_1_sein_haben",
+					"from": "(Ich bin hungrig) is understood but sounds foreign; Germans say they *have* hunger.",
+					"to": "(Ich bin hungrig) is correct but less common; in everyday speech Germans say they *have* hunger.",
+					"category": "false-claim",
+					"reason": "Ich bin hungrig is correct German."
+				},
+				{
+					"unit": "quest_a1_1_sein_haben",
+					"from": "'durstig' is understood but not what Germans say.",
+					"to": "'durstig' is correct too, but Durst haben is the everyday phrase.",
+					"category": "false-claim",
+					"reason": "Ich bin durstig is correct German."
+				},
+				{
+					"unit": "quest_a1_1_zahlen_gross",
+					"from": "zweitausendvierhundert — or vierundzwanzighundert, 'twenty-four hundred', like in English.",
+					"to": "zweitausendvierhundert — thousands first, then the hundreds, all one word.",
+					"category": "false-claim",
+					"reason": "German counts in hundreds only from 1100 to 1999; vierundzwanzighundert is not said."
+				},
+				{
+					"unit": "quest_a1_1_zahlen_gross",
+					"from": "Three are irregular: erste, dritte, siebte.",
+					"to": "Four are irregular: erste, dritte, siebte, achte (only one t).",
+					"category": "false-claim",
+					"reason": "achte does not follow 'add -te' either."
+				},
+				{
+					"unit": "quest_a1_1_zahlen_gross",
+					"from": "erste, dritte, siebte are irregular.",
+					"to": "erste, dritte, siebte, achte are irregular.",
+					"category": "false-claim",
+					"reason": "Same list in the remember line."
+				},
+				{
+					"unit": "quest_a1_1_suchbild_wohnzimmer",
+					"from": "International words in -o or -a are often das",
+					"to": "International words in -o are often das",
+					"category": "false-claim",
+					"reason": "Loan words in -a are more often feminine (die Pizza, die Kamera)."
+				},
+				{
+					"unit": "quest_a1_1_suchbild_wohnzimmer",
+					"from": "Words German took from other languages and that end in -o or -a are usually neuter: das Sofa, das Radio, das Auto.",
+					"to": "Words German took from other languages and that end in -o are usually neuter: das Radio, das Auto, das Kino. das Sofa is neuter too, but most words in -a are die (die Pizza, die Kamera).",
+					"category": "false-claim",
+					"reason": "Same."
+				},
+				{
+					"unit": "quest_a1_1_wortbildung",
+					"from": "Short vowels a/o often take an umlaut in the -in form.",
+					"to": "The vowels a/o often take an umlaut in the -in form.",
+					"category": "false-claim",
+					"reason": "Umlaut does not depend on vowel length; the a in Arzt is long."
+				},
+				{
+					"unit": "Wortschatz deck",
+					"from": "der Österreicherin, der Türkin, der Polin … (15 feminine nationality cards with der)",
+					"to": "die Österreicherin, die Türkin, die Polin … (plural -nen)",
+					"category": "wordlist",
+					"reason": "The deck builder copied the masculine article onto the feminine half of 'der Österreicher / die Österreicherin'. Builder fixed."
+				},
+				{
+					"unit": "Zahlen 0–100",
+					"from": "accepted answer: vierundzwanzighundert (2.400)",
+					"to": "only zweitausendvierhundert",
+					"category": "answer-key",
+					"reason": "German counts in hundreds only from 1100 to 1999."
+				}
+			]
+		},
+		{
+			"title": "App · A1.2",
+			"fixes": [
+				{
+					"unit": "quest_a1_2_hoeren_geburtstag (listening) \"Hören: Kommst du zu meiner Party?\"",
+					"from": "Only ich → mich, du → dich, er → ihn change their form; sie, es, uns, euch, Sie stay the same.",
+					"to": "ich → mich, du → dich, er → ihn, wir → uns, ihr → euch change their form; sie, es and Sie stay the same.",
+					"category": "false-claim",
+					"reason": "uns and euch are not unchanged forms: wir → uns and ihr → euch change just like ich → mich. Only sie, es and Sie are identical in nominative and accusative (the quiz quest_a1_2_pronomen_akk says so correctly: 'five change, four stay')."
+				},
+				{
+					"unit": "quest_a1_2_hoeren_geburtstag (listening) \"Hören: Kommst du zu meiner Party?\"",
+					"from": "mich, dich, ihn change; sie, uns, euch stay.",
+					"to": "mich, dich, ihn, uns, euch change; sie, es, Sie stay.",
+					"category": "false-claim",
+					"reason": "Same false claim as in the tip text of this quiz: uns and euch differ from wir and ihr, so they do not 'stay'. Only sie, es and Sie keep their form in the accusative."
+				},
+				{
+					"unit": "quest_a1_2_modalverben (fillBlank) \"Modalverben\"",
+					"from": "ihr takes -t on the singular stem: müsst — ihr keeps the umlaut.",
+					"to": "ihr takes -t on the infinitive stem: müsst — ihr keeps the umlaut.",
+					"category": "false-claim",
+					"reason": "The singular stem of müssen is muss- (ich muss, du musst). ihr müsst is built on the infinitive/plural stem müss-, which is exactly why it keeps the umlaut; the sentence contradicts itself as written."
+				},
+				{
+					"unit": "quest_a1_2_uhrzeit (fillBlank) \"Uhrzeit\"",
+					"from": "drei Viertel elf (10:45)",
+					"to": "drei viertel elf (10:45)",
+					"category": "spelling",
+					"reason": "Duden: in clock times directly before the number, viertel is written lowercase (um viertel acht, um drei viertel acht); the capital is only for Viertel nach/vor. The same applies to the accepted answers 'Viertel neun', 'drei Viertel elf', 'drei Viertel fünf', 'Viertel sieben' in the items 08:15, 10:45, 16:45, 18:15 of this quiz: they should read 'viertel neun', 'drei viertel elf' etc. (matters if they are ever displayed or matched case-sensitively)."
+				},
+				{
+					"unit": "quest_a1_2_datum (fillBlank) \"Wochentage & Monate\"",
+					"from": "the German week starts on Monday, and the day words all end in -tag.",
+					"to": "the German week starts on Monday, and all the day words except Mittwoch end in -tag.",
+					"category": "false-claim",
+					"reason": "Mittwoch does not end in -tag; the why two items later says so itself ('the one day not ending in -tag'), so the two explanations contradict each other."
+				},
+				{
+					"unit": "quest_a1_2_perfekt_intro (fillBlank) \"Perfekt: erste Schritte\"",
+					"from": "staying counts as a change-of-state verb",
+					"to": "an exception to learn by heart, because staying is neither movement nor change",
+					"category": "false-claim",
+					"reason": "bleiben expresses the opposite of a change of state. It takes sein as a plain exception (like sein itself), not because it belongs to the movement/change group; the explanation teaches a wrong reason."
+				},
+				{
+					"unit": "quest_a1_2_lesen_mauer (reading) \"Lesen: Die Nacht, in der die Mauer fiel\"",
+					"from": "Die Regierung von Ost-Deutschland hat die Mauer",
+					"to": "Die Regierung von Ostdeutschland hat die Mauer",
+					"category": "spelling",
+					"reason": "Duden writes Ostdeutschland as one word (the hyphen variant exists only for Ost-Berlin/West-Berlin). The string occurs twice: in the passage and in the explanation that quotes it. The Sunday text of the same level already writes 'Ost- und Westdeutschland'."
+				},
+				{
+					"unit": "quest_a1_2_lesen_mauer (reading) \"Lesen: Die Nacht, in der die Mauer fiel\"",
+					"from": "Wann hat Ost-Deutschland die Mauer gebaut?",
+					"to": "Wann hat Ostdeutschland die Mauer gebaut?",
+					"category": "spelling",
+					"reason": "Same spelling as in the passage: Ostdeutschland is written as one word."
+				},
+				{
+					"unit": "quest_a1_2_imperativ (fillBlank) \"Imperativ\"",
+					"from": "sein's ihr-command is Seid! — its one form that ends in -d.",
+					"to": "sein's ihr-command is Seid! — spelt with -d, exactly like ihr seid.",
+					"category": "false-claim",
+					"reason": "seid is not the only form of sein ending in -d: wir sind / sie sind end in -d as well. The useful point is the spelling seid (verb) as opposed to seit (since)."
+				},
+				{
+					"unit": "quest_a1_2_einkaufen_mengen",
+					"from": "ein Liter Milch — measure + thing, with nothing between them.",
+					"to": "einen Liter Milch — measure + thing, with nothing between them; der Liter is accusative after brauchen.",
+					"category": "answer-key",
+					"reason": "Only einen Liter is correct after brauchen."
+				},
+				{
+					"unit": "quest_a1_2_lesen_muenster",
+					"from": "Hier fahren nur Fahrräder und Fußgänger.",
+					"to": "Hier sind nur Fahrräder und Fußgänger unterwegs.",
+					"category": "unidiomatic",
+					"reason": "Pedestrians do not fahren."
+				},
+				{
+					"unit": "quest_a1_2_suchbild_kueche",
+					"from": "tea towel",
+					"to": "towel",
+					"category": "gloss",
+					"reason": "Handtuch is a towel; a tea towel is das Geschirrtuch."
+				},
+				{
+					"unit": "quest_a1_2_suchbild_supermarkt",
+					"from": "Fließband",
+					"to": "Kassenband",
+					"category": "unidiomatic",
+					"reason": "The belt at a supermarket till is das Kassenband; das Fließband is a factory assembly line."
+				},
+				{
+					"unit": "quest_a1_2_suchbild_supermarkt",
+					"from": "Fließbänder",
+					"to": "Kassenbänder",
+					"category": "unidiomatic",
+					"reason": "Plural of the same word."
+				},
+				{
+					"unit": "quest_a1_2_suchbild_supermarkt",
+					"from": "watermelon",
+					"to": "melon",
+					"category": "gloss",
+					"reason": "die Melone is melon in general; watermelon is die Wassermelone."
+				},
+				{
+					"unit": "quest_a1_2_dativ_pronomen_intro",
+					"from": "ihm is his/its, ihr is hers; ihnen is them, Ihnen is you (formal).",
+					"to": "ihm is (to) him/it, ihr is (to) her; ihnen is (to) them, Ihnen is (to) you (formal).",
+					"category": "false-claim",
+					"reason": "his/hers are possessives; ihm and ihr are dative pronouns."
+				},
+				{
+					"unit": "Uhrzeit",
+					"from": "accepted answers: Viertel neun, drei Viertel elf, drei Viertel fünf, Viertel sieben",
+					"to": "viertel neun, drei viertel elf, drei viertel fünf, viertel sieben",
+					"category": "spelling",
+					"reason": "Duden writes viertel lowercase directly before the hour."
+				},
+				{
+					"unit": "Einkaufen: Mengen",
+					"from": "Wir brauchen ____ Milch. (accepted: ein Liter / einen Liter)",
+					"to": "only einen Liter",
+					"category": "answer-key",
+					"reason": "Accusative after brauchen."
+				}
+			]
+		},
+		{
+			"title": "App · A2.1",
+			"fixes": [
+				{
+					"unit": "quest_a2_1_lesen_urlaub",
+					"from": "auf die Insel, auf Mallorca",
+					"to": "auf die Insel, nach Mallorca",
+					"category": "false-claim",
+					"reason": "Listed under Wohin? (direction). For an island name without an article the direction is 'nach Mallorca' (Wir fliegen nach Mallorca); 'auf Mallorca' only answers Wo?. The same string occurs twice: in the 'Woher? Wo? Wohin? with places' text (there followed by '(no article)') and in the Wohin?/Wo? table row."
+				},
+				{
+					"unit": "quest_a2_1_lesen_urlaub",
+					"from": "nach Spanien, auf Mallorca; Wo?",
+					"to": "nach Spanien, nach Mallorca; Wo?",
+					"category": "false-claim",
+					"reason": "Same error in the 'remember' line: in the Wohin? list it must be 'nach Mallorca'; 'auf Mallorca' is only the Wo? form (which follows correctly later in the line)."
+				},
+				{
+					"unit": "quest_a2_1_lesen_urlaub",
+					"from": "Auf Mallorca sind die Deutschen so viele, dass",
+					"to": "Auf Mallorca sind so viele Deutsche, dass",
+					"category": "unidiomatic",
+					"reason": "'Die Deutschen sind so viele' is not natural German (reads like a calque); idiomatic is 'Auf Mallorca sind so viele Deutsche, dass …'. Occurs twice: in the passage and in the quoted explanation of the 'siebzehnte Bundesland' question."
+				},
+				{
+					"unit": "quest_a2_1_lesen_dom",
+					"from": "hat vierzehn Bomben bekommen",
+					"to": "hat vierzehn Bomben abbekommen",
+					"category": "unidiomatic",
+					"reason": "'Bomben bekommen' sounds as if the cathedral received them as a delivery; the idiomatic verb for being hit is 'abbekommen' (or: 'Vierzehn Bomben haben den Dom getroffen'). Occurs four times: vocab example for Bombe, the passage, one answer option ('Er hat vierzehn Bomben bekommen, ist aber stehen geblieben.') and the quoted explanation."
+				},
+				{
+					"unit": "quest_a2_1_lesen_dom",
+					"from": "Welche Präposition zeigt eine geplante Dauer?",
+					"to": "Welche Präposition zeigt die Dauer?",
+					"category": "false-claim",
+					"reason": "In the quoted sentence ('Von 1880 bis 1884, also für vier Jahre, war er das höchste Gebäude der Welt') nothing is planned; für simply gives the length of the period, as the explanation itself says ('gives a period'). 'Geplante Dauer' contradicts the sentence it is asked about. The lesson text of this quiz also glosses für as 'for a planned period' right before this unplanned example."
+				},
+				{
+					"unit": "quest_a2_1_lesen_bertha",
+					"from": "Der Wagen konnte keine Berge fahren",
+					"to": "Der Wagen konnte nicht bergauf fahren",
+					"category": "unidiomatic",
+					"reason": "'Berge fahren' with a direct object is not German; a vehicle 'fährt bergauf' or 'kommt den Berg (nicht) hinauf'. The correction keeps the modal konnte, which is the point of the example."
+				},
+				{
+					"unit": "quest_a2_1_lesen_bertha",
+					"from": "Dann war das Benzin leer.",
+					"to": "Dann war kein Benzin mehr da.",
+					"category": "unidiomatic",
+					"reason": "A container is 'leer' (der Tank war leer), not the fuel; 'das Benzin war leer' is sloppy colloquial at best. The replacement keeps the word Benzin (the sentence is also the vocab example for Benzin). Occurs twice: vocab example and passage."
+				},
+				{
+					"unit": "quest_a2_1_lesen_bertha",
+					"from": "weil er Angst hatte, was die Leute sagen",
+					"to": "weil er Angst davor hatte, was die Leute sagen",
+					"category": "grammar",
+					"reason": "This is the correct answer option. 'Angst haben' needs 'vor' + object; with a following was-clause the correlate 'davor' is required in written German. Without it the sentence is only colloquially acceptable."
+				},
+				{
+					"unit": "quest_a2_1_lesen_dom",
+					"from": "kein anderes Gebäude in Deutschland hat so lange gedauert",
+					"to": "an keinem anderen Gebäude in Deutschland hat man so lange gebaut",
+					"category": "unidiomatic",
+					"reason": "A building does not dauern; its construction does."
+				},
+				{
+					"unit": "quest_a2_1_lesen_dom",
+					"from": "Kein anderes Gebäude hat so lange gedauert.",
+					"to": "An keinem anderen Gebäude hat man so lange gebaut.",
+					"category": "unidiomatic",
+					"reason": "Same sentence as the vocab example."
+				},
+				{
+					"unit": "quest_a2_1_lesen_wetter (reading) \"Lesen: Heißer, kälter, nasser\"",
+					"from": "Hamburg hat schlechten Ruf, aber dort regnet es",
+					"to": "Hamburg hat einen schlechten Ruf, aber dort regnet es",
+					"category": "grammar",
+					"reason": "The fixed expression is 'einen schlechten Ruf haben'; the indefinite article is missing. The same string occurs twice: in the passage and in the quoted explanation of the Hamburg question."
+				},
+				{
+					"unit": "quest_a2_1_lesen_wetter (reading) \"Lesen: Heißer, kälter, nasser\"",
+					"from": "die kalte Luft nicht weg kann",
+					"to": "die kalte Luft nicht wegkann",
+					"category": "spelling",
+					"reason": "In the subordinate clause the verb 'wegkönnen' (Duden) stands together at the end and is written as one word: 'nicht wegkann'. In the main clause of the passage ('kann nicht weg') the split form is correct and stays."
+				},
+				{
+					"unit": "quest_a2_1_lesen_wetter (reading) \"Lesen: Heißer, kälter, nasser\"",
+					"from": "Dort war es im Dezember 2001 minus 45,9 Grad.",
+					"to": "Dort waren es im Dezember 2001 minus 45,9 Grad.",
+					"category": "unidiomatic",
+					"reason": "With a temperature figure standard German says 'es sind/waren … Grad' (as the same passage does: 'Im Sommer sind es meistens 20 bis 25 Grad') or 'es war … Grad kalt'. 'Es war minus 45,9 Grad' is heard in speech but is loose in a written model text."
+				},
+				{
+					"unit": "quest_a2_1_hoeren_ankunft (listening) \"Hören: Mein erster Tag in Deutschland\"",
+					"from": "Im Krankenhaus hat man viel Fachsprache.",
+					"to": "Im Krankenhaus braucht man viel Fachsprache.",
+					"category": "unidiomatic",
+					"reason": "'Fachsprache haben' is not a German collocation; one needs or uses it ('braucht man', or 'gibt es viel Fachsprache'). The sentence occurs four times: the vocab example, the passage, the quoted explanation of the 'am schwersten' question, and the flashcard example in quest_a2_1_wortschatz."
+				},
+				{
+					"unit": "quest_a2_1_hoeren_ankunft (listening) \"Hören: Mein erster Tag in Deutschland\"",
+					"from": "die Kollegen, die nie Zeit hatten und immer eilig waren",
+					"to": "die Kollegen, die nie Zeit hatten und es immer eilig hatten",
+					"category": "unidiomatic",
+					"reason": "Of people standard German says 'es eilig haben' (as the passage itself does: 'alle hatten es eilig') or 'in Eile sein'; 'eilig sein' is said of things (Die Sache ist eilig). Even as a wrong option it must be correct German."
+				},
+				{
+					"unit": "quest_a2_1_lesen_wetter",
+					"from": "41.2 degrees in the north, minus 45.9 in a mountain lake",
+					"to": "41.2 degrees in the west, minus 45.9 in a mountain lake",
+					"category": "false-claim",
+					"reason": "The passage places the record in the west (Duisburg, Tönisvorst)."
+				},
+				{
+					"unit": "quest_a2_1_lesen_wetter",
+					"from": "the sunniest city, the rainiest region",
+					"to": "the sunniest place, the rainiest region",
+					"category": "false-claim",
+					"reason": "The passage names the island of Rügen."
+				}
+			]
+		},
+		{
+			"title": "App · A2.2",
+			"fixes": [
+				{
+					"unit": "quest_a2_2_lesen_test (reading) \"Lesen: Wissen Sie, wie viele Bundesländer …?\"",
+					"from": "Der Einbürgerungstest gibt es seit 2008.",
+					"to": "Den Einbürgerungstest gibt es seit 2008.",
+					"category": "grammar",
+					"reason": "es gibt takes the accusative; the fronted object must be 'Den Einbürgerungstest' (the passage itself has the correct 'Es gibt ihn seit 2008')."
+				},
+				{
+					"unit": "quest_a2_2_lesen_test (reading) \"Lesen: Wissen Sie, wie viele Bundesländer …?\"",
+					"from": "wie viele Bundesländer es gibt, oder wann das Grundgesetz geschrieben wurde",
+					"to": "wie viele Bundesländer es gibt oder wann das Grundgesetz geschrieben wurde",
+					"category": "punctuation",
+					"reason": "Two subordinate clauses of equal rank joined by 'oder' take no comma between them (the same passage correctly writes '… (die Bürger ab 18) oder ob man …' without one)."
+				},
+				{
+					"unit": "quest_a2_2_lesen_test (reading) \"Lesen: Wissen Sie, wie viele Bundesländer …?\"",
+					"from": "Im Test steht zum Beispiel, wann die Mauer gefallen ist und wer den Bundestag wählt.",
+					"to": "Im Test fragt man zum Beispiel, wann die Mauer gefallen ist und wer den Bundestag wählt.",
+					"category": "unidiomatic",
+					"reason": "'Im Test steht, wann …' means the test states when the Wall fell (gives the answer); what is meant is that the test asks it. 'Im Test fragt man / wird gefragt, wann …' (the passage itself says 'Was fragt man?')."
+				},
+				{
+					"unit": "quest_a2_2_lesen_test (reading) \"Lesen: Wissen Sie, wie viele Bundesländer …?\"",
+					"from": "Im Test steht, ….",
+					"to": "Im Test fragt man, ….",
+					"category": "unidiomatic",
+					"reason": "Same point as the example sentence below it: listed as an opener for indirect questions, but 'Im Test steht, wann …' says the test gives the information, not that it asks. Change together with the example."
+				},
+				{
+					"unit": "quest_a2_2_hoeren_wohnung (listening) \"Hören: Die Wohnungsbesichtigung\"",
+					"from": "Die Vermieterin ruft Sie heute Abend per Telefon zu Hause an.",
+					"to": "Die Vermieterin ruft Sie heute Abend wegen der Wohnung zu Hause an.",
+					"category": "unidiomatic",
+					"reason": "'per Telefon anrufen' is a pleonasm: anrufen already means to phone. The sentence illustrates the order time – reason/manner – place, so a causal element (wegen der Wohnung) keeps the point without the tautology."
+				},
+				{
+					"unit": "quest_a2_2_lesen_tracht (reading) \"Lesen: Dirndl und Lederhose\"",
+					"from": "weil Hemd und Oberteil neutrum sind und Rock maskulin",
+					"to": "weil Hemd und Oberteil Neutrum sind und Rock Maskulinum ist",
+					"category": "spelling",
+					"reason": "'Neutrum' is a noun in German and is capitalised; there is no adjective 'neutrum' (the adjectives would be neutral/sächlich). With the noun, the parallel form is 'Maskulinum ist'."
+				},
+				{
+					"unit": "quest_a2_2_imperativ (fillBlank) \"Imperativ\"",
+					"from": "stems in -t/-d take -e (Warte! Öffne!)",
+					"to": "stems in -t/-d or in consonant + n/m take -e (Warte! Öffne!)",
+					"category": "false-claim",
+					"reason": "öffnen does not have a stem in -t/-d (öffn-); it keeps the -e because the stem ends in consonant + n, as the unit's own why-line says ('Stems ending in -fn keep an -e'). The example does not fit the rule as stated."
+				},
+				{
+					"unit": "quest_a2_2_reflexiv",
+					"from": "sich erkälten, sich verabreden. They do not exist without the pronoun.",
+					"to": "sich erkälten, sich verabreden. In these meanings they always come with the pronoun.",
+					"category": "false-claim",
+					"reason": "freuen, interessieren, erinnern exist without a reflexive pronoun (Das freut mich)."
+				},
+				{
+					"unit": "quest_a2_2_lesen_formular",
+					"from": "Bis wann kann Elena den Kurs abmelden und ihr Geld zurückbekommen?",
+					"to": "Bis wann kann sich Elena vom Kurs abmelden und ihr Geld zurückbekommen?",
+					"category": "unidiomatic",
+					"reason": "A participant does not \"den Kurs abmelden\"; the verb is reflexive: \"sich (vom Kurs) abmelden\", exactly as the passage itself says (\"melden Sie sich bitte ... ab\") and as the lesson teaches (\"sich abmelden\")."
+				},
+				{
+					"unit": "quest_a2_2_hoeren_apotheke",
+					"from": "das sollte ein Arzt anhören",
+					"to": "das sollte sich ein Arzt anhören",
+					"category": "unidiomatic",
+					"reason": "For 'a doctor should have a listen to that' German uses the reflexive \"sich etwas anhören\" (or the medical \"abhören\"); bare \"etwas anhören\" is not said in this sense. Note: this is a recorded listening passage, so the audio would need re-recording."
+				},
+				{
+					"unit": "quest_a2_2_wortbildung",
+					"from": "Meine Erfahrung: unfreundliche Vermieter gibt es genug",
+					"to": "Meine Erfahrung: Unfreundliche Vermieter gibt es genug",
+					"category": "spelling",
+					"reason": "A complete sentence follows the colon, so its first word is capitalised (Duden rule; the same file does this correctly elsewhere, e.g. \"Aber ehrlich gesagt: Sie sollten ...\")."
+				},
+				{
+					"unit": "quest_a2_2_passiv_intro",
+					"from": "the t-stem's extra e: geöffnet",
+					"to": "the extra e after the stem öffn-: geöffnet",
+					"category": "false-claim",
+					"reason": "öffnen has no t-stem: the stem is öffn-. The linking e appears because the stem ends in consonant + n (like regnen, rechnen), not because of a t."
+				},
+				{
+					"unit": "quest_a2_2_superlativ",
+					"from": "the c changes place: höch-",
+					"to": "the c that höher drops is back: höch-",
+					"category": "false-claim",
+					"reason": "Nothing 'changes place' in hoch – höher – am höchsten: the comparative drops the c (höher), the superlative keeps the ch of hoch. The explanation as worded describes something that does not happen."
+				},
+				{
+					"unit": "quest_a2_2_schreiben_email",
+					"from": "Mit freundlichen Grüßen, Elena Petrova",
+					"to": "Mit freundlichen Grüßen – Elena Petrova",
+					"category": "punctuation",
+					"reason": "No comma after a German sign-off; dash as inline separator."
+				},
+				{
+					"unit": "quest_a2_2_schreiben_email",
+					"from": "Mit freundlichen Grüßen, Anna Novak",
+					"to": "Mit freundlichen Grüßen – Anna Novak",
+					"category": "punctuation",
+					"reason": "Same."
+				},
+				{
+					"unit": "quest_a2_2_schreiben_email",
+					"from": "Liebe Grüße, Marie",
+					"to": "Liebe Grüße – Marie",
+					"category": "punctuation",
+					"reason": "Same."
+				},
+				{
+					"unit": "quest_a2_2_schreiben_email",
+					"from": "Liebe Grüße, Jan",
+					"to": "Liebe Grüße – Jan",
+					"category": "punctuation",
+					"reason": "Same."
+				},
+				{
+					"unit": "quest_a2_2_lesen_email",
+					"from": "Viele Grüße, Marie",
+					"to": "Viele Grüße – Marie",
+					"category": "punctuation",
+					"reason": "Same."
+				},
+				{
+					"unit": "Wortschatz deck",
+					"from": "warten = to wait for, sprechen = to talk about, träumen = to dream of … (13 bare-verb cards)",
+					"to": "removed; the full 'warten auf + Akk' cards stay",
+					"category": "wordlist",
+					"reason": "The bare verb does not mean what the verb-plus-preposition means. Builder fixed."
+				}
+			]
+		},
+		{
+			"title": "App · B1.1",
+			"fixes": [
+				{
+					"unit": "quest_b1_1_lesen_viertage (reading) \"Lesen: Vier Tage arbeiten, fünf bezahlt\"",
+					"from": "Was spricht nach der Unternehmerin aus Hamburg für die Vier-Tage-Woche?",
+					"to": "Was spricht laut der Unternehmerin aus Hamburg für die Vier-Tage-Woche?",
+					"category": "unidiomatic",
+					"reason": "\"nach der Unternehmerin\" reads as a place/time phrase (after her); for attributing an opinion German uses \"laut\" or \"nach Meinung der …\"."
+				},
+				{
+					"unit": "quest_b1_1_adj_unbestimmt (fillBlank) \"Adjektivendungen: unbestimmter Artikel\"",
+					"from": "das Adjektiv zeigt den Maskulin: unser neuer Nachbar",
+					"to": "das Adjektiv zeigt das Maskulinum: unser neuer Nachbar",
+					"category": "grammar",
+					"reason": "The noun for the gender is \"das Maskulinum\"; \"den Maskulin\" is not a German word form. Alternatively \"zeigt das Genus\"."
+				},
+				{
+					"unit": "quest_b1_1_futur (fillBlank) \"Futur I\"",
+					"from": "Über die Zukunft spricht man auf Deutsch meistens im Präsens, mit einem Zeitwort: Morgen fahre ich nach Köln.",
+					"to": "Über die Zukunft spricht man auf Deutsch meistens im Präsens, mit einer Zeitangabe: Morgen fahre ich nach Köln.",
+					"category": "false-claim",
+					"reason": "In German grammar \"Zeitwort\" means verb (= Verb), not a time expression. The intended term is \"Zeitangabe\" (or \"Zeitadverb\"). The hoeren_elternzeit quiz already uses \"Präsens mit Zeitangabe\" correctly."
+				},
+				{
+					"unit": "quest_b1_1_futur (fillBlank) \"Futur I\"",
+					"from": "Nimm normalerweise Präsens + Zeitwort.",
+					"to": "Nimm normalerweise Präsens + Zeitangabe.",
+					"category": "false-claim",
+					"reason": "Same error: \"Zeitwort\" = verb. Should be \"Zeitangabe\"."
+				},
+				{
+					"unit": "quest_b1_1_futur (fillBlank) \"Futur I\"",
+					"from": "Für normale Pläne: Präsens + Zeitwort.",
+					"to": "Für normale Pläne: Präsens + Zeitangabe.",
+					"category": "false-claim",
+					"reason": "Same error: \"Zeitwort\" = verb. Should be \"Zeitangabe\". (Pattern: three occurrences in this quiz.)"
+				},
+				{
+					"unit": "quest_b1_1_futur (fillBlank) \"Futur I\"",
+					"from": "Vorhersage: Es wird bald kalt. Versprechen: Ich werde anrufen.",
+					"to": "Vorhersage: Es wird bald regnen. Versprechen: Ich werde anrufen.",
+					"category": "false-claim",
+					"reason": "\"Es wird bald kalt\" is werden + Adjektiv (= become), not Futur I; the quiz itself teaches this distinction in \"werden hat drei Hüte\". A Futur I example (werden + Infinitiv) is needed here."
+				},
+				{
+					"unit": "quest_b1_1_hoeren_elternzeit (listening) \"Hören: Ich werde zu Hause bleiben\"",
+					"from": "sie werden groß geschrieben und behalten die Adjektivendung",
+					"to": "sie werden großgeschrieben und behalten die Adjektivendung",
+					"category": "spelling",
+					"reason": "In the sense \"with a capital letter\" Duden writes \"großschreiben\" as one word (\"groß schreiben\" = in large letters). The same spelling \"groß geschrieben\" also occurs in the option \"ein Partizip als Nomen, groß geschrieben, mit Adjektivendung\" in this quiz; the adjektive_als_nomen quiz uses \"großgeschrieben\" correctly."
+				},
+				{
+					"unit": "quest_b1_1_hoeren_elternzeit (listening) \"Hören: Ich werde zu Hause bleiben\"",
+					"from": "und während der Elternzeit darf er sie nicht kündigen",
+					"to": "und während der Elternzeit darf er ihnen nicht kündigen",
+					"category": "grammar",
+					"reason": "kündigen takes the dative for the person (jemandem kündigen), as the course itself teaches in quest_b1_1_arbeit (\"kündigen braucht die Person im Dativ\"). The same string recurs in the explanation quoting the passage; fix both (also the audio if recorded)."
+				},
+				{
+					"unit": "quest_b1_1_hoeren_elternzeit (listening) \"Hören: Ich werde zu Hause bleiben\"",
+					"from": "da bin ich sicher, nur langsamer als die Politik denkt.",
+					"to": "da bin ich sicher, nur langsamer, als die Politik denkt.",
+					"category": "punctuation",
+					"reason": "\"als die Politik denkt\" is a subordinate clause with a finite verb and must be preceded by a comma."
+				},
+				{
+					"unit": "quest_b1_1_lesen_verein (reading) \"Lesen: Das Land der Vereine\"",
+					"from": "Die Fragen prüfen Zahlen, Regeln und wo sich ein Relativsatz worauf bezieht.",
+					"to": "Die Fragen prüfen Zahlen, Regeln und worauf sich ein Relativsatz bezieht.",
+					"category": "grammar",
+					"reason": "\"wo sich ein Relativsatz worauf bezieht\" is a garbled double interrogative; the indirect question is \"worauf sich ein Relativsatz bezieht\"."
+				},
+				{
+					"unit": "Zeitwort pattern",
+					"from": "Die Zeit, ein Zeitwort (gestern, letzten Sommer, immer)",
+					"to": "Die Zeit, eine Zeitangabe (gestern, letzten Sommer, immer)",
+					"category": "false-claim",
+					"reason": "Zeitwort = verb."
+				},
+				{
+					"unit": "quest_b1_1_hoeren_elternzeit",
+					"from": "ein Partizip als Nomen, groß geschrieben, mit Adjektivendung",
+					"to": "ein Partizip als Nomen, großgeschrieben, mit Adjektivendung",
+					"category": "spelling",
+					"reason": "großschreiben = with a capital letter."
+				},
+				{
+					"unit": "quest_b1_1_hoeren_urlaub (listening) \"Hören: Könnten Sie mir sagen, ob …?\"",
+					"from": "Das ist mehr als das Gesetz verlangt; gesetzlich wären es zwanzig.",
+					"to": "Das ist mehr, als das Gesetz verlangt; gesetzlich wären es zwanzig.",
+					"category": "punctuation",
+					"reason": "\"als das Gesetz verlangt\" is a comparative clause with its own finite verb, so it is a Nebensatz and needs a comma before \"als\". The same string occurs twice: in the passage and in the quoted explanation of question 1."
+				},
+				{
+					"unit": "quest_b1_1_hoeren_fachkraft (listening) \"Hören: Warum ich geblieben bin\"",
+					"from": "fast jeder dritte unter dreißig war ohne Job",
+					"to": "fast jeder Dritte unter dreißig war ohne Job",
+					"category": "spelling",
+					"reason": "\"jeder Dritte\" is a nominalised ordinal (every third person) and is capitalised (Duden: jeder Dritte)."
+				},
+				{
+					"unit": "quest_b1_1_es (fillBlank) \"es-Ausdrücke: es gibt, es geht, es lohnt sich\"",
+					"from": "Wie geht es dir? — wörtlich 'wie geht es zu dir', mit Dativ.",
+					"to": "Wie geht es dir? — wörtlich 'how goes it to you', mit Dativ.",
+					"category": "false-claim",
+					"reason": "\"wie geht es zu dir\" is not a literal reading of anything; it is non-German. The intended point (a literal English rendering showing the dative) should be given in English or dropped."
+				},
+				{
+					"unit": "quest_b1_1_es (fillBlank) \"es-Ausdrücke: es gibt, es geht, es lohnt sich\"",
+					"from": "es tut mir leid — wörtlich 'es tut mir Leid an', die Entschuldigungsformel.",
+					"to": "es tut mir leid — die Entschuldigungsformel, die Person steht im Dativ.",
+					"category": "false-claim",
+					"reason": "\"es tut mir Leid an\" is not a German phrase (no verb \"antun\" here, and it capitalises \"Leid\" against the reformed spelling of the idiom \"leidtun\"). The pseudo-literal gloss is misleading; remove it."
+				},
+				{
+					"unit": "quest_b1_1_lesen_kleingarten (reading) \"Lesen: Ein Drittel Gemüse, Pflicht\"",
+					"from": "warum Wartelisten in Berlin Jahre lang sind",
+					"to": "warum man in Berlin jahrelang auf einen Garten wartet",
+					"category": "unidiomatic",
+					"reason": "A Warteliste is not \"Jahre lang\"; the natural phrasing is that one waits for years. Without a numeral the adverb is written as one word (jahrelang)."
+				},
+				{
+					"unit": "quest_b1_1_email_redemittel",
+					"from": "Grüße, deine Mia",
+					"to": "Grüße – deine Mia",
+					"category": "punctuation",
+					"reason": "Same."
+				},
+				{
+					"unit": "quest_b1_1_email_redemittel",
+					"from": "Bescheid geben / sagen",
+					"to": "Bescheid geben",
+					"category": "wordlist",
+					"reason": "Slash split produced a bogus card."
+				},
+				{
+					"unit": "neutral pattern",
+					"from": "Akkusativ neutral",
+					"to": "Akkusativ Neutrum",
+					"category": "grammar",
+					"reason": "Gender term is Neutrum."
+				},
+				{
+					"unit": "neutrum pattern",
+					"from": "feminin / neutrum",
+					"to": "feminin / Neutrum",
+					"category": "spelling",
+					"reason": "Neutrum is a noun."
+				},
+				{
+					"unit": "neutrum pattern",
+					"from": "(maskulin, neutrum:",
+					"to": "(Maskulinum, Neutrum:",
+					"category": "spelling",
+					"reason": "Same."
+				},
+				{
+					"unit": "Wortschatz deck",
+					"from": "Frau = of the woman [der], Leute = of the people [der], sagen = to let someone know",
+					"to": "removed",
+					"category": "wordlist",
+					"reason": "Genitive phrases and a slash split were read as words. Builder fixed."
+				}
+			]
+		},
+		{
+			"title": "App · B1.2",
+			"fixes": [
+				{
+					"unit": "quest_b1_2_lesen_meistertrunk (reading) \"Lesen: Der Meistertrunk\"",
+					"from": "Ihr General hieß Tilly, und er war dafür bekannt",
+					"to": "Sein General hieß Tilly, und er war dafür bekannt",
+					"category": "grammar",
+					"reason": "The possessive refers to 'das kaiserliche Heer' (neuter), so it must be 'Sein'. 'Ihr' points grammatically to the nearest feminine/plural noun ('die kleine freie Reichsstadt' / 'die Protestanten'), which would make Tilly the general of the Protestant side, the opposite of the facts."
+				},
+				{
+					"unit": "quest_b1_2_lesen_hochwasser (reading) \"Lesen: Die Nacht, in der Dresden Sandsäcke füllte\"",
+					"from": "vier Tausend Werke wurden so gerettet",
+					"to": "viertausend Werke wurden so gerettet",
+					"category": "spelling",
+					"reason": "Cardinal numbers below a million are written as one word in lower case: 'viertausend'. The same string occurs twice, in the passage and in the explanation of the question 'Wie wurden die Gemälde der Galerie gerettet?'; fix both."
+				},
+				{
+					"unit": "quest_b1_2_technik (fillBlank) \"Technik & Medien\"",
+					"from": "das Handy, der Akku, die Festplatte: deutsche Wörter in englischer Kleidung.",
+					"to": "das Handy: ein deutsches Wort in englischer Kleidung. der Akku, die Festplatte: ganz deutsch.",
+					"category": "false-claim",
+					"reason": "Only 'Handy' looks English; 'Akku' (Akkumulator) and 'Festplatte' have no English guise at all, and the quiz intro itself lists them under 'ganz deutsch, ohne jedes englische Echo'. The remember line contradicts the intro."
+				},
+				{
+					"unit": "quest_b1_2_lesen_muell",
+					"from": "Wozu? Man trennt, damit recycelt werden kann.",
+					"to": "Wozu? Man trennt, damit es recycelt werden kann.",
+					"category": "grammar",
+					"reason": "A damit-clause needs its own subject; the passive 'recycelt werden kann' has none. The subject 'es' (= der Müll) must be added."
+				},
+				{
+					"unit": "quest_b1_2_hoeren_zug",
+					"from": "Ich habe den Anschluss weggefahren sehen.",
+					"to": "Ich habe den Anschluss wegfahren sehen.",
+					"category": "grammar",
+					"reason": "With the perception verb sehen the dependent verb is an infinitive (wegfahren sehen / wegfahren gesehen), never a participle. Occurs three times: vocab example line in quest_b1_2_hoeren_zug, inside its passage, and in the Wortschatz card (app_B1_2_p3, 'Anschluss')."
+				},
+				{
+					"unit": "quest_b1_2_schreiben_geschichte",
+					"from": "nachdem braucht das frühere Ereignis einen Schritt weiter zurück.",
+					"to": "nachdem schickt das frühere Ereignis einen Schritt weiter zurück.",
+					"category": "grammar",
+					"reason": "'brauchen' with an accusative object plus a directional adverb is ungrammatical here; the intended sense is that nachdem pushes the earlier event one tense back (Plusquamperfekt)."
+				},
+				{
+					"unit": "quest_b1_2_irreale_wuensche",
+					"from": "Ach, wäre doch schon Freitag!",
+					"to": "Ach, wäre es doch schon Freitag!",
+					"category": "grammar",
+					"reason": "The wish sentence has no subject; standard German needs 'es' (Wäre es doch schon Freitag!). Only the contracted spoken 'Wär's doch schon Freitag!' drops it."
+				},
+				{
+					"unit": "Passiv (Präteritum)",
+					"from": "unlabelled diagram rows; no wurde/war explanation",
+					"to": "rows labelled Präteritum / Perfekt; new tip 'wurde gebaut oder war gebaut?'",
+					"category": "notes",
+					"reason": "Two forum reports asked for this."
+				},
+				{
+					"unit": "Technik",
+					"from": "accepted answer: Email",
+					"to": "only E-Mail",
+					"category": "spelling",
+					"reason": "Email is the enamel."
+				},
+				{
+					"unit": "Wortschatz deck",
+					"from": "sendete = to broadcast; verabschieden; erholen",
+					"to": "removed (sich verabschieden, sich erholen stay)",
+					"category": "wordlist",
+					"reason": "A past form glossed as an infinitive; reflexive verbs without sich."
+				},
+				{
+					"unit": "damit oder um … zu?",
+					"from": "accepted: damit sie pünktlich waren / ankamen; damit das Baby schlief",
+					"to": "removed",
+					"category": "answer-key",
+					"reason": "A purpose clause after a past main clause takes the present or Konjunktiv, not the Präteritum."
+				}
+			]
+		},
+		{
+			"title": "App · B2.1",
+			"fixes": [
+				{
+					"unit": "quest_b2_1_konj1 (fillBlank) \"Konjunktiv I: indirekte Rede\"",
+					"from": "Nur wo die Form des Konjunktiv I dem normalen Präsens gleicht",
+					"to": "Nur wo die Form des Konjunktivs I dem normalen Präsens gleicht",
+					"category": "grammar",
+					"reason": "Genitive of der Konjunktiv is \"des Konjunktivs\" (Duden); the numeral does not remove the ending. Grammar books write \"des Konjunktivs I\"."
+				},
+				{
+					"unit": "quest_b2_1_sprechen_verteidigen (speakRepeat) \"Sprechen: Meinung verteidigen\"",
+					"from": "Ich verstehe Ihren Punkt, dennoch …",
+					"to": "Ich verstehe Ihren Einwand, dennoch …",
+					"category": "unidiomatic",
+					"reason": "\"Ihren Punkt verstehen\" is a calque of \"I see your point\"; the idiomatic phrase, and the one used in the intro and in the spoken sentence of this same quiz, is \"Ich verstehe Ihren Einwand\"."
+				},
+				{
+					"unit": "quest_b2_1_lesen_homeoffice (reading) \"Lesen: Pro & Contra Homeoffice\"",
+					"from": "Verben mit Präposition (hinweisen auf, aufgeben)",
+					"to": "Verben mit Präposition (hinweisen auf, vereinbaren mit)",
+					"category": "false-claim",
+					"reason": "\"aufgeben\" takes no fixed preposition, so it is not an example of a Verb mit Präposition. The passage does contain \"mit dem Familienleben vereinbart werden\" (vereinbaren mit), which fits the claim."
+				},
+				{
+					"unit": "quest_b2_1_konnektoren (fillBlank) \"Konnektoren\"",
+					"from": "Daran folgt dir der Leser durch dein Argument.",
+					"to": "Daran entlang folgt dir der Leser durch dein Argument.",
+					"category": "unidiomatic",
+					"reason": "\"an etwas folgen\" is not a German construction (folgen takes the dative, not an + Dativ). With \"entlang\" (or \"Daran hangelt sich der Leser durch dein Argument\") the image of the scaffold works."
+				},
+				{
+					"unit": "quest_b2_1_lesen_pontevedra (reading) \"Lesen: Die Stadt ohne Autos\"",
+					"from": "die Zone, die den Verkehr beruhigt hat und nun ruhig ist",
+					"to": "die Zone, in der der Verkehr beruhigt wurde und die nun ruhig ist",
+					"category": "unidiomatic",
+					"reason": "A zone does not calm the traffic; the paraphrase of \"verkehrsberuhigte Zone\" is a zone in which traffic was calmed (passive), which is also what the explanation says (\"Der Verkehr wurde dort beruhigt\"). As written, the stem suggests an active Partizip I reading."
+				},
+				{
+					"unit": "quest_b2_1_verben_praep",
+					"from": "auf, über, für, an, um stehen mit Akkusativ; von, mit, bei, nach, zu, vor stehen mit Dativ.",
+					"to": "auf, über, für, um stehen mit Akkusativ, an meistens auch; von, mit, bei, nach, zu, vor stehen mit Dativ.",
+					"category": "false-claim",
+					"reason": "teilnehmen an takes the dative."
+				},
+				{
+					"unit": "quest_b2_1_lassen (fillBlank) \"lassen & Doppelinfinitiv\"",
+					"from": "lassen die Kinder solange bei Oma",
+					"to": "lassen die Kinder so lange bei Oma",
+					"category": "spelling",
+					"reason": "Here the word is an adverb of duration (= in the meantime, for that time), which Duden writes as two words; the one-word form \"solange\" is reserved for the conjunction (solange ..., bis)."
+				},
+				{
+					"unit": "quest_b2_1_hoeren_buergermeisterin (listening) \"Hören: Bürgermeisterin mit 26\"",
+					"from": "Wie passt das zu Schichtdienst im Krankenhaus?",
+					"to": "Wie passt das zum Schichtdienst im Krankenhaus?",
+					"category": "unidiomatic",
+					"reason": "A concrete, specified Schichtdienst (hers, in the hospital) normally takes the article: \"zum Schichtdienst\". The bare noun is just about possible in speech, so a second look is enough; the vocab example on the same quiz already says \"zum Schichtdienst im Krankenhaus\"."
+				},
+				{
+					"unit": "quest_b2_1_schreiben_stellungnahme (writing) \"Schreiben: Stellungnahme\"",
+					"from": "dass der Platz anders dringender gebraucht wird",
+					"to": "dass der Platz anderweitig dringender gebraucht wird",
+					"category": "unidiomatic",
+					"reason": "\"anders dringender gebraucht\" is not idiomatic; the meaning (needed more urgently for other purposes) is expressed with \"anderweitig\" (or \"für anderes\")."
+				},
+				{
+					"unit": "quest_b2_1_suchbild_baustelle (suchbild) \"Suchbild: Die Baustelle\"",
+					"from": "Wo ist der Presslufthammer? Du tippst es im Bild an.",
+					"to": "Wo ist der Presslufthammer? Du tippst ihn im Bild an.",
+					"category": "grammar",
+					"reason": "The pronoun refers to der Presslufthammer (masculine), so it must be \"ihn\", not \"es\". The hotel version of the same sentence correctly uses \"sie\" for die Überwachungskamera."
+				},
+				{
+					"unit": "quest_b2_1_suchbild_hotel",
+					"from": "die Tischklingel wegen die Klingel",
+					"to": "die Tischklingel, weil der letzte Teil die Klingel ist",
+					"category": "grammar",
+					"reason": "wegen takes the genitive; rephrased."
+				}
+			]
+		},
+		{
+			"title": "App · B2.2",
+			"fixes": [
+				{
+					"unit": "Zeitwort pattern",
+					"from": "Präsens mit einem Zeitwort (Morgen fahre",
+					"to": "Präsens mit einer Zeitangabe (Morgen fahre",
+					"category": "false-claim",
+					"reason": "Zeitwort = verb."
+				},
+				{
+					"unit": "Zeitwort pattern",
+					"from": "das Präsens plus ein Zeitwort.",
+					"to": "das Präsens plus eine Zeitangabe.",
+					"category": "false-claim",
+					"reason": "Zeitwort = verb."
+				},
+				{
+					"unit": "Zeitwort pattern",
+					"from": "Präsens + Zeitwort",
+					"to": "Präsens + Zeitangabe",
+					"category": "false-claim",
+					"reason": "Zeitwort = verb."
+				},
+				{
+					"unit": "neutral pattern",
+					"from": "Dativ neutral",
+					"to": "Dativ Neutrum",
+					"category": "grammar",
+					"reason": "Same."
+				},
+				{
+					"unit": "neutral pattern",
+					"from": "Nominativ neutral",
+					"to": "Nominativ Neutrum",
+					"category": "grammar",
+					"reason": "Same."
+				},
+				{
+					"unit": "quest_b2_2_umwelt (fillBlank) \"Wissenschaft & Umwelt\"",
+					"from": "aber jede Einzelne kann heute anfangen, die Umwelt zu schützen.",
+					"to": "aber jeder Einzelne kann heute anfangen, die Umwelt zu schützen.",
+					"category": "grammar",
+					"reason": "As a generic statement about everyone the standard form is \"jeder Einzelne\"; \"jede Einzelne\" refers to women only and reads as a slip in this context."
+				},
+				{
+					"unit": "quest_b2_2_umwelt (fillBlank) \"Wissenschaft & Umwelt\"",
+					"from": "nachweisen → nachgewiesen — wissenschaftlich belegen; Präfix um das ge-.",
+					"to": "nachweisen → nachgewiesen — wissenschaftlich belegen; ge- steht zwischen Präfix und Stamm.",
+					"category": "false-claim",
+					"reason": "\"Präfix um das ge-\" is not understandable German and describes the form wrongly; in nach-ge-wiesen the ge- stands between the separable prefix and the stem."
+				},
+				{
+					"unit": "quest_b2_2_konj2_verg (fillBlank) \"Konjunktiv II der Vergangenheit\"",
+					"from": "ginge, bliebe, fände und ließe klingen schriftlich.",
+					"to": "ginge, bliebe, fände und ließe klingen schriftsprachlich.",
+					"category": "unidiomatic",
+					"reason": "\"klingen schriftlich\" is not an idiomatic collocation; a form sounds \"schriftsprachlich\" or \"gehoben\" (the intro of the same quiz says \"literarisch\")."
+				},
+				{
+					"unit": "quest_b2_2_irreal (fillBlank) \"Irreale Bedingungssätze\"",
+					"from": "Nach dem wenn-Satz kommt zuerst das Hauptverb.",
+					"to": "Nach dem wenn-Satz kommt zuerst das Verb des Hauptsatzes.",
+					"category": "false-claim",
+					"reason": "The word that must follow the wenn-clause is the finite verb of the main clause (here the auxiliary wäre), not the \"Hauptverb\" (geblieben), which stays at the end."
+				},
+				{
+					"unit": "quest_b2_2_lesen_zufall (reading) \"Lesen: Entdeckt aus Versehen\"",
+					"from": "Eine Entdeckung, zeigt sich, ist selten ein Augenblick.",
+					"to": "Eine Entdeckung, so zeigt sich, ist selten ein Augenblick.",
+					"category": "grammar",
+					"reason": "A bare \"zeigt sich\" cannot stand as a parenthetical; the idiomatic insertion is \"so zeigt sich\" (or \"wie sich zeigt\"). The same sentence is quoted again in the last explanation line of this quiz and would need the same fix."
+				},
+				{
+					"unit": "quest_b2_2_lesen_insekten (reading) \"Lesen: Die Studie aus Krefeld\"",
+					"from": "Was den Verlust so schwer wiegt, ist die Stellung der Insekten im Gefüge der Natur.",
+					"to": "Was den Verlust so schwer wiegen lässt, ist die Stellung der Insekten im Gefüge der Natur.",
+					"category": "grammar",
+					"reason": "\"schwer wiegen\" (to weigh heavily) is intransitive; with the accusative object \"den Verlust\" the sentence needs the causative \"schwer wiegen lässt\" (or \"Was so schwer wiegt, ist …\")."
+				},
+				{
+					"unit": "quest_b2_2_verweiswoerter (fillBlank) \"Verweiswörter & Textkohäsion\"",
+					"from": "Erstere … letztere — die geordnete Doppelreferenz.",
+					"to": "Erstere … Letztere — die geordnete Doppelreferenz.",
+					"category": "spelling",
+					"reason": "Substantivisch gebrauchtes 'Letztere' wird großgeschrieben (Duden: Ersterer/Letzterer). Die Lernseite selbst schreibt 'Erstere ist billig, Letztere schnell'. Die Antwortliste desselben Satzes führt 'Erstere … letztere' als erste Variante; besser 'Erstere … Letztere' voranstellen."
+				},
+				{
+					"unit": "quest_b2_2_nominalisierung_intro (fillBlank) \"Nominalisierung: die sechs Typen\"",
+					"from": "nennt die Tätigkeit selbst. der Lauf ist ein einzelner Lauf",
+					"to": "nennt die Tätigkeit selbst. Der Lauf ist ein einzelner Lauf",
+					"category": "spelling",
+					"reason": "Satzanfang nach dem Punkt muss großgeschrieben werden, auch wenn das Wort als Beispiel genannt wird."
+				},
+				{
+					"unit": "quest_b2_2_nominalisierung_intro (fillBlank) \"Nominalisierung: die sechs Typen\"",
+					"from": "das Geschrei — lärmiges Schreien.",
+					"to": "das Geschrei — lautes Schreien.",
+					"category": "unidiomatic",
+					"reason": "'lärmig' ist schweizerisch/landschaftlich; im Standarddeutschen Deutschlands sagt man 'lautes Schreien' oder 'lärmendes Schreien'."
+				},
+				{
+					"unit": "quest_b2_2_konditional_nominal (fillBlank) \"Konditional: verbal ↔ nominal\"",
+					"from": "Bei schönem Wetter — Dativ neutrum -em.",
+					"to": "Bei schönem Wetter — Dativ Neutrum -em.",
+					"category": "spelling",
+					"reason": "'Neutrum' ist ein Nomen und wird großgeschrieben (oder adjektivisch 'neutral', wie es dieselbe Übung in der check-Zeile 'Dativ neutral -em' schreibt). Dieselbe Kleinschreibung steht zweimal in quest_b2_2_relativ_dessen_deren ('Akkusativ neutrum'), dort separat gemeldet."
+				},
+				{
+					"unit": "quest_b2_2_hoeren_schulbeginn (listening) \"Hören: Schule um neun?\"",
+					"from": "Und in Klassenarbeiten sollte man grundsätzlich nicht in der ersten Stunde schreiben lassen.",
+					"to": "Und Klassenarbeiten sollte man grundsätzlich nicht in der ersten Stunde schreiben lassen.",
+					"category": "grammar",
+					"reason": "'Klassenarbeiten' ist das Akkusativobjekt von 'schreiben lassen'; das 'in' davor macht den Satz ungrammatisch (man schreibt Klassenarbeiten, nicht 'in Klassenarbeiten'). Hörtext: ggf. Audio neu aufnehmen."
+				},
+				{
+					"unit": "quest_b2_2_hoeren_schulbeginn (listening) \"Hören: Schule um neun?\"",
+					"from": "Im Schnitt fehlt deutschen Schülern an Schultagen eine bis anderthalb Stunden gegenüber dem Wochenende.",
+					"to": "Im Schnitt fehlen deutschen Schülern an Schultagen eine bis anderthalb Stunden gegenüber dem Wochenende.",
+					"category": "grammar",
+					"reason": "Subjekt ist 'eine bis anderthalb Stunden' (Plural 'Stunden'), also Pluralverb 'fehlen'. Hörtext: ggf. Audio prüfen."
+				},
+				{
+					"unit": "quest_b2_2_lesen_textergaenzung (reading) \"Lesen: Sprachbausteine\"",
+					"from": "„was“ steht nur nach Pronomen wie alles/nichts oder nach einem ganzen Satz.",
+					"to": "„was“ steht nur nach Pronomen wie alles/nichts, nach Superlativen wie das Beste oder nach einem ganzen Satz.",
+					"category": "false-claim",
+					"reason": "'nur' ist zu eng: 'was' steht auch nach substantivierten Superlativen und Neutrum-Adjektiven (das Beste, was …; etwas Schönes, was …). Der Kurs lehrt das selbst in quest_b2_2_relativ_wer_was."
+				},
+				{
+					"unit": "quest_b2_2_relativ_dessen_deren (fillBlank) \"Relativsätze: dessen, deren und Präposition + Relativpronomen\"",
+					"from": "Akkusativ neutrum: das.",
+					"to": "Akkusativ Neutrum: das.",
+					"category": "spelling",
+					"reason": "'Neutrum' ist ein Nomen und wird großgeschrieben. Kommt in dieser Übung zweimal vor (why zu 'Das Thema, über ____' und 'Das Projekt, für ____'); einmal gemeldet."
+				},
+				{
+					"unit": "quest_b2_2_konj2_gegenwart (fillBlank) \"Konjunktiv II der Gegenwart: hätte, wäre, käme, würde\"",
+					"from": "wollen → wollte (gleich wie das Präteritum)",
+					"to": "wollen → wollte (genau wie das Präteritum)",
+					"category": "unidiomatic",
+					"reason": "'gleich wie' ist süddeutsch/schweizerisch; standardsprachlich 'genau wie' oder 'wie das Präteritum'."
+				},
+				{
+					"unit": "quest_b2_2_diktat_irreal",
+					"from": "Drei Sätze haben gar kein wenn",
+					"to": "Sechs Sätze haben gar kein wenn",
+					"category": "false-claim",
+					"reason": "Six of the twelve sentences have no wenn."
+				},
+				{
+					"unit": "quest_b2_2_hoeren_nacht",
+					"from": "sind ohnehin in den nächsten drei Jahren austauschbar",
+					"to": "sind ohnehin in den nächsten drei Jahren auszutauschen",
+					"category": "unidiomatic",
+					"reason": "austauschbar = can be exchanged; meant is must be replaced."
+				},
+				{
+					"unit": "quest_b2_2_hoeren_nacht",
+					"from": "Die alten Lampen sind ohnehin austauschbar.",
+					"to": "Die alten Lampen sind ohnehin auszutauschen.",
+					"category": "unidiomatic",
+					"reason": "Same."
+				},
+				{
+					"unit": "Hören: Licht aus",
+					"from": "two correct options: '… und ein Versuch gemacht wird' / '… und zuerst ein Versuch gemacht wird'",
+					"to": "second replaced by 'wenn die Stadt ihr einen Nachtwächter stellt'",
+					"category": "answer-key",
+					"reason": "Two options were both right."
+				}
+			]
+		},
+		{
+			"title": "App · C1.1",
+			"fixes": [
+				{
+					"unit": "Zeitwort pattern",
+					"from": "(Plan + Zeitwort)",
+					"to": "(Plan + Zeitangabe)",
+					"category": "false-claim",
+					"reason": "Zeitwort = verb."
+				},
+				{
+					"unit": "Zeitwort pattern",
+					"from": "Pläne mit Zeitwort",
+					"to": "Pläne mit Zeitangabe",
+					"category": "false-claim",
+					"reason": "Zeitwort = verb."
+				},
+				{
+					"unit": "Zeitwort pattern",
+					"from": "ein Plan mit Zeitwort",
+					"to": "ein Plan mit Zeitangabe",
+					"category": "false-claim",
+					"reason": "Zeitwort = verb."
+				},
+				{
+					"unit": "quest_c1_1_bildung (fillBlank) \"Bildung & Wissenschaft\"",
+					"from": "und das passt zu der nach nach.",
+					"to": "und das passt zu der Präposition nach.",
+					"category": "grammar",
+					"reason": "Garbled phrase in the check explanation (\"zu der nach nach\" is not a sentence). The intended sense is that the feminine noun Durchführung fits after the preposition nach (\"Nach der ____\")."
+				},
+				{
+					"unit": "quest_c1_1_lesen_grimm (reading) \"Lesen: Woher die Märchen kamen\"",
+					"from": "den Schwestern Wild, Töchter eines Apothekers, und den Schwestern Hassenpflug",
+					"to": "den Schwestern Wild, Töchtern eines Apothekers, und den Schwestern Hassenpflug",
+					"category": "grammar",
+					"reason": "The apposition should take the case of its head noun; \"den Schwestern Wild\" is dative, so the apposition is \"Töchtern eines Apothekers\". The nominative is a common slip that the course's own Attribute lesson explicitly warns against."
+				},
+				{
+					"unit": "quest_c1_1_bar_lich (fillBlank) \"Adjektive auf -bar / -lich\"",
+					"from": "„verstehbar“ und „leslich“ gibt es im Standarddeutschen nicht; verständlich und lesbar schon.",
+					"to": "„leslich“ gibt es im Standarddeutschen nicht, und „verstehbar“ ist selten; verständlich und lesbar sind die üblichen Formen.",
+					"category": "false-claim",
+					"reason": "verstehbar is a listed standard word (Duden), merely rare and technical; the quiz's own intro and check say exactly that (\"verstehbar (selten)\"). The trap line contradicts them by claiming the word does not exist."
+				},
+				{
+					"unit": "quest_c1_1_genitiv_schriftsprache (fillBlank) \"Genitivpräpositionen der Schriftsprache\"",
+					"from": "hinsichtlich / bezüglich / in Bezug auf (+Akk) der Kosten (was … betrifft)",
+					"to": "hinsichtlich / bezüglich der Kosten, in Bezug auf die Kosten (+Akk) (was … betrifft)",
+					"category": "grammar",
+					"reason": "As written, the shared genitive \"der Kosten\" also attaches to \"in Bezug auf\", giving the wrong \"in Bezug auf der Kosten\". The accusative example should be spelled out separately so the learner does not copy a genitive after auf."
+				},
+				{
+					"unit": "quest_c1_1_hoeren_rechtschreibung (listening) \"Hören: Der Streit ums ß\"",
+					"from": "Vor 1996 schrieb man daß mit ß, aber Fluss mit zwei s, nach einer Regel, die davon abhing, ob die Silbe am Wortende stand.",
+					"to": "Vor 1996 schrieb man Fluß mit ß, aber Flüsse mit zwei s, nach einer Regel, die davon abhing, ob der Laut am Silbenende stand.",
+					"category": "false-claim",
+					"reason": "Historically false: before the 1996 reform the word was spelled Fluß (ß at the end of a word or syllable after a short vowel), with ss only between vowels (Flüsse). The old rule depended on the position in the syllable, not the word end. The contrast daß/Fluss as stated never existed; daß vs. Fluß both had ß."
+				},
+				{
+					"unit": "quest_c1_1_hoeren_rechtschreibung (listening) \"Hören: Der Streit ums ß\"",
+					"from": "dass Rechtschreibung keine Naturgesetze sind, sondern Vereinbarungen",
+					"to": "dass Rechtschreibung kein Naturgesetz ist, sondern eine Vereinbarung",
+					"category": "grammar",
+					"reason": "Subject-verb agreement: the singular subject Rechtschreibung takes a singular verb; a plural predicative noun does not change that. Occurs twice in this unit (in the passage and quoted in the explanation of the last question); fix both. The matching option already reads \"dass Rechtschreibung eine Vereinbarung ist und kein Naturgesetz\"."
+				},
+				{
+					"unit": "quest_c1_1_konnektoren_zweiteilig (fillBlank) \"Zweiteilige Konnektoren\"",
+					"from": "zwar, einerseits, weder, je und desto zählen als erste Position ihres Satzes, das Verb folgt also sofort",
+					"to": "zwar, einerseits, weder und desto zählen als erste Position ihres Satzes, das Verb folgt also sofort",
+					"category": "false-claim",
+					"reason": "je opens a subordinate clause with the verb at the END (Je länger die Verhandlungen dauern, …), so the claim that after je \"das Verb folgt sofort\" is false; the intro itself says two sentences later \"Der je-Teil ist ein Nebensatz mit dem Verb am Ende\". Removing je from the list resolves the contradiction."
+				},
+				{
+					"unit": "Bildung & Wissenschaft",
+					"from": "accepted answer: Korrelation (ein signifikanter ____)",
+					"to": "only Zusammenhang",
+					"category": "answer-key",
+					"reason": "Korrelation is feminine."
+				},
+				{
+					"unit": "Wortschatz deck",
+					"from": "der Leiter, pl -n",
+					"to": "der Leiter, pl -",
+					"category": "wordlist",
+					"reason": "Leitern is the plural of die Leiter (ladder)."
+				}
+			]
+		},
+		{
+			"title": "App · C1.2",
+			"fixes": [
+				{
+					"unit": "quest_c1_2_hoeren_reportage (listening) \"Hören: Reportage\"",
+					"from": "die Soziologin Dr. Hartmann, den Gründer Werner Kolb",
+					"to": "den Soziologen Dr. Hartmann, den Gründer Werner Kolb",
+					"category": "grammar",
+					"reason": "In the passage the expert is male: \"der Soziologe Dr. Jonas Hartmann, der seit Jahren zum Ehrenamt forscht\". The intro calls the same person \"die Soziologin\"; gender and the accusative form in the enumeration must match (den Soziologen)."
+				},
+				{
+					"unit": "quest_c1_2_lesen_anglizismen (reading) \"Lesen: Der Untergang, der nie kommt\"",
+					"from": "Der Gesichtserker hat es nicht gebraucht.",
+					"to": "Den Gesichtserker hat es nicht gebraucht.",
+					"category": "grammar",
+					"reason": "Gemeint ist: Es (die Sprache) brauchte den Gesichtserker nicht; im Nominativ wird der Gesichtserker zum Subjekt (der Gesichtserker brauchte es nicht), was keinen Sinn ergibt. Der Satz steht zweimal: im Passage-Schluss und in der letzten Frage (question: Was bedeutet der Schluss ...)."
+				},
+				{
+					"unit": "quest_c1_2_hoeren_traeume (listening) \"Hören: Der Abend, an dem das Radio Angst machte\"",
+					"from": "hören Millionen Menschen wieder Geschichten statt sie zu sehen",
+					"to": "hören Millionen Menschen wieder Geschichten, statt sie zu sehen",
+					"category": "punctuation",
+					"reason": "Eine Infinitivgruppe, die mit statt eingeleitet wird, muss durch Komma abgetrennt werden (§ 75). Der gleiche Wortlaut steht in der Passage und im Zitat der letzten explanation-Zeile."
+				},
+				{
+					"unit": "quest_c1_2_lesen_experten (reading) \"Lesen: Expertenmeinungen zuordnen\"",
+					"from": "Sie stammen von einem Kulturökonomen (A, Vogt: Das Publikum bleibt dasselbe, investiert in die Vermittlung), einer Museumsdirektorin (B, Aydin:",
+					"to": "Sie stammen von einer Kulturökonomin (A, Vogt: Das Publikum bleibt dasselbe, investiert in die Vermittlung), einem Museumsdirektor (B, Aydin:",
+					"category": "grammar",
+					"reason": "In der Passage ist Dr. Lena Vogt die Kulturökonomin und Prof. Karim Aydin der Museumsdirektor; die Einleitung vertauscht die Geschlechter der beiden Personen."
+				},
+				{
+					"unit": "quest_c1_2_lesen_kolumne (reading) \"Lesen: Eine Kolumne\"",
+					"from": "Der Autor unterstellt die Antwort \"schon lange nicht mehr\"",
+					"to": "Der Autor unterstellt die Antwort „schon lange nicht mehr“",
+					"category": "punctuation",
+					"reason": "Gerade Schreibmaschinen-Anführungszeichen in einem deutschen Erklärtext; überall sonst in der Datei stehen die deutschen „…“."
+				},
+				{
+					"unit": "quest_c1_2_kohaesion (fillBlank) \"Textkohäsion\"",
+					"from": "Dazu kommt Thema und Rhema:",
+					"to": "Dazu kommen Thema und Rhema:",
+					"category": "grammar",
+					"reason": "Zwei durch und verbundene Subjekte verlangen den Plural des Verbs (Thema und Rhema kommen dazu)."
+				},
+				{
+					"unit": "quest_c1_2_kohaesion (fillBlank) \"Textkohäsion\"",
+					"from": "____ ist günstiger, letzteres schneller.",
+					"to": "____ ist günstiger, Letzteres schneller.",
+					"category": "spelling",
+					"reason": "Substantivisch gebrauchtes Ersteres/Letzteres wird nach reformierter Rechtschreibung großgeschrieben (Duden: Ersteres ist richtig, Letzteres falsch); der Lückentext hat die erwartete Lösung Ersteres bereits groß."
+				},
+				{
+					"unit": "quest_c1_2_kohaesion (fillBlank) \"Textkohäsion\"",
+					"from": "Ersteres … letzteres — das geordnete Paar, Neutrum.",
+					"to": "Ersteres … Letzteres — das geordnete Paar, Neutrum.",
+					"category": "spelling",
+					"reason": "Gleicher Fall wie im zugehörigen Satz: substantiviertes Letzteres groß, so wie Ersteres daneben."
+				},
+				{
+					"unit": "quest_c1_2_konjunktiv1_indirekte_rede (fillBlank) \"Konjunktiv I: indirekte Rede\"",
+					"from": "sei, habe, werde, und Konjunktiv II, wenn die Formen zusammenfallen",
+					"to": "sei, habe, werde und Konjunktiv II, wenn die Formen zusammenfallen",
+					"category": "punctuation",
+					"reason": "Vor dem und einer einfachen Aufzählung steht im Deutschen kein Komma."
+				},
+				{
+					"unit": "quest_c1_2_lesen_tatort (reading) \"Lesen: Sonntag, 20.15 Uhr\"",
+					"from": "Das Gemeinsame Sehen ist dabei kein Zufall",
+					"to": "Das gemeinsame Sehen ist dabei kein Zufall",
+					"category": "spelling",
+					"reason": "Das Adjektiv vor dem substantivierten Infinitiv Sehen wird kleingeschrieben (das gemeinsame Sehen), nur der Infinitiv ist Nomen."
+				},
+				{
+					"unit": "quest_c1_2_register_formell",
+					"from": "→ Mit freundlichen Grüßen, Vorname Nachname.",
+					"to": "→ Mit freundlichen Grüßen + Vorname Nachname (in der nächsten Zeile, ohne Komma).",
+					"category": "punctuation",
+					"reason": "The intro teaches no comma."
+				},
+				{
+					"unit": "quest_c1_2_register_formell",
+					"from": "„Sorry“ und „Info“ sind englische Lehnwörter, die nur im informellen Deutsch leben",
+					"to": "„Sorry“ ist ein englisches Lehnwort und „Info“ eine Kurzform; beide leben nur im informellen Deutsch",
+					"category": "false-claim",
+					"reason": "Info is a German short form."
+				},
+				{
+					"unit": "Wortschatz deck",
+					"from": "umfahren = knock down, wiederholen = fetch back, durchschauen = look through, unterstellen = take shelter, umschreiben = rewrite",
+					"to": "both meanings on each card (knock down / drive around …)",
+					"category": "gloss",
+					"reason": "The builder split 'úmfahren / umfáhren' and kept half the gloss. Builder fixed."
+				}
+			]
+		},
+		{
+			"title": "App · C2.1",
+			"fixes": [
+				{
+					"unit": "quest_c2_1_lesen_champions (reading) \"Lesen: Die Weltmarktführer, die niemand kennt\"",
+					"from": "gehört NICHT zu Simons Definition eines Hidden Champion?",
+					"to": "gehört NICHT zu Simons Definition eines Hidden Champions?",
+					"category": "grammar",
+					"reason": "Im Genitiv Singular nimmt das englische Lehnwort im Deutschen das -s: 'eines Hidden Champions' (wie 'des Managers'). Die endungslose Form liest sich wie ein Plural ohne Artikelkongruenz."
+				},
+				{
+					"unit": "quest_c2_1_sprechen_rede (speakRepeat) \"Sprechen: Eine Rede halten\"",
+					"from": "Eine Rede aus bewusst gesetzten rhetorischen Mitteln belohnt die Präsentation der C2-Prüfung",
+					"to": "Eine Rede aus bewusst gesetzten rhetorischen Mitteln wird in der Präsentation der C2-Prüfung belohnt",
+					"category": "unidiomatic",
+					"reason": "Subjekt und Objekt sind vertauscht: Nicht die Rede belohnt die Präsentation, sondern die Prüfung belohnt die Rede. So wie es steht, ist der Satz sinnwidrig."
+				},
+				{
+					"unit": "quest_c2_1_valenz (fillBlank) \"Valenz: Verben und ihre Ergänzungen\"",
+					"from": "Einen Satz in eine andere Form zu bringen oder auch nur einen juristischen oder literarischen Text zu lesen, hängt daran, dass du diese Muster beherrschst.",
+					"to": "Einen Satz in eine andere Form zu bringen oder auch nur einen juristischen oder literarischen Text zu lesen, hängt davon ab, dass du diese Muster beherrschst.",
+					"category": "unidiomatic",
+					"reason": "'etwas hängt daran, dass …' ist nicht idiomatisch; die feste Wendung für die Abhängigkeit lautet 'hängt davon ab, dass …'. ('es hängt an jemandem' = jemand ist dafür zuständig, passt hier nicht.)"
+				},
+				{
+					"unit": "quest_c2_1_hoeren_plaedoyer (listening) \"Hören: Das Plädoyer\"",
+					"from": "Jedes Verb verlangt seine Ergänzung in einem bestimmten Kasus. jemanden einer Tat beschuldigen",
+					"to": "Jedes Verb verlangt seine Ergänzung in einem bestimmten Kasus: jemanden einer Tat beschuldigen",
+					"category": "punctuation",
+					"reason": "Nach dem Punkt folgt eine kleingeschriebene Aufzählung; gemeint ist offensichtlich ein Doppelpunkt, der die Beispielliste einleitet."
+				},
+				{
+					"unit": "quest_c2_1_bigtext_vorstand (reading) \"Großer Text: Aus der Vorstandssitzung\"",
+					"from": "mahnten aber zugleich an, der Vorstand müsse nun rasch einen Käufer finden",
+					"to": "mahnten aber zugleich, der Vorstand müsse nun rasch einen Käufer finden",
+					"category": "unidiomatic",
+					"reason": "'anmahnen' nimmt ein Objekt (etwas anmahnen: Reformen, eine Zahlung), aber keinen Redesatz. Vor einem Satz in indirekter Rede steht das einfache 'mahnen' ('mahnten, der Vorstand müsse …'). Die Stelle kommt in derselben Einheit zweimal vor (passage und inlineTemplate); beide gleich ändern."
+				},
+				{
+					"unit": "quest_c2_1_lesen_wirecard (reading) \"Lesen: Die Milliarden, die es nie gab\"",
+					"from": "Welches Unternehmen verdrängte Wirecard 2018 aus dem DAX?",
+					"to": "Welches Unternehmen wurde 2018 von Wirecard aus dem DAX verdrängt?",
+					"category": "answer-key",
+					"reason": "Die natürliche Lesart der Frage ist 'Welches Unternehmen hat Wirecard verdrängt?' (Wirecard als Objekt), doch der Text und die richtige Antwort (Commerzbank) meinen das Gegenteil: Wirecard verdrängte die Commerzbank. Das Passiv macht die Frage eindeutig."
+				},
+				{
+					"unit": "quest_c2_1_sprichwoerter (fillBlank) \"Sprichwörter\"",
+					"from": "Ein Kommentator schreibt, der Minister „selbst im Glashaus sitzt“. Worauf will er hinaus?",
+					"to": "Ein Kommentator schreibt, der Minister „sitze selbst im Glashaus“. Worauf will er hinaus?",
+					"category": "grammar",
+					"reason": "Ein uneingeleiteter Objektsatz nach 'schreibt' hat Verbzweitstellung (und in der Wiedergabe Konjunktiv I); die Verbendstellung 'der Minister … sitzt' ist nur mit 'dass' möglich. Alternativ: 'schreibt, dass der Minister „selbst im Glashaus sitzt“'."
+				},
+				{
+					"unit": "quest_c2_1_diktat_register (dictation) \"Diktat: Register & Stil\"",
+					"from": "Eine Anspielung, an des Kaisers neue Kleider erinnert (das Märchen",
+					"to": "Eine Anspielung, die an des Kaisers neue Kleider erinnert (das Märchen",
+					"category": "grammar",
+					"reason": "Im Relativsatz fehlt das Relativpronomen 'die'; ohne es ist der Satz ungrammatisch."
+				},
+				{
+					"unit": "quest_c2_1_kollokationen",
+					"from": " (in sorgfältiger Prosa niemals „einen großen Verlust erleiden“)",
+					"to": " (auch „einen großen Verlust erleiden“ ist korrekt, aber herb und schwer sind die genaueren Kollokationen)",
+					"category": "false-claim",
+					"reason": "Duden lists einen großen Verlust erleiden."
+				},
+				{
+					"unit": "quest_c2_1_adjektivbildung",
+					"from": "sorgenfrei (ohne Sorgen, positiv) neben sorglos (leichtsinnig, negativ)",
+					"to": "sorgenfrei (ohne Sorgen, nur positiv) neben sorglos (unbekümmert oder leichtsinnig)",
+					"category": "false-claim",
+					"reason": "sorglos is primarily carefree (Duden)."
+				},
+				{
+					"unit": "quest_c2_1_adjektivbildung",
+					"from": "sorgenfrei (carefree, positive) vs sorglos (careless, negative)",
+					"to": "sorgenfrei (carefree, only positive) vs sorglos (carefree or careless)",
+					"category": "false-claim",
+					"reason": "Same, English."
+				},
+				{
+					"unit": "quest_c2_1_hoeren_satire (listening) \"Hören: Satire\"",
+					"from": "den Witz im deutschen Spätabendfernsehen zu verstehen",
+					"to": "den Witz in den deutschen Late-Night-Shows zu verstehen",
+					"category": "unidiomatic",
+					"reason": "'Spätabendfernsehen' ist eine Lehnübersetzung von 'late-night TV' und kein gebräuchliches deutsches Wort; üblich sind 'Late-Night-Show(s)' oder 'Kabarettsendungen'."
+				},
+				{
+					"unit": "quest_c2_1_sprechen_dialog (speaking) \"Gespräch: Stilsicherheit\"",
+					"from": "Das ist eine echte Debatte in der Probe, von der Art, wie du sie bei der Arbeit",
+					"to": "Das ist eine echte Debatte im Probelauf, von der Art, wie du sie bei der Arbeit",
+					"category": "unidiomatic",
+					"reason": "'eine Debatte in der Probe' klingt nach dem englischen 'in rehearsal'; natürlicher wäre 'im Probelauf' oder 'zur Probe'."
+				},
+				{
+					"unit": "quest_c2_1_lesen_kurzgeschichte",
+					"from": "straight into the scene",
+					"to": "ohne Einleitung mitten in die Szene",
+					"category": "gloss",
+					"reason": "de slot held English."
+				},
+				{
+					"unit": "quest_c2_1_lesen_kurzgeschichte",
+					"from": "\"an ordinary moment\"",
+					"to": "\"ein gewöhnlicher Moment\"",
+					"category": "gloss",
+					"reason": "de slot held English."
+				},
+				{
+					"unit": "quest_c2_1_lesen_kurzgeschichte",
+					"from": "\"one small gesture or object\"",
+					"to": "\"eine kleine Geste oder ein Gegenstand\"",
+					"category": "gloss",
+					"reason": "Same."
+				},
+				{
+					"unit": "quest_c2_1_lesen_kurzgeschichte",
+					"from": "\"the reader decides\"",
+					"to": "\"der Leser entscheidet\"",
+					"category": "gloss",
+					"reason": "Same."
+				},
+				{
+					"unit": "Valenz",
+					"from": "accepted: dem Minister (kosten), ihrem Sohn (lehren), auf seine Rechte (bestehen auf)",
+					"to": "removed",
+					"category": "answer-key",
+					"reason": "The quiz's own rules mark these as wrong."
+				},
+				{
+					"unit": "Adjektivbildung",
+					"from": "mistake line: ein sorgloses Leben ✗ (sorglos = leichtsinnig)",
+					"to": "sorglos has two sides: unbekümmert (ein sorgloses Leben) and leichtsinnig (sorglos mit Geld)",
+					"category": "false-claim",
+					"reason": "Duden's first meaning of sorglos is carefree."
+				}
+			]
+		},
+		{
+			"title": "App · C2.2",
+			"fixes": [
+				{
+					"unit": "quest_c2_2_philosophie (fillBlank) \"Philosophie & Gesellschaft\"",
+					"from": "der kategorische Imperativ (unbedingtes Sittengesetz) gegenüber der hypothetische Imperativ (wenn du X willst, tu Y)",
+					"to": "der kategorische Imperativ (unbedingtes Sittengesetz) gegenüber dem hypothetischen Imperativ (wenn du X willst, tu Y)",
+					"category": "grammar",
+					"reason": "gegenüber verlangt den Dativ; der Nominativ nach gegenüber ist falsch. Pattern: same construction in the same text line (die Pflicht … gegenüber die Neigung; der Zweck … gegenüber das Mittel) and in the Ethik section (gegenüber die Verantwortungsethik; gegenüber der Determinismus); all five reported separately. Alternative if citation forms are wanted: replace gegenüber by a dash or 'vs.'."
+				},
+				{
+					"unit": "quest_c2_2_philosophie (fillBlank) \"Philosophie & Gesellschaft\"",
+					"from": "die Pflicht (was man tun muss) gegenüber die Neigung (wozu es einen zieht)",
+					"to": "die Pflicht (was man tun muss) gegenüber der Neigung (wozu es einen zieht)",
+					"category": "grammar",
+					"reason": "gegenüber + Dativ: der Neigung."
+				},
+				{
+					"unit": "quest_c2_2_philosophie (fillBlank) \"Philosophie & Gesellschaft\"",
+					"from": "der Zweck (das Ziel) gegenüber das Mittel (der Weg dorthin)",
+					"to": "der Zweck (das Ziel) gegenüber dem Mittel (der Weg dorthin)",
+					"category": "grammar",
+					"reason": "gegenüber + Dativ: dem Mittel."
+				},
+				{
+					"unit": "quest_c2_2_philosophie (fillBlank) \"Philosophie & Gesellschaft\"",
+					"from": "die Gesinnungsethik (die Absicht zählt) gegenüber die Verantwortungsethik (die Folgen zählen)",
+					"to": "die Gesinnungsethik (die Absicht zählt) gegenüber der Verantwortungsethik (die Folgen zählen)",
+					"category": "grammar",
+					"reason": "gegenüber + Dativ: der Verantwortungsethik."
+				},
+				{
+					"unit": "quest_c2_2_philosophie (fillBlank) \"Philosophie & Gesellschaft\"",
+					"from": "die Willensfreiheit / der freie Wille gegenüber der Determinismus (alles ist ursächlich festgelegt)",
+					"to": "die Willensfreiheit / der freie Wille gegenüber dem Determinismus (alles ist ursächlich festgelegt)",
+					"category": "grammar",
+					"reason": "gegenüber + Dativ: dem Determinismus."
+				},
+				{
+					"unit": "quest_c2_2_lesen_arendt (reading) \"Lesen: Die Banalität des Bösen\"",
+					"from": "was er aus dem Standpunkt eines anderen tat",
+					"to": "was er vom Standpunkt eines anderen aus tat",
+					"category": "unidiomatic",
+					"reason": "Idiomatisch ist 'vom Standpunkt (eines anderen) aus', nicht 'aus dem Standpunkt'; die richtige Antwortoption der Frage verwendet selbst 'vom Standpunkt eines anderen aus'. Same string occurs twice: in the passage and in the explanation that quotes it."
+				},
+				{
+					"unit": "quest_c2_2_lesen_arendt (reading) \"Lesen: Die Banalität des Bösen\"",
+					"from": "dagegen lässt sich halten; die neuere Forschung hat gezeigt",
+					"to": "dagegen lässt sich einwenden; die neuere Forschung hat gezeigt",
+					"category": "unidiomatic",
+					"reason": "'dagegen lässt sich halten' ist keine deutsche Wendung; gemeint ist 'dagegen lässt sich einwenden' oder 'dem lässt sich entgegenhalten'. Same wrong phrase recurs in the section text ('dagegen lässt sich halten / einwenden'), reported next."
+				},
+				{
+					"unit": "quest_c2_2_lesen_arendt (reading) \"Lesen: Die Banalität des Bösen\"",
+					"from": "dagegen lässt sich halten / einwenden;",
+					"to": "dagegen lässt sich einwenden / dem lässt sich entgegenhalten;",
+					"category": "unidiomatic",
+					"reason": "Siehe vorige Meldung: 'sich halten' funktioniert nicht mit 'dagegen'; 'entgegenhalten' verlangt den Dativ (dem)."
+				},
+				{
+					"unit": "quest_c2_2_lesen_unwort (reading) \"Lesen: Das Unwort\"",
+					"from": "Das Wort war im Herbst zuvor in Hoyerswerda auf Transparenten gestanden",
+					"to": "Das Wort hatte im Herbst zuvor in Hoyerswerda auf Transparenten gestanden",
+					"category": "grammar",
+					"reason": "Passage of the Unwort essay. Standarddeutsch bildet das Perfekt/Plusquamperfekt von stehen mit haben; 'war gestanden' ist süddeutsch/österreichisch."
+				},
+				{
+					"unit": "quest_c2_2_paraphrase (fillBlank) \"Paraphrase & Variation\"",
+					"from": "ist das tägliche Werkzeug fortgeschritten Schreibender",
+					"to": "ist das tägliche Werkzeug fortgeschrittener Schreibender",
+					"category": "grammar",
+					"reason": "'fortgeschritten' ist hier Attribut zu 'Schreibender' (Genitiv Plural) und braucht die Endung -er; die unflektierte Form lässt sich nur als Adverb lesen, was hier keinen Sinn ergibt."
+				},
+				{
+					"unit": "quest_c2_2_paraphrase",
+					"from": "das Verb bleibt im Singular: eine Vielzahl von Bürgern hat",
+					"to": "das Verb steht meist im Singular: eine Vielzahl von Bürgern hat",
+					"category": "false-claim",
+					"reason": "Duden allows both."
+				},
+				{
+					"unit": "quest_c2_2_diktat_wissenschaft",
+					"from": "mittels, zwecks, ungeachtet, binnen und kraft nehmen den Genitiv",
+					"to": "mittels, zwecks, ungeachtet und kraft nehmen den Genitiv, binnen den Genitiv oder Dativ",
+					"category": "false-claim",
+					"reason": "binnen takes dative or genitive."
+				},
+				{
+					"unit": "quest_c2_2_nominalstil (fillBlank) \"Nominalstil: verdichten und auflösen\"",
+					"from": "Der Täter wird durch den Rat / seitens des Rates.",
+					"to": "Der Handelnde wird zu durch den Rat / seitens des Rates.",
+					"category": "unidiomatic",
+					"reason": "\"Täter\" is the word for a culprit, not for the grammatical agent (the lesson itself uses \"der Handelnde\" throughout), and \"wird durch den Rat\" lacks the \"zu\" that the other why-lines use (\"auswerten → die Auswertung\"). As written the sentence reads as nonsense to a native speaker."
+				},
+				{
+					"unit": "quest_c2_2_dach_varianten (fillBlank) \"Deutsch in Österreich und der Schweiz\"",
+					"from": "Gesuch (Antrag), Busse (Geldstrafe), allenfalls (gegebenenfalls)",
+					"to": "Gesuch (Antrag), Busse (Geldbuße, Bußgeld), allenfalls (gegebenenfalls)",
+					"category": "gloss",
+					"reason": "Swiss \"Busse\" corresponds to the German Geldbuße/Bußgeld (e.g. for a parking offence, as in the quiz's own sentence \"Wer im Halteverbot parkiert, riskiert eine Busse\"); glossing it as \"Geldstrafe\" contradicts the Geldbuße-vs-Geldstrafe distinction that the Behördensprache quiz of this level teaches as a frequent error."
+				},
+				{
+					"unit": "Redewendungen / Fremdwörter / Fokus",
+					"from": "accepted: Badewasser; Status Quo, Statusquo; nur (Es ist ____ halb acht)",
+					"to": "removed",
+					"category": "answer-key",
+					"reason": "Each contradicted the quiz's own rule."
+				}
+			]
+		},
+		{
+			"title": "App · several levels",
+			"fixes": [
+				{
+					"unit": "neutrum pattern",
+					"from": "Akkusativ neutrum",
+					"to": "Akkusativ Neutrum",
+					"category": "spelling",
+					"reason": "Neutrum is a noun."
+				},
+				{
+					"unit": "neutrum pattern",
+					"from": "Dativ neutrum",
+					"to": "Dativ Neutrum",
+					"category": "spelling",
+					"reason": "Same."
+				}
+			]
+		},
+		{
+			"title": "Book · Deutsch A1.1",
+			"fixes": [
+				{
+					"unit": "chapter hallo \"Hallo! Das bin ich\"",
+					"from": "Er ist der Kellner. Du bist der Kunde. Das ist höflich.",
+					"to": "Er ist der Kellner. Du bist die Kundin. Das ist höflich.",
+					"category": "grammar",
+					"reason": "Lena is speaking to Maya, a woman; the feminine form is die Kundin. The English line (\"You are the customer\") needs no change."
+				},
+				{
+					"unit": "chapter hallo \"Hallo! Das bin ich\"",
+					"from": "wait for “Wir können du sagen”.",
+					"to": "wait for “Wir können Du sagen”.",
+					"category": "spelling",
+					"reason": "In the fixed phrase 'jemandem Du sagen' / 'Du zueinander sagen' Duden writes the nominalised pronoun with a capital (Du sagen). The more usual idiom, used later in the same chapter, is 'Wir können uns duzen'."
+				},
+				{
+					"unit": "chapter familie \"Meine Familie\"",
+					"from": "Der Kuchen ist von Peter, mein Sohn.",
+					"to": "Der Kuchen ist von Peter, meinem Sohn.",
+					"category": "grammar",
+					"reason": "An apposition takes the case of the noun it belongs to; after 'von' that is dative: 'von Peter, meinem Sohn'. The nominative is a common slip in speech, but learners will copy the printed form."
+				},
+				{
+					"unit": "chapter woerter \"Wörter bauen\"",
+					"from": "and even Germans say *KFZ-Versicherung*.",
+					"to": "and even Germans say *Kfz-Versicherung*.",
+					"category": "spelling",
+					"reason": "The standard abbreviation of Kraftfahrzeug is 'Kfz' (Duden), so the compound is written Kfz-Versicherung; 'KFZ' in capitals is a frequent misspelling."
+				},
+				{
+					"unit": "chapter familie",
+					"from": "Sie hat drei Kinder: Tom, Mia und das Baby.",
+					"to": "Sie hat drei Kinder: Paul, Emma und das Baby.",
+					"category": "content",
+					"reason": "Tom and Mia are Lena's siblings in the family tree."
+				},
+				{
+					"unit": "chapter familie",
+					"from": "She has three children: Tom, Mia and the baby.",
+					"to": "She has three children: Paul, Emma and the baby.",
+					"category": "content",
+					"reason": "Same, English."
+				},
+				{
+					"unit": "chapter amt",
+					"from": "Das Wort hat 20 Buchstaben",
+					"to": "Das Wort hat 19 Buchstaben",
+					"category": "false-claim",
+					"reason": "Staatsangehörigkeit has 19 letters."
+				},
+				{
+					"unit": "chapter amt",
+					"from": "The word has 20 letters",
+					"to": "The word has 19 letters",
+					"category": "false-claim",
+					"reason": "Same."
+				},
+				{
+					"unit": "chapter koeln",
+					"from": "Das ist fünf Minuten.",
+					"to": "Das sind fünf Minuten.",
+					"category": "grammar",
+					"reason": "plural predicate"
+				}
+			]
+		},
+		{
+			"title": "Book · Deutsch A1.2",
+			"fixes": [
+				{
+					"unit": "chapter tag \"Mein Tag\"",
+					"from": "Und der junge Mann im Dach?",
+					"to": "Und der junge Mann unter dem Dach?",
+					"category": "unidiomatic",
+					"reason": "Someone who lives in the attic flat lives 'unter dem Dach'; 'im Dach' means inside the roof structure itself and no native speaker says it for a person. The English line already has 'in the attic'."
+				},
+				{
+					"unit": "chapter einkaufen \"Einkaufen\"",
+					"from": "*ein* becomes *kein*; everything else takes *nicht*.",
+					"to": "*ein* or no article becomes *kein*; everything else takes *nicht*.",
+					"category": "false-claim",
+					"reason": "The table directly above shows 'Er hat Zeit -> Er hat keine Zeit' (no article, still kein), and the next box says 'ein or no article in the yes? -> kein'. The note as written contradicts both and would make a learner write 'Er hat nicht Zeit'."
+				},
+				{
+					"unit": "chapter rezept \"Mach das!\"",
+					"from": "An e at the end is fine too: Warte! Mache!",
+					"to": "An e at the end is often fine too: Mache! — and after -t or -d it is needed: Warte! Rede!",
+					"category": "false-claim",
+					"reason": "For verbs whose stem ends in -t/-d (warten, arbeiten, reden) the -e is obligatory ('Wart!' is not standard), so presenting Warte! as an optional variant misleads. The table above correctly gives only 'Warte!'."
+				},
+				{
+					"unit": "chapter tag \"Mein Tag\"",
+					"from": "*14.00 – 21.00* is written with a full stop, not a colon.",
+					"to": "*14.00 – 21.00*: on signs the hours are often written with a full stop, though the colon (14:00) is the usual form today.",
+					"category": "false-claim",
+					"reason": "The general claim is not true: the standard (DIN 5008) and most timetables, screens and this book's own departure board use the colon; the full stop is an older convention still seen on hand-made signs. Reword so the learner does not conclude the colon is wrong."
+				}
+			]
+		},
+		{
+			"title": "Book · Deutsch A2.1",
+			"fixes": [
+				{
+					"unit": "chapter ostsee \"Ich bin gefahren\"",
+					"from": "Keine Ahnung. Aber du kannst es ja fahren. Hier ist es sehr schön.",
+					"to": "Keine Ahnung. Aber du kannst ja herkommen. Hier ist es sehr schön.",
+					"category": "unidiomatic",
+					"reason": "\"es fahren\" is a calque of \"make the trip\"; a native speaker would say \"du kannst ja herkommen\" or \"du kannst ja herfahren\" (the English gloss \"you can make the trip yourself\" still fits)."
+				},
+				{
+					"unit": "chapter heidelberg \"Woher? Wo? Wohin?\"",
+					"from": "Sonst haben Sie nichts gesehen. Das Schloss war schön, nicht?",
+					"to": "Sonst hätten Sie nichts gesehen. Das Schloss war schön, nicht?",
+					"category": "grammar",
+					"reason": "The meaning (English: \"Otherwise you'd have seen nothing\") is a counterfactual and needs Konjunktiv II \"hätten\"; the Perfekt \"haben Sie nichts gesehen\" reads as a statement of fact and makes no sense here. If Konjunktiv is to be avoided at A2, rephrase: \"So haben Sie wenigstens etwas gesehen.\""
+				},
+				{
+					"unit": "chapter wetter \"Das Wetter\"",
+					"from": "Weather always starts with es.",
+					"to": "Weather usually starts with es.",
+					"category": "false-claim",
+					"reason": "The table on the same page has \"die Sonne scheint\", and \"Der Wind ist stark\", \"Der Himmel ist schwarz\" appear in the chapter dialogue, so \"always\" is not true."
+				},
+				{
+					"unit": "chapter wetter \"Das Wetter\"",
+					"from": "Ihr Handy ist nicht hier. Haben Sie eine Jacke?",
+					"to": "Ihr Handy ist nicht von hier. Haben Sie eine Jacke?",
+					"category": "unidiomatic",
+					"reason": "The English gives \"Your phone isn't from here\" (the forecast does not know the coast); the German \"ist nicht hier\" means \"isn't here\", which is false in the scene (Max is holding it). \"nicht von hier\" is the idiomatic form of the intended joke."
+				},
+				{
+					"unit": "chapter wetter \"Das Wetter\"",
+					"from": "Warum steht das Wasser an meinen Knien?",
+					"to": "Warum steht mir das Wasser bis zu den Knien?",
+					"category": "unidiomatic",
+					"reason": "\"das Wasser steht an meinen Knien\" is not how a native speaker says the water is up to the knees; the idiom is \"das Wasser steht mir bis zu den Knien\" (or \"bis zu meinen Knien\")."
+				}
+			]
+		},
+		{
+			"title": "Book · Deutsch A2.2",
+			"fixes": [
+				{
+					"unit": "chapter umzug \"Der Umzug\"",
+					"from": "Das neue Zimmer: Hohe Decke, alte Tür, und noch keine Möbel.",
+					"to": "Das neue Zimmer: hohe Decke, alte Tür und noch keine Möbel.",
+					"category": "punctuation",
+					"reason": "No comma before 'und' between items of an enumeration, and after a colon a phrase that is not a full sentence starts lowercase ('hohe')."
+				},
+				{
+					"unit": "chapter kur \"Du solltest zum Arzt\"",
+					"from": "Eine Dame im Hut sitzt neben Lena.",
+					"to": "Eine Dame mit Hut sitzt neben Lena.",
+					"category": "unidiomatic",
+					"reason": "'im Hut' is a calque of 'in a hat'; German says 'mit Hut' (or 'mit einem Hut')."
+				},
+				{
+					"unit": "chapter kur \"Du solltest zum Arzt\"",
+					"from": "Ein Herr mit einem Bademantel.",
+					"to": "Ein Herr im Bademantel.",
+					"category": "unidiomatic",
+					"reason": "'mit einem Bademantel' suggests he is carrying one; wearing it (as the English 'in a bathrobe' says) is 'im Bademantel'."
+				},
+				{
+					"unit": "chapter bibliothek \"Wörter bauen, Sätze bauen\"",
+					"from": "Heute morgen habe ich es gefunden",
+					"to": "Heute Morgen habe ich es gefunden",
+					"category": "spelling",
+					"reason": "After 'heute/gestern/morgen' the time of day is a noun and capitalised in reformed spelling: 'heute Morgen'."
+				},
+				{
+					"unit": "chapter rekorde",
+					"from": "After -t, -d, -s, -z: -esten, so you can hear it.",
+					"to": "After -t, -d, -s, -z: -esten, so you can hear it (but groß: am größten).",
+					"category": "false-claim",
+					"reason": "groß is the exception shown in the same table."
+				}
+			]
+		},
+		{
+			"title": "Book · Deutsch B1.1",
+			"fixes": [
+				{
+					"unit": "quest_b1_1_email_redemittel",
+					"from": "Grüßen, Tomás Ruiz",
+					"to": "Grüßen – Tomás Ruiz",
+					"category": "punctuation",
+					"reason": "No comma after a sign-off; the quiz teaches this itself."
+				},
+				{
+					"unit": "chapter bewerbung \"Die Bewerbung\"",
+					"from": "*Der Blaue Brief* ist der alte Name",
+					"to": "*Der blaue Brief* ist der alte Name",
+					"category": "spelling",
+					"reason": "Duden writes the fixed expression 'blauer Brief' with a lower-case adjective; it is not a proper name."
+				},
+				{
+					"unit": "chapter garten \"Der kleine Garten\"",
+					"from": "Ich bin der erste Vorsitzende.",
+					"to": "Ich bin der Erste Vorsitzende.",
+					"category": "spelling",
+					"reason": "As an official title (the club's chair, as opposed to the Zweiter Vorsitzender) Duden capitalises 'Erster Vorsitzender / der Erste Vorsitzende'."
+				},
+				{
+					"unit": "chapter koenig \"Wenn ich König wäre\"",
+					"from": "Auch dürfte, wüsste. sollte und wollte bleiben gleich.",
+					"to": "Auch dürfte, wüsste; sollte und wollte bleiben gleich.",
+					"category": "punctuation",
+					"reason": "A full stop followed by a lower-case word starts a sentence without a capital; a semicolon (or a dash) keeps the cited verb forms lower-case and the sentence correct."
+				},
+				{
+					"unit": "chapter wegen \"Wegen des Wetters\"",
+					"from": "Was stört dich wegen der Baustelle?",
+					"to": "Was stört dich an der Baustelle?",
+					"category": "unidiomatic",
+					"reason": "'etwas stört mich wegen …' is not idiomatic; the collocation is 'stören an'. If 'wegen' must be practised: 'Was ist wegen der Baustelle anders?'"
+				},
+				{
+					"unit": "chapter grenze",
+					"from": "Ich war achtunddreißig und sehr schnell.",
+					"to": "Ich war fünfunddreißig und sehr schnell.",
+					"category": "content",
+					"reason": "7 in 1961 + 28 years = 35."
+				},
+				{
+					"unit": "chapter grenze",
+					"from": "I was thirty-eight and very fast.",
+					"to": "I was thirty-five and very fast.",
+					"category": "content",
+					"reason": "Same, English."
+				},
+				{
+					"unit": "chapter grenze",
+					"from": "\"achtunddreißig\"",
+					"to": "\"fünfunddreißig\"",
+					"category": "content",
+					"reason": "Option in the task."
+				}
+			]
+		},
+		{
+			"title": "Book · Deutsch B1.2",
+			"fixes": [
+				{
+					"unit": "quest_b1_1_suchbild_arztpraxis",
+					"from": "pedal bin",
+					"to": "bin",
+					"category": "gloss",
+					"reason": "Mülleimer is the generic bin."
+				},
+				{
+					"unit": "chapter technik \"Haben Sie es schon versucht?\"",
+					"from": "Am Telefon nehmen Deutsche Namen: *A wie Anton, D wie Dora, M wie Martha*.",
+					"to": "Am Telefon buchstabieren Deutsche mit Namen: *A wie Anton, D wie Dora, M wie Martha*.",
+					"category": "unidiomatic",
+					"reason": "\"Namen nehmen\" is not what a German says for spelling with a code; the idiom is \"mit Namen buchstabieren\" (or \"nehmen Deutsche Vornamen zum Buchstabieren\")."
+				},
+				{
+					"unit": "chapter technik \"Haben Sie es schon versucht?\"",
+					"from": "eine Hotline schaffen und meinen Namen buchstabieren",
+					"to": "einen Anruf bei der Hotline schaffen und meinen Namen buchstabieren",
+					"category": "unidiomatic",
+					"reason": "\"eine Hotline schaffen\" means to set up a hotline; the can-do is about getting through a hotline call. \"einen Anruf bei der Hotline schaffen\" (or \"ein Gespräch mit der Hotline durchstehen\") says that."
+				},
+				{
+					"unit": "chapter rothenburg \"Es war einmal in Rothenburg\"",
+					"from": "Maya macht in Rothenburg die Nachtwächter-Tour. Er hat einen schwarzen Mantel",
+					"to": "Maya macht in Rothenburg die Nachtwächter-Tour. Der Nachtwächter hat einen schwarzen Mantel",
+					"category": "grammar",
+					"reason": "\"Er\" has no antecedent: only Maya (feminine) and the Tour have been mentioned; the night watchman himself must be named before a pronoun can refer to him."
+				},
+				{
+					"unit": "chapter umsteigen \"Der Zug war schon weg\"",
+					"from": "Es ist das meistgelesene Dokument der deutschen Bahn.",
+					"to": "Es ist das meistgelesene Dokument der Deutschen Bahn.",
+					"category": "spelling",
+					"reason": "The company is named (the form comes from a Reisezentrum of the Deutsche Bahn), so the proper name takes a capital: \"der Deutschen Bahn\", as in \"an die Deutsche Bahn\" in the same chapter."
+				},
+				{
+					"unit": "chapter hochzeit \"Hätte ich doch …!\"",
+					"from": "ein Papier, dass sie heiraten dürfen",
+					"to": "ein Papier, das bestätigt, dass sie heiraten dürfen",
+					"category": "grammar",
+					"reason": "A \"dass\" content clause cannot hang directly on \"Papier\"; a learner will read it as a relative clause with a misspelt \"das\". Either add a verb (\"das bestätigt, dass\") or use a noun that takes a dass-clause (\"eine Bescheinigung, dass …\")."
+				},
+				{
+					"unit": "chapter hochzeit \"Hätte ich doch …!\"",
+					"from": "Gebrochenes Porzellan bringt Glück, Herr Bell, kaputte Männer auch.",
+					"to": "Zerbrochenes Porzellan bringt Glück, Herr Bell, kaputte Männer auch.",
+					"category": "unidiomatic",
+					"reason": "Porzellan is \"zerbrochen\" (\"brechen\" is for bones, promises); the chapter itself uses \"zerbrochener Teller\" and the comprehension gap quotes her as \"Zerbrochenes Porzellan bringt Glück\", so text and key currently disagree."
+				},
+				{
+					"unit": "chapter ritter \"Etwas ist schiefgegangen\"",
+					"from": "*plötzlich* möchte jeder Lehrer aus jedem Aufsatz verbieten",
+					"to": "*plötzlich* möchte jeder Lehrer aus jedem Aufsatz verbannen",
+					"category": "unidiomatic",
+					"reason": "\"verbieten\" does not combine with \"aus\": one \"verbietet\" something \"in\" an essay or \"verbannt\" it \"aus\" the essay."
+				}
+			]
+		},
+		{
+			"title": "Book · Deutsch B2.1",
+			"fixes": [
+				{
+					"unit": "chapter nachrichten \"Er sagt, er sei krank\"",
+					"from": "Ihr *Konjunktiv I* ist eine Art Rechtsversicherung:",
+					"to": "Ihr *Konjunktiv I* ist eine Art Rechtsschutzversicherung:",
+					"category": "unidiomatic",
+					"reason": "\"Rechtsversicherung\" is not a German word; the insurance meant is the \"Rechtsschutzversicherung\" (used correctly in the gericht chapter). If a shorter metaphor is wanted, \"eine Art Versicherung\" also works."
+				},
+				{
+					"unit": "chapter gericht \"Sie sagte, sie sei gekommen\"",
+					"from": "Der wirkliche Streit ist über",
+					"to": "Der wirkliche Streit geht um",
+					"category": "unidiomatic",
+					"reason": "\"Der Streit ist über X\" is a calque of \"the dispute is about X\"; German says \"der Streit geht um X\" (or \"es geht um\"). Both options (die Hecke / den Grill) stay accusative, so the exercise still works."
+				},
+				{
+					"unit": "chapter pendler \"Morgen mit dem Zug nach Rom\"",
+					"from": "*Ich fahre morgen nach Rom* und *Ich fahre nach Rom morgen* gehen beide.",
+					"to": "*Ich fahre morgen nach Rom* und *Nach Rom fahre ich morgen* gehen beide.",
+					"category": "false-claim",
+					"reason": "\"Ich fahre nach Rom morgen\" is not natural German even as an answer to \"wann?\" (a native fronts the place or stresses \"morgen\" in its normal slot); the chapter's own Mini-Check marks the same order (\"Ich fahre nach Rom wegen der Arbeit morgen\") as wrong, so the fact box contradicts the exercise. If the point is emphasis, use the fronting variant."
+				},
+				{
+					"unit": "chapter gericht",
+					"from": "\"tag\": \"reported\"",
+					"to": "\"tag\": \"indirekt\"",
+					"category": "label",
+					"reason": "English label in German table."
+				},
+				{
+					"unit": "chapter interview",
+					"from": "(reported)",
+					"to": "(indirekt)",
+					"category": "label",
+					"reason": "Same."
+				},
+				{
+					"unit": "chapter interview",
+					"from": "(passive, Perfekt)",
+					"to": "(Passiv, Perfekt)",
+					"category": "label",
+					"reason": "Same."
+				}
+			]
+		},
+		{
+			"title": "Book · Deutsch B2.2",
+			"fixes": [
+				{
+					"unit": "chapter sturm \"Aufgrund des Wetters\"",
+					"from": "Ein Sturmtief: Infolge dessen kam es zu Beeinträchtigungen des Autos.",
+					"to": "Ein Sturmtief: Infolgedessen kam es zu Beeinträchtigungen des Autos.",
+					"category": "spelling",
+					"reason": "The adverb is written as one word, 'infolgedessen' (Duden). 'Infolge dessen' in two words would need a following noun phrase."
+				},
+				{
+					"unit": "chapter miete \"Trotz mehrfacher Zusagen\"",
+					"from": "Sich einräumen, dann drängen",
+					"to": "Einräumen, dann drängen",
+					"category": "grammar",
+					"reason": "'einräumen' in the sense of conceding a point is not reflexive; 'sich einräumen' does not exist. The subheading right below and the exercise title already use the correct 'Einräumen, dann drängen'."
+				},
+				{
+					"unit": "chapter schlaf \"Wer gut schläft\"",
+					"from": "Was ist bei dir schlaflos?",
+					"to": "Was macht dich schlaflos?",
+					"category": "unidiomatic",
+					"reason": "'schlaflos' describes a person or a night, not a thing; 'Was ist bei dir schlaflos?' is not something a native speaker would ask. 'Was macht dich schlaflos?' (or 'Was raubt dir den Schlaf?') is the natural question."
+				},
+				{
+					"unit": "chapter dorf \"Er soll reich sein\"",
+					"from": "Dieselben Modalverben, die hier Befehle und Wünsche ausdrücken, schützen dich vor einer Klage.",
+					"to": "Dieselben Modalverben, die sonst Befehle und Wünsche ausdrücken, schützen dich vor einer Klage.",
+					"category": "unidiomatic",
+					"reason": "In this use sollen/wollen do not express orders or wishes; the point is that the same verbs which elsewhere ('sonst') express them here report hearsay. 'hier' makes the sentence contradict itself."
+				}
+			]
+		},
+		{
+			"title": "Book · Deutsch C1.1",
+			"fixes": [
+				{
+					"unit": "chapter ankommen \"Im Folgenden möchte ich\"",
+					"from": "Maya soll bei ihrer kurz sprechen",
+					"to": "Maya soll bei ihrer Einbürgerungsfeier kurz sprechen",
+					"category": "grammar",
+					"reason": "The noun after \"ihrer\" is missing, so the sentence is incomplete (\"bei ihrer kurz sprechen\"). The preceding sentence speaks of the Feier, so the noun is Einbürgerungsfeier."
+				},
+				{
+					"unit": "chapter wittenberg \"Da klopft es\"",
+					"from": "übersetzte in wenigen Monaten auf einer Burg die Bibel",
+					"to": "übersetzte in wenigen Monaten auf einer Burg das Neue Testament",
+					"category": "false-claim",
+					"reason": "On the Wartburg Luther translated only the New Testament (the chapter's own fact box says so: 1521/22 in eleven weeks); the whole Bible took until 1534."
+				},
+				{
+					"unit": "chapter mahnmal \"Trotz der Warnung\"",
+					"from": "Frau Eder will ihn vorgelesen haben.",
+					"to": "Frau Eder will ihn vorgelesen bekommen.",
+					"category": "unidiomatic",
+					"reason": "\"will ihn vorgelesen haben\" can be read as the subjective claim \"she claims to have had it read to her\" (the story needs: she wants it read aloud to her). \"vorgelesen bekommen\" is unambiguous."
+				},
+				{
+					"unit": "chapter museumsinsel \"Mit Dr. Weber, der Leiterin\"",
+					"from": "Ihre Chefin, Frau Prof. Sommer, die Abteilungsleiterin, kommt es lesen.",
+					"to": "Ihre Chefin, Frau Prof. Sommer, die Abteilungsleiterin, kommt, um es zu lesen.",
+					"category": "unidiomatic",
+					"reason": "\"kommt es lesen\" is a regional/colloquial construction (kommen + bare infinitive); in this narrative intro the standard form is \"kommt, um es zu lesen\"."
+				}
+			]
+		},
+		{
+			"title": "Book · Deutsch C1.2",
+			"fixes": [
+				{
+					"unit": "chapter boulevard \"Soll gestohlen worden sein\"",
+					"from": "Er selbst will von nichts wissen.",
+					"to": "Er selbst will von nichts gewusst haben.",
+					"category": "false-claim",
+					"reason": "\"will von nichts wissen\" idiomatically means he refuses to have anything to do with it, not that he claims to know nothing (English line: claims to know nothing). The chapter teaches will + Perfekt-Infinitiv: \"will von nichts gewusst haben\"."
+				},
+				{
+					"unit": "chapter trauer \"Mein herzliches Beileid\"",
+					"from": "Er will es nicht wissen.",
+					"to": "Er will es nicht gewusst haben.",
+					"category": "answer-key",
+					"reason": "The prompt is \"He claims not to know.\" \"Er will es nicht wissen\" means he does not want to know. The claim reading needs will + gewusst haben, as taught in the boulevard chapter."
+				},
+				{
+					"unit": "chapter tatort \"Er dürfte im Stau stehen\"",
+					"from": "Such *angeblich*, das du aus diesem Buch kennst.",
+					"to": "Such das Wort *angeblich*, das du aus diesem Buch kennst.",
+					"category": "grammar",
+					"reason": "The relative clause \"das du aus diesem Buch kennst\" needs a noun to refer to; angeblich is an adverb. \"das Wort\" makes the sentence grammatical."
+				}
+			]
+		},
+		{
+			"title": "Book · Deutsch C2.1",
+			"fixes": [
+				{
+					"unit": "chapter hochzeit \"Die Ehe ist ein Kartenhaus\"",
+					"from": "nimmt Timo seinen Kaffee weg, trinkt ihn aus, und setzt sich wieder.",
+					"to": "nimmt Timo seinen Kaffee weg, trinkt ihn aus und setzt sich wieder.",
+					"category": "punctuation",
+					"reason": "Three coordinated predicates with the same subject form a list; no comma before the final 'und'."
+				},
+				{
+					"unit": "chapter talkshow \"In einem Satz\"",
+					"from": "Gelb oder Schwarz? In einem Satz.",
+					"to": "Gelb oder schwarz? In einem Satz.",
+					"category": "spelling",
+					"reason": "Colour adjectives describing the bins (gelbe/schwarze Tonne) are written in lower case; 'Schwarz' is capitalised wrongly."
+				},
+				{
+					"unit": "chapter schrebergarten \"Wer im Glashaus sitzt\"",
+					"from": "Das hättest du den Verein fragen können.",
+					"to": "Das hättest du den Verein fragen sollen.",
+					"category": "answer-key",
+					"reason": "The prompt says 'Du hättest den Verein fragen sollen.'; the answer changes sollen to können, which alters the meaning (obligation vs possibility). Probably should keep 'sollen'."
+				}
+			]
+		},
+		{
+			"title": "Book · Deutsch C2.2",
+			"fixes": [
+				{
+					"unit": "chapter anspielung \"Es ist schon spät\"",
+					"from": "Wer war dein letzter letzter Gast?",
+					"to": "Wer war dein letzter Gast?",
+					"category": "spelling",
+					"reason": "Doubled word 'letzter letzter', apparently a typo."
+				},
+				{
+					"unit": "chapter anspielung \"Es ist schon spät\"",
+					"from": "zieht Lena ihren Schlafanzug an, und setzt sich wieder an den Tisch",
+					"to": "zieht Lena ihren Schlafanzug an und setzt sich wieder an den Tisch",
+					"category": "punctuation",
+					"reason": "No comma before 'und' when two main-clause predicates share the same subject (Lena)."
+				},
+				{
+					"unit": "chapter studie \"Es ist davon auszugehen\"",
+					"from": "Es gilt als gute Manieren.",
+					"to": "Es gilt als gutes Benehmen.",
+					"category": "grammar",
+					"reason": "'gute Manieren' is plural, so 'Es gilt als gute Manieren' does not agree; use a singular noun such as 'gutes Benehmen' (or 'Das gilt als gute Manier')."
+				},
+				{
+					"unit": "chapter hafen \"Das lässt sich lösen\"",
+					"from": "war!.",
+					"to": "war.",
+					"category": "punctuation",
+					"reason": "Cell in the table 'Wo das Verb steht' ends in '!.' (exclamation mark plus full stop), which looks like a stray character; the other cells end in a plain full stop. Possibly a deliberate emphasis marker; check the source."
+				},
+				{
+					"unit": "chapter knoellchen \"Ist binnen zwei Wochen zu entrichten\"",
+					"from": "Die Förmliche Zustellung",
+					"to": "Die förmliche Zustellung",
+					"category": "spelling",
+					"reason": "As a caption in running German the adjective 'förmliche' is lower case (only capitalised if it mimics the envelope's printed heading)."
+				}
+			]
+		},
+		{
+			"title": "Schreib mir! chats",
+			"fixes": [
+				{
+					"unit": "chat koehler",
+					"from": "Have you got the right change?",
+					"to": "Have you got it in small change?",
+					"category": "gloss",
+					"reason": "es klein haben = small change."
+				},
+				{
+					"unit": "chat koehler",
+					"from": "always has the right change",
+					"to": "always has small change",
+					"category": "gloss",
+					"reason": "Same."
+				}
+			]
+		},
+		{
+			"title": "Ja oder Nein?",
+			"fixes": [
+				{
+					"unit": "quest_b1_2_suchbild_garage",
+					"from": "\"duct tape\"",
+					"to": "\"tape\"",
+					"category": "gloss",
+					"reason": "Klebeband is adhesive tape in general."
+				},
+				{
+					"unit": "FILE assets/content/janein/essen.json",
+					"from": "Kein Getue, kein Stress: du gibst alles, was du hast",
+					"to": "Kein Getue, kein Stress: Du gibst alles, was du hast",
+					"category": "spelling",
+					"reason": "After a colon a full sentence starts with a capital letter (Duden). Same pattern in the next two findings of this file."
+				},
+				{
+					"unit": "FILE assets/content/janein/essen.json",
+					"from": "Tradition mit einem Lächeln: du hältst die alten Regeln",
+					"to": "Tradition mit einem Lächeln: Du hältst die alten Regeln",
+					"category": "spelling",
+					"reason": "A complete sentence after a colon is capitalised."
+				},
+				{
+					"unit": "FILE assets/content/janein/essen.json",
+					"from": "Außen schick, innen weiche Sahne: wer dir nahe kommt",
+					"to": "Außen schick, innen weiche Sahne: Wer dir nahe kommt",
+					"category": "spelling",
+					"reason": "A complete sentence after a colon is capitalised."
+				},
+				{
+					"unit": "FILE assets/content/janein/getraenk.json",
+					"from": "treu zu den wenigen, die es nach drinnen schaffen",
+					"to": "treu den wenigen, die es nach drinnen schaffen",
+					"category": "grammar",
+					"reason": "The adjective 'treu' takes the dative (treu sein + Dativ), not 'zu'."
+				},
+				{
+					"unit": "FILE assets/content/janein/party.json",
+					"from": "du findest in der Küche statt",
+					"to": "du hältst dich in der Küche auf",
+					"category": "grammar",
+					"reason": "'stattfinden' works only for events; a person cannot 'in der Küche stattfinden'. Unless the pun is intended, use 'du hältst dich ... auf' or 'du findest dich in der Küche'."
+				},
+				{
+					"unit": "FILE assets/content/janein/party.json",
+					"from": "Gespräche nachdenken",
+					"to": "Gespräche nachklingen lassen",
+					"category": "unidiomatic",
+					"reason": "'Gespräche nachdenken' is not German ('nachdenken' needs 'über'). 'Gespräche nachklingen lassen' matches the gloss 'replay the conversations'."
+				},
+				{
+					"unit": "FILE assets/content/janein/party.json",
+					"from": "Du hast heimlich Freude, früh gegangen zu sein?",
+					"to": "Du freust dich heimlich, früh gegangen zu sein?",
+					"category": "unidiomatic",
+					"reason": "'Freude haben, ... zu' is not idiomatic; 'sich freuen, dass/... zu' is the natural construction."
+				},
+				{
+					"unit": "janein party",
+					"from": "Gespräche nachklingen lassen",
+					"to": "Gespräche durchgehen",
+					"category": "unidiomatic",
+					"reason": "Gespräche nachdenken is not German; the question must stay under 48 characters."
+				}
+			]
+		},
+		{
+			"title": "Site texts and word library",
+			"fixes": [
+				{
+					"unit": "Word library",
+					"from": "die Eltern, die Großeltern, die Leute, die Pommes as feminine/masculine singulars (Dativ 'der Eltern')",
+					"to": "plural-only nouns with a plural case table (den Eltern)",
+					"category": "grammar",
+					"reason": "Reported in the forum."
+				},
+				{
+					"unit": "Word library",
+					"from": "der Gäste (own entry)",
+					"to": "merged into der Gast, plural die Gäste",
+					"category": "grammar",
+					"reason": "Reported in the forum."
+				},
+				{
+					"unit": "Word library",
+					"from": "196 nouns marked 'no plural'",
+					"to": "124 got their plural (Wohnungen, Zimmer, Gäste, Touristen …); 72 genuinely have none",
+					"category": "wordlist",
+					"reason": "Reported in the forum."
+				},
+				{
+					"unit": "Word library",
+					"from": "das Herz: dem Herz",
+					"to": "case table removed (irregular: dem Herzen)",
+					"category": "grammar",
+					"reason": "Reported in the forum."
+				},
+				{
+					"unit": "Word library",
+					"from": "die Erkältung = cold/flu; die Limousine = limousine (no plural); der Tourist under Professions",
+					"to": "cold (illness); saloon car, sedan (pl -n); Transport & Travel",
+					"category": "gloss",
+					"reason": "Reported in the forum."
+				}
+			]
+		}
+	]
+}

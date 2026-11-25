@@ -35,7 +35,6 @@
  "sentences[1].why": "500 Gramm Käse : Gramm reste au singulier après un nombre, et pas de « de ».",
  "sentences[2].sentence": "Wir brauchen ____ Milch. (un litre)",
  "sentences[2].english": "Nous avons besoin d'un litre de lait.",
- "sentences[2].why": "ein Liter Milch : mesure + chose, rien entre les deux.",
  "sentences[3].sentence": "____ Wasser, bitte. (une bouteille)",
  "sentences[3].english": "Une bouteille d'eau, s'il vous plaît.",
  "sentences[3].why": "Eine Flasche Wasser : die Flasche, donc eine ; pas de « de » devant Wasser.",
@@ -124,5 +123,6 @@
  "sentences[14].options[2]": "Flasche",
  "sentences[15].options[0]": "Packung",
  "sentences[17].options[0]": "Dose",
- "help.tips[2].title": "Les prix"
+ "help.tips[2].title": "Les prix",
+ "sentences[2].why": "einen Liter Milch : mesure + chose, rien entre les deux ; der Liter est à l'accusatif après brauchen."
 }

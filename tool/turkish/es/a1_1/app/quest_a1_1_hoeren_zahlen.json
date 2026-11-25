@@ -7,7 +7,6 @@
  "help.tips[0].check.q": "«Der Käse kostet vier Euro, die Milch kostet zwei Euro.» ¿Cuánto cuesta el queso?",
  "help.tips[0].check.why": "El precio va después de su producto: Käse … vier Euro, luego Milch … zwei Euro.",
  "help.tips[1].title": "Primero euros, luego céntimos, sin decir «coma»",
- "help.tips[1].text": "2,20 € = zwei Euro zwanzig. 1,10 € = ein Euro zehn (ein, no eins, delante de Euro; después de kostet también se oye «einen Euro zehn», y las dos formas son correctas). Euros enteros: zwei Euro, sin «s» en Euro. Ojo: en muchos países de América Latina se escribe 2.20; en alemán siempre con coma: 2,20 €.",
  "help.tips[1].examples[0].en": "Un pan cuesta 2,10 €.",
  "help.tips[1].examples[1].en": "Las papas (patatas) cuestan 1,10 €.",
  "help.tips[1].check.q": "¿Cómo se dice 3,50 €?",
@@ -56,9 +55,10 @@
  "questions[4].optionsTranslation[0]": "caras",
  "questions[4].optionsTranslation[1]": "baratas",
  "questions[4].optionsTranslation[2]": "viejas",
- "questions[5].explanation": "\"Die Kartoffeln kosten ein Euro zehn.\"",
+ "questions[5].explanation": "\"Die Kartoffeln kosten einen Euro zehn.\"",
  "questions[5].questionTranslation": "¿Cuánto cuestan las papas?",
  "questions[5].optionsTranslation[0]": "un euro con diez",
  "questions[5].optionsTranslation[1]": "dos euros con diez",
- "questions[5].optionsTranslation[2]": "cuatro euros"
+ "questions[5].optionsTranslation[2]": "cuatro euros",
+ "help.tips[1].text": "2,20 € = zwei Euro zwanzig. 1,10 € = ein Euro zehn (ein, no eins, delante de Euro; después de kostet se dice «einen Euro zehn», aunque también se oye mucho «ein Euro zehn»). Euros enteros: zwei Euro, sin «s» en Euro. Ojo: en muchos países de América Latina se escribe 2.20; en alemán siempre con coma: 2,20 €."
 }

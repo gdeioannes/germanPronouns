@@ -1,5 +1,4 @@
 {
- "sceneAlt": "Önden görülen sıcak bir aile mutfağı: solda bir pencere, bir buzdolabı, bir süpürge ve bir çöp kovası; arkada boydan boya bir tezgâh; üstünde bir mikrodalga, bir kahve makinesi, bir su ısıtıcısı, tencere ve tavalı bir ocak, musluklu bir eviye ve bir radyo; kaşıklar, bir çırpma teli ve bir fırın eldiveni asılı bir ray, bir üst dolap ve sarkıt bir lambanın altında bir saat. Önde bir masa: üstünde elmalı bir kâse, bir yumurta, ekmek, bir fincan, bir şişe ve bıçaklı bir kesme tahtası; bir de sandalye. Sağda bir kapı ve yanında bir kurulama bezi.",
  "spots[0].en": "kapı",
  "spots[1].en": "pencere",
  "spots[2].en": "buzdolabı",
@@ -23,7 +22,6 @@
  "spots[20].en": "çırpma teli",
  "spots[21].en": "fırın eldiveni",
  "spots[22].en": "radyo",
- "spots[23].en": "kurulama bezi",
  "spots[24].en": "kesme tahtası",
  "spots[25].en": "ekmek",
  "spots[26].en": "bıçak",
@@ -37,7 +35,6 @@
  "help.tips[0].title": "Mutfaktaki birleşik kelimeler: son parça karar verir",
  "help.tips[0].text": "Mutfak kelimelerinin çoğu iki kelimenin birleşimi ve Artikel'i son parça belirler, tıpkı Türkçede asıl kelimenin sonda olması gibi (çay bardağı bir bardaktır). Kühl + Schrank: der Schrank, yani der Kühlschrank. Spül + Becken: das Becken, yani das Spülbecken. Ön kısmı kapat ve sona bak.",
  "help.tips[0].examples[0].en": "kahve makinesi (die Maschine)",
- "help.tips[0].examples[1].en": "kurulama bezi (das Tuch)",
  "help.tips[0].check.q": "____ Waschmaschine steht neben dem Kühlschrank.",
  "help.tips[0].check.why": "Son parça die Maschine, bu yüzden bütün kelime die Waschmaschine.",
  "help.tips[1].title": "-e ile biten kelimeler genelde die",
@@ -78,7 +75,6 @@
  "help.vocab[20].en": "çırpma teli",
  "help.vocab[21].en": "fırın eldiveni",
  "help.vocab[22].en": "radyo",
- "help.vocab[23].en": "kurulama bezi",
  "help.vocab[24].en": "kesme tahtası",
  "help.vocab[25].en": "ekmek",
  "help.vocab[26].en": "bıçak",
@@ -86,5 +82,9 @@
  "help.vocab[28].en": "kâse",
  "help.vocab[29].en": "elma",
  "help.vocab[30].en": "fincan",
- "help.vocab[31].en": "şişe"
+ "help.vocab[31].en": "şişe",
+ "sceneAlt": "Önden görülen sıcak bir aile mutfağı: solda bir pencere, bir buzdolabı, bir süpürge ve bir çöp kovası; arkada boydan boya bir tezgâh; üstünde bir mikrodalga, bir kahve makinesi, bir su ısıtıcısı, tencere ve tavalı bir ocak, musluklu bir eviye ve bir radyo; kaşıklar, bir çırpma teli ve bir fırın eldiveni asılı bir ray, bir üst dolap ve sarkıt bir lambanın altında bir saat. Önde bir masa: üstünde elmalı bir kâse, bir yumurta, ekmek, bir fincan, bir şişe ve bıçaklı bir kesme tahtası; bir de sandalye. Sağda bir kapı ve yanında bir havlu.",
+ "spots[23].en": "havlu",
+ "help.tips[0].examples[1].en": "havlu (das Tuch)",
+ "help.vocab[23].en": "havlu"
 }

@@ -51,7 +51,6 @@
  "help.remember[0]": "-in = ella, -innen = ellas (todas mujeres), y las dos son die.",
  "help.remember[1]": "En un compuesto, la última palabra es la jefa: da el significado y el género.",
  "help.context.en": "En mi empresa trabajan muchas mujeres: mi jefa, dos colegas de Italia y una periodista. Hoy en el comedor hay sopa de pescado y pastel de manzana. El pastel de manzana es de la cocinera: ¡delicioso!",
- "help.mistakes[0].why": "Las vocales cortas a/o suelen llevar diéresis en la forma con -in.",
  "help.mistakes[1].why": "La -e final se pierde antes de -in.",
  "help.mistakes[2].wrong": "die Apfelkuchen (un solo pastel)",
  "help.mistakes[2].why": "El compuesto toma el género de su última parte, der Kuchen.",
@@ -217,5 +216,6 @@
  "sentences[16].options[0]": "Ärztin",
  "sentences[17].options[0]": "Verkäuferin",
  "sentences[24].options[0]": "Nachbarin",
- "sentences[25].options[0]": "Köchin"
+ "sentences[25].options[0]": "Köchin",
+ "help.mistakes[0].why": "Las vocales a/o suelen llevar diéresis en la forma con -in."
 }

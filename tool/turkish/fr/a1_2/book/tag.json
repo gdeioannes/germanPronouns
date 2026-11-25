@@ -154,7 +154,6 @@
  "reading.tasks[1].items[2].prompt": "Maya / das Licht ausmachen / um elf",
  "reading.tasks[1].items[2].answer": "Maya macht um elf das Licht aus.",
  "document.caption": "Öffnungszeiten: Wann macht das Jugendzentrum auf?",
- "document.intro": "Un vrai panneau sur une maison des jeunes. Les *Öffnungszeiten*, ce sont les horaires d'ouverture, et vous les lirez sur chaque porte en Allemagne. *Geschlossen* veut dire fermé. *14.00 – 21.00* s'écrit avec un point, pas avec deux-points.",
  "document.fact": "En allemand, on peut dire *Das Café macht um acht auf* et *Das Café öffnet um acht* : le premier se coupe, le second non. Même café.",
  "document.tasks[0].instruction": "Entourez ce que dit le panneau.",
  "document.tasks[1].instruction": "Complétez les phrases avec le verbe en deux parties : auf … zu.",
@@ -170,5 +169,6 @@
  "reading.tasks[0].title": "Richtig oder falsch?",
  "reading.tasks[1].title": "Wer macht das?",
  "document.tasks[0].title": "Lies das Schild",
- "document.tasks[1].title": "Wann?"
+ "document.tasks[1].title": "Wann?",
+ "document.intro": "Un vrai panneau sur une maison des jeunes. Les *Öffnungszeiten*, ce sont les horaires d'ouverture, et vous les lirez sur chaque porte en Allemagne. *Geschlossen* veut dire fermé. *14.00 – 21.00* : sur les panneaux, les heures s'écrivent souvent avec un point, même si les deux-points (14:00) sont aujourd'hui la forme habituelle."
 }

@@ -1014,7 +1014,7 @@
 			"world": "Ein Altbau in Leipzig",
 			"opener": {
 				"photo": "b2a22_umzug_opener",
-				"caption": "Das neue Zimmer: Hohe Decke, alte Tür, und noch keine Möbel.",
+				"caption": "Das neue Zimmer: hohe Decke, alte Tür und noch keine Möbel.",
 				"questions": [
 					"Wo steht bei dir das Sofa?",
 					"Was hängt an deiner Wand?",
@@ -2345,7 +2345,7 @@
 					{
 						"de": "das Denkmal",
 						"pl": "die Denkmäler",
-						"en": "statue",
+						"en": "monument",
 						"x": 44,
 						"y": 84,
 						"side": "right"
@@ -5680,14 +5680,14 @@
 						"de": "Sie sollten sich ausruhen. Sie könnten jeden Tag eine Stunde spazieren gehen. Nehmen Sie auch diese Tabletten."
 					},
 					{
-						"de": "Im Bad, im Wasser. Eine Dame im Hut sitzt neben Lena."
+						"de": "Im Bad, im Wasser. Eine Dame mit Hut sitzt neben Lena."
 					},
 					{
 						"who": "Dame",
 						"de": "Sie sehen schlecht aus. Sie sollten nicht so viel spazieren gehen. Das ist nicht gesund."
 					},
 					{
-						"de": "Beim Abendessen. Ein Herr mit einem Bademantel."
+						"de": "Beim Abendessen. Ein Herr im Bademantel."
 					},
 					{
 						"who": "Herr",
@@ -5740,7 +5740,7 @@
 								"answer": "ausruhen"
 							},
 							{
-								"before": "Die Dame findet spazieren gehen",
+								"before": "Die Dame findet Spazierengehen",
 								"options": [
 									"nicht gesund",
 									"sehr gesund"
@@ -10075,7 +10075,7 @@
 									"am *höchsten*"
 								]
 							],
-							"note": "After -t, -d, -s, -z: -esten, so you can hear it."
+							"note": "After -t, -d, -s, -z: -esten, so you can hear it (but groß: am größten)."
 						},
 						{
 							"kind": "words",
@@ -10650,7 +10650,7 @@
 								"answer": "am schlechtesten"
 							},
 							{
-								"before": "In die Fenster kommt",
+								"before": "Zum Fenster herein kommt",
 								"options": [
 									"eine Wolke",
 									"die Sonne"
@@ -11749,7 +11749,7 @@
 				"lines": [
 					{
 						"who": "Max",
-						"de": "Frau Kern, ich suche das längste deutsche Wort. Heute morgen habe ich es gefunden, schnell, in diesem Buch hier. Es ist unglaublich!"
+						"de": "Frau Kern, ich suche das längste deutsche Wort. Heute Morgen habe ich es gefunden, schnell, in diesem Buch hier. Es ist unglaublich!"
 					},
 					{
 						"who": "Frau Kern",

@@ -14,10 +14,8 @@
  "help.tips[1].check.options[1]": "Habst",
  "help.tips[1].check.why": "du губить b: du hast. hat для er/sie/es, habe для ich.",
  "help.tips[2].title": "haben там, де українською інакше",
- "help.tips[2].text": "Німці «мають» голод, спрагу, страх і час: Ich habe Hunger (дослівно «у мене є голод», тобто «я хочу їсти»), Durst, Angst, Zeit. А вік, навпаки, через sein: Ich bin zwanzig (українською «мені двадцять»).",
  "help.tips[2].examples[0].en": "Я хочу їсти й пити.",
  "help.tips[2].examples[1].en": "Мені дев’ятнадцять років.",
- "help.tips[2].trap": "'Ich bin hungrig' зрозуміють, але звучить неприродно; німці кажуть, що вони *мають* голод: Ich habe Hunger.",
  "help.tips[2].check.q": "Wir ____ Angst.",
  "help.tips[2].check.why": "Німці мають страх, голод і спрагу: wir haben Angst.",
  "help.tips[3].title": "möchte: ввічливе «хотів би / хотіла б»",
@@ -47,7 +45,6 @@
  "help.mistakes[0].why": "du hast губить b; це одна з двох скорочених форм.",
  "help.mistakes[1].why": "Голод, спрагу, страх і час німецькою *мають*.",
  "help.mistakes[2].wrong": "Ich bin durstig.",
- "help.mistakes[2].why": "Як і Hunger, Durst є іменником, який мають; 'durstig' зрозуміють, але німці так не кажуть.",
  "help.hook": "Два дієслова несуть половину повсякденної німецької: sein для того, хто ти, haben для того, що в тебе є.",
  "categories[0].label": "sein (бути)",
  "categories[1].label": "haben (мати)",
@@ -65,7 +62,6 @@
  "sentences[3].why": "wir бере sind.",
  "sentences[4].categoryLabel": "sein (бути)",
  "sentences[4].english": "Діти, ви дуже галасливі!",
- "sentences[4].why": "ihr бере seid, єдину форму sein, що закінчується на -d.",
  "sentences[5].categoryLabel": "sein (бути)",
  "sentences[5].english": "Анна і Том у школі.",
  "sentences[5].why": "Два імені = sie («вони»), а sie бере sind.",
@@ -135,5 +131,9 @@
  "sentences[10].options[1]": "Bist",
  "sentences[10].options[2]": "Hat",
  "sentences[17].options[1]": "hat",
- "sentences[17].options[2]": "habe"
+ "sentences[17].options[2]": "habe",
+ "help.tips[2].text": "Німці «мають» голод, спрагу і страх, і так само «мають» час: Ich habe Hunger (дослівно «у мене є голод», тобто «я хочу їсти»), Durst, Angst, Zeit. А вік, навпаки, через sein: Ich bin zwanzig (українською «мені двадцять»).",
+ "help.tips[2].trap": "'Ich bin hungrig' правильно, але вживається рідше; у повсякденному мовленні німці кажуть, що вони *мають* голод: Ich habe Hunger.",
+ "help.mistakes[2].why": "Як і Hunger, Durst є іменником, який мають; 'durstig' теж правильно, але повсякденний вислів це Durst haben.",
+ "sentences[4].why": "ihr бере seid, яке пишеться з d (seit, з t, означає «з того часу»)."
 }

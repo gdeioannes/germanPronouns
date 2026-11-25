@@ -1,6 +1,5 @@
 {
  "help.intro": "Un appel téléphonique d'environ une minute et demie : Elif invite son ami Ben à sa fête d'anniversaire, et ils règlent le quand, le où, le cadeau et qui passe prendre qui. Au passage, vous découvrez deux règles allemandes de l'anniversaire qui surprennent les étrangers : on ne souhaite jamais un anniversaire avant le jour, et c'est la personne dont c'est l'anniversaire qui apporte le gâteau au travail, pas les collègues. La scène est inventée ; les coutumes sont réelles. Vous entendez ce que vous venez d'apprendre : les pronoms à l'accusatif (Ich lade dich ein. Holst du mich ab? Ich kenne sie nicht) et les verbes à particule séparable (trennbare Verben) dans la phrase (einladen, abholen, mitbringen, anrufen, anfangen : Ich hole dich um sieben ab). Écoutez une fois tout l'appel, puis une fois pour les heures et les tâches.",
- "help.tips[0].text": "Les pronoms à l'accusatif sont le COD du verbe, comme me, te, le, la en français : Ich lade dich ein (je t'invite). Holst du mich ab? (tu passes me prendre ?). Ich kenne ihn nicht (je ne le connais pas). Wir sehen euch am Samstag (on vous voit samedi). Kennst du sie? (la / les). Seuls ich → mich, du → dich, er → ihn changent de forme ; sie, es, uns, euch, Sie restent pareils.",
  "help.tips[0].examples[0].en": "Je t'invite à ma fête. Tu peux passer me prendre à sept heures ?",
  "help.tips[0].examples[1].en": "Tu connais Jonas ? Non, je ne le connais pas. Mais je la connais, elle, sa sœur.",
  "help.tips[0].check.q": "Ich rufe ____ morgen an. (du)",
@@ -12,7 +11,6 @@
  "help.tips[1].check.q": "Wann ____ die Party ____? (anfangen)",
  "help.tips[1].check.options[2]": "fangt … an",
  "help.tips[1].check.why": "anfangen est séparable et change de voyelle : die Party fängt … an.",
- "help.remember[0]": "Ich lade dich ein, du holst mich ab, ich kenne ihn nicht : mich, dich, ihn changent ; sie, uns, euch restent.",
  "help.remember[1]": "Verbes séparables : la particule à la fin (Ich hole dich ab), le verbe entier après un verbe de modalité (Kannst du mich abholen?).",
  "help.exam": "De courts appels avec des invitations, des heures et des rendez-vous sont une tâche d'écoute typique de ce niveau.",
  "help.hook": "Une invitation d'anniversaire, une règle du gâteau que personne ne vous a dite, et la question de savoir qui passe prendre qui à six heures et demie. Écoutez.",
@@ -85,5 +83,7 @@
  "questions[1].options[1]": "In Deutschland gratuliert man nicht vor dem Geburtstag.",
  "questions[2].options[1]": "Dativ-Pronomen dir und ein Modalverb am Satzende",
  "questions[2].options[2]": "Imperativ und Plural",
- "help.tips[0].title": "mich, dich, ihn, sie, uns, euch"
+ "help.tips[0].title": "mich, dich, ihn, sie, uns, euch",
+ "help.tips[0].text": "Les pronoms à l'accusatif sont le COD du verbe, comme me, te, le, la en français : Ich lade dich ein (je t'invite). Holst du mich ab? (tu passes me prendre ?). Ich kenne ihn nicht (je ne le connais pas). Wir sehen euch am Samstag (on vous voit samedi). Kennst du sie? (la / les). ich → mich, du → dich, er → ihn, wir → uns, ihr → euch changent de forme ; sie, es et Sie restent pareils.",
+ "help.remember[0]": "Ich lade dich ein, du holst mich ab, ich kenne ihn nicht : mich, dich, ihn, uns, euch changent ; sie, es, Sie restent."
 }

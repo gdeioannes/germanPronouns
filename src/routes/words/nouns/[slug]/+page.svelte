@@ -20,7 +20,7 @@
 	const courseId = $derived(page.data.site?.courseId ?? '');
 
 	const LOCALE = 'de-DE';
-	const GENDER_NAME: Record<string, string> = { m: 'masculine', f: 'feminine', n: 'neuter' };
+	const GENDER_NAME: Record<string, string> = { m: 'masculine', f: 'feminine', n: 'neuter', pl: 'plural-only' };
 	const path = $derived(`/words/nouns/${data.slug}`);
 	const headline = $derived(withArticle(entry));
 	// What people search: "Hund der die das", "Hund plural".
@@ -33,7 +33,7 @@
 	);
 	const description = $derived.by(() => {
 		const facts = `${headline} means "${entry.english}" and is ${GENDER_NAME[entry.gender]}${
-			plural ? `; the plural is die ${plural}` : ''
+			plural && entry.gender !== 'pl' ? `; the plural is die ${plural}` : ''
 		}.`;
 		const full = `${facts} Cases, an example sentence with audio and exercises to practise it.`;
 		return clip(full.length <= 155 ? full : `${facts} Cases, an example with audio and exercises.`);
@@ -93,7 +93,7 @@
 		</div>
 		<div>
 			<dt>Plural</dt>
-			<dd>{#if plural}<span lang="de">die {plural}</span>{:else}no plural{/if}</dd>
+			<dd>{#if entry.gender === 'pl'}plural only, no singular{:else if plural}<span lang="de">die {plural}</span>{:else}no plural{/if}</dd>
 		</div>
 		{#if entry.meanings?.es}
 			<div>

@@ -51,7 +51,6 @@
  "help.remember[0]": "-in = o (kadın), -innen = onlar (hepsi kadın) ve ikisi de die.",
  "help.remember[1]": "Birleşik kelimede son kelime patrondur: anlamı da cinsi de o verir.",
  "help.context.en": "Şirketimde bir sürü kadın çalışıyor: patronum, İtalya'dan iki iş arkadaşı ve bir gazeteci. Bugün yemekhanede balık çorbası ve elmalı kek var. Elmalı kek aşçıdan, çok lezzetli!",
- "help.mistakes[0].why": "Kısa a/o ünlüleri -in biçiminde çoğu zaman umlaut alır.",
  "help.mistakes[1].why": "Sondaki -e, -in'den önce düşer.",
  "help.mistakes[2].wrong": "die Apfelkuchen (tek bir kek)",
  "help.mistakes[2].why": "Birleşik kelime son parçasının cinsini alır: der Kuchen.",
@@ -217,5 +216,6 @@
  "sentences[16].options[0]": "Ärztin",
  "sentences[17].options[0]": "Verkäuferin",
  "sentences[24].options[0]": "Nachbarin",
- "sentences[25].options[0]": "Köchin"
+ "sentences[25].options[0]": "Köchin",
+ "help.mistakes[0].why": "a/o ünlüleri -in biçiminde çoğu zaman umlaut alır."
 }

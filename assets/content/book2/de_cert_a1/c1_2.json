@@ -2268,7 +2268,7 @@
 				"photo": "b2c12_tatort_doc",
 				"caption": "Ein Steckbrief aus Magdeburg, 1818",
 				"tall": true,
-				"intro": "Ein echter Steckbrief aus einer Zeitung von 1818, in Fraktur. Ein Maschinenbauer ist mit der Kutsche seines Arbeitgebers durchgebrannt. Such *angeblich*, das du aus diesem Buch kennst. Zweihundert Jahre später leistet es genau dasselbe.",
+				"intro": "Ein echter Steckbrief aus einer Zeitung von 1818, in Fraktur. Ein Maschinenbauer ist mit der Kutsche seines Arbeitgebers durchgebrannt. Such das Wort *angeblich*, das du aus diesem Buch kennst. Zweihundert Jahre später leistet es genau dasselbe.",
 				"fact": "Solche Anzeigen waren die hauseigene Krimiserie einer Zeitung. Diese nennt Größe, Haar und sogar den Mantel, bis zum englischen Schnitt. Ob man Ernst Neubauer je gefasst hat, steht hier nicht.",
 				"tasks": [
 					{
@@ -3327,7 +3327,7 @@
 						"de": "Er hatte Zuckerguss am Ärmel. Am Samstag, um 15:10 Uhr. Das sollen Sie aber nicht von mir haben."
 					},
 					{
-						"de": "Vroni schreibt. Am Dienstag erscheint auf Seite eins: „Polizeisprecher soll in Kuchenaffäre verwickelt sein. Er selbst will von nichts wissen.“"
+						"de": "Vroni schreibt. Am Dienstag erscheint auf Seite eins: „Polizeisprecher soll in Kuchenaffäre verwickelt sein. Er selbst will von nichts gewusst haben.“"
 					},
 					{
 						"de": "Am Mittwoch: „Sprecher tritt zurück. Er bedauere, was geschehen sei. Der Kuchen sei allerdings sehr gut gewesen.“"
@@ -5802,9 +5802,9 @@
 								"answer": "umfahren"
 							},
 							{
-								"before": "Ich bin",
+								"before": "Ich habe mich",
 								"after": ". (falsch gefahren)",
-								"answer": "verlaufen"
+								"answer": "verfahren"
 							},
 							{
 								"before": "Sie hat die Prüfung",
@@ -10165,7 +10165,7 @@
 								"Samstag",
 								"Montag"
 							],
-							"after": "nachmittag.",
+							"after": "Nachmittag.",
 							"answer": "Samstag"
 						},
 						{
@@ -13189,7 +13189,7 @@
 						},
 						{
 							"prompt": "He claims not to know.",
-							"answer": "Er will es nicht wissen."
+							"answer": "Er will es nicht gewusst haben."
 						}
 					]
 				},

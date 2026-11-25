@@ -35,7 +35,9 @@
 	import EnglishLine from '$lib/components/EnglishLine.svelte';
 	import EnglishToggle from '$lib/components/EnglishToggle.svelte';
 	import EnglishPanel from '$lib/components/EnglishPanel.svelte';
-	import { choicesFor, goldSentence, stepPool } from '$lib/domain/fillLadder';
+	import { choicesFor, cueParts, goldSentence, stepPool } from '$lib/domain/fillLadder';
+	import { dictionary } from '$lib/state/dictionary.svelte';
+	import { lang } from '$lib/i18n/lang.svelte';
 	import { splitGapAnswer } from '$lib/domain/answers';
 	import { LadderRun, type ClimbOffer } from '$lib/state/ladderRun.svelte';
 	import MedalLadder from './MedalLadder.svelte';
@@ -326,6 +328,16 @@
 		const split = text.split(BLANK);
 		return split.length > 1 ? split : [text, ''];
 	});
+
+	/**
+	 * Each segment cut around its bracketed cue: an English cue ("(be
+	 * understood better)") stays out of word help, which glossed "be" as the
+	 * letter Be. Before the dictionary loads nothing counts as known, and word
+	 * help has nothing to tap yet anyway.
+	 */
+	const segmentParts = $derived(
+		segments.map((segment) => cueParts(segment, (word) => dictionary.lookup(word) !== null))
+	);
 
 	/** Umlaut-strict quizzes never fold ä→a, whatever the learner's setting. */
 	const strict = $derived(quiz.strictDiacritics === true);
@@ -715,7 +727,7 @@
 		<!-- The sentence, with a field standing in for each blank — or, for a
 		     word-order item, the tiles placed so far (tap one to take it back). -->
 		<p class="sentence" lang={locale}>
-			{#each segments as segment, i (i)}<GermanText text={segment} help={step !== 2 || locked} />{#if i < gaps && tiled}<span
+			{#each segments as _segment, i (i)}{#each segmentParts[i] as part, p (p)}{#if part.german}<GermanText text={part.text} help={step !== 2 || locked} />{:else}<span lang={lang.current}>{part.text}</span>{/if}{/each}{#if i < gaps && tiled}<span
 						class="build"
 						class:right={verdict === 'right'}
 						class:wrong={verdict === 'wrong'}

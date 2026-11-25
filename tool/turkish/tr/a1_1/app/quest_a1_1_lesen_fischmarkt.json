@@ -1,7 +1,6 @@
 {
  "help.intro": "Almanya'nın en tuhaf pazarı hakkında yaklaşık 130 kelimelik kısa bir metin: Hamburg balık pazarı. Her pazar sabah saat beşte açılır, bunu 1703'ten beri yapar ve satıcılar orada fiyatlarını bağırır, muzları ve yılan balıklarını poşetlere atar. Bilgiler gerçek ve kontrol edildi. Az önce öğrendiklerin gerekecek: yiyecek kelimelerinin Plural (çoğul) biçimleri (Fische, Bananen, Äpfel, Blumen), Nominativ (yalın hâl) Artikel'leri (tanımlıklar), sayılar ve fiyatlar (zehn Euro, fünf Uhr) ve soru kelimeleri Wann? (ne zaman), Was? (ne), Wer? (kim). Önce genel anlam için oku, sonra her soruyu metindeki tek bir cümleden cevapla.",
  "help.tips[0].title": "Pazarda çoğullar",
- "help.tips[0].text": "der Fisch → die Fische, der Apfel → die Äpfel, die Banane → die Bananen, die Blume → die Blumen, der Aal → die Aale, die Tüte → die Tüten, der Euro → bir sayıdan sonra Euro kalır (zehn Euro), die Uhr → fünf Uhr (saat, çoğul yok). Türkçede de 'on euro' denir, 'on eurolar' denmez. Birçok dişil isim -n ya da -en alır; birçok eril isim -e alır, bazen Umlaut ile (Äpfel).",
  "help.tips[0].examples[0].en": "Bir poşette on muz, beş elma ve üç balık.",
  "help.tips[0].examples[1].en": "Poşet sadece on euro!",
  "help.tips[0].check.q": "der Apfel'in çoğulu nedir?",
@@ -30,7 +29,7 @@
  "questions[0].optionsTranslation[1]": "her pazar saat beşten dokuz buçuğa kadar",
  "questions[0].optionsTranslation[2]": "her cumartesi akşamı beşten dokuz buçuğa kadar",
  "questions[0].optionsTranslation[3]": "sadece kışın",
- "questions[1].explanation": "\"Den Fischmarkt gibt es seit 1703. Das ist über dreihundert Jahre!\"",
+ "questions[1].explanation": "\"Den Fischmarkt gibt es seit 1703. Das sind über dreihundert Jahre!\"",
  "questions[1].questionTranslation": "Balık pazarı ne zamandan beri var?",
  "questions[1].optionsTranslation[0]": "1703'ten beri",
  "questions[1].optionsTranslation[1]": "1930'dan beri",
@@ -76,5 +75,6 @@
  "questions[5].options[0]": "ein Fisch",
  "questions[5].options[2]": "ein Hafen in Hamburg",
  "questions[5].options[3]": "ein Café am Markt",
- "help.tips[1].title": "Wann? Um wie viel Uhr?"
+ "help.tips[1].title": "Wann? Um wie viel Uhr?",
+ "help.tips[0].text": "der Fisch → die Fische, der Apfel → die Äpfel, die Banane → die Bananen, die Blume → die Blumen, der Aal → die Aale, die Tüte → die Tüten, der Euro → bir sayıdan sonra Euro kalır (zehn Euro), die Uhr → fünf Uhr (saat, çoğul yok). Türkçede de 'on euro' denir, 'on eurolar' denmez. Birçok dişil isim -n ya da -en alır; birçok eril isim -e alır, bazılarında yalnızca ünlü değişir (Äpfel)."
 }

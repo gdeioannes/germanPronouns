@@ -1,5 +1,4 @@
 {
- "help.intro": "Rekorlarla Alman havası hakkında yaklaşık 200 kelimelik bir metin: şimdiye kadar ölçülen en sıcak gün (2019'da 41,2 derece), en soğuk yer (Alpler'de sıcaklığın eksi 45,9'a düştüğü küçük bir göl), en güneşli şehir, en yağmurlu bölge ve yılın yedi ayı karla kaplı olan dağ. Metin ayrıca Almanların neden hava hakkında bu kadar çok konuştuğunu ve Aprilwetter'in ne demek olduğunu anlatıyor. Bütün bilgiler gerçek ve kontrol edildi. Yeni öğrendiklerini okuyacaksın: hava sözcükleri (es regnet, es schneit, die Sonne scheint, bewölkt, der Grad) ve karşılaştırma (heißer als, kälter als, am wärmsten, mehr als, so viel wie). Önce genel anlam için oku, sonra her soru için bir sayı ya da bir yer bul.",
  "help.tips[0].title": "Karşılaştırmak: -er als, am -sten",
  "help.tips[0].text": "Karşılaştırma: Adjektiv (sıfat) + -er + als: Freiburg ist wärmer als Hamburg (Freiburg Hamburg'dan daha sıcak). Türkçedeki 'daha' yerine sıfata -er gelir, '-den' yerine de als. a, o, u içeren kısa sıfatlar umlaut alır: warm → wärmer, kalt → kälter, groß → größer, jung → jünger. Düzensiz: gut → besser, viel → mehr, gern → lieber, hoch → höher. En üstünlük: am + -sten, Türkçedeki 'en': am wärmsten, am kältesten, am meisten, am höchsten. Eşitlik: so warm wie (kadar sıcak), genauso viel wie.",
  "help.tips[0].examples[0].en": "Güneyde kuzeyden daha sıcak, ama deniz kıyısında Alpler'den daha az yağmur yağıyor.",
@@ -15,7 +14,6 @@
  "help.remember[0]": "wärmer als, kälter als, am wärmsten, am meisten; so warm wie.",
  "help.remember[1]": "Es regnet, es schneit, die Sonne scheint, bewölkt, neblig; 20 Grad, minus 5 Grad.",
  "help.exam": "Sayılar ve karşılaştırmalarla hava ve iklim hakkındaki kısa bilgi metinleri bu seviyede tipik bir okuma görevidir.",
- "help.hook": "Batıda 41,2 derece, bir dağ gölünde eksi 45,9, yedi ay kar: Almanya'nın hava rekorlarını ve burada herkesin neden hava hakkında konuştuğunu oku.",
  "help.vocab[0].en": "hava (durumu)",
  "help.vocab[1].en": "iklim",
  "help.vocab[1].example": "Das Klima ist mild.",
@@ -70,7 +68,7 @@
  "questions[5].optionsTranslation[2]": "Alpler, çünkü çok yüksekler",
  "questions[5].optionsTranslation[3]": "Münih",
  "questions[6].options[3]": "Hamburg ist die sonnigste Stadt.",
- "questions[6].explanation": "\"Hamburg hat schlechten Ruf, aber dort regnet es weniger als in München, nur öfter.\"",
+ "questions[6].explanation": "\"Hamburg hat einen schlechten Ruf, aber dort regnet es weniger als in München, nur öfter.\"",
  "questions[6].questionTranslation": "Hamburg hakkında hangisi doğru?",
  "questions[6].optionsTranslation[0]": "Hamburg'da Münih'ten daha çok yağmur yağıyor, Alpler'den de daha sık.",
  "questions[6].optionsTranslation[1]": "Hamburg'da Münih'ten daha az yağmur yağıyor, ama daha sık.",
@@ -96,5 +94,7 @@
  "questions[6].options[0]": "In Hamburg regnet es mehr als in München und auch öfter als in den Alpen.",
  "questions[6].options[1]": "In Hamburg regnet es weniger als in München, aber öfter.",
  "questions[6].options[2]": "In Hamburg regnet es nie.",
- "help.tips[1].title": "Hava sözcükleri"
+ "help.tips[1].title": "Hava sözcükleri",
+ "help.intro": "Rekorlarla Alman havası hakkında yaklaşık 200 kelimelik bir metin: şimdiye kadar ölçülen en sıcak gün (2019'da 41,2 derece), en soğuk yer (Alpler'de sıcaklığın eksi 45,9'a düştüğü küçük bir göl), en güneşli yer, en yağmurlu bölge ve yılın yedi ayı karla kaplı olan dağ. Metin ayrıca Almanların neden hava hakkında bu kadar çok konuştuğunu ve Aprilwetter'in ne demek olduğunu anlatıyor. Bütün bilgiler gerçek ve kontrol edildi. Yeni öğrendiklerini okuyacaksın: hava sözcükleri (es regnet, es schneit, die Sonne scheint, bewölkt, der Grad) ve karşılaştırma (heißer als, kälter als, am wärmsten, mehr als, so viel wie). Önce genel anlam için oku, sonra her soru için bir sayı ya da bir yer bul.",
+ "help.hook": "Batıda 41,2 derece, bir dağ gölünde eksi 45,9, yedi ay kar: Almanya'nın hava rekorlarını ve burada herkesin neden hava hakkında konuştuğunu oku."
 }

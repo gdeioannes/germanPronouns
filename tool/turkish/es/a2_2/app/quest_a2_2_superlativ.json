@@ -92,7 +92,6 @@
  "sentences[5].english": "El Everest es el más alto.",
  "sentences[5].options[0]": "hochsten",
  "sentences[5].options[1]": "höhesten",
- "sentences[5].why": "hoch → am höchsten: la c cambia de sitio: höch-.",
  "sentences[6].english": "Mi abuelo es el mayor de la familia.",
  "sentences[6].options[0]": "altesten",
  "sentences[6].options[1]": "ältsten",
@@ -171,5 +170,6 @@
  "sentences[15].options[0]": "besten",
  "sentences[17].options[0]": "älteste",
  "sentences[17].options[1]": "ältesten",
- "sentences[18].options[2]": "lieber"
+ "sentences[18].options[2]": "lieber",
+ "sentences[5].why": "hoch → am höchsten: vuelve la c que höher pierde: höch-."
 }

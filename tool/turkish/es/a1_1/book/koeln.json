@@ -125,7 +125,6 @@
  "document.tasks[1].items[2].options[0]": "Fernverkehr",
  "document.tasks[1].items[2].answer": "Fernverkehr",
  "document.tasks[2].instruction": "Estás en el Hauptbahnhof y quieres ir al aeropuerto. Escribe la línea y la dirección.",
- "document.tasks[2].items[1].before": "Ich steige aus an der Station",
  "practise[0].title": "¿im o in der?",
  "practise[0].instruction": "Rodea con un círculo las palabras correctas.",
  "practise[1].title": "Pregunta y respuesta",
@@ -168,5 +167,6 @@
  "document.tasks[1].title": "Was bedeutet das Symbol?",
  "document.tasks[2].title": "Deine Fahrt",
  "practise[2].title": "Wo bist du?",
- "practise[3].title": "wo, woher oder wohin?"
+ "practise[3].title": "wo, woher oder wohin?",
+ "document.tasks[2].items[1].before": "Ich steige an der Station"
 }

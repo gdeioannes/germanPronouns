@@ -58,7 +58,6 @@
  "help.remember[0]": "im = bir der/das yerinin içinde · in der = bir die yerinin içinde · am = yanında · bei = birinin yanında, birinde.",
  "help.remember[1]": "Ayna çiftler: in ↔ aus (-de ↔ -den, içinde ↔ içinden), bei ↔ von (birinde ↔ birinden).",
  "help.context.en": "Neredesin? – Hâlâ ofisteyim. Ya sen? – Şehirdeyim, istasyonda. Doktordan yeni geldim. – Ya Lena? – Hamburg'da, annesiyle babasında. Yarın Hamburg'dan dönüyor.",
- "help.mistakes[0].why": "in + dem konuşmada ve normal yazıda her zaman im olarak kaynaşır.",
  "help.mistakes[1].why": "Bir şirkette ya da birinin yanında bei'dir, in değil.",
  "help.mistakes[2].why": "Bir ülkeden ya da şehirden gelmek aus'tur. von kişiler ve noktalar içindir.",
  "help.hook": "Im Büro, am Bahnhof, beim Arzt: nerede olduğunu hazır kalıplar olarak öğren, bütün gün nerede olduğunu söyleyebilirsin.",
@@ -126,5 +125,6 @@
  "sentences[29].why": "unter = 'altında'. Uyumak yerinde kalmaktır, bu yüzden arkasından Dativ gelir: unter dem Bett.",
  "sentences[30].sentence": "Das Handy liegt ____ dem Bett. (üstünde)",
  "sentences[30].english": "Telefon yatağın üstünde duruyor.",
- "sentences[30].why": "auf = 'üstünde'. Telefon orada öylece duruyor (wo?), bu yüzden Dativ: auf dem Bett."
+ "sentences[30].why": "auf = 'üstünde'. Telefon orada öylece duruyor (wo?), bu yüzden Dativ: auf dem Bett.",
+ "help.mistakes[0].why": "in + dem konuşmada ve yazıda normalde im olarak kaynaşır."
 }

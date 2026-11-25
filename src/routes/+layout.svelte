@@ -18,6 +18,7 @@
 	import SharePanel from '$lib/components/SharePanel.svelte';
 	import NotInLanguage from '$lib/components/NotInLanguage.svelte';
 	import FeedbackCard from '$lib/components/FeedbackCard.svelte';
+	import ReleaseBanner from '$lib/components/ReleaseBanner.svelte';
 	import { feedback } from '$lib/state/feedback.svelte';
 	import { onMount } from 'svelte';
 	import { lang, startLang } from '$lib/i18n/lang.svelte';
@@ -203,6 +204,9 @@
 </svelte:head>
 
 <a class="skip-link" href="#main" onclick={skipToMain}>{t('Skip to content')}</a>
+
+<!-- After a content release: one closable line, hidden on the printed book pages. -->
+<ReleaseBanner />
 
 <!-- Fallback for browsers without view transitions: fades the new page in so
      a client-side navigation reads as a change of content rather than a

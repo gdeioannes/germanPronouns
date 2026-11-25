@@ -24,14 +24,12 @@
  "help.tips[0].check.why": "essen يأخذ haben، والفعل المساعد يطابق wir: wir haben. واسم المفعول gegessen يبقى في الآخر.",
  "help.tips[0].visual.rows[0].en": "أكلتُ بيتزا.",
  "help.tips[0].visual.rows[1].en": "أمس عملتْ حتى وقت متأخر.",
- "help.tips[1].text": "machen → gemacht، lernen → gelernt، fragen → gefragt، arbeiten → gearbeitet (مع e إضافية). essen → gegessen، lesen → gelesen، trinken → getrunken، schlafen → geschlafen، sehen → gesehen.",
  "help.tips[1].examples[0].en": "تعلمتُ الألمانية وسألت كثيرًا.",
  "help.tips[1].examples[1].en": "نام جيدًا وشرب قهوة.",
  "help.tips[1].check.q": "سألتُ أمي: Ich habe meine Mutter ____. (fragen)",
  "help.tips[1].check.options[1]": "gefragen",
  "help.tips[1].check.why": "fragen منتظم، فاسم المفعول ge- + الجذع + -t: gefragt.",
  "help.tips[1].visual.rows[0].en": "machen",
- "help.tips[1].visual.rows[1].parts[1].text": "kauf",
  "help.tips[1].visual.rows[1].en": "kaufen",
  "help.tips[1].visual.rows[2].en": "schlafen",
  "help.tips[1].visual.rows[3].parts[1].text": "trunk",
@@ -63,7 +61,6 @@
  "sentences[1].english": "بقينا في برلين يومين.",
  "sentences[1].options[1]": "sind … gebleibt",
  "sentences[1].options[2]": "haben … gebleibt",
- "sentences[1].why": "bleiben يأخذ sein، لا haben، فالبقاء يُحسب من أفعال تغيّر الحال: sind … geblieben.",
  "sentences[2].english": "هل أكلت من قبل؟",
  "sentences[2].options[1]": "Hast … geessen",
  "sentences[2].options[2]": "Hast … gegesst",
@@ -135,5 +132,6 @@
  "sentences[13].options[0]": "bin … getrunken",
  "sentences[14].options[1]": "bin … verstanden",
  "sentences[14].options[2]": "habe … verstehen",
- "help.tips[1].title": "المنتظم: ge- … -t · الشاذ: ge- … -en"
+ "help.tips[1].title": "المنتظم: ge- … -t · الشاذ: ge- … -en",
+ "sentences[1].why": "bleiben يأخذ sein، لا haben، وهو استثناء يُحفظ عن ظهر قلب، لأن البقاء ليس حركة ولا تغيّر حال: sind … geblieben."
 }

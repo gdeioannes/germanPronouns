@@ -73,7 +73,6 @@
  "sentences[3].options[0]": "musse",
  "sentences[3].why": "ich muss : le singulier perd l'umlaut, muss et non müss.",
  "sentences[4].english": "Vous devez vous lever tôt demain ? (vous, pluriel)",
- "sentences[4].why": "ihr prend -t : müsst. ihr garde l'umlaut.",
  "sentences[5].english": "Tom est malade. Il doit aller chez le médecin.",
  "sentences[5].why": "Avec les verbes de modalité, er/sie/es a la même forme que ich : er muss, sans -t.",
  "sentences[6].english": "Nous voulons aller à Berlin ce week-end.",
@@ -138,5 +137,6 @@
  "sentences[16].options[0]": "soll",
  "sentences[16].options[2]": "sollst",
  "sentences[17].options[0]": "soll",
- "sentences[17].options[2]": "sollen"
+ "sentences[17].options[2]": "sollen",
+ "sentences[4].why": "ihr prend -t sur le radical de l'infinitif : müsst. ihr garde l'umlaut."
 }

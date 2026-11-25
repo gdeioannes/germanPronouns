@@ -1,5 +1,4 @@
 {
- "help.intro": "Текст приблизно на 200 слів про німецьку погоду в рекордах: найспекотніший день за всю історію вимірювань (41,2 градуса, 2019 рік), найхолодніше місце (маленьке озеро в Альпах, де було мінус 45,9), найсонячніше місто, найдощовіший регіон і гора, де сніг лежить сім місяців на рік. Він також пояснює, чому німці так багато говорять про погоду і що означає Aprilwetter. Усі факти справжні й перевірені. Ти читаєш те, що щойно вивчив чи вивчила: слова про погоду (es regnet, es schneit, die Sonne scheint, bewölkt, der Grad) і вищий ступінь (heißer als, kälter als, am wärmsten, mehr als, so viel wie). Спершу читай заради загального змісту, потім знаходь одне число чи одне місце на кожне запитання.",
  "help.tips[0].title": "Порівняння: -er als, am -sten",
  "help.tips[0].text": "Вищий ступінь: прикметник + -er + als: Freiburg ist wärmer als Hamburg. Короткі прикметники з a, o, u беруть умлаут: warm → wärmer, kalt → kälter, groß → größer, jung → jünger. Неправильні: gut → besser, viel → mehr, gern → lieber, hoch → höher. Найвищий ступінь: am + -sten: am wärmsten, am kältesten, am meisten, am höchsten. Рівність: so warm wie, genauso viel wie.",
  "help.tips[0].examples[0].en": "На півдні тепліше, ніж на півночі, але біля моря дощів менше, ніж в Альпах.",
@@ -15,7 +14,6 @@
  "help.remember[0]": "wärmer als, kälter als, am wärmsten, am meisten; so warm wie.",
  "help.remember[1]": "Es regnet, es schneit, die Sonne scheint, bewölkt, neblig; 20 Grad, minus 5 Grad.",
  "help.exam": "Короткі фактичні тексти про погоду й клімат із числами й порівняннями є типовим завданням на читання на цьому рівні.",
- "help.hook": "41,2 градуса на півночі, мінус 45,9 у гірському озері, сніг сім місяців: прочитай про погодні рекорди Німеччини і чому тут усі говорять про погоду.",
  "help.vocab[0].en": "погода",
  "help.vocab[1].en": "клімат",
  "help.vocab[1].example": "Das Klima ist mild.",
@@ -70,7 +68,7 @@
  "questions[5].optionsTranslation[2]": "Альпи, бо вони такі високі",
  "questions[5].optionsTranslation[3]": "Мюнхен",
  "questions[6].options[3]": "Hamburg ist die sonnigste Stadt.",
- "questions[6].explanation": "\"Hamburg hat schlechten Ruf, aber dort regnet es weniger als in München, nur öfter.\"",
+ "questions[6].explanation": "\"Hamburg hat einen schlechten Ruf, aber dort regnet es weniger als in München, nur öfter.\"",
  "questions[6].questionTranslation": "Що правильно про Гамбург?",
  "questions[6].optionsTranslation[0]": "У Гамбурзі дощів більше, ніж у Мюнхені, і вони частіші, ніж в Альпах.",
  "questions[6].optionsTranslation[1]": "У Гамбурзі дощів менше, ніж у Мюнхені, але частіше.",
@@ -96,5 +94,7 @@
  "questions[6].options[0]": "In Hamburg regnet es mehr als in München und auch öfter als in den Alpen.",
  "questions[6].options[1]": "In Hamburg regnet es weniger als in München, aber öfter.",
  "questions[6].options[2]": "In Hamburg regnet es nie.",
- "help.tips[1].title": "Слова про погоду"
+ "help.tips[1].title": "Слова про погоду",
+ "help.intro": "Текст приблизно на 200 слів про німецьку погоду в рекордах: найспекотніший день за всю історію вимірювань (41,2 градуса, 2019 рік), найхолодніше місце (маленьке озеро в Альпах, де було мінус 45,9), найсонячніше місце, найдощовіший регіон і гора, де сніг лежить сім місяців на рік. Він також пояснює, чому німці так багато говорять про погоду і що означає Aprilwetter. Усі факти справжні й перевірені. Ти читаєш те, що щойно вивчив чи вивчила: слова про погоду (es regnet, es schneit, die Sonne scheint, bewölkt, der Grad) і вищий ступінь (heißer als, kälter als, am wärmsten, mehr als, so viel wie). Спершу читай заради загального змісту, потім знаходь одне число чи одне місце на кожне запитання.",
+ "help.hook": "41,2 градуса на заході, мінус 45,9 у гірському озері, сніг сім місяців: прочитай про погодні рекорди Німеччини і чому тут усі говорять про погоду."
 }

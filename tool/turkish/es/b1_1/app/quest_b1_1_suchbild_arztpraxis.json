@@ -27,7 +27,6 @@
  "spots[25].en": "microscopio",
  "spots[26].en": "martillo de reflejos",
  "spots[27].en": "maletín de médico",
- "spots[28].en": "cubo de basura con pedal",
  "spots[29].en": "escalón, taburete",
  "spots[30].en": "taburete con ruedas",
  "spots[31].en": "báscula, balanza",
@@ -74,7 +73,6 @@
  "help.vocab[25].en": "microscopio",
  "help.vocab[26].en": "martillo de reflejos",
  "help.vocab[27].en": "maletín de médico",
- "help.vocab[28].en": "cubo de basura con pedal",
  "help.vocab[29].en": "escalón, taburete",
  "help.vocab[30].en": "taburete con ruedas",
  "help.vocab[31].en": "báscula, balanza",
@@ -82,5 +80,7 @@
  "help.introEn": "Una búsqueda en una imagen en lugar de un mazo de tarjetas: una sala de consulta médica con 32 cosas que encontrar, cada una un sustantivo que te encuentras cuando vas al médico: die Untersuchungsliege, das Stethoskop, der Rollstuhl, das Blutdruckmessgerät en la pared. La consigna pregunta Wo ist die Spritze? y tú la tocas en la imagen. Cada hallazgo muestra su etiqueta, coloreada según su género, y luego deja una pequeña marca de ese color, para que veas lo que ya encontraste. Cuando hayas superado una ronda, la búsqueda se vuelve más difícil: la consigna oculta el artículo (Wo ist ___ Spritze?) y, después de encontrar el objeto, eliges tú der, die o das. Tocar la pared vacía no cuesta nada; tocar el objeto equivocado te dice qué tocaste y sigues buscando, y después de tres fallos se muestra el correcto. Ningún objeto se pregunta dos veces en la misma ronda.",
  "help.rememberEn[0]": "La última parte de un compuesto fija el artículo: der Medizinschrank, die Untersuchungsliege, das Blutdruckmessgerät.",
  "help.rememberEn[1]": "Los instrumentos en -skop son das: das Stethoskop, das Mikroskop.",
- "help.rememberEn[2]": "Los sustantivos en -e son casi siempre die: die Spritze, die Krücke, die Waage."
+ "help.rememberEn[2]": "Los sustantivos en -e son casi siempre die: die Spritze, die Krücke, die Waage.",
+ "spots[28].en": "cubo de basura",
+ "help.vocab[28].en": "cubo de basura"
 }

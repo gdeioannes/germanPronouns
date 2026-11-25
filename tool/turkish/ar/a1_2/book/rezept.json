@@ -1,5 +1,14 @@
 {
  "subtitle": "أن تقول للناس ماذا يفعلون، في المطبخ وفي كل مكان آخر",
+ "appQuizzes.woerter[0].note": "صورة مطبخ: جد كل شيء حين يسمّيه التطبيق.",
+ "appQuizzes.lesen[0].note": "لا ترمِ الزجاجة! اقرأ عن الـ Pfand وأجب عن 8 أسئلة.",
+ "appQuizzes.grammatik-1[0].note": "فعل واحد، وثلاثة أشخاص: صيغة الأمر لكل واحد.",
+ "appQuizzes.grammatik-2[0].note": "dann تُحسب المكان 1: الفعل يأتي بعدها مباشرة.",
+ "appQuizzes.alltag[0].note": "مزيد من القواعد: اقرأ عن الـ Pfand وأجب عن 8 أسئلة.",
+ "appQuizzes.uebungen-1[0].note": "مزيد من صيغ الأمر، مع تصحيح أثناء الكتابة.",
+ "appQuizzes.uebungen-2[0].for": "Übung 6 · اجعله أمرًا",
+ "appQuizzes.uebungen-2[0].note": "حوّل كل جملة إلى أمر.",
+ "appQuizzes.uebungen-2[1].note": "جد أشياء المطبخ في الصورة.",
  "words.intro": "ألمانيا منقسمة حول سؤال واحد: سلطة البطاطا بالمايونيز، أم بدونه. وصفات الطبخ والغسالات والجدات كلها تتكلم بالأوامر.",
  "words.more": "Auch in der Küche · أيضًا في المطبخ",
  "words.groups[0].title": "In der Küche · في المطبخ",
@@ -39,7 +48,6 @@
  "grammar[0].blocks[0].rows[2][0]": "غريب (Sie)",
  "grammar[0].blocks[0].note": "ihr: صيغة ihr دون ihr. وSie: المصدر، ثم Sie.",
  "grammar[0].blocks[1].blocks[0].title": "du: احذف du و-st",
- "grammar[0].blocks[1].blocks[0].note": "وe في الآخر لا بأس بها أيضًا: Warte! Mache!",
  "grammar[0].blocks[1].blocks[0].rows[0].en": "du kommst",
  "grammar[0].blocks[1].blocks[0].rows[1].en": "du nimmst",
  "grammar[0].blocks[1].blocks[0].rows[2].en": "du sprichst",
@@ -187,13 +195,5 @@
  "reading.tasks[1].title": "Du oder Sie?",
  "document.tasks[0].title": "Lies die Regeln",
  "document.tasks[1].title": "Mach das! Mach das nicht!",
- "appQuizzes.woerter[0].note": "صورة مطبخ: جد كل شيء حين يسمّيه التطبيق.",
- "appQuizzes.lesen[0].note": "لا ترمِ الزجاجة! اقرأ عن الـ Pfand وأجب عن 8 أسئلة.",
- "appQuizzes.grammatik-1[0].note": "فعل واحد، وثلاثة أشخاص: صيغة الأمر لكل واحد.",
- "appQuizzes.grammatik-2[0].note": "dann تُحسب المكان 1: الفعل يأتي بعدها مباشرة.",
- "appQuizzes.alltag[0].note": "مزيد من القواعد: اقرأ عن الـ Pfand وأجب عن 8 أسئلة.",
- "appQuizzes.uebungen-1[0].note": "مزيد من صيغ الأمر، مع تصحيح أثناء الكتابة.",
- "appQuizzes.uebungen-2[0].for": "Übung 6 · اجعله أمرًا",
- "appQuizzes.uebungen-2[0].note": "حوّل كل جملة إلى أمر.",
- "appQuizzes.uebungen-2[1].note": "جد أشياء المطبخ في الصورة."
+ "grammar[0].blocks[1].blocks[0].note": "وe في الآخر لا بأس بها غالبًا أيضًا: Mache! وبعد -t أو -d تكون لازمة: Warte! Rede!"
 }

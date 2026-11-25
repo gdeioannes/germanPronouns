@@ -7,7 +7,6 @@
  "help.tips[0].check.q": "« Der Käse kostet vier Euro, die Milch kostet zwei Euro. » Combien coûte le fromage ?",
  "help.tips[0].check.why": "Le prix suit son produit : Käse … vier Euro, puis Milch … zwei Euro.",
  "help.tips[1].title": "D'abord les euros, ensuite les centimes, sans mot pour la virgule",
- "help.tips[1].text": "2,20 € = zwei Euro zwanzig. 1,10 € = ein Euro zehn (ein et non eins devant Euro ; on entend aussi « einen Euro zehn » après kostet, les deux sont justes). Euros ronds : zwei Euro, sans -s à Euro.",
  "help.tips[1].examples[0].en": "Un pain coûte 2,10 €.",
  "help.tips[1].examples[1].en": "Les pommes de terre coûtent 1,10 €.",
  "help.tips[1].check.q": "Comment dit-on 3,50 € ?",
@@ -56,9 +55,10 @@
  "questions[4].optionsTranslation[0]": "chères",
  "questions[4].optionsTranslation[1]": "bon marché",
  "questions[4].optionsTranslation[2]": "vieilles",
- "questions[5].explanation": "\"Die Kartoffeln kosten ein Euro zehn.\"",
+ "questions[5].explanation": "\"Die Kartoffeln kosten einen Euro zehn.\"",
  "questions[5].questionTranslation": "Combien coûtent les pommes de terre ?",
  "questions[5].optionsTranslation[0]": "un euro dix",
  "questions[5].optionsTranslation[1]": "deux euros dix",
- "questions[5].optionsTranslation[2]": "quatre euros"
+ "questions[5].optionsTranslation[2]": "quatre euros",
+ "help.tips[1].text": "2,20 € = zwei Euro zwanzig. 1,10 € = ein Euro zehn (ein et non eins devant Euro ; après kostet, on dit « einen Euro zehn », même si « ein Euro zehn » s'entend souvent aussi). Euros ronds : zwei Euro, sans -s à Euro."
 }

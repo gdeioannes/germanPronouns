@@ -2632,4 +2632,17 @@ export const TR: Record<string, string> = {
 		"Diğer yollar",
 	"I thought of you: a free German book with audio, level {level}. No sign-up, nothing to pay.":
 		"Aklıma sen geldin: sesli, ücretsiz bir Almanca kitap, seviye {level}. Kayıt yok, ücret yok.",
+	// Release banner and edition note (2026-11-25)
+	"News about this release":
+		"Bu sürümle ilgili haberler",
+	"Content review":
+		"İçerik gözden geçirildi",
+	"The German in the app and in the books has been checked and corrected. If you downloaded a book, download the new edition.":
+		"Uygulamadaki ve kitaplardaki Almanca kontrol edildi ve düzeltildi. Bir kitap indirdiysen yeni baskıyı indir.",
+	"What changed":
+		"Neler değişti",
+	"New editions":
+		"Yeni baskılar",
+	"Current edition: {edition} ({date}). The German in every book was reviewed and corrected; if your PDF is older, download it again.":
+		"Güncel baskı: {edition} ({date}). Her kitaptaki Almanca gözden geçirildi ve düzeltildi; PDF dosyan daha eskiyse yeniden indir.",
 };

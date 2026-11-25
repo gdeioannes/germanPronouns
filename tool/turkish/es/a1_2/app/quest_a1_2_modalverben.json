@@ -73,7 +73,6 @@
  "sentences[3].options[0]": "musse",
  "sentences[3].why": "ich muss: el singular pierde la diéresis (Umlaut): muss, no müss.",
  "sentences[4].english": "¿Tienen que levantarse temprano mañana? (ustedes/vosotros)",
- "sentences[4].why": "ihr lleva -t sobre la raíz: müsst. ihr conserva la diéresis.",
  "sentences[5].english": "Tom está enfermo. Tiene que ir al médico.",
  "sentences[5].why": "Con los modales, er/sie/es es igual que ich: er muss, sin -t.",
  "sentences[6].english": "Queremos ir a Berlín el fin de semana.",
@@ -138,5 +137,6 @@
  "sentences[16].options[0]": "soll",
  "sentences[16].options[2]": "sollst",
  "sentences[17].options[0]": "soll",
- "sentences[17].options[2]": "sollen"
+ "sentences[17].options[2]": "sollen",
+ "sentences[4].why": "ihr lleva -t sobre la raíz del infinitivo: müsst. ihr conserva la diéresis."
 }

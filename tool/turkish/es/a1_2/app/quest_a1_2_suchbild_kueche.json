@@ -1,5 +1,4 @@
 {
- "sceneAlt": "Una cocina familiar acogedora vista de frente: a la izquierda, una ventana, una nevera, una escoba y un cubo de basura; al fondo, una encimera con un microondas, una cafetera, un hervidor de agua, una cocina con una olla y una sartén, un fregadero con un grifo y una radio, una barra con cucharas, un batidor y una manopla de horno, un armario de pared y un reloj bajo una lámpara colgante. Delante hay una mesa con un cuenco con una manzana, un huevo, pan, una taza, una botella y una tabla de cortar con un cuchillo, y una silla; a la derecha, una puerta con un paño de cocina al lado.",
  "spots[0].en": "puerta",
  "spots[1].en": "ventana",
  "spots[2].en": "nevera, refrigerador",
@@ -23,7 +22,6 @@
  "spots[20].en": "batidor (de varillas)",
  "spots[21].en": "manopla de horno",
  "spots[22].en": "radio",
- "spots[23].en": "paño de cocina",
  "spots[24].en": "tabla de cortar",
  "spots[25].en": "pan",
  "spots[26].en": "cuchillo",
@@ -37,7 +35,6 @@
  "help.tips[0].title": "Palabras compuestas en la cocina: decide la última parte",
  "help.tips[0].text": "Muchas palabras de la cocina son dos palabras pegadas, y la última parte decide el artículo. Kühl + Schrank: der Schrank, así que der Kühlschrank. Spül + Becken: das Becken, así que das Spülbecken. Tapa la parte de delante y mira el final.",
  "help.tips[0].examples[0].en": "cafetera (die Maschine)",
- "help.tips[0].examples[1].en": "paño de cocina (das Tuch)",
  "help.tips[0].check.q": "____ Waschmaschine steht neben dem Kühlschrank.",
  "help.tips[0].check.why": "La última parte es die Maschine, así que la palabra entera es die Waschmaschine.",
  "help.tips[1].title": "Las palabras en -e suelen ser die",
@@ -78,7 +75,6 @@
  "help.vocab[20].en": "batidor (de varillas)",
  "help.vocab[21].en": "manopla de horno",
  "help.vocab[22].en": "radio",
- "help.vocab[23].en": "paño de cocina",
  "help.vocab[24].en": "tabla de cortar",
  "help.vocab[25].en": "pan",
  "help.vocab[26].en": "cuchillo",
@@ -86,5 +82,9 @@
  "help.vocab[28].en": "cuenco, bol",
  "help.vocab[29].en": "manzana",
  "help.vocab[30].en": "taza",
- "help.vocab[31].en": "botella"
+ "help.vocab[31].en": "botella",
+ "sceneAlt": "Una cocina familiar acogedora vista de frente: a la izquierda, una ventana, una nevera, una escoba y un cubo de basura; al fondo, una encimera con un microondas, una cafetera, un hervidor de agua, una cocina con una olla y una sartén, un fregadero con un grifo y una radio, una barra con cucharas, un batidor y una manopla de horno, un armario de pared y un reloj bajo una lámpara colgante. Delante hay una mesa con un cuenco con una manzana, un huevo, pan, una taza, una botella y una tabla de cortar con un cuchillo, y una silla; a la derecha, una puerta con una toalla al lado.",
+ "spots[23].en": "toalla",
+ "help.tips[0].examples[1].en": "toalla (das Tuch)",
+ "help.vocab[23].en": "toalla"
 }

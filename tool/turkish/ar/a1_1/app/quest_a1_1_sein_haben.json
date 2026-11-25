@@ -14,10 +14,8 @@
  "help.tips[1].check.options[1]": "Habst",
  "help.tips[1].check.why": "du يحذف b: du hast. أما hat فلـ er/sie/es، وhabe لـ ich.",
  "help.tips[2].title": "haben حيث تقول العربية صفة",
- "help.tips[2].text": "الألمانية تعبّر عن الجوع والعطش والخوف والوقت بـ haben واسم: Ich habe Hunger، Durst، Angst، Zeit، أي «عندي جوع». أما العمر فيُقال بـ sein: Ich bin zwanzig.",
  "help.tips[2].examples[0].en": "أنا جائع وعطشان.",
  "help.tips[2].examples[1].en": "عمري تسعة عشر عامًا.",
- "help.tips[2].trap": "«أنا جائع» حرفيًا (Ich bin hungrig) مفهوم لكنه يبدو غريبًا؛ الألمان يقولون إن «عندهم» جوعًا: Ich *habe* Hunger.",
  "help.tips[2].check.q": "Wir ____ Angst.",
  "help.tips[2].check.why": "الألمان «عندهم» خوف وجوع وعطش: wir haben Angst.",
  "help.tips[3].title": "möchte: «أودّ» المهذبة",
@@ -47,7 +45,6 @@
  "help.mistakes[0].why": "du hast تحذف b؛ وهي إحدى الصيغتين المختصرتين.",
  "help.mistakes[1].why": "الجوع والعطش والخوف والوقت أشياء «عندك» بالألمانية.",
  "help.mistakes[2].wrong": "Ich bin durstig.",
- "help.mistakes[2].why": "مثل Hunger، Durst اسم «عندك»: 'durstig' مفهومة لكنها ليست ما يقوله الألمان.",
  "help.hook": "فعلان يحملان نصف الألمانية اليومية: sein لمن أنت، وhaben لما عندك.",
  "categories[0].label": "sein (يكون)",
  "categories[1].label": "haben (عنده)",
@@ -65,7 +62,6 @@
  "sentences[3].why": "wir يأخذ sind.",
  "sentences[4].categoryLabel": "sein (يكون)",
  "sentences[4].english": "يا أطفال، أنتم صاخبون جدًا!",
- "sentences[4].why": "ihr يأخذ seid: صيغة sein الوحيدة التي تنتهي بـ -d.",
  "sentences[5].categoryLabel": "sein (يكون)",
  "sentences[5].english": "Anna وTom في المدرسة.",
  "sentences[5].why": "اسمان = sie («هم»)، وsie يأخذ sind.",
@@ -135,5 +131,9 @@
  "sentences[10].options[1]": "Bist",
  "sentences[10].options[2]": "Hat",
  "sentences[17].options[1]": "hat",
- "sentences[17].options[2]": "habe"
+ "sentences[17].options[2]": "habe",
+ "help.tips[2].text": "الألمانية تعبّر عن الجوع والعطش والخوف بـ haben واسم، وعن الوقت بالطريقة نفسها: Ich habe Hunger، Durst، Angst، Zeit، أي «عندي جوع». أما العمر فيُقال بـ sein: Ich bin zwanzig.",
+ "help.tips[2].trap": "«أنا جائع» حرفيًا (Ich bin hungrig) صحيحة لكنها أقل شيوعًا؛ في الكلام اليومي الألمان يقولون إن «عندهم» جوعًا: Ich *habe* Hunger.",
+ "help.mistakes[2].why": "مثل Hunger، Durst اسم «عندك»: 'durstig' صحيحة أيضًا، لكن Durst haben هي العبارة اليومية.",
+ "sentences[4].why": "ihr يأخذ seid: وتُكتب بـ d (seit، بـ t، تعني «منذ»)."
 }

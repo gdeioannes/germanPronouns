@@ -41,7 +41,6 @@
  "help.tips[3].check.answer": "dreihundertsechsundsiebzig",
  "help.tips[3].check.why": "Yüzleri soldan oku (dreihundert), sonra sadece son çifti çevir: 76 = sechsundsiebzig.",
  "help.tips[4].title": "Sıra sayıları: 19'a kadar -te, 20'den itibaren -ste",
- "help.tips[4].text": "Tarihler ve sıralamalar sıra sayılarıyla söylenir ve noktayla yazılır, Türkçedeki '1.' gibi: der 1. Mai = der erste Mai. Türkçede '1 Mayıs' dersin, Almanca 'birinci Mayıs' der. 2'den 19'a kadar sayılara -te ekle (zweite, vierte, zehnte, neunzehnte), 20'den itibaren -ste (zwanzigste, dreißigste, hundertste). Üçü düzensizdir: erste, dritte, siebte.",
  "help.tips[4].examples[0].en": "Bugün bir Mayıs.",
  "help.tips[4].examples[1].en": "Yarın üç Haziran.",
  "help.tips[4].examples[2].en": "Otuz bir Aralık yılbaşı gecesidir.",
@@ -51,7 +50,6 @@
  "help.tips[4].check.why": "20'den itibaren sonek -ste'dir.",
  "help.remember[0]": "Bir sayı, bir kelime: sechshundertfünfzig, tausendzweihundert.",
  "help.remember[1]": "2000'den önceki yıllar yüzlerle (neunzehnhundert…), 2000'den sonra zweitausend ile.",
- "help.remember[2]": "Sıra sayıları: 19'a kadar -te, 20'den itibaren -ste. erste, dritte, siebte düzensizdir. 3. Juni = dritte Juni.",
  "help.vocab[0].en": "yüz",
  "help.vocab[1].en": "bin",
  "help.vocab[2].en": "milyon",
@@ -171,7 +169,6 @@
  "sentences[15].options[0]": "zweikommavier",
  "sentences[15].options[1]": "zweihundertvierzig",
  "sentences[15].options[2]": "zweitausendvierzig",
- "sentences[15].why": "zweitausendvierhundert ya da vierundzwanzighundert, 'yirmi dört yüz'.",
  "sentences[16].english": "Dedem 1937'de doğdu.",
  "sentences[16].options[0]": "tausendneunhundertsiebenunddreißig",
  "sentences[16].options[1]": "neunzehnhundertdreiundsiebzig",
@@ -219,5 +216,8 @@
  "sentences[9].options[2]": "hundertzwanzig",
  "sentences[20].options[1]": "dritter",
  "sentences[22].options[2]": "zweite",
- "sentences[23].options[2]": "einunddreißig"
+ "sentences[23].options[2]": "einunddreißig",
+ "help.tips[4].text": "Tarihler ve sıralamalar sıra sayılarıyla söylenir ve noktayla yazılır, Türkçedeki '1.' gibi: der 1. Mai = der erste Mai. Türkçede '1 Mayıs' dersin, Almanca 'birinci Mayıs' der. 2'den 19'a kadar sayılara -te ekle (zweite, vierte, zehnte, neunzehnte), 20'den itibaren -ste (zwanzigste, dreißigste, hundertste). Dördü düzensizdir: erste, dritte, siebte, achte (yalnızca bir t).",
+ "help.remember[2]": "Sıra sayıları: 19'a kadar -te, 20'den itibaren -ste. erste, dritte, siebte, achte düzensizdir. 3. Juni = dritte Juni.",
+ "sentences[15].why": "zweitausendvierhundert: önce binler, sonra yüzler, hepsi tek kelime."
 }

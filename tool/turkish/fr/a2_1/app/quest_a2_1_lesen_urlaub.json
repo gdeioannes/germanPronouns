@@ -1,7 +1,7 @@
 {
  "help.intro": "Un texte d'environ 200 mots sur les Allemands en vacances : ils font partie des champions du monde du voyage, avec une trentaine de jours de congé par an ; la plupart passent encore leurs grandes vacances dans leur propre pays, au bord de la Baltique ou en Bavière ; à l'étranger, leurs favoris sont l'Espagne, l'Italie et l'Autriche ; et une certaine île espagnole est surnommée en plaisantant le dix-septième Land. Le texte explique aussi le Strandkorb, le fauteuil de plage allemand, et la serviette posée sur le transat à six heures du matin. Les faits sont réels et ont été vérifiés. Vous lisez ce que vous venez d'apprendre : Woher? Wo? Wohin? avec les bonnes prépositions et les bons cas (nach Spanien, an die Ostsee, in den Bergen, auf Mallorca, aus Deutschland) et les prépositions au datif (mit dem Auto, bei der Familie, zu Hause). Lisez d'abord pour le sens général, puis cherchez un lieu ou un nombre par question.",
  "help.tips[0].title": "Woher? Wo? Wohin? avec les lieux",
- "help.tips[0].text": "Wohin? (direction, accusatif avec in/an/auf) : nach Spanien, nach Italien (pays sans article) ; in die Berge, in die Türkei ; an die Ostsee, ans Meer ; auf die Insel, auf Mallorca (sans article). Wo? (lieu, datif) : in Spanien, in den Bergen, an der Ostsee, am Meer, auf der Insel, auf Mallorca, zu Hause. Woher? (provenance) : aus Deutschland, aus den Bergen, von der Ostsee, vom Meer, von Mallorca. Paires à retenir : an die Ostsee / an der Ostsee, in die Berge / in den Bergen.",
+ "help.tips[0].text": "Wohin? (direction, accusatif avec in/an/auf) : nach Spanien, nach Italien (pays sans article) ; in die Berge, in die Türkei ; an die Ostsee, ans Meer ; auf die Insel, nach Mallorca (sans article). Wo? (lieu, datif) : in Spanien, in den Bergen, an der Ostsee, am Meer, auf der Insel, auf Mallorca, zu Hause. Woher? (provenance) : aus Deutschland, aus den Bergen, von der Ostsee, vom Meer, von Mallorca. Paires à retenir : an die Ostsee / an der Ostsee, in die Berge / in den Bergen.",
  "help.tips[0].examples[0].en": "Beaucoup vont au bord de la Baltique ou à la montagne ; là-bas, au bord de la Baltique et à la montagne, ils restent deux semaines.",
  "help.tips[0].examples[1].en": "D'où viennent les touristes de Majorque ? La plupart viennent d'Allemagne.",
  "help.tips[0].check.q": "Wir fahren im Sommer ____ Ostsee.",
@@ -12,7 +12,6 @@
  "help.tips[1].examples[1].en": "Après le petit-déjeuner, tout le monde va à la plage, mais le transat est pris depuis six heures.",
  "help.tips[1].check.q": "Wir fahren ____ Zug nach Italien. (der Zug)",
  "help.tips[1].check.why": "mit prend le datif ; der Zug → dem Zug.",
- "help.remember[0]": "Wohin? an die Ostsee, in die Berge, nach Spanien, auf Mallorca ; Wo? an der Ostsee, in den Bergen, in Spanien, auf Mallorca.",
  "help.remember[1]": "mit, nach, bei, seit, von, zu, aus + datif : mit dem Auto, bei der Familie, zum Strand.",
  "help.exam": "De courts textes sur les voyages et les vacances, avec des lieux et des nombres, sont une tâche de lecture typique de ce niveau.",
  "help.hook": "Trente jours de congé, une serviette sur le transat à six heures du matin et une île que les Allemands appellent leur dix-septième Land : découvrez où partent les Allemands.",
@@ -59,7 +58,7 @@
  "questions[4].optionsTranslation[1]": "l'Autriche",
  "questions[4].optionsTranslation[2]": "l'Espagne",
  "questions[4].optionsTranslation[3]": "la Grèce",
- "questions[5].explanation": "\"Auf Mallorca sind die Deutschen so viele, dass man die Insel ‚das siebzehnte Bundesland‘ nennt.\" L'Allemagne compte seize Länder.",
+ "questions[5].explanation": "\"Auf Mallorca sind so viele Deutsche, dass man die Insel ‚das siebzehnte Bundesland‘ nennt.\" L'Allemagne compte seize Länder.",
  "questions[5].questionTranslation": "Pourquoi appelle-t-on Majorque « le dix-septième Land » ?",
  "questions[5].optionsTranslation[0]": "parce que l'île appartient officiellement à l'Allemagne depuis 1990",
  "questions[5].optionsTranslation[1]": "parce que tant d'Allemands y passent leurs vacances",
@@ -79,5 +78,6 @@
  "questions[7].optionsTranslation[3]": "Ils prennent le petit-déjeuner au bord de la piscine tous les matins à six heures et nagent ensuite.",
  "questions[4].options[0]": "Italien",
  "questions[4].options[1]": "Österreich",
- "questions[4].options[2]": "Spanien"
+ "questions[4].options[2]": "Spanien",
+ "help.remember[0]": "Wohin? an die Ostsee, in die Berge, nach Spanien, nach Mallorca ; Wo? an der Ostsee, in den Bergen, in Spanien, auf Mallorca."
 }

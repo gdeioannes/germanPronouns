@@ -35,7 +35,7 @@ describe('the generated dictionary', () => {
 	it('gives every noun a gender, so the colouring never has to guess', () => {
 		for (const entry of dict.entries) {
 			if (entry.pos !== 'noun') continue;
-			expect(['m', 'f', 'n'], entry.de).toContain(entry.gender);
+			expect(['m', 'f', 'n', 'pl'], entry.de).toContain(entry.gender);
 		}
 	});
 

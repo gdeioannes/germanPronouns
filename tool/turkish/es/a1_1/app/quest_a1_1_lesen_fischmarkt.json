@@ -1,7 +1,6 @@
 {
  "help.intro": "Un texto corto de unas 130 palabras sobre el mercado más raro de Alemania: el mercado de pescado de Hamburgo, que abre cada domingo a las cinco de la mañana, lo hace desde 1703, y donde los vendedores gritan sus precios y lanzan plátanos y anguilas a las bolsas. Los datos son reales y están comprobados. Necesitas lo que acabas de aprender: el plural de las palabras de comida (Fische, Bananen, Äpfel, Blumen), los artículos en nominativo, números y precios (zehn Euro, fünf Uhr) y las palabras interrogativas Wann? (¿cuándo?), Was? (¿qué?), Wer? (¿quién?). Lee primero para la idea general y luego responde cada pregunta con una frase del texto.",
  "help.tips[0].title": "Plurales en el mercado",
- "help.tips[0].text": "der Fisch → die Fische, der Apfel → die Äpfel, die Banane → die Bananen, die Blume → die Blumen, der Aal → die Aale, die Tüte → die Tüten; der Euro sigue siendo Euro después de un número (zehn Euro); die Uhr → fünf Uhr (la hora, sin plural). Muchos sustantivos femeninos llevan -n o -en; muchos masculinos llevan -e, a veces con Umlaut (Äpfel).",
  "help.tips[0].examples[0].en": "Diez plátanos, cinco manzanas y tres pescados en una bolsa.",
  "help.tips[0].examples[1].en": "¡La bolsa cuesta solo diez euros!",
  "help.tips[0].check.q": "¿Cuál es el plural de der Apfel?",
@@ -30,7 +29,7 @@
  "questions[0].optionsTranslation[1]": "cada domingo, de las cinco a las nueve y media",
  "questions[0].optionsTranslation[2]": "cada sábado por la tarde, de cinco a nueve y media",
  "questions[0].optionsTranslation[3]": "solo en invierno",
- "questions[1].explanation": "\"Den Fischmarkt gibt es seit 1703. Das ist über dreihundert Jahre!\"",
+ "questions[1].explanation": "\"Den Fischmarkt gibt es seit 1703. Das sind über dreihundert Jahre!\"",
  "questions[1].questionTranslation": "¿Desde cuándo existe el mercado de pescado?",
  "questions[1].optionsTranslation[0]": "desde 1703",
  "questions[1].optionsTranslation[1]": "desde 1930",
@@ -76,5 +75,6 @@
  "questions[5].options[0]": "ein Fisch",
  "questions[5].options[2]": "ein Hafen in Hamburg",
  "questions[5].options[3]": "ein Café am Markt",
- "help.tips[1].title": "Wann? Um wie viel Uhr?"
+ "help.tips[1].title": "Wann? Um wie viel Uhr?",
+ "help.tips[0].text": "der Fisch → die Fische, der Apfel → die Äpfel, die Banane → die Bananen, die Blume → die Blumen, der Aal → die Aale, die Tüte → die Tüten; der Euro sigue siendo Euro después de un número (zehn Euro); die Uhr → fünf Uhr (la hora, sin plural). Muchos sustantivos femeninos llevan -n o -en; muchos masculinos llevan -e, y algunos cambian solo la vocal (Äpfel)."
 }

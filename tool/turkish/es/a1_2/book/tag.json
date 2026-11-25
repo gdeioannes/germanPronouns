@@ -154,7 +154,6 @@
  "reading.tasks[1].items[2].prompt": "Maya / das Licht ausmachen / um elf",
  "reading.tasks[1].items[2].answer": "Maya macht um elf das Licht aus.",
  "document.caption": "Öffnungszeiten: Wann macht das Jugendzentrum auf?",
- "document.intro": "Un cartel real de un centro juvenil. *Öffnungszeiten* es el horario de apertura, y lo leerás en todas las puertas de Alemania. *Geschlossen* significa cerrado. *14.00 – 21.00* se escribe con un punto, no con dos puntos.",
  "document.fact": "En alemán puedes decir *Das Café macht um acht auf* y *Das Café öffnet um acht*: el primero se separa, el segundo no. El mismo café.",
  "document.tasks[0].instruction": "Rodea con un círculo lo que dice el cartel.",
  "document.tasks[1].instruction": "Completa las frases con el verbo en dos partes: auf … zu.",
@@ -170,5 +169,6 @@
  "reading.tasks[0].title": "Richtig oder falsch?",
  "reading.tasks[1].title": "Wer macht das?",
  "document.tasks[0].title": "Lies das Schild",
- "document.tasks[1].title": "Wann?"
+ "document.tasks[1].title": "Wann?",
+ "document.intro": "Un cartel real de un centro juvenil. *Öffnungszeiten* es el horario de apertura, y lo leerás en todas las puertas de Alemania. *Geschlossen* significa cerrado. *14.00 – 21.00*: en los carteles las horas se escriben a menudo con un punto, aunque hoy lo habitual son los dos puntos (14:00)."
 }

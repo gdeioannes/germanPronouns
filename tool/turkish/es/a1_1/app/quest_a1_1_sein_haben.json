@@ -14,10 +14,8 @@
  "help.tips[1].check.options[1]": "Habst",
  "help.tips[1].check.why": "Con du se pierde la b: du hast. hat es para er/sie/es, habe para ich.",
  "help.tips[2].title": "haben como en «tener hambre»",
- "help.tips[2].text": "Aquí el alemán funciona como el español: el hambre, la sed, el miedo y el tiempo se «tienen», con haben: Ich habe Hunger, Durst, Angst, Zeit. La edad, en cambio, va con sein: Ich bin zwanzig (literalmente «soy veinte»), no con haben.",
  "help.tips[2].examples[0].en": "Tengo hambre y sed.",
  "help.tips[2].examples[1].en": "Tengo diecinueve años.",
- "help.tips[2].trap": "La trampa para un hispanohablante es la edad: «tengo 19 años» no es „Ich habe 19 Jahre“, sino Ich bin 19 Jahre alt. Y „Ich bin hungrig“ se entiende, pero suena extranjero: lo normal es *tener* hambre, como en español.",
  "help.tips[2].check.q": "Wir ____ Angst.",
  "help.tips[2].check.why": "El miedo, el hambre y la sed se tienen, como en español: wir haben Angst.",
  "help.tips[3].title": "möchte: el «quisiera» educado",
@@ -47,7 +45,6 @@
  "help.mistakes[0].why": "du hast pierde la b: es una de las dos formas acortadas.",
  "help.mistakes[1].why": "El hambre, la sed, el miedo y el tiempo se *tienen* en alemán, como en español.",
  "help.mistakes[2].wrong": "Ich bin durstig.",
- "help.mistakes[2].why": "Como Hunger, Durst es un sustantivo que se tiene: „durstig“ se entiende, pero no es lo que dicen los alemanes.",
  "help.hook": "Dos verbos llevan la mitad del alemán de cada día: sein para quién eres (y cómo estás), haben para lo que tienes.",
  "categories[0].label": "sein (ser, estar)",
  "categories[1].label": "haben (tener)",
@@ -65,7 +62,6 @@
  "sentences[3].why": "wir lleva sind.",
  "sentences[4].categoryLabel": "sein (ser, estar)",
  "sentences[4].english": "Niños, ¡hacen mucho ruido! (¡sois muy ruidosos!)",
- "sentences[4].why": "ihr lleva seid: la única forma de sein que termina en -d.",
  "sentences[5].categoryLabel": "sein (ser, estar)",
  "sentences[5].english": "Anna y Tom están en la escuela.",
  "sentences[5].why": "Dos nombres = sie («ellos»), y sie lleva sind.",
@@ -135,5 +131,9 @@
  "sentences[10].options[1]": "Bist",
  "sentences[10].options[2]": "Hat",
  "sentences[17].options[1]": "hat",
- "sentences[17].options[2]": "habe"
+ "sentences[17].options[2]": "habe",
+ "help.tips[2].text": "Aquí el alemán funciona como el español: el hambre, la sed y el miedo se «tienen», con haben, y el tiempo también: Ich habe Hunger, Durst, Angst, Zeit. La edad, en cambio, va con sein: Ich bin zwanzig (literalmente «soy veinte»), no con haben.",
+ "help.tips[2].trap": "La trampa para un hispanohablante es la edad: «tengo 19 años» no es „Ich habe 19 Jahre“, sino Ich bin 19 Jahre alt. Y „Ich bin hungrig“ es correcto, pero menos común: en el habla cotidiana los alemanes dicen que *tienen* hambre, como en español.",
+ "help.mistakes[2].why": "Como Hunger, Durst es un sustantivo que se tiene: „durstig“ también es correcto, pero Durst haben es la expresión cotidiana.",
+ "sentences[4].why": "ihr lleva seid: se escribe con d (seit, con t, significa «desde»)."
 }

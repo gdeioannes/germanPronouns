@@ -92,7 +92,6 @@
  "sentences[5].english": "C'est l'Everest qui est le plus haut.",
  "sentences[5].options[0]": "hochsten",
  "sentences[5].options[1]": "höhesten",
- "sentences[5].why": "hoch → am höchsten : le c change de place, höch-.",
  "sentences[6].english": "Mon grand-père est le plus âgé de la famille.",
  "sentences[6].options[0]": "altesten",
  "sentences[6].options[1]": "ältsten",
@@ -171,5 +170,6 @@
  "sentences[15].options[0]": "besten",
  "sentences[17].options[0]": "älteste",
  "sentences[17].options[1]": "ältesten",
- "sentences[18].options[2]": "lieber"
+ "sentences[18].options[2]": "lieber",
+ "sentences[5].why": "hoch → am höchsten : le c que höher laisse tomber est de retour, höch-."
 }

@@ -99,7 +99,6 @@
  "grammar[1].blocks[1].rows[0][2]": "Je n'ai pas de chien.",
  "grammar[1].blocks[1].rows[1][2]": "Il n'a pas le temps.",
  "grammar[1].blocks[1].rows[2][2]": "Elle n'est pas fatiguée.",
- "grammar[1].blocks[1].note": "*ein* devient *kein* (« pas de ») ; tout le reste prend *nicht* (« ne … pas »).",
  "grammar[1].blocks[2].blocks[0].title": "kein = k + ein",
  "grammar[1].blocks[2].blocks[0].rows[0].en": "der, das",
  "grammar[1].blocks[2].blocks[0].rows[1].en": "die, pluriel",
@@ -197,5 +196,6 @@
  "reading.tasks[0].title": "Richtig oder falsch?",
  "reading.tasks[1].title": "Was kauft Maya?",
  "document.tasks[0].title": "Lies den Bon",
- "document.tasks[1].title": "Richtig oder falsch?"
+ "document.tasks[1].title": "Richtig oder falsch?",
+ "grammar[1].blocks[1].note": "*ein* ou l'absence d'article devient *kein* (« pas de ») ; tout le reste prend *nicht* (« ne … pas »)."
 }

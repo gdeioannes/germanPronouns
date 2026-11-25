@@ -1111,7 +1111,7 @@
 					}
 				],
 				"en": "Vroni: Good evening. The city’s spokesman stated today that there was no goat on the town hall. · Vroni: The city, he said, has the situation under control. The animal, which does not exist, is not dangerous. · Vroni: The mayor has been informed of the case. However, he has no time for a statement, as he is on the roof. · Vroni: An opposition spokeswoman claimed that the goat was proof of the government’s failure. The party was calling for the mayor’s resignation. · Vroni: The farmer Alois Rainer told our station that the goat was called Berta and belonged to him. She came every Tuesday. · Vroni: She liked eating the flowers outside the mayor’s window. It had been that way for twelve years. · In the studio. The camera is off. The boss comes in. · Chef: Vroni, what’s really going on? Is there a goat? · Vroni: Of course there’s a goat. She’s standing behind you. · Chef: So why don’t you say that? · Vroni: Because I do the news. Next time, she said, she’d come earlier.",
-				"fact": "Die *Tagesschau* um 20 Uhr läuft seit 1952. Sie wird immer noch am Tisch gelesen, und Millionen schauen zu. Ihr *Konjunktiv I* ist eine Art Rechtsversicherung: *Der Minister sagte, er sei unschuldig* meldet die Behauptung, ohne sie wahr zu nennen.",
+				"fact": "Die *Tagesschau* um 20 Uhr läuft seit 1952. Sie wird immer noch am Tisch gelesen, und Millionen schauen zu. Ihr *Konjunktiv I* ist eine Art Rechtsschutzversicherung: *Der Minister sagte, er sei unschuldig* meldet die Behauptung, ohne sie wahr zu nennen.",
 				"tasks": [
 					{
 						"title": "Richtig oder falsch?",
@@ -1527,7 +1527,7 @@
 										},
 										{
 											"de": "er habe geschickt",
-											"tag": "reported",
+											"tag": "indirekt",
 											"hot": true
 										}
 									]
@@ -1540,7 +1540,7 @@
 										},
 										{
 											"de": "sie sei angekommen",
-											"tag": "reported",
+											"tag": "indirekt",
 											"hot": true
 										}
 									]
@@ -2330,7 +2330,7 @@
 								"answer": "vom Telefon"
 							},
 							{
-								"before": "Der wirkliche Streit ist über",
+								"before": "Der wirkliche Streit geht um",
 								"options": [
 									"die Hecke",
 									"den Grill"
@@ -3497,12 +3497,12 @@
 								"answer": "nicht"
 							},
 							{
-								"before": "Sie sollen abstimmen über",
+								"before": "Sie sollen über",
 								"options": [
 									"ein Treffen",
 									"die Kühe"
 								],
-								"after": ".",
+								"after": "abstimmen.",
 								"answer": "ein Treffen"
 							},
 							{
@@ -7915,7 +7915,7 @@
 								"answer": "keine"
 							},
 							{
-								"before": "Ich habe nicht kommen",
+								"before": "Ich habe nicht zu kommen",
 								"options": [
 									"brauchen",
 									"gebraucht"
@@ -8175,7 +8175,7 @@
 					{
 						"de": "die Straße",
 						"pl": "-n",
-						"en": "yard, road",
+						"en": "street, road",
 						"image": "strasse",
 						"x": 50,
 						"y": 88,
@@ -10013,7 +10013,7 @@
 							"cols": 4
 						}
 					],
-					"fact": "In der Satzmitte ist nichts streng falsch: Die Reihenfolge zeigt, was du für neu hältst. Der letzte Platz hat das Gewicht. *Ich fahre morgen nach Rom* und *Ich fahre nach Rom morgen* gehen beide. Beim zweiten hat dich gerade jemand gefragt: *wann*?",
+					"fact": "In der Satzmitte ist nichts streng falsch: Die Reihenfolge zeigt, was du für neu hältst. Der letzte Platz hat das Gewicht. *Ich fahre morgen nach Rom* und *Nach Rom fahre ich morgen* gehen beide. Beim zweiten hat dich gerade jemand gefragt: *wann*?",
 					"check": {
 						"title": "Mini-Check",
 						"instruction": "Kreise den richtigen Satz ein.",
@@ -10069,7 +10069,7 @@
 							"root": {
 								"q": "Macht dieselbe Person beides?",
 								"yes": {
-									"answer": "zu + infinitive",
+									"answer": "zu + Infinitiv",
 									"example": "Ich hoffe, die Prüfung zu bestehen."
 								},
 								"no": {
@@ -10200,7 +10200,7 @@
 								},
 								{
 									"de": "ihn",
-									"en": "it"
+									"en": "him"
 								},
 								{
 									"de": "jemand",
@@ -11608,7 +11608,7 @@
 					"items": [
 						{
 							"prompt": "You’re on mute.",
-							"answer": "Du bist stumm."
+							"answer": "Du bist stummgeschaltet."
 						},
 						{
 							"prompt": "Compared with last year, it’s better.",
@@ -13875,11 +13875,11 @@
 						"cols": 1,
 						"items": [
 							{
-								"prompt": "Sie baut das Haus. (passive, Perfekt)",
+								"prompt": "Sie baut das Haus. (Passiv, Perfekt)",
 								"answer": "Das Haus ist gebaut worden."
 							},
 							{
-								"prompt": "„Das Haus ist alt.“ (reported)",
+								"prompt": "„Das Haus ist alt.“ (indirekt)",
 								"answer": "Er sagte, das Haus sei alt."
 							},
 							{

@@ -2913,4 +2913,17 @@ export const ES: Record<string, string> = {
 		"Otras formas",
 	"I thought of you: a free German book with audio, level {level}. No sign-up, nothing to pay.":
 		"Me acordé de ti: un libro de alemán gratis con audio, nivel {level}. Sin registro y sin pagar nada.",
+	// Release banner and edition note (2026-11-25)
+	"News about this release":
+		"Novedades de esta versión",
+	"Content review":
+		"Revisión del contenido",
+	"The German in the app and in the books has been checked and corrected. If you downloaded a book, download the new edition.":
+		"El alemán de la aplicación y de los libros se ha revisado y corregido. Si descargaste un libro, descarga la nueva edición.",
+	"What changed":
+		"Qué ha cambiado",
+	"New editions":
+		"Nuevas ediciones",
+	"Current edition: {edition} ({date}). The German in every book was reviewed and corrected; if your PDF is older, download it again.":
+		"Edición actual: {edition} ({date}). El alemán de cada libro se ha revisado y corregido; si tu PDF es más antiguo, descárgalo de nuevo.",
 };

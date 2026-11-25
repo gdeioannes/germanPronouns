@@ -14,10 +14,8 @@
  "help.tips[1].check.options[1]": "Habst",
  "help.tips[1].check.why": "du ile b düşer: du hast. hat er/sie/es için, habe ich için.",
  "help.tips[2].title": "Türkçede 'açım' dediğin yerde haben",
- "help.tips[2].text": "Almanca açlığı, susuzluğu, korkuyu ve zamanı haben ile söyler: Ich habe Hunger, Durst, Angst, Zeit. Türkçedeki 'vaktim var', 'korkum var' gibi düşün. Yaş ise sein ile söylenir: Ich bin zwanzig.",
  "help.tips[2].examples[0].en": "Açım ve susadım.",
  "help.tips[2].examples[1].en": "On dokuz yaşındayım.",
- "help.tips[2].trap": "'Açım'ı kelimesi kelimesine çevirmek (Ich bin hungrig) anlaşılır ama yabancı durur. Almanlar açlığa *sahip olur*.",
  "help.tips[2].check.q": "Wir ____ Angst.",
  "help.tips[2].check.why": "Almanlar korkuya, açlığa ve susuzluğa sahip olur: wir haben Angst, yani 'korkumuz var'.",
  "help.tips[3].title": "möchte: kibar “isterim”",
@@ -47,7 +45,6 @@
  "help.mistakes[0].why": "du hast'ta b düşer. Kısalan iki biçimden biridir.",
  "help.mistakes[1].why": "Açlık, susuzluk, korku ve zaman Almancada sahip olunan şeylerdir.",
  "help.mistakes[2].wrong": "Ich bin durstig.",
- "help.mistakes[2].why": "Hunger gibi Durst da sahip olunan bir isimdir. 'durstig' anlaşılır ama Almanlar böyle demez.",
  "help.hook": "Gündelik Almancanın yarısını iki fiil taşır: kim olduğun için sein, neyin olduğu için haben.",
  "categories[0].label": "sein (olmak)",
  "categories[1].label": "haben (sahip olmak)",
@@ -65,7 +62,6 @@
  "sentences[3].why": "wir, sind alır.",
  "sentences[4].categoryLabel": "sein (olmak)",
  "sentences[4].english": "Çocuklar, çok gürültücüsünüz!",
- "sentences[4].why": "ihr, seid alır: sein'ın -d ile biten tek biçimi.",
  "sentences[5].categoryLabel": "sein (olmak)",
  "sentences[5].english": "Anna ve Tom okulda.",
  "sentences[5].why": "İki ad = sie ('onlar') ve sie, sind alır.",
@@ -135,5 +131,9 @@
  "sentences[10].options[1]": "Bist",
  "sentences[10].options[2]": "Hat",
  "sentences[17].options[1]": "hat",
- "sentences[17].options[2]": "habe"
+ "sentences[17].options[2]": "habe",
+ "help.tips[2].text": "Almanca açlığı, susuzluğu ve korkuyu haben ile söyler, zamanı da aynı şekilde söyler: Ich habe Hunger, Durst, Angst, Zeit. Türkçedeki 'vaktim var', 'korkum var' gibi düşün. Yaş ise sein ile söylenir: Ich bin zwanzig.",
+ "help.tips[2].trap": "'Açım'ı kelimesi kelimesine çevirmek (Ich bin hungrig) doğrudur ama daha az yaygındır; günlük konuşmada Almanlar açlığa *sahip olur*.",
+ "help.mistakes[2].why": "Hunger gibi Durst da sahip olunan bir isimdir. 'durstig' de doğrudur ama günlük kalıp Durst haben'dir.",
+ "sentences[4].why": "ihr, seid alır: d ile yazılır (t ile yazılan seit 'beri' demektir)."
 }

@@ -27,7 +27,7 @@ const bundlePath = join(root, 'assets/content/courses', `${courseId}.json`);
 const bundle = JSON.parse(readFileSync(bundlePath, 'utf8'));
 const shared = JSON.parse(readFileSync(join(root, 'assets/content/shared/nouns/de.json'), 'utf8'));
 
-const ARTICLE = { m: 'der', f: 'die', n: 'das' };
+const ARTICLE = { m: 'der', f: 'die', n: 'das', pl: 'die' };
 const byNoun = new Map(shared.nouns.map((n) => [n.noun, n]));
 
 /** Pronouns and forms of address that are capitalised but are not nouns. */
@@ -183,6 +183,11 @@ function expand(raw) {
 	const m = /^(?:(der|die|das)(?: \/ (der|die|das))? )?(.+)$/.exec(de);
 	if (!m) return [raw];
 	const words = m[3].split(' / ').map((w) => w.trim());
+	// "úmfahren / umfáhren": the same spelling with two stresses, two meanings.
+	// Splitting would leave one card with half the gloss; keep one card that
+	// carries both meanings.
+	const bare = words.map((w) => w.normalize('NFD').replace(/́/g, '').normalize('NFC'));
+	if (words.length > 1 && bare.every((w) => w === bare[0])) return [{ ...raw, de: words[0] }];
 	// The article may sit inline ("der / die Freund / Freundin") or in its own
 	// field written the same way.
 	const fieldArticles = (raw.article ?? '').split(' / ').map((x) => x.trim()).filter(Boolean);
@@ -202,7 +207,9 @@ function expand(raw) {
 	return words.map((w, i) => ({
 		...raw,
 		de: w,
-		article: articles[i] ?? articles[0],
+		// "der Österreicher / die Österreicherin": the second word brings its own
+		// article, which must not be replaced by the first word's.
+		article: /^(der|die|das) /.exec(w)?.[1] ?? articles[i] ?? articles[0],
 		en: paired ? ens[i] : gloss,
 		plural: i === 0 ? raw.plural : undefined
 	}));
@@ -212,6 +219,9 @@ function add(raw, sourceQuizId) {
 	let de = (raw.de ?? '').trim();
 	const en = (raw.en ?? '').trim();
 	if (!de || !en) return;
+	// A case form shown as vocabulary ("der Frau" = "of the woman") is not a
+	// word to learn; its "der" would be read as the noun's article.
+	if (/^of the /.test(en)) return;
 	// Half of a parenthesis means an entry was cut in the wrong place.
 	if ((de.match(/\(/g) ?? []).length !== (de.match(/\)/g) ?? []).length) return;
 	// A frame with a slot ("hätte … gesagt", "um … zu"), a transformation
@@ -357,6 +367,20 @@ for (const q of levelQuizzes) {
 		if (englishPrompted.has(q.id)) continue;
 		if (CUE_GRIDS.has(q.id)) continue;
 		add({ de: display, en: s.english, gender: s.gender }, q.id);
+	}
+}
+
+// A verb-plus-preposition grid labels its rows with the bare verb ("warten" =
+// "to wait for") while the full phrase ("warten auf + Akk") is already a card
+// from the same quiz's vocab. The bare card teaches a meaning the verb alone
+// does not have, so it goes when a longer card with the same gloss exists.
+for (const [key, c] of cards) {
+	const gloss = (en) => en.replace(/ \/.*/, '').trim();
+	for (const other of cards.values()) {
+		if (other !== c && other.de.startsWith(c.de + ' ') && gloss(other.en) === gloss(c.en)) {
+			cards.delete(key);
+			break;
+		}
 	}
 }
 

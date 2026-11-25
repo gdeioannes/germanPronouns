@@ -1,5 +1,4 @@
 {
- "sceneAlt": "Une cuisine familiale chaleureuse vue de face : à gauche une fenêtre, un réfrigérateur, un balai et une poubelle ; au fond un plan de travail avec un micro-ondes, une machine à café, une bouilloire, une cuisinière avec une casserole et une poêle, un évier avec un robinet et une radio, une barre avec des cuillères, un fouet et un gant de cuisine, un placard mural et une horloge sous une lampe suspendue. Devant, une table avec un bol contenant une pomme, un œuf, du pain, une tasse, une bouteille et une planche à découper avec un couteau, et une chaise ; à droite une porte avec un torchon à côté.",
  "spots[0].en": "porte",
  "spots[1].en": "fenêtre",
  "spots[2].en": "réfrigérateur",
@@ -23,7 +22,6 @@
  "spots[20].en": "fouet",
  "spots[21].en": "gant de cuisine",
  "spots[22].en": "radio",
- "spots[23].en": "torchon",
  "spots[24].en": "planche à découper",
  "spots[25].en": "pain",
  "spots[26].en": "couteau",
@@ -37,7 +35,6 @@
  "help.tips[0].title": "Les mots composés de la cuisine : la dernière partie décide",
  "help.tips[0].text": "Beaucoup de mots de la cuisine sont deux mots collés ensemble, et c'est la dernière partie qui décide de l'article. Kühl + Schrank : der Schrank, donc der Kühlschrank. Spül + Becken : das Becken, donc das Spülbecken. Cachez la première partie et regardez la fin.",
  "help.tips[0].examples[0].en": "machine à café (die Maschine)",
- "help.tips[0].examples[1].en": "torchon (das Tuch)",
  "help.tips[0].check.q": "____ Waschmaschine steht neben dem Kühlschrank.",
  "help.tips[0].check.why": "La dernière partie est die Maschine, donc le mot entier est die Waschmaschine.",
  "help.tips[1].title": "Les mots en -e sont souvent die",
@@ -78,7 +75,6 @@
  "help.vocab[20].en": "fouet",
  "help.vocab[21].en": "gant de cuisine",
  "help.vocab[22].en": "radio",
- "help.vocab[23].en": "torchon",
  "help.vocab[24].en": "planche à découper",
  "help.vocab[25].en": "pain",
  "help.vocab[26].en": "couteau",
@@ -86,5 +82,9 @@
  "help.vocab[28].en": "bol",
  "help.vocab[29].en": "pomme",
  "help.vocab[30].en": "tasse",
- "help.vocab[31].en": "bouteille"
+ "help.vocab[31].en": "bouteille",
+ "sceneAlt": "Une cuisine familiale chaleureuse vue de face : à gauche une fenêtre, un réfrigérateur, un balai et une poubelle ; au fond un plan de travail avec un micro-ondes, une machine à café, une bouilloire, une cuisinière avec une casserole et une poêle, un évier avec un robinet et une radio, une barre avec des cuillères, un fouet et un gant de cuisine, un placard mural et une horloge sous une lampe suspendue. Devant, une table avec un bol contenant une pomme, un œuf, du pain, une tasse, une bouteille et une planche à découper avec un couteau, et une chaise ; à droite une porte avec une serviette à côté.",
+ "spots[23].en": "serviette",
+ "help.tips[0].examples[1].en": "serviette (das Tuch)",
+ "help.vocab[23].en": "serviette"
 }

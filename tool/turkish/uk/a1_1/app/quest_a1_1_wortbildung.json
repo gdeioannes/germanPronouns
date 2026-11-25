@@ -51,7 +51,6 @@
  "help.remember[0]": "-in = вона, -innen = вони (усі жінки), і обидва мають die.",
  "help.remember[1]": "У складному слові останнє слово головне: воно дає значення і рід.",
  "help.context.en": "У моїй фірмі працює багато жінок: моя начальниця, дві колеги з Італії і журналістка. У їдальні сьогодні рибний суп і яблучний пиріг. Яблучний пиріг від кухарки, смачний!",
- "help.mistakes[0].why": "Короткі голосні a/o у формі на -in часто беруть умлаут.",
  "help.mistakes[1].why": "Кінцеве -e перед -in відпадає.",
  "help.mistakes[2].wrong": "die Apfelkuchen (один пиріг)",
  "help.mistakes[2].why": "Складне слово бере рід своєї останньої частини: der Kuchen.",
@@ -217,5 +216,6 @@
  "sentences[16].options[0]": "Ärztin",
  "sentences[17].options[0]": "Verkäuferin",
  "sentences[24].options[0]": "Nachbarin",
- "sentences[25].options[0]": "Köchin"
+ "sentences[25].options[0]": "Köchin",
+ "help.mistakes[0].why": "Голосні a/o у формі на -in часто беруть умлаут."
 }

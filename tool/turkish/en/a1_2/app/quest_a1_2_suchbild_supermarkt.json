@@ -1,5 +1,5 @@
 {
- "sceneAlt": "A small corner shop seen from the front: on the left a checkout with a till, a conveyor belt, a chocolate bar and a paper bag, and a shopping basket on the floor. At the back a tall shelf with wine, milk, juice, eggs, toilet paper, a roast chicken, sausages, cheese, a watermelon, a tomato and a present; beside it a hanging scale under a bakery shelf with a cake and a croissant. On the right a chest freezer with ice cream, a steak and a fish; in front a fruit and vegetable stall, a bucket of flowers and a shopping trolley.",
+ "sceneAlt": "A small corner shop seen from the front: on the left a checkout with a till, a conveyor belt, a chocolate bar and a paper bag, and a shopping basket on the floor. At the back a tall shelf with wine, milk, juice, eggs, toilet paper, a roast chicken, sausages, cheese, a melon, a tomato and a present; beside it a hanging scale under a bakery shelf with a cake and a croissant. On the right a chest freezer with ice cream, a steak and a fish; in front a fruit and vegetable stall, a bucket of flowers and a shopping trolley.",
  "spots[0].en": "shelf",
  "spots[1].en": "chest freezer",
  "spots[2].en": "conveyor belt",
@@ -29,11 +29,11 @@
  "spots[26].en": "banana",
  "spots[27].en": "pumpkin",
  "spots[28].en": "tomato",
- "spots[29].en": "watermelon",
+ "spots[29].en": "melon",
  "spots[30].en": "cucumber",
  "spots[31].en": "lettuce",
  "help.hook": "A small corner shop full of groceries: find each item in the picture, then give it its article.",
- "help.intro": "A picture hunt instead of a deck: one small corner shop with 32 things to find in it, all words you need when you go shopping — der Einkaufswagen, die Kasse, das Fließband, the cheese on the shelf and the fish in the freezer. The prompt asks Wo ist …? and you tap the object in the picture. A tap on bare wall or floor costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Each find shows its label, coloured by its gender (blue der, red die, green das), then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Kasse?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
+ "help.intro": "A picture hunt instead of a deck: one small corner shop with 32 things to find in it, all words you need when you go shopping — der Einkaufswagen, die Kasse, das Kassenband, the cheese on the shelf and the fish in the freezer. The prompt asks Wo ist …? and you tap the object in the picture. A tap on bare wall or floor costs nothing; a tap on the wrong object tells you what you hit and you keep looking, and after three misses the right one is shown. Each find shows its label, coloured by its gender (blue der, red die, green das), then leaves a small tick in that colour, so you can see what you have already found. Once you have passed a run, the hunt turns harder: the prompt hides the article (Wo ist ___ Kasse?), and after the find you choose der, die or das yourself. No object is asked twice in the same run.",
  "help.tips[0].title": "Compounds in the corner shop: the last part decides",
  "help.tips[0].text": "Shop words are often compounds, and the last part decides the article. Einkauf + Wagen: der Wagen, so der Einkaufswagen. Kühl + Truhe: die Truhe, so die Kühltruhe. Look at the end of the word.",
  "help.tips[0].examples[0].en": "shopping basket (der Korb)",
@@ -84,7 +84,7 @@
  "help.vocab[26].en": "banana",
  "help.vocab[27].en": "pumpkin",
  "help.vocab[28].en": "tomato",
- "help.vocab[29].en": "watermelon",
+ "help.vocab[29].en": "melon",
  "help.vocab[30].en": "cucumber",
  "help.vocab[31].en": "lettuce"
 }

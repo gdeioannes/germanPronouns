@@ -54,7 +54,6 @@
  "help.hook": "Nombra cualquier día, mes o fecha en alemán, y di exactamente cuándo es tu cumpleaños, tu cita o tus vacaciones.",
  "sentences[0].hint": "En español: lunes",
  "sentences[0].english": "El primer día laborable de la semana es el ____ (lunes).",
- "sentences[0].why": "Montag: lunes. La semana alemana empieza el lunes, y los nombres de los días acaban casi todos en -tag. Montag es el día de la luna (Mond), igual que «lunes».",
  "sentences[1].hint": "En español: martes",
  "sentences[1].english": "El día después del lunes es el ____ (martes).",
  "sentences[1].why": "Dienstag: martes. No viene de dienen, sino de un antiguo dios germánico de la guerra, como «martes» viene de Marte.",
@@ -158,5 +157,6 @@
  "sentences[26].options[2]": "acht",
  "sentences[27].options[0]": "zweite",
  "sentences[27].options[2]": "zwei",
- "sentences[28].options[2]": "fünfundzwanzig"
+ "sentences[28].options[2]": "fünfundzwanzig",
+ "sentences[0].why": "Montag: lunes. La semana alemana empieza el lunes, y los nombres de los días acaban todos en -tag, salvo Mittwoch. Montag es el día de la luna (Mond), igual que «lunes»."
 }

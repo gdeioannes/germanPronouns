@@ -217,7 +217,7 @@
       ],
       "remember": [
         "speichern, drucken, herunterladen, ausschalten: die vier Verben in jedem Gespräch über Technik.",
-        "das Handy, der Akku, die Festplatte: deutsche Wörter in englischer Kleidung."
+        "das Handy: ein deutsches Wort in englischer Kleidung. der Akku, die Festplatte: ganz deutsch."
       ],
       "vocab": [
         {
@@ -3081,20 +3081,35 @@
             "rows": [
               {
                 "cells": [
+                  "Präteritum",
                   "Das Haus",
                   "wurde",
-                  "1900",
+                  "1990",
                   "gebaut."
-                ]
+                ],
+                "en": "Präteritum (schreiben): wurde + Partizip II"
               },
               {
                 "cells": [
+                  "Perfekt",
                   "Das Haus",
                   "ist",
-                  "1900",
+                  "1990",
                   "gebaut worden."
-                ]
+                ],
+                "en": "Perfekt (sprechen): ist + Partizip II + worden"
               }
+            ],
+            "columns": [
+              "Zeit",
+              "Position 1",
+              "Verb",
+              "Middle",
+              "End"
+            ],
+            "hot": [
+              2,
+              4
             ]
           },
           "en": {
@@ -3176,6 +3191,42 @@
           "en": {
             "text": "werden is irregular (ich werde, ich wurde, ich bin geworden), but wurde takes the regular -te endings: wurde, wurdest, wurde, wurden. One irregular stem, regular endings.",
             "title": "wurde is the -te of werden"
+          }
+        },
+        {
+          "kind": "contrast",
+          "title": "wurde gebaut oder war gebaut?",
+          "text": "wurde + Partizip erzählt, was passiert ist (Vorgang): Das Haus wurde 1990 gebaut, da haben Leute gearbeitet. war + Partizip beschreibt den Zustand danach: 1991 war das Haus gebaut, es stand fertig da. Für Geschichte und Nachrichten brauchst du fast immer wurde. Und Vorsicht: war ist auch einfach das Präteritum von sein (Das Haus war alt), ganz ohne Passiv.",
+          "examples": [
+            {
+              "de": "Die Brücke wurde 1950 gebaut.",
+              "en": "The bridge was built in 1950 (the building happened then).",
+              "focus": [
+                "wurde"
+              ]
+            },
+            {
+              "de": "1960 war die Brücke schon gebaut.",
+              "en": "By 1960 the bridge was already built (its state).",
+              "focus": [
+                "war"
+              ]
+            }
+          ],
+          "check": {
+            "q": "Wann ____ die Universität gegründet? – 1810.",
+            "options": [
+              "wurde",
+              "war",
+              "ist"
+            ],
+            "answer": "wurde",
+            "why": "Gründen ist ein Vorgang in der Geschichte: wurde gegründet. war gegründet wäre der Zustand danach.",
+            "whyEn": "Founding is an event in history: wurde gegründet. war gegründet would describe the state afterwards."
+          },
+          "en": {
+            "title": "wurde gebaut or war gebaut?",
+            "text": "wurde + participle tells what happened (an action): Das Haus wurde 1990 gebaut, people were working then. war + participle describes the state afterwards: 1991 war das Haus gebaut, it stood there finished. For history and news you almost always need wurde. And careful: war is also just the past of sein (Das Haus war alt), with no passive at all."
           }
         }
       ],
@@ -6033,7 +6084,7 @@
         "Verb vorn + Ausrufezeichen: Hätte ich doch …!"
       ],
       "context": {
-        "de": "Was für ein Tag! Wäre ich doch zu Hause geblieben! Hätte ich nur früher auf die Uhr geschaut! Wenn ich doch wenigstens einen Schirm mitgenommen hätte! Hätte mich bloß jemand geweckt! Ach, wäre doch schon Freitag!",
+        "de": "Was für ein Tag! Wäre ich doch zu Hause geblieben! Hätte ich nur früher auf die Uhr geschaut! Wenn ich doch wenigstens einen Schirm mitgenommen hätte! Hätte mich bloß jemand geweckt! Ach, wäre es doch schon Freitag!",
         "en": "What a day! If only I had stayed at home! If only I had looked at the clock earlier! If only I had at least taken an umbrella! If only someone had woken me! Oh, if only it were already Friday!",
         "focus": [
           "Wäre",
@@ -8182,7 +8233,7 @@
         {
           "wrong": "Nachdem ich gegessen habe, bin ich losgefahren.",
           "right": "Nachdem ich gegessen hatte, bin ich losgefahren.",
-          "why": "nachdem braucht das frühere Ereignis einen Schritt weiter zurück.",
+          "why": "nachdem schickt das frühere Ereignis einen Schritt weiter zurück.",
           "whyEn": "nachdem needs the earlier event one step further back."
         },
         {
@@ -8583,7 +8634,7 @@
     ],
     "title": "Wortschatz",
     "help": {
-      "intro": "Jedes Wort aus den Übungen dieses Teils, auf einem Kartenstapel: 379 Karten, davon 159 Nomen. Die Wörter hier drehen sich um Arbeit, Studium, Medien und Meinungen. Dazu kommen die Verben und Verbindungswörter, mit denen du argumentierst, aus den Themen Technik & Medien, Gesundheit & Ernährung, Umwelt, Politik & Gesellschaft. Schreib das deutsche Wort, wähl es aus vier Möglichkeiten oder dreh die Karte um und bewerte dich selbst. Ein Wort, das du nicht weißt, kommt in derselben Runde wieder. Es bleibt bei deinen schwachen Wörtern, bis du es dreimal hintereinander richtig hast.",
+      "intro": "Jedes Wort aus den Übungen dieses Teils, auf einem Kartenstapel: 377 Karten, davon 159 Nomen. Die Wörter hier drehen sich um Arbeit, Studium, Medien und Meinungen. Dazu kommen die Verben und Verbindungswörter, mit denen du argumentierst, aus den Themen Technik & Medien, Gesundheit & Ernährung, Umwelt, Politik & Gesellschaft. Schreib das deutsche Wort, wähl es aus vier Möglichkeiten oder dreh die Karte um und bewerte dich selbst. Ein Wort, das du nicht weißt, kommt in derselben Runde wieder. Es bleibt bei deinen schwachen Wörtern, bis du es dreimal hintereinander richtig hast.",
       "tips": [
         {
           "kind": "rule",
@@ -8722,7 +8773,7 @@
       ],
       "hook": "Technik, Gesundheit, Umwelt und Gesellschaft: die Wörter, mit denen du argumentierst, jedes Nomen mit Artikel und Plural.",
       "hookEn": "Technology, health, the environment and society: the words you need to argue a point, each noun with its article and plural.",
-      "introEn": "Every word this module's exercises use, on one deck of flashcards: 379 cards, 159 of them nouns. The vocabulary of this module is work, study, media and opinions, and the verbs and connectors you need to argue a point, from the themes Technik & Medien, Gesundheit & Ernährung, Umwelt, Politik & Gesellschaft. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
+      "introEn": "Every word this module's exercises use, on one deck of flashcards: 377 cards, 159 of them nouns. The vocabulary of this module is work, study, media and opinions, and the verbs and connectors you need to argue a point, from the themes Technik & Medien, Gesundheit & Ernährung, Umwelt, Politik & Gesellschaft. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
       "rememberEn": [
         "Never say a noun without its article, not even in your head.",
         "Miss a word? It comes back in the same run. Three correct answers in a row take it off the weak list.",
@@ -8997,7 +9048,7 @@
           "de": "Klebeband",
           "article": "das",
           "plural": "Klebebänder",
-          "en": "duct tape"
+          "en": "tape"
         },
         {
           "de": "Bohrmaschine",
@@ -9294,7 +9345,7 @@
         {
           "de": "Klebeband",
           "article": "das",
-          "en": "duct tape",
+          "en": "tape",
           "plural": "Klebebänder",
           "x": 12.6,
           "y": 66.23,
@@ -10279,7 +10330,7 @@
       },
       "category": "History",
       "passageTitle": "Der Meistertrunk",
-      "passage": "Im Oktober 1631 stand das kaiserliche Heer vor den Mauern von Rothenburg ob der Tauber. Der Dreißigjährige Krieg dauerte schon dreizehn Jahre, und die kleine freie Reichsstadt hatte sich auf die Seite der Protestanten gestellt. Ihr General hieß Tilly, und er war dafür bekannt, dass er Städte, die sich wehrten, nicht verschonte. Erst im Mai hatte er Magdeburg erobert; die Stadt brannte, und zwanzigtausend Menschen starben.\n\nRothenburg wehrte sich drei Tage. Dann war die Munition verschossen, die Mauern waren durchbrochen, und am 30. Oktober zog Tilly in die Stadt ein. Er ließ die Ratsherren festnehmen und verkündete, dass die Stadt geplündert und die Räte hingerichtet würden. Die Bürger baten um Gnade. Tilly blieb hart.\n\nDa, so erzählt es die Legende, reichte ihm die Tochter des Kellermeisters den großen Willkommenspokal der Stadt, der dreieinviertel Liter Frankenwein fasste. Tilly trank einen Schluck, der Wein gefiel ihm, und seine Laune wurde besser. Er sagte: „Wenn einer von euch diesen Pokal in einem einzigen Zug leert, verschone ich die Stadt.“ Es war ein Scherz, denn niemand konnte das. Doch dann trat der Altbürgermeister Georg Nusch vor, ein Mann von über sechzig Jahren. Er nahm den Pokal, setzte ihn an und trank, ohne abzusetzen, bis er leer war. Dann stand er noch einen Augenblick, verbeugte sich und fiel um. Tilly hielt sein Wort. Nusch schlief drei Tage und drei Nächte und lebte noch siebzehn Jahre.\n\nWas daran stimmt? Dass Tilly die Stadt einnahm und sie nicht zerstörte, steht in den Akten. Dass Nusch Altbürgermeister war und den Pokal später besaß, ebenfalls. Von einem Trunk aber schrieb damals niemand; die Geschichte tauchte erst im 18. Jahrhundert auf, und Historiker glauben, dass die Stadt sich einfach freikaufte, mit Geld, nicht mit Wein. Die Rothenburger stört das nicht. 1881 schrieb ein Glasermeister aus der Legende ein Theaterstück, und seitdem spielen es die Bürger jedes Jahr an Pfingsten im Rathaussaal, in Kostümen aus der Zeit, mit einem echten Pokal und, so sagt man, mit echtem Wein. Die Kunstuhr am Marktplatz zeigt den Trunk mehrmals täglich: Ein Fenster öffnet sich, Nusch hebt den Pokal, und die Touristen klatschen, dreihundertneunzig Jahre später.",
+      "passage": "Im Oktober 1631 stand das kaiserliche Heer vor den Mauern von Rothenburg ob der Tauber. Der Dreißigjährige Krieg dauerte schon dreizehn Jahre, und die kleine freie Reichsstadt hatte sich auf die Seite der Protestanten gestellt. Sein General hieß Tilly, und er war dafür bekannt, dass er Städte, die sich wehrten, nicht verschonte. Erst im Mai hatte er Magdeburg erobert; die Stadt brannte, und zwanzigtausend Menschen starben.\n\nRothenburg wehrte sich drei Tage. Dann war die Munition verschossen, die Mauern waren durchbrochen, und am 30. Oktober zog Tilly in die Stadt ein. Er ließ die Ratsherren festnehmen und verkündete, dass die Stadt geplündert und die Räte hingerichtet würden. Die Bürger baten um Gnade. Tilly blieb hart.\n\nDa, so erzählt es die Legende, reichte ihm die Tochter des Kellermeisters den großen Willkommenspokal der Stadt, der dreieinviertel Liter Frankenwein fasste. Tilly trank einen Schluck, der Wein gefiel ihm, und seine Laune wurde besser. Er sagte: „Wenn einer von euch diesen Pokal in einem einzigen Zug leert, verschone ich die Stadt.“ Es war ein Scherz, denn niemand konnte das. Doch dann trat der Altbürgermeister Georg Nusch vor, ein Mann von über sechzig Jahren. Er nahm den Pokal, setzte ihn an und trank, ohne abzusetzen, bis er leer war. Dann stand er noch einen Augenblick, verbeugte sich und fiel um. Tilly hielt sein Wort. Nusch schlief drei Tage und drei Nächte und lebte noch siebzehn Jahre.\n\nWas daran stimmt? Dass Tilly die Stadt einnahm und sie nicht zerstörte, steht in den Akten. Dass Nusch Altbürgermeister war und den Pokal später besaß, ebenfalls. Von einem Trunk aber schrieb damals niemand; die Geschichte tauchte erst im 18. Jahrhundert auf, und Historiker glauben, dass die Stadt sich einfach freikaufte, mit Geld, nicht mit Wein. Die Rothenburger stört das nicht. 1881 schrieb ein Glasermeister aus der Legende ein Theaterstück, und seitdem spielen es die Bürger jedes Jahr an Pfingsten im Rathaussaal, in Kostümen aus der Zeit, mit einem echten Pokal und, so sagt man, mit echtem Wein. Die Kunstuhr am Marktplatz zeigt den Trunk mehrmals täglich: Ein Fenster öffnet sich, Nusch hebt den Pokal, und die Touristen klatschen, dreihundertneunzig Jahre später.",
       "passageTranslation": "In October 1631 the imperial army stood before the walls of Rothenburg ob der Tauber. The Thirty Years' War had already lasted thirteen years, and the small free imperial town had sided with the Protestants. Their general was called Tilly, and he was known for not sparing towns that resisted. Only in May he had taken Magdeburg; the town burned, and twenty thousand people died.\n\nRothenburg resisted for three days. Then the ammunition was spent, the walls were breached, and on 30 October Tilly entered the town. He had the councillors arrested and announced that the town would be plundered and the councillors executed. The citizens begged for mercy. Tilly stayed hard.\n\nThen, so the legend tells, the cellar master's daughter handed him the town's great welcome goblet, which held three and a quarter litres of Franconian wine. Tilly took a sip, the wine pleased him, and his mood improved. He said: 'If one of you empties this goblet in a single draught, I will spare the town.' It was a joke, for nobody could do that. But then former mayor Georg Nusch stepped forward, a man over sixty. He took the goblet, raised it and drank without pausing until it was empty. Then he stood a moment longer, bowed and fell over. Tilly kept his word. Nusch slept three days and three nights and lived another seventeen years.\n\nWhat is true of it? That Tilly took the town and did not destroy it is in the records. That Nusch was former mayor and later owned the goblet, likewise. But nobody wrote of a drink at the time; the story only surfaced in the 18th century, and historians believe the town simply bought its freedom, with money, not wine. The people of Rothenburg are not bothered. In 1881 a master glazier wrote a play from the legend, and since then the citizens have performed it every year at Whitsun in the town hall, in period costume, with a real goblet and, so it is said, real wine. The clock on the market square shows the drink several times a day: a window opens, Nusch raises the goblet, and the tourists applaud, three hundred and ninety years later.",
       "questions": [
         {
@@ -10627,7 +10678,7 @@
       },
       "category": "History",
       "passageTitle": "Die Nacht, in der Dresden Sandsäcke füllte",
-      "passage": "Im August 2002 hatte es über Mitteleuropa tagelang geregnet, so stark wie seit Jahrzehnten nicht. In Sachsen fielen an einem einzigen Tag über 300 Liter pro Quadratmeter. Zuerst traten die kleinen Flüsse aus den Bergen über die Ufer. In Dresden war das die Weißeritz, ein Bach, den die Stadt hundert Jahre zuvor in ein enges Betonbett gezwungen hatte. Am 12. August suchte sich das Wasser sein altes Bett zurück, und das alte Bett führte mitten durch die Stadt: Der Hauptbahnhof wurde überflutet, die Gleise standen zwei Meter unter Wasser, und die Züge wurden umgeleitet.\n\nDann kam die Elbe. Ihr Pegel, der normalerweise bei zwei Metern liegt, stieg jeden Tag um einen Meter. Am 17. August erreichte er 9,40 Meter, den höchsten Stand seit Beginn der Messungen im Jahr 1275. Die Altstadt lag unter Wasser: Der Zwinger, die Semperoper, die Hofkirche. In der Oper stand das Wasser im Zuschauerraum bis zur dritten Reihe. 30.000 Menschen wurden aus ihren Wohnungen evakuiert; die Krankenhäuser wurden geräumt, die Patienten mit Hubschraubern geflogen.\n\nWas in diesen Tagen getan wurde, erzählt Dresden bis heute. Die Gemälde der Galerie Alte Meister, darunter die Sixtinische Madonna, wurden in der Nacht von Mitarbeitern und Soldaten in die oberen Stockwerke getragen; vier Tausend Werke wurden so gerettet. Vor dem Zwinger und am Terrassenufer wurden Mauern aus Sandsäcken gebaut, und wer sie baute, war nicht die Stadt allein: Zehntausende Freiwillige kamen, Studenten, Rentner, Touristen, und füllten in Ketten Säcke, bis die Hände bluteten. Die Frauenkirche, die gerade wieder aufgebaut wurde, blieb trocken, weil ihre Baugrube rechtzeitig geschlossen worden war.\n\nAls das Wasser nach einer Woche abgeflossen war, zeigte sich der Schaden: in Sachsen über sechs Milliarden Euro, in ganz Deutschland elf, einundzwanzig Tote. Danach wurde vieles geändert. Die Weißeritz bekam ihr altes Bett zurück, die Deiche wurden erhöht, Flutmauern gebaut, Warnsysteme eingerichtet. Elf Jahre später, im Juni 2013, stieg die Elbe erneut auf fast neun Meter. Diesmal wurde die Altstadt kaum beschädigt, denn man hatte gelernt. Die Sandsäcke aber füllten die Dresdner wieder, aus Gewohnheit, sagten manche, und aus Dankbarkeit.",
+      "passage": "Im August 2002 hatte es über Mitteleuropa tagelang geregnet, so stark wie seit Jahrzehnten nicht. In Sachsen fielen an einem einzigen Tag über 300 Liter pro Quadratmeter. Zuerst traten die kleinen Flüsse aus den Bergen über die Ufer. In Dresden war das die Weißeritz, ein Bach, den die Stadt hundert Jahre zuvor in ein enges Betonbett gezwungen hatte. Am 12. August suchte sich das Wasser sein altes Bett zurück, und das alte Bett führte mitten durch die Stadt: Der Hauptbahnhof wurde überflutet, die Gleise standen zwei Meter unter Wasser, und die Züge wurden umgeleitet.\n\nDann kam die Elbe. Ihr Pegel, der normalerweise bei zwei Metern liegt, stieg jeden Tag um einen Meter. Am 17. August erreichte er 9,40 Meter, den höchsten Stand seit Beginn der Messungen im Jahr 1275. Die Altstadt lag unter Wasser: Der Zwinger, die Semperoper, die Hofkirche. In der Oper stand das Wasser im Zuschauerraum bis zur dritten Reihe. 30.000 Menschen wurden aus ihren Wohnungen evakuiert; die Krankenhäuser wurden geräumt, die Patienten mit Hubschraubern geflogen.\n\nWas in diesen Tagen getan wurde, erzählt Dresden bis heute. Die Gemälde der Galerie Alte Meister, darunter die Sixtinische Madonna, wurden in der Nacht von Mitarbeitern und Soldaten in die oberen Stockwerke getragen; viertausend Werke wurden so gerettet. Vor dem Zwinger und am Terrassenufer wurden Mauern aus Sandsäcken gebaut, und wer sie baute, war nicht die Stadt allein: Zehntausende Freiwillige kamen, Studenten, Rentner, Touristen, und füllten in Ketten Säcke, bis die Hände bluteten. Die Frauenkirche, die gerade wieder aufgebaut wurde, blieb trocken, weil ihre Baugrube rechtzeitig geschlossen worden war.\n\nAls das Wasser nach einer Woche abgeflossen war, zeigte sich der Schaden: in Sachsen über sechs Milliarden Euro, in ganz Deutschland elf, einundzwanzig Tote. Danach wurde vieles geändert. Die Weißeritz bekam ihr altes Bett zurück, die Deiche wurden erhöht, Flutmauern gebaut, Warnsysteme eingerichtet. Elf Jahre später, im Juni 2013, stieg die Elbe erneut auf fast neun Meter. Diesmal wurde die Altstadt kaum beschädigt, denn man hatte gelernt. Die Sandsäcke aber füllten die Dresdner wieder, aus Gewohnheit, sagten manche, und aus Dankbarkeit.",
       "passageTranslation": "In August 2002 it had rained over Central Europe for days, as heavily as not for decades. In Saxony over 300 litres per square metre fell in a single day. First the small rivers from the mountains overflowed their banks. In Dresden that was the Weißeritz, a stream the city had forced into a narrow concrete bed a hundred years earlier. On 12 August the water sought its old bed back, and the old bed led right through the city: the main station was flooded, the tracks stood two metres under water, and the trains were diverted.\n\nThen came the Elbe. Its level, normally around two metres, rose a metre every day. On 17 August it reached 9.40 metres, the highest since measurements began in 1275. The old town lay under water: the Zwinger, the Semperoper, the Hofkirche. In the opera the water stood in the auditorium up to the third row. 30,000 people were evacuated from their homes; the hospitals were cleared, the patients flown out by helicopter.\n\nWhat was done in those days Dresden tells to this day. The paintings of the Old Masters gallery, among them the Sistine Madonna, were carried to the upper floors during the night by staff and soldiers; four thousand works were saved that way. In front of the Zwinger and on the Terrassenufer walls of sandbags were built, and those who built them were not the city alone: tens of thousands of volunteers came, students, pensioners, tourists, and filled sacks in chains until their hands bled. The Frauenkirche, which was being rebuilt at the time, stayed dry because its construction pit had been closed in time.\n\nWhen the water had drained away after a week, the damage showed: over six billion euros in Saxony, eleven in all of Germany, twenty-one dead. Afterwards much was changed. The Weißeritz got its old bed back, the dykes were raised, flood walls built, warning systems set up. Eleven years later, in June 2013, the Elbe rose again to almost nine metres. This time the old town was hardly damaged, because people had learnt. But the people of Dresden filled sandbags again, out of habit, some said, and out of gratitude.",
       "questions": [
         {
@@ -10711,7 +10762,7 @@
             "Sie wurden nach Berlin gebracht."
           ],
           "correctIndex": 1,
-          "explanation": "„Die Gemälde der Galerie Alte Meister … wurden in der Nacht von Mitarbeitern und Soldaten in die oberen Stockwerke getragen; vier Tausend Werke wurden so gerettet.“",
+          "explanation": "„Die Gemälde der Galerie Alte Meister … wurden in der Nacht von Mitarbeitern und Soldaten in die oberen Stockwerke getragen; viertausend Werke wurden so gerettet.“",
           "questionTranslation": "How were the gallery's paintings saved?",
           "optionsTranslation": [
             "They were flown out by army helicopters to a museum in Berlin and only came back in 2004.",
@@ -11601,7 +11652,7 @@
                 },
                 {
                   "a": "damit",
-                  "b": "Wozu? Man trennt, damit recycelt werden kann."
+                  "b": "Wozu? Man trennt, damit es recycelt werden kann."
                 },
                 {
                   "a": "um … zu",
@@ -12021,7 +12072,7 @@
         "Mara": "female"
       },
       "passageTitle": "Gespräch: Hätte ich doch den früheren Zug genommen!",
-      "passage": "Ben: Mara! Du bist ja ganz außer Atem. Was ist denn passiert?\nMara: Frag nicht. Alles. Eigentlich wollte ich den Zug um sieben nehmen, dann wäre ich um zehn in Hamburg gewesen, eine Stunde vor dem Gespräch. Stattdessen stehe ich jetzt hier.\nBen: Wie spät ist es eigentlich? Halb neun. Also, von Anfang an.\nMara: Mein Wecker hat nicht geklingelt. Oder ich habe ihn nicht gehört, das weiß ich nicht mehr. Ich bin um Viertel vor sieben aufgewacht, und der Zug fuhr um sieben. Hätte ich doch gestern Abend zwei Wecker gestellt!\nBen: Das ist doch nicht so schlimm, es gibt doch jede Stunde einen Zug.\nMara: Wenn der Bus gekommen wäre, ja. Ich bin zur Haltestelle gerannt, und der Bus um sieben Uhr zwanzig ist einfach nicht gekommen. Ausgefallen. Da stand ich zwanzig Minuten im Regen. Wäre ich nur mit dem Fahrrad gefahren!\nBen: Und dann?\nMara: Dann habe ich den Zug um acht genommen, der hat Umstieg in Hannover, sieben Minuten. Der Zug hatte acht Minuten Verspätung. Acht! Ich habe den Anschluss weggefahren sehen. Hätte ich das gewusst, hätte ich mir die Rennerei gespart.\nBen: Das ist ja typisch. Die Bahn hat letztes Jahr nur sechzig Prozent der Fernzüge pünktlich bekommen, und pünktlich heißt bei denen weniger als sechs Minuten zu spät. Das ist doch nicht dein Fehler.\nMara: Der Firma ist das egal, wessen Fehler es ist. Das Gespräch ist um elf.\nBen: Dann ruf doch mal an. Jetzt, sofort. Sag, dass der Zug ausgefallen ist, das verstehen die. Die wissen doch selbst, wie die Bahn ist.\nMara: Meinst du? Eigentlich wollte ich nicht als Erstes mit einer Entschuldigung anfangen.\nBen: Besser eine Entschuldigung um halb neun als ein leerer Stuhl um elf. Welcher Zug fährt denn jetzt?\nMara: Der um acht Uhr vierzig, direkt, ohne Umstieg. Ankunft zehn Uhr fünfundfünfzig.\nBen: Siehst du. Fünf Minuten vor dem Termin. Vom Bahnhof zur Firma sind es zehn Minuten zu Fuß, also bist du zehn Minuten zu spät. Das ruft man vorher an, und dann ist es in Ordnung.\nMara: Du hast recht. Wenn ich das alles gestern gewusst hätte, wäre ich einfach schon gestern gefahren und hätte im Hotel geschlafen.\nBen: Beim nächsten Mal. Und jetzt ruf an, da kommt dein Zug schon. Und Mara: Du schaffst das. Die wollen dich doch, sonst hätten sie dich nicht eingeladen.",
+      "passage": "Ben: Mara! Du bist ja ganz außer Atem. Was ist denn passiert?\nMara: Frag nicht. Alles. Eigentlich wollte ich den Zug um sieben nehmen, dann wäre ich um zehn in Hamburg gewesen, eine Stunde vor dem Gespräch. Stattdessen stehe ich jetzt hier.\nBen: Wie spät ist es eigentlich? Halb neun. Also, von Anfang an.\nMara: Mein Wecker hat nicht geklingelt. Oder ich habe ihn nicht gehört, das weiß ich nicht mehr. Ich bin um Viertel vor sieben aufgewacht, und der Zug fuhr um sieben. Hätte ich doch gestern Abend zwei Wecker gestellt!\nBen: Das ist doch nicht so schlimm, es gibt doch jede Stunde einen Zug.\nMara: Wenn der Bus gekommen wäre, ja. Ich bin zur Haltestelle gerannt, und der Bus um sieben Uhr zwanzig ist einfach nicht gekommen. Ausgefallen. Da stand ich zwanzig Minuten im Regen. Wäre ich nur mit dem Fahrrad gefahren!\nBen: Und dann?\nMara: Dann habe ich den Zug um acht genommen, der hat Umstieg in Hannover, sieben Minuten. Der Zug hatte acht Minuten Verspätung. Acht! Ich habe den Anschluss wegfahren sehen. Hätte ich das gewusst, hätte ich mir die Rennerei gespart.\nBen: Das ist ja typisch. Die Bahn hat letztes Jahr nur sechzig Prozent der Fernzüge pünktlich bekommen, und pünktlich heißt bei denen weniger als sechs Minuten zu spät. Das ist doch nicht dein Fehler.\nMara: Der Firma ist das egal, wessen Fehler es ist. Das Gespräch ist um elf.\nBen: Dann ruf doch mal an. Jetzt, sofort. Sag, dass der Zug ausgefallen ist, das verstehen die. Die wissen doch selbst, wie die Bahn ist.\nMara: Meinst du? Eigentlich wollte ich nicht als Erstes mit einer Entschuldigung anfangen.\nBen: Besser eine Entschuldigung um halb neun als ein leerer Stuhl um elf. Welcher Zug fährt denn jetzt?\nMara: Der um acht Uhr vierzig, direkt, ohne Umstieg. Ankunft zehn Uhr fünfundfünfzig.\nBen: Siehst du. Fünf Minuten vor dem Termin. Vom Bahnhof zur Firma sind es zehn Minuten zu Fuß, also bist du zehn Minuten zu spät. Das ruft man vorher an, und dann ist es in Ordnung.\nMara: Du hast recht. Wenn ich das alles gestern gewusst hätte, wäre ich einfach schon gestern gefahren und hätte im Hotel geschlafen.\nBen: Beim nächsten Mal. Und jetzt ruf an, da kommt dein Zug schon. Und Mara: Du schaffst das. Die wollen dich doch, sonst hätten sie dich nicht eingeladen.",
       "passageTranslation": "Ben: Mara! You are completely out of breath. What happened?\nMara: Don't ask. Everything. Actually I wanted to take the seven o'clock train, then I would have been in Hamburg at ten, an hour before the interview. Instead I am standing here now.\nBen: What time is it actually? Half past eight. So, from the beginning.\nMara: My alarm did not ring. Or I did not hear it, I no longer know. I woke up at a quarter to seven, and the train left at seven. If only I had set two alarms last night!\nBen: That is not so bad, there is a train every hour after all.\nMara: If the bus had come, yes. I ran to the stop, and the 7:20 bus simply did not come. Cancelled. There I stood twenty minutes in the rain. If only I had gone by bike!\nBen: And then?\nMara: Then I took the eight o'clock train, which has a change in Hannover, seven minutes. The train was eight minutes late. Eight! I watched the connection pull away. Had I known that, I would have spared myself the running.\nBen: That is typical. Last year the railway got only sixty per cent of long-distance trains on time, and on time for them means less than six minutes late. That is not your fault.\nMara: The firm does not care whose fault it is. The interview is at eleven.\nBen: Then just call them. Now, immediately. Say the train was cancelled, they understand that. They know themselves what the railway is like.\nMara: You think? Actually I did not want to start with an apology first.\nBen: Better an apology at half past eight than an empty chair at eleven. Which train goes now then?\nMara: The 8:40, direct, no change. Arrival 10:55.\nBen: You see. Five minutes before the appointment. From the station to the firm is ten minutes on foot, so you will be ten minutes late. You call that in beforehand, and then it is fine.\nMara: You are right. If I had known all this yesterday, I would simply have travelled yesterday and slept in a hotel.\nBen: Next time. And now call, your train is coming. And Mara: you can do this. They want you, otherwise they would not have invited you.",
       "questions": [
         {
@@ -12087,7 +12138,7 @@
             "Der Zug fuhr nicht weiter."
           ],
           "correctIndex": 0,
-          "explanation": "„… der hat Umstieg in Hannover, sieben Minuten. Der Zug hatte acht Minuten Verspätung. Acht! Ich habe den Anschluss weggefahren sehen.“",
+          "explanation": "„… der hat Umstieg in Hannover, sieben Minuten. Der Zug hatte acht Minuten Verspätung. Acht! Ich habe den Anschluss wegfahren sehen.“",
           "questionTranslation": "What happened in Hannover?",
           "optionsTranslation": [
             "The train was eight minutes late, and she missed the connection that left after seven minutes.",
@@ -12187,7 +12238,7 @@
         {
           "de": "Anschluss",
           "en": "connection",
-          "example": "Ich habe den Anschluss weggefahren sehen.",
+          "example": "Ich habe den Anschluss wegfahren sehen.",
           "article": "der",
           "plural": "¨-e"
         },

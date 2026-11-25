@@ -11,6 +11,7 @@
 	import { onMount } from 'svelte';
 	import { page } from '$app/state';
 	import { markWhatsNewSeen } from '$lib/state/whatsNew.svelte';
+	import { APP_VERSION, BOOK_EDITION } from '$lib/version';
 
 	// Opening the changelog puts out the "something new" dot in the nav.
 	onMount(markWhatsNewSeen);
@@ -61,6 +62,7 @@
 <main class="page">
 	<a class="back-link" href={returnTo.path}><Icon name="arrowLeft" size="1em" /> {returnLabel(returnTo.path)}</a>
 	<h1>What's new</h1>
+	<p class="version">Version {APP_VERSION} · books: {BOOK_EDITION.label}</p>
 	<p class="lede">
 		Everything that has changed in Language Quiz, newest first. The app keeps
 		improving — check back here to see what's arrived since your last visit.
@@ -79,6 +81,7 @@
 						<li>{item}</li>
 					{/each}
 				</ul>
+				{#if entry.link}<p class="more"><a href={entry.link.href}>{entry.link.label} <Icon name="arrowRight" size="1em" /></a></p>{/if}
 			</li>
 		{/each}
 	</ol>
@@ -87,6 +90,21 @@
 <SiteFooter />
 
 <style>
+	.more {
+		margin: 0.75rem 0 0;
+		font-weight: 700;
+	}
+	.more a {
+		color: var(--accent-ink);
+	}
+	.version {
+		margin: -0.5rem 0 1.25rem;
+		font-size: 0.85rem;
+		font-weight: 700;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+		color: var(--ink-muted);
+	}
 	h1 {
 		margin: 0 0 0.5rem;
 	}

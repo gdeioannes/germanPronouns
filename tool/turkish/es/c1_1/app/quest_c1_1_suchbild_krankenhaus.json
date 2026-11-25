@@ -22,7 +22,6 @@
  "spots[20].en": "bolsa de suero",
  "spots[21].en": "dispensador de desinfectante",
  "spots[22].en": "toalla",
- "spots[23].en": "cubo de pedal",
  "spots[24].en": "mascarilla de oxígeno",
  "spots[25].en": "estetoscopio",
  "spots[26].en": "ramo de flores",
@@ -42,7 +41,6 @@
  "help.tips[1].en.text": "die Wärmflasche es una bolsa de goma, no una botella, pero termina en die Flasche, así que es femenina. das Kopfkissen y das Klemmbrett siguen a das Kissen y das Brett. Fíate de la última palabra, no del aspecto del objeto.",
  "help.tips[1].en.title": "Misma última parte, mismo artículo, aunque parezca raro",
  "help.tips[2].examples[0].en": "bolsa de suero",
- "help.tips[2].examples[1].en": "cubo de pedal",
  "help.tips[2].check.whyEn": "La última parte es der Tisch, así que es der Nachttisch.",
  "help.tips[2].en.text": "Muchos recipientes y soportes de esta habitación son masculinos: der Infusionsbeutel, der Treteimer, der Infusionsständer, der Nachttisch. No te guíes por el español (la bolsa, la mesilla). Imagina a un enfermero, Herr Beutel, que pasa junto a la cama cargando con todos ellos; di cada uno con der a su paso.",
  "help.tips[2].en.title": "Cosas que sostienen algo: der Beutel, der Eimer, der Ständer",
@@ -69,7 +67,6 @@
  "help.vocab[20].en": "bolsa de suero",
  "help.vocab[21].en": "dispensador de desinfectante",
  "help.vocab[22].en": "toalla",
- "help.vocab[23].en": "cubo de pedal",
  "help.vocab[24].en": "mascarilla de oxígeno",
  "help.vocab[25].en": "estetoscopio",
  "help.vocab[26].en": "ramo de flores",
@@ -82,5 +79,8 @@
  "help.introEn": "Una búsqueda en una imagen en lugar de una baraja: una habitación de hospital vacía, como las que ves cuando visitas a alguien en planta, con 32 cosas que encontrar, cada una un sustantivo preciso que rara vez aparece en un libro de texto: der Bettgalgen sobre la cama, die Schnabeltasse en la mesilla, das Röntgenbild en la pared, der Treteimer junto al lavabo. La consigna pregunta Wo ist …? y tú tocas el objeto en la imagen. Cada hallazgo muestra su nombre, coloreado según su género, y luego deja una pequeña marca de ese color, para que veas lo que ya encontraste. Tocar la pared vacía no cuesta nada; tocar el objeto equivocado te dice qué has tocado y sigues buscando, y tras tres fallos se muestra el correcto. Cuando superas una ronda, la búsqueda se vuelve más difícil: la consigna oculta el artículo (Wo ist ___ Schnabeltasse?) y, tras encontrarlo, eliges tú der, die o das. Ningún objeto se pregunta dos veces en la misma ronda.",
  "help.rememberEn[0]": "La última parte de un compuesto fija el artículo: die Flasche → die Sauerstoffflasche, die Wärmflasche.",
  "help.rememberEn[1]": "das Bett, das Kissen, das Brett siguen siendo neutros dentro de los compuestos: das Krankenbett, das Kopfkissen, das Klemmbrett.",
- "help.rememberEn[2]": "Los préstamos suelen tener un género fijo que hay que aprender de memoria: der Paravent, das Stethoskop, das Rollo."
+ "help.rememberEn[2]": "Los préstamos suelen tener un género fijo que hay que aprender de memoria: der Paravent, das Stethoskop, das Rollo.",
+ "spots[23].en": "cubo de basura",
+ "help.tips[2].examples[1].en": "cubo de basura",
+ "help.vocab[23].en": "cubo de basura"
 }

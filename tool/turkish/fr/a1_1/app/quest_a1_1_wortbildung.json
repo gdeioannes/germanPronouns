@@ -51,7 +51,6 @@
  "help.remember[0]": "-in = elle, -innen = elles (toutes des femmes), et les deux sont die.",
  "help.remember[1]": "Dans un mot composé, le dernier mot est le chef : il donne le sens et le genre.",
  "help.context.en": "Beaucoup de femmes travaillent dans mon entreprise : ma cheffe, deux collègues italiennes et une journaliste. À la cantine aujourd'hui, il y a de la soupe de poisson et du gâteau aux pommes. Le gâteau aux pommes est de la cuisinière : délicieux !",
- "help.mistakes[0].why": "Les voyelles brèves a/o prennent souvent un Umlaut à la forme en -in.",
  "help.mistakes[1].why": "Un -e final tombe devant -in.",
  "help.mistakes[2].wrong": "die Apfelkuchen (un seul gâteau)",
  "help.mistakes[2].why": "Le mot composé prend le genre de sa dernière partie, der Kuchen.",
@@ -217,5 +216,6 @@
  "sentences[16].options[0]": "Ärztin",
  "sentences[17].options[0]": "Verkäuferin",
  "sentences[24].options[0]": "Nachbarin",
- "sentences[25].options[0]": "Köchin"
+ "sentences[25].options[0]": "Köchin",
+ "help.mistakes[0].why": "Les voyelles a/o prennent souvent un Umlaut à la forme en -in."
 }

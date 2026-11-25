@@ -48,7 +48,6 @@
  "grammar[0].blocks[0].rows[2][0]": "un inconnu (Sie)",
  "grammar[0].blocks[0].note": "ihr : la forme de ihr sans ihr. Sie : l'infinitif, puis Sie.",
  "grammar[0].blocks[1].blocks[0].title": "du : on enlève du et -st",
- "grammar[0].blocks[1].blocks[0].note": "Un e à la fin, ça va aussi : Warte! Mache!",
  "grammar[0].blocks[1].blocks[0].rows[0].en": "du kommst",
  "grammar[0].blocks[1].blocks[0].rows[1].en": "du nimmst",
  "grammar[0].blocks[1].blocks[0].rows[2].en": "du sprichst",
@@ -195,5 +194,6 @@
  "reading.tasks[0].title": "Richtig oder falsch?",
  "reading.tasks[1].title": "Du oder Sie?",
  "document.tasks[0].title": "Lies die Regeln",
- "document.tasks[1].title": "Mach das! Mach das nicht!"
+ "document.tasks[1].title": "Mach das! Mach das nicht!",
+ "grammar[0].blocks[1].blocks[0].note": "Un e à la fin passe souvent aussi : Mache! — et après -t ou -d, il est nécessaire : Warte! Rede!"
 }

@@ -35,7 +35,6 @@
  "sentences[1].why": "500 Gramm Käse: Gramm sayılardan sonra tekil kalır, arada hiçbir şey yok.",
  "sentences[2].sentence": "Wir brauchen ____ Milch. (bir litre)",
  "sentences[2].english": "Bir litre süte ihtiyacımız var.",
- "sentences[2].why": "ein Liter Milch: ölçü + şey, arada hiçbir şey yok.",
  "sentences[3].sentence": "____ Wasser, bitte. (bir şişe)",
  "sentences[3].english": "Bir şişe su, lütfen.",
  "sentences[3].why": "Eine Flasche Wasser: die Flasche, yani eine; Wasser'den önce hiçbir şey yok.",
@@ -124,5 +123,6 @@
  "sentences[14].options[2]": "Flasche",
  "sentences[15].options[0]": "Packung",
  "sentences[17].options[0]": "Dose",
- "help.tips[2].title": "Fiyatlar"
+ "help.tips[2].title": "Fiyatlar",
+ "sentences[2].why": "einen Liter Milch: ölçü + şey, arada hiçbir şey yok; der Liter, brauchen'den sonra Akkusativ'dedir."
 }

@@ -2915,4 +2915,17 @@ export const UK: Record<string, string> = {
 		"Інші способи",
 	"I thought of you: a free German book with audio, level {level}. No sign-up, nothing to pay.":
 		"Це для тебе: безкоштовна книжка з німецької з аудіо, рівень {level}. Без реєстрації, нічого платити не треба.",
+	// Release banner and edition note (2026-11-25)
+	"News about this release":
+		"Новини про цей випуск",
+	"Content review":
+		"Перевірка вмісту",
+	"The German in the app and in the books has been checked and corrected. If you downloaded a book, download the new edition.":
+		"Німецьку в застосунку та в книжках перевірено й виправлено. Якщо ти вже завантажив книжку, завантаж нове видання.",
+	"What changed":
+		"Що змінилося",
+	"New editions":
+		"Нові видання",
+	"Current edition: {edition} ({date}). The German in every book was reviewed and corrected; if your PDF is older, download it again.":
+		"Поточне видання: {edition} ({date}). Німецьку в кожній книжці перевірено й виправлено; якщо твій PDF старіший, завантаж його ще раз.",
 };

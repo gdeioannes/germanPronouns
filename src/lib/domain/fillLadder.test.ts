@@ -2,7 +2,7 @@
 // sentences it draws on.
 import { describe, expect, it } from 'vitest';
 import type { QuizSentence } from '$lib/content/types';
-import { choicesFor, goldSentence, MIN_HARD_POOL, stepPool } from './fillLadder';
+import { choicesFor, cueParts, goldSentence, MIN_HARD_POOL, stepPool } from './fillLadder';
 import { answerTileIds } from './tiles';
 
 const s = (sentence: string, answer: string, extra: Partial<QuizSentence> = {}): QuizSentence => ({
@@ -82,5 +82,37 @@ describe('word tiles on the choose step', () => {
 			tiles: ['bin', 'weil', 'müde', 'ich', 'habe', 'denn']
 		});
 		expect([...answerTileIds(item)].sort()).toEqual([0, 1, 2, 3]);
+	});
+});
+
+describe('cueParts', () => {
+	// A stand-in dictionary: "be" is in it, as the letter Be is in the real one.
+	const german = new Set(['Er', 'spricht', 'langsam', 'be', 'die', 'hohen', 'Kosten', 'wiederholen', 'sein']);
+	const known = (w: string) => german.has(w);
+	const plain = (run: string) =>
+		cueParts(run, known)
+			.filter((p) => !p.german)
+			.map((p) => p.text)
+			.join('');
+
+	it('keeps an English cue out of word help, even a word the dictionary knows', () => {
+		const parts = cueParts('. (be understood better)', known);
+		expect(parts.map((p) => p.text).join('')).toBe('. (be understood better)');
+		expect(parts.find((p) => p.text.includes('be '))?.german).toBe(false);
+	});
+
+	it('leaves a German cue to word help', () => {
+		expect(cueParts(' (wiederholen)', known).find((p) => p.text === 'wiederholen')?.german).toBe(true);
+	});
+
+	it('splits a mixed cue at its separators', () => {
+		const parts = cueParts(' (despite: die hohen Kosten)', known);
+		expect(parts.find((p) => p.text === 'despite')?.german).toBe(false);
+		expect(parts.find((p) => p.text.includes('Kosten'))?.german).toBe(true);
+		expect(plain(' (sein, now)')).toContain('now');
+	});
+
+	it('leaves a run with no cue whole', () => {
+		expect(cueParts('Er spricht langsam, ', known)).toEqual([{ text: 'Er spricht langsam, ', german: true }]);
 	});
 });

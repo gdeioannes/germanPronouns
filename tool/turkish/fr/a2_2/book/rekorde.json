@@ -45,7 +45,6 @@
  "grammar[0].blocks[0].head[2].text": "le plus",
  "grammar[0].blocks[0].rows[2][2]": "am ält*esten*",
  "grammar[0].blocks[0].rows[3][2]": "am größ*ten*",
- "grammar[0].blocks[0].note": "Après -t, -d, -s, -z : -esten, pour qu'on l'entende.",
  "grammar[0].blocks[1].title": "Mots pour la page d'exercices",
  "grammar[0].blocks[1].items[0].en": "éléphant",
  "grammar[0].blocks[1].items[1].en": "glace",
@@ -202,5 +201,6 @@
  "practise[4].title": "Was passt?",
  "reading.tasks[0].title": "Richtig oder falsch?",
  "reading.tasks[1].title": "Drei Stufen",
- "document.tasks[0].title": "Lies das Gedicht"
+ "document.tasks[0].title": "Lies das Gedicht",
+ "grammar[0].blocks[0].note": "Après -t, -d, -s, -z : -esten, pour qu'on l'entende (mais groß : am größten)."
 }

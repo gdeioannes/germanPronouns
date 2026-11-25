@@ -1,6 +1,5 @@
 {
  "subjectColumnLabel": "بالعربية",
- "help.intro": "الألوان أول الصفات (Adjektiv) التي تصف بها الأشياء، وفي البداية تستعملها في الموضع السهل: بعد الفعل sein، حيث لا تتغير أبدًا: Das Auto ist rot. Die Blume ist gelb. وهذا أسهل من العربية، حيث يتغير اللون مع الجنس والعدد (أحمر، حمراء، حُمر): rot تبقى rot. (قبل الاسم تأخذ الصفة نهاية، ein rotes Auto، لكن هذا يأتي لاحقًا في الدورة؛ الآن يكفي أن تتعرف عليها.) تحتاج إلى أحد عشر لونًا أساسيًا، ثلاثة منها كلمات مستعارة: rosa وlila وorange. هذا الاختبار يعطيك دليلًا ويسألك عن اللون؛ والأدلة تعلّمك بهدوء أسماء مثل Himmel وGras وSonne.",
  "help.tips[0].title": "بعد sein لا تتغير الألوان",
  "help.tips[0].text": "Das Auto ist rot. Die Autos sind rot. Der Himmel ist blau. مهما كان الاسم، يبقى اللون في صيغته الأساسية بعد ist / sind.",
  "help.tips[0].examples[0].en": "الموزة صفراء.",
@@ -49,7 +48,6 @@
  "help.tips[3].visual.rows[0].en": "أزرق فاتح",
  "help.tips[3].visual.rows[1].en": "أخضر غامق",
  "help.remember[0]": "Blut ist rot، Himmel ist blau، Gras ist grün، Sonne ist gelb: الأدلة في هذا الاختبار هي وسيلة التذكّر.",
- "help.remember[1]": "ثلاثة غرباء: rosa، lila، orange.",
  "help.vocab[0].en": "أحمر",
  "help.vocab[1].en": "أزرق",
  "help.vocab[2].en": "أخضر",
@@ -67,7 +65,6 @@
  "help.context.en": "غرفتي ملوّنة: الحائط أصفر، والسجادة زرقاء، والمصباح أحمر. كرسيي أسود. وفستاني المفضل؟ وردي، طبعًا!",
  "help.mistakes[0].why": "بعد sein لا تأخذ الصفة نهاية.",
  "help.mistakes[1].wrong": "ein rosanes Kleid",
- "help.mistakes[1].why": "rosa وlila لا تأخذان نهاية أبدًا.",
  "help.mistakes[2].wrong": "die Farbe ist gelbe",
  "help.mistakes[2].why": "القاعدة نفسها: الصيغة الأساسية بعد ist.",
  "help.hook": "ضع اللون بعد ist ولن يتغير أبدًا، Das Auto ist rot: أسهل صفات ستتعلمها.",
@@ -131,5 +128,8 @@
  "help.tips[2].check.answer": "lila",
  "help.tips[3].check.options[0]": "hellblau",
  "help.tips[3].check.options[1]": "dunkelblau",
- "help.tips[3].check.answer": "hellblau"
+ "help.tips[3].check.answer": "hellblau",
+ "help.intro": "الألوان أول الصفات (Adjektiv) التي تصف بها الأشياء، وفي البداية تستعملها في الموضع السهل: بعد الفعل sein، حيث لا تتغير أبدًا: Das Auto ist rot. Die Blume ist gelb. وهذا أسهل من العربية، حيث يتغير اللون مع الجنس والعدد (أحمر، حمراء، حُمر): rot تبقى rot. (قبل الاسم تأخذ الصفة نهاية، ein rotes Auto، لكن هذا يأتي لاحقًا في الدورة؛ الآن يكفي أن تتعرف عليها.) تحتاج إلى أحد عشر لونًا أساسيًا، اثنان منها كلمات مستعارة لا تأخذ أي نهاية حتى لاحقًا: rosa وlila. هذا الاختبار يعطيك دليلًا ويسألك عن اللون؛ والأدلة تعلّمك بهدوء أسماء مثل Himmel وGras وSonne.",
+ "help.remember[1]": "غريبان لا يتغيران: rosa وlila.",
+ "help.mistakes[1].why": "rosa وlila لا تأخذان نهاية أبدًا."
 }

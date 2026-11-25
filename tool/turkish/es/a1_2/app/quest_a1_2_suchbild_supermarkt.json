@@ -1,5 +1,4 @@
 {
- "sceneAlt": "Una pequeña tienda de barrio vista de frente: a la izquierda, una caja con caja registradora, una cinta transportadora, una tableta de chocolate y una bolsa de papel, y una cesta de la compra en el suelo. Al fondo, una estantería alta con vino, leche, jugo (zumo), huevos, papel higiénico, un pollo asado, salchichas, queso, una sandía, un tomate y un regalo; al lado, una balanza colgante bajo un estante de panadería con un pastel y un cruasán. A la derecha, un congelador horizontal con helado, un filete y un pescado; delante, un puesto de frutas y verduras, un cubo con flores y un carrito de la compra.",
  "spots[0].en": "estantería",
  "spots[1].en": "congelador horizontal",
  "spots[2].en": "cinta transportadora",
@@ -29,11 +28,10 @@
  "spots[26].en": "plátano, banana",
  "spots[27].en": "calabaza",
  "spots[28].en": "tomate",
- "spots[29].en": "sandía",
  "spots[30].en": "pepino",
  "spots[31].en": "lechuga",
  "help.hook": "Una pequeña tienda de barrio llena de comida: encuentra cada producto en la imagen y luego ponle su artículo.",
- "help.intro": "Una búsqueda en una imagen en lugar de un mazo de tarjetas: una pequeña tienda de barrio con 32 objetos que encontrar, todos ellos palabras que necesitas cuando vas de compras: der Einkaufswagen, die Kasse, das Fließband, el queso de la estantería y el pescado del congelador. La pregunta dice Wo ist …? y tú tocas el objeto en la imagen. Tocar una pared o el suelo vacíos no cuesta nada; si tocas un objeto equivocado, te dice qué has tocado y sigues buscando, y después de tres fallos se te muestra el correcto. Cada hallazgo muestra su etiqueta, con el color de su género (azul der, rojo die, verde das), y luego deja una pequeña marca de ese color, para que veas lo que ya has encontrado. Cuando superas una ronda, la búsqueda se vuelve más difícil: la pregunta esconde el artículo (Wo ist ___ Kasse?) y, después de encontrar el objeto, eliges tú der, die o das. Ningún objeto se pregunta dos veces en la misma ronda.",
+ "help.intro": "Una búsqueda en una imagen en lugar de un mazo de tarjetas: una pequeña tienda de barrio con 32 objetos que encontrar, todos ellos palabras que necesitas cuando vas de compras: der Einkaufswagen, die Kasse, das Kassenband, el queso de la estantería y el pescado del congelador. La pregunta dice Wo ist …? y tú tocas el objeto en la imagen. Tocar una pared o el suelo vacíos no cuesta nada; si tocas un objeto equivocado, te dice qué has tocado y sigues buscando, y después de tres fallos se te muestra el correcto. Cada hallazgo muestra su etiqueta, con el color de su género (azul der, rojo die, verde das), y luego deja una pequeña marca de ese color, para que veas lo que ya has encontrado. Cuando superas una ronda, la búsqueda se vuelve más difícil: la pregunta esconde el artículo (Wo ist ___ Kasse?) y, después de encontrar el objeto, eliges tú der, die o das. Ningún objeto se pregunta dos veces en la misma ronda.",
  "help.tips[0].title": "Palabras compuestas en la tienda: decide la última parte",
  "help.tips[0].text": "Las palabras de la tienda suelen ser compuestas, y la última parte decide el artículo. Einkauf + Wagen: der Wagen, así que der Einkaufswagen. Kühl + Truhe: die Truhe, así que die Kühltruhe. Mira el final de la palabra.",
  "help.tips[0].examples[0].en": "cesta de la compra (der Korb)",
@@ -84,7 +82,9 @@
  "help.vocab[26].en": "plátano, banana",
  "help.vocab[27].en": "calabaza",
  "help.vocab[28].en": "tomate",
- "help.vocab[29].en": "sandía",
  "help.vocab[30].en": "pepino",
- "help.vocab[31].en": "lechuga"
+ "help.vocab[31].en": "lechuga",
+ "sceneAlt": "Una pequeña tienda de barrio vista de frente: a la izquierda, una caja con caja registradora, una cinta transportadora, una tableta de chocolate y una bolsa de papel, y una cesta de la compra en el suelo. Al fondo, una estantería alta con vino, leche, jugo (zumo), huevos, papel higiénico, un pollo asado, salchichas, queso, un melón, un tomate y un regalo; al lado, una balanza colgante bajo un estante de panadería con un pastel y un cruasán. A la derecha, un congelador horizontal con helado, un filete y un pescado; delante, un puesto de frutas y verduras, un cubo con flores y un carrito de la compra.",
+ "spots[29].en": "melón",
+ "help.vocab[29].en": "melón"
 }

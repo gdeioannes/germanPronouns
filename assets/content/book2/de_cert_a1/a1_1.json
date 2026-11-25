@@ -535,7 +535,7 @@
 					},
 					{
 						"who": "Lena",
-						"de": "Er ist der Kellner. Du bist der Kunde. Das ist höflich. Wir sagen „du“."
+						"de": "Er ist der Kellner. Du bist die Kundin. Das ist höflich. Wir sagen „du“."
 					}
 				],
 				"en": "Lena: Hi! Is the chair free? · Maya: Yes, please. Hi! · Lena: My name is Lena. And you? · Maya: I'm Maya. I come from Canada. · Lena: From Canada! And you live in Berlin? · Maya: Yes, in Mitte. Three days. My German is … small. · Lena: Your German is good! I come from Austria, from Vienna. I'm a student. · Maya: What do you study? · Lena: Music. And you? Are you a student? · Maya: No, I'm a teacher. English. · Waiter: Good evening. What would you like? · Maya: A coffee, please. – Lena, why does he say “Sie”? · Lena: He is the waiter. You are the customer. That's polite. We say “du”.",
@@ -752,7 +752,7 @@
 								{
 									"kind": "flow",
 									"title": "du or Sie?",
-									"note": "Not sure? Say *Sie* — and wait for “Wir können du sagen”.",
+									"note": "Not sure? Say *Sie* — and wait for “Wir können Du sagen”.",
 									"root": {
 										"q": "A friend, family, a child or another learner?",
 										"yes": {
@@ -3165,7 +3165,7 @@
 					},
 					{
 						"de": "der Verkäufer",
-						"pl": "die Verkäuferin",
+						"pl": "-",
 						"en": "seller",
 						"x": 14,
 						"y": 31,
@@ -6080,7 +6080,7 @@
 					},
 					{
 						"who": "Oma",
-						"de": "Danke. Setz dich. Kaffee? Kuchen? Der Kuchen ist von Peter, mein Sohn."
+						"de": "Danke. Setz dich. Kaffee? Kuchen? Der Kuchen ist von Peter, meinem Sohn."
 					},
 					{
 						"who": "Maya",
@@ -6096,7 +6096,7 @@
 					},
 					{
 						"who": "Lena",
-						"de": "Das ist meine Tante Lisa. Sie hat drei Kinder: Tom, Mia und das Baby. Das Baby heißt Finn, er ist vier Monate."
+						"de": "Das ist meine Tante Lisa. Sie hat drei Kinder: Paul, Emma und das Baby. Das Baby heißt Finn, er ist vier Monate."
 					},
 					{
 						"who": "Maya",
@@ -6119,7 +6119,7 @@
 						"de": "Vierzehn. Für einen Hund ist das hundert."
 					}
 				],
-				"en": "Lena: Grandma, this is Maya, my friend from Canada. · Grandma: Welcome, Maya! I'm Gisela. Today I'm seventy. · Maya: Congratulations! All the best! · Grandma: Thanks. Sit down. Coffee? Cake? The cake is by Peter, my son. · Maya: Lena, who is who? That's so many people. · Lena: So: Peter is my father, Anna is my mother. The man with the baby is my uncle Jan. · Maya: And the woman in red? · Lena: That's my aunt Lisa. She has three children: Tom, Mia and the baby. The baby is called Finn, he's four months. · Maya: Do you have brothers or sisters? · Lena: Yes, a brother. Tom is sixteen. He's eating cake number three right now. · Grandpa: And I'm Heinz, the grandpa. I'm seventy-two and I have a dog. The dog is old too. · Maya: And how old is the dog? · Grandpa: Fourteen. For a dog that's a hundred.",
+				"en": "Lena: Grandma, this is Maya, my friend from Canada. · Grandma: Welcome, Maya! I'm Gisela. Today I'm seventy. · Maya: Congratulations! All the best! · Grandma: Thanks. Sit down. Coffee? Cake? The cake is by Peter, my son. · Maya: Lena, who is who? That's so many people. · Lena: So: Peter is my father, Anna is my mother. The man with the baby is my uncle Jan. · Maya: And the woman in red? · Lena: That's my aunt Lisa. She has three children: Paul, Emma and the baby. The baby is called Finn, he's four months. · Maya: Do you have brothers or sisters? · Lena: Yes, a brother. Tom is sixteen. He's eating cake number three right now. · Grandpa: And I'm Heinz, the grandpa. I'm seventy-two and I have a dog. The dog is old too. · Maya: And how old is the dog? · Grandpa: Fourteen. For a dog that's a hundred.",
 				"fact": "*Kaffee und Kuchen* at four in the afternoon is a German institution. On a round birthday (fifty, sixty, seventy) the whole family comes, and the birthday person bakes for everyone.",
 				"tasks": [
 					{
@@ -8833,7 +8833,7 @@
 									"en": "over the bridge"
 								},
 								{
-									"de": "Das ist fünf Minuten.",
+									"de": "Das sind fünf Minuten.",
 									"en": "It's five minutes."
 								},
 								{
@@ -8987,8 +8987,8 @@
 								"answer": "S 19"
 							},
 							{
-								"before": "Ich steige aus an der Station",
-								"after": ".",
+								"before": "Ich steige an der Station",
+								"after": "aus.",
 								"answer": "Köln/Bonn Flughafen"
 							}
 						]
@@ -10716,7 +10716,7 @@
 					},
 					{
 						"who": "Lena",
-						"de": "Dein Land: kanadisch. Das Wort hat 20 Buchstaben, keine Angst."
+						"de": "Dein Land: kanadisch. Das Wort hat 19 Buchstaben, keine Angst."
 					},
 					{
 						"who": "Beamtin",
@@ -10755,7 +10755,7 @@
 						"de": "Das ist Deutschland: lange warten, dann sehr schnell."
 					}
 				],
-				"en": "Lena: We have number 248. It's 201 now. So: an hour. · Maya: An hour! Fine, then the form. “Familienname”? · Lena: Your surname. And “Vorname” is Maya. · Maya: “Geburtsdatum”: the day, the month, the year. And “Staatsangehörigkeit”? · Lena: Your country: Canadian. The word has 20 letters, don't panic. · Official: Number 248, desk 3, please! · Maya: Hello. I'd like to register. · Official: Passport, please. And the rental contract. What's your name? · Maya: Maya Tremblay. · Official: Spell it, please. · Maya: T-R-E-M-B-L-A-Y. · Official: Thanks. Signature here, please. There. Stamp. Done. Welcome to Berlin! · Maya: That was all? After an hour, two minutes? · Lena: That's Germany: a long wait, then very fast.",
+				"en": "Lena: We have number 248. It's 201 now. So: an hour. · Maya: An hour! Fine, then the form. “Familienname”? · Lena: Your surname. And “Vorname” is Maya. · Maya: “Geburtsdatum”: the day, the month, the year. And “Staatsangehörigkeit”? · Lena: Your country: Canadian. The word has 19 letters, don't panic. · Official: Number 248, desk 3, please! · Maya: Hello. I'd like to register. · Official: Passport, please. And the rental contract. What's your name? · Maya: Maya Tremblay. · Official: Spell it, please. · Maya: T-R-E-M-B-L-A-Y. · Official: Thanks. Signature here, please. There. Stamp. Done. Welcome to Berlin! · Maya: That was all? After an hour, two minutes? · Lena: That's Germany: a long wait, then very fast.",
 				"fact": "*Anmeldung*: within two weeks of moving in, you register your address at the Bürgeramt. The paper you get, the *Meldebescheinigung*, opens every door after it: the bank, the phone contract, the library.",
 				"tasks": [
 					{
@@ -13036,7 +13036,7 @@
 					}
 				],
 				"en": "Maya: Lena, this is not a shop. This is a city. · Lena: This is a Baumarkt. Bau plus Markt. Everything for the house. What do you need? · Maya: A shelf. For books. A Bücherregal! · Lena: Very good! Bücher plus Regal. And for the shelf you need screws and a screwdriver. · Maya: Schrauben-zieher. The thing pulls the screw? · Lena: Exactly. And for the picture on the wall you need a nail and a hammer. · Maya: Excuse me, where do I find screws? · Assistant: Aisle twelve, on the left. Which size? · Maya: Er. For a bookshelf. · Assistant: Then four by forty. The pack costs two ninety. · Maya: Lena, what is that: Handwerkerin? · Lena: A Handwerker is a man who works with his hands. Handwerkerin is the woman. Today you are a Handwerkerin. · Maya: With a screwdriver and two ninety. Germany is easy.",
-				"fact": "Germans build a long word instead of a phrase: *Bücherregal*, not “shelf for books”. The longest in everyday use is probably *Kraftfahrzeughaftpflichtversicherung*, car insurance, and even Germans say *KFZ-Versicherung*.",
+				"fact": "Germans build a long word instead of a phrase: *Bücherregal*, not “shelf for books”. The longest in everyday use is probably *Kraftfahrzeughaftpflichtversicherung*, car insurance, and even Germans say *Kfz-Versicherung*.",
 				"tasks": [
 					{
 						"title": "Was braucht Maya?",

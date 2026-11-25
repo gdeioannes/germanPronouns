@@ -27,7 +27,6 @@
  "spots[25].en": "microscope",
  "spots[26].en": "marteau à réflexes",
  "spots[27].en": "trousse de médecin",
- "spots[28].en": "poubelle à pédale",
  "spots[29].en": "marchepied",
  "spots[30].en": "tabouret à roulettes",
  "spots[31].en": "balance",
@@ -74,7 +73,6 @@
  "help.vocab[25].en": "microscope",
  "help.vocab[26].en": "marteau à réflexes",
  "help.vocab[27].en": "trousse de médecin",
- "help.vocab[28].en": "poubelle à pédale",
  "help.vocab[29].en": "marchepied",
  "help.vocab[30].en": "tabouret à roulettes",
  "help.vocab[31].en": "balance",
@@ -82,5 +80,7 @@
  "help.introEn": "Une chasse à l'image au lieu d'un paquet de cartes : une salle d'examen de médecin avec 32 choses à y trouver, toutes des noms que vous rencontrez chez le médecin : die Untersuchungsliege, das Stethoskop, der Rollstuhl, das Blutdruckmessgerät au mur. La consigne demande Wo ist die Spritze? et vous la touchez sur l'image. Chaque objet trouvé affiche son étiquette, colorée selon son genre, puis laisse une petite coche de cette couleur, pour que vous voyiez ce que vous avez déjà trouvé. Une fois une série réussie, la chasse devient plus difficile : la consigne cache l'article (Wo ist ___ Spritze?), et après avoir trouvé l'objet, vous choisissez vous-même der, die ou das. Toucher un mur vide ne coûte rien ; toucher le mauvais objet vous dit ce que vous avez touché et vous continuez à chercher, et après trois erreurs, le bon objet est montré. Aucun objet n'est demandé deux fois dans la même série.",
  "help.rememberEn[0]": "La dernière partie d'un mot composé fixe l'article : der Medizinschrank, die Untersuchungsliege, das Blutdruckmessgerät.",
  "help.rememberEn[1]": "Les instruments en -skop sont das : das Stethoskop, das Mikroskop.",
- "help.rememberEn[2]": "Les noms en -e sont le plus souvent die : die Spritze, die Krücke, die Waage."
+ "help.rememberEn[2]": "Les noms en -e sont le plus souvent die : die Spritze, die Krücke, die Waage.",
+ "spots[28].en": "poubelle",
+ "help.vocab[28].en": "poubelle"
 }

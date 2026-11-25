@@ -64,7 +64,6 @@
  "reading.lines[10].who": "Maya",
  "reading.lines[12].who": "Maya",
  "reading.en": "Maya : Lena, ce n'est pas un magasin. C'est une ville. · Lena : C'est un Baumarkt. Bau plus Markt. Tout pour la maison. De quoi as-tu besoin ? · Maya : D'une étagère. Pour des livres. Un Bücherregal ! · Lena : Très bien ! Bücher plus Regal. Et pour l'étagère, il te faut des vis et un tournevis. · Maya : Schrauben-zieher. Le truc tire la vis ? · Lena : Exactement. Et pour le tableau au mur, il te faut un clou et un marteau. · Maya : Excusez-moi, où est-ce que je trouve des vis ? · Le vendeur : Allée douze, à gauche. Quelle taille ? · Maya : Euh. Pour une bibliothèque. · Le vendeur : Alors quatre sur quarante. Le paquet coûte deux quatre-vingt-dix. · Maya : Lena, c'est quoi : Handwerkerin ? · Lena : Un Handwerker, c'est un homme qui travaille de ses mains. Handwerkerin, c'est la femme. Aujourd'hui, tu es une Handwerkerin. · Maya : Avec un tournevis et deux quatre-vingt-dix. L'Allemagne, c'est facile.",
- "reading.fact": "Les Allemands construisent un mot long au lieu d'une expression : *Bücherregal*, pas «  étagère pour livres  ». Le plus long d'usage courant est sans doute *Kraftfahrzeughaftpflichtversicherung*, l'assurance auto, et même les Allemands disent *KFZ-Versicherung*.",
  "reading.tasks[0].instruction": "Entourez ce que dit le texte.",
  "reading.tasks[0].items[0].options[0]": "Schrauben",
  "reading.tasks[0].items[0].options[1]": "Nägel",
@@ -200,5 +199,6 @@
  "reading.tasks[1].title": "Zwei Wörter, ein Wort",
  "document.tasks[1].title": "Lange Wörter",
  "document.tasks[2].title": "Dein Haus",
- "practise[2].title": "Quel article ?"
+ "practise[2].title": "Quel article ?",
+ "reading.fact": "Les Allemands construisent un mot long au lieu d'une expression : *Bücherregal*, pas «  étagère pour livres  ». Le plus long d'usage courant est sans doute *Kraftfahrzeughaftpflichtversicherung*, l'assurance auto, et même les Allemands disent *Kfz-Versicherung*."
 }

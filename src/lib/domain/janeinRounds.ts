@@ -283,7 +283,7 @@ export function resultStats(result: RoundResult, lang: 'de' | 'en' = 'en'): Resu
 	const nein = result.nein;
 	let style: string;
 	if (nein === 0) style = de ? 'Du hast zu allem Ja gesagt. Das Leben sagt danke.' : 'You said Ja to everything. Life says thank you.';
-	else if (ja === 0) style = de ? `Nein, ${nein} Mal von ${nein}. Respekt.` : `Nein, ${nein} times out of ${nein}. Respect.`;
+	else if (ja === 0) style = de ? `Nein, ${nein} von ${nein} Mal. Respekt.` : `Nein, ${nein} times out of ${nein}. Respect.`;
 	else if (jaShare >= 0.75)
 		style = de ? `${ja} Ja, ${nein} Nein: Du sagst lieber Ja und bereust es später.` : `${ja} Ja, ${nein} Nein: you lean towards yes and regret it later.`;
 	else if (jaShare <= 0.25)

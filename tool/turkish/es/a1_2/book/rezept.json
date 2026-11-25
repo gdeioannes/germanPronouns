@@ -48,7 +48,6 @@
  "grammar[0].blocks[0].rows[2][0]": "un desconocido (Sie)",
  "grammar[0].blocks[0].note": "ihr: la forma de ihr sin ihr. Sie: el infinitivo y luego Sie (como «venga usted»).",
  "grammar[0].blocks[1].blocks[0].title": "du: quita du y -st",
- "grammar[0].blocks[1].blocks[0].note": "Una e al final también vale: Warte! Mache!",
  "grammar[0].blocks[1].blocks[0].rows[0].en": "du kommst",
  "grammar[0].blocks[1].blocks[0].rows[1].en": "du nimmst",
  "grammar[0].blocks[1].blocks[0].rows[2].en": "du sprichst",
@@ -195,5 +194,6 @@
  "reading.tasks[0].title": "Richtig oder falsch?",
  "reading.tasks[1].title": "Du oder Sie?",
  "document.tasks[0].title": "Lies die Regeln",
- "document.tasks[1].title": "Mach das! Mach das nicht!"
+ "document.tasks[1].title": "Mach das! Mach das nicht!",
+ "grammar[0].blocks[1].blocks[0].note": "Una e al final a menudo también vale: Mache! — y después de -t o -d hace falta: Warte! Rede!"
 }

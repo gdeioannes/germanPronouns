@@ -45,7 +45,6 @@
  "grammar[0].blocks[0].head[2].text": "lo más",
  "grammar[0].blocks[0].rows[2][2]": "am ält*esten*",
  "grammar[0].blocks[0].rows[3][2]": "am größ*ten*",
- "grammar[0].blocks[0].note": "Después de -t, -d, -s, -z: -esten, para que se oiga.",
  "grammar[0].blocks[1].title": "Palabras para la página de práctica",
  "grammar[0].blocks[1].items[0].en": "elefante",
  "grammar[0].blocks[1].items[1].en": "helado",
@@ -202,5 +201,6 @@
  "practise[4].title": "Was passt?",
  "reading.tasks[0].title": "Richtig oder falsch?",
  "reading.tasks[1].title": "Drei Stufen",
- "document.tasks[0].title": "Lies das Gedicht"
+ "document.tasks[0].title": "Lies das Gedicht",
+ "grammar[0].blocks[0].note": "Después de -t, -d, -s, -z: -esten, para que se oiga (pero groß: am größten)."
 }

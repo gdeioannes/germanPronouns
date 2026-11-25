@@ -1,5 +1,4 @@
 {
- "help.intro": "Un texte d'environ 200 mots sur les records de la météo allemande : le jour le plus chaud jamais mesuré (41,2 degrés, en 2019), l'endroit le plus froid (un petit lac des Alpes où l'on a atteint moins 45,9), la ville la plus ensoleillée, la région la plus pluvieuse et la montagne où la neige reste sept mois par an. Il explique aussi pourquoi les Allemands parlent tant de la météo et ce que veut dire Aprilwetter. Tous les faits sont réels et ont été vérifiés. Vous lisez ce que vous venez d'apprendre : les mots de la météo (es regnet, es schneit, die Sonne scheint, bewölkt, der Grad) et le comparatif (heißer als, kälter als, am wärmsten, mehr als, so viel wie). Lisez d'abord pour le sens général, puis cherchez un nombre ou un lieu par question.",
  "help.tips[0].title": "Comparer : -er als, am -sten",
  "help.tips[0].text": "Comparatif : adjectif + -er + als (« plus … que ») : Freiburg ist wärmer als Hamburg. Les adjectifs courts en a, o, u prennent un Umlaut : warm → wärmer, kalt → kälter, groß → größer, jung → jünger. Irréguliers : gut → besser, viel → mehr, gern → lieber, hoch → höher. Superlatif : am + -sten : am wärmsten, am kältesten, am meisten, am höchsten. Égalité : so warm wie, genauso viel wie (« aussi … que »).",
  "help.tips[0].examples[0].en": "Dans le sud, il fait plus chaud que dans le nord, mais au bord de la mer, il pleut moins que dans les Alpes.",
@@ -15,7 +14,6 @@
  "help.remember[0]": "wärmer als, kälter als, am wärmsten, am meisten ; so warm wie.",
  "help.remember[1]": "Es regnet, es schneit, die Sonne scheint, bewölkt, neblig ; 20 Grad, minus 5 Grad.",
  "help.exam": "De courts textes informatifs sur la météo et le climat, avec des nombres et des comparaisons, sont une tâche de lecture typique de ce niveau.",
- "help.hook": "41,2 degrés dans le nord, moins 45,9 dans un lac de montagne, de la neige pendant sept mois : découvrez les records météo de l'Allemagne et pourquoi tout le monde ici parle du temps.",
  "help.vocab[0].en": "temps (météo)",
  "help.vocab[1].en": "climat",
  "help.vocab[1].example": "Das Klima ist mild.",
@@ -70,7 +68,7 @@
  "questions[5].optionsTranslation[2]": "les Alpes, parce qu'elles sont si hautes",
  "questions[5].optionsTranslation[3]": "Munich",
  "questions[6].options[3]": "Hamburg ist die sonnigste Stadt.",
- "questions[6].explanation": "\"Hamburg hat schlechten Ruf, aber dort regnet es weniger als in München, nur öfter.\"",
+ "questions[6].explanation": "\"Hamburg hat einen schlechten Ruf, aber dort regnet es weniger als in München, nur öfter.\"",
  "questions[6].questionTranslation": "Qu'est-ce qui est correct à propos de Hambourg ?",
  "questions[6].optionsTranslation[0]": "À Hambourg, il pleut plus qu'à Munich et aussi plus souvent que dans les Alpes.",
  "questions[6].optionsTranslation[1]": "À Hambourg, il pleut moins qu'à Munich, mais plus souvent.",
@@ -96,5 +94,7 @@
  "questions[6].options[0]": "In Hamburg regnet es mehr als in München und auch öfter als in den Alpen.",
  "questions[6].options[1]": "In Hamburg regnet es weniger als in München, aber öfter.",
  "questions[6].options[2]": "In Hamburg regnet es nie.",
- "help.tips[1].title": "Les mots de la météo"
+ "help.tips[1].title": "Les mots de la météo",
+ "help.intro": "Un texte d'environ 200 mots sur les records de la météo allemande : le jour le plus chaud jamais mesuré (41,2 degrés, en 2019), l'endroit le plus froid (un petit lac des Alpes où l'on a atteint moins 45,9), l'endroit le plus ensoleillé, la région la plus pluvieuse et la montagne où la neige reste sept mois par an. Il explique aussi pourquoi les Allemands parlent tant de la météo et ce que veut dire Aprilwetter. Tous les faits sont réels et ont été vérifiés. Vous lisez ce que vous venez d'apprendre : les mots de la météo (es regnet, es schneit, die Sonne scheint, bewölkt, der Grad) et le comparatif (heißer als, kälter als, am wärmsten, mehr als, so viel wie). Lisez d'abord pour le sens général, puis cherchez un nombre ou un lieu par question.",
+ "help.hook": "41,2 degrés dans l'ouest, moins 45,9 dans un lac de montagne, de la neige pendant sept mois : découvrez les records météo de l'Allemagne et pourquoi tout le monde ici parle du temps."
 }

@@ -7,7 +7,6 @@
  "help.tips[0].check.q": "'Der Käse kostet vier Euro, die Milch kostet zwei Euro.' بكم الجبن؟",
  "help.tips[0].check.why": "السعر يتبع منتجه: Käse … vier Euro، ثم Milch … zwei Euro.",
  "help.tips[1].title": "اليورو أولًا، والسنتات ثانيًا، دون كلمة للفاصلة",
- "help.tips[1].text": "2,20 € = zwei Euro zwanzig. 1,10 € = ein Euro zehn (ein، لا eins، قبل Euro؛ وتُسمع أيضًا 'einen Euro zehn' بعد kostet، والاثنتان صحيحتان). اليورو الكامل: zwei Euro، دون 's' في Euro.",
  "help.tips[1].examples[0].en": "الرغيف بـ 2,10 €.",
  "help.tips[1].examples[1].en": "البطاطا بـ 1,10 €.",
  "help.tips[1].check.q": "كيف تقول 3,50 €؟",
@@ -56,9 +55,10 @@
  "questions[4].optionsTranslation[0]": "غالٍ",
  "questions[4].optionsTranslation[1]": "رخيص",
  "questions[4].optionsTranslation[2]": "قديم",
- "questions[5].explanation": "\"Die Kartoffeln kosten ein Euro zehn.\"",
+ "questions[5].explanation": "\"Die Kartoffeln kosten einen Euro zehn.\"",
  "questions[5].questionTranslation": "بكم البطاطا؟",
  "questions[5].optionsTranslation[0]": "يورو وعشرة",
  "questions[5].optionsTranslation[1]": "يوروان وعشرة",
- "questions[5].optionsTranslation[2]": "أربعة يورو"
+ "questions[5].optionsTranslation[2]": "أربعة يورو",
+ "help.tips[1].text": "2,20 € = zwei Euro zwanzig. 1,10 € = ein Euro zehn (ein، لا eins، قبل Euro؛ وبعد kostet يُقال 'einen Euro zehn'، مع أن 'ein Euro zehn' تُسمع هناك كثيرًا أيضًا). اليورو الكامل: zwei Euro، دون 's' في Euro."
 }

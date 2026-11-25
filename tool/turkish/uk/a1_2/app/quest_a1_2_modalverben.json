@@ -73,7 +73,6 @@
  "sentences[3].options[0]": "musse",
  "sentences[3].why": "ich muss: в однині умлаут зникає: muss, а не müss.",
  "sentences[4].english": "Вам завтра рано вставати?",
- "sentences[4].why": "ihr бере -t: müsst; ihr зберігає умлаут.",
  "sentences[5].english": "Том хворий. Йому треба до лікаря.",
  "sentences[5].why": "er/sie/es у модальних збігається з ich: er muss, без -t.",
  "sentences[6].english": "На вихідних ми хочемо поїхати до Берліна.",
@@ -138,5 +137,6 @@
  "sentences[16].options[0]": "soll",
  "sentences[16].options[2]": "sollst",
  "sentences[17].options[0]": "soll",
- "sentences[17].options[2]": "sollen"
+ "sentences[17].options[2]": "sollen",
+ "sentences[4].why": "ihr бере -t до основи інфінітива: müsst; ihr зберігає умлаут."
 }

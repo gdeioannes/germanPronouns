@@ -1,7 +1,6 @@
 {
  "help.intro": "Короткий текст приблизно на 130 слів про найдивніший ринок Німеччини: гамбурзький рибний ринок, який відкривається щонеділі о п’ятій ранку, робить це з 1703 року і де продавці вигукують ціни й кидають банани та вугрів у пакети. Факти справжні й перевірені. Тобі знадобиться щойно вивчене: форми множини назв їжі (Fische, Bananen, Äpfel, Blumen), артиклі в називному відмінку, числа й ціни (zehn Euro, fünf Uhr) і питальні слова Wann? (коли), Was? (що), Wer? (хто). Спершу прочитай заради загального змісту, потім відповідай на кожне запитання за одним реченням тексту.",
  "help.tips[0].title": "Множина на ринку",
- "help.tips[0].text": "der Fisch → die Fische, der Apfel → die Äpfel, die Banane → die Bananen, die Blume → die Blumen, der Aal → die Aale, die Tüte → die Tüten, der Euro → після числа лишається Euro (zehn Euro), die Uhr → fünf Uhr (час, без множини). Багато іменників жіночого роду беруть -n або -en; багато іменників чоловічого роду беруть -e, іноді з умлаутом (Äpfel).",
  "help.tips[0].examples[0].en": "Десять бананів, п’ять яблук і три рибини в одному пакеті.",
  "help.tips[0].examples[1].en": "Пакет коштує лише десять євро!",
  "help.tips[0].check.q": "Яка множина від der Apfel?",
@@ -30,7 +29,7 @@
  "questions[0].optionsTranslation[1]": "щонеділі з п’ятої до пів на десяту",
  "questions[0].optionsTranslation[2]": "щосуботи ввечері з п’ятої до пів на десяту",
  "questions[0].optionsTranslation[3]": "лише взимку",
- "questions[1].explanation": "\"Den Fischmarkt gibt es seit 1703. Das ist über dreihundert Jahre!\"",
+ "questions[1].explanation": "\"Den Fischmarkt gibt es seit 1703. Das sind über dreihundert Jahre!\"",
  "questions[1].questionTranslation": "З якого часу існує рибний ринок?",
  "questions[1].optionsTranslation[0]": "з 1703 року",
  "questions[1].optionsTranslation[1]": "з 1930 року",
@@ -76,5 +75,6 @@
  "questions[5].options[0]": "ein Fisch",
  "questions[5].options[2]": "ein Hafen in Hamburg",
  "questions[5].options[3]": "ein Café am Markt",
- "help.tips[1].title": "Wann? Um wie viel Uhr?"
+ "help.tips[1].title": "Wann? Um wie viel Uhr?",
+ "help.tips[0].text": "der Fisch → die Fische, der Apfel → die Äpfel, die Banane → die Bananen, die Blume → die Blumen, der Aal → die Aale, die Tüte → die Tüten, der Euro → після числа лишається Euro (zehn Euro), die Uhr → fünf Uhr (час, без множини). Багато іменників жіночого роду беруть -n або -en; багато іменників чоловічого роду беруть -e, а деякі змінюють лише голосну (Äpfel)."
 }

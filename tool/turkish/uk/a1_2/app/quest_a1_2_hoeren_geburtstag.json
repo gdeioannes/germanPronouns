@@ -1,6 +1,5 @@
 {
  "help.intro": "Телефонна розмова приблизно на півтори хвилини: Elif запрошує свого друга Ben на день народження, і вони домовляються, коли, де, який подарунок і хто кого забирає. Дорогою ти дізнаєшся два німецькі правила дня народження, які дивують іноземців: ніколи не вітають заздалегідь, і пиріг на роботу приносить іменинник, а не колеги. Сценка вигадана; звичаї справжні. Ти чуєш щойно вивчене: займенники в Akkusativ (Ich lade dich ein. Holst du mich ab? Ich kenne sie nicht) і дієслова з відокремлюваним префіксом у реченні (einladen, abholen, mitbringen, anrufen, anfangen: Ich hole dich um sieben ab). Послухай раз усю розмову, потім раз заради часу й доручень.",
- "help.tips[0].text": "Займенники в Akkusativ є додатком до дієслова: Ich lade dich ein (я тебе запрошую). Holst du mich ab? (ти мене забереш?). Ich kenne ihn nicht (я його не знаю). Wir sehen euch am Samstag (побачимо вас). Kennst du sie? (її / їх). Форму змінюють лише ich → mich, du → dich, er → ihn; sie, es, uns, euch, Sie лишаються такими самими.",
  "help.tips[0].examples[0].en": "Я запрошую тебе на свою вечірку. Можеш забрати мене о сьомій?",
  "help.tips[0].examples[1].en": "Ти знаєш Йонаса? Ні, його я не знаю. Але знаю її, його сестру.",
  "help.tips[0].check.q": "Ich rufe ____ morgen an. (du)",
@@ -12,7 +11,6 @@
  "help.tips[1].check.q": "Wann ____ die Party ____? (anfangen)",
  "help.tips[1].check.options[2]": "fangt … an",
  "help.tips[1].check.why": "anfangen має відокремлюваний префікс і зміну голосного: die Party fängt … an.",
- "help.remember[0]": "Ich lade dich ein, du holst mich ab, ich kenne ihn nicht: mich, dich, ihn змінюються; sie, uns, euch лишаються.",
  "help.remember[1]": "Дієслова з префіксом: префікс у кінці (Ich hole dich ab), разом після модального (Kannst du mich abholen?).",
  "help.exam": "Короткі телефонні розмови із запрошеннями, часом і домовленостями є типовим завданням на слухання на цьому рівні.",
  "help.hook": "Запрошення на день народження, правило про пиріг, про яке тобі ніхто не казав, і запитання, хто кого забирає о пів на сьому. Послухай.",
@@ -85,5 +83,7 @@
  "questions[1].options[1]": "In Deutschland gratuliert man nicht vor dem Geburtstag.",
  "questions[2].options[1]": "Dativ-Pronomen dir und ein Modalverb am Satzende",
  "questions[2].options[2]": "Imperativ und Plural",
- "help.tips[0].title": "mich, dich, ihn, sie, uns, euch"
+ "help.tips[0].title": "mich, dich, ihn, sie, uns, euch",
+ "help.tips[0].text": "Займенники в Akkusativ є додатком до дієслова: Ich lade dich ein (я тебе запрошую). Holst du mich ab? (ти мене забереш?). Ich kenne ihn nicht (я його не знаю). Wir sehen euch am Samstag (побачимо вас). Kennst du sie? (її / їх). Форму змінюють ich → mich, du → dich, er → ihn, wir → uns, ihr → euch; sie, es і Sie лишаються такими самими.",
+ "help.remember[0]": "Ich lade dich ein, du holst mich ab, ich kenne ihn nicht: mich, dich, ihn, uns, euch змінюються; sie, es, Sie лишаються."
 }

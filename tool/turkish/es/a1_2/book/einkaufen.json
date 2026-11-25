@@ -99,7 +99,6 @@
  "grammar[1].blocks[1].rows[0][2]": "No tengo perro.",
  "grammar[1].blocks[1].rows[1][2]": "Él no tiene tiempo.",
  "grammar[1].blocks[1].rows[2][2]": "Ella no está cansada.",
- "grammar[1].blocks[1].note": "*ein* pasa a *kein*; todo lo demás lleva *nicht*.",
  "grammar[1].blocks[2].blocks[0].title": "kein es k + ein",
  "grammar[1].blocks[2].blocks[0].rows[0].en": "der, das",
  "grammar[1].blocks[2].blocks[0].rows[1].en": "die, plural",
@@ -197,5 +196,6 @@
  "reading.tasks[0].title": "Richtig oder falsch?",
  "reading.tasks[1].title": "Was kauft Maya?",
  "document.tasks[0].title": "Lies den Bon",
- "document.tasks[1].title": "Richtig oder falsch?"
+ "document.tasks[1].title": "Richtig oder falsch?",
+ "grammar[1].blocks[1].note": "*ein* o la ausencia de artículo pasa a *kein*; todo lo demás lleva *nicht*."
 }

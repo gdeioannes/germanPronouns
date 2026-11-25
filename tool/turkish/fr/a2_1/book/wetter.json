@@ -46,7 +46,6 @@
  "grammar[0].blocks[1].head[0].text": "es + verbe",
  "grammar[0].blocks[1].head[1].text": "es ist + adjectif",
  "grammar[0].blocks[1].rows[3][1]": "es ist *neblig* · kalt · warm · heiß",
- "grammar[0].blocks[1].note": "La météo commence toujours par es, comme « il » dans « il pleut ». Mais « il fait froid » se dit es ist kalt.",
  "grammar[0].fact": "La mer des Wadden est inscrite au patrimoine mondial de l'UNESCO : c'est la plus grande étendue continue de vasières au monde. Deux fois par jour, le fond de la mer devient une route. Chaque année, des guides emmènent des milliers de marcheurs vers des îles comme Neuwerk ou Föhr.",
  "grammar[0].check.title": "Mini-Check",
  "grammar[0].check.instruction": "Entourez le bon mot.",
@@ -159,5 +158,6 @@
  "reading.tasks[0].title": "Richtig oder falsch?",
  "reading.tasks[1].title": "Wie ist das Wetter?",
  "document.tasks[0].title": "Lies das Schild",
- "document.tasks[1].title": "Das Wetter heute"
+ "document.tasks[1].title": "Das Wetter heute",
+ "grammar[0].blocks[1].note": "La météo commence en général par es, comme « il » dans « il pleut ». Mais « il fait froid » se dit es ist kalt."
 }

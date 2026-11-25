@@ -64,7 +64,6 @@
  "reading.lines[10].who": "Maya",
  "reading.lines[12].who": "Maya",
  "reading.en": "Maya: Lena, esto no es una tienda. Es una ciudad. · Lena: Es un Baumarkt. Bau más Markt. Todo para la casa. ¿Qué necesitas? · Maya: Una estantería. Para libros. ¡Un Bücherregal! · Lena: ¡Muy bien! Bücher más Regal. Y para la estantería necesitas tornillos y un destornillador. · Maya: Schrauben-zieher. ¿El aparato tira del tornillo? · Lena: Exacto. Y para el cuadro de la pared necesitas un clavo y un martillo. · Maya: Disculpe, ¿dónde encuentro tornillos? · Dependiente: Pasillo doce, a la izquierda. ¿De qué tamaño? · Maya: Eh… Para una estantería de libros. · Dependiente: Entonces de cuatro por cuarenta. El paquete cuesta dos noventa. · Maya: Lena, ¿qué es eso: Handwerkerin? · Lena: Un Handwerker es un hombre que trabaja con las manos. Handwerkerin es la mujer. Hoy tú eres una Handwerkerin. · Maya: Con un destornillador y dos noventa. Alemania es fácil.",
- "reading.fact": "En alemán se forma una palabra larga en lugar de una frase: *Bücherregal*, no «estantería para libros». La más larga de uso diario es probablemente *Kraftfahrzeughaftpflichtversicherung*, el seguro del auto, y hasta los alemanes dicen *KFZ-Versicherung*.",
  "reading.tasks[0].instruction": "Rodea con un círculo lo que dice el texto.",
  "reading.tasks[0].items[0].options[0]": "Schrauben",
  "reading.tasks[0].items[0].options[1]": "Nägel",
@@ -200,5 +199,6 @@
  "reading.tasks[1].title": "Zwei Wörter, ein Wort",
  "document.tasks[1].title": "Lange Wörter",
  "document.tasks[2].title": "Dein Haus",
- "practise[2].title": "¿Qué artículo?"
+ "practise[2].title": "¿Qué artículo?",
+ "reading.fact": "En alemán se forma una palabra larga en lugar de una frase: *Bücherregal*, no «estantería para libros». La más larga de uso diario es probablemente *Kraftfahrzeughaftpflichtversicherung*, el seguro del auto, y hasta los alemanes dicen *Kfz-Versicherung*."
 }

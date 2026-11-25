@@ -1086,7 +1086,7 @@
         {
           "kind": "rule",
           "title": "Verbs that are always reflexive",
-          "text": "sich freuen (auf/über), sich interessieren (für), sich erinnern (an), sich beeilen, sich ausruhen, sich erkälten, sich verabreden. They do not exist without the pronoun.",
+          "text": "sich freuen (auf/über), sich interessieren (für), sich erinnern (an), sich beeilen, sich ausruhen, sich erkälten, sich verabreden. In these meanings they always come with the pronoun.",
           "examples": [
             {
               "de": "Ich interessiere mich für Fußball und erinnere mich an jedes Spiel.",
@@ -3827,7 +3827,7 @@
     ],
     "title": "Imperativ",
     "help": {
-      "intro": "You met the three imperatives earlier in the course; here they are consolidated with the forms that catch people out. du: stem only, no pronoun (Komm! Mach!), stems in -t/-d take -e (Warte! Öffne!), e → i verbs keep the change (Nimm! Gib! Iss! Lies! Sprich! Hilf!), a → ä verbs do not (Fahr! Schlaf! Lauf!). ihr: the present ihr-form without ihr (Kommt! Lauft! Seid!). Sie: infinitive + Sie (Warten Sie! Bringen Sie!), with sein irregular (Seien Sie!). And the two odd verbs: sein → Sei! Seid! Seien Sie!; haben → Hab! Habt! Haben Sie! The imperative is also how German gives advice softly with bitte, doch or mal: Komm doch mal vorbei.",
+      "intro": "You met the three imperatives earlier in the course; here they are consolidated with the forms that catch people out. du: stem only, no pronoun (Komm! Mach!), stems in -t/-d or in consonant + n/m take -e (Warte! Öffne!), e → i verbs keep the change (Nimm! Gib! Iss! Lies! Sprich! Hilf!), a → ä verbs do not (Fahr! Schlaf! Lauf!). ihr: the present ihr-form without ihr (Kommt! Lauft! Seid!). Sie: infinitive + Sie (Warten Sie! Bringen Sie!), with sein irregular (Seien Sie!). And the two odd verbs: sein → Sei! Seid! Seien Sie!; haben → Hab! Habt! Haben Sie! The imperative is also how German gives advice softly with bitte, doch or mal: Komm doch mal vorbei.",
       "tips": [
         {
           "kind": "rule",
@@ -6121,14 +6121,14 @@
         "-ung is always die; -los = without; -bar = can be done; un- = not."
       ],
       "context": {
-        "de": "Die Wohnung ist kostenlos zu besichtigen – die Anmeldung geht per E-Mail. Der Vermieter ist ein freundlicher Lehrer, telefonisch immer erreichbar. Meine Erfahrung: unfreundliche Vermieter gibt es genug, dieser ist eine Ausnahme. Und der Blick vom Balkon: wolkenlos!",
+        "de": "Die Wohnung ist kostenlos zu besichtigen – die Anmeldung geht per E-Mail. Der Vermieter ist ein freundlicher Lehrer, telefonisch immer erreichbar. Meine Erfahrung: Unfreundliche Vermieter gibt es genug, dieser ist eine Ausnahme. Und der Blick vom Balkon: wolkenlos!",
         "en": "The flat can be viewed free of charge – registration is by e-mail. The landlord is a friendly teacher, always reachable by phone. My experience: there are enough unfriendly landlords, this one is an exception. And the view from the balcony: cloudless!",
         "focus": [
           "Wohnung",
           "kostenlos",
           "Anmeldung",
           "erreichbar",
-          "unfreundliche",
+          "Unfreundliche",
           "wolkenlos"
         ]
       },
@@ -6824,7 +6824,7 @@
           "text": "Lieber Tom / Liebe Anna (dear, informal) · Sehr geehrte Frau Weber (formal) · … · Viele Grüße / Liebe Grüße / Bis bald (informal) · Mit freundlichen Grüßen (formal). The frame is the first thing a reader notices.",
           "examples": [
             {
-              "de": "Lieber Tom, … Viele Grüße, Marie",
+              "de": "Lieber Tom, … Viele Grüße – Marie",
               "en": "Dear Tom, … Best wishes, Marie",
               "focus": [
                 "Lieber",
@@ -7652,7 +7652,7 @@
           "trap": "Liebe/Lieber agrees with the person: Liebe Anna (f), Lieber Tom (m). And 'Mit freundlichen Grüßen' ends with -n: Grüßen, dative after mit.",
           "examples": [
             {
-              "de": "Liebe Anna, … Liebe Grüße, Marie",
+              "de": "Liebe Anna, … Liebe Grüße – Marie",
               "en": "Dear Anna, … Best wishes, Marie",
               "focus": [
                 "Liebe",
@@ -7660,7 +7660,7 @@
               ]
             },
             {
-              "de": "Sehr geehrte Frau Weber, … Mit freundlichen Grüßen, Elena Petrova",
+              "de": "Sehr geehrte Frau Weber, … Mit freundlichen Grüßen – Elena Petrova",
               "en": "Dear Mrs Weber, … Yours sincerely, Elena Petrova",
               "focus": [
                 "geehrte",
@@ -7669,7 +7669,7 @@
             }
           ],
           "check": {
-            "q": "____ Herr Braun, … Mit freundlichen Grüßen, Anna Novak",
+            "q": "____ Herr Braun, … Mit freundlichen Grüßen – Anna Novak",
             "options": [
               "Sehr geehrter",
               "Sehr geehrte",
@@ -7772,7 +7772,7 @@
           "text": "Ich freue mich auf deine Antwort / auf Ihre Antwort. Schreib mir bald zurück! Bis bald! Viele Grüße an deine Familie. Then the farewell and the name.",
           "examples": [
             {
-              "de": "Ich freue mich auf deine Antwort. Liebe Grüße, Jan",
+              "de": "Ich freue mich auf deine Antwort. Liebe Grüße – Jan",
               "en": "I look forward to your reply. Best wishes, Jan",
               "focus": [
                 "freue",
@@ -8270,7 +8270,7 @@
     ],
     "title": "Wortschatz",
     "help": {
-      "intro": "Every word this module's exercises use, on one deck of flashcards: 403 cards, 180 of them nouns. The vocabulary of this module is the words for your home and its furniture, the body and health, clothes and shopping, and describing people, from the themes Wohnen & Einrichtung, Körper & Gesundheit; beim Arzt, Kleidung & Einkaufen, Menschen beschreiben. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
+      "intro": "Every word this module's exercises use, on one deck of flashcards: 393 cards, 180 of them nouns. The vocabulary of this module is the words for your home and its furniture, the body and health, clothes and shopping, and describing people, from the themes Wohnen & Einrichtung, Körper & Gesundheit; beim Arzt, Kleidung & Einkaufen, Menschen beschreiben. Write the German, choose it from four options, or flip the card and rate yourself. A word you miss comes back later in the same run, and stays in your weak words until you get it right three times in a row.",
       "tips": [
         {
           "kind": "rule",
@@ -11324,7 +11324,7 @@
         {
           "question": "„ein weißes Hemd, ein enges Oberteil, ein weiter Rock“: Warum weißes, enges, aber weiter?",
           "options": [
-            "weil Hemd und Oberteil neutrum sind und Rock maskulin",
+            "weil Hemd und Oberteil Neutrum sind und Rock Maskulinum ist",
             "weil weiß und eng Farben sind und weit keine Farbe ist",
             "weil Rock Plural ist",
             "weil es ein Akkusativ ist"
@@ -11768,7 +11768,7 @@
         {
           "de": "Einbürgerung",
           "en": "naturalisation",
-          "example": "Der Einbürgerungstest gibt es seit 2008.",
+          "example": "Den Einbürgerungstest gibt es seit 2008.",
           "article": "die",
           "plural": "-en"
         },
@@ -11829,10 +11829,10 @@
           {
             "kind": "rule",
             "title": "Indirect questions: ob and W-words",
-            "text": "A question inside a sentence sends its verb to the end. Yes/no question → ob: Hat Deutschland 16 Bundesländer? → Wissen Sie, ob Deutschland 16 Bundesländer hat? W-question → keep the W-word: Wie viele Bundesländer hat Deutschland? → Man fragt, wie viele Bundesländer Deutschland hat. Typical openers: Wissen Sie, …? Können Sie mir sagen, …? Ich möchte wissen, …. Im Test steht, …. Comma before ob and the W-word.",
+            "text": "A question inside a sentence sends its verb to the end. Yes/no question → ob: Hat Deutschland 16 Bundesländer? → Wissen Sie, ob Deutschland 16 Bundesländer hat? W-question → keep the W-word: Wie viele Bundesländer hat Deutschland? → Man fragt, wie viele Bundesländer Deutschland hat. Typical openers: Wissen Sie, …? Können Sie mir sagen, …? Ich möchte wissen, …. Im Test fragt man, …. Comma before ob and the W-word.",
             "examples": [
               {
-                "de": "Im Test steht zum Beispiel, wann die Mauer gefallen ist und wer den Bundestag wählt.",
+                "de": "Im Test fragt man zum Beispiel, wann die Mauer gefallen ist und wer den Bundestag wählt.",
                 "en": "The test asks, for example, when the Wall fell and who elects the Bundestag.",
                 "focus": [
                   "wann",
@@ -11929,7 +11929,7 @@
       },
       "category": "Society",
       "passageTitle": "Wissen Sie, wie viele Bundesländer …?",
-      "passage": "Wer einen deutschen Pass möchte, muss einen Test machen: den Einbürgerungstest. Es gibt ihn seit 2008, und mehr als eine Million Menschen haben ihn schon gemacht.\n\nSo funktioniert er: Es gibt 310 Fragen. Im Test bekommt man 33 davon, mit vier Antworten pro Frage. Nur eine Antwort ist richtig, und man muss sie ankreuzen. Man hat 60 Minuten Zeit. Mit 17 richtigen Antworten hat man bestanden. Der Test kostet 25 Euro.\n\nWas fragt man? Zum Beispiel, wie viele Bundesländer Deutschland hat (16), wann die Mauer gefallen ist (1989), wer den Bundestag wählt (die Bürger ab 18) oder ob man in Deutschland seine Religion frei wählen darf (ja). Drei Fragen sind nur über das Bundesland, in dem man wohnt. Viele fragen, ob der Test schwer ist. Die Antwort: Über 90 Prozent bestehen ihn. Es gibt im Internet alle 310 Fragen zum Üben.\n\nAber der Test ist nur ein Teil. Man muss auch Deutsch können, mindestens auf einem mittleren Niveau, und meistens fünf Jahre in Deutschland leben. Man muss sein eigenes Geld verdienen und darf keine Probleme mit der Polizei haben.\n\nEine Zeitung hat einmal Deutsche gefragt, ob sie den Test bestehen. Viele wussten nicht, wie viele Bundesländer es gibt, oder wann das Grundgesetz geschrieben wurde (1949). Das Ergebnis: Viele Deutsche würden durchfallen.",
+      "passage": "Wer einen deutschen Pass möchte, muss einen Test machen: den Einbürgerungstest. Es gibt ihn seit 2008, und mehr als eine Million Menschen haben ihn schon gemacht.\n\nSo funktioniert er: Es gibt 310 Fragen. Im Test bekommt man 33 davon, mit vier Antworten pro Frage. Nur eine Antwort ist richtig, und man muss sie ankreuzen. Man hat 60 Minuten Zeit. Mit 17 richtigen Antworten hat man bestanden. Der Test kostet 25 Euro.\n\nWas fragt man? Zum Beispiel, wie viele Bundesländer Deutschland hat (16), wann die Mauer gefallen ist (1989), wer den Bundestag wählt (die Bürger ab 18) oder ob man in Deutschland seine Religion frei wählen darf (ja). Drei Fragen sind nur über das Bundesland, in dem man wohnt. Viele fragen, ob der Test schwer ist. Die Antwort: Über 90 Prozent bestehen ihn. Es gibt im Internet alle 310 Fragen zum Üben.\n\nAber der Test ist nur ein Teil. Man muss auch Deutsch können, mindestens auf einem mittleren Niveau, und meistens fünf Jahre in Deutschland leben. Man muss sein eigenes Geld verdienen und darf keine Probleme mit der Polizei haben.\n\nEine Zeitung hat einmal Deutsche gefragt, ob sie den Test bestehen. Viele wussten nicht, wie viele Bundesländer es gibt oder wann das Grundgesetz geschrieben wurde (1949). Das Ergebnis: Viele Deutsche würden durchfallen.",
       "passageTranslation": "Whoever wants a German passport must take a test: the naturalisation test. It has existed since 2008, and more than a million people have already taken it.\n\nThis is how it works: there are 310 questions. In the test you get 33 of them, with four answers per question. Only one answer is right, and you have to tick it. You have 60 minutes. With 17 right answers you have passed. The test costs 25 euros.\n\nWhat is asked? For example, how many federal states Germany has (16), when the Wall fell (1989), who elects the Bundestag (citizens from 18) or whether you may choose your religion freely in Germany (yes). Three questions are only about the federal state in which you live. Many ask whether the test is hard. The answer: over 90 per cent pass it. All 310 questions are on the internet for practice.\n\nBut the test is only one part. You must also know German, at least at an intermediate level, and usually have lived in Germany for five years. You must earn your own money and may not have problems with the police.\n\nA newspaper once asked Germans whether they would pass the test. Many did not know how many federal states there are, or when the constitution was written (1949). The result: many Germans would fail.",
       "questions": [
         {
@@ -12260,7 +12260,7 @@
         "Kunde": "male"
       },
       "passageTitle": "Szene: Sie sollten das ernst nehmen",
-      "passage": "Apothekerin: Guten Tag, was kann ich für Sie tun?\nKunde: Guten Tag. Ich brauche etwas gegen Husten. Etwas Starkes, bitte.\nApothekerin: Seit wann haben Sie den Husten?\nKunde: Seit zwei Wochen. Zuerst hatte ich eine Erkältung, die ist weg, aber der Husten bleibt. Besonders nachts.\nApothekerin: Zwei Wochen sind lang. Haben Sie Fieber?\nKunde: Nein. Aber ich bin müde, und mein Hals tut weh vom Husten.\nApothekerin: Ich gebe Ihnen gern einen Hustensaft, der ist rezeptfrei. Aber ehrlich gesagt: Sie sollten das ernst nehmen. Zwei Wochen Husten ohne Fieber, das sollte ein Arzt anhören.\nKunde: Ich habe keine Zeit für den Arzt. Haben Sie nicht etwas Stärkeres?\nApothekerin: Die starken Medikamente sind rezeptpflichtig. Die darf ich ohne Rezept nicht verkaufen, auch wenn ich möchte. Das ist Gesetz.\nKunde: Hm. Und was kann ich bis dahin tun?\nApothekerin: Sie könnten diesen Saft nehmen, dreimal täglich einen Löffel. Er beruhigt den Husten, besonders nachts. Sie sollten viel trinken, warmen Tee mit Honig. Und Sie könnten abends das Fenster im Schlafzimmer öffnen; trockene Luft macht den Husten schlimmer.\nKunde: Hat der Saft Nebenwirkungen?\nApothekerin: Er kann müde machen. Deshalb sollten Sie nach dem Saft nicht Auto fahren. Alles andere steht in der Packungsbeilage. Lesen Sie sie bitte.\nKunde: Gut. Was kostet er?\nApothekerin: Acht Euro neunzig. Und noch etwas: An Ihrer Stelle würde ich morgen früh beim Arzt anrufen. Um acht Uhr, da bekommt man am ehesten einen Termin.\nKunde: Okay, Sie haben gewonnen. Ich rufe morgen an.\nApothekerin: Gute Besserung!",
+      "passage": "Apothekerin: Guten Tag, was kann ich für Sie tun?\nKunde: Guten Tag. Ich brauche etwas gegen Husten. Etwas Starkes, bitte.\nApothekerin: Seit wann haben Sie den Husten?\nKunde: Seit zwei Wochen. Zuerst hatte ich eine Erkältung, die ist weg, aber der Husten bleibt. Besonders nachts.\nApothekerin: Zwei Wochen sind lang. Haben Sie Fieber?\nKunde: Nein. Aber ich bin müde, und mein Hals tut weh vom Husten.\nApothekerin: Ich gebe Ihnen gern einen Hustensaft, der ist rezeptfrei. Aber ehrlich gesagt: Sie sollten das ernst nehmen. Zwei Wochen Husten ohne Fieber, das sollte sich ein Arzt anhören.\nKunde: Ich habe keine Zeit für den Arzt. Haben Sie nicht etwas Stärkeres?\nApothekerin: Die starken Medikamente sind rezeptpflichtig. Die darf ich ohne Rezept nicht verkaufen, auch wenn ich möchte. Das ist Gesetz.\nKunde: Hm. Und was kann ich bis dahin tun?\nApothekerin: Sie könnten diesen Saft nehmen, dreimal täglich einen Löffel. Er beruhigt den Husten, besonders nachts. Sie sollten viel trinken, warmen Tee mit Honig. Und Sie könnten abends das Fenster im Schlafzimmer öffnen; trockene Luft macht den Husten schlimmer.\nKunde: Hat der Saft Nebenwirkungen?\nApothekerin: Er kann müde machen. Deshalb sollten Sie nach dem Saft nicht Auto fahren. Alles andere steht in der Packungsbeilage. Lesen Sie sie bitte.\nKunde: Gut. Was kostet er?\nApothekerin: Acht Euro neunzig. Und noch etwas: An Ihrer Stelle würde ich morgen früh beim Arzt anrufen. Um acht Uhr, da bekommt man am ehesten einen Termin.\nKunde: Okay, Sie haben gewonnen. Ich rufe morgen an.\nApothekerin: Gute Besserung!",
       "passageTranslation": "Pharmacist: Good day, what can I do for you?\nCustomer: Good day. I need something for a cough. Something strong, please.\nPharmacist: Since when have you had the cough?\nCustomer: For two weeks. First I had a cold, that has gone, but the cough stays. Especially at night.\nPharmacist: Two weeks is long. Do you have a fever?\nCustomer: No. But I am tired, and my throat hurts from coughing.\nPharmacist: I will gladly give you a cough syrup, that is over the counter. But honestly: you should take this seriously. Two weeks of coughing without fever, a doctor should listen to that.\nCustomer: I have no time for the doctor. Do you not have something stronger?\nPharmacist: The strong medicines are prescription only. I may not sell them without a prescription, even if I wanted to. That is the law.\nCustomer: Hm. And what can I do until then?\nPharmacist: You could take this syrup, one spoon three times a day. It calms the cough, especially at night. You should drink a lot, warm tea with honey. And you could open the bedroom window in the evening; dry air makes the cough worse.\nCustomer: Does the syrup have side effects?\nPharmacist: It can make you tired. That is why you should not drive after the syrup. Everything else is in the leaflet. Please read it.\nCustomer: Good. What does it cost?\nPharmacist: Eight euros ninety. And one more thing: in your place I would call the doctor tomorrow morning. At eight o'clock, that is when you most likely get an appointment.\nCustomer: Okay, you win. I will call tomorrow.\nPharmacist: Get well soon!",
       "questions": [
         {
@@ -12895,11 +12895,11 @@
                 ]
               },
               {
-                "de": "Die Vermieterin ruft Sie heute Abend per Telefon zu Hause an.",
+                "de": "Die Vermieterin ruft Sie heute Abend wegen der Wohnung zu Hause an.",
                 "en": "The landlady will call you at home by phone this evening.",
                 "focus": [
                   "heute Abend",
-                  "per Telefon",
+                  "wegen der Wohnung",
                   "zu Hause"
                 ]
               }

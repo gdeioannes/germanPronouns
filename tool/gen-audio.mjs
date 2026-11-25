@@ -36,7 +36,7 @@
 // API; this is an authoring tool like gen-images.
 
 import { createHash } from 'node:crypto';
-import { existsSync, mkdirSync, readdirSync, readFileSync, unlinkSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readdirSync, readFileSync, statSync, unlinkSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
 import { Mp3Encoder } from '@breezystack/lamejs';
@@ -102,6 +102,22 @@ const CHECK_MODEL = 'gemini-3.8-flash';
 /** Transcript vs text, after normalising; below this the clip is re-recorded. */
 const MIN_SIMILARITY = 0.85;
 const KBPS = 48;
+/** The breath trimSilence keeps on each side of a clip, in seconds. */
+const PAD_SECONDS = 0.12;
+/** A clip's length without the two breaths trimSilence leaves around it. */
+const speechSeconds = (clipSeconds) => clipSeconds - 2 * PAD_SECONDS;
+/**
+ * The least speech a short text can take: nobody says "Tschüss!" in under a
+ * fifth of a second. Only short texts are checked; a long one cut short would
+ * need a transcript to notice.
+ */
+function minSpeechSeconds(text) {
+	const letters = (text.match(/\p{L}/gu) ?? []).length;
+	// The usual pace of the voice is about 0.20 s + 0.055 s per letter; a take
+	// under two thirds of that is rushed or clipped.
+	return letters === 0 || letters > 40 ? 0 : 0.65 * (0.2 + 0.055 * letters);
+}
+
 const SAMPLE_RATE = 24000;
 /** When the next TTS request may go out (see ttsSlot). */
 let nextTtsSlot = 0;
@@ -180,7 +196,11 @@ async function worker() {
 		// The cast is part of the name, so recasting a dialogue re-records it.
 		const casting = cast ? `|${[...cast].map(([who, v]) => `${who}=${v}`).join(',')}` : '';
 		const file = `${createHash('sha1').update(`${engine.id}|${VOICE}|${locale}|${text}${casting}`).digest('hex').slice(0, 16)}.mp3`;
-		if (existsSync(join(OUT_DIR, file)) && !force) {
+		// A clip far too short for its text (Chirp sometimes cuts a lone word
+		// down to a click: "Tschüss!", "bis", "es") counts as not recorded.
+		const cut = !cast && existsSync(join(OUT_DIR, file)) && speechSeconds(statSync(join(OUT_DIR, file)).size / (KBPS * 125)) < minSpeechSeconds(text);
+		if (cut) console.log(`cut  ${file}  ${text.slice(0, 50)} — recording again`);
+		if (existsSync(join(OUT_DIR, file)) && !force && !cut) {
 			files[text] = file;
 			skipped++;
 			continue;
@@ -198,6 +218,13 @@ async function worker() {
 			made++;
 			console.log(`ok  ${file} (${Math.round(mp3.length / 1024)} kB)  ${text.slice(0, 50)}`);
 		} catch (e) {
+			// A clip that only failed the pace check keeps its earlier recording.
+			if (cut && existsSync(join(OUT_DIR, file))) {
+				files[text] = file;
+				skipped++;
+				console.log(`kept  ${file}  ${text.slice(0, 50)}: no slower take`);
+				continue;
+			}
 			failed++;
 			console.log(`FAILED  ${text.slice(0, 50)}: ${e.message}`);
 		}
@@ -344,7 +371,10 @@ async function generate(text, locale, voice = VOICE, attempt = 1) {
 		await ttsSlot();
 		const wav = await engine.synth(SAY_AS[text] ?? text, locale, voice);
 		// Throws on an empty clip, which Chirp occasionally returns; retry it.
-		trimSilence(readWav(wav));
+		const heardPart = trimSilence(readWav(wav));
+		// A lone word cut down to a click is as bad as silence: retry that too.
+		const spoke = speechSeconds(heardPart.samples.length / heardPart.rate);
+		if (spoke < minSpeechSeconds(text)) throw new Error(`clip too short (${spoke.toFixed(2)}s of speech for "${text.slice(0, 30)}")`);
 		if (engine.verify) {
 			const heard = await transcribe(wav);
 			const score = similarity(normalise(heard), normalise(text));
@@ -556,7 +586,7 @@ function readWav(buf) {
 /** Cuts the model's leading/trailing silence, keeping a short breath either side. */
 function trimSilence({ rate, samples }) {
 	const THRESHOLD = 300; // about -40 dBFS
-	const PAD = Math.round(rate * 0.12);
+	const PAD = Math.round(rate * PAD_SECONDS);
 	let start = 0;
 	while (start < samples.length && Math.abs(samples[start]) < THRESHOLD) start++;
 	let end = samples.length;

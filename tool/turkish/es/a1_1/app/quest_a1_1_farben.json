@@ -1,6 +1,5 @@
 {
  "subjectColumnLabel": "Español",
- "help.intro": "Los colores son los primeros adjetivos (Adjektive) que usas para describir cosas, y al principio los usas en la posición fácil: después del verbo sein, donde nunca cambian: Das Auto ist rot. Die Blume ist gelb. Ojo: en español el adjetivo concuerda (rojo, roja, rojos); en alemán, después de sein, no. (Delante de un sustantivo el adjetivo lleva terminación, ein rotes Auto, pero eso llega más tarde en el curso; por ahora basta con reconocerlo.) Necesitas once colores básicos, y tres de ellos son palabras prestadas que nunca llevan terminación, ni siquiera más adelante: rosa, lila y orange. Este ejercicio te da una pista y te pide el color; de paso, las pistas te enseñan sustantivos como Himmel, Gras y Sonne.",
  "help.tips[0].title": "Después de sein, los colores no cambian",
  "help.tips[0].text": "Das Auto ist rot. Die Autos sind rot. Der Himmel ist blau. Sea cual sea el sustantivo, el color se queda en su forma básica después de ist / sind.",
  "help.tips[0].examples[0].en": "El plátano (la banana) es amarillo.",
@@ -49,7 +48,6 @@
  "help.tips[3].visual.rows[0].en": "azul claro",
  "help.tips[3].visual.rows[1].en": "verde oscuro",
  "help.remember[0]": "Blut ist rot, Himmel ist blau, Gras ist grün, Sonne ist gelb: las pistas de este ejercicio son tu truco para recordar.",
- "help.remember[1]": "Tres extranjeros que nunca cambian: rosa, lila, orange.",
  "help.vocab[0].en": "rojo",
  "help.vocab[1].en": "azul",
  "help.vocab[2].en": "verde",
@@ -67,7 +65,6 @@
  "help.context.en": "Mi habitación es muy colorida: la pared es amarilla, la alfombra es azul y la lámpara es roja. Mi silla es negra. ¿Y mi vestido favorito? ¡Es rosa, claro!",
  "help.mistakes[0].why": "Después de sein el adjetivo no lleva terminación.",
  "help.mistakes[1].wrong": "ein rosanes Kleid",
- "help.mistakes[1].why": "rosa, lila y orange nunca llevan terminación.",
  "help.mistakes[2].wrong": "die Farbe ist gelbe",
  "help.mistakes[2].why": "La misma regla: forma básica después de ist, aunque en español digas «amarilla».",
  "help.hook": "Pon un color después de ist y nunca cambia (Das Auto ist rot): los adjetivos más fáciles que aprenderás.",
@@ -131,5 +128,8 @@
  "help.tips[2].check.answer": "lila",
  "help.tips[3].check.options[0]": "hellblau",
  "help.tips[3].check.options[1]": "dunkelblau",
- "help.tips[3].check.answer": "hellblau"
+ "help.tips[3].check.answer": "hellblau",
+ "help.intro": "Los colores son los primeros adjetivos (Adjektive) que usas para describir cosas, y al principio los usas en la posición fácil: después del verbo sein, donde nunca cambian: Das Auto ist rot. Die Blume ist gelb. Ojo: en español el adjetivo concuerda (rojo, roja, rojos); en alemán, después de sein, no. (Delante de un sustantivo el adjetivo lleva terminación, ein rotes Auto, pero eso llega más tarde en el curso; por ahora basta con reconocerlo.) Necesitas once colores básicos, y dos de ellos son palabras prestadas que nunca llevan terminación, ni siquiera más adelante: rosa y lila. Este ejercicio te da una pista y te pide el color; de paso, las pistas te enseñan sustantivos como Himmel, Gras y Sonne.",
+ "help.remember[1]": "Dos extranjeros que nunca cambian: rosa y lila.",
+ "help.mistakes[1].why": "rosa y lila nunca llevan terminación."
 }

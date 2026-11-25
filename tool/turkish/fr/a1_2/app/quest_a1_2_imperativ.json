@@ -87,7 +87,6 @@
  "sentences[11].english": "Il pleut. Prenez vos vestes !",
  "sentences[11].why": "L'impératif avec ihr n'a PAS de changement de voyelle : Nehmt!, contrairement à Nimm.",
  "sentences[12].english": "Taisez-vous, s'il vous plaît, le film commence !",
- "sentences[12].why": "L'impératif de sein avec ihr, c'est Seid!, sa seule forme qui se termine en -d.",
  "sentences[13].english": "Il fait chaud. Buvez beaucoup d'eau !",
  "sentences[13].why": "Impératif avec ihr = forme de ihr sans ihr : Trinkt!",
  "sentences[14].english": "Asseyez-vous, je vous prie, Madame Weber !",
@@ -126,5 +125,6 @@
  "sentences[17].options[2]": "Liest",
  "sentences[18].options[1]": "Liest",
  "sentences[18].options[2]": "Lese",
- "help.tips[2].title": "Sie : infinitif + Sie"
+ "help.tips[2].title": "Sie : infinitif + Sie",
+ "sentences[12].why": "L'impératif de sein avec ihr, c'est Seid!, qui s'écrit avec -d, exactement comme ihr seid."
 }

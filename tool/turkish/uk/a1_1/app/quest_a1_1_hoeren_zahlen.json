@@ -7,7 +7,6 @@
  "help.tips[0].check.q": "'Der Käse kostet vier Euro, die Milch kostet zwei Euro.' Скільки коштує сир?",
  "help.tips[0].check.why": "Ціна йде за своїм продуктом: Käse … vier Euro, потім Milch … zwei Euro.",
  "help.tips[1].title": "Спершу євро, потім центи, слова для коми немає",
- "help.tips[1].text": "2,20 € = zwei Euro zwanzig. 1,10 € = ein Euro zehn (перед Euro стоїть ein, а не eins; після kostet можна почути й 'einen Euro zehn', обидва варіанти правильні). Цілі євро: zwei Euro, без -s у Euro.",
  "help.tips[1].examples[0].en": "Хлібина коштує 2,10 €.",
  "help.tips[1].examples[1].en": "Картопля коштує 1,10 €.",
  "help.tips[1].check.q": "Як сказати 3,50 €?",
@@ -56,9 +55,10 @@
  "questions[4].optionsTranslation[0]": "дорогі",
  "questions[4].optionsTranslation[1]": "дешеві",
  "questions[4].optionsTranslation[2]": "старі",
- "questions[5].explanation": "\"Die Kartoffeln kosten ein Euro zehn.\"",
+ "questions[5].explanation": "\"Die Kartoffeln kosten einen Euro zehn.\"",
  "questions[5].questionTranslation": "Скільки коштує картопля?",
  "questions[5].optionsTranslation[0]": "один євро десять",
  "questions[5].optionsTranslation[1]": "два євро десять",
- "questions[5].optionsTranslation[2]": "чотири євро"
+ "questions[5].optionsTranslation[2]": "чотири євро",
+ "help.tips[1].text": "2,20 € = zwei Euro zwanzig. 1,10 € = ein Euro zehn (перед Euro стоїть ein, а не eins; після kostet кажуть 'einen Euro zehn', хоча й 'ein Euro zehn' там часто чути). Цілі євро: zwei Euro, без -s у Euro."
 }

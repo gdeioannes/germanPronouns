@@ -27,7 +27,6 @@
  "spots[25].en": "mikroskop",
  "spots[26].en": "refleks çekici",
  "spots[27].en": "doktor çantası",
- "spots[28].en": "pedallı çöp kutusu",
  "spots[29].en": "basamak tabure",
  "spots[30].en": "tekerlekli tabure",
  "spots[31].en": "tartı, baskül",
@@ -74,7 +73,6 @@
  "help.vocab[25].en": "mikroskop",
  "help.vocab[26].en": "refleks çekici",
  "help.vocab[27].en": "doktor çantası",
- "help.vocab[28].en": "pedallı çöp kutusu",
  "help.vocab[29].en": "basamak tabure",
  "help.vocab[30].en": "tekerlekli tabure",
  "help.vocab[31].en": "tartı, baskül",
@@ -82,5 +80,7 @@
  "help.introEn": "Deste yerine bir resim avı: içinde bulunacak 32 şey olan bir doktor muayene odası; her biri doktora gittiğinde karşılaştığın bir isim: die Untersuchungsliege, das Stethoskop, der Rollstuhl, duvardaki das Blutdruckmessgerät. Soru Wo ist die Spritze? diye sorar, sen de resimde ona dokunursun. Her bulduğun nesne, cinsiyetine göre renklenmiş etiketini gösterir, sonra o renkte küçük bir onay işareti bırakır; böylece neleri bulduğunu görürsün. Bir turu geçtikten sonra av zorlaşır: soru Artikel'i gizler (Wo ist ___ Spritze?) ve bulduktan sonra der, die ya da das'ı kendin seçersin. Boş duvara dokunmanın bedeli yok; yanlış nesneye dokunursan neye dokunduğunu söyler ve aramaya devam edersin, üç hatadan sonra doğrusu gösterilir. Aynı turda hiçbir nesne iki kez sorulmaz.",
  "help.rememberEn[0]": "Birleşik kelimenin son parçası Artikel'i belirler: der Medizinschrank, die Untersuchungsliege, das Blutdruckmessgerät.",
  "help.rememberEn[1]": "-skop aletleri das'dır: das Stethoskop, das Mikroskop.",
- "help.rememberEn[2]": "-e ile biten isimler çoğunlukla die'dir: die Spritze, die Krücke, die Waage."
+ "help.rememberEn[2]": "-e ile biten isimler çoğunlukla die'dir: die Spritze, die Krücke, die Waage.",
+ "spots[28].en": "çöp kutusu",
+ "help.vocab[28].en": "çöp kutusu"
 }

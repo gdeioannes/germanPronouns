@@ -35,7 +35,6 @@
  "sentences[1].why": "500 Gramm Käse: Gramm se queda en singular después de un número, y sin «de».",
  "sentences[2].sentence": "Wir brauchen ____ Milch. (un litro)",
  "sentences[2].english": "Necesitamos un litro de leche.",
- "sentences[2].why": "ein Liter Milch: medida + cosa, sin nada en medio.",
  "sentences[3].sentence": "____ Wasser, bitte. (una botella)",
  "sentences[3].english": "Una botella de agua, por favor.",
  "sentences[3].why": "Eine Flasche Wasser: die Flasche, así que eine; sin «de» antes de Wasser.",
@@ -124,5 +123,6 @@
  "sentences[14].options[2]": "Flasche",
  "sentences[15].options[0]": "Packung",
  "sentences[17].options[0]": "Dose",
- "help.tips[2].title": "Los precios"
+ "help.tips[2].title": "Los precios",
+ "sentences[2].why": "einen Liter Milch: medida + cosa, sin nada en medio; der Liter está en acusativo después de brauchen."
 }

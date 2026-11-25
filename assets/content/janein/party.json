@@ -45,7 +45,7 @@
    ],
    "de": {
     "line": "Die Tanzfläche hast du nie gesehen. Die ganze Lebensgeschichte eines Fremden schon.",
-    "profile": "Die Party findet im Wohnzimmer statt; du findest in der Küche statt. An den Kühlschrank gelehnt, Glas in der Hand, redest du über den Sinn des Lebens mit jemandem, den du seit elf Minuten kennst. Du merkst dir jede Geschichte und keinen einzigen Tanzschritt. Die besten Gespräche des Jahres: direkt neben der Spülmaschine.",
+    "profile": "Die Party findet im Wohnzimmer statt; du hältst dich in der Küche auf. An den Kühlschrank gelehnt, Glas in der Hand, redest du über den Sinn des Lebens mit jemandem, den du seit elf Minuten kennst. Du merkst dir jede Geschichte und keinen einzigen Tanzschritt. Die besten Gespräche des Jahres: direkt neben der Spülmaschine.",
     "traits": [
      "tiefgründig",
      "neugierig",
@@ -1017,7 +1017,7 @@
      "nein": "djuebernahme"
     },
     {
-     "de": "Du hast heimlich Freude, früh gegangen zu sein?",
+     "de": "Du freust dich heimlich, früh gegangen zu sein?",
      "en": "You secretly love that you left early?",
      "ja": "fruehabgang",
      "nein": "tanzflaeche"
@@ -1047,7 +1047,7 @@
       "vibe": "djuebernahme"
      },
      "right": {
-      "de": "Gespräche nachdenken",
+      "de": "Gespräche durchgehen",
       "en": "replay the conversations",
       "vibe": "kuechenphilosoph"
      }

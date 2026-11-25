@@ -14,10 +14,8 @@
  "help.tips[1].check.options[1]": "Habst",
  "help.tips[1].check.why": "du perd le b : du hast. hat, c'est pour er/sie/es, habe pour ich.",
  "help.tips[2].title": "avoir faim = Hunger haben, comme en français",
- "help.tips[2].text": "Bonne nouvelle : comme en français, l'allemand a faim, soif, peur et le temps avec haben : Ich habe Hunger, Durst, Angst, Zeit. L'âge, en revanche, se dit avec sein : Ich bin zwanzig.",
  "help.tips[2].examples[0].en": "J'ai faim et soif.",
  "help.tips[2].examples[1].en": "J'ai dix-neuf ans.",
- "help.tips[2].trap": "Le piège est l'âge : « j'ai vingt ans » ne se dit pas avec haben. Les Allemands disent qu'ils *sont* vingt ans : Ich bin zwanzig (Jahre alt).",
  "help.tips[2].check.q": "Wir ____ Angst.",
  "help.tips[2].check.why": "Comme « avoir peur » en français : wir haben Angst.",
  "help.tips[3].title": "möchte : « je voudrais », la forme polie",
@@ -47,7 +45,6 @@
  "help.mistakes[0].why": "du hast perd le b : c'est l'une des deux formes raccourcies.",
  "help.mistakes[1].why": "Comme en français, la faim, la soif, la peur et le temps, on les *a* en allemand.",
  "help.mistakes[2].wrong": "Ich bin durstig.",
- "help.mistakes[2].why": "Comme Hunger, Durst est un nom que l'on a (« avoir soif ») : « durstig » se comprend, mais ce n'est pas ce que disent les Allemands.",
  "help.hook": "Deux verbes portent la moitié de l'allemand de tous les jours : sein pour ce que vous êtes, haben pour ce que vous avez.",
  "categories[0].label": "sein (être)",
  "categories[1].label": "haben (avoir)",
@@ -65,7 +62,6 @@
  "sentences[3].why": "wir prend sind.",
  "sentences[4].categoryLabel": "sein (être)",
  "sentences[4].english": "Les enfants, vous êtes très bruyants !",
- "sentences[4].why": "ihr prend seid : la seule forme de sein qui se termine par -d.",
  "sentences[5].categoryLabel": "sein (être)",
  "sentences[5].english": "Anna et Tom sont à l'école.",
  "sentences[5].why": "Deux noms = sie (« ils »), et sie prend sind.",
@@ -135,5 +131,9 @@
  "sentences[10].options[1]": "Bist",
  "sentences[10].options[2]": "Hat",
  "sentences[17].options[1]": "hat",
- "sentences[17].options[2]": "habe"
+ "sentences[17].options[2]": "habe",
+ "help.tips[2].text": "Bonne nouvelle : comme en français, l'allemand a faim, soif et peur avec haben, et a le temps de la même façon : Ich habe Hunger, Durst, Angst, Zeit. L'âge, en revanche, se dit avec sein : Ich bin zwanzig.",
+ "help.tips[2].trap": "« Je suis affamé » mot à mot (Ich bin hungrig) est correct mais moins courant ; dans la langue de tous les jours, les Allemands disent qu'ils *ont* faim.",
+ "help.mistakes[2].why": "Comme Hunger, Durst est un nom que l'on a (« avoir soif ») : « durstig » est correct aussi, mais Durst haben est l'expression de tous les jours.",
+ "sentences[4].why": "ihr prend seid : s'écrit avec d (seit, avec t, signifie « depuis »)."
 }

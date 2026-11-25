@@ -11,6 +11,7 @@
 	import { SITE_URL } from '$lib/seo';
 	import { creditLine } from '$lib/domain/credits';
 	import { OPERATOR } from '$lib/operator';
+	import { APP_VERSION, BOOK_EDITION } from '$lib/version';
 	import { rich } from '$lib/domain/companion';
 	import { untrack } from 'svelte';
 	import { chapterKey, picturedWords, practiseOf, speakerLine, type Book2, type BookExtra, type Chapter, type PhotoCredit } from '$lib/domain/book2';
@@ -108,6 +109,20 @@
 	/** The opener's word panel (126 mm by design) may grow to this over the photo. */
 	const PLATE_MAX = 165;
 	let root = $state<HTMLElement>();
+
+	// The book's size at 100%, for the frame that holds it at the viewer's
+	// scale. Read in an effect, not a ResizeObserver: the viewer's keepPlace
+	// awaits tick() after a view change and must find the frame resized.
+	let natural = $state({ w: 0, h: 0 });
+	const framed = $derived(!cover && scale !== 1 && natural.w > 0);
+	$effect(() => {
+		void spread; void scale; void book; void cover; void extras;
+		const el = root;
+		if (!el || cover) return;
+		const w = el.offsetWidth;
+		const h = el.offsetHeight;
+		if (w !== natural.w || h !== natural.h) natural = { w, h };
+	});
 
 	function fitPage(page: HTMLElement): { zoom: number; over: number; plate?: number } | null {
 		// Millimetres as drawn: the preview zooms the whole book on a narrow screen.
@@ -220,7 +235,7 @@
 			// the fit pass measured other sizes and shrank other pages
 			// than the PDF. One synchronous pass, so nothing paints
 			// at 100% in between.
-			el.style.zoom = '1';
+			el.style.transform = 'none';
 			const report: string[] = [];
 			el.querySelectorAll<HTMLElement>('section.page').forEach((page, i) => {
 				const r = fitPage(page);
@@ -229,7 +244,7 @@
 			el.querySelectorAll<HTMLElement>('section.page.words').forEach((page, i) => {
 				if (placeWordsCode(page) === null) report.push(t('words page {i}: the code touches a label in every corner', { i: i + 1 }));
 			});
-			el.style.zoom = cover ? '' : String(untrack(() => scale));
+			el.style.transform = untrack(() => (framed ? `scale(${scale})` : ''));
 			(window as unknown as { __bookFit?: string[] }).__bookFit = report;
 			document.documentElement.dataset.bookFit = 'done';
 		})();
@@ -293,6 +308,7 @@
 	<div class="imprint" lang="de">
 		<p><b>Impressum</b> · © {new Date().getFullYear()} {OPERATOR.name}. Alle Rechte vorbehalten, mit Ausnahme der Fotos, die unter ihren eigenen Lizenzen stehen (Bildnachweise hinten im Buch).</p>
 		<p>Herausgeber: {OPERATOR.name}, {OPERATOR.street}, {OPERATOR.city}, {OPERATOR.country === 'Germany' ? 'Deutschland' : OPERATOR.country} · {OPERATOR.email} · languagequiz.org</p>
+		<p>{BOOK_EDITION.label} · Version {APP_VERSION}. Die aktuelle Ausgabe liegt immer unter languagequiz.org/books.</p>
 		<p>Texte und Übungen: Language Quiz, geschrieben mit KI-Unterstützung (Anthropic Claude). Abgebildete Dokumente wie Stundenplan, Anzeige oder Zeugnis sind, wo nicht anders genannt, für dieses Buch gesetzt; Personen und Firmen darin sind erfunden. Language Quiz ist unabhängig und nicht mit einem Prüfungsanbieter verbunden.</p>
 	</div>
 {/snippet}
@@ -404,7 +420,17 @@
 	</div>
 {/snippet}
 
-<div class="book2" class:wrap={cover} class:spread={spread && !cover} style:zoom={cover ? null : scale} bind:this={root}>
+<!-- The frame takes the book's room at the viewer's scale; the book inside is
+     laid out at full A4 and shrunk as a picture (transform), never zoomed: a
+     zoomed-out phone page enlarged every small text to Chrome's 6 px minimum
+     font size, and the imprint on page 2 ran into the footer. -->
+<div
+	class="book2-frame"
+	class:framed
+	style:width={framed ? `${natural.w * scale}px` : null}
+	style:height={framed ? `${natural.h * scale}px` : null}
+>
+<div class="book2" class:wrap={cover} class:spread={spread && !cover} style:transform={framed ? `scale(${scale})` : null} bind:this={root}>
 {#if cover}
 	{@const front = coverChapter}
 	<section class="sheet" style:--spine="{spineMm}mm" data-accent={front.accent}>
@@ -836,6 +862,7 @@
 	<section class="page left back">{@render backCover()}</section>
 {/if}
 </div>
+</div>
 
 <style>
 	.book2 {
@@ -870,6 +897,14 @@
 	}
 	/* Wider than the screen when zoomed in: start at the left edge, never cut it off. */
 	.book2 { justify-content: safe center; }
+	/* The frame is the book's room on screen, centred; at a scale other than
+	   100% it is sized to the scaled book and the book, at full A4, is shrunk
+	   into it from the top left corner. */
+	.book2-frame { width: fit-content; margin-inline: auto; }
+	.book2-frame > .book2:not(.wrap) { width: max-content; }
+	.book2-frame.framed { position: relative; margin-inline: auto; }
+	/* Physical left: the paper runs left to right in every language. */
+	.book2-frame.framed > .book2 { position: absolute; top: 0; left: 0; transform-origin: 0 0; }
 	/* Facing pages: a left page in the first column, a right page in the second.
 	   The cover (a right page) stands alone, then two by two, as the book opens. */
 	.book2.spread { grid-template-columns: 210mm 210mm; column-gap: 0; }
@@ -1266,7 +1301,9 @@
 	.imprint p { margin: 0.4mm 0; }
 
 	@media print {
-		.book2 { display: block; padding: 0; zoom: 1 !important; }
+		.book2 { display: block; padding: 0; transform: none !important; }
+		.book2-frame { width: auto !important; height: auto !important; margin: 0; }
+		.book2-frame.framed > .book2 { position: static; width: auto; }
 		.page { box-shadow: none; break-after: page; }
 		.page:last-child { break-after: auto; }
 		:global(.skip-link) { display: none; }

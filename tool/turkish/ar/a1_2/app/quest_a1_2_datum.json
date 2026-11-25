@@ -54,7 +54,6 @@
  "help.hook": "سمِّ أي يوم أو شهر أو تاريخ بالألمانية، وقل بالضبط متى عيد ميلادك أو موعدك أو عطلتك.",
  "sentences[0].hint": "بالعربية: الاثنين",
  "sentences[0].english": "أول يوم عمل في الأسبوع هو ____ (الاثنين).",
- "sentences[0].why": "Montag: الاثنين؛ الأسبوع الألماني يبدأ يوم الاثنين، لا الأحد أو السبت، وأسماء الأيام كلها تنتهي بـ -tag (يوم).",
  "sentences[1].hint": "بالعربية: الثلاثاء",
  "sentences[1].english": "اليوم الذي بعد الاثنين هو ____ (الثلاثاء).",
  "sentences[1].why": "Dienstag: الثلاثاء؛ تُنطق «دينستاك».",
@@ -127,7 +126,6 @@
  "sentences[23].options[1]": "zwanzigsten",
  "sentences[23].why": "من 20 فما فوق تأخذ الترتيبية -ste: der zwanzigste.",
  "sentences[24].english": "الدورة تبدأ في الرابع من أكتوبر (تشرين الأول).",
- "sentences[24].options[0]": "vierte",
  "sentences[24].options[1]": "viersten",
  "sentences[24].why": "الترتيبية -te مع -n الـ Dativ بعد am: am vierten.",
  "sentences[25].english": "عيد ميلاد أخي في الثلاثين من مارس (آذار).",
@@ -152,11 +150,13 @@
  "sentences[22].options[0]": "siebte",
  "sentences[22].options[1]": "sieben",
  "sentences[23].options[2]": "zwanzig",
+ "sentences[24].options[0]": "vierte",
  "sentences[24].options[2]": "vier",
  "sentences[25].options[2]": "dreißig",
  "sentences[26].options[1]": "achten",
  "sentences[26].options[2]": "acht",
  "sentences[27].options[0]": "zweite",
  "sentences[27].options[2]": "zwei",
- "sentences[28].options[2]": "fünfundzwanzig"
+ "sentences[28].options[2]": "fünfundzwanzig",
+ "sentences[0].why": "Montag: الاثنين؛ الأسبوع الألماني يبدأ يوم الاثنين، لا الأحد أو السبت، وأسماء الأيام كلها ما عدا Mittwoch تنتهي بـ -tag (يوم)."
 }

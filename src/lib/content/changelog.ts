@@ -12,9 +12,55 @@ export type ChangelogEntry = {
   items: string[];
   /** Marks the big milestones so the page can set them apart. */
   highlight?: boolean;
+  /** A page with more about this release, linked under its list. */
+  link?: { href: string; label: string };
 };
 
 export const changelog: ChangelogEntry[] = [
+  {
+    date: "2026-11-25",
+    title: "The whole course, read and corrected",
+    highlight: true,
+    link: { href: "/changelog/review-2026-11", label: "See every correction" },
+    items: [
+      "Every line of German in the course was read again: all twelve levels of the app, the twelve books, the chats, Ja oder Nein, the stories, the grammar charts and the word library. About 290 things were corrected.",
+      "Most are small: a comma, a capital letter, a word that a German would not use there. Some matter more: a rule that was explained wrongly, an answer key that accepted a wrong form, a word list with the wrong article or plural.",
+      "The full list is public, with the old wording, the new one and the reason for each change, in the review report linked below.",
+      "The corrections are in the app now, in all six languages, and in the books, which are in their second edition. If you downloaded a book before 25 November, download it again from the Books page.",
+      "The grammar charts PDF was printed again too, with two small corrections.",
+    ],
+  },
+  {
+    date: "2026-11-25",
+    title: "Version numbers, and a note when the material changes",
+    items: [
+      "The app and the books now carry a version number: 2026.11.25. It is at the bottom of every page and at the top of this one, so you can tell which version you are looking at.",
+      "Every book says which edition it is on its imprint page, and the Books page says which edition is current. If the two differ, your PDF is old.",
+      "When the material changes, a line at the top of the site says so, with links to what changed and to the new books. Close it and it stays closed until the next release.",
+    ],
+  },
+  {
+    date: "2026-11-25",
+    title: "Recordings checked, one by one",
+    items: [
+      "Some short words and verb forms had recordings that were clipped or rushed. Tschüss! in the first speaking exercise was almost a click.",
+      "All 29,690 recordings were checked for this, and about 900 were recorded again. Every sentence that changed in the review has a new recording as well.",
+      "From now on a recording that comes out too short is thrown away and made again before it reaches you.",
+    ],
+  },
+  {
+    date: "2026-11-25",
+    title: "Fixed from your forum reports",
+    items: [
+      "Word library: Eltern, Großeltern, Leute and Pommes are now shown as plural-only nouns with the right cases (mit den Eltern, not mit der Eltern). Gäste is no longer a word of its own: it is the plural of der Gast.",
+      "Word library: 124 nouns that said no plural now show their plural, among them Wohnung, Zimmer, Gast, Termin and Tourist. Nouns that really have none, like Milch or Geduld, still say so.",
+      "Word library: das Herz no longer shows a wrong dative, die Erkältung is a cold and not the flu, die Limousine is an ordinary saloon car, and der Tourist moved out of the professions.",
+      "Passiv (Präteritum): the diagram now says which line is which, and a new card explains the difference between wurde gebaut and war gebaut.",
+      "Fill-in sentences: an English hint in brackets, like (be understood better), is no longer explained word by word as if it were German.",
+      "Flashcards: feminine words such as die Österreicherin showed der. Fixed, together with a few cards that explained a verb with the meaning of its preposition.",
+      "Thank you to everyone who reported these. Reports from the forum go straight into the next version.",
+    ],
+  },
   {
     date: "2026-11-24",
     title: "Pin it and come back to it",

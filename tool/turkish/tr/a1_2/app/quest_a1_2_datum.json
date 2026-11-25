@@ -54,7 +54,6 @@
  "help.hook": "Almancada herhangi bir günün, ayın ya da tarihin adını söyle ve doğum gününün, randevunun ya da tatilinin tam ne zaman olduğunu anlat.",
  "sentences[0].hint": "Türkçe: pazartesi",
  "sentences[0].english": "Haftanın ilk iş günü ____ (pazartesi).",
- "sentences[0].why": "Montag: pazartesi; Alman haftası pazartesi başlar ve gün kelimelerinin çoğu -tag (gün) ile biter.",
  "sentences[1].hint": "Türkçe: salı",
  "sentences[1].english": "Pazartesiden sonraki gün ____ (salı).",
  "sentences[1].why": "Dienstag: salı; 'DİNS-taak' diye okunur, ie uzun i.",
@@ -127,7 +126,6 @@
  "sentences[23].options[1]": "zwanzigsten",
  "sentences[23].why": "20'den itibaren sıra sayıları -ste alır: der zwanzigste.",
  "sentences[24].english": "Kurs dört ekimde başlıyor.",
- "sentences[24].options[0]": "vierte",
  "sentences[24].options[1]": "viersten",
  "sentences[24].why": "Sıra sayısı -te artı am'dan sonra Dativ -n: am vierten.",
  "sentences[25].english": "Erkek kardeşimin doğum günü otuz martta.",
@@ -152,11 +150,13 @@
  "sentences[22].options[0]": "siebte",
  "sentences[22].options[1]": "sieben",
  "sentences[23].options[2]": "zwanzig",
+ "sentences[24].options[0]": "vierte",
  "sentences[24].options[2]": "vier",
  "sentences[25].options[2]": "dreißig",
  "sentences[26].options[1]": "achten",
  "sentences[26].options[2]": "acht",
  "sentences[27].options[0]": "zweite",
  "sentences[27].options[2]": "zwei",
- "sentences[28].options[2]": "fünfundzwanzig"
+ "sentences[28].options[2]": "fünfundzwanzig",
+ "sentences[0].why": "Montag: pazartesi; Alman haftası pazartesi başlar ve Mittwoch dışında bütün gün kelimeleri -tag (gün) ile biter."
 }

@@ -2788,7 +2788,7 @@
 								},
 								{
 									"de": "ruhig",
-									"en": "here: you know"
+									"en": "here: feel free to, it would have been fine to"
 								},
 								{
 									"de": "pünktlich",
@@ -4659,7 +4659,7 @@
 					}
 				],
 				"en": "Bäckerin: They say he’s from Berlin. And they say he’s very rich. · Kundin: He claims to be a writer. At least that’s what he says. But apparently he’s never written a book. · Bäckerin: His wife is supposed to have run off. Or he from her. You just don’t know exactly. · Maya: How do you know all this? · Kundin: People just say so. The postman saw a parcel. It’s said to have been very heavy. · Bäckerin: And he buys eight rolls a day. For one man alone! There’s something wrong there. · The door opens. A friendly man in glasses comes in. It goes very quiet at once. · Mann: Good morning! Eight rolls, please. For the workmen. The roof’s broken, you see. Tell me: I’ve heard there’s said to be a woman here in the village with a child by a priest. Do you know anything about it? · The baker drops the bag. The customer looks at the floor. Nobody says anything. · Mann: I see. Well. I’m actually a journalist. See you tomorrow!",
-				"fact": "Deutsch hat ein genaues Werkzeug für Klatsch: *Er soll reich sein* heißt, die Leute sagen es. *Er will reich sein* heißt, er behauptet es selbst, und ich zweifle. Dieselben Modalverben, die hier Befehle und Wünsche ausdrücken, schützen dich vor einer Klage. Zeitungen leben davon.",
+				"fact": "Deutsch hat ein genaues Werkzeug für Klatsch: *Er soll reich sein* heißt, die Leute sagen es. *Er will reich sein* heißt, er behauptet es selbst, und ich zweifle. Dieselben Modalverben, die sonst Befehle und Wünsche ausdrücken, schützen dich vor einer Klage. Zeitungen leben davon.",
 				"tasks": [
 					{
 						"title": "Richtig oder falsch?",
@@ -4762,7 +4762,7 @@
 									"Sonntag",
 									"Freitag"
 								],
-								"after": "Morgen.",
+								"after": "früh.",
 								"answer": "Sonntag"
 							},
 							{
@@ -5829,7 +5829,7 @@
 			"world": "Nach dem Sturm",
 			"opener": {
 				"photo": "b2b22_sturm_opener",
-				"caption": "Ein Sturmtief: Infolge dessen kam es zu Beeinträchtigungen des Autos.",
+				"caption": "Ein Sturmtief: Infolgedessen kam es zu Beeinträchtigungen des Autos.",
 				"questions": [
 					"Was passierte nach dem letzten Sturm?",
 					"Wer kümmert sich darum?",
@@ -8570,7 +8570,7 @@
 							{
 								"de": "die Tablette",
 								"pl": "-n",
-								"en": "sleeping tablet",
+								"en": "tablet, pill",
 								"image": "tablette"
 							},
 							{
@@ -9466,7 +9466,7 @@
 				"questions": [
 					"Wie viel schläfst du?",
 					"Was hilft dir beim Einschlafen?",
-					"Was ist bei dir schlaflos?"
+					"Was macht dich schlaflos?"
 				],
 				"labels": [
 					{
@@ -11518,7 +11518,7 @@
 									"Lässt sich das noch reparieren?"
 								],
 								[
-									"Bescheid hören",
+									"Bescheid bekommen",
 									"Das lohnt sich nicht mehr. · Das Teil gibt es nicht mehr."
 								],
 								[
@@ -12132,7 +12132,7 @@
 				"grammatik-2": [
 					{
 						"quiz": "quest_b2_2_sprechen_einraeumen",
-						"for": "Sich einräumen, dann drängen",
+						"for": "Einräumen, dann drängen",
 						"note": "Einräumen und widersprechen, laut."
 					}
 				],
@@ -12570,7 +12570,7 @@
 					}
 				},
 				{
-					"heading": "Sich einräumen, dann drängen",
+					"heading": "Einräumen, dann drängen",
 					"subheading": "Erst einräumen, dann drängen: der nützlichste Zug im Deutschen",
 					"blocks": [
 						{

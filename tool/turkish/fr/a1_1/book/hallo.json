@@ -130,7 +130,6 @@
  "grammar[0].blocks[1].blocks[1].items[3].en": "Il habite à Munich.",
  "grammar[0].blocks[1].blocks[1].items[4].en": "chien",
  "grammar[0].blocks[2].blocks[0].title": "du ou Sie ?",
- "grammar[0].blocks[2].blocks[0].note": "Dans le doute, dites *Sie*, et attendez « Wir können du sagen ».",
  "grammar[0].blocks[2].blocks[0].root.q": "Un ami, la famille, un enfant ou un autre apprenant ?",
  "grammar[0].blocks[2].blocks[1].title": "sie, sie ou Sie ?",
  "grammar[0].blocks[2].blocks[1].text": "*sie* = elle, *sie* = ils/elles, et *Sie* avec une majuscule = le vous poli. Le verbe vous le dit : sie *ist* (elle est), sie *sind* (ils sont), Sie *sind* (vous êtes). Comme en français, le vous poli se conjugue comme « ils ».",
@@ -233,5 +232,6 @@
  "document.tasks[1].title": "Wer ist das?",
  "document.tasks[2].title": "Dein Klingelschild",
  "practise[2].title": "Max stellt sich vor",
- "practise[7].title": "Das bin ich"
+ "practise[7].title": "Das bin ich",
+ "grammar[0].blocks[2].blocks[0].note": "Dans le doute, dites *Sie*, et attendez « Wir können Du sagen »."
 }

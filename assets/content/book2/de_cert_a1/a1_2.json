@@ -642,7 +642,7 @@
 									"She is not tired."
 								]
 							],
-							"note": "*ein* becomes *kein*; everything else takes *nicht*."
+							"note": "*ein* or no article becomes *kein*; everything else takes *nicht*."
 						},
 						{
 							"kind": "columns",
@@ -2007,7 +2007,7 @@
 									"eure",
 									"euer"
 								],
-								"after": "Tochter?",
+								"after": "Lehrerin?",
 								"answer": "eure"
 							}
 						]
@@ -5703,7 +5703,7 @@
 								"before": "7. Mai:",
 								"options": [
 									"der siebte",
-									"der siebente"
+									"der siebenste"
 								],
 								"after": "",
 								"answer": "der siebte"
@@ -7189,7 +7189,7 @@
 					},
 					{
 						"who": "Maya",
-						"de": "Und der junge Mann im Dach?"
+						"de": "Und der junge Mann unter dem Dach?"
 					},
 					{
 						"who": "Frau Huber",
@@ -7293,7 +7293,7 @@
 			"document": {
 				"photo": "b2a12_tag_zeiten",
 				"caption": "Öffnungszeiten: Wann macht das Jugendzentrum auf?",
-				"intro": "A real sign on a youth centre. *Öffnungszeiten* are opening hours, and you will read them on every door in Germany. *Geschlossen* means closed. *14.00 – 21.00* is written with a full stop, not a colon.",
+				"intro": "A real sign on a youth centre. *Öffnungszeiten* are opening hours, and you will read them on every door in Germany. *Geschlossen* means closed. *14.00 – 21.00*: on signs the hours are often written with a full stop, though the colon (14:00) is the usual form today.",
 				"fact": "In German you can say *Das Café macht um acht auf* and *Das Café öffnet um acht*: the first splits, the second doesn’t. Same café.",
 				"tasks": [
 					{
@@ -12639,7 +12639,7 @@
 								{
 									"kind": "build",
 									"title": "du: drop du and -st",
-									"note": "An e at the end is fine too: Warte! Mache!",
+									"note": "An e at the end is often fine too: Mache! — and after -t or -d it is needed: Warte! Rede!",
 									"rows": [
 										{
 											"parts": [

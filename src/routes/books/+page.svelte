@@ -12,6 +12,7 @@
 	import Icon from '$lib/icons/Icon.svelte';
 	import { returnTo, returnLabel } from '$lib/state/returnTo.svelte';
 	import { BOOKS, BOOK_PAGES, bookCover, bookMb, bookPdf, bookReadHref, pdfOffered } from '$lib/content/books';
+	import { BOOK_EDITION } from '$lib/version';
 	import { lang } from '$lib/i18n/lang.svelte';
 	import { levelTranslated } from '$lib/i18n/available';
 	import { trackBookDownload } from '$lib/services/analytics';
@@ -65,6 +66,14 @@
 
 	<!-- Asked before the list: whoever sees twelve free books may know who needs them. -->
 	<ShareNudge where="books" text={t('I thought of you: twelve free German books with audio, from A1 to C2. No sign-up, nothing to pay.')} />
+
+	<!-- Which printing this is: a reader with an older PDF can tell at a glance. -->
+	<p class="edition">
+		{t('Current edition: {edition} ({date}). The German in every book was reviewed and corrected; if your PDF is older, download it again.', {
+			edition: `${BOOK_EDITION.n}`,
+			date: BOOK_EDITION.date
+		})}
+	</p>
 
 	<ol class="shelf">
 		{#each shelf as book (book.level)}
@@ -186,6 +195,14 @@
 			0 0 0 1px rgba(31, 58, 95, 0.08);
 	}
 
+	.edition {
+		margin: 0 0 1.25rem;
+		padding: 0.6rem 0.9rem;
+		border-left: 3px solid var(--accent, #e0b400);
+		background: var(--surface-2, rgba(0, 0, 0, 0.04));
+		font-size: 0.92rem;
+		color: var(--ink);
+	}
 	.where {
 		margin: 0;
 		font-size: var(--step--1);

@@ -46,7 +46,6 @@
  "grammar[0].blocks[1].head[0].text": "es + verbo",
  "grammar[0].blocks[1].head[1].text": "es ist + adjetivo",
  "grammar[0].blocks[1].rows[3][1]": "es ist *neblig* · kalt · warm · heiß",
- "grammar[0].blocks[1].note": "El tiempo siempre empieza con es: en español dices «llueve», en alemán Es regnet.",
  "grammar[0].fact": "El mar de Frisia (Wattenmeer) es Patrimonio de la Humanidad de la UNESCO y el sistema continuo de llanuras de marea más grande del mundo. Dos veces al día, el fondo del mar es un camino. Cada año, los guías llevan a miles de caminantes a islas como Neuwerk o Föhr.",
  "grammar[0].check.title": "Mini-Check",
  "grammar[0].check.instruction": "Rodea con un círculo la palabra correcta.",
@@ -159,5 +158,6 @@
  "reading.tasks[0].title": "Richtig oder falsch?",
  "reading.tasks[1].title": "Wie ist das Wetter?",
  "document.tasks[0].title": "Lies das Schild",
- "document.tasks[1].title": "Das Wetter heute"
+ "document.tasks[1].title": "Das Wetter heute",
+ "grammar[0].blocks[1].note": "El tiempo suele empezar con es: en español dices «llueve», en alemán Es regnet."
 }

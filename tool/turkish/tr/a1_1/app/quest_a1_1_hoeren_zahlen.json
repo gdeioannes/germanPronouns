@@ -7,7 +7,6 @@
  "help.tips[0].check.q": "'Der Käse kostet vier Euro, die Milch kostet zwei Euro.' Peynir kaç para?",
  "help.tips[0].check.why": "Fiyat ürününün ardından gelir: Käse … vier Euro, sonra Milch … zwei Euro.",
  "help.tips[1].title": "Önce euro, sonra sent, virgül kelimesi yok",
- "help.tips[1].text": "2,20 € = zwei Euro zwanzig. 1,10 € = ein Euro zehn (Euro'dan önce eins değil ein. kostet'ten sonra 'einen Euro zehn' de duyulur, ikisi de doğru). Tam euro: zwei Euro. Türkçedeki gibi sayıdan sonra çoğul eki yok: Euro'ya 's' eklenmez.",
  "help.tips[1].examples[0].en": "Bir somun ekmek 2,10 €.",
  "help.tips[1].examples[1].en": "Patatesler 1,10 €.",
  "help.tips[1].check.q": "3,50 € nasıl söylenir?",
@@ -56,9 +55,10 @@
  "questions[4].optionsTranslation[0]": "pahalı",
  "questions[4].optionsTranslation[1]": "ucuz",
  "questions[4].optionsTranslation[2]": "eski",
- "questions[5].explanation": "\"Die Kartoffeln kosten ein Euro zehn.\"",
+ "questions[5].explanation": "\"Die Kartoffeln kosten einen Euro zehn.\"",
  "questions[5].questionTranslation": "Patatesler kaç para?",
  "questions[5].optionsTranslation[0]": "bir euro on",
  "questions[5].optionsTranslation[1]": "iki euro on",
- "questions[5].optionsTranslation[2]": "dört euro"
+ "questions[5].optionsTranslation[2]": "dört euro",
+ "help.tips[1].text": "2,20 € = zwei Euro zwanzig. 1,10 € = ein Euro zehn (Euro'dan önce eins değil ein. kostet'ten sonra 'einen Euro zehn' denir, ama orada 'ein Euro zehn' de sık duyulur). Tam euro: zwei Euro. Türkçedeki gibi sayıdan sonra çoğul eki yok: Euro'ya 's' eklenmez."
 }

@@ -573,7 +573,7 @@
 							"text": "Im Gespräch gilt *Sie*, bis sie dir das *du* anbieten. Manche Start-ups sagen sofort du, eine Bank nie. Im Zweifel: warten und zuhören."
 						}
 					],
-					"fact": "*Der Blaue Brief* ist der alte Name für eine Warnung oder Kündigung. In Deutschland gibt es auch den *Betriebsrat*: Die Angestellten wählen ihn. Ab einer bestimmten Firmengröße redet er wirklich mit, wenn jemand gehen muss.",
+					"fact": "*Der blaue Brief* ist der alte Name für eine Warnung oder Kündigung. In Deutschland gibt es auch den *Betriebsrat*: Die Angestellten wählen ihn. Ab einer bestimmten Firmengröße redet er wirklich mit, wenn jemand gehen muss.",
 					"check": {
 						"title": "Mini-Check",
 						"instruction": "Kreise das richtige Wort ein.",
@@ -2069,7 +2069,7 @@
 				"lines": [
 					{
 						"who": "Herr Kunze",
-						"de": "Guten Tag. Sie sind die neue Pächterin? Ich bin der erste Vorsitzende. Was ist denn das für eine hohe Hecke?"
+						"de": "Guten Tag. Sie sind die neue Pächterin? Ich bin der Erste Vorsitzende. Was ist denn das für eine hohe Hecke?"
 					},
 					{
 						"who": "Lena",
@@ -2652,7 +2652,7 @@
 								},
 								{
 									"de": "vermieten · zu vermieten",
-									"en": "to let · to let"
+									"en": "to let · for rent"
 								},
 								{
 									"de": "hell",
@@ -3216,7 +3216,7 @@
 					{
 						"de": "die Papiertüte",
 						"pl": "-n",
-						"en": "bag",
+						"en": "paper bag",
 						"image": "papiertuete",
 						"x": 72,
 						"y": 50,
@@ -3588,7 +3588,7 @@
 							{
 								"de": "das Kleeblatt",
 								"pl": "die Kleeblätter",
-								"en": "four-leaf clover"
+								"en": "clover leaf (four-leaf = lucky)"
 							},
 							{
 								"de": "der Vorsatz",
@@ -5898,7 +5898,7 @@
 						{
 							"kind": "build",
 							"title": "Präteritum + zwei Punkte",
-							"note": "Auch dürfte, wüsste. sollte und wollte bleiben gleich.",
+							"note": "Auch dürfte, wüsste; sollte und wollte bleiben gleich.",
 							"rows": [
 								{
 									"parts": [
@@ -9486,7 +9486,7 @@
 				"caption": "Der Marktplatz in einer kleinen Stadt: heute ohne Bagger.",
 				"questions": [
 					"Was wird in deiner Straße gebaut?",
-					"Was stört dich wegen der Baustelle?",
+					"Was stört dich an der Baustelle?",
 					"Wessen Haus gefällt dir?"
 				],
 				"labels": [
@@ -10686,7 +10686,7 @@
 					},
 					{
 						"who": "Oma Erna",
-						"de": "Als die Grenze aufging, bin ich sofort losgelaufen. Da es keinen Weg mehr gab, ging ich durch den Wald. Falls jemand fragt: Ich war achtunddreißig und sehr schnell."
+						"de": "Als die Grenze aufging, bin ich sofort losgelaufen. Da es keinen Weg mehr gab, ging ich durch den Wald. Falls jemand fragt: Ich war fünfunddreißig und sehr schnell."
 					},
 					{
 						"who": "Maya",
@@ -10705,7 +10705,7 @@
 						"de": "Gelbe. Zum ersten Mal. Ich habe ihr gesagt: Gerda, die schwarzen haben mir besser geschmeckt. Das war gelogen. Aber es war das Erste, was ich ihr seit achtundzwanzig Jahren sagen konnte."
 					}
 				],
-				"en": "Oma Erna: When I was seven, the fence came. Gerda was just at our aunt’s in the West. Then the border closed. · Maya: And when you wanted to see Gerda? · Oma Erna: When we wanted to see each other, we went up the hill. Every Sunday. Me on ours, her on hers. Although it was forbidden, I waved to her. · Lena: Four hundred metres, Maya. From there to that tree. · Oma Erna: And every time she sent a parcel, there were bananas in it. They were black when they arrived. We ate them all the same. · Maya: And when the border opened? In 1989? · Oma Erna: When the border opened, I set off at once. Since there was no path left, I went through the forest. In case anyone asks: I was thirty-eight and very fast. · Maya: And Gerda? · Oma Erna: Gerda was coming towards me in the forest. With a bag. We hugged, and then she gave me the bag. · Lena: Bananas? · Oma Erna: Yellow ones. For the first time. I said to her: Gerda, I liked the black ones better. That was a lie. But it was the first thing I’d been able to say to her in twenty-eight years.",
+				"en": "Oma Erna: When I was seven, the fence came. Gerda was just at our aunt’s in the West. Then the border closed. · Maya: And when you wanted to see Gerda? · Oma Erna: When we wanted to see each other, we went up the hill. Every Sunday. Me on ours, her on hers. Although it was forbidden, I waved to her. · Lena: Four hundred metres, Maya. From there to that tree. · Oma Erna: And every time she sent a parcel, there were bananas in it. They were black when they arrived. We ate them all the same. · Maya: And when the border opened? In 1989? · Oma Erna: When the border opened, I set off at once. Since there was no path left, I went through the forest. In case anyone asks: I was thirty-five and very fast. · Maya: And Gerda? · Oma Erna: Gerda was coming towards me in the forest. With a bag. We hugged, and then she gave me the bag. · Lena: Bananas? · Oma Erna: Yellow ones. For the first time. I said to her: Gerda, I liked the black ones better. That was a lie. But it was the first thing I’d been able to say to her in twenty-eight years.",
 				"fact": "Die innerdeutsche Grenze war 1.393 km lang. Der alte Todesstreifen ist heute Naturschutzgebiet. Er heißt *Grünes Band*: eine lange grüne Linie mit seltenen Vögeln und Orchideen, von der Ostsee bis Bayern. Das gibt es, weil vierzig Jahre niemand hineindurfte.",
 				"tasks": [
 					{
@@ -10718,7 +10718,7 @@
 								"before": "Als der Zaun kam, war Oma Erna",
 								"options": [
 									"sieben",
-									"achtunddreißig"
+									"fünfunddreißig"
 								],
 								"after": ".",
 								"answer": "sieben"
@@ -12410,7 +12410,7 @@
 						},
 						{
 							"before": "Mit",
-							"after": "Grüßen, Tomás Ruiz",
+							"after": "Grüßen – Tomás Ruiz",
 							"answer": "freundlichen"
 						}
 					]
@@ -12494,7 +12494,7 @@
 						},
 						{
 							"before": "Mit freundlichen",
-							"after": ".",
+							"after": "",
 							"answer": "Grüßen"
 						}
 					]

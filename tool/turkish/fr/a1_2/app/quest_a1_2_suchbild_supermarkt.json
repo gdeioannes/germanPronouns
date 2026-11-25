@@ -1,5 +1,4 @@
 {
- "sceneAlt": "Une petite épicerie de quartier vue de face : à gauche une caisse avec une caisse enregistreuse, un tapis roulant, une tablette de chocolat et un sac en papier, et un panier posé par terre. Au fond, une haute étagère avec du vin, du lait, du jus, des œufs, du papier toilette, un poulet rôti, des saucisses, du fromage, une pastèque, une tomate et un cadeau ; à côté, une balance suspendue sous une étagère de boulangerie avec un gâteau et un croissant. À droite, un congélateur coffre avec des glaces, un steak et un poisson ; devant, un étal de fruits et légumes, un seau de fleurs et un caddie.",
  "spots[0].en": "étagère, rayon",
  "spots[1].en": "congélateur coffre",
  "spots[2].en": "tapis roulant",
@@ -29,11 +28,10 @@
  "spots[26].en": "banane",
  "spots[27].en": "citrouille",
  "spots[28].en": "tomate",
- "spots[29].en": "pastèque",
  "spots[30].en": "concombre",
  "spots[31].en": "salade",
  "help.hook": "Une petite épicerie de quartier pleine de produits : trouvez chacun dans l'image, puis donnez-lui son article.",
- "help.intro": "Une chasse à l'image au lieu d'un paquet de cartes : une petite épicerie de quartier avec 32 objets à trouver, tous des mots dont vous avez besoin pour faire les courses : der Einkaufswagen, die Kasse, das Fließband, le fromage sur l'étagère et le poisson dans le congélateur. La consigne demande Wo ist …? et vous touchez l'objet dans l'image. Toucher un mur ou le sol vide ne coûte rien ; toucher le mauvais objet vous dit ce que vous avez touché et vous continuez à chercher, et après trois erreurs, le bon objet est montré. Chaque objet trouvé affiche son nom, coloré selon son genre (bleu der, rouge die, vert das), puis laisse une petite coche de cette couleur, pour que vous voyiez ce que vous avez déjà trouvé. Une fois une série réussie, la chasse devient plus difficile : la consigne cache l'article (Wo ist ___ Kasse?), et après avoir trouvé l'objet, vous choisissez vous-même der, die ou das. Aucun objet n'est demandé deux fois dans la même série.",
+ "help.intro": "Une chasse à l'image au lieu d'un paquet de cartes : une petite épicerie de quartier avec 32 objets à trouver, tous des mots dont vous avez besoin pour faire les courses : der Einkaufswagen, die Kasse, das Kassenband, le fromage sur l'étagère et le poisson dans le congélateur. La consigne demande Wo ist …? et vous touchez l'objet dans l'image. Toucher un mur ou le sol vide ne coûte rien ; toucher le mauvais objet vous dit ce que vous avez touché et vous continuez à chercher, et après trois erreurs, le bon objet est montré. Chaque objet trouvé affiche son nom, coloré selon son genre (bleu der, rouge die, vert das), puis laisse une petite coche de cette couleur, pour que vous voyiez ce que vous avez déjà trouvé. Une fois une série réussie, la chasse devient plus difficile : la consigne cache l'article (Wo ist ___ Kasse?), et après avoir trouvé l'objet, vous choisissez vous-même der, die ou das. Aucun objet n'est demandé deux fois dans la même série.",
  "help.tips[0].title": "Les mots composés de l'épicerie : la dernière partie décide",
  "help.tips[0].text": "Les mots du magasin sont souvent composés, et c'est la dernière partie qui décide de l'article. Einkauf + Wagen : der Wagen, donc der Einkaufswagen. Kühl + Truhe : die Truhe, donc die Kühltruhe. Regardez la fin du mot.",
  "help.tips[0].examples[0].en": "panier (der Korb)",
@@ -84,7 +82,9 @@
  "help.vocab[26].en": "banane",
  "help.vocab[27].en": "citrouille",
  "help.vocab[28].en": "tomate",
- "help.vocab[29].en": "pastèque",
  "help.vocab[30].en": "concombre",
- "help.vocab[31].en": "salade"
+ "help.vocab[31].en": "salade",
+ "sceneAlt": "Une petite épicerie de quartier vue de face : à gauche une caisse avec une caisse enregistreuse, un tapis roulant, une tablette de chocolat et un sac en papier, et un panier posé par terre. Au fond, une haute étagère avec du vin, du lait, du jus, des œufs, du papier toilette, un poulet rôti, des saucisses, du fromage, un melon, une tomate et un cadeau ; à côté, une balance suspendue sous une étagère de boulangerie avec un gâteau et un croissant. À droite, un congélateur coffre avec des glaces, un steak et un poisson ; devant, un étal de fruits et légumes, un seau de fleurs et un caddie.",
+ "spots[29].en": "melon",
+ "help.vocab[29].en": "melon"
 }

@@ -1,6 +1,5 @@
 {
  "help.intro": "Una llamada de teléfono de un minuto y medio: Elif invita a su amigo Ben a su fiesta de cumpleaños y organizan el cuándo, el dónde, el regalo y quién recoge a quién. De paso aprendes dos reglas alemanas de cumpleaños que sorprenden a los extranjeros: nunca se felicita antes del día, y es la persona que cumple años quien lleva el pastel al trabajo, no los compañeros. La escena es inventada; las costumbres son reales. Oyes lo que acabas de aprender: los pronombres en acusativo (Ich lade dich ein. Holst du mich ab? Ich kenne sie nicht) y los verbos separables (trennbare Verben) en la frase (einladen, abholen, mitbringen, anrufen, anfangen: Ich hole dich um sieben ab). Escucha una vez para la llamada entera y luego una vez para las horas y las tareas.",
- "help.tips[0].text": "Los pronombres en acusativo son el objeto directo del verbo, como me, te, lo, la en español; pero en alemán van detrás del verbo: Ich lade dich ein (te invito). Holst du mich ab? (¿me recoges?). Ich kenne ihn nicht (no lo conozco). Wir sehen euch am Samstag (los vemos, os vemos el sábado). Kennst du sie? (¿la conoces? / ¿los conoces?). Solo ich → mich, du → dich, er → ihn cambian de forma; sie, es, uns, euch, Sie se quedan igual.",
  "help.tips[0].examples[0].en": "Te invito a mi fiesta. ¿Me puedes recoger a las siete?",
  "help.tips[0].examples[1].en": "¿Conoces a Jonas? No, no lo conozco. Pero a ella sí la conozco, a su hermana.",
  "help.tips[0].check.q": "Ich rufe ____ morgen an. (du)",
@@ -12,7 +11,6 @@
  "help.tips[1].check.q": "Wann ____ die Party ____? (anfangen)",
  "help.tips[1].check.options[2]": "fangt … an",
  "help.tips[1].check.why": "anfangen es separable y cambia de vocal: die Party fängt … an.",
- "help.remember[0]": "Ich lade dich ein, du holst mich ab, ich kenne ihn nicht: mich, dich, ihn cambian; sie, uns, euch se quedan igual.",
  "help.remember[1]": "Verbos separables: el prefijo al final (Ich hole dich ab), todo junto después de un modal (Kannst du mich abholen?).",
  "help.exam": "Las llamadas cortas con invitaciones, horas y planes son una tarea de comprensión auditiva típica de este nivel.",
  "help.hook": "Una invitación de cumpleaños, una regla del pastel que nadie te contó y la pregunta de quién recoge a quién a las seis y media. Escucha.",
@@ -85,5 +83,7 @@
  "questions[1].options[1]": "In Deutschland gratuliert man nicht vor dem Geburtstag.",
  "questions[2].options[1]": "Dativ-Pronomen dir und ein Modalverb am Satzende",
  "questions[2].options[2]": "Imperativ und Plural",
- "help.tips[0].title": "mich, dich, ihn, sie, uns, euch"
+ "help.tips[0].title": "mich, dich, ihn, sie, uns, euch",
+ "help.tips[0].text": "Los pronombres en acusativo son el objeto directo del verbo, como me, te, lo, la en español; pero en alemán van detrás del verbo: Ich lade dich ein (te invito). Holst du mich ab? (¿me recoges?). Ich kenne ihn nicht (no lo conozco). Wir sehen euch am Samstag (los vemos, os vemos el sábado). Kennst du sie? (¿la conoces? / ¿los conoces?). ich → mich, du → dich, er → ihn, wir → uns, ihr → euch cambian de forma; sie, es y Sie se quedan igual.",
+ "help.remember[0]": "Ich lade dich ein, du holst mich ab, ich kenne ihn nicht: mich, dich, ihn, uns, euch cambian; sie, es, Sie se quedan igual."
 }
