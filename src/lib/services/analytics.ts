@@ -122,7 +122,8 @@ let botVerdict: boolean | null = null;
 //
 //   1. utm_source / ref query params — explicit tags on links we post; the
 //      only signal that survives in-app browsers (Instagram, TikTok strip the
-//      referrer, especially on iOS).
+//      referrer, especially on iOS). A tag an AI assistant added to its own
+//      link (utm_source=chatgpt.com) gets the channel "ai", not "campaign".
 //   2. Ad click ids (gclid/fbclid/ttclid/msclkid/twclid) — present even when
 //      no UTM was set on the ad.
 //   3. document.referrer — mapped to a friendly name and a channel; unknown
@@ -178,8 +179,23 @@ const REFERRERS: [string, string, string][] = [
 	['perplexity.ai', 'perplexity', 'ai'],
 	['claude.ai', 'claude', 'ai'],
 	['gemini.google.com', 'gemini', 'ai'],
-	['copilot.microsoft.com', 'copilot', 'ai']
+	['copilot.microsoft.com', 'copilot', 'ai'],
+	['deepseek.com', 'deepseek', 'ai'],
+	['grok.com', 'grok', 'ai'],
+	['meta.ai', 'meta-ai', 'ai'],
+	['mistral.ai', 'mistral', 'ai'],
+	['you.com', 'you', 'ai'],
+	['phind.com', 'phind', 'ai'],
+	['kagi.com', 'kagi', 'search']
 ];
+
+/**
+ * An AI assistant tags the links it gives (ChatGPT: utm_source=chatgpt.com),
+ * so its visits arrive as an explicit tag, not a referrer. They are a
+ * discovery channel, not a campaign of ours: the channel says so. The source
+ * stays the tag as sent, so earlier exports (source "chatgpt.com") still compare.
+ */
+const AI_TAGS = /chatgpt|openai|perplexity|claude|gemini|copilot|deepseek|grok|meta\.ai|mistral|phind/;
 
 /** Ad click-id param → source it implies when no utm_source was set. */
 const CLICK_IDS: [string, string, string][] = [
@@ -210,7 +226,7 @@ function resolveAttribution(): Attribution {
 		// 1. Explicit tagging beats everything.
 		const utm = cleanParam(params.get('utm_source')) || cleanParam(params.get('ref'));
 		if (utm) {
-			const attribution: Attribution = { source: utm, channel: 'campaign' };
+			const attribution: Attribution = { source: utm, channel: AI_TAGS.test(utm) ? 'ai' : 'campaign' };
 			const medium = cleanParam(params.get('utm_medium'));
 			const campaign = cleanParam(params.get('utm_campaign'));
 			if (medium) attribution.medium = medium;

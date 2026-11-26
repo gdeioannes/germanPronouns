@@ -64,7 +64,12 @@
 	const unready = $derived(!!pre && !langIndexed(pre));
 	const hidden = $derived(noindex || unready);
 	// A level-bound page (a level, an exercise) has twins only for A1–A2.
-	const pageLevel = $derived(page.params.levelId ?? (page.data as { quiz?: { level?: string } }).quiz?.level ?? null);
+	const pageLevel = $derived(
+		page.params.levelId ??
+			(page.data as { quiz?: { level?: string } }).quiz?.level ??
+			(page.data as { bookLevel?: string }).bookLevel ??
+			null
+	);
 	const twinned = $derived(
 		!!page.route.id && PREFIX_ROUTES.has(page.route.id) && (pageLevel === null || levelTranslated(pageLevel))
 	);

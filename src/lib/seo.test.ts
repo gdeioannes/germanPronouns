@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { absoluteUrl, bookLd, chatDescription, chatTitle, clip, courseLd, learningResourceLd, quizDescription, quizTitle, titleWithSite, topicOf } from './seo';
+import { absoluteUrl, bookLd, bookShelfLd, chatDescription, chatTitle, clip, courseLd, learningResourceLd, quizDescription, quizTitle, titleWithSite, topicOf } from './seo';
 import type { PopulatedCourse, Quiz } from './content/types';
 import course from '$content/courses/de_cert_a1.json';
 
@@ -141,5 +141,17 @@ describe('play page metadata', () => {
 		});
 		expect(ld.workExample.encoding.contentUrl).toBe('https://languagequiz.org/books/b.pdf');
 		expect(ld.workExample.offers.price).toBe('0');
+	});
+	it('lists the course books as free PDF textbooks, each with its file', () => {
+		const ld = bookShelfLd(
+			[{ level: 'A1.1', sub: 'Erste Schritte', anchor: 'a1_1', pdf: '/books/v2/a.pdf', cover: '/img/a.webp', languages: ['de', 'en'] }],
+			{ name: 'The books', pages: 131, edition: 2, date: '2026-11-25' }
+		);
+		const book = ld.itemListElement[0].item;
+		expect(book.name).toBe('Deutsch A1.1 · Erste Schritte');
+		expect(book.encoding.contentUrl).toBe('https://languagequiz.org/books/v2/a.pdf');
+		expect(book.educationalLevel).toBe('CEFR A1.1');
+		expect(book.isAccessibleForFree).toBe(true);
+		expect(ld.numberOfItems).toBe(1);
 	});
 });

@@ -72,6 +72,8 @@ describe('hasTwin', () => {
 			...bundle.quizzes.map((q) => `/course/de_cert_a1/quiz/${q.id}`),
 			...levels.map((l) => `/course/de_cert_a1/level/${l}`),
 			...twins,
+			...levels.map((l) => `/books/${l.toLowerCase().replace('.', '-')}`),
+			'/books/zz',
 			'/legal',
 			'/forum',
 			'/words/nouns',

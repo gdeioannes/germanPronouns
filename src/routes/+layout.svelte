@@ -79,7 +79,10 @@
 	// the English button), so a learner past A2 is never locked out.
 	// (loadOverlay does nothing for a level with no overlay.)
 	const pageLevel = $derived(
-		page.params.levelId ?? (page.data as { quiz?: { level?: string } }).quiz?.level ?? null
+		page.params.levelId ??
+			(page.data as { quiz?: { level?: string } }).quiz?.level ??
+			(page.data as { bookLevel?: string }).bookLevel ??
+			null
 	);
 	const hiddenInLanguage = $derived(
 		lang.limited && page.status < 400 && !routeTranslated(page.route.id) && !routeOpenAsIs(page.route.id)

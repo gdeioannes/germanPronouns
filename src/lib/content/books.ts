@@ -70,3 +70,6 @@ export const pdfOffered = (book: BookEntry, l: UiLang) =>
 /** The reader; `from` tells its back link where to return (the books list). */
 export const bookReadHref = (courseHref: string, book: BookEntry, from?: 'books') =>
 	`${courseHref}/book2/${book.level}${from ? `?from=${from}` : ''}`;
+/** The book's own page: /books/a1-1 (its slug is the level, "a1-1"). */
+export const bookSlug = (book: BookEntry) => book.level.toLowerCase().replace('.', '-');
+export const bookPageHref = (book: BookEntry) => `/books/${bookSlug(book)}`;

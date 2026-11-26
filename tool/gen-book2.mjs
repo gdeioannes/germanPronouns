@@ -8,6 +8,7 @@
 import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import puppeteer from 'puppeteer-core';
+import { stampBookPdf } from './book-pdf-meta.mjs';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 const args = process.argv.slice(2);
@@ -54,4 +55,6 @@ await browser.close();
 mkdirSync(`${root}static/books/v2`, { recursive: true });
 const out = flag('--out', `${root}static/books/v2/${courseId}_${level.toLowerCase().replace('.', '_')}${coverMode ? '_cover' : web ? '' : '_print'}${tr ? `_${tr}` : ''}.pdf`);
 writeFileSync(out, pdf);
+// The free download's title, author and subject: what search and AI answers show (book-pdf-meta.mjs).
+if (web && !coverMode && /_[abc][12]_[12](_[a-z]{2})?\.pdf$/.test(out)) stampBookPdf(out);
 console.log(`${out}  ${Math.round(pdf.length / 1024)} kB`);

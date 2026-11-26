@@ -2645,4 +2645,109 @@ export const TR: Record<string, string> = {
 		"Yeni baskılar",
 	"Current edition: {edition} ({date}). The German in every book was reviewed and corrected; if your PDF is older, download it again.":
 		"Güncel baskı: {edition} ({date}). Her kitaptaki Almanca gözden geçirildi ve düzeltildi; PDF dosyan daha eskiyse yeniden indir.",
+	// The book pages (/books/a1-1): src/routes/books/[book]/+page.svelte.
+	"What is inside":
+		"İçinde ne var",
+	"{name}: a free {pages}-page German textbook (PDF) for level {level}. Twelve chapters, each a real place, with stories, grammar, audio and exercises. No sign-up.":
+		"{name}: {level} seviyesi için {pages} sayfalık ücretsiz Almanca ders kitabı (PDF). Her biri gerçek bir yer olan on iki bölüm; hikâyeler, dil bilgisi, ses kayıtları ve alıştırmalar. Kayıt yok.",
+	"Is Deutsch {level} really free?":
+		"Deutsch {level} gerçekten ücretsiz mi?",
+	"Yes. The whole book is a free PDF: all {pages} pages, twelve chapters and the answer key. There is nothing to pay, no trial and no sign-up; the download starts when you tap the button. You can also read every page online first.":
+		"Evet. Kitabın tamamı ücretsiz bir PDF: {pages} sayfanın hepsi, on iki bölüm ve cevap anahtarı. Ödeme yok, deneme süresi yok, kayıt yok; düğmeye dokununca indirme başlar. İstersen önce her sayfayı çevrimiçi okuyabilirsin.",
+	"For adults learning German at level {level} ({cefr} on the European CEFR scale), {badge}. The explanations are in your own language: the book exists in English, Arabic, French, Spanish, Turkish and Ukrainian.":
+		"{level} seviyesinde ({cefr}, Avrupa CEFR ölçeğinde) Almanca öğrenen yetişkinler için, {badge}. Açıklamalar kendi dilinde: kitabın İngilizce, Arapça, Fransızca, İspanyolca, Türkçe ve Ukraynaca baskıları var.",
+	"For adults learning German at level {level} ({cefr} on the European CEFR scale), {badge}. From B1 on the book explains German in German, the way a course at this level does; the app shows a translation of every explanation at a tap.":
+		"{level} seviyesinde ({cefr}, Avrupa CEFR ölçeğinde) Almanca öğrenen yetişkinler için, {badge}. B1’den itibaren kitap Almancayı Almanca açıklar, bu seviyedeki bir kurs gibi; uygulama her açıklamanın çevirisini tek dokunuşla gösterir.",
+	"Does the book have audio?":
+		"Kitabın ses kayıtları var mı?",
+	"Yes. Every chapter has a QR code and a short page code; scan it or type it at languagequiz.org and the story is read aloud by German voices, free and without an account.":
+		"Evet. Her bölümde bir QR kodu ve kısa bir sayfa kodu var; kodu tara ya da languagequiz.org adresinde yaz, hikâye Alman sesleriyle okunur. Ücretsiz ve hesap açmadan.",
+	"How do I check my answers?":
+		"Cevaplarımı nasıl kontrol ederim?",
+	"Two ways. The answer key is printed at the back of the book. Or use the small code on the page: the app opens the same exercises, checks each answer and explains every mistake.":
+		"İki yolu var. Cevap anahtarı kitabın sonunda basılı. Ya da sayfadaki küçük kodu kullan: uygulama aynı alıştırmaları açar, her cevabı kontrol eder ve her hatayı açıklar.",
+	"Can I print it?":
+		"Yazdırabilir miyim?",
+	"Yes. The pages are A4 and made for paper: print the whole book or one chapter at a time, and write in it. All twelve books, from A1.1 to C2.2, have the same {pages}-page layout.":
+		"Evet. Sayfalar A4 ve kâğıt için tasarlandı: kitabın tamamını ya da tek tek bölümleri yazdır ve içine yaz. A1.1’den C2.2’ye on iki kitabın hepsi aynı {pages} sayfalık düzene sahip.",
+	"Deutsch {level}: Free German {cefr} Textbook (PDF)":
+		"Deutsch {level}: Ücretsiz Almanca {cefr} Ders Kitabı (PDF)",
+	"The cover of {name}":
+		"{name} kitabının kapağı",
+	"All twelve books":
+		"On iki kitabın hepsi",
+	"Free German textbook":
+		"Ücretsiz Almanca ders kitabı",
+	"Free. No sign-up, no email, no ads.":
+		"Ücretsiz. Kayıt yok, e-posta yok, reklam yok.",
+	"Level":
+		"Seviye",
+	"Pages":
+		"Sayfa",
+	"A4, made to print":
+		"A4, yazdırmak için",
+	"Chapters":
+		"Bölüm",
+	"each a real place":
+		"her biri gerçek bir yer",
+	"each with its meaning":
+		"her biri anlamıyla",
+	"in word lists":
+		"kelime listelerinde",
+	"Explained in":
+		"Açıklama dili",
+	"your language":
+		"kendi dilin",
+	"German":
+		"Almanca",
+	"six language editions":
+		"altı dilde baskı",
+	"as courses are from B1":
+		"B1’den itibaren kurslardaki gibi",
+	"Edition":
+		"Baskı",
+	"What is in the book":
+		"Kitapta ne var",
+	"Every chapter is one place: {places}, and eight more. The place gives you the words, the words carry a story, and the story carries the grammar. Each chapter has the words with pictures, a photo to talk about, a story, two grammar pages, a real document ({real}) and practice.":
+		"Her bölüm bir yer: {places} ve sekiz yer daha. Yer sana kelimeleri verir, kelimeler bir hikâyeyi taşır, hikâye de dil bilgisini. Her bölümde resimli kelimeler, üzerine konuşulacak bir fotoğraf, bir hikâye, iki dil bilgisi sayfası, gerçek bir belge ({real}) ve alıştırmalar var.",
+	"After the last chapter come {n} longer texts to read and hear.":
+		"Son bölümden sonra okumak ve dinlemek için {n} uzun metin gelir.",
+	"Grammar:":
+		"Dil bilgisi:",
+	"Story:":
+		"Hikâye:",
+	"After this chapter you can …":
+		"Bu bölümden sonra yapabileceklerin …",
+	"This chapter in the app":
+		"Bu bölüm uygulamada",
+	"The paper and the app work together":
+		"Kâğıt ve uygulama birlikte çalışır",
+	"The book is complete on paper. But every page carries a short code (like {code}) and every chapter a QR code. They open the same page in the free app, where you can:":
+		"Kitap kâğıt üzerinde eksiksizdir. Ama her sayfada kısa bir kod ({code} gibi), her bölümde de bir QR kodu var. Bunlar ücretsiz uygulamada aynı sayfayı açar; orada şunları yapabilirsin:",
+	"Hear it.":
+		"Dinle.",
+	"The story of every chapter, read aloud by German voices.":
+		"Her bölümün hikâyesi, Alman sesleriyle okunur.",
+	"Check it.":
+		"Kontrol et.",
+	"The page’s exercises, checked answer by answer, with the reason for every mistake.":
+		"Sayfanın alıştırmaları cevap cevap kontrol edilir, her hatanın nedeniyle birlikte.",
+	"Keep it.":
+		"Aklında tut.",
+	"The chapter’s words as flashcards, with pictures and sound.":
+		"Bölümün kelimeleri, resimli ve sesli kelime kartları olarak.",
+	"See the {level} course in the app":
+		"{level} kursunu uygulamada gör",
+	"Before you download":
+		"İndirmeden önce",
+	"Download Deutsch {level} (PDF, {mb} MB)":
+		"Deutsch {level} kitabını indir (PDF, {mb} MB)",
+	"Other books":
+		"Diğer kitaplar",
+	"The book before":
+		"Önceki kitap",
+	"The next book":
+		"Sonraki kitap",
+	"The free book for this level":
+		"Bu seviyenin ücretsiz kitabı",
 };

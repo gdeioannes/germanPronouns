@@ -8,6 +8,8 @@ import { wordSlug } from '$lib/domain/words';
 import { LITERATURE } from '$lib/content/literature';
 import { CHARTS_BOOK } from '$lib/content/charts';
 import { GERMAN_FAQ } from '$lib/content/germanFaq';
+import { BOOKS, bookPageHref, bookPdf } from '$lib/content/books';
+import type { LocalLang, UiLang } from '$lib/i18n/lang.svelte';
 import { kafkaStages } from '$lib/server/kafka';
 import type { RequestHandler } from './$types';
 
@@ -49,6 +51,23 @@ export const GET: RequestHandler = async () => {
 	const faqDate = lastModified('src/lib/content/germanFaq.ts');
 	urls.push({ loc: '/german-faq', lastmod: faqDate, priority: '0.7' });
 	for (const f of GERMAN_FAQ) urls.push({ loc: `/german-faq/${f.slug}`, lastmod: faqDate, priority: '0.7' });
+
+	// The course's twelve books as files, and each second-language edition: a
+	// search engine and an AI answer index a PDF's text and title, so "free
+	// German A1 textbook PDF" can land straight on the book.
+	for (const book of BOOKS) {
+		// The book's own page: contents, chapters, the download.
+		urls.push({
+			loc: bookPageHref(book),
+			lastmod: lastModified('src/routes/books', `assets/content/book2/${courses[0].id}/${book.file}.json`),
+			priority: book.level === 'A1.1' ? '0.9' : '0.8'
+		});
+		const editions: UiLang[] = ['en', ...(Object.keys(book.local ?? {}) as LocalLang[])];
+		for (const l of editions) {
+			const href = bookPdf(book, l);
+			urls.push({ loc: href, lastmod: lastModified(`static${href}`), priority: book.level === 'A1.1' ? '0.7' : '0.5' });
+		}
+	}
 
 	// The annotated editions themselves: a search engine indexes a PDF's text,
 	// so "Die Verwandlung with English notes" can land straight on the book.

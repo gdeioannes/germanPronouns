@@ -2926,4 +2926,109 @@ export const ES: Record<string, string> = {
 		"Nuevas ediciones",
 	"Current edition: {edition} ({date}). The German in every book was reviewed and corrected; if your PDF is older, download it again.":
 		"Edición actual: {edition} ({date}). El alemán de cada libro se ha revisado y corregido; si tu PDF es más antiguo, descárgalo de nuevo.",
+	// The book pages (/books/a1-1): src/routes/books/[book]/+page.svelte.
+	"What is inside":
+		"Qué hay dentro",
+	"{name}: a free {pages}-page German textbook (PDF) for level {level}. Twelve chapters, each a real place, with stories, grammar, audio and exercises. No sign-up.":
+		"{name}: un libro de alemán gratuito de {pages} páginas (PDF) para el nivel {level}. Doce capítulos, cada uno en un lugar real, con historias, gramática, audio y ejercicios. Sin registro.",
+	"Is Deutsch {level} really free?":
+		"¿Deutsch {level} es gratis de verdad?",
+	"Yes. The whole book is a free PDF: all {pages} pages, twelve chapters and the answer key. There is nothing to pay, no trial and no sign-up; the download starts when you tap the button. You can also read every page online first.":
+		"Sí. El libro entero es un PDF gratuito: las {pages} páginas, los doce capítulos y el solucionario. No hay nada que pagar, ni prueba, ni registro; la descarga empieza cuando tocas el botón. También puedes leer antes todas las páginas en línea.",
+	"For adults learning German at level {level} ({cefr} on the European CEFR scale), {badge}. The explanations are in your own language: the book exists in English, Arabic, French, Spanish, Turkish and Ukrainian.":
+		"Para adultos que aprenden alemán en el nivel {level} ({cefr} en la escala europea MCER), {badge}. Las explicaciones están en tu idioma: el libro existe en inglés, árabe, francés, español, turco y ucraniano.",
+	"For adults learning German at level {level} ({cefr} on the European CEFR scale), {badge}. From B1 on the book explains German in German, the way a course at this level does; the app shows a translation of every explanation at a tap.":
+		"Para adultos que aprenden alemán en el nivel {level} ({cefr} en la escala europea MCER), {badge}. A partir de B1 el libro explica el alemán en alemán, como un curso de este nivel; la app muestra la traducción de cada explicación con un toque.",
+	"Does the book have audio?":
+		"¿El libro tiene audio?",
+	"Yes. Every chapter has a QR code and a short page code; scan it or type it at languagequiz.org and the story is read aloud by German voices, free and without an account.":
+		"Sí. Cada capítulo tiene un código QR y un código de página corto; escanéalo o escríbelo en languagequiz.org y la historia se lee en voz alta con voces alemanas, gratis y sin cuenta.",
+	"How do I check my answers?":
+		"¿Cómo compruebo mis respuestas?",
+	"Two ways. The answer key is printed at the back of the book. Or use the small code on the page: the app opens the same exercises, checks each answer and explains every mistake.":
+		"De dos maneras. El solucionario está impreso al final del libro. O usa el código pequeño de la página: la app abre los mismos ejercicios, comprueba cada respuesta y explica cada error.",
+	"Can I print it?":
+		"¿Puedo imprimirlo?",
+	"Yes. The pages are A4 and made for paper: print the whole book or one chapter at a time, and write in it. All twelve books, from A1.1 to C2.2, have the same {pages}-page layout.":
+		"Sí. Las páginas son A4 y están hechas para el papel: imprime el libro entero o un capítulo cada vez, y escribe en él. Los doce libros, de A1.1 a C2.2, tienen el mismo diseño de {pages} páginas.",
+	"Deutsch {level}: Free German {cefr} Textbook (PDF)":
+		"Deutsch {level}: libro de alemán {cefr} gratis (PDF)",
+	"The cover of {name}":
+		"La portada de {name}",
+	"All twelve books":
+		"Los doce libros",
+	"Free German textbook":
+		"Libro de alemán gratuito",
+	"Free. No sign-up, no email, no ads.":
+		"Gratis. Sin registro, sin correo, sin anuncios.",
+	"Level":
+		"Nivel",
+	"Pages":
+		"Páginas",
+	"A4, made to print":
+		"A4, hecho para imprimir",
+	"Chapters":
+		"Capítulos",
+	"each a real place":
+		"cada uno en un lugar real",
+	"each with its meaning":
+		"cada una con su significado",
+	"in word lists":
+		"en listas de palabras",
+	"Explained in":
+		"Explicado en",
+	"your language":
+		"tu idioma",
+	"German":
+		"Alemán",
+	"six language editions":
+		"ediciones en seis idiomas",
+	"as courses are from B1":
+		"como los cursos desde B1",
+	"Edition":
+		"Edición",
+	"What is in the book":
+		"Qué hay en el libro",
+	"Every chapter is one place: {places}, and eight more. The place gives you the words, the words carry a story, and the story carries the grammar. Each chapter has the words with pictures, a photo to talk about, a story, two grammar pages, a real document ({real}) and practice.":
+		"Cada capítulo es un lugar: {places}, y ocho más. El lugar te da las palabras, las palabras llevan una historia y la historia lleva la gramática. Cada capítulo tiene las palabras con imágenes, una foto para comentar, una historia, dos páginas de gramática, un documento real ({real}) y práctica.",
+	"After the last chapter come {n} longer texts to read and hear.":
+		"Después del último capítulo vienen {n} textos más largos para leer y escuchar.",
+	"Grammar:":
+		"Gramática:",
+	"Story:":
+		"Historia:",
+	"After this chapter you can …":
+		"Después de este capítulo puedes …",
+	"This chapter in the app":
+		"Este capítulo en la app",
+	"The paper and the app work together":
+		"El papel y la app funcionan juntos",
+	"The book is complete on paper. But every page carries a short code (like {code}) and every chapter a QR code. They open the same page in the free app, where you can:":
+		"El libro está completo en papel. Pero cada página lleva un código corto (como {code}) y cada capítulo un código QR. Abren la misma página en la app gratuita, donde puedes:",
+	"Hear it.":
+		"Escúchalo.",
+	"The story of every chapter, read aloud by German voices.":
+		"La historia de cada capítulo, leída con voces alemanas.",
+	"Check it.":
+		"Compruébalo.",
+	"The page’s exercises, checked answer by answer, with the reason for every mistake.":
+		"Los ejercicios de la página, comprobados respuesta por respuesta, con el motivo de cada error.",
+	"Keep it.":
+		"Guárdalo.",
+	"The chapter’s words as flashcards, with pictures and sound.":
+		"Las palabras del capítulo como tarjetas, con imágenes y sonido.",
+	"See the {level} course in the app":
+		"Ver el curso {level} en la app",
+	"Before you download":
+		"Antes de descargar",
+	"Download Deutsch {level} (PDF, {mb} MB)":
+		"Descargar Deutsch {level} (PDF, {mb} MB)",
+	"Other books":
+		"Otros libros",
+	"The book before":
+		"El libro anterior",
+	"The next book":
+		"El libro siguiente",
+	"The free book for this level":
+		"El libro gratuito de este nivel",
 };

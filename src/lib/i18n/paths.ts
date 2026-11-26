@@ -64,10 +64,14 @@ export const PREFIX_ROUTES = new Set<string>([
 	'/level-check',
 	'/level-check/test',
 	'/books',
+	'/books/[book]',
 	'/course/[courseId]',
 	'/course/[courseId]/level/[levelId]',
 	'/course/[courseId]/quiz/[quizId]'
 ]);
+
+/** "A1.1" → "a1-1": a book's page is /books/<slug> (content/books.ts bookSlug). */
+const bookSlug = (level: string) => level.toLowerCase().replace('.', '-');
 
 /**
  * Every bare path that has prefixed twins, in the order the sitemap lists
@@ -85,6 +89,8 @@ export function localPages(courseId: string, quizzes: { id: string; level?: stri
 		'/level-check',
 		'/level-check/test',
 		'/books',
+		// Each translated book's own page (/books/a1-1).
+		...levels.map((l) => `/books/${bookSlug(l)}`),
 		`/course/${courseId}`,
 		...levels.map((l) => `/course/${courseId}/level/${l}`),
 		...quizzes.filter((q) => q.level && levels.includes(q.level)).map((q) => `/course/${courseId}/quiz/${q.id}`)
@@ -107,6 +113,8 @@ const STATIC_TWINS = new Set(['/', '/about', '/contact', '/start', '/settings', 
  */
 export function hasTwin(path: string): boolean {
 	if (STATIC_TWINS.has(path)) return true;
+	const book = path.match(/^\/books\/([^/]+)$/);
+	if (book) return (LOCAL_LEVELS as readonly string[]).some((l) => bookSlug(l) === book[1]);
 	const m = path.match(/^\/course\/[^/]+(?:\/(level|quiz)\/([^/]+))?$/);
 	if (!m) return false;
 	if (!m[1]) return true;

@@ -18,9 +18,11 @@
 	import { progress } from '$lib/state/progress.svelte';
 	import type { PageData } from './$types';
 	import { inLang } from '$lib/i18n/content.svelte';
+	import { BOOKS, bookPageHref } from '$lib/content/books';
 
 	let { data }: { data: PageData } = $props();
 	const { course, level, title, quizzes, previous, next } = $derived(data);
+	const levelBook = $derived(BOOKS.find((b) => b.level === level));
 	// The syllabus card through the level's Turkish overlay (text map).
 	const module = $derived(inLang(data.module, data.level));
 	// Turkish and Arabic search wording (null in English).
@@ -86,6 +88,13 @@
 		<p class="eyebrow">{level} · {t('Syllabus')}</p>
 		<h1><bdi>{title}</bdi>{#if module?.subtitle}<span class="sub"> · <bdi>{module.subtitle}</bdi></span>{/if}</h1>
 		<p class="count tnum">{t('{done} / {n} exercises done', { done, n: quizzes.length })}</p>
+		<!-- The level's printed side: its book's own page (contents, the free PDF). -->
+		{#if levelBook}
+			<a class="level-book" href={bookPageHref(levelBook)}>
+				<Icon name="book" size="1em" /> {t('The free book for this level')}: <bdi lang="de">Deutsch {levelBook.level} · {levelBook.sub}</bdi>
+				<Icon name="arrowRight" size="1em" />
+			</a>
+		{/if}
 	</header>
 
 	{#if module && (module.canDo.length || module.themes.length)}
@@ -217,4 +226,19 @@
 
 	.pager { display: flex; justify-content: space-between; margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--line); }
 	.pager a { display: inline-flex; align-items: center; gap: 0.35rem; text-decoration: none; font-weight: 700; }
+
+	.level-book {
+		display: inline-flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.4rem;
+		margin-top: 0.6rem;
+		font-weight: 700;
+		color: var(--accent-ink);
+		text-decoration: none;
+	}
+
+	.level-book:hover {
+		text-decoration: underline;
+	}
 </style>

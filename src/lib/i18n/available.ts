@@ -39,6 +39,8 @@ export const LOCAL_ROUTES = new Set<string>([
 	// A book page's quiz list (the App side of a page code).
 	'/course/[courseId]/book2/[levelId]/[chapterId]/app/[part]',
 	'/books',
+	// One book's own page (/books/a1-1): A1–A2 in the language, B1–C2 as the books are.
+	'/books/[book]',
 	'/b/[code]',
 	// The audio player a book's QR code opens: the translated books print these codes too.
 	'/play/[quizId]'

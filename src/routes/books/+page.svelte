@@ -11,12 +11,13 @@
 	import ChartsBanner from '$lib/components/ChartsBanner.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
 	import { returnTo, returnLabel } from '$lib/state/returnTo.svelte';
-	import { BOOKS, BOOK_PAGES, bookCover, bookMb, bookPdf, bookReadHref, pdfOffered } from '$lib/content/books';
+	import { BOOKS, BOOK_PAGES, bookCover, bookMb, bookPageHref, bookPdf, bookReadHref, hasLocalPdf, pdfOffered } from '$lib/content/books';
 	import { BOOK_EDITION } from '$lib/version';
 	import { lang } from '$lib/i18n/lang.svelte';
 	import { levelTranslated } from '$lib/i18n/available';
+	import { withLang } from '$lib/i18n/paths';
 	import { trackBookDownload } from '$lib/services/analytics';
-	import { breadcrumbLd, itemListLd } from '$lib/seo';
+	import { bookShelfLd, breadcrumbLd } from '$lib/seo';
 	import { page } from '$app/state';
 	import { onMount } from 'svelte';
 	import { listBookQuotes, type BookQuote } from '$lib/services/feedback';
@@ -38,7 +39,20 @@
 	description={t('Twelve free German textbooks (PDF), one per level from A1.1 to C2.2: real places, stories, real documents and practice. Read online or download, no sign-up.')}
 	path="/books"
 	jsonLd={[
-		itemListLd(t('The books'), BOOKS.map((b) => ({ name: `Deutsch ${b.level} · ${b.sub}`, path: `/books#${b.file}` }))),
+		// Each book with its free PDF in this page's language (A1–A2 editions explained in it).
+		bookShelfLd(
+			BOOKS.filter((b) => pdfOffered(b, lang.current)).map((b) => ({
+				level: b.level,
+				sub: b.sub,
+				anchor: b.file,
+				// Its own page, in this page's language where the book has that edition.
+				page: withLang(hasLocalPdf(b, lang.current) ? lang.current : null, bookPageHref(b)),
+				pdf: bookPdf(b, lang.current),
+				cover: bookCover(b, lang.current),
+				languages: hasLocalPdf(b, lang.current) ? ['de', lang.current] : levelTranslated(b.level) ? ['de', 'en'] : ['de']
+			})),
+			{ name: t('The books'), pages: BOOK_PAGES, edition: BOOK_EDITION.n, date: BOOK_EDITION.date }
+		),
 		breadcrumbLd([{ name: 'Home', path: '/' }, { name: t('Books'), path: '/books' }])
 	]}
 />
@@ -83,7 +97,7 @@
 				</a>
 				<div class="text">
 					<p class="where">{book.level}{#if lang.limited && !levelTranslated(book.level)} · {t('Explained in German')}{/if}</p>
-					<h2 lang="de">Deutsch {book.level} · {book.sub}</h2>
+					<h2 lang="de"><a href={bookPageHref(book)}>Deutsch {book.level} · {book.sub}</a></h2>
 					<div class="actions">
 						<a class="primary" href={bookReadHref(courseHref, book, 'books')}><Icon name="book" size="1.05em" /> {t('Read online')}</a>
 						{#if pdfOffered(book, lang.current)}
@@ -99,6 +113,7 @@
 								<Icon name="download" size="1.05em" /> PDF · {bookMb(book, lang.current)} MB
 							</a>
 						{/if}
+						<a class="secondary" href={bookPageHref(book)}>{t('What is inside')} <Icon name="arrowRight" size="1em" /></a>
 					</div>
 				</div>
 			</li>
@@ -214,6 +229,15 @@
 		margin: 0.1rem 0 0.7rem;
 		font-size: var(--step-1);
 		color: var(--heading);
+	}
+
+	h2 a {
+		color: inherit;
+		text-decoration: none;
+	}
+
+	h2 a:hover {
+		text-decoration: underline;
 	}
 
 	.actions {

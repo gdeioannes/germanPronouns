@@ -2926,4 +2926,109 @@ export const AR: Record<string, string> = {
 		"الطبعات الجديدة",
 	"Current edition: {edition} ({date}). The German in every book was reviewed and corrected; if your PDF is older, download it again.":
 		"الطبعة الحالية: {edition} ({date}). تمّت مراجعة الألمانية في كل كتاب وتصحيحها؛ إذا كان ملف PDF لديك أقدم، فنزّله من جديد.",
+	// The book pages (/books/a1-1): src/routes/books/[book]/+page.svelte.
+	"What is inside":
+		"ماذا في الكتاب",
+	"{name}: a free {pages}-page German textbook (PDF) for level {level}. Twelve chapters, each a real place, with stories, grammar, audio and exercises. No sign-up.":
+		"{name}: كتاب مجاني لتعلّم الألمانية (PDF) من {pages} صفحة للمستوى {level}. اثنا عشر فصلًا، كل فصل مكان حقيقي، مع قصص وقواعد وتسجيلات صوتية وتمارين. بلا تسجيل.",
+	"Is Deutsch {level} really free?":
+		"هل كتاب Deutsch {level} مجاني فعلًا؟",
+	"Yes. The whole book is a free PDF: all {pages} pages, twelve chapters and the answer key. There is nothing to pay, no trial and no sign-up; the download starts when you tap the button. You can also read every page online first.":
+		"نعم. الكتاب كله ملف PDF مجاني: الصفحات الـ{pages} كلها، والفصول الاثنا عشر، ومفتاح الإجابات. لا دفع ولا فترة تجريبية ولا تسجيل؛ يبدأ التنزيل عند الضغط على الزر. ويمكنك أيضًا قراءة كل صفحة على الموقع أولًا.",
+	"For adults learning German at level {level} ({cefr} on the European CEFR scale), {badge}. The explanations are in your own language: the book exists in English, Arabic, French, Spanish, Turkish and Ukrainian.":
+		"للبالغين الذين يتعلّمون الألمانية في المستوى {level} ({cefr} في الإطار الأوروبي CEFR)، {badge}. الشرح بلغتك: الكتاب متوفر بالإنجليزية والعربية والفرنسية والإسبانية والتركية والأوكرانية.",
+	"For adults learning German at level {level} ({cefr} on the European CEFR scale), {badge}. From B1 on the book explains German in German, the way a course at this level does; the app shows a translation of every explanation at a tap.":
+		"للبالغين الذين يتعلّمون الألمانية في المستوى {level} ({cefr} في الإطار الأوروبي CEFR)، {badge}. ابتداءً من B1 يشرح الكتاب الألمانية بالألمانية، كما في دورات هذا المستوى؛ ويعرض التطبيق ترجمة كل شرح بضغطة واحدة.",
+	"Does the book have audio?":
+		"هل للكتاب تسجيلات صوتية؟",
+	"Yes. Every chapter has a QR code and a short page code; scan it or type it at languagequiz.org and the story is read aloud by German voices, free and without an account.":
+		"نعم. في كل فصل رمز QR ورمز صفحة قصير؛ امسحه أو اكتبه في languagequiz.org فتُقرأ القصة بأصوات ألمانية، مجانًا ومن دون حساب.",
+	"How do I check my answers?":
+		"كيف أتحقق من إجاباتي؟",
+	"Two ways. The answer key is printed at the back of the book. Or use the small code on the page: the app opens the same exercises, checks each answer and explains every mistake.":
+		"بطريقتين. مفتاح الإجابات مطبوع في آخر الكتاب. أو استخدم الرمز الصغير في الصفحة: يفتح التطبيق التمارين نفسها، ويتحقق من كل إجابة، ويشرح كل خطأ.",
+	"Can I print it?":
+		"هل يمكنني طباعته؟",
+	"Yes. The pages are A4 and made for paper: print the whole book or one chapter at a time, and write in it. All twelve books, from A1.1 to C2.2, have the same {pages}-page layout.":
+		"نعم. الصفحات بقياس A4 ومصمَّمة للورق: اطبع الكتاب كله أو فصلًا فصلًا، واكتب فيه. الكتب الاثنا عشر كلها، من A1.1 إلى C2.2، لها التصميم نفسه في {pages} صفحة.",
+	"Deutsch {level}: Free German {cefr} Textbook (PDF)":
+		"Deutsch {level}: كتاب ألمانية مجاني للمستوى {cefr} (PDF)",
+	"The cover of {name}":
+		"غلاف كتاب {name}",
+	"All twelve books":
+		"الكتب الاثنا عشر كلها",
+	"Free German textbook":
+		"كتاب مجاني لتعلّم الألمانية",
+	"Free. No sign-up, no email, no ads.":
+		"مجاني. بلا تسجيل، بلا بريد إلكتروني، بلا إعلانات.",
+	"Level":
+		"المستوى",
+	"Pages":
+		"الصفحات",
+	"A4, made to print":
+		"قياس A4، مُعدّ للطباعة",
+	"Chapters":
+		"الفصول",
+	"each a real place":
+		"كل فصل مكان حقيقي",
+	"each with its meaning":
+		"كل كلمة مع معناها",
+	"in word lists":
+		"في قوائم كلمات",
+	"Explained in":
+		"لغة الشرح",
+	"your language":
+		"لغتك",
+	"German":
+		"الألمانية",
+	"six language editions":
+		"طبعات بست لغات",
+	"as courses are from B1":
+		"كما في الدورات ابتداءً من B1",
+	"Edition":
+		"الطبعة",
+	"What is in the book":
+		"ماذا يوجد في الكتاب",
+	"Every chapter is one place: {places}, and eight more. The place gives you the words, the words carry a story, and the story carries the grammar. Each chapter has the words with pictures, a photo to talk about, a story, two grammar pages, a real document ({real}) and practice.":
+		"كل فصل مكان واحد: {places}، وثمانية أماكن أخرى. المكان يعطيك الكلمات، والكلمات تحمل قصة، والقصة تحمل القواعد. في كل فصل: الكلمات مع الصور، وصورة للحديث عنها، وقصة، وصفحتان للقواعد، ووثيقة حقيقية ({real})، وتمارين.",
+	"After the last chapter come {n} longer texts to read and hear.":
+		"بعد الفصل الأخير تأتي {n} نصوص أطول للقراءة والاستماع.",
+	"Grammar:":
+		"القواعد:",
+	"Story:":
+		"القصة:",
+	"After this chapter you can …":
+		"بعد هذا الفصل تستطيع …",
+	"This chapter in the app":
+		"هذا الفصل في التطبيق",
+	"The paper and the app work together":
+		"الورق والتطبيق يعملان معًا",
+	"The book is complete on paper. But every page carries a short code (like {code}) and every chapter a QR code. They open the same page in the free app, where you can:":
+		"الكتاب كامل على الورق. لكن في كل صفحة رمز قصير (مثل {code}) وفي كل فصل رمز QR. يفتحان الصفحة نفسها في التطبيق المجاني، وهناك يمكنك:",
+	"Hear it.":
+		"اسمع.",
+	"The story of every chapter, read aloud by German voices.":
+		"قصة كل فصل، مقروءة بأصوات ألمانية.",
+	"Check it.":
+		"تحقّق.",
+	"The page’s exercises, checked answer by answer, with the reason for every mistake.":
+		"تمارين الصفحة، يُتحقق منها إجابةً إجابة، مع سبب كل خطأ.",
+	"Keep it.":
+		"احفظ.",
+	"The chapter’s words as flashcards, with pictures and sound.":
+		"كلمات الفصل في بطاقات تعليمية، بالصور والصوت.",
+	"See the {level} course in the app":
+		"شاهد دورة {level} في التطبيق",
+	"Before you download":
+		"قبل التنزيل",
+	"Download Deutsch {level} (PDF, {mb} MB)":
+		"نزّل Deutsch {level} (PDF، {mb} MB)",
+	"Other books":
+		"كتب أخرى",
+	"The book before":
+		"الكتاب السابق",
+	"The next book":
+		"الكتاب التالي",
+	"The free book for this level":
+		"الكتاب المجاني لهذا المستوى",
 };

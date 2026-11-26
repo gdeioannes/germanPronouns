@@ -22,7 +22,7 @@
 	import { LITERATURE, bookRequestHref, pdfFilename } from '$lib/content/literature';
 	import { CHARTS_BOOK } from '$lib/content/charts';
 	import ChartsDownload from '$lib/components/ChartsDownload.svelte';
-	import { BOOKS, bookCover, bookMb, bookPdf, pdfOffered } from '$lib/content/books';
+	import { BOOKS, bookCover, bookMb, bookPageHref, bookPdf, pdfOffered } from '$lib/content/books';
 	import { t } from '$lib/i18n/t';
 	import { lang } from '$lib/i18n/lang.svelte';
 	import { explainsAllLevels } from '$lib/i18n/content.svelte';
@@ -273,7 +273,8 @@
 					<a class="shelf-pic" href="/course/{data.card.id}/book2/{book.level}" tabindex="-1" aria-hidden="true">
 						<img src={bookCover(book, lang.current)} alt="" width="640" height="905" loading="lazy" />
 					</a>
-					<strong lang="de">Deutsch {book.level}</strong>
+					<!-- The book's own page: contents, chapters, the download (/books/a1-1). -->
+					<a class="shelf-title" href={bookPageHref(book)}><strong lang="de">Deutsch {book.level}</strong></a>
 					<span class="shelf-sub" lang="de">{book.sub}</span>
 					{#if lang.limited && !levelTranslated(book.level)}<span class="shelf-sub">{t('Explained in German')}</span>{/if}
 					{#if pdfOffered(book, lang.current)}
@@ -987,6 +988,13 @@
 		height: auto;
 		border-radius: 3px;
 		box-shadow: 0 4px 14px rgb(0 0 0 / 0.16);
+	}
+	.shelf-title {
+		color: inherit;
+		text-decoration: none;
+	}
+	.shelf-title:hover {
+		text-decoration: underline;
 	}
 	.shelf-sub {
 		font-size: 0.85rem;

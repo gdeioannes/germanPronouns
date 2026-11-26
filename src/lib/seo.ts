@@ -592,6 +592,48 @@ export function readingStageLd(stage: {
 	};
 }
 
+/**
+ * The course's own books on /books: an ItemList whose items are the Books
+ * themselves, each a free PDF of one level. This is what lets a search result
+ * or an AI answer say "free German textbook, A1.1, PDF, 131 pages" and link
+ * the file, rather than only knowing the page has a list.
+ */
+export function bookShelfLd(
+	books: { level: string; sub: string; anchor: string; page?: string; pdf: string; cover: string; languages: string[] }[],
+	meta: { pages: number; edition: number; date: string; name: string }
+) {
+	return {
+		'@context': 'https://schema.org',
+		'@type': 'ItemList',
+		name: meta.name,
+		numberOfItems: books.length,
+		itemListElement: books.map((b, i) => ({
+			'@type': 'ListItem',
+			position: i + 1,
+			item: {
+				'@type': ['Book', 'LearningResource'],
+				'@id': absoluteUrl(b.page ?? `/books#${b.anchor}`),
+				name: `Deutsch ${b.level} · ${b.sub}`,
+				url: absoluteUrl(b.page ?? `/books#${b.anchor}`),
+				image: absoluteUrl(b.cover),
+				bookFormat: 'https://schema.org/EBook',
+				bookEdition: String(meta.edition),
+				datePublished: meta.date,
+				numberOfPages: meta.pages,
+				inLanguage: b.languages,
+				educationalLevel: `CEFR ${b.level}`,
+				learningResourceType: 'Textbook',
+				about: { '@type': 'Thing', name: 'German language' },
+				author: ORGANIZATION,
+				publisher: ORGANIZATION,
+				isAccessibleForFree: true,
+				encoding: { '@type': 'MediaObject', contentUrl: absoluteUrl(b.pdf), encodingFormat: 'application/pdf' },
+				offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR', availability: 'https://schema.org/InStock' }
+			}
+		}))
+	};
+}
+
 /** A page that lists things (stories, books): an ItemList of links. */
 export function itemListLd(name: string, items: { name: string; path: string }[]) {
 	return {

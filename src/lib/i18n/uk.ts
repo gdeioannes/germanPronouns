@@ -2928,4 +2928,109 @@ export const UK: Record<string, string> = {
 		"Нові видання",
 	"Current edition: {edition} ({date}). The German in every book was reviewed and corrected; if your PDF is older, download it again.":
 		"Поточне видання: {edition} ({date}). Німецьку в кожній книжці перевірено й виправлено; якщо твій PDF старіший, завантаж його ще раз.",
+	// The book pages (/books/a1-1): src/routes/books/[book]/+page.svelte.
+	"What is inside":
+		"Що всередині",
+	"{name}: a free {pages}-page German textbook (PDF) for level {level}. Twelve chapters, each a real place, with stories, grammar, audio and exercises. No sign-up.":
+		"{name}: безкоштовний підручник німецької (PDF) на {pages} сторінок для рівня {level}. Дванадцять розділів, кожен — справжнє місце, з історіями, граматикою, аудіо та вправами. Без реєстрації.",
+	"Is Deutsch {level} really free?":
+		"Чи справді Deutsch {level} безкоштовний?",
+	"Yes. The whole book is a free PDF: all {pages} pages, twelve chapters and the answer key. There is nothing to pay, no trial and no sign-up; the download starts when you tap the button. You can also read every page online first.":
+		"Так. Уся книга — безкоштовний PDF: усі {pages} сторінок, дванадцять розділів і ключ із відповідями. Нічого не треба платити, немає пробного періоду й реєстрації; завантаження починається, щойно ви натиснете кнопку. Можна також спершу прочитати кожну сторінку онлайн.",
+	"For adults learning German at level {level} ({cefr} on the European CEFR scale), {badge}. The explanations are in your own language: the book exists in English, Arabic, French, Spanish, Turkish and Ukrainian.":
+		"Для дорослих, які вивчають німецьку на рівні {level} ({cefr} за європейською шкалою CEFR), {badge}. Пояснення — вашою мовою: книга є англійською, арабською, французькою, іспанською, турецькою та українською.",
+	"For adults learning German at level {level} ({cefr} on the European CEFR scale), {badge}. From B1 on the book explains German in German, the way a course at this level does; the app shows a translation of every explanation at a tap.":
+		"Для дорослих, які вивчають німецьку на рівні {level} ({cefr} за європейською шкалою CEFR), {badge}. Від B1 книга пояснює німецьку німецькою, як і курси цього рівня; застосунок показує переклад кожного пояснення одним дотиком.",
+	"Does the book have audio?":
+		"Чи є до книги аудіо?",
+	"Yes. Every chapter has a QR code and a short page code; scan it or type it at languagequiz.org and the story is read aloud by German voices, free and without an account.":
+		"Так. У кожному розділі є QR-код і короткий код сторінки; відскануйте його або введіть на languagequiz.org — і історію прочитають німецькі голоси, безкоштовно й без облікового запису.",
+	"How do I check my answers?":
+		"Як перевірити свої відповіді?",
+	"Two ways. The answer key is printed at the back of the book. Or use the small code on the page: the app opens the same exercises, checks each answer and explains every mistake.":
+		"Є два способи. Ключ із відповідями надруковано в кінці книги. Або скористайтеся маленьким кодом на сторінці: застосунок відкриє ті самі вправи, перевірить кожну відповідь і пояснить кожну помилку.",
+	"Can I print it?":
+		"Чи можна її надрукувати?",
+	"Yes. The pages are A4 and made for paper: print the whole book or one chapter at a time, and write in it. All twelve books, from A1.1 to C2.2, have the same {pages}-page layout.":
+		"Так. Сторінки мають формат A4 і створені для паперу: друкуйте всю книгу або по одному розділу й пишіть у ній. Усі дванадцять книг, від A1.1 до C2.2, мають однаковий макет на {pages} сторінок.",
+	"Deutsch {level}: Free German {cefr} Textbook (PDF)":
+		"Deutsch {level}: безкоштовний підручник німецької {cefr} (PDF)",
+	"The cover of {name}":
+		"Обкладинка книги {name}",
+	"All twelve books":
+		"Усі дванадцять книг",
+	"Free German textbook":
+		"Безкоштовний підручник німецької",
+	"Free. No sign-up, no email, no ads.":
+		"Безкоштовно. Без реєстрації, без електронної пошти, без реклами.",
+	"Level":
+		"Рівень",
+	"Pages":
+		"Сторінки",
+	"A4, made to print":
+		"A4, для друку",
+	"Chapters":
+		"Розділи",
+	"each a real place":
+		"кожен — справжнє місце",
+	"each with its meaning":
+		"кожне з перекладом",
+	"in word lists":
+		"у списках слів",
+	"Explained in":
+		"Мова пояснень",
+	"your language":
+		"ваша мова",
+	"German":
+		"Німецька",
+	"six language editions":
+		"видання шістьма мовами",
+	"as courses are from B1":
+		"як на курсах від B1",
+	"Edition":
+		"Видання",
+	"What is in the book":
+		"Що є в книзі",
+	"Every chapter is one place: {places}, and eight more. The place gives you the words, the words carry a story, and the story carries the grammar. Each chapter has the words with pictures, a photo to talk about, a story, two grammar pages, a real document ({real}) and practice.":
+		"Кожен розділ — це одне місце: {places} і ще вісім. Місце дає вам слова, слова несуть історію, а історія — граматику. У кожному розділі є слова з малюнками, фото для розмови, історія, дві сторінки граматики, справжній документ ({real}) і вправи.",
+	"After the last chapter come {n} longer texts to read and hear.":
+		"Після останнього розділу — ще {n} довших текстів для читання й слухання.",
+	"Grammar:":
+		"Граматика:",
+	"Story:":
+		"Історія:",
+	"After this chapter you can …":
+		"Після цього розділу ви вмієте …",
+	"This chapter in the app":
+		"Цей розділ у застосунку",
+	"The paper and the app work together":
+		"Папір і застосунок працюють разом",
+	"The book is complete on paper. But every page carries a short code (like {code}) and every chapter a QR code. They open the same page in the free app, where you can:":
+		"Книга повна й на папері. Але на кожній сторінці є короткий код (як-от {code}), а в кожному розділі — QR-код. Вони відкривають ту саму сторінку в безкоштовному застосунку, де ви можете:",
+	"Hear it.":
+		"Послухати.",
+	"The story of every chapter, read aloud by German voices.":
+		"Історію кожного розділу читають німецькі голоси.",
+	"Check it.":
+		"Перевірити.",
+	"The page’s exercises, checked answer by answer, with the reason for every mistake.":
+		"Вправи сторінки перевіряються відповідь за відповіддю, з поясненням кожної помилки.",
+	"Keep it.":
+		"Запам’ятати.",
+	"The chapter’s words as flashcards, with pictures and sound.":
+		"Слова розділу як картки, з малюнками та звуком.",
+	"See the {level} course in the app":
+		"Переглянути курс {level} у застосунку",
+	"Before you download":
+		"Перш ніж завантажити",
+	"Download Deutsch {level} (PDF, {mb} MB)":
+		"Завантажити Deutsch {level} (PDF, {mb} МБ)",
+	"Other books":
+		"Інші книги",
+	"The book before":
+		"Попередня книга",
+	"The next book":
+		"Наступна книга",
+	"The free book for this level":
+		"Безкоштовна книжка для цього рівня",
 };
