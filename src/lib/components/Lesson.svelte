@@ -175,7 +175,11 @@
 					{#if s.roadmap.length}
 						<ol class="roadmap">
 							{#each s.roadmap as point, n (n)}
-								<li><span class="num tnum">{n + 1}</span>{point}</li>
+								<!-- The point has an element of its own: in Arabic a German line is
+								     turned left to right per element (i18n/bidi), and a bare text
+								     node in this flex row could not be, so "-(e)n in …" lost its
+								     leading "-(e)" to the other end. -->
+								<li><span class="num tnum">{n + 1}</span><span class="point">{point}</span></li>
 							{/each}
 						</ol>
 					{/if}
@@ -545,6 +549,11 @@
 		gap: 0.7rem;
 		font-weight: 600;
 		color: var(--ink);
+	}
+
+	/* A German point on an Arabic page reads left to right but stays beside its number. */
+	:global([dir='rtl']) .roadmap .point {
+		text-align: right;
 	}
 
 	.num {

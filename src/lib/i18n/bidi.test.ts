@@ -1,6 +1,6 @@
 // German runs inside Arabic sentences are isolated so their punctuation stays put.
 import { describe, expect, it } from 'vitest';
-import { isolateLatin } from './bidi';
+import { arabicContent, isolateLatin, turnArrows } from './bidi';
 
 const F = '⁨';
 const P = '⁩';
@@ -25,5 +25,19 @@ describe('isolateLatin', () => {
 		expect(isolateLatin('<b>der</b> اسم')).toBe('<b>der</b> اسم');
 		const once = isolateLatin('ein لـ der');
 		expect(isolateLatin(once)).toBe(once);
+	});
+});
+
+describe('turnArrows', () => {
+	it('points an arrow the way an Arabic line reads', () => {
+		expect(turnArrows('geht → ging: فعل غير منتظم')).toBe('geht ← ging: فعل غير منتظم');
+		expect(turnArrows('Gericht ← Bund، انتبه → هنا')).toBe('Gericht → Bund، انتبه ← هنا');
+	});
+	it('leaves German-only lines alone', () => {
+		expect(turnArrows('geht → ging')).toBe('geht → ging');
+	});
+	it('turns, then isolates, in course content', () => {
+		expect(arabicContent('ich → mich')).toBe('ich → mich');
+		expect(arabicContent('ich → mich يعني')).toBe(`${F}ich${P} ← ${F}mich${P} يعني`);
 	});
 });

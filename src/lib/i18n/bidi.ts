@@ -112,6 +112,26 @@ export function isolateLatin(s: string): string {
 	});
 }
 
+// ── Arrows in Arabic course text ───────────────────────────
+// "geht → ging" inside an Arabic explanation: the two German words are
+// separate isolates and the arrow between them is neutral, so the line lays
+// out right to left (geht on the right, ging on the left) while the glyph →
+// still points right, back at geht. In course content an arrow means "turns
+// into / leads to", so in a string with Arabic letters it is drawn ←, which
+// points the way the line reads (and a source ←, "comes from", becomes →).
+// The translation files therefore keep the arrows exactly as the English has
+// them. German-only strings keep theirs (they lay out left to right). Not for
+// the interface strings: there an arrow can name a physical direction (swipe
+// right).
+export function turnArrows(s: string): string {
+	return ARABIC.test(s) ? s.replace(/[→←]/g, (a) => (a === '→' ? '←' : '→')) : s;
+}
+
+/** Arabic course text as the app shows it: German runs isolated, arrows turned. */
+export function arabicContent(s: string): string {
+	return isolateLatin(turnArrows(s));
+}
+
 /** The direction marks isolateLatin adds (and LRM/RLM), as a pattern. */
 const MARKS = new RegExp(`[${String.fromCharCode(0x2066)}-${String.fromCharCode(0x2069, 0x200e, 0x200f)}]`, 'g');
 

@@ -18,6 +18,18 @@ export type ChangelogEntry = {
 
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-11-26",
+    title: "Arabic: every level, A1 to C2",
+    items: [
+      "In Arabic mode, the button under each German explanation now opens Arabic from B1.1 to C2.2: rules, tips, examples, why an answer is right, and the meanings on the flashcards. Arabic was the last of the six languages to stop at A2.",
+      "Where the English compared German with English, the Arabic compares it with Arabic: the cases next to رفع, نصب and جرّ, relative clauses next to الذي, Partizip I and II next to اسم الفاعل and اسم المفعول, the Konjunktiv next to لو and كأنّ.",
+      "The 32 newer reading and listening exercises in A1 and A2 are now in Arabic too, and tapping any German word in A1–A2 shows its Arabic meaning.",
+      "Arrows in Arabic explanations (geht → ging) pointed the wrong way, back at the first word. They now point the way the line is read.",
+      "In Arabic, a German line at the start of a lesson that began with a hyphen or a bracket had that piece thrown to the other end (-(e)n in Akkusativ). It now reads as written.",
+      "Six small mistakes in the English explanations, found while translating, are corrected in every language.",
+    ],
+  },
+  {
     date: "2026-11-25",
     title: "The whole course, read and corrected",
     highlight: true,

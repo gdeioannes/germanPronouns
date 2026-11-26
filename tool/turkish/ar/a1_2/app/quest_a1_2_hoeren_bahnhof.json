@@ -34,7 +34,7 @@
  "questions[5].optionsTranslation[2]": "الرصيف خمسة",
  "help.intro": "إعلان في المحطة: الرسالة العامة التي يجب أن تفهمها لتركب القطار الصحيح: رقم رصيف، ووقت، ووجهة. الإعلانات قوالب ثابتة، وهذه ميزتك: Achtung, eine Durchsage (انتباه، إعلان)، Der Zug nach … fährt von Gleis … ab، Abfahrt um …، … Minuten Verspätung (تأخير)، Bitte einsteigen (تفضلوا بالصعود)، … fällt aus (ملغى). اعرف القالب تعرف أين سيقع كل عدد. والأجزاء الصعبة حقيقية: رصيف مصحَّح (fünf، nicht drei، العدد قبل nicht هو الصحيح)، وتأخير يغيّر وقت المغادرة، وقطار ثانٍ له وقته ورصيفه، وقطار ملغى. اكتب كل عدد كما تسمعه.",
  "help.tips[0].title": "قالب الإعلان",
- "help.tips[0].text": "Zug nach [الوجهة] ← Gleis [رقم] ← Abfahrt um [وقت] ← Verspätung [دقائق]. الكلمات ثابتة؛ والأعداد وحدها تتغير. استمع للكلمة، ثم التقط العدد بعدها.",
+ "help.tips[0].text": "Zug nach [الوجهة] → Gleis [رقم] → Abfahrt um [وقت] → Verspätung [دقائق]. الكلمات ثابتة؛ والأعداد وحدها تتغير. استمع للكلمة، ثم التقط العدد بعدها.",
  "help.tips[0].examples[0].en": "القطار إلى ميونخ يغادر اليوم من الرصيف خمسة، لا من الرصيف ثلاثة.",
  "help.tips[0].examples[1].en": "للأسف القطار متأخر عشر دقائق.",
  "help.tips[0].check.q": "'Der Zug nach Bonn hat zwanzig Minuten Verspätung.' ماذا يخبرك zwanzig؟",

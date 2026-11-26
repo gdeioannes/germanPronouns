@@ -17,7 +17,7 @@
 
 import { lang, type LocalLang } from './lang.svelte';
 import { LOCAL_LEVELS, levelTranslated } from './available';
-import { isolateLatin } from './bidi';
+import { arabicContent } from './bidi';
 
 type Pairs = Record<string, [string, string]>;
 interface Overlay {
@@ -86,15 +86,15 @@ async function load(l: LocalLang, level: string) {
 	}
 }
 
-/** Arabic: every translation with its German runs isolated (bidi.ts), done once on load. */
+/** Arabic: every translation with its German runs isolated and its arrows turned (bidi.ts), done once on load. */
 function isolated(o: Overlay): Overlay {
-	const pairs = (p: Pairs): Pairs => Object.fromEntries(Object.entries(p).map(([path, [en, ar]]) => [path, [en, isolateLatin(ar)]]));
+	const pairs = (p: Pairs): Pairs => Object.fromEntries(Object.entries(p).map(([path, [en, ar]]) => [path, [en, arabicContent(ar)]]));
 	const each = (m: Record<string, Pairs>) => Object.fromEntries(Object.entries(m).map(([id, p]) => [id, pairs(p)]));
 	return {
 		quizzes: each(o.quizzes),
 		chapters: each(o.chapters),
 		front: pairs(o.front),
-		text: Object.fromEntries(Object.entries(o.text).map(([en, ar]) => [en, isolateLatin(ar)]))
+		text: Object.fromEntries(Object.entries(o.text).map(([en, ar]) => [en, arabicContent(ar)]))
 	};
 }
 
@@ -248,7 +248,7 @@ export function loadGlossary(l: LocalLang): Promise<Record<string, string> | nul
 	return glossFiles[path]().then(
 		(m) =>
 			(glossaries[l] =
-				l === 'ar' ? Object.fromEntries(Object.entries(m.default).map(([k, v]) => [k, isolateLatin(v)])) : m.default)
+				l === 'ar' ? Object.fromEntries(Object.entries(m.default).map(([k, v]) => [k, arabicContent(v)])) : m.default)
 	);
 }
 
