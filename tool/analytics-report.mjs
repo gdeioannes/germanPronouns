@@ -118,8 +118,13 @@ show('promo shown by card', cnt(ev.filter(e => !internal.has(e.user_id) && e.eve
 show('promo click by card', cnt(ev.filter(e => !internal.has(e.user_id) && e.event_name === 'download_promo_click'), e => e.p.card));
 show('other features (user-days)', cnt(ext.flatMap(([, es]) => [...new Set(es.map(e => { const r = norm(e.p.route) || ''; return r.startsWith('/play/wortbloecke') ? 'wortbloecke' : r.startsWith('/play/schreib-mir') ? 'schreib-mir' : r.startsWith('/play/ja-nein') ? 'ja-nein' : r.startsWith('/story') || r === '/stories' ? 'stories' : r.startsWith('/literature') ? 'literature' : r.startsWith('/words') ? 'words' : r.startsWith('/level-check') ? 'level-check' : r.includes('/worksheet') ? 'worksheet' : r.startsWith('/forum') ? 'forum' : null; }).filter(Boolean))]), x => x));
 
-const ret = ext.filter(([, es]) => new Set(es.map(e => e.session_id)).size > 1);
-console.log('\n## came back same day (2+ sessions):', pct(ret.length, ext.length));
+// A return = 30+ minutes of nothing, then activity. NOT 2+ session ids: the id lives in memory, so every reload makes a new one.
+const T = e => Date.parse(e.timestamp.replace(' ', 'T') + 'Z');
+const ret = ext.filter(([, es]) => es.some((e, i) => i > 0 && T(e) - T(es[i - 1]) > 30 * 60 * 1000));
+console.log('\n## came back same day (30+ min gap):', pct(ret.length, ext.length));
+// Since 2026-11-26: one quiz_left per unfinished visit (answered, seconds, lesson step) replaces lesson_step / quiz_progress / lesson_left.
+show('quiz_left: lesson step reached / of (how)', cnt(ev.filter(e => !internal.has(e.user_id) && e.event_name === 'quiz_left' && e.n.lesson_of), e => `${e.p.quiz}: ${e.n.lesson}/${e.n.lesson_of} (${e.p.lesson_how}), answered ${e.n.answered}`), 30);
+show('done_n (exercises finished so far, last event of the visitor-day)', cnt(ext, ([, es]) => es.at(-1).p.done_n || '(before the update)'));
 show('days_since_first (external user-days)', cnt(ext, ([, es]) => es[0].p.days_since_first));
 const dur = ext.map(([, es]) => (new Date(es.at(-1).timestamp.replace(' ', 'T') + 'Z') - new Date(es[0].timestamp.replace(' ', 'T') + 'Z')) / 60000).sort((a, b) => a - b);
 console.log(`active span per user-day (min): median ${dur[dur.length >> 1].toFixed(1)}, p75 ${dur[Math.floor(dur.length * .75)].toFixed(1)}, p90 ${dur[Math.floor(dur.length * .9)].toFixed(1)}`);

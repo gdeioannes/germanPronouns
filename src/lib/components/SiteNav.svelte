@@ -125,7 +125,7 @@
 	// "Share this page": an icon in the bar where there is room, a line under
 	// Menu on a phone. Not on pages that are about the visitor (settings, a
 	// post being written) or that nobody would send on.
-	const NO_SHARE = new Set(['/settings', '/backoffice', '/legal', '/contact', '/credits', '/forum/new']);
+	const NO_SHARE = new Set(['/settings', '/backoffice', '/backoffice/analytics', '/backoffice/analytics/analysis', '/legal', '/contact', '/credits', '/forum/new']);
 	const canShare = $derived(!NO_SHARE.has(page.route.id ?? ''));
 
 	// "You are here": the link, or the dropdown holding the page, is marked.

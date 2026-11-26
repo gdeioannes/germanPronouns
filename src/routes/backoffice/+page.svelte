@@ -189,9 +189,12 @@
 					Books <span class="tnum count">{bookEntries.length + audience.length}</span>
 				</button>
 			</div>
-			<button type="button" class="btn ghost" onclick={load} disabled={loading}>
-				{loading ? 'Loading…' : 'Refresh'}
-			</button>
+			<div class="actions">
+				<a class="btn ghost link" href="/backoffice/analytics/analysis">Analytics</a>
+				<button type="button" class="btn ghost" onclick={load} disabled={loading}>
+					{loading ? 'Loading…' : 'Refresh'}
+				</button>
+			</div>
 		</div>
 
 		{#if error}<p class="err" role="alert">{error}</p>{/if}
@@ -482,6 +485,18 @@
 		background: transparent;
 		color: var(--heading);
 		border: 1px solid var(--line-strong);
+	}
+
+	.actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
+
+	.btn.link {
+		display: inline-flex;
+		align-items: center;
+		text-decoration: none;
 	}
 
 	.stats {

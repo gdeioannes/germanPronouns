@@ -131,29 +131,116 @@
 	let mode = $state<'learn' | 'practise'>('learn');
 	const learning = $derived(!!lessonSteps && mode === 'learn');
 
-	/** The furthest lesson step reached in this visit (0 = the opening screen). */
-	let lessonReached = 0;
-	function lessonStep(index: number, kind: string) {
-		lessonReached = index;
-		if (lessonSteps) track('lesson_step', { course: course.id, quiz: quiz.id, kind, step: index, of: lessonSteps.length });
+	// -- how far a visit to this exercise got ------------------------------------
+	// One record per exercise opened, kept in memory and reported ONCE: on
+	// `quiz_completed` when the run is finished, else as `quiz_left` when the
+	// learner goes (another page, another exercise, the tab hidden or closed).
+	// It replaces an event per lesson step and per question mark, which made up
+	// a quarter of all events for the same answer: where did they stop?
+	type Visit = {
+		id: string;
+		course: string;
+		type: string;
+		/** Lesson steps there are (0 = the exercise has no lesson). */
+		of: number;
+		/** The furthest lesson step reached (0 = the opening screen). */
+		lesson: number;
+		/** How the lesson was left: skip, early, end, switch; '' = still in it, or none. */
+		how: string;
+		/** Questions answered in this run. */
+		answered: number;
+		lastQuestion: string;
+		/** Finished: `quiz_completed` has said it all, until "Try again". */
+		done: boolean;
+		/** Time with the page actually on screen. */
+		visibleMs: number;
+		visibleSince: number;
+		/** What the last `quiz_left` reported, so a second leave only counts if it got further. */
+		sent: string;
+	};
+	let visit: Visit | null = null;
+
+	/** The record for the exercise on screen; the one before it is reported first. */
+	function visitNow(): Visit {
+		if (visit?.id === quiz.id) return visit;
+		sendLeft();
+		visit = {
+			id: quiz.id,
+			course: course.id,
+			type: quiz.type,
+			of: lessonSteps?.length ?? 0,
+			lesson: 0,
+			how: '',
+			answered: 0,
+			lastQuestion: '',
+			done: false,
+			visibleMs: 0,
+			visibleSince: browser && document.visibilityState === 'visible' ? Date.now() : 0,
+			sent: ''
+		};
+		return visit;
 	}
 
-	// How far into the questions a visit gets. quiz_started and quiz_completed
-	// bracket it; these two marks (one answered, five answered) say whether a
-	// visit that never completed left before the first question or mid-run.
-	let seenQuestions = { quiz: '', last: '', count: 0 };
+	/** Seconds on screen so far, capped at an hour (a tab left open is not study time). */
+	function visitSeconds(v: Visit): number {
+		const ms = v.visibleMs + (v.visibleSince ? Date.now() - v.visibleSince : 0);
+		return Math.min(3600, Math.round(ms / 1000));
+	}
+
+	/** Reports an unfinished visit, if it got anywhere and further than last reported. */
+	function sendLeft() {
+		const v = visit;
+		if (!v || v.done || (v.lesson === 0 && v.answered === 0)) return;
+		const state = `${v.lesson}|${v.answered}|${v.how}`;
+		if (state === v.sent) return;
+		v.sent = state;
+		track('quiz_left', {
+			course: v.course,
+			quiz: v.id,
+			type: v.type,
+			answered: v.answered,
+			seconds: visitSeconds(v),
+			...(v.of ? { lesson: v.lesson, lesson_of: v.of, lesson_how: v.how || 'open' } : {})
+		});
+	}
+
+	onMount(() => {
+		// A hidden tab is the last moment a phone reliably gives: the page may
+		// never run again. So the visit is reported then, and again later only
+		// if the learner came back and got further.
+		const onVisibility = () => {
+			if (!visit) return;
+			if (document.visibilityState === 'hidden') {
+				if (visit.visibleSince) visit.visibleMs += Date.now() - visit.visibleSince;
+				visit.visibleSince = 0;
+				sendLeft();
+			} else if (!visit.visibleSince) visit.visibleSince = Date.now();
+		};
+		document.addEventListener('visibilitychange', onVisibility);
+		window.addEventListener('pagehide', sendLeft);
+		return () => {
+			document.removeEventListener('visibilitychange', onVisibility);
+			window.removeEventListener('pagehide', sendLeft);
+			// Leaving for another page of the site.
+			sendLeft();
+			visit = null;
+		};
+	});
+
+	function lessonStep(index: number, _kind: string) {
+		const v = visitNow();
+		v.lesson = Math.max(v.lesson, index);
+	}
+
 	function onQuestion(q: QuestionRef | null) {
 		question = q;
 		if (!q) return;
-		if (seenQuestions.quiz !== quiz.id) seenQuestions = { quiz: quiz.id, last: '', count: 0 };
+		const v = visitNow();
 		const key = `${q.number}:${q.text}`;
-		if (key === seenQuestions.last) return;
-		seenQuestions.last = key;
-		seenQuestions.count += 1;
-		const answered = seenQuestions.count - 1;
-		if (answered === 1 || answered === 5) {
-			track('quiz_progress', { course: course.id, quiz: quiz.id, type: quiz.type, answered });
-		}
+		if (key === v.lastQuestion) return;
+		// A new question on screen means the one before it was answered.
+		if (v.lastQuestion) v.answered += 1;
+		v.lastQuestion = key;
 	}
 
 	async function readSeen(): Promise<string[]> {
@@ -167,11 +254,9 @@
 
 	/** Leaves the lesson for the exercise, and remembers it was taught. */
 	async function practise(how: 'skip' | 'early' | 'end' | 'switch' = 'switch') {
-		// How the lesson was left, and how far it had been read: with
-		// lesson_step, this is where a lesson loses its readers.
-		if (mode === 'learn' && lessonSteps) {
-			track('lesson_left', { course: course.id, quiz: quiz.id, how, step: lessonReached, of: lessonSteps.length });
-		}
+		// How the lesson was left goes into the visit's record (see visitNow):
+		// with the furthest step reached, this is where a lesson loses its readers.
+		if (mode === 'learn' && lessonSteps) visitNow().how = how;
 		mode = 'practise';
 		const id = quiz.id;
 		await tick();
@@ -213,7 +298,8 @@
 		moreOpen = false;
 		reportOpen = false;
 		question = null;
-		lessonReached = 0;
+		// Reports the exercise just left, and opens this one's record.
+		untrack(visitNow);
 		mode = 'learn';
 		if (untrack(() => quiz.game)) {
 			mode = 'practise';
@@ -253,6 +339,13 @@
 		doneDismissed = false;
 		ladderOffer = null;
 		myScore = null;
+		// A new run: counted and timed from here.
+		if (visit?.id === quiz.id) {
+			visit.done = false;
+			visit.answered = 0;
+			visit.lastQuestion = '';
+			visit.sent = '';
+		}
 	}
 
 	// -- sharing ---------------------------------------------------------------
@@ -370,15 +463,31 @@
 	);
 
 	/** Marks the quiz done — the quest set, the finished bar. Idempotent. */
-	async function markDone() {
+	async function markDone(passed = true) {
 		if (finished) return;
 		finished = true;
+		// The run's own numbers, read before anything awaits: how it went (the
+		// score, for the kinds that have one), how long it took on screen, and
+		// how much of the lesson was read first.
+		const v = visitNow();
+		const run = {
+			passed,
+			seconds: visitSeconds(v),
+			// The last question has no successor to count it.
+			answered: v.answered + (v.lastQuestion ? 1 : 0),
+			...(myScore ? { right: myScore.right, total: myScore.total } : {}),
+			...(v.of ? { lesson: v.lesson, lesson_of: v.of, lesson_how: v.how || 'open' } : {})
+		};
+		v.done = true;
+		// The next run (Try again) is timed from here.
+		v.visibleMs = 0;
+		if (v.visibleSince) v.visibleSince = Date.now();
 		await progress.markCompleted(quiz.type, quiz.id);
 		await progress.markQuestCompleted(quiz.id);
 		await progress.markPlayed(quiz.storageKeyPrefix);
 		clearOpened(quiz.id);
 		clearSpot(quiz.storageKeyPrefix);
-		track('quiz_completed', { course: course.id, quiz: quiz.id, type: quiz.type });
+		track('quiz_completed', { course: v.course, quiz: v.id, type: v.type, ...run });
 	}
 
 	/** A play-through kind finished: mark it and celebrate, once per visit. */
@@ -429,7 +538,7 @@
 	 */
 	function runFinished(passed: boolean, right?: number, total?: number) {
 		myScore = right !== undefined && total ? { right, total } : null;
-		void markDone();
+		void markDone(passed);
 		doneDismissed = false;
 		if (passed) celebrate();
 		else playSound('complete');
@@ -452,7 +561,7 @@
 			// A text is one piece of work, not a streak of answers.
 			bestStreak: 0
 		});
-		void markDone();
+		void markDone(passed);
 		doneDismissed = false;
 		if (passed) {
 			markGoodRun();

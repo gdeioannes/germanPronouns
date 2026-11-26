@@ -131,10 +131,44 @@ let botVerdict: boolean | null = null;
 //      into an "other" bucket.
 //   4. Nothing → "direct".
 //
-// Still cookieless: nothing is persisted, so a learner returning tomorrow via
-// a bookmark counts as "direct" even if they first found us on Google. That
-// is the honest trade-off of consent-free analytics.
+// Still cookieless: nothing outlives the tab, so a learner returning tomorrow
+// via a bookmark counts as "direct" even if they first found us on Google.
+// That is the honest trade-off of consent-free analytics.
+//
+// Within the tab the source IS kept (sessionStorage, the source's name only):
+// the campaign tags are stripped from the address after the first page, so a
+// reload, or coming back from a PDF, used to read as "direct". In November
+// 2026 that mislabelled 13% of the events of visitors who had arrived from
+// somewhere known.
 // ---------------------------------------------------------------------------
+
+const SOURCE_KEY = 'lq_source';
+
+/** This tab's source, as an earlier page load in it resolved it. */
+function tabSource(): Attribution | null {
+	try {
+		const stored = JSON.parse(sessionStorage.getItem(SOURCE_KEY) ?? 'null');
+		return stored && typeof stored.source === 'string' && typeof stored.channel === 'string' ? stored : null;
+	} catch {
+		return null;
+	}
+}
+
+/**
+ * The source of this visit: what this page load says, unless it says nothing
+ * ("direct") and the tab already knows better. A new known source in the same
+ * tab (a book code scanned mid-visit) replaces the old one.
+ */
+function visitAttribution(): Attribution {
+	const fresh = resolveAttribution();
+	if (fresh.source === 'direct') return tabSource() ?? fresh;
+	try {
+		sessionStorage.setItem(SOURCE_KEY, JSON.stringify(fresh));
+	} catch {
+		// Blocked storage: the source holds for this page load only, as before.
+	}
+	return fresh;
+}
 
 type Attribution = { source: string; channel: string; campaign?: string; medium?: string };
 
@@ -273,7 +307,7 @@ let attribution: Attribution | null = null;
  */
 export function takeCampaignTags(): string | null {
 	if (!browser) return null;
-	attribution ??= resolveAttribution();
+	attribution ??= visitAttribution();
 	const url = new URL(location.href);
 	const tags = [...url.searchParams.keys()].filter((k) => k.startsWith('utm_'));
 	if (!tags.length) return null;
@@ -396,6 +430,29 @@ export function forgetFirstSeen(): void {
 	tenure = null;
 }
 
+// ---------------------------------------------------------------------------
+// How much of the course this browser has done: the number of exercises
+// finished so far, as a coarse bucket on every event. It splits every number
+// into "passing by" and "a learner", which the daily-rotating visitor id
+// cannot do. Nothing new is stored for it: it is read from the progress the
+// learner's own browser already keeps (the finished-exercise list), and only
+// the bucket leaves the device.
+// ---------------------------------------------------------------------------
+
+/** The finished-exercise list's storage key (domain/keys completedQuestQuizzes). */
+const DONE_KEY = 'quest_completed_quizzes';
+
+function doneBucket(): '0' | '1-4' | '5-19' | '20-49' | '50+' {
+	let n = 0;
+	try {
+		const list = JSON.parse(localStorage.getItem(DONE_KEY) ?? '[]');
+		if (Array.isArray(list)) n = list.length;
+	} catch {
+		// Blocked or garbled storage reads as "nothing done yet".
+	}
+	return n === 0 ? '0' : n < 5 ? '1-4' : n < 20 ? '5-19' : n < 50 ? '20-49' : '50+';
+}
+
 let sessionId = '';
 let lastTouched = 0;
 
@@ -428,8 +485,9 @@ export function track(name: string, props: Record<string, string | number | bool
 			sdkVersion: 'aptabase-web-fetch@1.0.0'
 		},
 		props: {
-			...(attribution ??= resolveAttribution()),
+			...(attribution ??= visitAttribution()),
 			...(tenure ??= resolveTenure()),
+			done_n: doneBucket(),
 			// The language the site is used in (not the browser's), so every
 			// event can be split English / Turkish.
 			ui_lang: lang.current,

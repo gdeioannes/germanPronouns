@@ -24,7 +24,7 @@
 
 	// The band above the links: on a phone the top bar has no room for a share
 	// button, so this is where a reader who got to the end of a page finds it.
-	const NO_SHARE = new Set(['/settings', '/backoffice', '/legal', '/contact', '/credits', '/forum/new']);
+	const NO_SHARE = new Set(['/settings', '/backoffice', '/backoffice/analytics', '/backoffice/analytics/analysis', '/legal', '/contact', '/credits', '/forum/new']);
 	const canShare = $derived(share && !compact && !NO_SHARE.has(page.route.id ?? ''));
 </script>
 
