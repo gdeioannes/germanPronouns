@@ -33,8 +33,8 @@
 	{#if canShare}
 		<div class="pass-on"><ShareNudge where="footer" /></div>
 	{/if}
-	<!-- The weekly newsletter is in English, so the sign-up shows in English mode only. -->
-	{#if !compact && !lang.limited && !page.route.id?.startsWith('/newsletter') && page.route.id !== '/changelog'}
+	<!-- In every interface language; the form says where the emails are in English. -->
+	{#if !compact && !page.route.id?.startsWith('/newsletter') && page.route.id !== '/changelog'}
 		<div class="newsletter"><NewsletterSignup where="footer" band /></div>
 	{/if}
 	<div class="about">
@@ -84,9 +84,9 @@
 			<a href="/about#accessibility">{t('Accessibility')}</a>
 			{#if !lang.limited}
 				<a href="/changelog">What's new</a>
-				<a href="/newsletter">Newsletter</a>
 				<a href="/forum">Forum</a>
 			{/if}
+			<a href="/newsletter">{t('Newsletter')}</a>
 			<a href="/contact">{t('Contact')}</a>
 			<a href="/legal">{t('Legal & privacy')}</a>
 			<a href="/credits">{t('Picture credits')}</a>

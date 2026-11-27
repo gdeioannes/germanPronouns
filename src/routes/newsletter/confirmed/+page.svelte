@@ -5,6 +5,8 @@
 	import SiteNav from '$lib/components/SiteNav.svelte';
 	import SiteFooter from '$lib/components/SiteFooter.svelte';
 	import { page } from '$app/state';
+	import { t } from '$lib/i18n/t';
+	import { lang } from '$lib/i18n/lang.svelte';
 </script>
 
 <Seo
@@ -17,14 +19,14 @@
 <SiteNav courseHref={page.data.site?.courseHref ?? '/'} />
 
 <main class="page">
-	<h1>You're subscribed</h1>
+	<h1>{t("You're subscribed")}</h1>
 	<p class="lede">
-		Thank you. Once a week you get a short email with what is new in the course: new lessons, new
-		reading and listening, and what was fixed. Every email has a link to unsubscribe with one click.
+		{t('Thank you. Once a week you get a short email with what is new in the course: new lessons, new reading and listening, and what was fixed. Every email has a link to unsubscribe with one click.')}
+		{#if lang.limited}{t('The newsletter is always in English.')}{/if}
 	</p>
 	<p>
-		<a class="go" href={page.data.site?.courseHref ?? '/'}>Back to the course</a>
-		· <a href="/changelog">See what changed recently</a>
+		<a class="go" href={page.data.site?.courseHref ?? '/'}>{t('Back to the course')}</a>
+		· <a href="/changelog">{t('See what changed recently')}</a>
 	</p>
 </main>
 

@@ -200,18 +200,12 @@
 {/if}
 
 <!-- One quiet line under a started download: the books get new editions, and
-     an email is the only way a reader who leaves now hears of one. English
-     only, as the newsletter is. -->
+     an email is the only way a reader who leaves now hears of one. -->
 {#snippet news()}
-	{#if !lang.limited}
-		<p class="news">
-			<Icon name="info" size="1em" />
-			<span>
-				New editions and new chapters:
-				<a href="/newsletter?from=download" onclick={() => (feedback.dlOpen = false)}>get them by email</a>.
-			</span>
-		</p>
-	{/if}
+	<p class="news">
+		<Icon name="info" size="1em" />
+		<a href="/newsletter?from=download" onclick={() => (feedback.dlOpen = false)}>{t('Get new editions and new chapters by email')}</a>
+	</p>
 {/snippet}
 
 <!-- The book is on its way: the one moment a reader has something worth

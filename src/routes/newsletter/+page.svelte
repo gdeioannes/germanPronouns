@@ -13,6 +13,7 @@
 	import { breadcrumbLd } from '$lib/seo';
 	import { onMount } from 'svelte';
 	import { page } from '$app/state';
+	import { t } from '$lib/i18n/t';
 
 	const FROM = new Set(['download', 'book-page', 'results', 'book']);
 	let where = $state('page');
@@ -34,10 +35,9 @@
 
 <main class="page">
 	<a class="back-link" href={returnTo.path}><Icon name="arrowLeft" size="1em" /> {returnLabel(returnTo.path)}</a>
-	<h1>The weekly update</h1>
+	<h1>{t('The weekly update')}</h1>
 	<p class="lede">
-		The course and its books keep changing: new lessons, new texts, corrected editions. One short
-		email a week tells you what arrived, so you don't have to come and look.
+		{t('The course and its books keep changing: new lessons, new texts, corrected editions. One short email a week tells you what arrived, so you do not have to come and look.')}
 	</p>
 
 	{#key where}
@@ -45,17 +45,15 @@
 	{/key}
 
 	<section>
-		<h2>What you get</h2>
+		<h2>{t('What you get')}</h2>
 		<ul>
-			<li><strong>New in the course</strong>: lessons, exercises, reading and listening texts.</li>
-			<li><strong>New book editions</strong>: when a book you downloaded has been corrected or extended.</li>
-			<li><strong>What was fixed</strong>: mistakes found and put right.</li>
+			<li>{t('New in the course: lessons, exercises, reading and listening texts.')}</li>
+			<li>{t('New book editions: when a book you downloaded has been corrected or extended.')}</li>
+			<li>{t('What was fixed: mistakes found and put right.')}</li>
 		</ul>
 		<p>
-			Nothing else: no advertising, and your address is never passed on. Every email ends with a
-			link that unsubscribes you with one click. The details are in the
-			<a href="/legal#newsletter">privacy notice</a>, and everything already published is on
-			<a href="/changelog">What's new</a>.
+			{t('Nothing else: no advertising, and your address is never passed on. Every email ends with a link that unsubscribes you with one click.')}
+			<a href="/legal#newsletter">{t('Privacy notice')}</a>
 		</p>
 	</section>
 </main>

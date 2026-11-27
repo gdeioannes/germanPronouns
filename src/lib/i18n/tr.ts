@@ -2750,4 +2750,64 @@ export const TR: Record<string, string> = {
 		"Sonraki kitap",
 	"The free book for this level":
 		"Bu seviyenin ücretsiz kitabı",
+
+	// ── Newsletter (2026-11-27) ───────────────────
+	"Get new editions and new chapters by email":
+		"Yeni baskıları ve yeni bölümleri e-postayla alın",
+	"What's new, once a week":
+		"Yenilikler, haftada bir",
+	"New lessons, new texts and new book editions in one short email a week. Free, and one click to stop.":
+		"Yeni dersler, yeni metinler ve kitapların yeni baskıları haftada bir kısa e-postada. Ücretsiz, bırakmak için tek tık yeter.",
+	"Get the email":
+		"E-postayı al",
+	"One short email a week: new lessons, new reading and listening, and what was fixed. Free, no spam, unsubscribe with one click.":
+		"Haftada bir kısa e-posta: yeni dersler, yeni okuma ve dinleme metinleri ve düzeltilenler. Ücretsiz, spam yok, tek tıkla abonelikten çıkılır.",
+	"Your email address":
+		"E-posta adresiniz",
+	"Subscribe":
+		"Abone ol",
+	"Yes, send me the weekly update.":
+		"Evet, haftalık güncellemeyi bana gönderin.",
+	"You get an email to confirm first. Sent with Brevo (EU); only your email address is stored.":
+		"Önce onay için bir e-posta alırsınız. Brevo (AB) ile gönderilir; yalnızca e-posta adresiniz saklanır.",
+	"The newsletter is always in English.":
+		"Bülten her zaman İngilizcedir.",
+	"You're subscribed":
+		"Abone oldunuz",
+	"Thank you. Once a week you get a short email with what is new in the course: new lessons, new reading and listening, and what was fixed. Every email has a link to unsubscribe with one click.":
+		"Teşekkürler. Haftada bir, kurstaki yenilikleri anlatan kısa bir e-posta alırsınız: yeni dersler, yeni okuma ve dinleme metinleri ve düzeltilenler. Her e-postada tek tıkla abonelikten çıkma bağlantısı vardır.",
+	"See what changed recently":
+		"Son değişikliklere bak",
+	"Privacy notice":
+		"Gizlilik bildirimi",
+	"The weekly update":
+		"Haftalık güncelleme",
+	"The course and its books keep changing: new lessons, new texts, corrected editions. One short email a week tells you what arrived, so you do not have to come and look.":
+		"Kurs ve kitapları sürekli değişiyor: yeni dersler, yeni metinler, düzeltilmiş baskılar. Haftada bir kısa e-posta neyin geldiğini söyler; gelip bakmanız gerekmez.",
+	"What you get":
+		"Neler alırsınız",
+	"New in the course: lessons, exercises, reading and listening texts.":
+		"Kurstaki yenilikler: dersler, alıştırmalar, okuma ve dinleme metinleri.",
+	"New book editions: when a book you downloaded has been corrected or extended.":
+		"Kitapların yeni baskıları: indirdiğiniz bir kitap düzeltildiğinde veya genişletildiğinde.",
+	"What was fixed: mistakes found and put right.":
+		"Düzeltilenler: bulunan ve giderilen hatalar.",
+	"Nothing else: no advertising, and your address is never passed on. Every email ends with a link that unsubscribes you with one click.":
+		"Başka bir şey yok: reklam yok, adresiniz de hiçbir zaman başkasına verilmez. Her e-posta, tek tıkla abonelikten çıkaran bir bağlantıyla biter.",
+	"Newsletter":
+		"Bülten",
+	"A corrected book comes out as a new edition.":
+		"Düzeltilen kitap yeni bir baskı olarak çıkar.",
+	"Get new editions by email":
+		"Yeni baskıları e-postayla alın",
+	"Almost done: check your inbox":
+		"Neredeyse tamam: gelen kutunuza bakın",
+	"We have just sent you an email. Click the link in it to confirm, and the weekly update starts coming. Until you click, you are not on the list.":
+		"Size az önce bir e-posta gönderdik. Onaylamak için içindeki bağlantıya tıklayın; haftalık güncelleme gelmeye başlar. Tıklamadığınız sürece listede değilsiniz.",
+	"Nothing there after a few minutes? Look in your spam or promotions folder.":
+		"Birkaç dakika sonra hâlâ bir şey yok mu? Spam veya tanıtımlar klasörüne bakın.",
+	"Still nothing? The address may have had a typo. Simply sign up again.":
+		"Hâlâ yok mu? Adreste bir yazım hatası olabilir. Yeniden abone olmanız yeterli.",
+	"Changed your mind? Ignore the email and nothing more happens.":
+		"Fikrinizi mi değiştirdiniz? E-postayı yok sayın, başka bir şey olmaz.",
 };

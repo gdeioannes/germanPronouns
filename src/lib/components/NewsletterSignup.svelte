@@ -10,10 +10,12 @@
 	// EMAIL, OPT_IN=1, an empty email_address_check (a trap for bots that fill
 	// every field), locale and html_type. Change them only together with the form.
 	//
-	// English only: the newsletter is written in English, so the places that
-	// show this hide it while a second interface language is on.
+	// The form speaks every interface language. The emails themselves are in
+	// English, and in a second language the form says so in that language.
 
 	import { track } from '$lib/services/analytics';
+	import { t } from '$lib/i18n/t';
+	import { lang } from '$lib/i18n/lang.svelte';
 
 	/**
 	 * `where`: where the form sits, so two on one page get distinct ids.
@@ -34,36 +36,35 @@
 
 <form class="signup" class:band method="POST" action={ACTION} aria-labelledby="{id}-title" onsubmit={count}>
 	<div class="text">
-		<p class="title" id="{id}-title">What's new, once a week</p>
+		<p class="title" id="{id}-title">{t("What's new, once a week")}</p>
 		<p class="what">
-			One short email a week: new lessons, new reading and listening, and what was fixed. Free, no
-			spam, unsubscribe with one click.
+			{t('One short email a week: new lessons, new reading and listening, and what was fixed. Free, no spam, unsubscribe with one click.')}
+			{#if lang.limited}<strong class="in-en">{t('The newsletter is always in English.')}</strong>{/if}
 		</p>
 	</div>
 
 	<div class="fields">
 	<div class="row">
-		<label class="sr-only" for="{id}-email">Your email address</label>
+		<label class="sr-only" for="{id}-email">{t('Your email address')}</label>
 		<input
 			id="{id}-email"
 			type="email"
 			name="EMAIL"
 			autocomplete="email"
 			placeholder="you@example.com"
+			dir="ltr"
 			required
 		/>
-		<button type="submit">Subscribe</button>
+		<button type="submit">{t('Subscribe')}</button>
 	</div>
 
 	<label class="consent">
 		<input type="checkbox" name="OPT_IN" value="1" required />
-		<span>
-			Yes, send me the weekly update. I have read the
-			<a href="/legal#newsletter">privacy notice</a>.
-		</span>
+		<span>{t('Yes, send me the weekly update.')}</span>
 	</label>
 	<p class="fine">
-		You get an email to confirm first. Sent with Brevo (EU); only your email address is stored.
+		{t('You get an email to confirm first. Sent with Brevo (EU); only your email address is stored.')}
+		<a href="/legal#newsletter">{t('Privacy notice')}</a>
 	</p>
 	</div>
 
@@ -168,8 +169,13 @@
 		accent-color: var(--heading);
 	}
 
-	.consent a {
+	.fine a {
 		color: var(--heading);
+	}
+
+	.in-en {
+		color: var(--ink);
+		font-weight: 600;
 	}
 
 	/* Off-screen rather than display:none, as Brevo's own form does. */

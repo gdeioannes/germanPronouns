@@ -488,15 +488,13 @@
 		clearOpened(quiz.id);
 		clearSpot(quiz.storageKeyPrefix);
 		track('quiz_completed', { course: v.course, quiz: v.id, type: v.type, ...run });
-		// After a handful of finished exercises: one mention of the weekly email
-		// (English only, as the newsletter is). It waits past the star card's
-		// own delay, and gives way if that card came up.
-		if (!lang.limited) {
-			const id = quiz.id;
-			setTimeout(() => {
-				if (finished && quiz.id === id) noteFinishedRun(progress.questCount, feedback.card);
-			}, 3000);
-		}
+		// After a handful of finished exercises: one mention of the weekly email.
+		// It waits past the star card's own delay, and gives way if that card
+		// came up.
+		const doneId = quiz.id;
+		setTimeout(() => {
+			if (finished && quiz.id === doneId) noteFinishedRun(progress.questCount, feedback.card);
+		}, 3000);
 	}
 
 	/** A play-through kind finished: mark it and celebrate, once per visit. */
@@ -896,9 +894,9 @@
 <!-- Once, after the fifth finished exercise: there is a weekly email. -->
 <SideTip
 	open={sideTip.id === 'newsletter'}
-	title="What's new, once a week"
-	text="New lessons, new texts and new book editions in one short email a week. Free, and one click to stop."
-	actionLabel="Get the email"
+	title={t("What's new, once a week")}
+	text={t('New lessons, new texts and new book editions in one short email a week. Free, and one click to stop.') + (lang.limited ? ' ' + t('The newsletter is always in English.') : '')}
+	actionLabel={t('Get the email')}
 	actionHref="/newsletter?from=results"
 	dismissLabel={t('Not now')}
 	ondismiss={dismissTip}

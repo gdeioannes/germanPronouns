@@ -3031,4 +3031,64 @@ export const AR: Record<string, string> = {
 		"الكتاب التالي",
 	"The free book for this level":
 		"الكتاب المجاني لهذا المستوى",
+
+	// ── Newsletter (2026-11-27) ───────────────────
+	"Get new editions and new chapters by email":
+		"احصل على الطبعات الجديدة والفصول الجديدة بالبريد الإلكتروني",
+	"What's new, once a week":
+		"الجديد، مرة كل أسبوع",
+	"New lessons, new texts and new book editions in one short email a week. Free, and one click to stop.":
+		"دروس جديدة ونصوص جديدة وطبعات جديدة من الكتب في رسالة قصيرة واحدة كل أسبوع. مجانًا، ونقرة واحدة للتوقف.",
+	"Get the email":
+		"أرسلوا لي الرسالة",
+	"One short email a week: new lessons, new reading and listening, and what was fixed. Free, no spam, unsubscribe with one click.":
+		"رسالة قصيرة واحدة كل أسبوع: دروس جديدة، نصوص جديدة للقراءة والاستماع، وما تم تصحيحه. مجانًا، بلا رسائل مزعجة، وإلغاء الاشتراك بنقرة واحدة.",
+	"Your email address":
+		"بريدك الإلكتروني",
+	"Subscribe":
+		"اشترك",
+	"Yes, send me the weekly update.":
+		"نعم، أرسلوا لي التحديث الأسبوعي.",
+	"You get an email to confirm first. Sent with Brevo (EU); only your email address is stored.":
+		"تصلك أولًا رسالة للتأكيد. تُرسل عبر Brevo (الاتحاد الأوروبي)؛ ولا يُحفظ سوى بريدك الإلكتروني.",
+	"The newsletter is always in English.":
+		"النشرة البريدية دائمًا باللغة الإنجليزية.",
+	"You're subscribed":
+		"تم اشتراكك",
+	"Thank you. Once a week you get a short email with what is new in the course: new lessons, new reading and listening, and what was fixed. Every email has a link to unsubscribe with one click.":
+		"شكرًا لك. مرة كل أسبوع تصلك رسالة قصيرة بجديد الدورة: دروس جديدة، نصوص جديدة للقراءة والاستماع، وما تم تصحيحه. في كل رسالة رابط لإلغاء الاشتراك بنقرة واحدة.",
+	"See what changed recently":
+		"شاهد آخر التغييرات",
+	"Privacy notice":
+		"إشعار الخصوصية",
+	"The weekly update":
+		"التحديث الأسبوعي",
+	"The course and its books keep changing: new lessons, new texts, corrected editions. One short email a week tells you what arrived, so you do not have to come and look.":
+		"الدورة وكتبها تتغير باستمرار: دروس جديدة، نصوص جديدة، طبعات مصححة. رسالة قصيرة واحدة كل أسبوع تخبرك بما وصل، فلا تحتاج إلى المجيء والبحث.",
+	"What you get":
+		"ما الذي يصلك",
+	"New in the course: lessons, exercises, reading and listening texts.":
+		"الجديد في الدورة: دروس وتمارين ونصوص للقراءة والاستماع.",
+	"New book editions: when a book you downloaded has been corrected or extended.":
+		"طبعات جديدة من الكتب: عندما يُصحَّح كتاب نزّلته أو يُوسَّع.",
+	"What was fixed: mistakes found and put right.":
+		"ما تم تصحيحه: أخطاء عُثر عليها وأُصلحت.",
+	"Nothing else: no advertising, and your address is never passed on. Every email ends with a link that unsubscribes you with one click.":
+		"لا شيء غير ذلك: لا إعلانات، وعنوانك لا يُعطى لأحد أبدًا. تنتهي كل رسالة برابط يلغي اشتراكك بنقرة واحدة.",
+	"Newsletter":
+		"النشرة البريدية",
+	"A corrected book comes out as a new edition.":
+		"الكتاب المصحَّح يصدر في طبعة جديدة.",
+	"Get new editions by email":
+		"احصل على الطبعات الجديدة بالبريد الإلكتروني",
+	"Almost done: check your inbox":
+		"أوشكنا على الانتهاء: تحقق من بريدك",
+	"We have just sent you an email. Click the link in it to confirm, and the weekly update starts coming. Until you click, you are not on the list.":
+		"أرسلنا إليك رسالة للتو. انقر على الرابط الذي فيها للتأكيد، ويبدأ التحديث الأسبوعي بالوصول. ما لم تنقر، فأنت لست في القائمة.",
+	"Nothing there after a few minutes? Look in your spam or promotions folder.":
+		"لا شيء بعد بضع دقائق؟ ابحث في مجلد الرسائل المزعجة أو العروض الترويجية.",
+	"Still nothing? The address may have had a typo. Simply sign up again.":
+		"ما زال لا شيء؟ ربما كان في العنوان خطأ. اشترك مرة أخرى ببساطة.",
+	"Changed your mind? Ignore the email and nothing more happens.":
+		"غيّرت رأيك؟ تجاهل الرسالة ولن يحدث شيء آخر.",
 };

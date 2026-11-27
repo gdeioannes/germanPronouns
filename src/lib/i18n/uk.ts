@@ -3033,4 +3033,64 @@ export const UK: Record<string, string> = {
 		"Наступна книга",
 	"The free book for this level":
 		"Безкоштовна книжка для цього рівня",
+
+	// ── Newsletter (2026-11-27) ───────────────────
+	"Get new editions and new chapters by email":
+		"Отримуйте нові видання й нові розділи електронною поштою",
+	"What's new, once a week":
+		"Новини раз на тиждень",
+	"New lessons, new texts and new book editions in one short email a week. Free, and one click to stop.":
+		"Нові уроки, нові тексти й нові видання книжок в одному короткому листі на тиждень. Безкоштовно, і один клік, щоб припинити.",
+	"Get the email":
+		"Отримувати лист",
+	"One short email a week: new lessons, new reading and listening, and what was fixed. Free, no spam, unsubscribe with one click.":
+		"Один короткий лист на тиждень: нові уроки, нові тексти для читання й слухання та що виправлено. Безкоштовно, без спаму, відписатися можна одним кліком.",
+	"Your email address":
+		"Ваша електронна адреса",
+	"Subscribe":
+		"Підписатися",
+	"Yes, send me the weekly update.":
+		"Так, надсилайте мені щотижневі новини.",
+	"You get an email to confirm first. Sent with Brevo (EU); only your email address is stored.":
+		"Спершу ви отримаєте лист для підтвердження. Надсилається через Brevo (ЄС); зберігається лише ваша електронна адреса.",
+	"The newsletter is always in English.":
+		"Розсилка завжди англійською.",
+	"You're subscribed":
+		"Ви підписалися",
+	"Thank you. Once a week you get a short email with what is new in the course: new lessons, new reading and listening, and what was fixed. Every email has a link to unsubscribe with one click.":
+		"Дякуємо. Раз на тиждень ви отримуватимете короткий лист про новини курсу: нові уроки, нові тексти для читання й слухання та що виправлено. У кожному листі є посилання, щоб відписатися одним кліком.",
+	"See what changed recently":
+		"Подивитися останні зміни",
+	"Privacy notice":
+		"Повідомлення про конфіденційність",
+	"The weekly update":
+		"Щотижневі новини",
+	"The course and its books keep changing: new lessons, new texts, corrected editions. One short email a week tells you what arrived, so you do not have to come and look.":
+		"Курс і його книжки постійно змінюються: нові уроки, нові тексти, виправлені видання. Один короткий лист на тиждень розповідає, що з'явилося, тож вам не треба заходити й перевіряти.",
+	"What you get":
+		"Що ви отримуєте",
+	"New in the course: lessons, exercises, reading and listening texts.":
+		"Нове в курсі: уроки, вправи, тексти для читання й слухання.",
+	"New book editions: when a book you downloaded has been corrected or extended.":
+		"Нові видання книжок: коли книжку, яку ви завантажили, виправлено або доповнено.",
+	"What was fixed: mistakes found and put right.":
+		"Що виправлено: знайдені й усунені помилки.",
+	"Nothing else: no advertising, and your address is never passed on. Every email ends with a link that unsubscribes you with one click.":
+		"Більше нічого: жодної реклами, і вашу адресу ніколи нікому не передають. Кожен лист закінчується посиланням, яке відписує вас одним кліком.",
+	"Newsletter":
+		"Розсилка",
+	"A corrected book comes out as a new edition.":
+		"Виправлена книжка виходить новим виданням.",
+	"Get new editions by email":
+		"Отримуйте нові видання електронною поштою",
+	"Almost done: check your inbox":
+		"Майже готово: перевірте пошту",
+	"We have just sent you an email. Click the link in it to confirm, and the weekly update starts coming. Until you click, you are not on the list.":
+		"Ми щойно надіслали вам лист. Натисніть посилання в ньому, щоб підтвердити, і щотижневі новини почнуть надходити. Поки ви не натиснете, вас немає у списку.",
+	"Nothing there after a few minutes? Look in your spam or promotions folder.":
+		"За кілька хвилин нічого немає? Перевірте папку «Спам» або «Промоакції».",
+	"Still nothing? The address may have had a typo. Simply sign up again.":
+		"Досі нічого? Можливо, в адресі була помилка. Просто підпишіться ще раз.",
+	"Changed your mind? Ignore the email and nothing more happens.":
+		"Передумали? Не зважайте на лист, і більше нічого не станеться.",
 };

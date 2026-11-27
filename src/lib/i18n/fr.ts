@@ -3029,4 +3029,64 @@ export const FR: Record<string, string> = {
 		"Le livre suivant",
 	"The free book for this level":
 		"Le livre gratuit de ce niveau",
+
+	// ── Newsletter (2026-11-27) ───────────────────
+	"Get new editions and new chapters by email":
+		"Recevez les nouvelles éditions et les nouveaux chapitres par e-mail",
+	"What's new, once a week":
+		"Les nouveautés, une fois par semaine",
+	"New lessons, new texts and new book editions in one short email a week. Free, and one click to stop.":
+		"Nouvelles leçons, nouveaux textes et nouvelles éditions des livres dans un court e-mail par semaine. Gratuit, et un clic pour arrêter.",
+	"Get the email":
+		"Recevoir l'e-mail",
+	"One short email a week: new lessons, new reading and listening, and what was fixed. Free, no spam, unsubscribe with one click.":
+		"Un court e-mail par semaine : nouvelles leçons, nouveaux textes à lire et à écouter, et ce qui a été corrigé. Gratuit, sans spam, désinscription en un clic.",
+	"Your email address":
+		"Votre adresse e-mail",
+	"Subscribe":
+		"S'abonner",
+	"Yes, send me the weekly update.":
+		"Oui, envoyez-moi la mise à jour hebdomadaire.",
+	"You get an email to confirm first. Sent with Brevo (EU); only your email address is stored.":
+		"Vous recevez d'abord un e-mail de confirmation. Envoyé avec Brevo (UE) ; seule votre adresse e-mail est conservée.",
+	"The newsletter is always in English.":
+		"La newsletter est toujours en anglais.",
+	"You're subscribed":
+		"Vous êtes abonné",
+	"Thank you. Once a week you get a short email with what is new in the course: new lessons, new reading and listening, and what was fixed. Every email has a link to unsubscribe with one click.":
+		"Merci. Une fois par semaine, vous recevez un court e-mail avec les nouveautés du cours : nouvelles leçons, nouveaux textes à lire et à écouter, et ce qui a été corrigé. Chaque e-mail contient un lien pour vous désinscrire en un clic.",
+	"See what changed recently":
+		"Voir les changements récents",
+	"Privacy notice":
+		"Politique de confidentialité",
+	"The weekly update":
+		"La mise à jour hebdomadaire",
+	"The course and its books keep changing: new lessons, new texts, corrected editions. One short email a week tells you what arrived, so you do not have to come and look.":
+		"Le cours et ses livres changent sans cesse : nouvelles leçons, nouveaux textes, éditions corrigées. Un court e-mail par semaine vous dit ce qui est arrivé, pour que vous n'ayez pas à venir voir.",
+	"What you get":
+		"Ce que vous recevez",
+	"New in the course: lessons, exercises, reading and listening texts.":
+		"Les nouveautés du cours : leçons, exercices, textes à lire et à écouter.",
+	"New book editions: when a book you downloaded has been corrected or extended.":
+		"Les nouvelles éditions des livres : quand un livre que vous avez téléchargé a été corrigé ou complété.",
+	"What was fixed: mistakes found and put right.":
+		"Ce qui a été corrigé : les erreurs trouvées et réparées.",
+	"Nothing else: no advertising, and your address is never passed on. Every email ends with a link that unsubscribes you with one click.":
+		"Rien d'autre : pas de publicité, et votre adresse n'est jamais transmise. Chaque e-mail se termine par un lien qui vous désinscrit en un clic.",
+	"Newsletter":
+		"Newsletter",
+	"A corrected book comes out as a new edition.":
+		"Un livre corrigé paraît dans une nouvelle édition.",
+	"Get new editions by email":
+		"Recevez les nouvelles éditions par e-mail",
+	"Almost done: check your inbox":
+		"Presque terminé : vérifiez votre boîte de réception",
+	"We have just sent you an email. Click the link in it to confirm, and the weekly update starts coming. Until you click, you are not on the list.":
+		"Nous venons de vous envoyer un e-mail. Cliquez sur le lien qu'il contient pour confirmer, et la mise à jour hebdomadaire commencera à arriver. Tant que vous n'avez pas cliqué, vous n'êtes pas sur la liste.",
+	"Nothing there after a few minutes? Look in your spam or promotions folder.":
+		"Rien après quelques minutes ? Regardez dans le dossier spam ou promotions.",
+	"Still nothing? The address may have had a typo. Simply sign up again.":
+		"Toujours rien ? L'adresse contenait peut-être une faute. Inscrivez-vous simplement à nouveau.",
+	"Changed your mind? Ignore the email and nothing more happens.":
+		"Vous avez changé d'avis ? Ignorez l'e-mail et il ne se passera rien de plus.",
 };

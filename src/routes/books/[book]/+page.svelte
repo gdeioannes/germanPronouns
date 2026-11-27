@@ -173,13 +173,10 @@
 		<div><dt>{t('Explained in')}</dt><dd>{beginner ? t('your language') : t('German')} <span>{beginner ? t('six language editions') : t('as courses are from B1')}</span></dd></div>
 		<div><dt>{t('Edition')}</dt><dd>{BOOK_EDITION.n} <span>{BOOK_EDITION.date}</span></dd></div>
 	</dl>
-	<!-- English only, as the newsletter is. -->
-	{#if !lang.limited}
-		<p class="updates">
-			A corrected book comes out as a new edition.
-			<a href="/newsletter?from=book-page">Get new editions by email</a>.
-		</p>
-	{/if}
+	<p class="updates">
+		{t('A corrected book comes out as a new edition.')}
+		<a href="/newsletter?from=book-page">{t('Get new editions by email')}</a>
+	</p>
 
 	<section aria-labelledby="inside-title">
 		<h2 id="inside-title">{t('What is in the book')}</h2>

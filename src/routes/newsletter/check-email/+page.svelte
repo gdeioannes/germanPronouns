@@ -6,6 +6,7 @@
 	import SiteNav from '$lib/components/SiteNav.svelte';
 	import SiteFooter from '$lib/components/SiteFooter.svelte';
 	import { page } from '$app/state';
+	import { t } from '$lib/i18n/t';
 </script>
 
 <Seo
@@ -18,17 +19,16 @@
 <SiteNav courseHref={page.data.site?.courseHref ?? '/'} />
 
 <main class="page">
-	<h1>Almost done: check your inbox</h1>
+	<h1>{t('Almost done: check your inbox')}</h1>
 	<p class="lede">
-		We have just sent you an email. Click the link in it to confirm, and the weekly update starts
-		coming. Until you click, you are not on the list.
+		{t('We have just sent you an email. Click the link in it to confirm, and the weekly update starts coming. Until you click, you are not on the list.')}
 	</p>
 	<ul>
-		<li>Nothing there after a few minutes? Look in your spam or promotions folder.</li>
-		<li>Still nothing? The address may have had a typo. Simply sign up again.</li>
-		<li>Changed your mind? Ignore the email and nothing more happens.</li>
+		<li>{t('Nothing there after a few minutes? Look in your spam or promotions folder.')}</li>
+		<li>{t('Still nothing? The address may have had a typo. Simply sign up again.')}</li>
+		<li>{t('Changed your mind? Ignore the email and nothing more happens.')}</li>
 	</ul>
-	<p><a href={page.data.site?.courseHref ?? '/'}>Back to the course</a></p>
+	<p><a href={page.data.site?.courseHref ?? '/'}>{t('Back to the course')}</a></p>
 </main>
 
 <SiteFooter />
