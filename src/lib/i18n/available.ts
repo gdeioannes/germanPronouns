@@ -59,6 +59,10 @@ export function routeTranslated(routeId: string | null | undefined): boolean {
  */
 export const OPEN_ROUTES = new Set<string>([
 	'/changelog',
+	// The weekly newsletter (English): the sign-up page and the two pages Brevo sends people back to.
+	'/newsletter',
+	'/newsletter/check-email',
+	'/newsletter/confirmed',
 	'/level-check/words',
 	'/words',
 	'/words/dictionary',

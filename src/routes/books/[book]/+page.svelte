@@ -173,6 +173,13 @@
 		<div><dt>{t('Explained in')}</dt><dd>{beginner ? t('your language') : t('German')} <span>{beginner ? t('six language editions') : t('as courses are from B1')}</span></dd></div>
 		<div><dt>{t('Edition')}</dt><dd>{BOOK_EDITION.n} <span>{BOOK_EDITION.date}</span></dd></div>
 	</dl>
+	<!-- English only, as the newsletter is. -->
+	{#if !lang.limited}
+		<p class="updates">
+			A corrected book comes out as a new edition.
+			<a href="/newsletter?from=book-page">Get new editions by email</a>.
+		</p>
+	{/if}
 
 	<section aria-labelledby="inside-title">
 		<h2 id="inside-title">{t('What is in the book')}</h2>
@@ -260,6 +267,12 @@
 <SiteFooter />
 
 <style>
+	.updates {
+		margin: -0.5rem 0 2rem;
+		font-size: var(--step--1);
+		color: var(--ink-muted);
+	}
+
 	.hero {
 		display: grid;
 		grid-template-columns: minmax(0, 17rem) minmax(0, 1fr);

@@ -26,7 +26,7 @@
 	import ReportPanel from '$lib/components/forum/ReportPanel.svelte';
 	import SideTip from '$lib/components/SideTip.svelte';
 	import PinButton from '$lib/components/PinButton.svelte';
-	import { dismissTip, sideTip } from '$lib/state/sideTip.svelte';
+	import { dismissTip, noteFinishedRun, sideTip } from '$lib/state/sideTip.svelte';
 	import SiteFooter from '$lib/components/SiteFooter.svelte';
 	import DoneMark from '$lib/components/DoneMark.svelte';
 	import DictationQuiz from '$lib/components/quiz/DictationQuiz.svelte';
@@ -488,6 +488,15 @@
 		clearOpened(quiz.id);
 		clearSpot(quiz.storageKeyPrefix);
 		track('quiz_completed', { course: v.course, quiz: v.id, type: v.type, ...run });
+		// After a handful of finished exercises: one mention of the weekly email
+		// (English only, as the newsletter is). It waits past the star card's
+		// own delay, and gives way if that card came up.
+		if (!lang.limited) {
+			const id = quiz.id;
+			setTimeout(() => {
+				if (finished && quiz.id === id) noteFinishedRun(progress.questCount, feedback.card);
+			}, 3000);
+		}
 	}
 
 	/** A play-through kind finished: mark it and celebrate, once per visit. */
@@ -881,6 +890,17 @@
 	text={t('After a wrong answer, the exercise now waits so you can read why. Prefer to keep going? You can change this in Settings.')}
 	actionLabel={t('Open Settings')}
 	actionHref="/settings#after-miss"
+	ondismiss={dismissTip}
+/>
+
+<!-- Once, after the fifth finished exercise: there is a weekly email. -->
+<SideTip
+	open={sideTip.id === 'newsletter'}
+	title="What's new, once a week"
+	text="New lessons, new texts and new book editions in one short email a week. Free, and one click to stop."
+	actionLabel="Get the email"
+	actionHref="/newsletter?from=results"
+	dismissLabel={t('Not now')}
 	ondismiss={dismissTip}
 />
 

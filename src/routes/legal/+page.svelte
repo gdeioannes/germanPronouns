@@ -15,7 +15,7 @@
 
 	// The operator's name and address live in $lib/operator (the books print them too).
 
-	const UPDATED = '2026-11-11';
+	const UPDATED = '2026-11-27';
 </script>
 
 <Seo
@@ -39,6 +39,7 @@
 	<nav class="toc" aria-label="On this page">
 		<a href="#imprint">Imprint</a>
 		<a href="#privacy">Privacy notice</a>
+		<a href="#newsletter">Newsletter</a>
 		<a href="#forum">Forum</a>
 		<a href="#rights">Your rights</a>
 	</nav>
@@ -75,7 +76,7 @@
 		<h2>Privacy notice <span class="de" lang="de">(Datenschutzerklärung)</span></h2>
 		<p>
 			The controller in the sense of the General Data Protection Regulation (GDPR) is the person
-			named in the imprint above. Last updated: <time datetime={UPDATED}>11 November 2026</time>.
+			named in the imprint above. Last updated: <time datetime={UPDATED}>27 November 2026</time>.
 		</p>
 
 		<h3>1. What the site itself stores</h3>
@@ -169,6 +170,44 @@
 			mistakes and improving the material; for a published sentence, your consent, Art.&nbsp;6(1)(a)
 			GDPR, which you can withdraw at any time. To have an answer deleted, write to the address in
 			the imprint and say what you wrote and roughly when, so that we can find it.
+		</p>
+	</section>
+
+	<section id="newsletter">
+		<h2>Newsletter</h2>
+		<p>
+			You can sign up for a weekly email about what is new in the course. Signing up is voluntary
+			and separate from the optional account: an address used to sign in is never added to the
+			newsletter.
+		</p>
+		<p>
+			<strong>What is stored:</strong> your email address, and as proof of your consent the time of
+			signing up and of confirming, and the IP address it was done from. Nothing else is asked for.
+		</p>
+		<p>
+			<strong>Double opt-in:</strong> after you sign up you get one email with a link. Only when you
+			click it is your address put on the list. If you don't click, no newsletter is sent.
+		</p>
+		<p>
+			<strong>Service provider:</strong> the sign-up form and the emails are handled by Brevo
+			(Sendinblue SAS, 9-17 rue Salneuve, 75017 Paris, France), which stores the data in the
+			European Union and processes it on our behalf under a data processing agreement
+			(Art.&nbsp;28 GDPR). The form sends your entry straight to Brevo; nothing from Brevo is loaded
+			on this site before you press Subscribe. Brevo may also use some of the data itself to keep its
+			platform secure, see <a href="https://www.brevo.com/legal/privacypolicy/" rel="noopener">Brevo's
+			privacy policy</a>.
+		</p>
+		<p>
+			<strong>Delivery statistics:</strong> Brevo records whether an email was delivered and may
+			record whether it was opened and which links in it were clicked. We look at these figures only
+			in total, to see whether the newsletter is useful, never per person.
+		</p>
+		<p>
+			<strong>Legal basis and unsubscribing:</strong> your consent, Art.&nbsp;6(1)(a) GDPR. You can
+			withdraw it at any time with the unsubscribe link at the end of every email, or by writing to
+			the address in the imprint. Your address is then taken off the list straight away; the record
+			that you once consented and then withdrew is kept as long as we may need to prove it, and no
+			longer than three years.
 		</p>
 	</section>
 

@@ -4,6 +4,7 @@
 	import Seo from '$lib/components/Seo.svelte';
 	import SiteNav from '$lib/components/SiteNav.svelte';
 	import SiteFooter from '$lib/components/SiteFooter.svelte';
+	import NewsletterSignup from '$lib/components/NewsletterSignup.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
 	import { returnTo, returnLabel } from '$lib/state/returnTo.svelte';
 	import { changelog } from '$lib/content/changelog';
@@ -68,6 +69,10 @@
 		improving — check back here to see what's arrived since your last visit.
 	</p>
 
+	<div class="newsletter">
+		<NewsletterSignup where="changelog" />
+	</div>
+
 	<ol class="timeline">
 		{#each changelog as entry (entry.date + entry.title)}
 			<li class="release" class:highlight={entry.highlight}>
@@ -107,6 +112,10 @@
 	}
 	h1 {
 		margin: 0 0 0.5rem;
+	}
+
+	.newsletter {
+		margin: 0 0 2.5rem;
 	}
 
 	.lede {

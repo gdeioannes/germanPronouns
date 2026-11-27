@@ -18,6 +18,16 @@ export type ChangelogEntry = {
 
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-11-27",
+    title: "A weekly email, if you want one",
+    items: [
+      "You can now get one short email a week with what is new: lessons, reading and listening texts, new book editions and what was fixed. The sign-up is at the bottom of every page and on its own page, Newsletter.",
+      "Signing up takes your email address and nothing else. You get one email to confirm first, and every issue ends with a link that unsubscribes you with one click.",
+      "It is separate from the optional account: an address used to sign in is never put on the list. The privacy notice says what is stored and who sends the emails.",
+      "The newsletter is in English for now, so the sign-up shows when the site is in English.",
+    ],
+  },
+  {
     date: "2026-11-26",
     title: "Arabic: every level, A1 to C2",
     items: [

@@ -16,6 +16,7 @@
 		text,
 		actionLabel,
 		actionHref,
+		dismissLabel,
 		ondismiss
 	}: {
 		open: boolean;
@@ -23,6 +24,8 @@
 		text: string;
 		actionLabel?: string;
 		actionHref?: string;
+		/** The plain way out, when "Got it" is the wrong word (an offer, not a notice). */
+		dismissLabel?: string;
 		/** Closing and taking the action both end here: the tip is done. */
 		ondismiss: () => void;
 	} = $props();
@@ -49,7 +52,7 @@
 					{#if actionLabel && actionHref}
 						<a class="action" href={actionHref} onclick={ondismiss}>{actionLabel}</a>
 					{/if}
-					<button type="button" class="ok" onclick={ondismiss}>{t('Got it')}</button>
+					<button type="button" class="ok" onclick={ondismiss}>{dismissLabel ?? t('Got it')}</button>
 				</div>
 			</div>
 			<button type="button" class="close" aria-label={t('Close')} onclick={ondismiss}>

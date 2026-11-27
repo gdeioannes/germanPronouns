@@ -9,7 +9,7 @@ import { SettingsKeys } from '$lib/domain/keys';
 import { storage } from '$lib/services/storage';
 import { progress } from '$lib/state/progress.svelte';
 
-export type SideTipId = 'wait-after-miss';
+export type SideTipId = 'wait-after-miss' | 'newsletter';
 
 export const sideTip = $state<{ id: SideTipId | null }>({ id: null });
 
@@ -35,4 +35,17 @@ export async function dismissTip(): Promise<void> {
 export function noteHeldMiss(): void {
 	if (progress.answerRevealMode === 'manual' || !progress.waitAfterMiss) return;
 	void offerTip('wait-after-miss');
+}
+
+/** From this many finished exercises on, the newsletter is worth a mention. */
+export const NEWSLETTER_FROM = 5;
+
+/**
+ * An exercise was just finished: once someone has finished a handful, say
+ * once that there is a weekly email. `busy` is anything else already asking
+ * in that corner (the star card); then the tip waits for the next finish.
+ */
+export function noteFinishedRun(finishedSoFar: number, busy: boolean): void {
+	if (busy || finishedSoFar < NEWSLETTER_FROM) return;
+	void offerTip('newsletter');
 }

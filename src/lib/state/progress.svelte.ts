@@ -661,6 +661,11 @@ class ProgressStore {
 		await this.writeList(key, next);
 	}
 
+	/** How many exercises have been finished so far. */
+	get questCount(): number {
+		return this.questDone.size;
+	}
+
 	isQuestCompleted(key: string): boolean {
 		return this.questDone.has(key);
 	}

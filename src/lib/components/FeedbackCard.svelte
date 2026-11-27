@@ -199,6 +199,21 @@
 	</aside>
 {/if}
 
+<!-- One quiet line under a started download: the books get new editions, and
+     an email is the only way a reader who leaves now hears of one. English
+     only, as the newsletter is. -->
+{#snippet news()}
+	{#if !lang.limited}
+		<p class="news">
+			<Icon name="info" size="1em" />
+			<span>
+				New editions and new chapters:
+				<a href="/newsletter?from=download" onclick={() => (feedback.dlOpen = false)}>get them by email</a>.
+			</span>
+		</p>
+	{/if}
+{/snippet}
+
 <!-- The book is on its way: the one moment a reader has something worth
      passing on. The books page, in their language, to whoever they choose. -->
 {#snippet sendOn()}
@@ -253,6 +268,7 @@
 				</p>
 				{@render bridge()}
 				{@render sendOn()}
+				{@render news()}
 				<button type="button" class="later" onclick={() => (feedback.dlOpen = false)}>{t('Not now')}</button>
 			{:else if feedback.dlPromo}
 				{@const p = feedback.dlPromo}
@@ -301,6 +317,7 @@
 					</span>
 				</a>
 				{@render sendOn()}
+				{@render news()}
 				<button type="button" class="later" onclick={() => (feedback.dlOpen = false)}>{t('Not now')}</button>
 			{:else if !feedback.dlAnswered}
 				<p class="dl-q">{t('Who is this book for?')}</p>
@@ -334,9 +351,11 @@
 				{:else if feedback.dlCompanion}
 					{@render bridge()}
 					{@render sendOn()}
+					{@render news()}
 					<button type="button" class="later" onclick={() => (feedback.dlOpen = false)}>{t('Not now')}</button>
 				{:else}
 					{@render sendOn()}
+					{@render news()}
 					<button type="button" class="pill" onclick={() => (feedback.dlOpen = false)}>{t('Back to the page')}</button>
 				{/if}
 				<p class="note">
@@ -956,6 +975,20 @@
 	.send-on .wa {
 		background: #25d366;
 		color: #06301f;
+	}
+
+	.news {
+		display: flex;
+		align-items: flex-start;
+		gap: 0.45rem;
+		margin: 0;
+		font-size: 0.9rem;
+		color: var(--ink-muted);
+	}
+
+	.news :global(svg) {
+		flex: none;
+		margin-top: 0.2rem;
 	}
 
 	.later {
