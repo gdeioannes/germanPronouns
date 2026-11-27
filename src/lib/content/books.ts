@@ -7,6 +7,7 @@
 
 import type { UiLang, LocalLang } from '$lib/i18n/lang.svelte';
 import { levelTranslated } from '$lib/i18n/available';
+import { mediaUrl } from '$lib/media';
 
 export interface BookEntry {
 	/** The level as printed on the cover, e.g. "B1.1". */
@@ -47,7 +48,7 @@ const edition = (book: BookEntry, l: UiLang): LocalLang | null =>
 /** The PDF in `l` (English when that edition is not printed). */
 export const bookPdf = (book: BookEntry, l: UiLang = 'en') => {
 	const e = edition(book, l);
-	return `/books/v2/de_cert_a1_${book.file}${e ? `_${e}` : ''}.pdf`;
+	return mediaUrl(`/books/v2/de_cert_a1_${book.file}${e ? `_${e}` : ''}.pdf`);
 };
 /** The size of the PDF bookPdf() gives. */
 export const bookMb = (book: BookEntry, l: UiLang = 'en') => {

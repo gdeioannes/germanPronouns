@@ -10,6 +10,7 @@
 
 import { isMuted } from './mute';
 import { tts } from './speech';
+import { mediaUrl } from '$lib/media';
 import { effectsCalm } from '$lib/motion/fx.svelte';
 
 export interface Fallback {
@@ -41,7 +42,7 @@ export function playClip(id: string, fallback?: Fallback): Promise<void> {
 	stopClip();
 	if (isMuted() || typeof Audio === 'undefined') return Promise.resolve();
 	return new Promise((resolve) => {
-		const a = new Audio(`/audio/story/${id}.mp3`);
+		const a = new Audio(mediaUrl(`/audio/story/${id}.mp3`));
 		audio = a;
 		settle = resolve;
 		voice.id = id;
@@ -84,7 +85,7 @@ export function stopClip(): void {
 export function playSfx(name: string, gain = 1): Promise<void> {
 	if (isMuted() || effectsCalm() || typeof Audio === 'undefined') return Promise.resolve();
 	return new Promise((resolve) => {
-		const a = new Audio(`/audio/story/sfx/${name}.mp3`);
+		const a = new Audio(mediaUrl(`/audio/story/sfx/${name}.mp3`));
 		a.volume = Math.min(1, 0.8 * gain);
 		a.onended = () => resolve();
 		a.onerror = () => resolve();

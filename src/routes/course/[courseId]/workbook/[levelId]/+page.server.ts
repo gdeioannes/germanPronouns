@@ -6,6 +6,7 @@ import type { BookLinkRegistry, LinkKind } from '$lib/domain/booklinks';
 import { codeUrl } from '$lib/domain/booklinks';
 import { loadCompanion } from '$lib/domain/companion';
 import { qrSvg } from '$lib/server/qr';
+import { mediaUrl } from '$lib/media';
 import { buildWorkbook, workbookFile, workbookLevels } from '$lib/domain/workbook';
 import type { EntryGenerator, PageServerLoad } from './$types';
 
@@ -66,7 +67,7 @@ export const load: PageServerLoad = async ({ params }) => {
 		companion,
 		qr,
 		courseName: course.name,
-		pdf: pdfManifest()[file] ? { href: `/workbooks/${file}`, ...pdfManifest()[file] } : null,
+		pdf: pdfManifest()[file] ? { href: mediaUrl(`/workbooks/${file}`), ...pdfManifest()[file] } : null,
 		previous: levels[at - 1]?.level ?? null,
 		next: levels[at + 1]?.level ?? null
 	};

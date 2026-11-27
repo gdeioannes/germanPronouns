@@ -6,6 +6,7 @@
 	// the dev story bible (/dev/story-bible).
 	import Seo from '$lib/components/Seo.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
+	import { mediaUrl } from '$lib/media';
 	import { celebrate, react } from '$lib/motion/fx.svelte';
 	import { isMuted } from '$lib/services/mute';
 	import SpeakButton from '$lib/components/SpeakButton.svelte';
@@ -156,13 +157,13 @@
 	function clipFile(key: string): string {
 		const m = key.match(/\{pool:([a-zA-Z]+)\}/);
 		const base = key.replace('story/', '').replace(/_\{pool:[a-zA-Z]+\}$/, '');
-		return `/audio/story/${base}${m ? `_${draw[m[1]]}` : ''}.mp3`;
+		return mediaUrl(`/audio/story/${base}${m ? `_${draw[m[1]]}` : ''}.mp3`);
 	}
 	function narrationFile(b: Beat): string {
 		// Pooled narration was recorded per variant of the FIRST pool in the
 		// text (gen-story-audio.mjs does the same), suffixed by its index.
 		const m = `${b.text ?? ''}`.match(/\{pool:([a-zA-Z]+)\}/);
-		return `/audio/story/${clipPrefix}_narr_${b.id}${m ? `_${draw[m[1]] ?? 0}` : ''}.mp3`;
+		return mediaUrl(`/audio/story/${clipPrefix}_narr_${b.id}${m ? `_${draw[m[1]] ?? 0}` : ''}.mp3`);
 	}
 
 	// ---- audio --------------------------------------------------------------
@@ -232,7 +233,7 @@
 	}
 	function sfx(name: string, gain = 1) {
 		if (isMuted() || calm() || !soundsOn) return;
-		const a = new Audio(`/audio/story/sfx/${name}.mp3`);
+		const a = new Audio(mediaUrl(`/audio/story/sfx/${name}.mp3`));
 		a.volume = Math.min(1, 0.8 * gain);
 		a.play().catch(() => {});
 	}
@@ -243,7 +244,7 @@
 	function startLoop(name: string) {
 		stopLoop();
 		if (isMuted() || calm() || !musicOn) return;
-		loopPlayer = new Audio(`/audio/story/sfx/${name}.mp3`);
+		loopPlayer = new Audio(mediaUrl(`/audio/story/sfx/${name}.mp3`));
 		loopPlayer.loop = true;
 		loopPlayer.volume = 0.18;
 		loopPlayer.play().catch(() => {});

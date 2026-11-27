@@ -4,6 +4,7 @@
 	// the pool's variants in a shuffled order (the drawn one never first), so
 	// the right stop has to be HEARD — the names stay hidden until passed.
 	import Icon from '$lib/icons/Icon.svelte';
+	import { mediaUrl } from '$lib/media';
 	import type { Beat, BeatHost } from './types';
 
 	let { beat, host }: { beat: Beat; host: BeatHost } = $props();
@@ -40,7 +41,7 @@
 	function clipAt(k: number): string {
 		if (order[k] < 0) return host.clip(extras[-1 - order[k]].audio);
 		const base = `${beat.audio}`.replace('story/', '').replace(/_\{pool:[a-zA-Z]+\}$/, '');
-		return `/audio/story/${base}_${variantAt(k)}.mp3`;
+		return mediaUrl(`/audio/story/${base}_${variantAt(k)}.mp3`);
 	}
 	function announce() {
 		host.sfx('ubahn_chime', 0.6);

@@ -8,6 +8,7 @@
 	// The recording is a file under /audio/story/; if it is missing (offline,
 	// not recorded yet) the app voice reads the transcript instead.
 	import Icon from '$lib/icons/Icon.svelte';
+	import { mediaUrl } from '$lib/media';
 	import { isMuted } from '$lib/services/mute';
 	import { tts } from '$lib/services/speech';
 	import { stopClip } from '$lib/services/clips.svelte';
@@ -84,7 +85,7 @@
 		}
 		if (message.bg === 'scratch') {
 			await new Promise<void>((resolve) => {
-				const s = new Audio('/audio/story/sfx/record_scratch.mp3');
+				const s = new Audio(mediaUrl('/audio/story/sfx/record_scratch.mp3'));
 				s.volume = 0.7;
 				s.onended = () => resolve();
 				s.onerror = () => resolve();
@@ -92,12 +93,12 @@
 			});
 		}
 		if (message.bg === 'techno') {
-			bg = new Audio('/audio/story/sfx/techno_loop.mp3');
+			bg = new Audio(mediaUrl('/audio/story/sfx/techno_loop.mp3'));
 			bg.loop = true;
 			bg.volume = 0.32;
 			bg.play().catch(() => {});
 		}
-		const v = new Audio(`/audio/story/${message.audio}.mp3`);
+		const v = new Audio(mediaUrl(`/audio/story/${message.audio}.mp3`));
 		voice = v;
 		v.onended = () => {
 			progress = 1;

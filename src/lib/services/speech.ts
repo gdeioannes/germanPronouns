@@ -16,6 +16,7 @@
 import { env } from '$env/dynamic/public';
 import { isMuted } from './mute';
 import { audioShard } from '$lib/audio/shard';
+import { mediaUrl } from '$lib/media';
 
 /**
  * The project's deployed TTS Worker. Not a secret — it holds the keys, this
@@ -338,7 +339,7 @@ export class RecordedTtsProvider implements TtsProvider {
 		// report handled so the chain does not fall through to another voice.
 		if (generation !== this.generation) return true;
 		if (!file) return false;
-		const end = await playClip(`${this.base}/${file}`, options.rate ?? 1, SLOW_MS);
+		const end = await playClip(mediaUrl(`${this.base}/${file}`), options.rate ?? 1, SLOW_MS);
 		// Too slow, or the clip did not load (offline, dropped connection): the
 		// chain falls through to the next voice. A later speak() cutting this one
 		// off counts as handled.

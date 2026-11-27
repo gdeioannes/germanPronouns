@@ -4,6 +4,7 @@
 	// read through. The recorded clips play from static/audio; a clip that was
 	// never recorded falls back to the app's voice.
 	import Icon from '$lib/icons/Icon.svelte';
+	import { mediaUrl } from '$lib/media';
 	import { tts } from '$lib/services/speech';
 	import { t, tk } from '$lib/i18n/t';
 	import { inLang } from '$lib/i18n/content.svelte';
@@ -23,7 +24,7 @@
 		const clip = data.clips[i];
 		playing = i;
 		if (clip.file) {
-			audio = new Audio(`/audio/${clip.file}`);
+			audio = new Audio(mediaUrl(`/audio/${clip.file}`));
 			audio.onended = () => (playing = null);
 			await audio.play().catch(() => (playing = null));
 		} else {
@@ -45,7 +46,7 @@
 				const clip = data.clips[i];
 				playing = i;
 				if (clip.file) {
-					audio = new Audio(`/audio/${clip.file}`);
+					audio = new Audio(mediaUrl(`/audio/${clip.file}`));
 					audio.onended = () => resolve();
 					audio.onerror = () => resolve();
 					audio.play().catch(() => resolve());

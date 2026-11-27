@@ -4,6 +4,7 @@
 // charts on the site are never a hand-kept copy of the book.
 
 import manifest from './charts.json';
+import { mediaUrl } from '$lib/media';
 
 export interface ChartQuiz {
 	quiz: string;
@@ -41,7 +42,8 @@ export interface ChartsBook {
 	charts: GrammarChart[];
 }
 
-export const CHARTS_BOOK: ChartsBook = manifest;
+/** The PDF's href points at the media bucket when there is one (lib/media). */
+export const CHARTS_BOOK: ChartsBook = { ...manifest, pdf: mediaUrl(manifest.pdf) };
 
 /** One chart by its address, or undefined. */
 export function chartBySlug(slug: string): GrammarChart | undefined {

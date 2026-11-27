@@ -60,6 +60,26 @@ jobs:
           PUBLIC_FIREBASE_AUTH_DOMAIN: ${{ vars.PUBLIC_FIREBASE_AUTH_DOMAIN }}
           PUBLIC_FIREBASE_PROJECT_ID: ${{ vars.PUBLIC_FIREBASE_PROJECT_ID }}
           PUBLIC_FIREBASE_APP_ID: ${{ vars.PUBLIC_FIREBASE_APP_ID }}
+          # The R2 bucket's public address (src/lib/media.ts). Unset, the site
+          # serves its own recordings and PDFs, as before.
+          PUBLIC_MEDIA_BASE: ${{ vars.PUBLIC_MEDIA_BASE }}
+
+      # Recordings and PDFs live in Cloudflare R2, so the Pages upload stays
+      # under its 1 GB limit. New or changed files go up first; only then are
+      # they dropped from build/ (both steps follow tool/media-rule.mjs).
+      - name: Upload media to R2
+        if: github.event_name != 'pull_request' && vars.PUBLIC_MEDIA_BASE != ''
+        run: node tool/media-sync.mjs
+        env:
+          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_BUCKET: ${{ vars.R2_BUCKET }}
+
+      - name: Drop media from the Pages upload
+        run: node tool/strip-media.mjs
+        env:
+          PUBLIC_MEDIA_BASE: ${{ vars.PUBLIC_MEDIA_BASE }}
 
       - name: Report bundle size
         run: |

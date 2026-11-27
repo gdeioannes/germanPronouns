@@ -5,6 +5,7 @@
 // worker is installed; the cache names must match the worker's.
 
 import { storage } from '$lib/services/storage';
+import { mediaUrl } from '$lib/media';
 
 export const PAGES_CACHE = 'pages';
 export const MEDIA_CACHE = 'media';
@@ -94,8 +95,11 @@ export async function saveLevel(list: OfflineLevel, onProgress: (p: SaveProgress
 	const isManifest = (url: string) => url.startsWith('/audio/manifest/');
 	const mediaUrls = [...list.media, ...pictures];
 	total = list.pages.length + mediaUrls.length;
-	await run(mediaUrls, async (url) => {
-		if (!isManifest(url) && (await media.match(url))) return;
+	await run(mediaUrls, async (path) => {
+		// Clips may live in the media bucket (lib/media): cached under the URL
+		// the app plays them from, which is what the worker looks up.
+		const url = mediaUrl(path);
+		if (!isManifest(path) && (await media.match(url))) return;
 		const res = await fetch(url);
 		if (!res.ok) throw new Error(`${res.status} ${url}`);
 		await media.put(url, res);

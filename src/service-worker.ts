@@ -20,6 +20,7 @@
 // the network, and fail quietly offline as they already do.
 
 import { build, files, prerendered, version } from '$service-worker';
+import { MEDIA_BASE } from '$lib/media';
 
 const sw = self as unknown as ServiceWorkerGlobalScope;
 
@@ -60,6 +61,29 @@ sw.addEventListener('activate', (event) => {
 	);
 });
 
+/** The media bucket's origin (lib/media): recordings and PDFs, when they are served from it. */
+const MEDIA_ORIGIN = MEDIA_BASE ? new URL(MEDIA_BASE).origin : null;
+
+/**
+ * A file from the media bucket, cache first like the site's own media. An
+ * <audio> element asks without CORS, and such an "opaque" answer cannot be
+ * stored reliably, so the worker fetches its own CORS copy (the bucket allows
+ * the site's origin) and answers with that.
+ */
+function bucketMedia(request: Request): Promise<Response> {
+	return caches.open(MEDIA).then(async (cache) => {
+		const hit = await cache.match(request.url);
+		if (hit) return hit;
+		// Seeking into a clip not yet cached goes straight through; a player's
+		// opening "bytes=0-" is answered with the whole file, which it accepts.
+		const range = request.headers.get('range');
+		if (range && !/^bytes=0-$/.test(range)) return fetch(request);
+		const fresh = await fetch(request.url, { mode: 'cors', credentials: 'omit' });
+		if (fresh.ok) void cache.put(request.url, fresh.clone());
+		return fresh;
+	});
+}
+
 function isManifest(url: URL): boolean {
 	return url.pathname.startsWith('/audio/manifest/');
 }
@@ -98,6 +122,11 @@ sw.addEventListener('fetch', (event) => {
 	const { request } = event;
 	if (request.method !== 'GET') return;
 	const url = new URL(request.url);
+	if (MEDIA_ORIGIN && url.origin === MEDIA_ORIGIN) {
+		// Recordings only: a PDF download is a navigation the browser saves itself.
+		if (url.pathname.endsWith('.mp3')) event.respondWith(bucketMedia(request));
+		return;
+	}
 	if (url.origin !== sw.location.origin) return;
 
 	if (shell.has(url.pathname)) {

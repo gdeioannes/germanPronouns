@@ -4,6 +4,8 @@
 // static/books/literature/. The /literature page and the home page's offer
 // both read this list, so a new book is one entry here.
 
+import { mediaUrl } from '$lib/media';
+
 export interface LiteratureBook {
 	id: string;
 	author: string;
@@ -47,7 +49,7 @@ export const LITERATURE: LiteratureBook[] = [
 			'A guide to the 1917 spelling, so daß and mußte never stop you',
 			'A dictionary at the back, A to Z, with the page that explains each word'
 		],
-		pdf: { href: '/books/literature/kafka_die_verwandlung.pdf', pages: 113, megabytes: 2.9 },
+		pdf: { href: mediaUrl('/books/literature/kafka_die_verwandlung.pdf'), pages: 113, megabytes: 2.9 },
 		store: {
 			name: 'Amazon',
 			editions: [

@@ -66,6 +66,9 @@ export const GET: RequestHandler = async () => {
 		const editions: UiLang[] = ['en', ...(Object.keys(book.local ?? {}) as LocalLang[])];
 		for (const l of editions) {
 			const href = bookPdf(book, l);
+			// Served from the media bucket (lib/media): another host, which a
+			// sitemap may not list; the book pages link the files instead.
+			if (/^https?:/.test(href)) continue;
 			urls.push({ loc: href, lastmod: lastModified(`static${href}`), priority: book.level === 'A1.1' ? '0.7' : '0.5' });
 		}
 	}
@@ -73,7 +76,8 @@ export const GET: RequestHandler = async () => {
 	// The annotated editions themselves: a search engine indexes a PDF's text,
 	// so "Die Verwandlung with English notes" can land straight on the book.
 	for (const book of LITERATURE) {
-		urls.push({ loc: book.pdf.href, lastmod: lastModified(`static${book.pdf.href}`), priority: '0.5' });
+		if (!/^https?:/.test(book.pdf.href))
+			urls.push({ loc: book.pdf.href, lastmod: lastModified(`static${book.pdf.href}`), priority: '0.5' });
 		// The book read online: its front page and one page per stage.
 		if (book.read) {
 			const lastmod = lastModified('assets/reference', 'src/routes/literature');

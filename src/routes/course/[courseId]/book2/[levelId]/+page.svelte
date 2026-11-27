@@ -14,6 +14,7 @@
 	import { lang } from '$lib/i18n/lang.svelte';
 	import { inLangBookFront, inLangChapter } from '$lib/i18n/content.svelte';
 	import { BOOKS, bookPdf, pdfOffered } from '$lib/content/books';
+	import { mediaUrl } from '$lib/media';
 
 	import { onMount, tick } from 'svelte';
 	let { data }: { data: PageData } = $props();
@@ -29,7 +30,7 @@
 	);
 	const entry = $derived(BOOKS.find((b) => b.level === data.book.level));
 	const pdfHref = $derived(
-		entry ? bookPdf(entry, lang.current) : `/books/v2/${data.book.courseId}_${data.book.level.toLowerCase().replace('.', '_')}.pdf`
+		entry ? bookPdf(entry, lang.current) : mediaUrl(`/books/v2/${data.book.courseId}_${data.book.level.toLowerCase().replace('.', '_')}.pdf`)
 	);
 	// ?cover prints the wraparound cover sheet, ?spine=7.5 its spine width, and
 	// ?hd the print originals (tool/gen-book2.mjs). Read in the browser: the
