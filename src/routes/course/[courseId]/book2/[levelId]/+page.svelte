@@ -8,6 +8,7 @@
 	import { openShare } from '$lib/state/sharePanel.svelte';
 	import { returnTo, returnLabel } from '$lib/state/returnTo.svelte';
 	import { page } from '$app/state';
+	import { browser, dev } from '$app/environment';
 	import type { PageData } from './$types';
 	import { t } from '$lib/i18n/t';
 	import { lang } from '$lib/i18n/lang.svelte';
@@ -40,11 +41,29 @@
 	// The way back: the books list when it sent you here (?from=books), else
 	// wherever the trip started (home or the deck), like any side trip.
 	let fromBooks = $state(false);
+	/** Opened from an exercise (its Book chip): the way back is that exercise. */
+	let fromQuiz = $state<string | null>(null);
+	/** The chapter page to open at ("hallo/grammatik-1"), from the same link. */
+	let openAt: string | null = null;
+	/** Which entry of that page's exercise list sent the reader here: it names the block on the page. */
+	let openN = -1;
+	/** Still settling on the page asked for: the zoom is fitted after the first layout, which moves every page. */
+	let landing = $state(false);
 	const courseHref = $derived(page.data.site?.courseHref ?? '/');
-	const back = $derived(fromBooks ? { href: '/books', label: t('The books') } : { href: returnTo.path, label: returnLabel(returnTo.path) });
+	const back = $derived(
+		fromQuiz
+			? { href: `/course/${data.book.courseId}/quiz/${fromQuiz}`, label: t('Back to the exercise') }
+			: fromBooks
+				? { href: '/books', label: t('The books') }
+				: { href: returnTo.path, label: returnLabel(returnTo.path) }
+	);
 	onMount(() => {
 		const q = new URLSearchParams(window.location.search);
 		fromBooks = q.get('from') === 'books';
+		const quizId = q.get('quiz');
+		fromQuiz = quizId && /^[\w-]+$/.test(quizId) ? quizId : null;
+		openAt = q.get('at');
+		openN = Number(q.get('n') ?? -1);
 		cover = q.has('cover');
 		spine = Number(q.get('spine') ?? 7.4);
 		hd = q.has('hd');
@@ -58,6 +77,163 @@
 			fit = savedFit === 'width' || savedFit === 'page' ? savedFit : window.innerWidth >= 1200 ? 'page' : 'width';
 		}
 		ready = true;
+		if (openAt) {
+			landing = true;
+			// The reader's own first scroll, tap or key ends it: from then on the place is theirs.
+			// Anything that changes the page's height while it settles (the release
+			// banner arriving above the book, a late font) moves the pages: land again.
+			const shifts = new ResizeObserver(() => landing && requestAnimationFrame(land));
+			shifts.observe(document.body);
+			let timer: ReturnType<typeof setTimeout> | undefined;
+			const mine = () => {
+				landing = false;
+				shifts.disconnect();
+				clearTimeout(timer);
+				document.removeEventListener('visibilitychange', seen);
+				window.removeEventListener('load', seen);
+			};
+			// A tab opened in the background draws nothing, so nothing can be placed:
+			// the settling time starts when the book is first looked at, and again
+			// once everything has loaded.
+			const seen = () => {
+				if (document.hidden || !landing) return;
+				clearTimeout(timer);
+				requestAnimationFrame(land);
+				timer = setTimeout(mine, 3000);
+			};
+			document.addEventListener('visibilitychange', seen);
+			if (document.readyState !== 'complete') window.addEventListener('load', seen, { once: true });
+			seen();
+			for (const type of ['wheel', 'touchstart', 'keydown', 'pointerdown']) window.addEventListener(type, mine, { once: true, passive: true });
+		}
+	});
+
+	// Opened from an exercise: straight to the page it belongs to, and on that
+	// page to the block it practises (the entry's "for": "Who is who"), which
+	// is marked for a moment. Repeated while the zoom settles, so the place holds.
+	let marked: HTMLElement | null = null;
+	function land() {
+		if (!openAt || !viewer) return;
+		const pages = bookPages();
+		const i = pages.findIndex((p) => p.dataset.at === openAt);
+		if (i < 0) return;
+		const pageEl = pages[i];
+		const under = (bar?.getBoundingClientRect().bottom ?? 0) + 12;
+		jumpBy(pageEl.getBoundingClientRect().top - under);
+		const [chapterId, part] = openAt.split('/');
+		const block = blockFor(pageEl, chapterId, part, openN);
+		if (block) {
+			const r = block.getBoundingClientRect();
+			// Already whole on the screen (a big screen showing the full page): leave the page where it is.
+			if (r.top < under || r.bottom > window.innerHeight - 8) jumpBy(r.top - under - 8);
+			if (marked !== block) {
+				marked = block;
+				if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+					block.animate(
+						[
+							{ boxShadow: '0 0 0 0 rgb(201 104 59 / 0)', backgroundColor: 'rgb(201 104 59 / 0)' },
+							{ boxShadow: '0 0 0 6px rgb(201 104 59 / 0.55)', backgroundColor: 'rgb(201 104 59 / 0.12)', offset: 0.25 },
+							{ boxShadow: '0 0 0 6px rgb(201 104 59 / 0.55)', backgroundColor: 'rgb(201 104 59 / 0.12)', offset: 0.7 },
+							{ boxShadow: '0 0 0 0 rgb(201 104 59 / 0)', backgroundColor: 'rgb(201 104 59 / 0)' }
+						],
+						{ duration: 2600, easing: 'ease-in-out' }
+					);
+				}
+			}
+		}
+		readPage();
+	}
+	/**
+	 * The block an exercise link names, in whatever language the book is shown.
+	 * The link's label is matched on the page as it stands; in a translated
+	 * edition the heading it names may read differently, so the label is then
+	 * looked up in the book as written (data.book) and the string at the same
+	 * place in the translated book is the heading to find.
+	 */
+	function blockFor(pageEl: HTMLElement, chapterId: string, part: string, n: number): HTMLElement | null {
+		const shown = book.chapters.find((c) => c.id === chapterId);
+		const written = data.book.chapters.find((c) => c.id === chapterId);
+		const label = shown?.appQuizzes?.[part]?.[n]?.for;
+		const direct = label ? blockNamed(pageEl, label) : null;
+		if (direct || !shown || !written) return direct;
+		const source = written.appQuizzes?.[part]?.[n]?.for;
+		if (!source) return null;
+		const clean = (s: string) => s.replace(/\s+/g, ' ').trim().toLowerCase();
+		const wanted = [source, ...source.split(' · ').reverse()].map(clean).filter((w) => w.length >= 3);
+		// Only this page's own part of the chapter: the same words can head a block on another page.
+		const i = Number(part.slice(-1)) - 1;
+		const key = part === 'lesen' ? 'reading' : part.startsWith('grammatik') ? 'grammar' : part === 'alltag' ? 'document' : part.startsWith('uebungen') ? 'practise' : null;
+		if (!key) return null;
+		const pick = (c: unknown) => { const v = (c as Record<string, unknown>)[key]; return Array.isArray(v) && (key === 'grammar' || key === 'practise') ? v[i] : v; };
+		const path = pathOf(pick(written), wanted);
+		if (!path) return null;
+		let at: unknown = pick(shown);
+		for (const k of path) at = (at as Record<string, unknown> | undefined)?.[k];
+		return typeof at === 'string' && at ? blockNamed(pageEl, at) : null;
+	}
+	/** Where in a piece of the book a string equal to one of `wanted` sits (the first, by the order given). */
+	function pathOf(root: unknown, wanted: string[]): (string | number)[] | null {
+		const clean = (s: string) => s.replace(/\s+/g, ' ').trim().toLowerCase();
+		for (const w of wanted) {
+			const walk = (o: unknown, path: (string | number)[]): (string | number)[] | null => {
+				if (typeof o === 'string') return clean(o) === w ? path : null;
+				if (Array.isArray(o)) { for (let k = 0; k < o.length; k++) { const hit = walk(o[k], [...path, k]); if (hit) return hit; } return null; }
+				if (o && typeof o === 'object') { for (const [k, v] of Object.entries(o)) { const hit = walk(v, [...path, k]); if (hit) return hit; } }
+				return null;
+			};
+			const hit = walk(root, []);
+			if (hit) return hit;
+		}
+		return null;
+	}
+	/** The block of a page whose heading is the label ("Übung 1 · du or Sie?" also by either half). */
+	function blockNamed(pageEl: HTMLElement, label: string): HTMLElement | null {
+		// "Übung 5 · …": the exercise with that number on the page, whatever its title reads in this edition.
+		const number = /^Übung (\d+)/.exec(label)?.[1];
+		if (number) {
+			const ex = [...pageEl.querySelectorAll<HTMLElement>('section.ex')].find((s) => s.querySelector('header .n')?.textContent?.trim() === number);
+			if (ex) return ex;
+		}
+		const clean = (s: string) => s.replace(/\s+/g, ' ').trim().toLowerCase();
+		const wanted = [label, ...label.split(' · ').reverse()].map(clean).filter(Boolean);
+		const heads = [...pageEl.querySelectorAll<HTMLElement>('h2, h3, h4, h5, caption, figcaption, .head, .title, .label, strong, b')];
+		// The heading's own box is a line; its parent is the block it heads.
+		const blockOf = (h: HTMLElement) => (h.parentElement && h.parentElement !== pageEl ? h.parentElement : h);
+		for (const w of wanted) {
+			const hit = heads.find((h) => clean(h.textContent ?? '') === w) ?? heads.find((h) => clean(h.textContent ?? '').startsWith(w));
+			if (hit) return blockOf(hit);
+		}
+		// A heading that only ends with it ("Ein Klingelschild in Berlin: Wer wohnt hier?"), then any
+		// single line of the page that is exactly it (a table row's question, a caption).
+		for (const w of wanted.filter((x) => x.length >= 6)) {
+			const hit = heads.find((h) => clean(h.textContent ?? '').includes(w));
+			if (hit) return blockOf(hit);
+		}
+		const lines = [...pageEl.querySelectorAll<HTMLElement>('td, th, p, li, dt, span')].filter((e) => !e.childElementCount || e.children.length <= 2);
+		for (const w of wanted.filter((x) => x.length >= 6)) {
+			const hit = lines.find((e) => clean(e.textContent ?? '') === w);
+			if (hit) return hit.closest<HTMLElement>('table, ul, ol, dl') ?? blockOf(hit);
+		}
+		return null;
+	}
+	// The dev server lets a coverage script use the same matcher (never in a build).
+	if (dev && browser) {
+		const w = window as unknown as Record<string, unknown>;
+		w.__blockNamed = blockNamed;
+		/** One exercise link, as the reader would resolve it in the language shown now. */
+		w.__bookLink = (at: string, n: number) => {
+			const pageEl = bookPages().find((p) => p.dataset.at === at);
+			const [chapterId, part] = at.split('/');
+			const label = book.chapters.find((c) => c.id === chapterId)?.appQuizzes?.[part]?.[n]?.for ?? '';
+			const el = pageEl ? blockFor(pageEl, chapterId, part, n) : null;
+			return { page: !!pageEl, label, found: !!el, el };
+		};
+	}
+	$effect(() => {
+		void scale; void spread; void viewerWidth;
+		if (!landing || !ready) return;
+		const frame = requestAnimationFrame(land);
+		return () => cancelAnimationFrame(frame);
 	});
 
 	// The page view: one page or facing pages (the cover alone, as the book

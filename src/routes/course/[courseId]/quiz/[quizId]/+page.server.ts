@@ -1,6 +1,7 @@
 import { error } from '@sveltejs/kit';
 import { courseInfo, courses, loadCourse, summarizeQuiz } from '$lib/content';
 import { helpTableFor } from '$lib/domain/help-table';
+import { bookPlaceOf } from '$lib/server/bookPlace';
 import { vocabFor, type SharedNoun, type VocabEntry } from '$lib/domain/vocab';
 import { deckPhotos, insidePicture } from '$lib/server/deckPhotos';
 import type { EntryGenerator, PageServerLoad } from './$types';
@@ -61,6 +62,9 @@ export const load: PageServerLoad = async ({ params }) => {
 	// words" — one deck per sub-level, built from the words its quizzes carry.
 	const deck = levelQuizzes.find((q) => q.type === 'vocabulary');
 
+	// Where this exercise is in the printed book (lib/server/bookPlace).
+	const bookPlace = bookPlaceOf(params.courseId, quiz);
+
 	const previous = course.quizzes[index - 1];
 	// The chain is ordered, so "next" is simply the following entry.
 	const next = course.quizzes[index + 1];
@@ -69,6 +73,7 @@ export const load: PageServerLoad = async ({ params }) => {
 		course: courseInfo(course),
 		quiz,
 		photoCredit: picture.credit,
+		bookPlace,
 		vocab,
 		previous: previous ? summarizeQuiz(previous) : null,
 		next: next ? summarizeQuiz(next) : null,

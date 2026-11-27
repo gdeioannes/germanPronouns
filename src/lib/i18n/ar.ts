@@ -3031,6 +3031,18 @@ export const AR: Record<string, string> = {
 		"الكتاب التالي",
 	"The free book for this level":
 		"الكتاب المجاني لهذا المستوى",
+	"Book · ch. {n}":
+		"الكتاب · الفصل {n}",
+	"Open this page of the book: {book}, chapter {n}":
+		"افتح هذه الصفحة من الكتاب: {book}، الفصل {n}",
+	"Open the book":
+		"افتح الكتاب",
+	"In a new tab":
+		"في تبويب جديد",
+	"Here":
+		"هنا",
+	"Back to the exercise":
+		"العودة إلى التمرين",
 
 	// ── Newsletter (2026-11-27) ───────────────────
 	"Get new editions and new chapters by email":
@@ -3091,4 +3103,14 @@ export const AR: Record<string, string> = {
 		"ما زال لا شيء؟ ربما كان في العنوان خطأ. اشترك مرة أخرى ببساطة.",
 	"Changed your mind? Ignore the email and nothing more happens.":
 		"غيّرت رأيك؟ تجاهل الرسالة ولن يحدث شيء آخر.",
+	"Your book gets better every month":
+		"كتابك يتحسّن كل شهر",
+	"We correct and improve the books about once a month. A PDF does not update itself: leave your email and we tell you when the new edition of your book is ready.":
+		"نصحّح الكتب ونحسّنها مرة كل شهر تقريبًا. ملف PDF لا يحدّث نفسه: اترك بريدك الإلكتروني ونخبرك عندما تجهز الطبعة الجديدة من كتابك.",
+	"New books and new languages, free":
+		"كتب جديدة ولغات جديدة، مجانًا",
+	"New free lessons and downloads":
+		"دروس وتنزيلات مجانية جديدة",
+	"One short email a week. No spam, unsubscribe with one click.":
+		"رسالة قصيرة واحدة كل أسبوع. بلا رسائل مزعجة، وإلغاء الاشتراك بنقرة واحدة.",
 };

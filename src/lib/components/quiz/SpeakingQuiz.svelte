@@ -1,4 +1,5 @@
 <script lang="ts">
+	import BookChip from './BookChip.svelte';
 	import { t } from '$lib/i18n/t';
 	// The AI-handoff speaking exercise: render a prompt, the learner runs it in
 	// their own assistant in voice mode, then pastes the report back. The app
@@ -184,6 +185,7 @@
 	{#snippet step(i)}
 		{#if i === 0}
 			<section class="card fill">
+				<BookChip float />
 				<h3><span class="step tnum">1</span> {t('Copy the exercise')}</h3>
 				<p class="lede">
 					{t('This exercise runs in your own AI assistant, in voice mode — about {min} minutes. Copy the prompt, paste it there, and follow its instructions.', { min: session.durationMinutes })}

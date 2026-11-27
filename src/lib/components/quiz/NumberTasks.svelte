@@ -1,4 +1,5 @@
 <script lang="ts">
+	import BookChip from './BookChip.svelte';
 	import { t } from '$lib/i18n/t';
 	// The first quiz: the number board first (hear, read, write all eleven —
 	// that is what completes the quiz), then a menu of small real-life jobs to
@@ -154,6 +155,7 @@
 		{/if}
 	{:else}
 		<header class="head">
+			<BookChip float />
 			<h2>Now use them</h2>
 			<p>{t('You can count to ten. Three nights where that matters. Do any, in any order, as often as you like.')}</p>
 		</header>

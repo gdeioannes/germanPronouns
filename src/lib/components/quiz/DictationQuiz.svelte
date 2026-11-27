@@ -1,4 +1,5 @@
 <script lang="ts">
+	import BookChip from './BookChip.svelte';
 	import { t } from '$lib/i18n/t';
 	import type { QuestionRef } from '$lib/domain/forum';
 	// Dictation: hear a line, type what you heard. The text is never shown
@@ -339,6 +340,7 @@
 					<Icon name="book" size="0.95em" /> {peek ? t('Hide the text') : t('Show the text')}
 				</button>
 			{/if}
+			<BookChip />
 			<HistoryDots {verdicts} />
 		</div>
 

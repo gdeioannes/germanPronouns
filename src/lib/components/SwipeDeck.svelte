@@ -72,7 +72,8 @@
 		aside,
 		onbrowse,
 		inProgress = new Set(),
-		photos = {}
+		photos = {},
+		bookOf = {}
 	}: {
 		course: CourseSummary;
 		/** Every quiz's facts, or null while the page is still loading them. */
@@ -89,6 +90,8 @@
 		inProgress?: Set<string>;
 		/** Each exercise's card photo (lib/server/deckPhotos): warm-graded, credited. */
 		photos?: Record<string, { photo: string; credit: string }>;
+		/** Each exercise's chapter in the printed book (lib/server/bookPlace), for the card's book line. */
+		bookOf?: Record<string, { n: number; title: string }>;
 	} = $props();
 
 	// What a photo card says on its label: what you will do, in one word,
@@ -807,6 +810,9 @@
 						<p class="meta">
 							<span class="chip">{card.quiz.level}</span>
 							<span class="chip">{cardFlavour(card)}</span>
+							{#if bookOf[card.quiz.id]}
+								<span class="chip book"><Icon name="bookClosed" size="1em" /> {t('Book · ch. {n}', { n: bookOf[card.quiz.id].n })}</span>
+							{/if}
 							{#if ribbon}<DoneMark mark={ribbon} width={14} />{/if}
 						</p>
 					</div>
@@ -1833,6 +1839,16 @@
 		gap: 0.4rem;
 		flex-wrap: wrap;
 		margin: auto 0 0;
+	}
+
+	.chip.book {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.3rem;
+		background: none;
+		border: 1px solid var(--line-strong);
+		font-weight: 600;
+		color: var(--ink-muted);
 	}
 
 	.chip {

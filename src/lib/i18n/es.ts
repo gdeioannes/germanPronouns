@@ -3031,6 +3031,18 @@ export const ES: Record<string, string> = {
 		"El libro siguiente",
 	"The free book for this level":
 		"El libro gratuito de este nivel",
+	"Book · ch. {n}":
+		"Libro · cap. {n}",
+	"Open this page of the book: {book}, chapter {n}":
+		"Abrir esta página del libro: {book}, capítulo {n}",
+	"Open the book":
+		"Abrir el libro",
+	"In a new tab":
+		"En una pestaña nueva",
+	"Here":
+		"Aquí",
+	"Back to the exercise":
+		"Volver al ejercicio",
 
 	// ── Newsletter (2026-11-27) ───────────────────
 	"Get new editions and new chapters by email":
@@ -3091,4 +3103,14 @@ export const ES: Record<string, string> = {
 		"¿Sigue sin llegar? Puede que la dirección tuviera un error. Simplemente suscríbete otra vez.",
 	"Changed your mind? Ignore the email and nothing more happens.":
 		"¿Has cambiado de idea? Ignora el correo y no pasará nada más.",
+	"Your book gets better every month":
+		"Tu libro mejora cada mes",
+	"We correct and improve the books about once a month. A PDF does not update itself: leave your email and we tell you when the new edition of your book is ready.":
+		"Corregimos y mejoramos los libros más o menos una vez al mes. Un PDF no se actualiza solo: deja tu correo y te avisamos cuando la nueva edición de tu libro esté lista.",
+	"New books and new languages, free":
+		"Nuevos libros y nuevos idiomas, gratis",
+	"New free lessons and downloads":
+		"Nuevas lecciones y descargas gratis",
+	"One short email a week. No spam, unsubscribe with one click.":
+		"Un correo breve a la semana. Sin spam, y te das de baja con un clic.",
 };

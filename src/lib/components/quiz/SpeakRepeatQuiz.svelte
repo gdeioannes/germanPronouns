@@ -1,4 +1,5 @@
 <script lang="ts">
+	import BookChip from './BookChip.svelte';
 	import { t } from '$lib/i18n/t';
 	import type { QuestionRef } from '$lib/domain/forum';
 	// Listen and repeat. Speech recognition is *optional* by design: it is
@@ -138,6 +139,7 @@
 	</section>
 {:else if phrase}
 	<section class="card" use:freshen={index} in:rise>
+		<BookChip float />
 		<p class="eyebrow counter tnum">{t('Phrase {i} of {n}', { i: index + 1, n: total })}</p>
 
 		<p class="phrase" lang={locale}>

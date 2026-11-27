@@ -169,7 +169,7 @@
 			<Icon name="menu" size="1em" /> {t('All {n} exercises', { n: totals.total })}
 		</button>
 	{:else}
-		<SwipeDeck {course} {facts} photos={data.photos} bind:level={pickedLevel} title={heading} aside={ring}
+		<SwipeDeck {course} {facts} photos={data.photos} bookOf={data.bookOf} bind:level={pickedLevel} title={heading} aside={ring}
 			onbrowse={() => (browseOpen = true)} {inProgress} />
 	{/if}
 

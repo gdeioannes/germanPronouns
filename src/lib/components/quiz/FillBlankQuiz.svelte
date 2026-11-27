@@ -1,4 +1,5 @@
 <script lang="ts">
+	import BookChip from './BookChip.svelte';
 	import { labelLang, t } from '$lib/i18n/t';
 	import type { QuestionRef } from '$lib/domain/forum';
 	// The fill-in-the-blank engine — most of the course's exercises. Played
@@ -699,6 +700,7 @@
 		     a noun's colour is its gender, which would answer the gap. -->
 		<div class="corner">
 			<HistoryDots {verdicts} />
+		<BookChip />
 		{#if step !== 2}
 		<button
 			type="button"

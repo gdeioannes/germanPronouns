@@ -41,7 +41,7 @@
 	import VocabularyQuiz from '$lib/components/quiz/VocabularyQuiz.svelte';
 	import Icon from '$lib/icons/Icon.svelte';
 	import { QUIZ_TYPE_ICONS } from '$lib/icons/paths';
-	import { fly } from 'svelte/transition';
+	import { fade, fly } from 'svelte/transition';
 	import { cubicOut } from 'svelte/easing';
 	import { isInlineCloze, type VocabularyQuiz as VocabularyQuizData } from '$lib/content/types';
 	import type { QuestionRef, ReportTarget } from '$lib/domain/forum';
@@ -59,8 +59,9 @@
 	import { track, trackOnce } from '$lib/services/analytics';
 	import ShareButton from '$lib/components/ShareButton.svelte';
 	import { readScore, share, shareLink, type SharedScore } from '$lib/services/share';
-	import { announce } from '$lib/a11y.svelte';
-	import { onMount, tick, untrack } from 'svelte';
+	import { announce, modal } from '$lib/a11y.svelte';
+	import { onMount, setContext, tick, untrack } from 'svelte';
+	import { BOOK_CHIP } from '$lib/components/quiz/BookChip.svelte';
 	import type { PageData } from './$types';
 	import { inLang, inLangQuiz, localGloss } from '$lib/i18n/content.svelte';
 	import { lang } from '$lib/i18n/lang.svelte';
@@ -102,6 +103,40 @@
 		...(quiz.level ? [{ name: levelTitle ?? quiz.level, path: levelPath }] : []),
 		{ name: topicOf(quiz.title), path }
 	]);
+
+	// The printed book: the page this exercise belongs to, opened in the book's
+	// live preview (the reader), which leads back here. The panels show it as a
+	// small chip (FillBlankQuiz, Lesson); the top bar has no room for one more.
+	const bookPlace = $derived(data.bookPlace);
+	const bookChip = $derived.by(() => {
+		if (!bookPlace) return null;
+		const part = bookPlace.parts.find((p) => p.here) ?? bookPlace.parts[0];
+		return {
+			label: t('Book · ch. {n}', { n: bookPlace.chapter.n }),
+			title: t('Open this page of the book: {book}, chapter {n}', { book: bookPlace.bookTitle, n: bookPlace.chapter.n }),
+			href: `/course/${course.id}/book2/${bookPlace.level}?at=${bookPlace.chapter.id}/${part?.id ?? 'woerter'}${part && part.at >= 0 ? `&n=${part.at}` : ''}&quiz=${quiz.id}`,
+			// A plain tap asks where to open the book; a middle click or Ctrl+click
+			// already says "new tab" and goes straight through.
+			ask: (e: MouseEvent) => {
+				if (e.button !== 0 || e.ctrlKey || e.metaKey || e.shiftKey) return bookOpened('tab');
+				e.preventDefault();
+				bookAsk = true;
+			}
+		};
+	});
+	/** The "open the book here, or in a new tab?" panel. */
+	let bookAsk = $state(false);
+	// Every panel places the chip itself (quiz/BookChip); this is where it reads from.
+	setContext(BOOK_CHIP, {
+		get chip() {
+			return bookChip;
+		}
+	});
+	/** One event per trip to the book, with how it was opened. */
+	function bookOpened(how: 'tab' | 'here') {
+		bookAsk = false;
+		track('quiz_to_book', { course: course.id, quiz: quiz.id, level: quiz.level ?? '', how });
+	}
 
 	const hasNotes = $derived(hasStudyNotes(quiz, vocab));
 	let notesOpen = $state(false);
@@ -979,6 +1014,41 @@
 	</Sheet>
 {/if}
 
+{#if bookPlace && bookChip && bookAsk}
+	<!-- A small dialog in the middle of the screen, close to the chip that was
+	     tapped: one question, two answers. -->
+	<div class="ask-layer">
+		<button type="button" class="ask-scrim" tabindex="-1" aria-label={t('Close')} onclick={() => (bookAsk = false)} transition:fade={{ duration: 140 }}></button>
+		<div
+			class="ask"
+			role="dialog"
+			aria-modal="true"
+			aria-labelledby="book-ask-title"
+			tabindex="-1"
+			use:modal={() => (bookAsk = false)}
+			transition:fly={{ y: 12, duration: 200, easing: cubicOut }}
+		>
+			<button type="button" class="ask-x" aria-label={t('Close')} onclick={() => (bookAsk = false)}><Icon name="close" size="1em" /></button>
+			<div class="ask-head">
+				<img src="/img/book-{bookPlace.level.toLowerCase().replace('.', '-')}-front.webp" alt="" />
+				<div>
+					<p class="book-eyebrow"><bdi lang={course.learnLocale}>{bookPlace.bookTitle}</bdi> · {t('Chapter {n}', { n: bookPlace.chapter.n })}</p>
+					<h2 id="book-ask-title">{t('Open the book')}</h2>
+					<p class="ask-chapter" lang={course.learnLocale}>{bookPlace.chapter.title}</p>
+				</div>
+			</div>
+			<div class="ask-actions">
+				<a class="btn" href={bookChip.href} target="_blank" rel="noopener" onclick={() => bookOpened('tab')}>
+					<Icon name="external" size="1em" /> {t('In a new tab')}
+				</a>
+				<a class="btn btn-ghost" href={bookChip.href} onclick={() => bookOpened('here')}>
+					<Icon name="bookClosed" size="1em" /> {t('Here')}
+				</a>
+			</div>
+		</div>
+	</div>
+{/if}
+
 <Sheet bind:open={moreOpen} title={t('More')} id="more-{quiz.id}">
 	<!-- Plain links to the neighbours, always in the page: they are how a
 	     reader (and a crawler) moves through the course without the course
@@ -1184,6 +1254,99 @@
 		border-color: var(--accent);
 		background: var(--accent-soft);
 		color: var(--accent-ink);
+	}
+
+	.ask-layer {
+		position: fixed;
+		inset: 0;
+		z-index: 60;
+		display: grid;
+		place-items: center;
+		padding: 1rem;
+	}
+
+	.ask-scrim {
+		position: absolute;
+		inset: 0;
+		border: 0;
+		background: rgb(31 58 95 / 0.32);
+		cursor: default;
+	}
+
+	.ask {
+		position: relative;
+		width: min(24rem, 100%);
+		padding: 1.1rem 1.1rem 1rem;
+		background: var(--surface);
+		border: 1px solid var(--line);
+		border-radius: 16px;
+		box-shadow: 0 18px 50px rgb(0 0 0 / 0.22);
+	}
+
+	.ask:focus {
+		outline: none;
+	}
+
+	.ask-x {
+		position: absolute;
+		inset-block-start: 0.5rem;
+		inset-inline-end: 0.5rem;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 2.25rem;
+		height: 2.25rem;
+		border: 0;
+		border-radius: 50%;
+		background: transparent;
+		color: var(--ink-muted);
+		cursor: pointer;
+	}
+
+	.ask-head {
+		display: grid;
+		grid-template-columns: 3.4rem 1fr;
+		gap: 0.85rem;
+		align-items: center;
+		margin-bottom: 1rem;
+		padding-inline-end: 1.75rem;
+	}
+
+	.ask-head img {
+		width: 100%;
+		border-radius: 3px;
+		box-shadow: 0 2px 8px rgb(0 0 0 / 0.18);
+	}
+
+	.book-eyebrow {
+		margin: 0;
+		font-size: 0.7rem;
+		font-weight: 700;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+		color: var(--ink-muted);
+	}
+
+	.ask h2 {
+		margin: 0.1rem 0 0.1rem;
+		font-size: var(--step-1);
+	}
+
+	.ask-chapter {
+		margin: 0;
+		color: var(--ink-muted);
+	}
+
+	.ask-actions {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 0.5rem;
+	}
+
+	.ask-actions .btn {
+		justify-content: center;
+		padding-inline: 0.6rem;
+		white-space: nowrap;
 	}
 
 	.tool.notes:hover {

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import BookChip from './BookChip.svelte';
 	import { lang } from '$lib/i18n/lang.svelte';
 	import { t } from '$lib/i18n/t';
 	import type { QuestionRef } from '$lib/domain/forum';
@@ -294,6 +295,7 @@
 		right={checked ? correctCount : 0}
 		onpick={setStep}
 	/>
+	<BookChip compact />
 </div>
 
 <div class="reading-fit" bind:this={root}>

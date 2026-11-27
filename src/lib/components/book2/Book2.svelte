@@ -589,7 +589,7 @@
 		</section>
 
 		<!-- 2 · Words first: the right half of the panorama, the words pinned onto it -->
-		<section class="page {side(p + 1)} words" data-accent={c.accent}>
+		<section class="page {side(p + 1)} words" data-accent={c.accent} data-at="{c.id}/woerter">
 			<img class="bleed pano right" src="{photoBase}/{c.opener.photo}.jpg" alt="" />
 			<p class="eyebrow onphoto">{c.german ? 'Wörter zuerst' : t('Wörter zuerst · words first')}</p>
 			{@render pageCode(c, 'woerter', 'Wortkarten')}
@@ -607,7 +607,7 @@
 		</section>
 
 		<!-- 3 · Reading -->
-		<section class="page {side(p + 2)} reading" class:coded={pages[c.id]?.lesen} data-accent={c.accent}>
+		<section class="page {side(p + 2)} reading" class:coded={pages[c.id]?.lesen} data-accent={c.accent} data-at="{c.id}/lesen">
 			{@render pageCode(c, 'lesen', 'Hören, prüfen')}
 			<header class="head small">
 				<p class="eyebrow">{c.german ? 'Lesen' : t('Lesen · reading')}</p>
@@ -638,7 +638,7 @@
 
 		<!-- 4–5 · Grammar -->
 		{#each c.grammar as g, gi (g.heading)}
-			<section class="page {side(p + 3 + gi)} grammar" class:coded={pages[c.id]?.[`grammatik-${gi + 1}`]} data-accent={c.accent}>
+			<section class="page {side(p + 3 + gi)} grammar" class:coded={pages[c.id]?.[`grammatik-${gi + 1}`]} data-accent={c.accent} data-at="{c.id}/grammatik-{gi + 1}">
 				{#if g.check}{@render pageCode(c, `grammatik-${gi + 1}`, 'Prüfen')}{/if}
 				<header class="head small">
 					<p class="eyebrow"><span lang="de">Grammatik</span> · {gi + 1} {c.german ? 'von' : t('of')} {c.grammar.length}</p>
@@ -657,7 +657,7 @@
 		{/each}
 
 		<!-- 6 · Real-world reading -->
-		<section class="page {side(p + 5)} document" class:coded={pages[c.id]?.alltag} data-accent={c.accent}>
+		<section class="page {side(p + 5)} document" class:coded={pages[c.id]?.alltag} data-accent={c.accent} data-at="{c.id}/alltag">
 			{@render pageCode(c, 'alltag', 'Prüfen')}
 			<header class="head small">
 				<p class="eyebrow">{c.german ? 'Lesen im Alltag' : t('Lesen im Alltag · reading the real thing')}</p>
@@ -675,7 +675,7 @@
 
 		<!-- 7–8 · Practise -->
 		{#each [prac1, prac2] as exs, pi (pi)}
-			<section class="page {side(p + 6 + pi)} practise" class:coded={pages[c.id]?.[`uebungen-${pi + 1}`]} data-accent={c.accent}>
+			<section class="page {side(p + 6 + pi)} practise" class:coded={pages[c.id]?.[`uebungen-${pi + 1}`]} data-accent={c.accent} data-at="{c.id}/uebungen-{pi + 1}">
 				{@render pageCode(c, `uebungen-${pi + 1}`, 'Prüfen')}
 				<header class="head small">
 					<p class="eyebrow">{c.german ? `Übungen · ${pi + 1} von 2` : t('Übungen · practise {pi} of 2', { pi: pi + 1 })}</p>

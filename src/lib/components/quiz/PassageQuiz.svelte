@@ -1,4 +1,5 @@
 <script lang="ts">
+	import BookChip from './BookChip.svelte';
 	import { t } from '$lib/i18n/t';
 	import type { QuestionRef } from '$lib/domain/forum';
 	// Reading and listening share a shape: a passage plus multiple-choice
@@ -259,6 +260,7 @@
 							{t('Translation')}
 						</button>
 					{/if}
+					<BookChip compact />
 				</header>
 
 				{#if page >= 0}
@@ -318,6 +320,7 @@
 							{english ? t('Hide English') : t('Show English')}
 						</button>
 					{/if}
+					<BookChip />
 				</div>
 				<p class="q" lang={locale}>
 					<GermanText text={question.question} />

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import BookChip from './BookChip.svelte';
 	import { lang } from '$lib/i18n/lang.svelte';
 	import { t } from '$lib/i18n/t';
 	import type { QuestionRef } from '$lib/domain/forum';
@@ -684,6 +685,7 @@
 						: t('Listen, tap it, then write it')}
 			</p>
 			<span class="count tnum">{found.length} / {quiz.spots.length} found</span>
+			<BookChip />
 		</div>
 		<div class="q-row">
 		{#if locked}

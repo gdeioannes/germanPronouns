@@ -24,6 +24,7 @@
 	import { prefersReducedMotion } from '$lib/motion';
 	import { ARTICLE_COLORS } from '$lib/domain/wortbloecke';
 	import ShareButton from '$lib/components/ShareButton.svelte';
+	import NewsletterSignup from '$lib/components/NewsletterSignup.svelte';
 	import { shareLink, trackShare, whatsappLink } from '$lib/services/share';
 	import { withLang } from '$lib/i18n/paths';
 	import { lang } from '$lib/i18n/lang.svelte';
@@ -199,13 +200,20 @@
 	</aside>
 {/if}
 
-<!-- One quiet line under a started download: the books get new editions, and
-     an email is the only way a reader who leaves now hears of one. -->
+<!-- Under a started download: the sign-up itself, not a link to it. The books
+     get new editions, and an email is the only way a reader who leaves now
+     hears of one. -->
 {#snippet news()}
-	<p class="news">
-		<Icon name="info" size="1em" />
-		<a href="/newsletter?from=download" onclick={() => (feedback.dlOpen = false)}>{t('Get new editions and new chapters by email')}</a>
-	</p>
+	<NewsletterSignup where="download" inline title={t('Your book gets better every month')}>
+		{#snippet pitch()}
+			<p class="nl-lead">{t('We correct and improve the books about once a month. A PDF does not update itself: leave your email and we tell you when the new edition of your book is ready.')}</p>
+			<ul class="nl-also">
+				<li><Icon name="check" size="0.85em" /> {t('New books and new languages, free')}</li>
+				<li><Icon name="check" size="0.85em" /> {t('New free lessons and downloads')}</li>
+			</ul>
+			<p class="nl-how">{t('One short email a week. No spam, unsubscribe with one click.')}</p>
+		{/snippet}
+	</NewsletterSignup>
 {/snippet}
 
 <!-- The book is on its way: the one moment a reader has something worth
@@ -260,9 +268,9 @@
 					<span>{t('{book} is downloading.', { book: bookName(feedback.dl.book) })}</span>
 					<a href={feedback.dl.href} download={feedback.dl.filename ?? ''}>{t('Not starting?')}</a>
 				</p>
+				{@render news()}
 				{@render bridge()}
 				{@render sendOn()}
-				{@render news()}
 				<button type="button" class="later" onclick={() => (feedback.dlOpen = false)}>{t('Not now')}</button>
 			{:else if feedback.dlPromo}
 				{@const p = feedback.dlPromo}
@@ -273,6 +281,7 @@
 					<span>{t('{book} is downloading.', { book: bookName(feedback.dl.book) })}</span>
 					<a href={feedback.dl.href} download={feedback.dl.filename ?? ''}>{t('Not starting?')}</a>
 				</p>
+				{@render news()}
 				<a class="promo" href={p.href} onclick={() => feedback.promoClicked()}>
 					<span class="pic" class:dark={typeof p.visual !== 'object' || p.visual.book} aria-hidden="true">
 						{#if typeof p.visual === 'object'}
@@ -311,7 +320,6 @@
 					</span>
 				</a>
 				{@render sendOn()}
-				{@render news()}
 				<button type="button" class="later" onclick={() => (feedback.dlOpen = false)}>{t('Not now')}</button>
 			{:else if !feedback.dlAnswered}
 				<p class="dl-q">{t('Who is this book for?')}</p>
@@ -343,13 +351,13 @@
 						</div>
 					</form>
 				{:else if feedback.dlCompanion}
+					{@render news()}
 					{@render bridge()}
 					{@render sendOn()}
-					{@render news()}
 					<button type="button" class="later" onclick={() => (feedback.dlOpen = false)}>{t('Not now')}</button>
 				{:else}
-					{@render sendOn()}
 					{@render news()}
+					{@render sendOn()}
 					<button type="button" class="pill" onclick={() => (feedback.dlOpen = false)}>{t('Back to the page')}</button>
 				{/if}
 				<p class="note">
@@ -971,18 +979,30 @@
 		color: #06301f;
 	}
 
-	.news {
-		display: flex;
-		align-items: flex-start;
-		gap: 0.45rem;
+	.nl-lead,
+	.nl-how,
+	.nl-also {
 		margin: 0;
-		font-size: 0.9rem;
-		color: var(--ink-muted);
+		line-height: 1.45;
 	}
 
-	.news :global(svg) {
-		flex: none;
-		margin-top: 0.2rem;
+	.nl-also {
+		display: grid;
+		gap: 0.2rem;
+		padding: 0;
+		list-style: none;
+		font-weight: 700;
+		color: var(--heading);
+	}
+
+	.nl-also :global(svg) {
+		color: var(--ok, #2f7a4f);
+		margin-inline-end: 0.3rem;
+	}
+
+	.nl-how {
+		font-size: 0.85rem;
+		color: var(--ink-muted);
 	}
 
 	.later {

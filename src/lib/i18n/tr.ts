@@ -2750,6 +2750,18 @@ export const TR: Record<string, string> = {
 		"Sonraki kitap",
 	"The free book for this level":
 		"Bu seviyenin ücretsiz kitabı",
+	"Book · ch. {n}":
+		"Kitap · böl. {n}",
+	"Open this page of the book: {book}, chapter {n}":
+		"Kitabın bu sayfasını aç: {book}, bölüm {n}",
+	"Open the book":
+		"Kitabı aç",
+	"In a new tab":
+		"Yeni sekmede",
+	"Here":
+		"Burada",
+	"Back to the exercise":
+		"Alıştırmaya dön",
 
 	// ── Newsletter (2026-11-27) ───────────────────
 	"Get new editions and new chapters by email":
@@ -2810,4 +2822,14 @@ export const TR: Record<string, string> = {
 		"Hâlâ yok mu? Adreste bir yazım hatası olabilir. Yeniden abone olmanız yeterli.",
 	"Changed your mind? Ignore the email and nothing more happens.":
 		"Fikrinizi mi değiştirdiniz? E-postayı yok sayın, başka bir şey olmaz.",
+	"Your book gets better every month":
+		"Kitabınız her ay daha iyi oluyor",
+	"We correct and improve the books about once a month. A PDF does not update itself: leave your email and we tell you when the new edition of your book is ready.":
+		"Kitapları yaklaşık ayda bir düzeltip geliştiriyoruz. Bir PDF kendini güncellemez: e-posta adresinizi bırakın, kitabınızın yeni baskısı hazır olduğunda size haber verelim.",
+	"New books and new languages, free":
+		"Yeni kitaplar ve yeni diller, ücretsiz",
+	"New free lessons and downloads":
+		"Yeni ücretsiz dersler ve indirmeler",
+	"One short email a week. No spam, unsubscribe with one click.":
+		"Haftada bir kısa e-posta. Spam yok, tek tıkla abonelikten çıkılır.",
 };

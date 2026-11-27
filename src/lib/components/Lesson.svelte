@@ -1,4 +1,5 @@
 <script lang="ts">
+	import BookChip from './quiz/BookChip.svelte';
 	import { t, tn } from '$lib/i18n/t';
 	// The study notes as a lesson (see domain/lesson): one idea per screen,
 	// a question after each rule, the words to hear, the mistakes to spot, and
@@ -158,6 +159,7 @@
 						{ruleCount > 1 && firstCheck > 0
 							? t('Lesson · {n} rules · you practise after the first one', { n: ruleCount })
 							: tn(ruleCount, 'Lesson · {n} rule · about {min} min', 'Lesson · {n} rules · about {min} min', { min: minutes })}
+						<BookChip float />
 					</p>
 					<h2 class="hook">{@render prose(s.hook)}</h2>
 

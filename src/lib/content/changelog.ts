@@ -19,6 +19,16 @@ export type ChangelogEntry = {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-11-27",
+    title: "From an exercise to its page in the book",
+    items: [
+      "Every exercise now shows a small label, Book · ch. 1, with the chapter of the book it belongs to. The cards on the course home show it too.",
+      "Tap it and the book opens online at the page the exercise practises, with that part of the page marked for a moment. You choose whether it opens in a new tab or in the same one, and a link at the top takes you back to the exercise.",
+      "It works for all twelve levels and in all six languages. An exercise that practises a photo page of words opens at the top of that page.",
+      "After a book download starts, you can leave your email right there to hear when a corrected edition of the book is ready. The books are corrected about once a month, and a PDF does not update itself. It stays optional: the download never waits for it.",
+    ],
+  },
+  {
+    date: "2026-11-27",
     title: "A weekly email, if you want one",
     items: [
       "You can now get one short email a week with what is new: lessons, reading and listening texts, new book editions and what was fixed. The sign-up is at the bottom of every page and on its own page, Newsletter.",

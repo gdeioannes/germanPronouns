@@ -1,4 +1,5 @@
 <script lang="ts">
+	import BookChip from './BookChip.svelte';
 	import { t } from '$lib/i18n/t';
 	// The number board — the first quiz's game, played instead of its typed
 	// drill. Hear a number, tap it, watch it pop off the board; then read
@@ -192,7 +193,7 @@
 <div class="board-quiz">
 	{#if phase === 'intro'}
 		<section class="card intro">
-			<p class="eyebrow">{t('Your first German')}</p>
+			<BookChip float /><p class="eyebrow">{t('Your first German')}</p>
 			<h2>{t('Hear it. Tap it.')}</h2>
 			<p class="lead">
 				{t('You\'ll hear a German number — tap it on the board. Then read a few, then write three.')}

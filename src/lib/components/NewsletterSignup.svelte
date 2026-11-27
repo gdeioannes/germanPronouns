@@ -16,13 +16,22 @@
 	import { track } from '$lib/services/analytics';
 	import { t } from '$lib/i18n/t';
 	import { lang } from '$lib/i18n/lang.svelte';
+	import type { Snippet } from 'svelte';
 
 	/**
 	 * `where`: where the form sits, so two on one page get distinct ids.
 	 * `band`: one wide strip (the footer): the text on the left, the fields on
 	 * the right; it stacks again on a narrow screen.
+	 * `inline`: inside another panel (the download panel): no card of its own,
+	 * and `title` and `pitch` say why here (the book gets new editions) instead of the usual lines.
 	 */
-	let { where = 'page', band = false }: { where?: string; band?: boolean } = $props();
+	let {
+		where = 'page',
+		band = false,
+		inline = false,
+		title = '',
+		pitch
+	}: { where?: string; band?: boolean; inline?: boolean; title?: string; pitch?: Snippet } = $props();
 
 	const ACTION =
 		'https://243c807a.sibforms.com/serve/MUIFABPdg3NuMJz1wrkmhvyiYNdTTt9YJmm3uefN_t6Q6KjrErTuO2hmMuzFb2WfyTf0sHGpGSDiwMFPGMIoj8FgasLAsNWUpWhstxUkL6ZHNewT06ihDNupk2eUYHzROUQ-7_aYpDHilWNbKA3br7guzcXu3G8FU6HIabVZUUAB-X72gtUzDE-xHzfyfqev1CFaOm-sEv1mTkxN';
@@ -34,13 +43,18 @@
 	const count = () => track('newsletter_subscribe', { where });
 </script>
 
-<form class="signup" class:band method="POST" action={ACTION} aria-labelledby="{id}-title" onsubmit={count}>
+<form class="signup" class:band class:inline method="POST" action={ACTION} aria-labelledby="{id}-title" onsubmit={count}>
 	<div class="text">
-		<p class="title" id="{id}-title">{t("What's new, once a week")}</p>
-		<p class="what">
-			{t('One short email a week: new lessons, new reading and listening, and what was fixed. Free, no spam, unsubscribe with one click.')}
-			{#if lang.limited}<strong class="in-en">{t('The newsletter is always in English.')}</strong>{/if}
-		</p>
+		<p class="title" id="{id}-title">{title || t("What's new, once a week")}</p>
+		{#if pitch}
+			{@render pitch()}
+			{#if lang.limited}<p class="what"><strong class="in-en">{t('The newsletter is always in English.')}</strong></p>{/if}
+		{:else}
+			<p class="what">
+				{t('One short email a week: new lessons, new reading and listening, and what was fixed. Free, no spam, unsubscribe with one click.')}
+				{#if lang.limited}<strong class="in-en">{t('The newsletter is always in English.')}</strong>{/if}
+			</p>
+		{/if}
 	</div>
 
 	<div class="fields">
@@ -194,6 +208,16 @@
 		overflow: hidden;
 		clip-path: inset(50%);
 		white-space: nowrap;
+	}
+
+	/* Inside another panel: that panel is the card. */
+	.inline {
+		gap: 0.7rem;
+		max-width: none;
+		padding: 0.9rem 1rem 1rem;
+		background: var(--surface-2, var(--surface));
+		font-size: 0.92rem;
+		text-align: start;
 	}
 
 	/* The footer strip: text left, fields right, full width. */

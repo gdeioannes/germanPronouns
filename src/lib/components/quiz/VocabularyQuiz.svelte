@@ -1,4 +1,5 @@
 <script lang="ts">
+	import BookChip from './BookChip.svelte';
 	import { lang } from '$lib/i18n/lang.svelte';
 	import { t } from '$lib/i18n/t';
 	import type { QuestionRef } from '$lib/domain/forum';
@@ -460,6 +461,7 @@
 			{/if}
 		</button>
 	</MedalLadder>
+	<BookChip compact />
 </div>
 
 <RunTracker

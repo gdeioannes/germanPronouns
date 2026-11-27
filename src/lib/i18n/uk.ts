@@ -3033,6 +3033,18 @@ export const UK: Record<string, string> = {
 		"Наступна книга",
 	"The free book for this level":
 		"Безкоштовна книжка для цього рівня",
+	"Book · ch. {n}":
+		"Книжка · розд. {n}",
+	"Open this page of the book: {book}, chapter {n}":
+		"Відкрити цю сторінку книжки: {book}, розділ {n}",
+	"Open the book":
+		"Відкрити книжку",
+	"In a new tab":
+		"У новій вкладці",
+	"Here":
+		"Тут",
+	"Back to the exercise":
+		"Назад до вправи",
 
 	// ── Newsletter (2026-11-27) ───────────────────
 	"Get new editions and new chapters by email":
@@ -3093,4 +3105,14 @@ export const UK: Record<string, string> = {
 		"Досі нічого? Можливо, в адресі була помилка. Просто підпишіться ще раз.",
 	"Changed your mind? Ignore the email and nothing more happens.":
 		"Передумали? Не зважайте на лист, і більше нічого не станеться.",
+	"Your book gets better every month":
+		"Ваша книжка щомісяця стає кращою",
+	"We correct and improve the books about once a month. A PDF does not update itself: leave your email and we tell you when the new edition of your book is ready.":
+		"Ми виправляємо й покращуємо книжки приблизно раз на місяць. PDF сам не оновлюється: залиште свою адресу, і ми повідомимо, коли нове видання вашої книжки буде готове.",
+	"New books and new languages, free":
+		"Нові книжки й нові мови, безкоштовно",
+	"New free lessons and downloads":
+		"Нові безкоштовні уроки й матеріали для завантаження",
+	"One short email a week. No spam, unsubscribe with one click.":
+		"Один короткий лист на тиждень. Без спаму, відписатися можна одним кліком.",
 };

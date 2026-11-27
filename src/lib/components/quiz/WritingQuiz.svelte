@@ -1,4 +1,5 @@
 <script lang="ts">
+	import BookChip from './BookChip.svelte';
 	import { t } from '$lib/i18n/t';
 	// The writing exercise. The learner writes the text here, inside a
 	// character bound, and the app renders a prompt that CARRIES that text to
@@ -358,6 +359,7 @@
 				</button>
 
 				<div id="writing-brief" class="brief" hidden={!brief}>
+					<BookChip float />
 					<p class="lede">{quiz.writing.topic}</p>
 					{#if quiz.writing.practisePoints.length}
 						<ul class="points">

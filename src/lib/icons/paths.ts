@@ -58,6 +58,10 @@ const RAW = {
 	book: {
 		d: 'M12 7.5C10.5 6 8.5 5.5 4.5 5.5v12c4 0 6 .5 7.5 2 1.5-1.5 3.5-2 7.5-2v-12c-4 0-6 .5-7.5 2Z M12 7.5v14'
 	},
+	/** A closed book with its ribbon: the printed book (the open `book` is notes and lessons). */
+	bookClosed: {
+		d: 'M7 4.5h10.5v15H7a2 2 0 0 1-2-2v-11a2 2 0 0 1 2-2Z M5 17.5a2 2 0 0 1 2-2h10.5 M13.5 4.5v6l-1.75-1.4-1.75 1.4v-6'
+	},
 	/** Headphones — listening. */
 	headphones: {
 		d: 'M4.5 14.5v-2a7.5 7.5 0 0 1 15 0v2 M4.5 13.5h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1Z M17.5 13.5h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1Z'
