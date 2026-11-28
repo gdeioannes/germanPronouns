@@ -276,6 +276,7 @@
 
 <Seo
 	title={chatTitle(chat)}
+	noindex={chat.hidden}
 	description={chatDescription(chat)}
 	path="{MATCH_PATH}/{chat.id}"
 	jsonLd={[

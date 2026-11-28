@@ -100,7 +100,7 @@
 	const crumbs: Crumb[] = $derived([
 		{ name: 'Home', path: '/' },
 		{ name: course.name, path: `/course/${course.id}` },
-		...(quiz.level ? [{ name: levelTitle ?? quiz.level, path: levelPath }] : []),
+		...(quiz.level ? [{ name: data.levelCrumb ?? levelTitle ?? quiz.level, path: levelPath }] : []),
 		{ name: topicOf(quiz.title), path }
 	]);
 

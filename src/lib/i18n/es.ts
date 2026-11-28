@@ -1968,7 +1968,7 @@ export const ES: Record<string, string> = {
 	"{n} left":
 		"quedan {n}",
 	"About us: who makes Language Quiz and why":
-		"Acerca de Language Quiz: un curso de alemán gratuito hecho por alguien que lo está aprendiendo",
+		"Acerca de Language Quiz: quién lo hace y por qué",
 	"About Language Quiz":
 		"Acerca de Language Quiz",
 	"The story and mission of Language Quiz: a free, privacy-first and accessible German course from A1 to C2 that adapts to different styles of learning.":
@@ -2678,7 +2678,7 @@ export const ES: Record<string, string> = {
 	"Column for {w}":
 		"Columna para {w}",
 	"Language Quiz: Free German Course, Books (PDF) & App, A1–C2":
-		"Aprende alemán gratis: un curso para deslizar, de A1 a C2 | Language Quiz",
+		"Aprende alemán gratis: curso, libros PDF y app, A1–C2 | Language Quiz",
 	"Free German resources, A1 to C2: {n} five-minute lessons and quizzes with audio, plus twelve free PDF books. No sign-up, no ads.":
 		"Aprende alemán desde el español con {n} tarjetas gratis de cinco minutos: lecciones, quizzes y búsquedas en imágenes, cada frase en voz alta. De A1 a C2, sin registro.",
 	"Language Quiz — Swipe your way to German, free":

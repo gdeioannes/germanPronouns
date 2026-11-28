@@ -63,7 +63,7 @@
 		breadcrumbLd([
 			{ name: 'Home', path: '/' },
 			{ name: course.name, path: `/course/${course.id}` },
-			{ name: title, path: `/course/${course.id}/level/${level}` }
+			{ name: module?.title ? `${module.title} (${level})` : title, path: `/course/${course.id}/level/${level}` }
 		]),
 		{
 			'@context': 'https://schema.org',

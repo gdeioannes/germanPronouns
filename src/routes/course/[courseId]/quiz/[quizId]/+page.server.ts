@@ -1,5 +1,5 @@
 import { error } from '@sveltejs/kit';
-import { courseInfo, courses, loadCourse, summarizeQuiz } from '$lib/content';
+import { courseInfo, courses, loadCourse, loadSyllabus, summarizeQuiz } from '$lib/content';
 import { helpTableFor } from '$lib/domain/help-table';
 import { bookPlaceOf } from '$lib/server/bookPlace';
 import { vocabFor, type SharedNoun, type VocabEntry } from '$lib/domain/vocab';
@@ -84,6 +84,15 @@ export const load: PageServerLoad = async ({ params }) => {
 		levelCount: levelQuizzes.length,
 		levelTitle:
 			course.nav.groups.find((g) => g.type === 'questChain' && g.level === quiz.level)?.title ??
-			null
+			null,
+		// The search-result breadcrumb names the level the way its syllabus
+		// page does, "Erste Schritte (A1.1)", not the capitalised nav header.
+		levelCrumb: await levelCrumbName(params.courseId, quiz.level)
 	};
 };
+
+async function levelCrumbName(courseId: string, level: string | undefined): Promise<string | null> {
+	if (!level) return null;
+	const module = (await loadSyllabus(courseId))?.modules.find((m) => m.level === level);
+	return module?.title ? `${module.title} (${level})` : null;
+}

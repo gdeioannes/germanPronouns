@@ -23,6 +23,8 @@ export type FaqEntry = {
 	slug: string;
 	/** The question as people search it: the page's title and heading. */
 	question: string;
+	/** A shorter search title, when the question runs past ~65 characters. */
+	title?: string;
 	/** The plain answer, first on the page and the search description. */
 	short: string;
 	group: 'sounds' | 'nouns' | 'verbs' | 'sentences' | 'everyday';
@@ -255,6 +257,7 @@ const FIRST_FAQ: FaqEntry[] = [
 	{
 		slug: 'what-are-the-four-german-cases',
 		question: 'What are the four German cases, and why are there so many words for "the"?',
+		title: 'The four German cases: why so many words for "the"?',
 		short:
 			'German has four cases: nominative (the subject), accusative (the direct object), dative (the "to whom") and genitive (possession). The article changes with case and gender, so "the" has six forms: *der, die, das, den, dem, des*.',
 		group: 'nouns',

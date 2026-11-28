@@ -27,6 +27,8 @@ export const GET: RequestHandler = async () => {
 	const urls: { loc: string; lastmod: string; priority: string }[] = [
 		{ loc: '/', lastmod: today, priority: '1.0' },
 		{ loc: '/changelog', lastmod: lastModified('src/lib/content/changelog.ts'), priority: '0.4' },
+		{ loc: '/changelog/review-2026-11', lastmod: lastModified('src/routes/changelog/review-2026-11'), priority: '0.3' },
+		{ loc: '/credits', lastmod: lastModified('src/routes/credits'), priority: '0.2' },
 		{ loc: '/about', lastmod: lastModified('src/routes/about'), priority: '0.5' },
 		{ loc: '/contact', lastmod: lastModified('src/routes/contact'), priority: '0.3' },
 		{ loc: '/newsletter', lastmod: lastModified('src/routes/newsletter/+page.svelte'), priority: '0.3' },

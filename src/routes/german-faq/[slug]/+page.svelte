@@ -21,7 +21,7 @@
 {#snippet rich(text: string)}{#each faqRuns(text) as run, i (i)}{#if run.de}<i lang="de">{run.text}</i>{:else}{run.text}{/if}{/each}{/snippet}
 
 <Seo
-	title={titleWithSite(faq.question)}
+	title={titleWithSite(faq.title ?? faq.question)}
 	description={clip(plain(faq.short))}
 	{path}
 	type="article"
