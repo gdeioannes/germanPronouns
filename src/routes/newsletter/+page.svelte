@@ -14,13 +14,17 @@
 	import { onMount } from 'svelte';
 	import { page } from '$app/state';
 	import { t } from '$lib/i18n/t';
+	import { track } from '$lib/services/analytics';
 
 	const FROM = new Set(['download', 'book-page', 'results', 'book']);
 	let where = $state('page');
 	// Read in the browser: the page is prerendered, so the query is not known before.
 	onMount(() => {
 		const from = new URLSearchParams(location.search).get('from') ?? '';
-		if (FROM.has(from)) where = from;
+		// A book's own mentions say book, spot and wording: pdf-a1-1-ch03-weekly (Book2.svelte NEWS).
+		if (FROM.has(from) || /^(pdf|reader|qr)-[a-z0-9-]{1,40}$/.test(from)) where = from;
+		// The arrival itself, so a wording's clicks can be set against its sign-ups.
+		if (where !== 'page') track('newsletter_open', { where });
 	});
 </script>
 

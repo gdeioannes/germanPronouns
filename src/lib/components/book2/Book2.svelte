@@ -14,6 +14,7 @@
 	import { APP_VERSION, BOOK_EDITION } from '$lib/version';
 	import { rich } from '$lib/domain/companion';
 	import { untrack } from 'svelte';
+	import { INSTAGRAM, NEWS_TERMS, NEWS_TEXT, newsIdAt, newsUrl, type NewsId, type NewsSpot } from '$lib/domain/bookNews';
 	import { chapterKey, picturedWords, practiseOf, speakerLine, type Book2, type BookExtra, type Chapter, type PhotoCredit } from '$lib/domain/book2';
 
 	interface Qr {
@@ -34,6 +35,9 @@
 		spineMm = 7.4,
 		hd = false,
 		siteQr = '',
+		newsQr = {},
+		instaQr = '',
+		pdf = false,
 		spread = false,
 		scale = 1
 	}: {
@@ -46,6 +50,12 @@
 		hd?: boolean;
 		/** The back cover's code to the site, as inline SVG. */
 		siteQr?: string;
+		/** Per chapter id: the code on its newsletter card, as inline SVG. */
+		newsQr?: Record<string, string>;
+		/** The card's second code, to the Instagram profile. */
+		instaQr?: string;
+		/** Printed to a PDF (tool/gen-book2.mjs), not read on the site: the newsletter links say which. */
+		pdf?: boolean;
 		/** Per chapter id: the app, Listen and Speak codes, when registered. */
 		qr: Record<string, { app: Qr | null; listen: Qr | null; speak: Qr | null }>;
 		/** Per chapter id and page part: the small code that opens that part in the app (domain/bookStudy). */
@@ -80,6 +90,10 @@
 		['das Subjekt', 'subject'], ['das Objekt', 'object'], ['der Komparativ', 'comparative'], ['der Superlativ', 'superlative'],
 		['trennbar', 'separable'], ['reflexiv', 'reflexive']
 	];
+	// The newsletter's card at each chapter's end (domain/bookNews): the
+	// wordings take turns, and each link says book, chapter and wording.
+	const newsLine = (id: NewsId, de: boolean) => (de ? NEWS_TEXT[id].de : t(NEWS_TEXT[id].en));
+
 	/** Two chapters of answers per key page. */
 	const keyPages = $derived([...Array.from({ length: Math.ceil(book.chapters.length / 2) }, (_, i) => book.chapters.slice(i * 2, i * 2 + 2)), []]);
 
@@ -93,7 +107,10 @@
 	// chapter's words page shows, so its pinned words land where the book pins
 	// them; only the upper ones, clear of the title panel.
 	const coverChapter = $derived(book.chapters.find((c) => c.id === (book.cover?.chapter ?? 'markt')) ?? book.chapters[2] ?? book.chapters[0]);
-	const coverPins = $derived((coverChapter.opener.labels ?? []).filter((l) => l.y <= 52).slice(0, 6));
+	// The book's own first page carries the newsletter band, so its title panel
+	// starts higher than the printed wrap's: there the level badge would sit on
+	// a word pinned low on the right, which is left off.
+	const coverPins = $derived((coverChapter.opener.labels ?? []).filter((l) => l.y <= 52 && (cover || !(l.y > 43 && l.x > 60))).slice(0, 6));
 	/** The cities the chapters visit, in a fixed order, for the front's route line. */
 	const CITIES = ['Berlin', 'München', 'Hamburg', 'Köln', 'Frankfurt', 'Leipzig', 'Dresden', 'Freiburg', 'Münster', 'Nürnberg', 'Heidelberg', 'Ulm', 'Rügen', 'Stuttgart', 'Göttingen', 'Sylt', 'Rothenburg', 'Passau', 'Karlsruhe', 'Wiesbaden', 'Papenburg', 'Wittenberg', 'Essen', 'Wien', 'Zürich'];
 	const coverCities = $derived(CITIES.filter((city) => book.chapters.some((c) => c.world.includes(city))));
@@ -303,6 +320,42 @@
 	</div>
 {/snippet}
 
+<!-- The newsletter's band, at each chapter's end and along the foot of the
+     book's first page: loud on purpose, the one thing on the page that is not
+     about the German. A link in the PDF, a code on paper. -->
+{#snippet newsCard(spot: NewsSpot, code: string, where = '')}
+	{@const id = newsIdAt(book.level, spot)}
+	{@const de = hidesEnglish(book.level)}
+	{@const href = newsUrl(pdf ? 'pdf' : 'reader', book.level, spot)}
+	<div class="news-card {where}">
+		<span class="news-text">
+			<span class="news-kick">✉ Newsletter</span>
+			<a class="big" {href}>{newsLine(id, de)}</a>
+			<span class="what">{de ? NEWS_TERMS.de : t(NEWS_TERMS.en)}</span>
+		</span>
+		<!-- The two doors, each a code with its name under it: a link in the PDF, a scan on paper. -->
+		<span class="news-doors">
+			<a class="door" {href}>
+				<span class="news-qr">{@html code}</span>
+				<b>✉ {de ? 'Abonnieren' : t('Subscribe')}</b>
+				<small>languagequiz.org/newsletter</small>
+			</a>
+			<a class="door" href={INSTAGRAM}>
+				<span class="news-qr">{@html instaQr}</span>
+				<b><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4.2" /><circle cx="17.3" cy="6.7" r="1" class="dot" /></svg> Instagram</b>
+				<small>@language.quiz</small>
+			</a>
+		</span>
+		<!-- The figure twice: inside the disc, cut by its rim, and above the disc's
+		     middle uncut, so it rises out of the circle. -->
+		<span class="news-art {id}">
+			<span class="disc"><img src="/img/news/news_{id}.webp" alt="" /></span>
+			<img class="out" src="/img/news/news_{id}.webp" alt="" />
+			<span class="news-free">{de ? 'Gratis' : t('Free')}</span>
+		</span>
+	</div>
+{/snippet}
+
 {#snippet imprint()}
 	<!-- German press law wants the publisher's name and address in every printed book. -->
 	<div class="imprint" lang="de">
@@ -382,8 +435,10 @@
 			<p class="fc-sub" lang="de">{book.subtitle}</p>
 			<p class="fc-blurb">{t('German in {n} real places: the words pinned on the things, a story in each place, and the grammar the story needs.', { n: book.chapters.length })}</p>
 			<p class="fc-route" lang="de">{#each coverCities as city, i (city)}{#if i}<i>·</i>{/if}<span class="nb">{city}</span> {/each}</p>
-			<p class="fc-site">languagequiz.org</p>
+			{#if cover}<p class="fc-site">languagequiz.org</p>{/if}
 		</div>
+		<!-- Not on the printed wrap: that sheet is the bookshop's. -->
+		{#if !cover}{@render newsCard('cover', newsQr.cover ?? '', 'on-cover')}{/if}
 	</div>
 {/snippet}
 
@@ -727,6 +782,7 @@
 				<p class="app-line"><span class="phone" aria-hidden="true"></span>{c.german ? 'Alle Übungen dieses Kapitels gibt es auch als kurze Quizze in der App: Scann einen Seiten-Code und wähl App.' : t('Every exercise of this chapter is also a short quiz in the app: scan any page code and choose App.')}</p>
 				{#if pages[c.id]?.woerter}<p class="chapter-url">{c.german ? 'Das ganze Kapitel in der App' : t('The whole chapter in the app')}: <a href={pages[c.id]!.woerter!.url}>{shortUrl(pages[c.id]!.woerter!.url)}</a></p>{/if}
 			</div>
+			{@render newsCard(i, newsQr[c.id] ?? '')}
 			<p class="eyebrow notes-title">{c.german ? 'Meine Notizen' : t('Meine Notizen · my notes')}</p>
 			<div class="fill"><div class="fill-lines"></div></div>
 			{@render foot(p + 8, c)}
@@ -858,6 +914,49 @@
 			<footer class="foot"><span class="tnum">{keyPage + k}</span><span>{book.title} · {book.subtitle}</span></footer>
 		</section>
 	{/each}
+	<!-- The last page before the back cover: the reader has just finished the
+	     book, and this whole sheet asks for one thing. All four figures, the
+	     reasons in a line each, one big code. -->
+	{#if true}
+		{@const de = hidesEnglish(book.level)}
+		{@const href = newsUrl(pdf ? 'pdf' : 'reader', book.level, 'end')}
+		<section class="page {side(keyPage + keyPages.length)} news-page">
+			<p class="np-kick">{de ? `Geschafft! · ${book.level} ist fertig` : t('Geschafft! · You finished {level}', { level: book.level })}</p>
+			<h2>{de ? 'Hör hier nicht auf.' : t("Don't stop here.")}</h2>
+			<p class="np-lede">{de ? 'Dein Deutsch fängt gerade erst an. Jede Woche kommt bei uns etwas Neues dazu, und alles ist kostenlos. Eine kurze E-Mail sagt dir, was neu ist.' : t('Your German is just getting started. Every week we add something new, and all of it is free. One short email tells you what arrived.')}</p>
+			<ul class="np-why">
+				{#each [
+					['weekly', de ? 'Jede Woche Neues' : t('New every week'), de ? 'Bücher, Übungen, Lese- und Hörtexte.' : t('Books, exercises, reading and listening texts.')],
+					['books', de ? 'Jedes neue Buch' : t('Every new book'), de ? 'Der Link kommt direkt in dein Postfach.' : t('The download link, straight to your inbox.')],
+					['edition', de ? 'Bessere Ausgaben' : t('Better editions'), de ? 'Dieses Buch wird korrigiert und erweitert. Hol dir die neue Ausgabe.' : t('This book gets corrected and extended. Get the new version.')],
+					['engaged', de ? 'Ein Grund dranzubleiben' : t('A reason to keep going'), de ? 'Wer dranbleibt, lernt mehr.' : t('Learners who keep going learn more.')]
+				] as [id, head, line] (id)}
+					<li>
+						<span class="news-art {id}">
+							<span class="disc"><img src="/img/news/news_{id}.webp" alt="" /></span>
+							<img class="out" src="/img/news/news_{id}.webp" alt="" />
+						</span>
+						<b>{head}</b>
+						<span>{line}</span>
+					</li>
+				{/each}
+			</ul>
+			<div class="np-cta">
+				<a class="np-qr" {href} aria-label="languagequiz.org/newsletter">{@html newsQr.end ?? ''}</a>
+				<div class="np-go">
+					<span class="np-free">{de ? 'Gratis' : t('Free')}</span>
+					<a class="np-big" {href}>{de ? 'Newsletter abonnieren' : t('Subscribe to the newsletter')}</a>
+					<a class="np-url" {href}>languagequiz.org/newsletter</a>
+					<p>{de ? 'Scann den Code oder tipp die Adresse ein. ' + NEWS_TERMS.de : t('Scan the code or type the address.') + ' ' + t(NEWS_TERMS.en)}</p>
+				</div>
+				<a class="np-insta" href={INSTAGRAM}>
+					<span class="news-qr">{@html instaQr}</span>
+					<b><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4.2" /><circle cx="17.3" cy="6.7" r="1" class="dot" /></svg> Instagram</b>
+					<small>@language.quiz</small>
+				</a>
+			</div>
+		</section>
+	{/if}
 	<!-- back cover -->
 	<section class="page left back">{@render backCover()}</section>
 {/if}
@@ -1507,6 +1606,117 @@
 		color: #2f7d4f;
 		font-weight: 700;
 	}
+
+	/* The newsletter's card at a chapter's end: a band in the chapter's colour
+	   from edge to edge of the sheet, and a figure that rises out of a paper
+	   disc at its end. Loud on purpose. */
+	.news-card {
+		--disc: 42mm;
+		/* The figure's height and how far its foot sits below the disc's rim. */
+		--fig: 58mm;
+		--sink: 3mm;
+		position: relative;
+		display: grid;
+		/* The figure's box is wider than the disc (wings, ears): the gap keeps it off the codes. */
+		grid-template-columns: 1fr auto var(--disc);
+		gap: 6mm 11mm;
+		align-items: center;
+		margin: 17mm -18mm 3mm -22mm;
+		padding: 4.5mm 18mm 4.5mm 22mm;
+		/* The chapter's own colour (the cover's band sets the cover's). */
+		background: var(--news, var(--accent));
+		color: #fff;
+		text-decoration: none;
+	}
+	.page.left .news-card { margin: 17mm -22mm 3mm -18mm; padding: 4.5mm 22mm 4.5mm 18mm; }
+	.news-art { position: relative; width: var(--disc); height: var(--disc); margin: -7mm 0; }
+	.news-art .disc {
+		position: absolute;
+		inset: 0;
+		border-radius: 50%;
+		overflow: hidden;
+		background: #fbf5e4;
+		box-shadow: 0 0 0 1.2mm #fff, 0 2mm 5mm rgb(0 0 0 / 0.3);
+	}
+	.news-art img {
+		position: absolute;
+		bottom: calc(-1 * var(--sink));
+		left: 50%;
+		/* A box wider than the disc: a tall figure fills its height, a wide one its width. */
+		width: calc(var(--disc) * 1.43);
+		height: var(--fig);
+		max-width: none;
+		object-fit: contain;
+		object-position: 50% 100%;
+		transform: translateX(-50%);
+	}
+	/* The bird's wings spread at the height of the disc's middle: it flies a little
+	   higher, so the cut below the middle meets only its feet. */
+	.news-art.weekly { --sink: calc(var(--disc) * -0.13); }
+	/* Everything above the disc's middle shows, whatever its width. */
+	.news-art img.out { clip-path: inset(0 0 calc(var(--disc) / 2 + var(--sink)) 0); }
+	.news-free {
+		position: absolute;
+		bottom: -2mm;
+		inset-inline-start: -6mm;
+		padding: 1.2mm 3.5mm;
+		border-radius: 50mm;
+		background: var(--navy);
+		color: #fff;
+		font-size: 9pt;
+		font-weight: 800;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		transform: rotate(-6deg);
+	}
+	.news-text { display: grid; gap: 1.3mm; justify-items: start; }
+	.news-kick { font-size: 7.5pt; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; }
+	.news-card .big { font-family: var(--serif); font-size: 16pt; font-weight: 700; line-height: 1.1; color: #fff; text-decoration: none; }
+	.news-card .what { font-size: 9pt; line-height: 1.35; }
+	.news-doors { display: flex; gap: 3mm; }
+	.news-card .door { display: grid; justify-items: center; gap: 0.6mm; width: 27mm; color: #fff; text-decoration: none; text-align: center; }
+	.news-card .door b { display: inline-flex; align-items: center; gap: 1mm; margin-top: 1mm; font-size: 8.5pt; font-weight: 800; white-space: nowrap; }
+	.news-card .door small { font-size: 6.2pt; font-weight: 600; white-space: nowrap; opacity: 0.92; }
+	.news-card .door svg { width: 3.2mm; height: 3.2mm; fill: none; stroke: currentColor; stroke-width: 2.2; }
+	.news-card .door svg .dot { fill: currentColor; stroke: none; }
+	.news-qr { display: block; width: 23mm; height: 23mm; padding: 1.2mm; box-sizing: border-box; background: #fff; border-radius: 1.5mm; }
+	.news-qr :global(svg) { display: block; width: 100%; height: 100%; }
+
+	/* The same band along the foot of the book's first page: the title panel
+	   grows upward over the photo to make room (the pinned words end above it). */
+	.page.cover .fc-plate { height: 121mm; padding-top: 10mm; }
+	.page.cover .fc-blurb { margin-top: 4mm; }
+	.page.cover .fc-route { margin-top: 4mm; }
+	/* In the cover's own colour, the level badge's. The figure 5% smaller than in a chapter and standing on the band's foot,
+	   so the sheet's edge cuts neither the disc nor the sticker. */
+	.news-card.on-cover { --disc: 40mm; --fig: 55mm; --news: var(--accent-ink); position: absolute; left: 0; right: 0; bottom: 0; margin: 0; padding: 4.5mm 18mm; }
+	.news-card.on-cover .news-art { align-self: end; margin: -14mm 0 0; }
+
+	/* The newsletter's own page, the last before the back cover: the whole
+	   sheet in the band's terracotta, the four figures, one big code. */
+	.news-page { --disc: 34mm; --fig: 47mm; --sink: 2.5mm; padding: 20mm 18mm 16mm; background: #c9683b; color: #fff; }
+	.news-page::before { display: none; }
+	.np-kick { margin: 0; font-size: 9pt; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; }
+	.news-page h2 { margin: 3mm 0 0; font-family: var(--serif); font-size: 60pt; line-height: 0.95; color: #fff; }
+	.np-lede { margin: 6mm 0 0; max-width: 150mm; font-family: var(--serif); font-size: 15pt; line-height: 1.35; }
+	.np-why { list-style: none; margin: 26mm 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 5mm; }
+	.np-why li { display: grid; justify-items: center; gap: 1.2mm; text-align: center; font-size: 9pt; line-height: 1.35; }
+	.np-why .news-art { margin: 0 0 3mm; }
+	.np-why b { font-family: var(--serif); font-size: 13pt; line-height: 1.15; }
+	.np-cta { margin-top: auto; display: grid; grid-template-columns: 54mm minmax(0, 1fr) 30mm; gap: 7mm; align-items: center; padding: 8mm; border-radius: 4mm; background: #fbf8f3; color: var(--navy); box-shadow: 0 3mm 0 rgb(0 0 0 / 0.18); }
+	.np-qr { display: block; width: 54mm; height: 54mm; }
+	.np-qr :global(svg) { display: block; width: 100%; height: 100%; }
+	.np-go { display: grid; gap: 1.5mm; justify-items: start; }
+	.np-free { padding: 1.2mm 4mm; border-radius: 50mm; background: var(--navy); color: #fff; font-size: 9pt; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; transform: rotate(-4deg); }
+	.np-big { margin-top: 1mm; font-family: var(--serif); font-size: 24pt; font-weight: 700; line-height: 1.05; color: var(--navy); text-decoration: none; }
+	.np-url { padding: 1.8mm 3.5mm; border-radius: 2mm; background: #c9683b; color: #fff; font-size: 11pt; white-space: nowrap; font-weight: 800; text-decoration: none; }
+	.np-go p { margin: 1mm 0 0; font-size: 9pt; line-height: 1.4; color: var(--muted); }
+	.np-insta { display: grid; justify-items: center; gap: 0.6mm; color: var(--navy); text-decoration: none; text-align: center; }
+	.np-insta .news-qr { width: 28mm; height: 28mm; box-shadow: 0 0 0 0.3mm var(--rule); }
+	.np-insta b { display: inline-flex; align-items: center; gap: 1mm; margin-top: 1mm; font-size: 9pt; }
+	.np-insta small { font-size: 7.5pt; color: var(--muted); }
+	.np-insta svg { width: 3.4mm; height: 3.4mm; fill: none; stroke: currentColor; stroke-width: 2.2; }
+	.np-insta svg .dot { fill: currentColor; stroke: none; }
 
 	/* One line about the app on a chapter's end page. */
 	.app-line {

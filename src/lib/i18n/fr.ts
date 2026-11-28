@@ -3111,4 +3111,45 @@ export const FR: Record<string, string> = {
 		"Nouvelles leçons et nouveaux téléchargements gratuits",
 	"One short email a week. No spam, unsubscribe with one click.":
 		"Un court e-mail par semaine. Sans spam, désinscription en un clic.",
+	// ── Newsletter band in the books and on the site (2026-11-28) ───────────────────
+	"Free":
+		"Gratuit",
+	"Geschafft! · You finished {level}":
+		"Geschafft! · Vous avez terminé {level}",
+	"Don't stop here.":
+		"Ne vous arrêtez pas là.",
+	"Your German is just getting started. Every week we add something new, and all of it is free. One short email tells you what arrived.":
+		"Votre allemand ne fait que commencer. Chaque semaine, nous ajoutons du nouveau, et tout est gratuit. Un court e-mail vous dit ce qui est arrivé.",
+	"New every week":
+		"Du nouveau chaque semaine",
+	"Books, exercises, reading and listening texts.":
+		"Livres, exercices, textes à lire et à écouter.",
+	"Every new book":
+		"Chaque nouveau livre",
+	"The download link, straight to your inbox.":
+		"Le lien de téléchargement, directement dans votre boîte mail.",
+	"Better editions":
+		"De meilleures éditions",
+	"This book gets corrected and extended. Get the new version.":
+		"Ce livre est corrigé et complété. Recevez la nouvelle version.",
+	"A reason to keep going":
+		"Une raison de continuer",
+	"Learners who keep going learn more.":
+		"Ceux qui continuent apprennent davantage.",
+	"Subscribe to the newsletter":
+		"Abonnez-vous à la newsletter",
+	"Scan the code or type the address.":
+		"Scannez le code ou tapez l’adresse.",
+	"New books and exercises every week. Never miss one.":
+		"De nouveaux livres et exercices chaque semaine. N’en manquez aucun.",
+	"Every new book, straight to your inbox.":
+		"Chaque nouveau livre, directement dans votre boîte mail.",
+	"This book keeps getting better. Get the new version.":
+		"Ce livre s’améliore sans cesse. Recevez la nouvelle version.",
+	"The books keep getting better. Get every new version.":
+		"Les livres s’améliorent sans cesse. Recevez chaque nouvelle version.",
+	"Learners who keep going learn more. We'll keep you going.":
+		"Ceux qui continuent apprennent davantage. Nous vous aidons à continuer.",
+	"One email a week, in English. Unsubscribe anytime.":
+		"Un e-mail par semaine, en anglais. Désinscription à tout moment.",
 };

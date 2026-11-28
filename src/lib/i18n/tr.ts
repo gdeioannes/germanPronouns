@@ -2832,4 +2832,45 @@ export const TR: Record<string, string> = {
 		"Yeni ücretsiz dersler ve indirmeler",
 	"One short email a week. No spam, unsubscribe with one click.":
 		"Haftada bir kısa e-posta. Spam yok, tek tıkla abonelikten çıkılır.",
+	// ── Newsletter band in the books and on the site (2026-11-28) ───────────────────
+	"Free":
+		"Ücretsiz",
+	"Geschafft! · You finished {level}":
+		"Geschafft! · {level} bitti",
+	"Don't stop here.":
+		"Burada durmayın.",
+	"Your German is just getting started. Every week we add something new, and all of it is free. One short email tells you what arrived.":
+		"Almancanız daha yeni başlıyor. Her hafta yeni bir şey ekliyoruz ve hepsi ücretsiz. Kısa bir e-posta size neyin geldiğini söyler.",
+	"New every week":
+		"Her hafta yenilik",
+	"Books, exercises, reading and listening texts.":
+		"Kitaplar, alıştırmalar, okuma ve dinleme metinleri.",
+	"Every new book":
+		"Her yeni kitap",
+	"The download link, straight to your inbox.":
+		"İndirme bağlantısı doğrudan gelen kutunuza.",
+	"Better editions":
+		"Daha iyi baskılar",
+	"This book gets corrected and extended. Get the new version.":
+		"Bu kitap düzeltiliyor ve genişletiliyor. Yeni sürümü alın.",
+	"A reason to keep going":
+		"Devam etmek için bir neden",
+	"Learners who keep going learn more.":
+		"Devam eden daha çok öğrenir.",
+	"Subscribe to the newsletter":
+		"Bültene abone olun",
+	"Scan the code or type the address.":
+		"Kodu tarayın veya adresi yazın.",
+	"New books and exercises every week. Never miss one.":
+		"Her hafta yeni kitaplar ve alıştırmalar. Hiçbirini kaçırmayın.",
+	"Every new book, straight to your inbox.":
+		"Her yeni kitap doğrudan gelen kutunuza.",
+	"This book keeps getting better. Get the new version.":
+		"Bu kitap sürekli daha iyi oluyor. Yeni sürümü alın.",
+	"The books keep getting better. Get every new version.":
+		"Kitaplar sürekli daha iyi oluyor. Her yeni sürümü alın.",
+	"Learners who keep going learn more. We'll keep you going.":
+		"Devam eden daha çok öğrenir. Devam etmenize yardım ediyoruz.",
+	"One email a week, in English. Unsubscribe anytime.":
+		"Haftada bir e-posta, İngilizce. İstediğiniz zaman abonelikten çıkabilirsiniz.",
 };

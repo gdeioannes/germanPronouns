@@ -38,6 +38,8 @@
 	let cover = $state(false);
 	let spine = $state(7.4);
 	let hd = $state(false);
+	// Printed by tool/gen-book2.mjs (an automated browser): the newsletter links say pdf, not reader.
+	let pdf = $state(false);
 	let ready = $state(false);
 	// The way back: the books list when it sent you here (?from=books), else
 	// wherever the trip started (home or the deck), like any side trip.
@@ -68,6 +70,7 @@
 		cover = q.has('cover');
 		spine = Number(q.get('spine') ?? 7.4);
 		hd = q.has('hd');
+		pdf = !!navigator.webdriver;
 		// The PDF printer (an automated browser) gets the book as it prints: one page, full size.
 		if (!navigator.webdriver) {
 			let saved: string | null = null;
@@ -590,7 +593,7 @@
 		onpointercancel={panEnd}
 		ondragstart={(e) => pannable && e.preventDefault()}
 	>
-		<Book2 {book} credits={data.credits} qr={data.qr} pages={data.pages} extras={data.extras} siteQr={data.siteQr} {cover} spineMm={spine} {hd} spread={!cover && spread} scale={cover ? 1 : scale} />
+		<Book2 {book} credits={data.credits} qr={data.qr} pages={data.pages} extras={data.extras} siteQr={data.siteQr} newsQr={data.newsQr} instaQr={data.instaQr} {pdf} {cover} spineMm={spine} {hd} spread={!cover && spread} scale={cover ? 1 : scale} />
 	</div>
 </main>
 

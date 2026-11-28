@@ -3113,4 +3113,45 @@ export const ES: Record<string, string> = {
 		"Nuevas lecciones y descargas gratis",
 	"One short email a week. No spam, unsubscribe with one click.":
 		"Un correo breve a la semana. Sin spam, y te das de baja con un clic.",
+	// ── Newsletter band in the books and on the site (2026-11-28) ───────────────────
+	"Free":
+		"Gratis",
+	"Geschafft! · You finished {level}":
+		"Geschafft! · Has terminado {level}",
+	"Don't stop here.":
+		"No te detengas aquí.",
+	"Your German is just getting started. Every week we add something new, and all of it is free. One short email tells you what arrived.":
+		"Tu alemán acaba de empezar. Cada semana añadimos algo nuevo, y todo es gratis. Un correo breve te cuenta qué ha llegado.",
+	"New every week":
+		"Novedades cada semana",
+	"Books, exercises, reading and listening texts.":
+		"Libros, ejercicios, textos para leer y escuchar.",
+	"Every new book":
+		"Cada libro nuevo",
+	"The download link, straight to your inbox.":
+		"El enlace de descarga, directo a tu correo.",
+	"Better editions":
+		"Mejores ediciones",
+	"This book gets corrected and extended. Get the new version.":
+		"Este libro se corrige y se amplía. Consigue la nueva versión.",
+	"A reason to keep going":
+		"Un motivo para seguir",
+	"Learners who keep going learn more.":
+		"Quien sigue, aprende más.",
+	"Subscribe to the newsletter":
+		"Suscríbete al boletín",
+	"Scan the code or type the address.":
+		"Escanea el código o escribe la dirección.",
+	"New books and exercises every week. Never miss one.":
+		"Libros y ejercicios nuevos cada semana. No te pierdas ninguno.",
+	"Every new book, straight to your inbox.":
+		"Cada libro nuevo, directo a tu correo.",
+	"This book keeps getting better. Get the new version.":
+		"Este libro mejora sin parar. Consigue la nueva versión.",
+	"The books keep getting better. Get every new version.":
+		"Los libros mejoran sin parar. Consigue cada nueva versión.",
+	"Learners who keep going learn more. We'll keep you going.":
+		"Quien sigue, aprende más. Te ayudamos a seguir.",
+	"One email a week, in English. Unsubscribe anytime.":
+		"Un correo a la semana, en inglés. Date de baja cuando quieras.",
 };

@@ -5,6 +5,7 @@ import type { BookLinkRegistry, LinkKind } from '$lib/domain/booklinks';
 import { codeUrl } from '$lib/domain/booklinks';
 import { loadBook2, photoCredits, type BookExtra } from '$lib/domain/book2';
 import { qrSvg } from '$lib/server/qr';
+import { INSTAGRAM, newsUrl } from '$lib/domain/bookNews';
 import { PART_IDS, type PartId } from '$lib/domain/bookStudy';
 import type { EntryGenerator, PageServerLoad } from './$types';
 
@@ -57,5 +58,10 @@ export const load: PageServerLoad = async ({ params }) => {
 			});
 		}
 	}
-	return { book, credits, qr, pages, extras, siteQr: await qrSvg('https://languagequiz.org') };
+	// The newsletter card at each chapter's end: its code, tagged like its link (domain/bookNews).
+	const newsQr: Record<string, string> = {};
+	for (const [i, c] of book.chapters.entries()) newsQr[c.id] = await qrSvg(newsUrl('qr', book.level, i));
+	newsQr.cover = await qrSvg(newsUrl('qr', book.level, 'cover'));
+	newsQr.end = await qrSvg(newsUrl('qr', book.level, 'end'));
+	return { book, credits, qr, pages, extras, siteQr: await qrSvg('https://languagequiz.org'), newsQr, instaQr: await qrSvg(INSTAGRAM) };
 };

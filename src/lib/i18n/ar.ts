@@ -3113,4 +3113,45 @@ export const AR: Record<string, string> = {
 		"دروس وتنزيلات مجانية جديدة",
 	"One short email a week. No spam, unsubscribe with one click.":
 		"رسالة قصيرة واحدة كل أسبوع. بلا رسائل مزعجة، وإلغاء الاشتراك بنقرة واحدة.",
+	// ── Newsletter band in the books and on the site (2026-11-28) ───────────────────
+	"Free":
+		"مجانًا",
+	"Geschafft! · You finished {level}":
+		"Geschafft! · أنهيت {level}",
+	"Don't stop here.":
+		"لا تتوقف هنا.",
+	"Your German is just getting started. Every week we add something new, and all of it is free. One short email tells you what arrived.":
+		"لغتك الألمانية ما زالت في بدايتها. نضيف شيئًا جديدًا كل أسبوع، وكله مجاني. رسالة قصيرة واحدة تخبرك بما وصل.",
+	"New every week":
+		"جديد كل أسبوع",
+	"Books, exercises, reading and listening texts.":
+		"كتب وتمارين ونصوص للقراءة والاستماع.",
+	"Every new book":
+		"كل كتاب جديد",
+	"The download link, straight to your inbox.":
+		"رابط التنزيل مباشرةً إلى بريدك.",
+	"Better editions":
+		"طبعات أفضل",
+	"This book gets corrected and extended. Get the new version.":
+		"هذا الكتاب يُصحَّح ويُوسَّع. احصل على النسخة الجديدة.",
+	"A reason to keep going":
+		"سبب للاستمرار",
+	"Learners who keep going learn more.":
+		"من يستمر يتعلّم أكثر.",
+	"Subscribe to the newsletter":
+		"اشترك في النشرة البريدية",
+	"Scan the code or type the address.":
+		"امسح الرمز أو اكتب العنوان.",
+	"New books and exercises every week. Never miss one.":
+		"كتب وتمارين جديدة كل أسبوع. لا تفوّت شيئًا منها.",
+	"Every new book, straight to your inbox.":
+		"كل كتاب جديد مباشرةً إلى بريدك.",
+	"This book keeps getting better. Get the new version.":
+		"هذا الكتاب يتحسّن باستمرار. احصل على النسخة الجديدة.",
+	"The books keep getting better. Get every new version.":
+		"الكتب تتحسّن باستمرار. احصل على كل نسخة جديدة.",
+	"Learners who keep going learn more. We'll keep you going.":
+		"من يستمر يتعلّم أكثر. ونحن نساعدك على الاستمرار.",
+	"One email a week, in English. Unsubscribe anytime.":
+		"رسالة واحدة كل أسبوع، بالإنجليزية. ألغِ الاشتراك متى شئت.",
 };

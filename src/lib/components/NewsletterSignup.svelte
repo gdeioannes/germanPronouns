@@ -16,7 +16,8 @@
 	import { track } from '$lib/services/analytics';
 	import { t } from '$lib/i18n/t';
 	import { lang } from '$lib/i18n/lang.svelte';
-	import type { Snippet } from 'svelte';
+	import { onMount, type Snippet } from 'svelte';
+	import { INSTAGRAM, NEWS_IDS, NEWS_TERMS, NEWS_TEXT, type NewsId } from '$lib/domain/bookNews';
 
 	/**
 	 * `where`: where the form sits, so two on one page get distinct ids.
@@ -38,15 +39,41 @@
 
 	const id = $derived(`nl-${where}`);
 
+	// The band's look (the books' chapter ends carry the same one): a wording
+	// with its figure rising out of a disc. Which of the four a visitor sees
+	// is drawn once per tab and kept, so the statistics can compare them.
+	// Inside another panel (inline) the form stays plain and keeps that panel's words.
+	const MSG_KEY = 'lq_news_msg';
+	// Each wording in its own colour: the books' four chapter colours, in the
+	// darker shade that keeps the small white print readable on a screen.
+	const BAND: Record<NewsId, string> = { weekly: '#a24c26', books: '#836215', edition: '#44614a', engaged: '#30597f' };
+	let msg = $state<NewsId>('weekly');
+	onMount(() => {
+		if (inline) return;
+		try {
+			const kept = sessionStorage.getItem(MSG_KEY) as NewsId | null;
+			msg = kept && NEWS_IDS.includes(kept) ? kept : NEWS_IDS[Math.floor(Math.random() * NEWS_IDS.length)];
+			sessionStorage.setItem(MSG_KEY, msg);
+		} catch {
+			/* private mode: the first wording */
+		}
+	});
+
 	// Which placement brings sign-ups. Sent as the browser leaves for Brevo
 	// (keepalive); the address itself never goes to the statistics.
-	const count = () => track('newsletter_subscribe', { where });
+	const count = () => track('newsletter_subscribe', inline ? { where } : { where, msg });
 </script>
 
-<form class="signup" class:band class:inline method="POST" action={ACTION} aria-labelledby="{id}-title" onsubmit={count}>
+<form class="signup" class:loud={!inline} class:band class:inline style:--band={inline ? null : BAND[msg]} method="POST" action={ACTION} aria-labelledby="{id}-title" onsubmit={count}>
 	<div class="text">
-		<p class="title" id="{id}-title">{title || t("What's new, once a week")}</p>
-		{#if pitch}
+		{#if !inline}<p class="kick">✉ Newsletter</p>{/if}
+		<p class="title" id="{id}-title">{inline ? title || t("What's new, once a week") : t(NEWS_TEXT[msg].site ?? NEWS_TEXT[msg].en)}</p>
+		{#if !inline}
+			<p class="what">
+				{t(NEWS_TERMS.en)}
+				{#if lang.limited}<strong class="in-en">{t('The newsletter is always in English.')}</strong>{/if}
+			</p>
+		{:else if pitch}
 			{@render pitch()}
 			{#if lang.limited}<p class="what"><strong class="in-en">{t('The newsletter is always in English.')}</strong></p>{/if}
 		{:else}
@@ -81,6 +108,20 @@
 		<a href="/legal#newsletter">{t('Privacy notice')}</a>
 	</p>
 	</div>
+
+	{#if !inline}
+		<!-- The figure twice: inside the disc, cut by its rim, and above the disc's
+		     middle uncut, so it rises out of the circle. -->
+		<div class="art {msg}" aria-hidden="true">
+			<span class="disc"><img src="/img/news/news_{msg}.webp" alt="" /></span>
+			<img class="out" src="/img/news/news_{msg}.webp" alt="" />
+			<span class="free">{t('Free')}</span>
+		</div>
+		<a class="insta" href={INSTAGRAM} target="_blank" rel="noopener" onclick={() => track('instagram_open', { where })}>
+			<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4.2" /><circle cx="17.3" cy="6.7" r="1" class="dot" /></svg>
+			Instagram · @language.quiz
+		</a>
+	{/if}
 
 	<!-- Brevo's bot trap: real people never see or fill it. -->
 	<input class="trap" type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" aria-hidden="true" />
@@ -235,5 +276,57 @@
 		.band {
 			grid-template-columns: 1fr;
 		}
+	}
+
+	/* The loud look, shared with the books' chapter ends: a terracotta band,
+	   white type, the wording's figure rising out of a paper disc. The colour
+	   is the darker terracotta, so the small print keeps its contrast. */
+	.loud {
+		--disc: 7rem;
+		--fig: 9.6rem;
+		--sink: 0.5rem;
+		position: relative;
+		margin-top: 3.2rem;
+		background: var(--band, #a24c26);
+		transition: background-color 0.3s;
+		border: 0;
+		color: #fff;
+	}
+	.loud .text { padding-inline-end: calc(var(--disc) + 1.5rem); min-height: 4.2rem; }
+	.loud .kick { margin: 0; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; }
+	.loud .title { font-family: var(--serif, Georgia, serif); font-size: var(--step-1, 1.35rem); line-height: 1.15; color: #fff; }
+	.loud .what, .loud .fine, .loud .in-en { color: #fff; }
+	.loud .fine a { color: #fff; }
+	.loud input[type='email'] { background: #fff; border-color: #fff; color: #24262b; }
+	.loud button { background: #1f3a5f; border-color: #fff; }
+	.loud .consent input { accent-color: #1f3a5f; }
+	.loud input:focus-visible, .loud button:focus-visible, .loud a:focus-visible { outline-color: #fff; }
+	.art { position: absolute; top: -1.6rem; inset-inline-end: 1.6rem; width: var(--disc); height: var(--disc); pointer-events: none; }
+	.art .disc { position: absolute; inset: 0; border-radius: 50%; overflow: hidden; background: #fbf5e4; box-shadow: 0 0 0 0.25rem #fff, 0 0.4rem 1rem rgb(0 0 0 / 0.3); }
+	.art img {
+		position: absolute;
+		bottom: calc(-1 * var(--sink));
+		left: 50%;
+		width: calc(var(--disc) * 1.43);
+		height: var(--fig);
+		max-width: none;
+		object-fit: contain;
+		object-position: 50% 100%;
+		transform: translateX(-50%);
+	}
+	.art.weekly { --sink: calc(var(--disc) * -0.13); }
+	.art img.out { clip-path: inset(0 0 calc(var(--disc) / 2 + var(--sink)) 0); }
+	.free { position: absolute; bottom: -0.3rem; inset-inline-start: -1.1rem; padding: 0.2rem 0.7rem; border-radius: 99rem; background: #1f3a5f; box-shadow: 0 0 0 2px #fff; color: #fff; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; transform: rotate(-6deg); }
+	.insta { display: inline-flex; align-items: center; gap: 0.45rem; align-self: flex-start; padding: 0.4rem 0.9rem; border: 1.5px solid #fff; border-radius: 99rem; color: #fff; font-weight: 700; font-size: 0.9rem; text-decoration: none; }
+	.insta:hover { background: rgb(255 255 255 / 0.14); }
+	.insta svg { width: 1.05rem; height: 1.05rem; fill: none; stroke: currentColor; stroke-width: 2; }
+	.insta svg .dot { fill: currentColor; stroke: none; }
+	/* The footer strip: the text keeps clear of the figure, the fields sit beside it. */
+	.loud.band { padding: 1.4rem 1.6rem; padding-inline-end: calc(var(--disc) + 3.4rem); }
+	.loud.band .text { padding-inline-end: 0; min-height: 0; }
+	.loud.band .insta { grid-column: 1; justify-self: start; }
+	@media (max-width: 48rem) {
+		.loud.band { padding-inline-end: 1.6rem; }
+		.loud.band .text { padding-inline-end: calc(var(--disc) + 1.5rem); min-height: 4.2rem; }
 	}
 </style>

@@ -200,20 +200,11 @@
 	</aside>
 {/if}
 
-<!-- Under a started download: the sign-up itself, not a link to it. The books
-     get new editions, and an email is the only way a reader who leaves now
-     hears of one. -->
+<!-- Under a started download: the sign-up itself, not a link to it, in the
+     loud band the books carry. An email is the only way a reader who leaves
+     now hears of a new edition. -->
 {#snippet news()}
-	<NewsletterSignup where="download" inline title={t('Your book gets better every month')}>
-		{#snippet pitch()}
-			<p class="nl-lead">{t('We correct and improve the books about once a month. A PDF does not update itself: leave your email and we tell you when the new edition of your book is ready.')}</p>
-			<ul class="nl-also">
-				<li><Icon name="check" size="0.85em" /> {t('New books and new languages, free')}</li>
-				<li><Icon name="check" size="0.85em" /> {t('New free lessons and downloads')}</li>
-			</ul>
-			<p class="nl-how">{t('One short email a week. No spam, unsubscribe with one click.')}</p>
-		{/snippet}
-	</NewsletterSignup>
+	<NewsletterSignup where="download" />
 {/snippet}
 
 <!-- The book is on its way: the one moment a reader has something worth
@@ -977,32 +968,6 @@
 	.send-on .wa {
 		background: #25d366;
 		color: #06301f;
-	}
-
-	.nl-lead,
-	.nl-how,
-	.nl-also {
-		margin: 0;
-		line-height: 1.45;
-	}
-
-	.nl-also {
-		display: grid;
-		gap: 0.2rem;
-		padding: 0;
-		list-style: none;
-		font-weight: 700;
-		color: var(--heading);
-	}
-
-	.nl-also :global(svg) {
-		color: var(--ok, #2f7a4f);
-		margin-inline-end: 0.3rem;
-	}
-
-	.nl-how {
-		font-size: 0.85rem;
-		color: var(--ink-muted);
 	}
 
 	.later {

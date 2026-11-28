@@ -18,6 +18,17 @@ export type ChangelogEntry = {
 
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-11-28",
+    title: "The newsletter and Instagram, in the books and on the site",
+    items: [
+      "Every book now shows you how to stay in touch: a band on the first page, one at the end of each chapter, and a page at the very end. Each has a code for the weekly newsletter and one for Instagram. In the PDF you can tap them.",
+      "The band has four short messages with four small figures: a bird with a letter, a mail carrier with a pile of books, a reader, and a dachshund. Each chapter's band is in that chapter's colour.",
+      "All 32 book PDFs were printed again with it: the twelve books, and A1.1 to A2.2 in Arabic, Spanish, French, Turkish and Ukrainian. The German and the exercises did not change. Each book is one page longer, 148 pages.",
+      "The newsletter sign-up on the site has the same look, in four colours, and now links to Instagram too: @language.quiz.",
+      "The newsletter is still one email a week, in English, and the sign-up still says so in every language.",
+    ],
+  },
+  {
     date: "2026-11-27",
     title: "From an exercise to its page in the book",
     items: [

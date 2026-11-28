@@ -3115,4 +3115,45 @@ export const UK: Record<string, string> = {
 		"Нові безкоштовні уроки й матеріали для завантаження",
 	"One short email a week. No spam, unsubscribe with one click.":
 		"Один короткий лист на тиждень. Без спаму, відписатися можна одним кліком.",
+	// ── Newsletter band in the books and on the site (2026-11-28) ───────────────────
+	"Free":
+		"Безкоштовно",
+	"Geschafft! · You finished {level}":
+		"Geschafft! · Ви закінчили {level}",
+	"Don't stop here.":
+		"Не зупиняйтеся на цьому.",
+	"Your German is just getting started. Every week we add something new, and all of it is free. One short email tells you what arrived.":
+		"Ваша німецька тільки починається. Щотижня ми додаємо щось нове, і все це безкоштовно. Один короткий лист розповість, що з’явилося.",
+	"New every week":
+		"Щотижня нове",
+	"Books, exercises, reading and listening texts.":
+		"Книжки, вправи, тексти для читання і слухання.",
+	"Every new book":
+		"Кожна нова книжка",
+	"The download link, straight to your inbox.":
+		"Посилання для завантаження одразу на вашу пошту.",
+	"Better editions":
+		"Кращі видання",
+	"This book gets corrected and extended. Get the new version.":
+		"Цю книжку виправляють і доповнюють. Отримайте нову версію.",
+	"A reason to keep going":
+		"Причина продовжувати",
+	"Learners who keep going learn more.":
+		"Хто продовжує, той вивчає більше.",
+	"Subscribe to the newsletter":
+		"Підпишіться на розсилку",
+	"Scan the code or type the address.":
+		"Скануйте код або введіть адресу.",
+	"New books and exercises every week. Never miss one.":
+		"Нові книжки та вправи щотижня. Не пропустіть жодної.",
+	"Every new book, straight to your inbox.":
+		"Кожна нова книжка одразу на вашу пошту.",
+	"This book keeps getting better. Get the new version.":
+		"Ця книжка постійно стає кращою. Отримайте нову версію.",
+	"The books keep getting better. Get every new version.":
+		"Книжки постійно стають кращими. Отримуйте кожну нову версію.",
+	"Learners who keep going learn more. We'll keep you going.":
+		"Хто продовжує, той вивчає більше. Ми допоможемо вам продовжувати.",
+	"One email a week, in English. Unsubscribe anytime.":
+		"Один лист на тиждень, англійською. Відписатися можна будь-коли.",
 };
